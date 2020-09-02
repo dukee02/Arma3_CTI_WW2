@@ -478,7 +478,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_IFA3LIB_ADDON > 0 && CTI_CSA38_ADDON > 0) then {
+	if(CTI_IFA3LIB_ADDON > 0 || CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1LIB_StuG_III_G_w", _sid];
 			_c pushBack format["%1LIB_StuG_III_G_WS_w", _sid];
@@ -495,6 +495,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			_c pushBack format["%1LIB_DAK_PzKpfwIV_H", _sid];
 		};
 		_c pushBack format["%1LIB_PzKpfwIV_H", _sid];
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
+		};
 	};
 	
 	if(CTI_IFA3LIB_ADDON > 0) then {
@@ -521,7 +524,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_IFA3LIB_ADDON > 0 && CTI_CSA38_ADDON > 0) then {
+	if(CTI_IFA3LIB_ADDON > 0 || CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1LIB_PzKpfwIV_H_w", _sid];
 		};
@@ -531,6 +534,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1LIB_PzKpfwIV_H", _sid];
 		//_c pushBack format["%1LIB_PzKpfwIV_H_tarn51c", _sid];
 		//_c pushBack format["%1LIB_PzKpfwIV_H_tarn51d", _sid];
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
+		};
 	};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_FlakPanzerIV_Wirbelwind_w", _sid];
@@ -540,9 +546,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 	_c pushBack format["%1LIB_FlakPanzerIV_Wirbelwind", _sid];
 	
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
-	};
 	if(CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1CSA38_pzIV_W", _sid];

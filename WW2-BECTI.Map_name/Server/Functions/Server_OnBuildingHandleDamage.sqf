@@ -45,7 +45,12 @@ _position = _this select 6;
 _side = (_sideID) call CTI_CO_FNC_GetSideFromID;
 
 if (CTI_BASE_NOOBPROTECTION == 1 && side _shooter in [_side, sideEnemy]) exitWith {0};
-if (_reduce_damages > 0) then {_currentdmg = getDammage _damaged; _damage = _currentdmg + ((_damage - _currentdmg) / _reduce_damages)};
+if (_reduce_damages > 0) then {
+	_currentdmg = getDammage _damaged; 
+	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: server\functions\Server_OnBuildingHandleDamage.sqf", format["Building %1 gets damaged <_currentdmg + ((%2 - %3) / %4)>", _damaged, _damage, _currentdmg, _reduce_damages]] call CTI_CO_FNC_Log;};
+	_damage = _currentdmg + ((_damage - _currentdmg) / _reduce_damages);
+	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: server\functions\Server_OnBuildingHandleDamage.sqf", format["Building %1 gets damaged <dmg + %2>", _damaged, _damage]] call CTI_CO_FNC_Log;};
+};
 
 _logic = (_side) call CTI_CO_FNC_GetSideLogic;
 

@@ -58,49 +58,49 @@ _cost = [];
 _cost_level = round((200*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_INFANTRY}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Barracks
 _cost = [];
 _cost_level = round((200*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_WHEELED}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Light
 _cost = [];
 _cost_level = round((600*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_TRACKED}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Heavy
 _cost = [];
 _cost_level = round((500*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_AIR}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Air
 /*_cost = [];
 _cost_level = round((2000*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_NAVAL}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Naval*/
-_upgrade_cost pushBack [[round((100000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 											//--- Satellite
-_upgrade_cost pushBack [[round((100*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air FFAR
-_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((300*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AT
-_upgrade_cost pushBack [[round((100*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AA
-_upgrade_cost pushBack [[round((100*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air CM 
-_upgrade_cost pushBack [[round((100*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((300*CTI_ECONOMY_RESEARCH_MULTI)/100),round((600*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((600*CTI_ECONOMY_RESEARCH_MULTI)/100),round((1200*CTI_ECONOMY_RESEARCH_MULTI)/100)]];							//--- Towns Occupation
-_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((500*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((500*CTI_ECONOMY_RESEARCH_MULTI)/100),round((1000*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((1000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((2000*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((2000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((4000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 			//--- Supply
+_upgrade_cost pushBack [[round((200000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 											//--- Satellite
+_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air FFAR
+_upgrade_cost pushBack [[round((300*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AT
+_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AA
+_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air CM 
+_upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((600*CTI_ECONOMY_RESEARCH_MULTI)/100),round((300*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((1200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((600*CTI_ECONOMY_RESEARCH_MULTI)/100)]];							//--- Towns Occupation
+_upgrade_cost pushBack [[round((500*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((1000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((500*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((2000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((1000*CTI_ECONOMY_RESEARCH_MULTI)/100)],[round((4000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((2000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 			//--- Supply
 _cost = [];
 _cost_level = round((200*CTI_ECONOMY_RESEARCH_MULTI)/100);
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_GEAR}, {_i = _i + 1}] do {
 	//_cost_level = _cost_level*(_i+1);
-	_cost pushBack [(_cost_level*(_i+1))/2,_cost_level*(_i+1)];
+	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_COSTS", _side], _upgrade_cost];

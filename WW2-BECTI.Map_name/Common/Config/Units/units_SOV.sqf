@@ -972,12 +972,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		_d pushBack 0;
 		_c pushBack format["%1LIB_Zis5v_med_w", _sid];					//medic
 		_p pushBack '';
-		_n pushBack 'gaz55 Mobile Respawn';
+		_n pushBack 'Zis5v Mobile Respawn';
 		_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 		_t pushBack _building_time;
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 		_f pushBack CTI_FACTORY_LIGHT;
-		_s pushBack "";
+		_s pushBack "service-medic";
 		_d pushBack 0;
 		//_c pushBack format["%1LIB_Zis6_parm_w", _sid];				//repairtruck
 		//_c pushBack format["%1LIB_Zis5v_fuel_w", _sid];				//fueltruck
@@ -993,7 +993,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_d pushBack 0;
 	_c pushBack format["%1LIB_Zis5v_61K", _sid];				//Flak
 	_p pushBack '';
-	_n pushBack 'gaz55 Mobile Respawn';
+	_n pushBack '';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 	_t pushBack _building_time;
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -1002,12 +1002,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_d pushBack 0;
 	_c pushBack format["%1LIB_Zis5v_Med", _sid];				//medic
 	_p pushBack '';
-	_n pushBack 'gaz55 Mobile Respawn';
+	_n pushBack 'Zis5v Mobile Respawn';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 	_t pushBack _building_time;
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
-	_s pushBack "";
+	_s pushBack "service-medic";
 	_d pushBack 0;
 	//_c pushBack format["%1LIB_Zis6_Parm", _sid];				//repairtruck
 	//_c pushBack format["%1LIB_Zis5v_Fuel", _sid];				//fueltruck
@@ -1020,7 +1020,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		_t pushBack _building_time;
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 		_f pushBack CTI_FACTORY_LIGHT;
-		_s pushBack "";
+		_s pushBack "service-medic";
 		_d pushBack 0;
 		_c pushBack format["%1ifa3_gazaa", _sid];
 		_p pushBack '';

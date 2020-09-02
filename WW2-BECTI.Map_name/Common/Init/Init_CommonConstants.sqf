@@ -715,10 +715,10 @@ with missionNamespace do {
 		//check if the IFA3_beta version is loaded or the stable
 		CTI_IFA3_NEW = 0;
 	};
-	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
+	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
 	if (!isClass(configFile >> "CfgVehicles" >> "VIOC_B_LIB_PzKpfwVI_E")) then {
 		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 1;
+		CTI_VIO_ADDON = 0;
 	};
 	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
 	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};

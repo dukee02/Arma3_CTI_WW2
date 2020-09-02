@@ -1094,12 +1094,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	if(CTI_IFA3LIB_ADDON > 0) then {
 		_c pushBack format["%1ifa3_gaz55_ger", _sid];
 		_p pushBack '';
-		_n pushBack '';
+		_n pushBack 'gaz55 (ger) Mobile Respawn';
 		_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2);
 		_t pushBack _building_time;
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 		_f pushBack CTI_FACTORY_LIGHT;
-		_s pushBack "";
+		_s pushBack "service-medic";
 		_d pushBack 0;
 		_c pushBack format["%1R71GerPre43", _sid];
 		_p pushBack '';
@@ -2211,7 +2211,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	if(CTI_IFA3LIB_ADDON > 0 && CTI_CSA38_ADDON > 0) then {
+	if(CTI_IFA3LIB_ADDON > 0 || CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1LIB_StuG_III_G_w", _sid];
 			_p pushBack '';
@@ -2276,6 +2276,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
 		_d pushBack 0;
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+			_t pushBack _building_time;
+			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
 	};
 	
 	if(CTI_IFA3LIB_ADDON > 0) then {
@@ -2400,7 +2411,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	if(CTI_IFA3LIB_ADDON > 0 && CTI_CSA38_ADDON > 0) then {
+	if(CTI_IFA3LIB_ADDON > 0 || CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1LIB_PzKpfwIV_H_w", _sid];
 			_p pushBack '';
@@ -2434,6 +2445,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_d pushBack 0;
 		//_c pushBack format["%1LIB_PzKpfwIV_H_tarn51c", _sid];
 		//_c pushBack format["%1LIB_PzKpfwIV_H_tarn51d", _sid];
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+			_t pushBack _building_time;
+			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
 	};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_FlakPanzerIV_Wirbelwind_w", _sid];
@@ -2467,17 +2489,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_PzKpfwIV_H", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;
-	};
 	if(CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1CSA38_pzIV_W", _sid];

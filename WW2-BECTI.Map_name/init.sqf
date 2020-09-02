@@ -15,7 +15,7 @@ tf_no_auto_long_range_radio = true;
 TF_give_microdagr_to_soldier = false;
 }; 
 
-[]spawn compileFinal(preprocessFile"AFAR\init.sqf");
+//[]spawn compileFinal(preprocessFile"AFAR\init.sqf");
 
 //--- Initial View Distance and Object View Distance for both clients and server
 setViewDistance 3000;

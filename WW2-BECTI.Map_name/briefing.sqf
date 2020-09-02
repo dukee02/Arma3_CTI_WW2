@@ -30,7 +30,7 @@ Changes made to the 'BECTI IFA3 Sahrani BTB CUP' mission: <br/><br/>
 
 [V2.0beta] Changelog:<br/>
 Fixed: invisible weapons - deleting all gear which was deleted by IFA3.<br/>
-Added: Combiened nation now automaticly have combiened town and AI-Squad units.<br/>
+Added: Combined nation now automaticly have combined town and AI-Squad units.<br/>
 Added: Functionality to support new and older IFA3 Version.<br/>
 Added: Support for some FOW units (no standalone funktionality atm).<br/>
 Added: Support for some CSA38 units (no standalone funktionality atm).<br/>

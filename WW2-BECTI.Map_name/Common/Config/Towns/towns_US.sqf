@@ -29,19 +29,19 @@ INFANTRY = [];
 INFANTRY_MG = [];
 INFANTRY_AT = [];
 
-INFANTRY = [[format["%1LIB_US_captain", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_grenadier", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_rifleman", _sid],1]];
-INFANTRY_MG = [[format["%1LIB_US_captain", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_smgunner", _sid],1],[format["%1LIB_US_smgunner", _sid],1],[format["%1LIB_US_mgunner", _sid],1]];
-INFANTRY_AT = [[format["%1LIB_US_captain", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_grenadier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1]];
+INFANTRY = [[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_grenadier", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_rifleman", _sid],1]];
+INFANTRY_MG = [[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_smgunner", _sid],1],[format["%1LIB_US_smgunner", _sid],1],[format["%1LIB_US_mgunner", _sid],1]];
+INFANTRY_AT = [[format["%1LIB_US_rifleman", _sid],1],[format["%1LIB_US_medic", _sid],1],[format["%1LIB_US_grenadier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1],[format["%1LIB_US_AT_soldier", _sid],1]];
 
 if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
-	INFANTRY = [[format["%1LIB_US_Captain_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Grenadier_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1]];
-	INFANTRY_MG = [[format["%1LIB_US_Captain_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Smgunner_w", _sid],1],[format["%1LIB_US_Smgunner_w", _sid],1],[format["%1LIB_US_Mgunner_w", _sid],1]];
-	INFANTRY_AT = [[format["%1LIB_US_Captain_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Grenadier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1]];
+	INFANTRY = [[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Grenadier_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1]];
+	INFANTRY_MG = [[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Smgunner_w", _sid],1],[format["%1LIB_US_Smgunner_w", _sid],1],[format["%1LIB_US_Mgunner_w", _sid],1]];
+	INFANTRY_AT = [[format["%1LIB_US_Rifleman_w", _sid],1],[format["%1LIB_US_Medic_w", _sid],1],[format["%1LIB_US_Grenadier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1],[format["%1LIB_US_AT_soldier_w", _sid],1]];
 };
 if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-	INFANTRY = [[format["%1LIB_US_NAC_captain", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_grenadier", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1]];
-	INFANTRY_MG = [[format["%1LIB_US_NAC_captain", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_smgunner", _sid],1],[format["%1LIB_US_NAC_smgunner", _sid],1],[format["%1LIB_US_NAC_mgunner", _sid],1]];
-	INFANTRY_AT = [[format["%1LIB_US_NAC_captain", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_grenadier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1]];
+	INFANTRY = [[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_grenadier", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1]];
+	INFANTRY_MG = [[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_smgunner", _sid],1],[format["%1LIB_US_NAC_smgunner", _sid],1],[format["%1LIB_US_NAC_mgunner", _sid],1]];
+	INFANTRY_AT = [[format["%1LIB_US_NAC_rifleman", _sid],1],[format["%1LIB_US_NAC_medic", _sid],1],[format["%1LIB_US_NAC_grenadier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1],[format["%1LIB_US_NAC_AT_soldier", _sid],1]];
 };
 
 if (isNil {missionNamespace getVariable format["%1INFANTRY_SQ_LIGHT", _tag]}) then {
