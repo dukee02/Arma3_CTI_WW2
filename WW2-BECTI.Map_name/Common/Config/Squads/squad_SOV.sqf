@@ -81,7 +81,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 //Level 2
 if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	units_to_add = [format["%1LIB_SOV_M3_Halftrack", _sid], 1, 40];
-	units_to_add pushBack [format["%1LIB_SdKfz251_captured_FFV", _sid], 1, 40];
 	units_to_add pushBack [format["%1LIB_Scout_M3", _sid], 1, 40];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		units_to_add pushBack [format["%1LIB_SOV_M3_Halftrack_w", _sid], 1, 40];
@@ -91,7 +90,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 };
 //Level 3
 if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
-	units_to_add = [format["%1LIB_SdKfz251_captured_FFV_w", _sid], 1, 40];
+	units_to_add = [format["%1LIB_SdKfz251_captured_FFV", _sid], 1, 40];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		units_to_add = [format["%1LIB_SdKfz251_captured_FFV_w", _sid], 1, 40];
+	};
 	if(CTI_IFA3LIB_ADDON > 0) then {
 		units_to_add pushBack [format["%1ifa3_Ba10", _sid], 1, 60];
 	};
