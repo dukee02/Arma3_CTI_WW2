@@ -1168,12 +1168,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 		_d pushBack 0;
 		_c pushBack format["%1LIB_Willys_MB_Ambulance_w", _sid];	//medic
 		_p pushBack '';
-		_n pushBack 'gaz55 Mobile Respawn';
+		_n pushBack 'Willys Mobile Respawn';
 		_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 		_t pushBack _building_time;
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 		_f pushBack CTI_FACTORY_LIGHT;
-		_s pushBack "";
+		_s pushBack "service-medic";
 		_d pushBack 0;
 	};
 	_c pushBack format["%1LIB_SOV_M3_Halftrack", _sid];
@@ -1223,12 +1223,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	_d pushBack 0;
 	_c pushBack format["%1LIB_Willys_MB_Ambulance", _sid];			//medic
 	_p pushBack '';
-	_n pushBack 'gaz55 Mobile Respawn';
+	_n pushBack 'Willys Mobile Respawn';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 	_t pushBack _building_time;
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
-	_s pushBack "";
+	_s pushBack "service-medic";
 	_d pushBack 0;
 };
 //Level 3

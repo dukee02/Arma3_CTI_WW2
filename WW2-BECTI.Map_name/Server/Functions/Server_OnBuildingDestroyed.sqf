@@ -102,5 +102,7 @@ if (_need_update) then {
 	_logic setVariable ["cti_structures_areas", _areas, true];
 };
 
+if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: server\functions\Server_OnBuildingDestroyed.sqf", format["Building %1 gets destroyed <selled? %2>", _variable, _sell]] call CTI_CO_FNC_Log;};
+
 [["CLIENT", _side], "Client_OnStructureKilled", [_position, _variable, _sell]] call CTI_CO_FNC_NetSend;
 ["CLIENT", "Client_RemoveRuins", [_position, _variable]] call CTI_CO_FNC_NetSend;

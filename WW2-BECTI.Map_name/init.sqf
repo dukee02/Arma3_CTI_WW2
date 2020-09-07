@@ -1,12 +1,3 @@
-//--- Optional Mod Stuff
-if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then 
-{  
-//Start other 'plugins' if ACE is not running
- [] execVM "Client\Module\zlt\zlt_fieldrepair.sqf"; 
- [] execVM "Client\Module\zlt\zlt_fastrope.sqf";
- [player] execVM "Client\Module\earplugs\simpleEP.sqf";
-}; 
-
 if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then 
 { 
 //TFAR mod is enabled
@@ -79,8 +70,6 @@ if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: init.sqf
 call compile preprocessFileLineNumbers "Common\Init\Init_CommonConstants.sqf";
 call compile preprocessFileLineNumbers "Common\Init\Init_Common.sqf";
 
-
-
 //--- JIP Part is over
 CTI_Init_JIP = true;
 
@@ -117,3 +106,14 @@ if (CTI_IsHeadless) then {
 
 //--- Set the group ID
 execVM "Common\Init\Init_GroupsID.sqf";
+
+//--- Optional Mod Stuff
+if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then 
+{  
+//Start other 'plugins' if ACE is not running
+	if(CTI_FIELDREPAIR_ENABLED > 0) then {
+		[] execVM "Client\Module\zlt\zlt_fieldrepair.sqf"; 
+		//[] execVM "Client\Module\zlt\zlt_fastrope.sqf";
+	};
+	[player] execVM "Client\Module\earplugs\simpleEP.sqf";
+}; 

@@ -5,9 +5,9 @@
 
 #define DEFAULT_FREPAIR_VER "1P"
 
-#define DEFAULT_FIELDREPAIR_EACH_PART_TIME 30
-#define DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME 60
-#define DEFAULT_FULLREPAIR_LENGTH 120
+#define DEFAULT_FIELDREPAIR_EACH_PART_TIME 90
+#define DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME 120
+#define DEFAULT_FULLREPAIR_LENGTH 300
 #define DEFAULT_REPAIR_TRUCK_USES 5
 #define DEFAULT_FREE_REPAIRS 1
 
@@ -21,7 +21,7 @@
 #define STR_REPAIR_FINISHED "Repair finished"
 #define STR_REPAIR_MSG_STRING "%2 will be repaired in %1 sec"
 #define STR_REPAIR_TRUCK_DEPLETED "Spare parts depleted in repair truck"
-#define STR_HELP "Realistic field repair (Author: Zealot) <br/>Script gives each player ability to repair vehicles. <br/>- Repair lasts for 40-400 sec. (Longer for heavy damaged vehicles), it can be interrupted and the continued, time saves.<br/>- Each vehicle could be repaired 1 time for spare parts stored in the vehicle itself.For the next repairs you should have Toolkit in your backpack or in vehicle cargo.<br/>- Field repair fixes only some parts of the vehicle and only to 'Yellow state'.<br/>- Repair from repair trucks lasts 3 min. but completely repairs vehicles. Repair truck can be used 5 times, then spare parts in it will be depleted.<br/>- To use repair truck you should sat on the drivers place of the repair truck then look on damaged vehicle and select 'Full repair' in menu.<br/>"
+#define STR_HELP "Field repair (Author: Zealot) <br/>Script gives each player ability to repair vehicles. <br/>- Repair lasts for 40-400 sec. (Longer for heavy damaged vehicles), it can be interrupted and the continued, time saves.<br/>- Each vehicle could be repaired 1 time for spare parts stored in the vehicle itself.For the next repairs you should have Toolkit in your backpack or in vehicle cargo.<br/>- Field repair fixes only some parts of the vehicle and only to 'a working state'.<br/>"
 #define STR_SCRIPTS_NAME "Scripts"
 #define STR_SCRIPT_NAME "Field repair"
 #define STR_PUSH_APC "Push vehicle"

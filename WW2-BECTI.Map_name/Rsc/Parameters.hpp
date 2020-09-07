@@ -143,18 +143,6 @@ class Params {
 		texts[] = {"Disabled", "Enabled"};
 		default = 1;
 	};
-	class CTI_AI_TEAMS_ENABLED {
-		title = "AI: Teams";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled", "1/4 Slots", "1/2 Slots", "3/4 Slots", "All Slots"};
-		default = 1;
-	};
-	class CTI_AI_TEAMS_GROUPSIZE {
-		title = "AI: Team Size (AI)";
-		values[] = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,35,40,45,50,60,70,80,90,100};
-		texts[] = {"2","4","6","8","10","12","14","16","18","20","22","24","26","28","30","35","40","45","50","60","70","80","90","100"};
-		default = 10;
-	};
 	class CTI_AI_PLAYER_TEAMS_GROUPSIZE {
 		title = "AI: Team Size (Player)";
 		values[] = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,35,40,45,50,60,70,80,90,100};
@@ -521,6 +509,12 @@ class Params {
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
+	class CTI_FIELDREPAIR_ENABLED {
+		title = "GAMEPLAY: Fieldrepair";
+		values[] = {0,1};
+		texts[] = {"Disabled", "Enabled"};
+		default = 1;
+	};
 	class SEPERATOR_RESPAWN {
 		title = "============ Respawn ============";
 		values[] = {0,1};
@@ -531,7 +525,7 @@ class Params {
 		title = "RESPAWN: AI Members";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
-		default = 1;
+		default = 0;
 	};
 	class CTI_RESPAWN_CAMPS_MODE {
 		title = "RESPAWN: Camps";
@@ -603,7 +597,7 @@ class Params {
 		title = "TOWNS: Equipment Purchase";
 		values[] = {0,1,2,3};
 		texts[] = {"Disabled","Camps","Depot","Camps and Depot"};
-		default = 2;
+		default = 0;
 	};
 	class CTI_TOWNS_BUILD_PROTECTION_RANGE {
 		title = "TOWNS: Protection Range";
@@ -633,7 +627,7 @@ class Params {
 		title = "TOWNS: Purchase Infantry";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
-		default = 1;
+		default = 0;
 	};
 	class CTI_TOWNS_CAPTURED_DISTANCE {
 		title = "TOWNS: Distance of precaptured Towns";
@@ -760,6 +754,18 @@ class Params {
 		values[] = {1};
 		texts[] = {""};
 		default = 1;
+	};
+	class CTI_AI_TEAMS_ENABLED {
+		title = "AI: Teams";
+		values[] = {0,1,2,3,4};
+		texts[] = {"Disabled", "1/4 Slots", "1/2 Slots", "3/4 Slots", "All Slots"};
+		default = 1;
+	};
+	class CTI_AI_TEAMS_GROUPSIZE {
+		title = "AI: Team Size (AI)";
+		values[] = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,35,40,45,50,60,70,80,90,100};
+		texts[] = {"2","4","6","8","10","12","14","16","18","20","22","24","26","28","30","35","40","45","50","60","70","80","90","100"};
+		default = 10;
 	};
 	class CTI_Log_Level {
 		title = "LOG: Set level of Logging";
