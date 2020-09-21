@@ -16,6 +16,8 @@ else {
 		_tag = "GUER_";
 	};
 };
+if(CTI_VIO_ADDON == 0) then {_sid = "";};
+
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_POL.sqf", format["Town Squad preparation - sid: <%1> tag: <%2> ", _sid, _tag]] call CTI_CO_FNC_Log;
 };
@@ -35,6 +37,16 @@ INFANTRY = [['LIB_WP_Sierzant',0],['LIB_WP_Medic',0],['LIB_WP_Porucznic',0],['LI
 INFANTRY_MG = [['LIB_WP_Sierzant',0],['LIB_WP_Medic',0],['LIB_WP_Saper',0],['LIB_WP_Mgunner',0],['LIB_WP_Mgunner',0],['LIB_WP_Stggunner',0]];
 INFANTRY_AT = [['LIB_WP_Sierzant',0],['LIB_WP_Medic',0],['VIOC_WP_HAT_soldier',0],['VIOC_WP_HAT_soldier',0],['VIOC_WP_HAT_soldier2',0],['VIOC_WP_HAT_soldier2',0]];
 
+if(CTI_VIO_ADDON == 0) then {
+	INFANTRY = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1LIB_WP_Strzelec", _sid],0],[format["%1LIB_WP_Porucznic", _sid],0],[format["%1LIB_WP_Starszy_strzelec", _sid],0],[format["%1LIB_WP_Sniper", _sid],0]];
+	INFANTRY_MG = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1LIB_WP_Mgunner", _sid],0],[format["%1LIB_WP_Mgunner", _sid],0],[format["%1LIB_WP_Stggunner", _sid],0],[format["%1LIB_WP_Stggunner", _sid],0]];
+	INFANTRY_AT = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1LIB_WP_Saper", _sid],0],[format["%1LIB_WP_Saper", _sid],0],[format["%1LIB_WP_Starszy_saper", _sid],0],[format["%1LIB_WP_Starszy_saper", _sid],0]];
+} else {
+	INFANTRY = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1LIB_WP_Strzelec", _sid],0],[format["%1LIB_WP_Porucznic", _sid],0],[format["%1LIB_WP_Starszy_strzelec", _sid],0],[format["%1LIB_WP_Sniper", _sid],0]];
+	INFANTRY_MG = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1LIB_WP_Mgunner", _sid],0],[format["%1LIB_WP_Mgunner", _sid],0],[format["%1LIB_WP_Stggunner", _sid],0],[format["%1WP_AT_soldier", _sid],0]];
+	INFANTRY_AT = [[format["%1LIB_WP_Sierzant", _sid],0],[format["%1LIB_WP_Medic", _sid],0],[format["%1WP_HAT_soldier", _sid],0],[format["%1WP_HAT_soldier", _sid],0],[format["%1WP_HAT_soldier2", _sid],0],[format["%1WP_AT_soldier", _sid],0]];
+};
+
 missionNamespace setVariable [format["%1INFANTRY_SQ_LIGHT", _tag], INFANTRY];
 missionNamespace setVariable [format["%1INFANTRY_SQ_MG", _tag], INFANTRY_MG];
 missionNamespace setVariable [format["%1INFANTRY_SQ_AT", _tag], INFANTRY_AT];
@@ -51,16 +63,26 @@ WHEELED_HEAVY = [];
 
 switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 	case 0: {
-		WHEELED_LIGHT = [['LIB_GazM1_FFI',0],['LIB_GazM1_FFI',0]];
-		WHEELED_HEAVY = [['LIB_GazM1_FFI_camo',0],['LIB_GazM1_FFI_camo',0]];
+		WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI", _sid],0],[format["%1LIB_GazM1_FFI", _sid],0]];
+		WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
 	};
 	case 1: {
-		WHEELED_LIGHT = [['LIB_GazM1_FFI',0],['VIOC_WP_ifa3_gazaa_max',0]];
-		WHEELED_HEAVY = [['VIOC_WP_ifa3_gazaa_max',0],['VIOC_WP_ifa3_gazaa_max',0]];
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
+			WHEELED_HEAVY = [[format["%1ifa3_gazaa_max", _sid],0],[format["%1ifa3_gazaa_max", _sid],0]];
+		} else {
+			WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI", _sid],0],[format["%1LIB_GazM1_FFI", _sid],0]];
+			WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
+		};
 	};
 	default {
-		WHEELED_LIGHT = [['VIOC_WP_ifa3_gazaa_max',0],['VIOC_WP_ifa3_gazaa_IZ',0]];
-		WHEELED_HEAVY = [['VIOC_WP_ifa3_gazaa_max',0],['VIOC_WP_ifa3_gazaa_IZ_max',0]];
+		if(CTI_IFA3LIB_ADDON > 0) then {
+			WHEELED_LIGHT = [[format["%1ifa3_gazaa_max", _sid],0],[format["%1ifa3_gazaa_max", _sid],0]];
+			WHEELED_HEAVY = [[format["%1ifa3_gazaa_IZ", _sid],0],[format["%1ifa3_gazaa_IZ_max", _sid],0]];
+		} else {
+			WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI", _sid],0],[format["%1LIB_GazM1_FFI", _sid],0]];
+			WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
+		};
 	};
 };
 
