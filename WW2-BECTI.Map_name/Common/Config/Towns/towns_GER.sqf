@@ -148,7 +148,7 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 				WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
 			};
 		};
-		if(CTI_IFA3LIB_ADDON > 0) then {
+		if(CTI_FOW_ADDON > 0) then {
 			WHEELED_HEAVY pushBack [format["%1ifa3_Ba10_wm", _sid],1];
 		};
 		if(CTI_FOW_ADDON > 0) then {
