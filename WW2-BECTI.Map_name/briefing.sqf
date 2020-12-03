@@ -30,12 +30,18 @@ Changes made to the 'BECTI IFA3 Sahrani BTB CUP' mission: <br/><br/>
 
 [V2.0beta] Changelog:<br/>
 Fixed: invisible weapons - deleting all gear which was deleted by IFA3.<br/>
+Fixed: sov_squad - winter unit was used in summer.<br/>
+Fixed: towns spawn disabled squads.<br/>
+Fixed: sound errors in rpt.<br/>
 Added: Combined nation now automaticly have combined town and AI-Squad units.<br/>
 Added: Functionality to support new and older IFA3 Version.<br/>
 Added: Support for some FOW units (no standalone funktionality atm).<br/>
 Added: Support for some CSA38 units (no standalone funktionality atm).<br/>
 Added: You can now place mines like defenses, but costs 5 times more.<br/>
-Added: AFAR - Radio addon by Phronk.<br/>
+Added: Fieldrepair now optional (selectable param).<br/>
+Added: independent towns no have statics too.<br/>
+Changed: LIB_GER_AT_grenadier now tier 0 prior 1.<br/>
+Changed: LIB_GER_AT_soldier now tier 1 prior 2.<br/>
 Changed: Town and AI param now fixed the selectet nation to them (disables the combination).<br/><br/>
 
 [V1.9] Changelog:<br/>
