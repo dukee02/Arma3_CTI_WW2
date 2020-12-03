@@ -136,6 +136,10 @@ call compile preprocessFileLineNumbers "Common\Config\Defenses\Defenses_East.sqf
 (west) call compile preprocessFileLineNumbers "Common\Config\Base\Base.sqf";
 (east) call compile preprocessFileLineNumbers "Common\Config\Base\Base.sqf";
 
+(west) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
+(east) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
+(resistance) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
+
 //(west) call compile preprocessFileLineNumbers "Common\Config\Base\Base_West.sqf";
 //(east) call compile preprocessFileLineNumbers "Common\Config\Base\Base_East.sqf";
 
