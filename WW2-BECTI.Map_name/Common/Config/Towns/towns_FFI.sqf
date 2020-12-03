@@ -62,9 +62,14 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		WHEELED_LIGHT = [[format["%1LIB_CIV_FFI_CitC4_2", _sid],0],[format["%1LIB_CIV_FFI_CitC4_3", _sid],0]];
 		WHEELED_HEAVY = [[format["%1LIB_CIV_FFI_CitC4_4", _sid],0],[format["%1LIB_CIV_FFI_CitC4_5", _sid],0]];
 	};
-	default {
+	case 1;
+	case 2: {
 		WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI", _sid],0],[format["%1LIB_GazM1_FFI", _sid],0]];
 		WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
+	};
+	default {
+		WHEELED_LIGHT = INFANTRY;
+		WHEELED_HEAVY = INFANTRY_MG;
 	};
 };
 
@@ -93,8 +98,8 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 
 //Town Air setup
-AIR_FIGHTER = INFANTRY_MG;
-AIR_BOMBER = INFANTRY_AT;
+AIR_FIGHTER = INFANTRY;
+AIR_BOMBER = INFANTRY;
 
 missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
 missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], AIR_BOMBER];
@@ -105,7 +110,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 
 //Town Anti-Air setup
-ANTI_AIR = INFANTRY_MG;
+ANTI_AIR = INFANTRY;
 
 missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
 

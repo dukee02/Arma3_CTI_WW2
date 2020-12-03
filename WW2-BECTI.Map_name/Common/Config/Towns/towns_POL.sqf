@@ -75,7 +75,7 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 			WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
 		};
 	};
-	default {
+	case 2: {
 		if(CTI_IFA3LIB_ADDON > 0) then {
 			WHEELED_LIGHT = [[format["%1ifa3_gazaa_max", _sid],0],[format["%1ifa3_gazaa_max", _sid],0]];
 			WHEELED_HEAVY = [[format["%1ifa3_gazaa_IZ", _sid],0],[format["%1ifa3_gazaa_IZ_max", _sid],0]];
@@ -83,6 +83,10 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 			WHEELED_LIGHT = [[format["%1LIB_GazM1_FFI", _sid],0],[format["%1LIB_GazM1_FFI", _sid],0]];
 			WHEELED_HEAVY = [[format["%1LIB_GazM1_FFI_camo", _sid],0],[format["%1LIB_GazM1_FFI_camo", _sid],0]];
 		};
+	};
+	default {
+		WHEELED_LIGHT = INFANTRY;
+		WHEELED_HEAVY = INFANTRY_MG;
 	};
 };
 
@@ -96,9 +100,9 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 
 
 //Town Tracked setup
-TRACKED_LIGHT = INFANTRY_MG;
-TRACKED_MEDIUM = INFANTRY_AT;
-TRACKED_HEAVY = INFANTRY_MG;
+TRACKED_LIGHT = INFANTRY;
+TRACKED_MEDIUM = INFANTRY_MG;
+TRACKED_HEAVY = INFANTRY_AT;
 
 missionNamespace setVariable [format["%1TRACKED_SQ_LIGHT", _tag], TRACKED_LIGHT];
 missionNamespace setVariable [format["%1TRACKED_SQ_MEDIUM", _tag], TRACKED_MEDIUM];
@@ -111,8 +115,8 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 
 //Town Air setup
-AIR_FIGHTER = INFANTRY_MG;
-AIR_BOMBER = INFANTRY_AT;
+AIR_FIGHTER = INFANTRY;
+AIR_BOMBER = INFANTRY;
 
 
 missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
@@ -124,7 +128,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 
 //Town Anti-Air setup
-ANTI_AIR = INFANTRY_AT;
+ANTI_AIR = INFANTRY;
 
 missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
 

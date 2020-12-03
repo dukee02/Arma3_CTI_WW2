@@ -38,13 +38,69 @@ missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], ["Air"]];
 
 //Infantry setup for the AI groups
 units_infantry = [];
+units_to_add = [];
 
-units_infantry = [[format["%1LIB_GER_rifleman", _sid], 1],[format["%1LIB_GER_medic", _sid], 1, 40],[format["%1LIB_GER_rifleman", _sid], 1, 60],[format["%1LIB_GER_AT_grenadier", _sid], 1, 40],[format["%1LIB_GER_smgunner", _sid], 1, 40],[format["%1LIB_GER_mgunner", _sid], 1, 40],[format["%1LIB_GER_AT_soldier", _sid], 1, 60]];
-if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	units_infantry = [[format["%1LIB_GER_Rifleman_w", _sid], 1],[format["%1LIB_GER_Medic_w", _sid], 1, 40],[format["%1LIB_GER_Rifleman_w", _sid], 1, 60],[format["%1LIB_GER_AT_grenadier_w", _sid], 1, 40],[format["%1LIB_GER_Smgunner_w", _sid], 1, 40],[format["%1LIB_GER_Mgunner_w", _sid], 1, 40],[format["%1LIB_GER_AT_soldier_w", _sid], 1, 60]];
+if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+	units_to_add = [format["%1LIB_GER_rifleman", _sid], 1, 60];
+	units_to_add pushBack [format["%1LIB_GER_medic", _sid], 1, 20];
+	units_to_add pushBack [format["%1LIB_GER_sapper", _sid], 1, 30];
+	units_to_add pushBack [format["%1LIB_GER_AT_grenadier", _sid], 1, 30];
+	units_to_add pushBack [format["%1LIB_GER_radioman", _sid], 1, 10];
+	units_to_add pushBack [format["%1LIB_GER_smgunner", _sid], 1, 30];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		units_to_add = [format["%1LIB_GER_Rifleman_w", _sid], 1, 60];	
+		units_to_add pushBack [format["%1LIB_GER_Medic_w", _sid], 1, 20];
+		units_to_add pushBack [format["%1LIB_GER_Sapper_w", _sid], 1, 30];
+		units_to_add pushBack [format["%1LIB_GER_AT_grenadier_w", _sid], 1, 30];
+		units_to_add pushBack [format["%1LIB_GER_Radioman_w", _sid], 1, 10];
+		units_to_add pushBack [format["%1LIB_GER_Smgunner_w", _sid], 1, 30];
+	};
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		units_to_add = [format["%1LIB_DAK_Soldier", _sid], 1, 60];	
+		units_to_add pushBack [format["%1LIB_DAK_medic", _sid], 1, 20];
+		units_to_add pushBack [format["%1LIB_DAK_grenadier", _sid], 1, 30];
+		units_to_add pushBack [format["%1LIB_DAK_AT_grenadier", _sid], 1, 30];
+		units_to_add pushBack [format["%1LIB_DAK_radioman", _sid], 1, 10];
+		units_to_add pushBack [format["%1LIB_DAK_Soldier_3", _sid], 1, 30];
+	};
+	units_infantry pushBack units_to_add;
 };
-if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	units_infantry = [[format["%1LIB_DAK_Soldier", _sid], 1],[format["%1LIB_DAK_medic", _sid], 1, 40],[format["%1LIB_DAK_Soldier", _sid], 1, 60],[format["%1LIB_DAK_AT_grenadier", _sid], 1, 40],[format["%1LIB_DAK_Soldier_3", _sid], 1, 40],[format["%1LIB_DAK_Soldier_4", _sid], 1, 40],[format["%1LIB_DAK_AT_soldier", _sid], 1, 60]];
+if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+	units_to_add = [format["%1LIB_GER_unterofficer", _sid], 1, 40];
+	units_to_add pushBack [format["%1LIB_GER_mgunner", _sid], 1, 20];
+	units_to_add pushBack [format["%1LIB_GER_AT_soldier", _sid], 1, 40];
+	units_to_add pushBack [format["%1LIB_GER_stggunner", _sid], 1, 10];
+	units_to_add pushBack [format["%1LIB_GER_lieutenant", _sid], 1, 10];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		units_to_add = [format["%1LIB_GER_ober_grenadier_w", _sid], 1, 40];	
+		units_to_add pushBack [format["%1LIB_GER_Mgunner_w", _sid], 1, 20];
+		units_to_add pushBack [format["%1LIB_GER_AT_soldier_w", _sid], 1, 40];
+		units_to_add pushBack [format["%1LIB_GER_Unterofficer_w", _sid], 1, 10];
+		units_to_add pushBack [format["%1LIB_GER_Lieutenant_w", _sid], 1, 10];
+	};
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		units_to_add = [format["%1LIB_DAK_Soldier_4", _sid], 1, 40];	
+		units_to_add pushBack [format["%1LIB_DAK_AT_soldier", _sid], 1, 40];
+		units_to_add pushBack [format["%1LIB_DAK_Lieutenant", _sid], 1, 10];
+	};
+	units_infantry pushBack units_to_add;
+};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+	units_to_add = [format["%1LIB_GER_scout_sniper", _sid], 1, 10];
+	units_to_add pushBack [format["%1LIB_GER_scout_lieutenant", _sid], 1, 5];
+	units_to_add pushBack [format["%1LIB_GER_scout_smgunner", _sid], 1, 20];
+	units_to_add pushBack [format["%1LIB_GER_scout_mgunner", _sid], 1, 20];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		units_to_add = [format["%1LIB_GER_Scout_sniper_w", _sid], 1, 10];	
+		units_to_add pushBack [format["%1LIB_GER_Scout_lieutenant_w", _sid], 1, 5];
+		units_to_add pushBack [format["%1LIB_GER_Scout_smgunner_w", _sid], 1, 20];	
+		units_to_add pushBack [format["%1LIB_GER_Stggunner_w", _sid], 1, 10];	
+	};
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		units_to_add = [format["%1LIB_DAK_Sniper", _sid], 1, 1];	
+		units_to_add pushBack [format["%1LIB_DAK_NCO", _sid], 1, 5];
+	};
+	units_infantry pushBack units_to_add;
 };
 
 _v pushBack "Infantry";
@@ -63,7 +119,9 @@ _s pushBack [];
 units_wheeled = [];
 units_to_add = [];
 
-
+if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
+	units_wheeled = units_infantry;
+};
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	units_to_add = [format["%1LIB_Kfz1_Hood", _sid], 1, 10];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -178,6 +236,9 @@ _s pushBack [];
 //Tracked setup for the AI groups
 units_tracked = [];
 _level = 0;
+if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
+	units_tracked = units_infantry;
+};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_IFA3LIB_ADDON == 0 && CTI_CSA38_ADDON == 0) then {
 		units_to_add = [format["%1LIB_StuG_III_G", _sid], 1, 30];
@@ -355,6 +416,9 @@ _s pushBack [];
 //AntiAir setup for the AI groups
 units_antiair = [];
 
+if(CTI_ECONOMY_LEVEL_WHEELED < 0 && CTI_ECONOMY_LEVEL_TRACKED < 2) then {
+	units_antiair = units_infantry;
+};
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	units_to_add = [format["%1LIB_Kfz1_MG42", _sid], 1, 60];
 	if(CTI_FOW_ADDON > 0) then {
@@ -397,6 +461,9 @@ _s pushBack [];
 //Air setup for the AI groups
 units_air = [];
 _level = 0;
+if(CTI_ECONOMY_LEVEL_AIR < 0) then {
+	units_air = units_infantry;
+};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_SAB_ADDON == 1) then {
 		units_air pushBack [format["%1sab_avia", _sid], 1, 20];
@@ -468,8 +535,6 @@ _f pushBack CTI_AIR;
 _m pushBack 1000;
 _c pushBack "Air";
 _s pushBack [];
-
-
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\squads\squad_GER.sqf", format["generated squads: [%1] ", count _v]] call CTI_CO_FNC_Log};
 

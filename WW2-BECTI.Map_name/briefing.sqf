@@ -39,7 +39,7 @@ Added: Support for some FOW units (no standalone funktionality atm).<br/>
 Added: Support for some CSA38 units (no standalone funktionality atm).<br/>
 Added: You can now place mines like defenses, but costs 5 times more.<br/>
 Added: Fieldrepair now optional (selectable param).<br/>
-Added: independent towns no have statics too.<br/>
+Added: independent towns now have and uses statics too.<br/>
 Changed: LIB_GER_AT_grenadier now tier 0 prior 1.<br/>
 Changed: LIB_GER_AT_soldier now tier 1 prior 2.<br/>
 Changed: Town and AI param now fixed the selectet nation to them (disables the combination).<br/><br/>
