@@ -715,11 +715,31 @@ with missionNamespace do {
 		//check if the IFA3_beta version is loaded or the stable
 		CTI_IFA3_NEW = 0;
 	};
-	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
-	if (!isClass(configFile >> "CfgVehicles" >> "VIOC_B_LIB_PzKpfwVI_E")) then {
+	
+	/*if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
+	if (!isClass(configFile >> "CfgVehicles" >> "VIOC_I_FFI_soldier")) then { //"VIOC_B_LIB_PzKpfwVI_E"
 		//check if the IFA3_beta version is loaded or the stable
 		CTI_VIO_ADDON = 0;
+	};*/
+	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
+	if (isClass(configFile >> "CfgVehicles" >> "VIOC_I_FFI_soldier")) then {
+		//check if the IFA3_beta version is loaded or the stable
+		CTI_VIO_ADDON = 1;
 	};
+	if (isClass(configFile >> "CfgVehicles" >> "VIOC_B_LIB_GER_rifleman")) then {
+		//check if the IFA3_beta version is loaded or the stable
+		CTI_VIO_ADDON = 1;
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
+		//check if the IFA3_beta version is loaded or the stable
+		CTI_VIO_ADDON = 1;
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "VIOC_I_LIB_GER_rifleman")) then {
+		//check if the IFA3_beta version is loaded or the stable
+		CTI_VIO_ADDON = 1;
+	};
+	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	
 	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
 	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
