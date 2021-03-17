@@ -1,6 +1,7 @@
-private ["_side"];
+private ["_side, _cost_level"];
 
 _side = _this;
+_cost_level = 1000;
 
 /*
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_ENABLED", _side], [

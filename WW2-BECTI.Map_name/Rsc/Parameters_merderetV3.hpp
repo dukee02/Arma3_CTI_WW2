@@ -120,10 +120,10 @@ class Params {
 		default = 2; //5
 	};
 	class CTI_ECONOMY_TIME_MULTI {
-		title = "UPGRADE: Time multiplyer (max times: Inf:150s|Light:300s|Heavy,Air,Ship:600s)";
+		title = "UPGRADE: Time multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
 		values[] = {1,2,3,4,5,6,8,10};
 		texts[] = {"1","2","3","4","5","6","8","10"};
-		default = 4; //5
+		default = 2; //5
 	};
 	class SEPERATOR_AI {
 		title = "============ AI ============";
@@ -771,6 +771,6 @@ class Params {
 		title = "LOG: Set level of Logging";
 		values[] = {0,1,2,3};
 		texts[] = {"Error","Warning","Information","Debug"};
-		default = 3;
+		default = 0;
 	};
 };
