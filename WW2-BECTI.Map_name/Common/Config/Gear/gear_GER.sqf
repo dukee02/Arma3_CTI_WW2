@@ -889,6 +889,10 @@ _i pushBack "G_Sport_Blackred";
 _u pushBack _tech_level;
 _p pushBack round 50;
 
+_i pushBack "g_goggles_vr";
+_u pushBack _tech_level;
+_p pushBack 50;
+
 
 //-----------------------------------------Attachments------------------------------------------------
 _tech_level = 0;
@@ -938,13 +942,13 @@ _i pushBack "FirstAidKit";
 _u pushBack 0;
 _p pushBack round 200;
 
-//_i pushBack "Toolkit";
-//_u pushBack 0;
-//_p pushBack round 5000;
+_i pushBack "Toolkit";
+_u pushBack 0;
+_p pushBack round 3000;
 
-//_i pushBack "Medikit";
-//_u pushBack 0;
-//_p pushBack round 3000;
+_i pushBack "Medikit";
+_u pushBack 0;
+_p pushBack round 1500;
 
 
 
