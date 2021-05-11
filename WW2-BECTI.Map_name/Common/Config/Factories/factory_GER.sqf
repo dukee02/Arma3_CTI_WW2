@@ -486,7 +486,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		};
 		_c pushBack format["%1LIB_StuG_III_G", _sid];
-		//_c pushBack format["%1LIB_SdKfz124", _sid];	//its out ... for a while?
+		_c pushBack format["%1LIB_SdKfz124", _sid];	//its out ... for a while?
 	} else {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_c pushBack format["%1LIB_PzKpfwIV_H_w", _sid];
