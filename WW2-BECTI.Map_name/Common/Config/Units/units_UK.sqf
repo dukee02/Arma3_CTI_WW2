@@ -1370,20 +1370,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	_c pushBack format["%1LIB_HORSA_RAF", _sid];
-	_p pushBack '';
-	_n pushBack 'HORSA - put me in the air';
-	_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2;
-	_t pushBack _building_time;
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_AIR;
-	_s pushBack "";
-	_d pushBack 0;
-	_tech_level = _tech_level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	_c pushBack format["%1LIB_RAF_P39", _sid];
 	_p pushBack '';
 	_n pushBack '';

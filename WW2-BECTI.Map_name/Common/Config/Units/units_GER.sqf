@@ -2335,15 +2335,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
 		_d pushBack 0;
-		_c pushBack format["%1ifa3_t70m_ger", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;
 	};
 	if(CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active

@@ -389,10 +389,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	};
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	_c pushBack format["%1LIB_HORSA_RAF", _sid];
-	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_RAF_P39", _sid];
 	_level = _level + 1;
 };

@@ -131,6 +131,7 @@ switch (_action) do {
 			//--- Don't bother if we have nothing
 			if (count _artillery > 0) then { 
 				_artillery_burst = ((uiNamespace getVariable "cti_dialog_ui_artillerymenu") displayCtrl 290011) lbValue (lbCurSel 290011);
+				//enableEngineArtillery true; 
 				_target = getMarkerPos _artillery_marker;
 				{
 					_artillery_piece = _x select 0;
@@ -139,6 +140,7 @@ switch (_action) do {
 							["TEST", "FILE: Events_UI_ArtilleryMenu.sqf", format["Artillerie shoots: <%1|%2|%3|%4>",_artillery_piece, _target, _artillery_magazine, _artillery_burst]] call CTI_CO_FNC_Log;
 							//_artillery_piece doArtilleryFire [_target, _artillery_magazine, _artillery_burst];
 							_artillery_piece commandArtilleryFire [_target, _artillery_magazine, _artillery_burst];
+							//art doArtilleryFire [markerPos "marker1",(getArtilleryAmmo [art]) call BIS_fnc_selectRandom; , 5];
 						} else {
 							_isInRange = false;
 							if(_target inRangeOfArtillery [[_artillery_piece], _artillery_magazine]) then {_isInRange = true};
@@ -148,9 +150,9 @@ switch (_action) do {
 							//_isETA = _artillery_piece getArtilleryETA [_target, _artillery_magazine];
 							["TEST", "FILE: Events_UI_ArtilleryMenu.sqf", format["can shoot? <%1|%2>", _isInRange, _isETA]] call CTI_CO_FNC_Log;
 							if(_isInRange) then {
-								hint parseText "<t size='1.3' color='#2394ef'>Information</t><br /><br /><t align='left'>Artillerie can not shoot, ... because something went wrong.[ETA=%1]</t>";
+								hint parseText format["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t align='left'>Artillerie can not shoot, ... because something went wrong.<br />Settings: %1</t>", getArtilleryComputerSettings];
 							} else {
-								hint parseText "<t size='1.3' color='#2394ef'>Information</t><br /><br /><t align='left'>Artillerie can not shoot, Unit not in range!</t>";
+								hint parseText format["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t align='left'>Artillerie can not shoot, Unit not in range!<br />Settings: %1 inRangeOfArtillery [[%2], %3]</t>", _target, _artillery_piece, _artillery_magazine];
 							};
 						};
 					} else {

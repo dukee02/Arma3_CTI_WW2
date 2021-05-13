@@ -323,7 +323,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1LIB_M4A3_75_Tubes", _sid];
 	if(CTI_IFA3LIB_ADDON > 0) then {
 		_c pushBack format["%1IFa3_M4A3_75", _sid];
-		_c pushBack format["%1IFa3_M4A3_75_flame", _sid];
 	};
 	
 	if(CTI_FOW_ADDON > 0) then {

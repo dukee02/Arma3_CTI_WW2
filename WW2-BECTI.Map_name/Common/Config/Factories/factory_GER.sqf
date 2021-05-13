@@ -505,7 +505,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1ifa3_pz3N", _sid];
 		_c pushBack format["%1ifa3_StuG_III_G", _sid];
 		_c pushBack format["%1ifa3_StuH_42", _sid];
-		_c pushBack format["%1ifa3_t70m_ger", _sid];
 	};
 	if(CTI_CSA38_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active

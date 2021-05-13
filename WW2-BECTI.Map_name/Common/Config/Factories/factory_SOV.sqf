@@ -334,7 +334,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 	if(CTI_IFA3LIB_ADDON > 0) then {
 		_c pushBack format["%1ifa3_t34_76", _sid];
-		_c pushBack format["%1ifa3_OT34_76", _sid];
 		_c pushBack format["%1ifa3_t70m", _sid];
 		//_c pushBack format["%1ifa3_pz3J_sov", _sid];
 	};
