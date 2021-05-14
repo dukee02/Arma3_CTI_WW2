@@ -123,7 +123,10 @@ with missionNamespace do {
 		Veteran > 0.65 and <= 0.85
 		Expert > 0.85*/
 		CTI_AI_SKILL_BASE = 0.45;
+	} else {
+		CTI_AI_SKILL_BASE = switch (CTI_TOWNS_RESISTANCE) do {case 0: {0.05}; case 1: {0.25}; case 3: {0.65}; case 4: {0.80}; default {0.45}};
 	};
+	
 };
 //-----------------------------------------------------------------------------------------------------------------------//
 
@@ -236,7 +239,7 @@ CTI_UPGRADE_BARRACKS = 0;
 CTI_UPGRADE_LIGHT = 1;
 CTI_UPGRADE_HEAVY = 2;
 CTI_UPGRADE_AIR = 3;
-CTI_UPGRADE_SATELLITE = 4;
+CTI_UPGRADE_NAVAL = 4;
 CTI_UPGRADE_AIR_FFAR = 5;
 CTI_UPGRADE_AIR_AT = 6;
 CTI_UPGRADE_AIR_AA = 7;
@@ -256,7 +259,8 @@ CTI_UPGRADE_AIR_FFAR = 7;
 CTI_UPGRADE_AIR_AT = 8;
 CTI_UPGRADE_AIR_AA = 9;
 CTI_UPGRADE_AIR_CM = 10;
-CTI_UPGRADE_SATELLITE = 11;*/
+CTI_UPGRADE_SATELLITE = 11;
+CTI_UPGRADE_SATELLITE = 4;*/
 //-----------------------------------------------------------------------------------------------------------------------//
 
 
@@ -798,12 +802,7 @@ with missionNamespace do {
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
 	
-	
-	
-	
-	
-	
-	if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
+	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};
 		
 };

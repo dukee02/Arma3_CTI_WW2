@@ -117,4 +117,6 @@ if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then
 	};
 	[player] execVM "Client\Module\earplugs\simpleEP.sqf";
 }; 
+
+_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 	

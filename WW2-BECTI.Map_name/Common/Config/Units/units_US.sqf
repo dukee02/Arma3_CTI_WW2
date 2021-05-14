@@ -1800,7 +1800,7 @@ if(CTI_SAB_ADDON == 1) then {
 	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 		_c pushBack format["%1sab_boat_freighter", _sid];
 		_p pushBack '';
-		_n pushBack 'Deployable FOB';
+		_n pushBack 'Ammo Ship';
 		_o pushBack (10*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
 		_t pushBack (30*(_tech_level+1));
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -1810,12 +1810,12 @@ if(CTI_SAB_ADDON == 1) then {
 		
 		_c pushBack format["%1sab_boat_liberty", _sid];
 		_p pushBack '';
-		_n pushBack 'Deployable FOB-large';
+		_n pushBack 'Repair Ship';
 		_o pushBack (20*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
 		_t pushBack (30*(_tech_level+1));
 		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "service-ammotruck","service-fueltruck","service-repairtruck";
+		_s pushBack "service-repairtruck";
 		_d pushBack 50;
 		
 		_c pushBack format["%1sab_boat_rubberboat", _sid];
