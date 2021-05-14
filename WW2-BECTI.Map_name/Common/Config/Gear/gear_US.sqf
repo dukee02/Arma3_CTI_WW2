@@ -111,6 +111,14 @@ _i pushBack "ClaymoreDirectionalMine_Remote_Mag"; //All
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 30*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
+_i pushBack "LIB_1Rnd_G_Mk2"; //US
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 10*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "LIB_1Rnd_G_M9A1"; //US
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
 
 //Level 1
 //_tech_level = _tech_level + 1;
@@ -689,8 +697,12 @@ _p pushBack 50;
 
 
 //-----------------------------------------Attachments------------------------------------------------
-_tech_level = 1;
-_i pushBack "LIB_M1918A2_BAR_Bipod";
+_tech_level = 0;
+_i pushBack "LIB_ACC_M1_Bayo";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2);
+
+_i pushBack "LIB_ACC_GL_M7";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
 

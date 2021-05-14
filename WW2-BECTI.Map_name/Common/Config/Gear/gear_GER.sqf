@@ -99,6 +99,18 @@ _i pushBack "LIB_TM44_MINE_mag"; //Ger
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 100*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
+_i pushBack "LIB_1Rnd_G_SPRGR_30"; //Ger
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 10*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "LIB_1Rnd_G_PZGR_30"; //Ger
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "LIB_1Rnd_G_PZGR_40"; //Ger
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 30*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
 //Level 1
 //_tech_level = _tech_level + 1;
 //_i pushBack "ifa3_TS_BIG"; //All
@@ -898,19 +910,21 @@ _p pushBack 50;
 _tech_level = 0;
 _i pushBack "LIB_ACC_K98_Bayo";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
+_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2);
 
-//Level 1
-_tech_level = _tech_level + 1;
 _i pushBack "LIB_ACC_GW_SB_empty";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
 
 //Level 2
-//_tech_level = _tech_level + 1;
-//_i pushBack "optic_zf41";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*2);
+_tech_level = _tech_level + 1;
+_i pushBack "optic_zf41";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*2);
+
+_i pushBack "LIB_Optic_Zf4";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*2);
 
 
 //------------------------------------------Items-------------------------------------------------

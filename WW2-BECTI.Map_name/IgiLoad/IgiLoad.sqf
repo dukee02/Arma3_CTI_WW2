@@ -1,5 +1,5 @@
 //if true then show debug globalChat (TODO add more hints)
-IL_DevMod = true;
+IL_DevMod = false;
 
 //waitUntil { !(isNull player) };
 waitUntil { time > 0 };
