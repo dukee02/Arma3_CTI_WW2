@@ -181,7 +181,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	} else {
 		_classes pushBack 		["Land_Cargo_HQ_V3_F", "Land_Cargo_HQ_V3_ruins_F"];				//Altis Military Buildings
 	};
-	_prices pushBack 		4000;
+	_prices pushBack 		3000;
 	_times pushBack 		80;
 	_placements pushBack 	[180, 30];
 	_helper pushBack		["Sign_Arrow_Large_Blue_F", 0];

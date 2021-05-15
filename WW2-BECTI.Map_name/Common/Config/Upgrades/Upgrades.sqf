@@ -13,7 +13,7 @@ _upgrades_enabled pushBack true; //(CTI_NO_UPGRADE_MODE == 0); 	//--- Light
 _upgrades_enabled pushBack true; //(CTI_NO_UPGRADE_MODE == 0); 	//--- Heavy
 _upgrades_enabled pushBack true; //(CTI_NO_UPGRADE_MODE == 0); 	//--- Air
 _upgrades_enabled pushBack true; //(CTI_ECONOMY_LEVEL_NAVAL >= 0); 	//--- Naval
-//_upgrades_enabled pushBack false; 	//--- Satellite
+_upgrades_enabled pushBack false; 	//--- Satellite
 _upgrades_enabled pushBack ((missionNamespace getVariable "CTI_VEHICLES_AIR_FFAR") == 1); 	//--- Air FFAR
 _upgrades_enabled pushBack ((missionNamespace getVariable "CTI_VEHICLES_AIR_AT") == 1);		//--- Air AT
 _upgrades_enabled pushBack ((missionNamespace getVariable "CTI_VEHICLES_AIR_AA") == 1); 		//--- Air AA
@@ -65,7 +65,7 @@ for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_NAVAL}, {_i = _i + 1}] do {
 	_cost pushBack [_cost_level*(_i+1),(_cost_level*(_i+1))/2];
 }; 
 _upgrade_cost pushBack _cost;															//--- Naval
-//_upgrade_cost pushBack [[round((200000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 											//--- Satellite
+_upgrade_cost pushBack [[round((200000*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100000*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 											//--- Satellite
 _upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air FFAR
 _upgrade_cost pushBack [[round((300*CTI_ECONOMY_RESEARCH_MULTI)/100),round((200*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AT
 _upgrade_cost pushBack [[round((200*CTI_ECONOMY_RESEARCH_MULTI)/100),round((100*CTI_ECONOMY_RESEARCH_MULTI)/100)]]; 													//--- Air AA
@@ -91,7 +91,7 @@ _upgrade_levels pushBack CTI_ECONOMY_LEVEL_WHEELED; 	//--- Light
 _upgrade_levels pushBack CTI_ECONOMY_LEVEL_TRACKED; 	//--- Heavy
 _upgrade_levels pushBack CTI_ECONOMY_LEVEL_AIR; 		//--- Air
 _upgrade_levels pushBack CTI_ECONOMY_LEVEL_NAVAL; 		//--- Naval
-//_upgrade_levels pushBack 1; 							//--- Satellite
+_upgrade_levels pushBack 0; 							//--- Satellite
 _upgrade_levels pushBack 1; 							//--- Air FFAR
 _upgrade_levels pushBack 1;								//--- Air AT
 _upgrade_levels pushBack 1; 							//--- Air AA
@@ -131,7 +131,7 @@ for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_NAVAL}, {_i = _i + 1}] do {
 	_links pushBack [];
 }; 
 _upgrade_links pushBack _links;				//--- Naval 
-//_upgrade_links pushBack [[CTI_UPGRADE_AIR, 5]]; //--- Satellite
+_upgrade_links pushBack [[CTI_UPGRADE_AIR, 5]]; //--- Satellite
 _upgrade_links pushBack [[CTI_UPGRADE_AIR, 1]]; //--- Air FFAR
 _upgrade_links pushBack [[CTI_UPGRADE_AIR, 1]]; //--- Air AT
 _upgrade_links pushBack [[CTI_UPGRADE_AIR, 1]]; //--- Air AA
@@ -186,10 +186,11 @@ _time = [];
 _time_level_base = 90;
 for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_NAVAL}, {_i = _i + 1}] do {
 	_time_level = _time_level_base*(_i+1)*(_i+1);
+	_time_level = switch(true) do {case (_time_level<90): {90}; case (_time_level>CTI_ECONOMY_UPGRADE_TIMECAP): {CTI_ECONOMY_UPGRADE_TIMECAP}; default {_time_level}};
 	_time pushBack _time_level;
 }; 
 _upgrade_time pushBack _time;													//--- Naval 
-//_upgrade_time pushBack [300]; 													//--- Satellite
+_upgrade_time pushBack [300]; 													//--- Satellite
 _upgrade_time pushBack [60];													//--- Air FFAR
 _upgrade_time pushBack [60];													//--- Air AT
 _upgrade_time pushBack [60];													//--- Air AA
@@ -223,7 +224,7 @@ if (CTI_IsClient) then {
 	_upgrade_labels pushBack ["Heavy Factory", "<t>Unlock better armored units</t>"]; 								//--- Heavy
 	_upgrade_labels pushBack ["Aircraft Factory", "<t>Unlock better aircraft units</t>"]; 							//--- Air
 	_upgrade_labels pushBack ["Naval Factory", "<t>Unlock better naval units</t>"]; 								//--- Naval
-	//_upgrade_labels pushBack ["Satellite Uplink", "<t>Allows the use of the satellite camera</t>"]; 				//--- Satellite
+	_upgrade_labels pushBack ["Satellite Uplink", "<t>Allows the use of the recoon camera</t>"]; 					//--- Satellite
 	_upgrade_labels pushBack ["Aircraft FFAR", "<t>Unlocks the FFAR Rockets for Aircrafts</t>"]; 					//--- Air FFAR
 	_upgrade_labels pushBack ["Aircraft AT", "<t>Unlocks the Anti Tank Missiles for Aircrafts</t>"]; 				//--- Air AT
 	_upgrade_labels pushBack ["Aircraft AA", "<t>Unlocks the Anti Air Missiles for Aircrafts</t>"]; 				//--- Air AA
