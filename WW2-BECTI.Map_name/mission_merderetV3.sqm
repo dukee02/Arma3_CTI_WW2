@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=2.1999998;
@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=846;
+		nextID=848;
 	};
 	class MarkerIDProvider
 	{
@@ -16,17 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1494;
+		nextID=1542;
 	};
 	class Camera
 	{
-		pos[]={4664.1143,302.03085,2407.1914};
-		dir[]={-0.73324037,-0.56356114,-0.38065976};
-		up[]={-0.50021291,0.82603282,-0.25968453};
-		aside[]={-0.46078792,-2.9995135e-009,0.8875913};
+		pos[]={2399.3425,27.184006,2696.9255};
+		dir[]={-0.12981038,-0.42719385,-0.89487767};
+		up[]={-0.061332975,0.90412551,-0.4228161};
+		aside[]={-0.9897123,-3.3302967e-007,0.14356148};
 	};
 };
 binarizationWanted=0;
+sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
@@ -101,8 +102,9 @@ randomSeed=7728140;
 class ScenarioData
 {
 	author="Benny, dukee";
-	overviewText="IFA3 - BECTI V2.0";
-	onLoadMission="IFA3 - BECTI V2.0";
+	overviewText="VIO-BECTI-WW2 V2.0";
+	overviewTextLocked="VIO-BECTI-WW2 V2.0";
+	onLoadMission="VIO-BECTI-WW2 V2.0";
 	respawnDialog=0;
 	joinUnassigned=0;
 	respawn=3;
@@ -172,8 +174,8 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="IFA3 - BECTI V2.0";
-		overviewText="WW2 - BECTI - [IFA3] V2.0";
+		briefingName="VIO-BECTI-WW2 V2.0";
+		overviewText="VIO-BECTI-WW2 V2.0";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -1846,7 +1848,7 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={2406.5,9.4891891,2662.4099};
+								position[]={2392.5166,8.0200005,2650.9944};
 							};
 							name="Town7";
 							init="call{nullReturn = [this, ""Chef du Pond west"", resistance, 20, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
@@ -2005,7 +2007,7 @@ class Mission
 						};
 					};
 					id=355;
-					atlOffset=-0.80470943;
+					atlOffset=-0.80489159;
 				};
 				class Item4
 				{
@@ -2651,7 +2653,7 @@ class Mission
 				};
 			};
 			id=308;
-			atlOffset=3.3623514;
+			atlOffset=3.3623495;
 		};
 		class Item18
 		{
@@ -4101,7 +4103,7 @@ class Mission
 			};
 			id=845;
 			type="LIB_Zis3";
-			atlOffset=-2.0924935;
+			atlOffset=-2.0924835;
 		};
 	};
 	class Connections

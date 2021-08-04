@@ -126,7 +126,6 @@ with missionNamespace do {
 	} else {
 		CTI_AI_SKILL_BASE = switch (CTI_TOWNS_RESISTANCE) do {case 0: {0.05}; case 1: {0.25}; case 3: {0.65}; case 4: {0.80}; default {0.45}};
 	};
-	
 };
 //-----------------------------------------------------------------------------------------------------------------------//
 

@@ -1,4 +1,4 @@
-version=53;
+version=54;
 class EditorData
 {
 	moveGridStep=2.1999998;
@@ -16,17 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3345;
+		nextID=3609;
 	};
 	class Camera
 	{
-		pos[]={151.31,93.466782,7732.8584};
-		dir[]={-0.27682132,-0.62321466,0.73144245};
-		up[]={-0.22059913,0.78203022,0.58288473};
-		aside[]={0.93527776,6.7748806e-007,0.35396555};
+		pos[]={643.03113,158.26436,3439.5449};
+		dir[]={0.021907659,-0.23026165,0.97288972};
+		up[]={0.0051837089,0.97312701,0.23020531};
+		aside[]={0.99975103,3.487753e-008,-0.0225114};
 	};
 };
 binarizationWanted=0;
+sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
@@ -71,9 +72,9 @@ randomSeed=7728140;
 class ScenarioData
 {
 	author="Benny,dukee";
-	overviewText="WW2 - BECTI -  V2.0";
-	overviewTextLocked="WW2 - BECTI -  V2.0";
-	onLoadMission="WW2 - BECTI -  V2.0";
+	overviewText="VIO-BECTI-WW2 V2.0";
+	overviewTextLocked="VIO-BECTI-WW2 V2.0";
+	onLoadMission="VIO-BECTI-WW2 V2.0";
 	respawnDialog=0;
 	respawn=3;
 	class Header
@@ -143,8 +144,8 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="WW2 - BECTI -  V2.0";
-		overviewText="WW2 - BECTI - [IFA3] V2.0";
+		briefingName="VIO-BECTI-WW2 V2.0";
+		overviewText="VIO-BECTI-WW2 V2.0";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -983,14 +984,14 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={2479.0991,25.918272,4813.644};
+								position[]={2479.0991,25.613272,4813.644};
 								angles[]={0,4.7344499,0};
 							};
 							name="Town13";
 							init="call{nullReturn = [this, ""Sector D3"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf"" }";
 							id=310;
 							type="LocationArea_F";
-							atlOffset=0.30500221;
+							atlOffset=1.9073486e-006;
 						};
 						class Item1
 						{
@@ -1016,7 +1017,7 @@ class Mission
 						};
 					};
 					id=309;
-					atlOffset=-1.828783;
+					atlOffset=-1.9050312;
 				};
 				class Item1
 				{
@@ -1234,14 +1235,13 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={451.51901,32.505421,3646.749};
+								position[]={451.51901,31.640419,3646.749};
 								angles[]={0.039985489,1.9604236,0.020001473};
 							};
 							name="Town19";
 							init="call{nullReturn = [this, ""Sector E1"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=325;
 							type="LocationArea_F";
-							atlOffset=0.86500168;
 						};
 						class Item1
 						{
@@ -1267,7 +1267,7 @@ class Mission
 						};
 					};
 					id=324;
-					atlOffset=4.4424057;
+					atlOffset=4.2261581;
 				};
 				class Item5
 				{
@@ -2487,18 +2487,17 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={7669.4229,9.8842888,3713.7151};
+								position[]={7669.4229,9.3102884,3713.7151};
 								angles[]={0.006248279,2.9599912,0.01123992};
 							};
 							name="Town26";
 							init="call{nullReturn = [this, ""Sector E8"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=617;
 							type="LocationArea_F";
-							atlOffset=0.57400036;
 						};
 					};
 					id=601;
-					atlOffset=-0.33732891;
+					atlOffset=-0.62432861;
 				};
 				class Item27
 				{
@@ -2665,18 +2664,17 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={7509.3008,12.911478,2612.863};
+								position[]={7509.3008,12.493478,2612.863};
 								angles[]={0,1.9100535,0};
 							};
 							name="Town34";
 							init="call{nullReturn = [this, ""Sector F8"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=611;
 							type="LocationArea_F";
-							atlOffset=0.41800022;
 						};
 					};
 					id=604;
-					atlOffset=-0.18333054;
+					atlOffset=-0.39233112;
 				};
 				class Item30
 				{
@@ -2737,18 +2735,17 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={3649.592,30.706285,1677.052};
+								position[]={3649.592,30.353285,1677.052};
 								angles[]={0,1.1586891,0};
 							};
 							name="Town38";
 							init="call{nullReturn = [this, ""Sector G4"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=607;
 							type="LocationArea_F";
-							atlOffset=0.35300064;
 						};
 					};
 					id=606;
-					atlOffset=-1.8738022;
+					atlOffset=-2.0503044;
 				};
 				class Item32
 				{
@@ -2903,14 +2900,13 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={3657.8459,27.60268,5722.4219};
+								position[]={3657.8459,27.27968,5722.4219};
 								angles[]={0.049951322,0.51607639,6.2619443};
 							};
 							name="Town6";
 							init="call{nullReturn = [this, ""Sector C4"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=644;
 							type="LocationArea_F";
-							atlOffset=0.32299995;
 						};
 						class Item2
 						{
@@ -2926,7 +2922,7 @@ class Mission
 						};
 					};
 					id=628;
-					atlOffset=0.41219902;
+					atlOffset=0.3314476;
 				};
 				class Item36
 				{
@@ -3009,14 +3005,13 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={3496.0701,39.652157,6685.853};
+								position[]={3496.0701,39.474155,6685.853};
 								angles[]={0.01123992,4.4564366,0};
 							};
 							name="Town2";
 							init="call{nullReturn = [this, ""Sector B4"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=640;
 							type="LocationArea_F";
-							atlOffset=0.1780014;
 						};
 						class Item2
 						{
@@ -3032,7 +3027,7 @@ class Mission
 						};
 					};
 					id=630;
-					atlOffset=1.5423775;
+					atlOffset=1.4978752;
 				};
 				class Item38
 				{
@@ -3057,14 +3052,14 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={4366.3101,31.840302,6615.064};
+								position[]={4366.3101,31.404301,6615.064};
 								angles[]={0.022497294,4.9994431,6.2694321};
 							};
 							name="Town3";
 							init="call{nullReturn = [this, ""Sector B5"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=638;
 							type="LocationArea_F";
-							atlOffset=0.43600273;
+							atlOffset=1.9073486e-006;
 						};
 						class Item2
 						{
@@ -3079,7 +3074,7 @@ class Mission
 						};
 					};
 					id=631;
-					atlOffset=0.12968254;
+					atlOffset=0.020681381;
 				};
 				class Item39
 				{
@@ -3222,7 +3217,7 @@ class Mission
 				};
 			};
 			id=308;
-			atlOffset=4.0284224;
+			atlOffset=4.0194721;
 		};
 		class Item10
 		{
