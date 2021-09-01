@@ -49,55 +49,37 @@ if(CTI_VIO_ADDON == 0) then {
 	
 
 	_c pushBack format["%1LIB_leFH18", _x];
-	//_m pushBack ["LIB_Shell_105L28_Gr38_HE","LIB_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr38_HE"];
 	_m pushBack ["LIB_20x_Shell_105L28_Gr38_HE","LIB_20x_Shell_105L28_Gr39HlC_HE"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[390,2200], [880,5000], [1840,10500], [1840,10500]];
 
 
 	_c pushBack format["%1LIB_FlaK_36_ARTY", _x];
-	//_m pushBack ["LIB_21x_SprGr_KwK36_HE","LIB_45x_SprGr_KwK36_HE","LIB_SprGr_KwK36_HE"];
 	_m pushBack ["LIB_SprGr_KwK36_HE"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[790,5000], [1270,8100], [2210,14100], [2210,14100]];
 	
 	_c pushBack format["%1LIB_FlaK_36_ARTY_w", _x];
-	//_m pushBack ["LIB_21x_SprGr_KwK36_HE","LIB_45x_SprGr_KwK36_HE","LIB_SprGr_KwK36_HE"];
 	_m pushBack ["LIB_SprGr_KwK36_HE"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[790,5000], [1270,8100], [2210,14100], [2210,14100]];
 	
 	_c pushBack format["%1LIB_DAK_FlaK_36_ARTY", _x];
-	//_m pushBack ["LIB_21x_SprGr_KwK36_HE","LIB_45x_SprGr_KwK36_HE","LIB_SprGr_KwK36_HE"];
 	_m pushBack ["LIB_SprGr_KwK36_HE"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[790,5000], [1270,8100], [2210,14100], [2210,14100]];
 
 
 	_c pushBack format["%1LIB_US6_BM13", _x];
-	//_m pushBack ["ARTY_40Rnd_120mmHE_BM21","LIB_16Rnd_BM13"];
 	_m pushBack ["LIB_16Rnd_BM13"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[950,1800], [1480,2900], [2130,4200], [2130,4200]];
 	
 
 	_c pushBack format["%1LIB_SdKfz124", _x];
-	//_m pushBack ["LIB_Shell_105L28_Gr38_HE","LIB_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr39HlC_HE","LIB_20x_Shell_105L28_Gr38_HE"];
 	_m pushBack ["LIB_20x_Shell_105L28_Gr38_HE","LIB_20x_Shell_105L28_Gr39HlC_HE"];
 	_b pushBack [1, 2, 4, 6, 8, 10];
 	_r pushBack [[390,2200], [880,5000], [1840,10550], [1840,10550]];
-
-	/*if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1Ifa3_p27", _x];
-		_m pushBack ["ifa3_50xUOF353","ifa3_40xUBR353"];
-		_b pushBack [1, 2, 4];
-		_r pushBack [[100,1000], [100,1500], [100,2000], [100,2500]];
-		
-		_c pushBack format["%1Ifa3_p27G", _x];
-		_m pushBack ["ifa3_50xUOF353","ifa3_40xUBR353"];
-		_b pushBack [1, 2, 4];
-		_r pushBack [[100,1000], [100,1500], [100,2000], [100,2500]];
-	};*/
 
 	if(CTI_IFA3_NEW > 0) then {
 		_c pushBack format["%1LIB_SdKfz251_2", _x];

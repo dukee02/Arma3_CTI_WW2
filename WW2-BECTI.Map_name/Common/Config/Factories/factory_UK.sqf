@@ -243,9 +243,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 	};
 	_c pushBack format["%1LIB_UniversalCarrier", _sid];	
 	
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_universalCarrier", _sid];
-	};
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
@@ -266,22 +263,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
 	_c pushBack format["%1LIB_Churchill_Mk7", _sid];
 	_c pushBack format["%1LIB_Churchill_Mk7_Crocodile", _sid];
 	
-	if(CTI_CSA38_ADDON > 0) then {
-		_c pushBack format["%1csa38_matildaii", _sid];
-		_c pushBack format["%1csa38_matildaii_1", _sid];
-		_c pushBack format["%1csa38_matildaii_2", _sid];
-		_c pushBack format["%1csa38_matildaii_3", _sid];
-		_c pushBack format["%1csa38_matildaii_4", _sid];
-		_c pushBack format["%1csa38_matildaii_5", _sid];
-		_c pushBack format["%1csa38_matildaii_6", _sid];
-		_c pushBack format["%1csa38_matildaiiCS", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_1", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_2", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_3", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_4", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_5", _sid];
-		_c pushBack format["%1csa38_matildaiiCS_6", _sid];
-	};
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_TRACKED >= 2) then {
@@ -303,9 +284,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 2) then {
 		_c pushBack format["%1LIB_M3A3_Stuart_UK", _sid];
 	};
 	
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_cromwell_uk", _sid];
-	};
 };
 //Level 3
 if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
@@ -330,19 +308,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 		_c pushBack format["%1LIB_UK_Italy_M4A3_75", _sid];
 	};
 	
-	if(CTI_CSA38_ADDON > 0) then {
-		_c pushBack format["%1csa38_valentineMkII", _sid];
-		_c pushBack format["%1csa38_valentineMkII2", _sid];
-		_c pushBack format["%1csa38_valentineMkII3", _sid];
-		_c pushBack format["%1csa38_valentineMkII4", _sid];
-		_c pushBack format["%1csa38_valentineMkII5", _sid];
-		_c pushBack format["%1csa38_valentineMkII6", _sid];
-		_c pushBack format["%1csa38_valentineMkIIgreen", _sid];
-		_c pushBack format["%1csa38_valentineMkIIgreen2", _sid];
-		_c pushBack format["%1csa38_valentineMkIIgreen3", _sid];
-		_c pushBack format["%1csa38_valentineMkIIgreen4", _sid];
-		_c pushBack format["%1csa38_valentineMkIIW", _sid];
-	};
 };
 //Level 4
 if(CTI_ECONOMY_LEVEL_TRACKED >= 4) then {
@@ -377,37 +342,15 @@ _c = [];
 _level = 0;
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_C47_RAF", _sid];
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_gladiator", _sid];
-	};
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_ca12bo", _sid];
-		_level = _level + 1;
-	};
+	_c pushBack format["%1LIB_HORSA_RAF", _sid];
+	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_RAF_P39", _sid];
 	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_mb5", _sid];
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_va_f6f_faa", _sid];
-		_c pushBack format["%1fow_va_f6f_c_faa", _sid];
-	};
-	if(CTI_SAB_ADDON > 0 || CTI_FOW_ADDON > 0) then {
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_meteor", _sid];
-	};
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR];
@@ -537,26 +480,6 @@ _c = [];
 if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 	_c pushBack format["%1LIB_UK_LCA", _sid];
 	_c pushBack format["%1LIB_UK_LCI", _sid];
-};
-if(CTI_SAB_ADDON == 1) then {
-	//Level 0
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
-		_c pushBack format["%1sab_boat_liberty_rn", _sid];
-		_c pushBack format["%1sab_boat_torpedo_rn", _sid];
-		_c pushBack format["%1sab_boat_subchaser_rn", _sid];
-	};
-	//Level 1
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 1) then {
-		_c pushBack format["%1sab_boat_destroyer_rn", _sid];
-	};
-	//Level 2
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 2) then {
-		_c pushBack format["%1sab_boat_cruiser_rn", _sid];
-	};
-	//Level 3
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 3) then {
-		_c pushBack format["%1sab_boat_battleship_rn", _sid];
-	};
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 

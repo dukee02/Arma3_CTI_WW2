@@ -63,7 +63,7 @@ class Params {
 		title = "Main Camo";
 		values[] = {0,1,2,3};
 		texts[] = {"Standard", "Winter", "Desert", "All active (Main = Standard)"};
-		default = 0;
+		default = 1;
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";

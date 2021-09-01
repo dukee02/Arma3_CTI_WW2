@@ -119,4 +119,3 @@ if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then
 }; 
 
 _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
-	

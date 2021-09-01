@@ -4,14 +4,14 @@ _sid = "";
 _building_time = 10;
 
 if(_side == west) then {
-	_sid = "VIOC_";
+	_sid = "VIOC_B_";
 	_faction = "West";
 } else {
 	if(_side == east) then {
-		_sid = "VIOC_";
+		_sid = "VIOC_O_";
 		_faction = "East";
 	} else {
-		_sid = "VIOC_";
+		_sid = "VIOC_I_";
 		_faction = "Resistance";
 	};
 };
@@ -27,7 +27,7 @@ _f = []; //--- Built from Factory.
 _s = []; //--- Script
 _d = []; //--- Extra Distance (From Factory)
 
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_GER.sqf", format["starting units declaration: _sid: [%1] | _faction: [%2]", _sid, _faction]] call CTI_CO_FNC_Log};
+if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_FFI.sqf", format["starting units declaration: _faction: [%1]", _faction]] call CTI_CO_FNC_Log};
 
 private _tech_level_no_upgrade_inv = 1;
 private _tech_level = 0;
@@ -42,8 +42,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_time = (1*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<3): {3}; case (_time>50): {50}; default {_time}};
 	
-	//_c pushBack format["%1LIB_FFI_Soldier_1", _sid];
-	_c pushBack format["LIB_FFI_Soldier_1", _sid];
+	_c pushBack format["%1LIB_FFI_Soldier_1", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -53,8 +52,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_FFI_Soldier_2", _sid];
-	_c pushBack format["LIB_FFI_Soldier_2", _sid];
+	_c pushBack format["%1LIB_FFI_Soldier_2", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -64,8 +62,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_FFI_Soldier_3", _sid];
-	_c pushBack format["LIB_FFI_Soldier_3", _sid];
+	_c pushBack format["%1LIB_FFI_Soldier_3", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -75,8 +72,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_FFI_Soldier_4", _sid];
-	_c pushBack format["LIB_FFI_Soldier_4", _sid];
+	_c pushBack format["%1LIB_FFI_Soldier_4", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -86,8 +82,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_FFI_Soldier_5", _sid];
-	_c pushBack format["LIB_FFI_Soldier_5", _sid];
+	_c pushBack format["%1LIB_FFI_Soldier_5", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -201,8 +196,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time}};
 	
-	//_c pushBack format["%1LIB_GazM1_FFI", _sid];
-	_c pushBack format["LIB_GazM1_FFI", _sid];
+	_c pushBack format["%1LIB_GazM1_FFI", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -212,8 +206,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_GazM1_FFI_camo", _sid];
-	_c pushBack format["LIB_GazM1_FFI_camo", _sid];
+	_c pushBack format["%1LIB_GazM1_FFI_camo", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -229,8 +222,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time}};
 	
-	//_c pushBack format["%1LIB_CIV_FFI_CitC4", _sid];
-	_c pushBack format["LIB_CIV_FFI_CitC4", _sid];
+	_c pushBack format["%1LIB_CIV_FFI_CitC4", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -240,8 +232,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_CIV_FFI_CitC4_2", _sid];
-	_c pushBack format["LIB_CIV_FFI_CitC4_2", _sid];
+	_c pushBack format["%1LIB_CIV_FFI_CitC4_2", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -251,8 +242,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_CIV_FFI_CitC4_3", _sid];
-	_c pushBack format["LIB_CIV_FFI_CitC4_3", _sid];
+	_c pushBack format["%1LIB_CIV_FFI_CitC4_3", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -262,8 +252,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_CIV_FFI_CitC4_4", _sid];
-	_c pushBack format["LIB_CIV_FFI_CitC4_4", _sid];
+	_c pushBack format["%1LIB_CIV_FFI_CitC4_4", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -273,8 +262,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	//_c pushBack format["%1LIB_CIV_FFI_CitC4_5", _sid];
-	_c pushBack format["LIB_CIV_FFI_CitC4_5", _sid];
+	_c pushBack format["%1LIB_CIV_FFI_CitC4_5", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));

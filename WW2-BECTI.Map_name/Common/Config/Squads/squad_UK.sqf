@@ -153,8 +153,6 @@ _m pushBack 200;
 _c pushBack "Motorized";
 _s pushBack [];
 
-
-
 //***************************************************************************************************************************************
 //														Armored																			*
 //***************************************************************************************************************************************
@@ -171,10 +169,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		units_to_add = [format["%1LIB_UniversalCarrier_desert", _sid], 1, 10];
-	};
-	
-	if(CTI_FOW_ADDON > 0) then {
-		units_to_add = [format["%1fow_v_universalCarrier", _sid], 1, 10];
 	};
 	units_tracked pushBack units_to_add;
 };
@@ -198,24 +192,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
 	};
 	units_tracked = [];
 	units_tracked pushBack units_to_add;
-	
-	if(CTI_CSA38_ADDON > 0) then {
-		units_to_add = [format["%1csa38_matildaii", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_1", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_2", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_3", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_4", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_5", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaii_6", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_1", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_2", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_3", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_4", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_5", _sid], 1, 30];
-		units_to_add pushBack [format["%1csa38_matildaiiCS_6", _sid], 1, 30];
-	};
-	units_tracked pushBack units_to_add;
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_TRACKED >= 2) then {
@@ -237,10 +213,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 2) then {
 			units_to_add pushBack [format["%1LIB_M3A3_Stuart_DR", _sid], 1, 40];
 			units_to_add pushBack [format["%1LIB_Cromwell_Mk6", _sid], 1, 40];
 		};
-	};
-	
-	if(CTI_FOW_ADDON > 0) then {
-		units_to_add pushBack [format["%1fow_v_cromwell_uk", _sid], 1, 40];
 	};
 	units_tracked pushBack units_to_add;
 };
@@ -265,21 +237,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 		if(CTI_IFA3_NEW > 0) then {
 			units_to_add pushBack [format["%1LIB_M5A1_Stuart_DR", _sid], 1, 40];
 		};
-	};
-	units_tracked pushBack units_to_add;
-	
-	if(CTI_CSA38_ADDON > 0) then {
-		units_to_add = [format["%1csa38_valentineMkII", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkII2", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkII3", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkII4", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkII5", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkII6", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkIIgreen", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkIIgreen2", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkIIgreen3", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkIIgreen4", _sid], 1, 40];
-		units_to_add pushBack [format["%1csa38_valentineMkIIW", _sid], 1, 40];
 	};
 	units_tracked pushBack units_to_add;
 };
@@ -345,42 +302,14 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 units_air = [];
-
 _level = 0;
+
 if(CTI_ECONOMY_LEVEL_AIR < 0) then {
 	units_air = units_infantry;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		units_air pushBack [format["%1sab_gladiator", _sid], 1, 40];
-	};
-	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		units_air pushBack [format["%1sab_ca12bo", _sid], 1, 60];
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	units_air pushBack [format["%1LIB_RAF_P39", _sid], 1, 60];
 	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		units_air pushBack [format["%1sab_mb5", _sid], 1, 40];
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		units_air pushBack [format["%1fow_va_f6f_faa", _sid], 1, 40];
-	};
-	if(CTI_SAB_ADDON > 0 || CTI_FOW_ADDON > 0) then {
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		units_air pushBack [format["%1sab_meteor", _sid], 1, 30];
-	};
 };
 
 _v pushBack "Air";

@@ -178,25 +178,16 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE_desert", _sid],1],[format["%1LIB_Churchill_Mk7_Howitzer_desert", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7_desert", _sid],1],[format["%1LIB_Churchill_Mk7_desert", _sid],1]];
 		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_matildaii", _sid],1],[format["%1csa38_matildaii", _sid],1]];
-		};
 	};
 	case 2: {
 		if(CTI_IFA3_NEW > 0) then {
 			TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart_UK", _sid],1],[format["%1LIB_M3A3_Stuart_UK", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7", _sid],1],[format["%1LIB_Churchill_Mk7", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
-			};
 		} else {
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Crocodile", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7", _sid],1],[format["%1LIB_Churchill_Mk7", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1]];
-			};
 		};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart_UK_W", _sid],1],[format["%1LIB_M3A3_Stuart_UK_W", _sid],1]];
@@ -207,25 +198,16 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 			TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart_DR", _sid],1],[format["%1LIB_M3A3_Stuart_DR", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7_desert", _sid],1],[format["%1LIB_Churchill_Mk7_desert", _sid],1]];
 		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_matildaii", _sid],1],[format["%1csa38_matildaii", _sid],1]];
-		};
 	};
 	case 3: {
 		if(CTI_IFA3_NEW > 0) then {
 			TRACKED_LIGHT = [[format["%1LIB_M5A1_Stuart_UK", _sid],1],[format["%1LIB_M5A1_Stuart_UK", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7", _sid],1],[format["%1LIB_Sherman_I", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
-			};
 		} else {
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Howitzer", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7", _sid],1],[format["%1LIB_UK_Italy_M4A3_75", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1]];
-			};
 		};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			if(CTI_IFA3_NEW > 0) then {
@@ -246,25 +228,16 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 			};
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7_desert", _sid],1],[format["%1LIB_UK_DR_M4A3_75", _sid],1]];
 		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_matildaii", _sid],1],[format["%1csa38_valentineMkII", _sid],1]];
-		};
 	};
 	case 4: {
 		if(CTI_IFA3_NEW > 0) then {
 			TRACKED_LIGHT = [[format["%1LIB_M5A1_Stuart_UK", _sid],1],[format["%1LIB_M5A1_Stuart_UK", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_IC_Firefly", _sid],1],[format["%1LIB_Sherman_I", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
-			};
 		} else {
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Howitzer", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1LIB_Cromwell_Mk4", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_M4A4_FIREFLY", _sid],1],[format["%1LIB_UK_Italy_M4A3_75", _sid],1]];
-			if(CTI_FOW_ADDON > 0) then {
-				TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1LIB_Cromwell_Mk6", _sid],1]];
-			};
 		};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			if(CTI_IFA3_NEW > 0) then {
@@ -283,9 +256,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 			} else {
 				TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Howitzer_desert", _sid],1]];
 			};
-		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_matildaii", _sid],1],[format["%1csa38_valentineMkII", _sid],1]];
 		};
 	};
 	default {
@@ -316,40 +286,14 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_gladiator", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_gladiator", _sid],1]];
-		};
-	};
-	case 1: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_ca12bo", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_ca12bo", _sid],1]];
-		};
-	};
+	case 0;
+	case 1;
 	case 2;
-	case 3: {
-		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_ca12bo", _sid],1]];
-		};
-	};
-	case 4: {
-		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mb5", _sid],1]];
-		};
-	};
+	case 3;
+	case 4;
 	case 5: {
 		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mb5", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_meteor", _sid],1]];
-		};
 	};
 	default {
 		AIR_FIGHTER = INFANTRY;

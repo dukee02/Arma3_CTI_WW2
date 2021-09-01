@@ -63,7 +63,7 @@ class Params {
 		title = "Main Camo";
 		values[] = {0,1,2,3};
 		texts[] = {"Standard", "Winter", "Desert", "All active (Main = Standard)"};
-		default = 0;
+		default = 1;
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";
@@ -119,14 +119,8 @@ class Params {
 		texts[] = {"Disable this units","0","1","2","3","4","5"};
 		default = 2; //5
 	};
-	class CTI_ECONOMY_UPGRADE_TIMECAP {
-		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
-		values[] = {300,400,500,600,700,800,900,1000,1100,1200};
-		texts[] = {"300s","400s","500s","600s","700s","800s","900s","1000s","1100s","1200s"};
-		default = 600; //600
-	};
 	class CTI_ECONOMY_TIME_MULTI {
-		title = "BASE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
+		title = "UPGRADE: Time multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
 		values[] = {1,2,3,4,5,6,8,10};
 		texts[] = {"1","2","3","4","5","6","8","10"};
 		default = 2; //5
@@ -475,8 +469,8 @@ class Params {
 	};
 	class CTI_TOWNS_AMOUNT {
 		title = "TOWNS: Amount";
-		values[] = {0,1,2,3,6}; //values[] = {0,1,2,3,4,5,6};
-		texts[] = {"Extra Small","Small","Medium","Large","Full"}; //texts[] = {"Extra Small","Small","Medium","Large","West","East","Full"};
+		values[] = {0,1,2,3,4,5,6};
+		texts[] = {"Extra Small","Small","Medium","Large","South","North","Full"};
 		default = 6;
 	};
 	class CTI_TOWNS_CAMPS_CREATE {
@@ -507,13 +501,13 @@ class Params {
 		title = "TOWNS: Occupation";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 2;
+		default = 3;
 	};
 	class CTI_TOWNS_RESISTANCE {
 		title = "TOWNS: Resistance";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 1;
+		default = 2;
 	};
 	class CTI_UNITS_TOWN_PURCHASE {
 		title = "TOWNS: Purchase Infantry";
@@ -529,8 +523,6 @@ class Params {
 	};
 	class CTI_TOWNS_STARTING_MODE {
 		title = "TOWNS: Starting Mode";
-		//values[] = {-1,0,1,2,3,4,5};
-		//texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
 		values[] = {0,1,2,3,4,5};
 		texts[] = {"Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
 		default = 0;
