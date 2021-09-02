@@ -613,6 +613,48 @@ class Params {
 		texts[] = {"1 KM","1.5 KM","2 KM","2.5 KM","3 KM","3.5 KM","4 KM","4.5 KM","5 KM"};
 		default = 5000;
 	};
+	class SEPARATOR_ADDONS {
+		title = "=========================== ADDONS ============================";
+		values[] = {1};
+		texts[] = {""};
+		default = 1;
+	};
+	/*class CTI_IFA3LIB_ADDON {
+		title = "ADDON: IFA3 Liberation";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};*/
+	class CTI_SABFL_ADDON {
+		title = "ADDON: SAB Flying Legends (adds some more Planes)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	class CTI_SABNL_ADDON {
+		title = "ADDON: SAB Naval Legends (adds more Ships)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	class CTI_SAB_ADDON {
+		title = "ADDON: SAB Secret Weapons (adds Ships and more Planes !but will change use on own risk!)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	/*class CTI_CSA38_ADDON {
+		title = "ADDON: CSA38";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	class CTI_FOW_ADDON {
+		title = "ADDON: FOW";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};*/
 	class SEPARATOR_LOG {
 		title = "=========================== LOG-DEBUG-AND-TESTING ============================";
 		values[] = {1};

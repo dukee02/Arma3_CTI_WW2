@@ -224,6 +224,15 @@ if(CTI_EAST_AI >= 0) then {
 	};
 };
 
+{
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Units\units_small_mods.sqf";
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_small_mods.sqf";
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_small_mods.sqf";
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_small_mods.sqf";
+} forEach [west,east,resistance];
+
+
+
 //--- Network communication handler
 "CTI_NetCom" addPublicVariableEventHandler {(_this select 1) Spawn CTI_CO_FNC_OnPVFReceived};
 
