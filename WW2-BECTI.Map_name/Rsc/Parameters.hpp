@@ -200,7 +200,7 @@ class Params {
 	class CTI_BASE_BUILDING_DAMAGE_SYSTEM {
 		title = "BASE: Handle Building destruction";
 		values[] = {0,1,2,3};
-		texts[] = {"delete building","repair building, no penalty","repair building with full prise, if can paied","repair building with half prise, if can paied"};
+		texts[] = {"delete building","autorepair building, no penalty (base nearly indestructible)","autorepair building with full prise, if can paied","autorepair building with half prise, if can paied"};
 		default = 0;
 	};
 	class CTI_BASE_FOB_MAX {
@@ -390,7 +390,7 @@ class Params {
 		default = -1;
 	};
 	class CTI_ARTILLERY_TIMEOUT {
-		title = "ARTILLERY: Delay between each fire mission";
+		title = "ARTILLERY: Delay between each fire mission (if Arty not Disabled or with Ballistic Computer)";
 		values[] = {0,60,120,180,240,300,600};
 		texts[] = {"Disabled","0","60","120","180","240","300","600"};
 		default = 180;
@@ -405,13 +405,13 @@ class Params {
 		title = "GAMEPLAY: Kick Team Swappers";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
-		default = 0;
+		default = 1;
 	};
 	class CTI_FIELDREPAIR_ENABLED {
 		title = "GAMEPLAY: Fieldrepair";
 		values[] = {0,1};
 		texts[] = {"Disabled", "Enabled"};
-		default = 1;
+		default = 0;
 	};
 	class SEPERATOR_RESPAWN {
 		title = "============ Respawn ============";
@@ -507,20 +507,14 @@ class Params {
 		title = "TOWNS: Occupation";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 3;
+		default = 2;
 	};
 	class CTI_TOWNS_RESISTANCE {
 		title = "TOWNS: Resistance";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 2;
+		default = 1;
 	};
-	/*class CTI_TOWNS_RESISTANCE_UNITS {
-		title = "TOWNS: Resistance Units";
-		values[] = {0,1,2};
-		texts[] = {"Poland","France","3rd Nation"};
-		default = 0;
-	};*/
 	class CTI_UNITS_TOWN_PURCHASE {
 		title = "TOWNS: Purchase Infantry";
 		values[] = {0,1};
@@ -545,7 +539,7 @@ class Params {
 		title = "TOWNS: Vehicle Lock";
 		values[] = {0,1,2,3};
 		texts[] = {"Unlocked","Locked (Resistance)","Locked (Occupation)","Locked (Resistance and Occupation)"};
-		default = 0;
+		default = 3;
 	};
 	/*class SEPERATOR_VEHICLES {
 		title = "============ Vehicles ============";
@@ -660,9 +654,8 @@ class Params {
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
-	};*/
-	class SEPARATOR_LOG {
-		title = "=========================== LOG ============================";
+	};*/class SEPARATOR_LOG {
+		title = "=========================== LOG-DEBUG-AND-TESTING ============================";
 		values[] = {1};
 		texts[] = {""};
 		default = 1;
@@ -671,7 +664,7 @@ class Params {
 		title = "AI: Teams";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled", "1/4 Slots", "1/2 Slots", "3/4 Slots", "All Slots"};
-		default = 1;
+		default = 0;
 	};
 	class CTI_AI_TEAMS_GROUPSIZE {
 		title = "AI: Team Size (AI)";

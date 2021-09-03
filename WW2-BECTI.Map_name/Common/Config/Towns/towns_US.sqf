@@ -98,10 +98,6 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 			WHEELED_HEAVY = [[format["%1LIB_US_NAC_Willys_MB_Hood", _sid],1],[format["%1LIB_US_NAC_Willys_MB_Hood", _sid],1]];
 			WHEELED_HEAVY = [[format["%1LIB_US_NAC_Willys_MB_Hood", _sid],1],[format["%1LIB_US_NAC_Willys_MB_Hood", _sid],1]];
 		};
-		if(CTI_IFA3LIB_ADDON > 0) then {
-			WHEELED_LIGHT = [[format["%1R71USA", _sid],1],[format["%1R71USA", _sid],1]];
-			WHEELED_HEAVY = [[format["%1R71USA", _sid],1],[format["%1R71USA", _sid],1]];
-		};
 	};
 	case 1: {
 		WHEELED_LIGHT = [[format["%1LIB_US_Willys_MB_M1919", _sid],1],[format["%1LIB_US_Willys_MB_M1919", _sid],1]];
@@ -113,9 +109,6 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 			WHEELED_HEAVY = [[format["%1LIB_US_NAC_Willys_MB_M1919", _sid],1],[format["%1LIB_US_NAC_Willys_MB_M1919", _sid],1]];
 			WHEELED_HEAVY = [[format["%1LIB_US_NAC_Willys_MB_M1919", _sid],1],[format["%1LIB_US_NAC_Willys_MB_M1919", _sid],1]];
-		};
-		if(CTI_IFA3LIB_ADDON > 0) then {
-			WHEELED_LIGHT = [[format["%1R71USA", _sid],1],[format["%1R71USA", _sid],1]];
 		};
 	};
 	case 2: {
@@ -157,6 +150,7 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		WHEELED_HEAVY = INFANTRY_MG;
 	};
 };
+
 if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
 	missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], WHEELED_HEAVY];
@@ -181,45 +175,21 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
 		TRACKED_MEDIUM = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
 		TRACKED_HEAVY = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
-		if(CTI_FOW_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1fow_v_lvta2_usa", _sid],1],[format["%1fow_v_lvta2_usa", _sid],1]];
-		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_HEAVY = [[format["%1csa38_m3a37AD2", _sid],1],[format["%1csa38_m3a37AD2", _sid],1]];
-		};
 	};
 	case 1: {
 		TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
 		TRACKED_MEDIUM = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M5A1_Stuart", _sid],1]];
 		TRACKED_HEAVY = [[format["%1LIB_M5A1_Stuart", _sid],1],[format["%1LIB_M5A1_Stuart", _sid],1]];
-		if(CTI_FOW_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1fow_v_lvta2_usa", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
-		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD2", _sid],1],[format["%1csa38_m3a37AD2", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_m5a17ADW", _sid],1],[format["%1csa38_m5a17ADW", _sid],1]];
-			TRACKED_HEAVY = [[format["%1csa38_cromwell_4EN", _sid],1],[format["%1csa38_cromwell_4EN", _sid],1]];
-		};
 	};
 	case 2: {
 		TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
 		TRACKED_MEDIUM = [[format["%1LIB_M5A1_Stuart", _sid],1],[format["%1LIB_M5A1_Stuart", _sid],1]];
 		TRACKED_HEAVY = [[format["%1LIB_M4A3_75", _sid],1],[format["%1LIB_M4A3_75", _sid],1]];
-		if(CTI_FOW_ADDON > 0) then {
-			TRACKED_HEAVY = [[format["%1IFa3_M4A3_75", _sid],1],[format["%1IFa3_M4A3_75_flame", _sid],1]];
-		};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			TRACKED_HEAVY = [[format["%1LIB_M4A3_75_w", _sid],1],[format["%1LIB_M4A3_75_w", _sid],1]];
 		};
 		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 			TRACKED_HEAVY = [[format["%1LIB_US_NAC_M4A3_75", _sid],1],[format["%1LIB_US_NAC_M4A3_75", _sid],1]];
-		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD2", _sid],1],[format["%1csa38_m5a17ADW", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_cromwell_C", _sid],1],[format["%1csa38_cromwell_C", _sid],1]];
-			if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-				TRACKED_MEDIUM = [[format["%1csa38_cromwell_CW", _sid],1],[format["%1csa38_cromwell_CW", _sid],1]];
-			};
 		};
 	};
 	case 3: {
@@ -236,13 +206,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 				TRACKED_HEAVY = [[format["%1LIB_M4E5_w", _sid],1],[format["%1LIB_M4E5_w", _sid],1]];
 			};
 		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD2", _sid],1],[format["%1csa38_m5a17ADW", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_cromwell_C", _sid],1],[format["%1csa38_cromwell_C", _sid],1]];
-			if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-				TRACKED_MEDIUM = [[format["%1csa38_cromwell_CW", _sid],1],[format["%1csa38_cromwell_CW", _sid],1]];
-			};
-		};
 	};
 	case 4: {
 		TRACKED_LIGHT = [[format["%1LIB_M3A3_Stuart", _sid],1],[format["%1LIB_M3A3_Stuart", _sid],1]];
@@ -252,13 +215,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		} else {
 			TRACKED_HEAVY = [[format["%1LIB_M4A3_76_HVSS", _sid],1],[format["%1LIB_M4A3_76_HVSS", _sid],1]];
 		};
-		if(CTI_CSA38_ADDON > 0) then {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD2", _sid],1],[format["%1csa38_m5a17ADW", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_cromwell_C", _sid],1],[format["%1csa38_cromwell_C", _sid],1]];
-			if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-				TRACKED_MEDIUM = [[format["%1csa38_cromwell_CW", _sid],1],[format["%1csa38_cromwell_CW", _sid],1]];
-			};
-		};
 	};
 	default {
 		TRACKED_LIGHT = INFANTRY;
@@ -266,6 +222,7 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		TRACKED_HEAVY = INFANTRY_AT;
 	};
 };
+
 if (isNil {missionNamespace getVariable format["%1TRACKED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1TRACKED_SQ_LIGHT", _tag], TRACKED_LIGHT];
 	missionNamespace setVariable [format["%1TRACKED_SQ_MEDIUM", _tag], TRACKED_MEDIUM];
@@ -288,26 +245,26 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0;
-	case 1;
-	case 2: {
+	case 0: {
 		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_US_P39_2", _sid],1]];
 		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 			AIR_BOMBER = [[format["%1LIB_US_NAC_P39", _sid],1]];
 		};
 	};
-	case 3;
-	case 4;
-	case 5: {
+	case 1;
+	case 2: {
 		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_P47", _sid],1]];
 	};
 	default {
-		AIR_FIGHTER = INFANTRY;
-		AIR_BOMBER = INFANTRY;
+		if(CTI_SAB_ADDON == 1) then {
+			AIR_FIGHTER = INFANTRY;
+			AIR_BOMBER = INFANTRY;
+		};
 	};
 };
+
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
 	missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
 	missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], AIR_BOMBER];

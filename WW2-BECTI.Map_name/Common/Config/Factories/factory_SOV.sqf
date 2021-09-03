@@ -214,13 +214,6 @@ _c = [];
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_c pushBack format["%1LIB_GazM1_SOV", _sid];	
 	_c pushBack format["%1LIB_GazM1_SOV_camo_sand", _sid];
-	
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1R71RusOlive", _sid];
-		_c pushBack format["%1R71RusGreenCamo", _sid];
-		_c pushBack format["%1R71RusDark", _sid];
-		_c pushBack format["%1R71RusGreen", _sid];
-	};
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
@@ -235,21 +228,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1LIB_Zis5v_Med", _sid];				//medic
 	//_c pushBack format["%1LIB_Zis6_Parm", _sid];				//repairtruck
 	//_c pushBack format["%1LIB_Zis5v_Fuel", _sid];				//fueltruck
-	
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_gaz55", _sid];				//medic
-		_c pushBack format["%1ifa3_gazaa", _sid];
-		_c pushBack format["%1ifa3_gazaa_dshk", _sid];
-		_c pushBack format["%1ifa3_gazaa_max", _sid];
-		_c pushBack format["%1ifa3_gazaa_IZ", _sid];
-		_c pushBack format["%1ifa3_gazaa_IZ_max", _sid];
-		_c pushBack format["%1ifa3_gaz", _sid];
-		_c pushBack format["%1ifa3_gaz2", _sid];
-		_c pushBack format["%1ifa3_ba64B", _sid];
-		_c pushBack format["%1ifa3_gaz55_van", _sid];
-		_c pushBack format["%1ifa3_gazaa_sap", _sid];
-		//_c pushBack format["%1ifa3_gazaa_eng", _sid];				//ammotruck
-	};
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
@@ -281,9 +259,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	//_c pushBack format["%1LIB_US6_Open_Cargo", _sid];
 	//_c pushBack format["%1LIB_US6_Open", _sid];
 	//_c pushBack format["%1LIB_US6_Ammo", _sid];					//ammotruck
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_Ba10", _sid];
-	};
 };
 //Level 4
 if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
@@ -312,13 +287,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_IFA3_NEW > 0) then {
 		_c pushBack format["%LIB_UniversalCarrier_SOV", _sid];
 	};
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1ifa3_t26_w", _sid];
-		};
-		_c pushBack format["%1ifa3_t26", _sid];
-		_c pushBack format["%1ifa3_t60", _sid];
-	};
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
@@ -332,17 +300,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_IFA3_NEW > 0) then {
 		_c pushBack format["%1LIB_M3A3_Stuart_SOV", _sid];
 	};
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_t34_76", _sid];
-		_c pushBack format["%1ifa3_t70m", _sid];
-		//_c pushBack format["%1ifa3_pz3J_sov", _sid];
-	};
-	if(CTI_CSA38_ADDON > 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1csa38_t34RU3", _sid];
-		};
-		_c pushBack format["%1csa38_t34RU1", _sid];
-	};
 	_level = _level + 1;
 };
 //Level 2
@@ -352,14 +309,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1LIB_SU85_w", _sid];
 	};
 	_c pushBack format["%1LIB_SU85", _sid];
-	if(CTI_CSA38_ADDON > 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1csa38_m3a3RU2", _sid];
-			_c pushBack format["%1csa38_matildaii_RU2", _sid];
-		};
-		_c pushBack format["%1csa38_m3a3RU1", _sid];
-		_c pushBack format["%1csa38_matildaii_RU1", _sid];
-	};
 	_level = _level + 1;
 };
 //Level 3
@@ -369,18 +318,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 	_c pushBack format["%1LIB_T34_85", _sid];
 	_c pushBack format["%1LIB_M4A2_SOV", _sid];
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_M4A2_SOV", _sid];
-		_c pushBack format["%1ifa3_kv1a", _sid];
-		_c pushBack format["%1ifa3_kv2", _sid];
-		_c pushBack format["%1ifa3_kv8", _sid];
-	};
-	if(CTI_CSA38_ADDON > 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1csa38_valentineMkIIRU2", _sid];
-		};
-		_c pushBack format["%1csa38_valentineMkIIRU1", _sid];
-	};
 	_level = _level + 1;
 };
 //Level 4
@@ -411,9 +348,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_Li2", _sid];
 	_level = _level + 1;
 };
-if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0 ) then {
-	_level = _level + 1;
-};
 //Level 2
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -431,9 +365,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_P39", _sid];
 	//_c pushBack format["%1LIB_RA_P39_3", _sid];
 	//_c pushBack format["%1LIB_RA_P39_2", _sid];
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_p39", _sid];
-	};
 	_level = _level + 1;
 };
 
@@ -478,9 +409,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		_c pushBack format["%1LIB_Zis5v_fuel_w", _sid];				//fueltruck
 	};
 	_c pushBack format["%1LIB_Zis5v_Fuel", _sid];						//fueltruck
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_gazaa_eng", _sid];						//ammotruck
-	};
 };
 //if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	//_c pushBack format["%1LIB_US6_Ammo", _sid];						//ammotruck
@@ -517,12 +445,6 @@ if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_c pushBack format["%1LIB_GazM1_SOV", _sid];	
 	_c pushBack format["%1LIB_GazM1_SOV_camo_sand", _sid];
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1R71RusOlive", _sid];
-		_c pushBack format["%1R71RusGreenCamo", _sid];
-		_c pushBack format["%1R71RusDark", _sid];
-		_c pushBack format["%1R71RusGreen", _sid];
-	};
 };
 if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
@@ -532,9 +454,6 @@ if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 		};
 		_c pushBack format["%1LIB_Zis5v_Fuel", _sid];						//fueltruck
 		_c pushBack format["%1LIB_Zis6_Parm", _sid];						//repairtruck
-		if(CTI_IFA3LIB_ADDON > 0) then {
-			_c pushBack format["%1ifa3_gazaa_eng", _sid];						//ammotruck
-		};
 	};
 	//if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 		//_c pushBack format["%1LIB_US6_Ammo", _sid];						//ammotruck
@@ -554,7 +473,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_DEPOT], _c];
 //														Naval Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
-/*_c = [];
+_c = [];
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 
@@ -565,4 +484,3 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_SOV.sqf", format["units in factory %1: [%2] ", CTI_NAVAL, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_NAVAL], _c];
-*/

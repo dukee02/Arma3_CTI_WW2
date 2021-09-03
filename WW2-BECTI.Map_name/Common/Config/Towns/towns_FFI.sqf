@@ -3,16 +3,16 @@ _sid = "";
 _tag = "";
 
 if(_side == west) then {
-	_sid = "VIOC_";
+	_sid = "VIOC_B_";
 	_tag = "WEST_";
 } 
 else {
 	if(_side == east) then {
-		_sid = "VIOC_";
+		_sid = "VIOC_O_";
 		_tag = "EAST_";
 	} 
 	else {
-		_sid = "VIOC_";
+		_sid = "VIOC_I_";
 		_tag = "GUER_";
 	};
 };
@@ -73,8 +73,7 @@ switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
 		};
 	};
 };
-/*
-if(CTI_VIO_ADDON == 0) then {
+/*if(CTI_VIO_ADDON == 0) then {
 	INFANTRY = [[format["%1LIB_FFI_Soldier_5", _sid],0],[format["%1LIB_FFI_Soldier_1", _sid],0],[format["%1LIB_FFI_Soldier_2", _sid],0],[format["%1LIB_FFI_Soldier_3", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0]];
 	INFANTRY_MG = [[format["%1LIB_FFI_Soldier_5", _sid],0],[format["%1LIB_FFI_Soldier_1", _sid],0],[format["%1LIB_FFI_Soldier_2", _sid],0],[format["%1LIB_FFI_Soldier_3", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0]];
 	INFANTRY_AT = [[format["%1LIB_FFI_Soldier_5", _sid],0],[format["%1LIB_FFI_Soldier_1", _sid],0],[format["%1LIB_FFI_Soldier_2", _sid],0],[format["%1LIB_FFI_Soldier_3", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0]];
@@ -82,8 +81,7 @@ if(CTI_VIO_ADDON == 0) then {
 	INFANTRY = [[format["%1FFI_MP_soldier", _sid],0],[format["%1FFI_medic", _sid],0],[format["%1LIB_FFI_Soldier_2", _sid],0],[format["%1LIB_FFI_Soldier_3", _sid],0],[format["%1LIB_FFI_Soldier_4", _sid],0],[format["%1FFI_sniper", _sid],0]];
 	INFANTRY_MG = [[format["%1FFI_MP_soldier", _sid],0],[format["%1FFI_medic", _sid],0],[format["%1FFI_MP_soldier", _sid],0],[format["%1FFI_MG_soldier", _sid],0],[format["%1FFI_MG_soldier", _sid],0],[format["%1FFI_AT_soldier", _sid],0]];
 	INFANTRY_AT = [[format["%1FFI_MP_soldier", _sid],0],[format["%1FFI_medic", _sid],0],[format["%1FFI_sniper", _sid],0],[format["%1FFI_HAT_soldier", _sid],0],[format["%1FFI_LAT_soldier", _sid],0],[format["%1FFI_AT_soldier", _sid],0]];
-};
-*/
+};*/
 missionNamespace setVariable [format["%1INFANTRY_SQ_LIGHT", _tag], INFANTRY];
 missionNamespace setVariable [format["%1INFANTRY_SQ_MG", _tag], INFANTRY_MG];
 missionNamespace setVariable [format["%1INFANTRY_SQ_AT", _tag], INFANTRY_AT];

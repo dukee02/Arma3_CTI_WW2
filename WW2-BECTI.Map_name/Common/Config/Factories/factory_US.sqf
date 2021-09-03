@@ -194,13 +194,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	};
 	_c pushBack format["%1LIB_US_Willys_MB", _sid];	
 	_c pushBack format["%1LIB_US_Willys_MB_Hood", _sid];	
-	
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1R71USA", _sid];
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_willys_usa", _sid];
-	};
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
@@ -224,11 +217,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//_c pushBack format["%1LIB_US_GMC_Fuel", _sid];					//fueltruck
 	//_c pushBack format["%1LIB_US_GMC_Parm", _sid];					//repairtruck
 	//_c pushBack format["%1LIB_US_GMC_Ammo", _sid];					//ammotruck
-	
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_gmc_usa", _sid];
-		_c pushBack format["%1fow_v_gmc_open_usa", _sid];
-	};
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
@@ -282,34 +270,12 @@ _c = [];
 _level = 0;
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1LIB_M3A3_Stuart", _sid];
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_lvta2_usa", _sid];
-	};
-	if(CTI_CSA38_ADDON > 0) then {
-		_c pushBack format["%1csa38_m3a37AD2", _sid];
-		_c pushBack format["%1csa38_m3a37AD3", _sid];
-		_c pushBack format["%1csa38_m3a37AD4", _sid];
-		_c pushBack format["%1csa38_m3a37AD5", _sid];
-		_c pushBack format["%1csa38_m3a37ADW", _sid];
-		_c pushBack format["%1csa38_m3a37ADW2", _sid];
-		_c pushBack format["%1csa38_m3a37ADW3", _sid];
-		_c pushBack format["%1csa38_m3a37ADW4", _sid];
-		_c pushBack format["%1csa38_m3a37ADW5", _sid];
-	};
+	
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1LIB_M5A1_Stuart", _sid];
 	
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_m5a1_usa", _sid];
-	};
-	if(CTI_CSA38_ADDON > 0) then {
-		_c pushBack format["%1csa38_m5a17ADW", _sid];
-		_c pushBack format["%1csa38_cromwell_4EN", _sid];
-		_c pushBack format["%1csa38_cromwell_DCSW", _sid];
-		_c pushBack format["%1csa38_cromwell_4ENW", _sid];
-	};
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
@@ -321,23 +287,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 	_c pushBack format["%1LIB_M4A3_75", _sid];
 	_c pushBack format["%1LIB_M4A3_75_Tubes", _sid];
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1IFa3_M4A3_75", _sid];
-	};
 	
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_v_m4a2_usa", _sid];
-	};
-	if(CTI_CSA38_ADDON > 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1csa38_cromwell_CW", _sid];
-			_c pushBack format["%1csa38_cromwell_DW", _sid];
-			_c pushBack format["%1csa38_cromwell_2W", _sid];
-		};
-		_c pushBack format["%1csa38_cromwell_C", _sid];
-		_c pushBack format["%1csa38_cromwell_D", _sid];
-		_c pushBack format["%1csa38_cromwell_2", _sid];
-	};
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
@@ -384,9 +334,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	//_c pushBack format["%1LIB_C47_RAF_snafu", _sid];
 	_level = _level + 1;
 };
-if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0 ) then {
-	_level = _level + 1;
-};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1LIB_US_NAC_P39", _sid];
@@ -399,7 +346,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_P47", _sid];
-	_level = _level + 1;
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR];
@@ -494,9 +440,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	};
 	_c pushBack format["%1LIB_US_Willys_MB", _sid];	
 	_c pushBack format["%1LIB_US_Willys_MB_Hood", _sid];
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1R71USA", _sid];	
-	};
 };
 if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
@@ -533,7 +476,6 @@ if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 	
 	/*class  	fow_usa_lcvp;*/
 };
-
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 

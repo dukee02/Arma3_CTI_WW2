@@ -99,30 +99,6 @@ _i pushBack "LIB_TM44_MINE_mag"; //Ger
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 100*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "LIB_1Rnd_G_SPRGR_30"; //Ger
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 10*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
-_i pushBack "LIB_1Rnd_G_PZGR_30"; //Ger
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
-_i pushBack "LIB_1Rnd_G_PZGR_40"; //Ger
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 30*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
-//Level 1
-//_tech_level = _tech_level + 1;
-//_i pushBack "ifa3_TS_BIG"; //All
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round 150*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
-//Level 2
-//_tech_level = _tech_level + 1;
-//_i pushBack "ifa3_TS_Small"; //All
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
 //----------------------Flares and Smokes------------------------------
 _tech_level = 0;
 _i pushBack "lib_1Rnd_flare_white";
@@ -267,27 +243,12 @@ _i pushBack "LIB_7Rnd_9x19";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round ((7*900*19)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-//_i pushBack "lib_m39_pist";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round ((8*900*19)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-
 _i pushBack "LIB_20Rnd_792x57";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round ((20*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-/*_i pushBack "LIB_1Rnd_PzFaust_30m";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
-
-_i pushBack "LIB_1Rnd_Faustpatrone";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));*/
-
 //Level 1
 _tech_level = _tech_level + 1;
-/*_i pushBack "LIB_1Rnd_PzFaust_60m";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));*/
 
 _i pushBack "LIB_8Rnd_81mmHE_GRWR34";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -330,10 +291,6 @@ _i pushBack "LIB_K98_LATE";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-//_i pushBack "LIB_K98_AWAR";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
 _i pushBack "LIB_MP38";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -362,10 +319,6 @@ _i pushBack "LIB_WaltherPPK";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-//_i pushBack "LIB_kampf_PISTOL";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
 _i pushBack "LIB_FLARE_PISTOL";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -392,10 +345,6 @@ _i pushBack "LIB_GrWr34_Tripod";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-//_i pushBack "LIB_Lafette_Tripod";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
 _i pushBack "LIB_PzFaust_60m";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -408,25 +357,9 @@ _i pushBack "LIB_MG34_PT";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-/*_i pushBack "lib_Mp18";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-_i pushBack "lib_Mp28";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-_i pushBack "lib_Mp35";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));*/
-
 _i pushBack "LIB_MP40";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-//_i pushBack "LIB_MP40_AWAR";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
 //Level 2
 _tech_level = _tech_level + 1;
@@ -449,14 +382,6 @@ _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL
 _i pushBack "LIB_G43";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-//_i pushBack "LIB_Mg30";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-//_i pushBack "Lib_Mp41r";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
 _i pushBack "LIB_RPzB";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -544,22 +469,25 @@ _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEV
 _i pushBack "U_LIB_DAK_Medic";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+
 //Winter
-_i pushBack "U_LIB_GER_Soldier3_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+if(CTI_IFA3_NEW == 0) then {
+	_i pushBack "U_LIB_GER_Soldier3_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "U_LIB_GER_Soldier_camo_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "U_LIB_GER_Soldier_camo_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "U_LIB_GER_Scharfschutze_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "U_LIB_GER_Scharfschutze_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "U_LIB_GER_Scharfschutze_2_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "U_LIB_GER_Scharfschutze_2_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+};
 
 
 //Level 1
@@ -618,9 +546,11 @@ _i pushBack "U_LIB_GER_Oberst";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 //Winter
-_i pushBack "U_LIB_GER_Hauptmann_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+if(CTI_IFA3_NEW == 0) then {
+	_i pushBack "U_LIB_GER_Hauptmann_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+};
 
 
 //-----------------------------------------Vests----------------------------------------------------
@@ -813,38 +743,41 @@ _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEV
 _i pushBack "H_LIB_DAK_PithHelmet";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+
 //Winter
-_i pushBack "H_LIB_GER_FSJ_M44_Helmet_Winter";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+if(CTI_IFA3_NEW == 0) then {
+	_i pushBack "H_LIB_GER_FSJ_M44_Helmet_Winter";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_Fieldcap_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_Fieldcap_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_Helmet_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_Helmet_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_Helmet_Glasses_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_Helmet_Glasses_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_HelmetCamo2b_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_HelmetCamo2b_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_HelmetCamob_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_HelmetCamob_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_Helmet_net_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_Helmet_net_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_Helmet_ns_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_Helmet_ns_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+};
 
 //Level 1
 _tech_level = _tech_level + 1;
@@ -869,18 +802,21 @@ _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEV
 _i pushBack "H_LIB_GER_HelmetCamo4";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+
 //Winter
-_i pushBack "H_LIB_GER_HelmetCamo4_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+if(CTI_IFA3_NEW == 0) then {
+	_i pushBack "H_LIB_GER_HelmetCamo4_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_HelmetCamo2_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_HelmetCamo2_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
 
-_i pushBack "H_LIB_GER_HelmetCamo_w";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_i pushBack "H_LIB_GER_HelmetCamo_w";
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+};
 
 
 //-------------------------------------------Glasses------------------------------------------------
@@ -910,21 +846,13 @@ _p pushBack 50;
 _tech_level = 0;
 _i pushBack "LIB_ACC_K98_Bayo";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2);
+_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
 
+//Level 1
+_tech_level = _tech_level + 1;
 _i pushBack "LIB_ACC_GW_SB_empty";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
-
-//Level 2
-_tech_level = _tech_level + 1;
-_i pushBack "optic_zf41";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*2);
-
-_i pushBack "LIB_Optic_Zf4";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*2);
 
 
 //------------------------------------------Items-------------------------------------------------
@@ -963,7 +891,5 @@ _p pushBack round 3000;
 _i pushBack "Medikit";
 _u pushBack 0;
 _p pushBack round 1500;
-
-
 
 [_faction, _i, _u, _p] call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_Config_Set.sqf";

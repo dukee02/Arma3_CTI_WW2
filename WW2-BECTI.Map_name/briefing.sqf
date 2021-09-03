@@ -30,7 +30,7 @@ player createDiaryRecord ["VIO-BECTI",["Changelog","
 Changes made to the 'VIO-BECTI' mission: <br/><br/>
 
 [V2.0] Changelog:<br/>
-Changed: Setup our CTI with WW2 units (IFA3/Sab/Lib) <br/>
+Changed: Setup our CTI with current IFA3 WW2 units <br/>
 Fixed: <br/>
 Added: <br/>
 

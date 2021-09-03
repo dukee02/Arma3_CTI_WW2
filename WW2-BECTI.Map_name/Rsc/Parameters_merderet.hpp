@@ -119,8 +119,14 @@ class Params {
 		texts[] = {"Disable this units","0","1","2","3","4","5"};
 		default = 2; //5
 	};
+	class CTI_ECONOMY_UPGRADE_TIMECAP {
+		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
+		values[] = {300,400,500,600,700,800,900,1000,1100,1200};
+		texts[] = {"300s","400s","500s","600s","700s","800s","900s","1000s","1100s","1200s"};
+		default = 600; //600
+	};
 	class CTI_ECONOMY_TIME_MULTI {
-		title = "UPGRADE: Time multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
+		title = "BASE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
 		values[] = {1,2,3,4,5,6,8,10};
 		texts[] = {"1","2","3","4","5","6","8","10"};
 		default = 2; //5
@@ -213,7 +219,7 @@ class Params {
 		title = "BASE: Start-up Placement";
 		values[] = {1000,2000,4000,6000,8000,10000};
 		texts[] = {"1KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
-		default = 6000;
+		default = 4000;
 	};
 	class CTI_BASE_WORKERS_LIMIT {
 		title = "BASE: Worker Limit";
@@ -231,7 +237,7 @@ class Params {
 		title = "INCOME: Delay";
 		values[] = {30,45,60,90,120,150,180,300};
 		texts[] = {"30 Seconds","45 Seconds","01:00 Minutes","01:30 Minutes","02:00 Minutes","02:30 Minutes","03:00 Minutes","05:00 Minutes"};
-		default = 120;
+		default = 30;
 	};
 	class CTI_ECONOMY_CURRENCY_SYSTEM {
 		title = "INCOME: Currency";
@@ -243,7 +249,7 @@ class Params {
 		title = "INCOME: Starting Funds (East Commander)";
 		values[] = {10000,15000,20000,25000,30000,35000,40000,45000,50000,60000,80000,100000,200000,300000,400000,500000,600000,700000,800000};
 		texts[] = {"$10000","$15000","$20000","$25000","$30000","$35000","$40000","$45000","$50000","$60000","$80000","$100000","$200000","$300000","$400000","$500000","$600000","$700000","$800000"};
-		default = 10000;
+		default = 20000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_EAST {
 		title = "INCOME: Starting Funds (East Players)";
@@ -255,13 +261,13 @@ class Params {
 		title = "INCOME: Starting Supply (East)";
 		values[] = {3000,5000,7000,9000,10000,20000,25000,50000,75000,110000,130000,150000,170000,200000,300000};
 		texts[] = {"S3000","S5000","S7000","S9000","S10000","S20000","S25000","S50000","S75000","S110000","S130000","S150000","S170000","S200000","S300000"};
-		default = 10000;
+		default = 25000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_WEST_COMMANDER {
 		title = "INCOME: Starting Funds (West Commander)";
 		values[] = {10000,15000,20000,25000,30000,35000,40000,45000,50000,60000,80000,100000,200000,300000,400000,500000,600000,700000,800000};
 		texts[] = {"$10000","$15000","$20000","$25000","$30000","$35000","$40000","$45000","$50000","$60000","$80000","$100000","$200000","$300000","$400000","$500000","$600000","$700000","$800000"};
-		default = 10000;
+		default = 20000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_WEST {
 		title = "INCOME: Starting Funds (West Players)";
@@ -273,7 +279,7 @@ class Params {
 		title = "INCOME: Starting Supply (West)";
 		values[] = {3000,5000,7000,9000,10000,20000,25000,50000,75000,110000,130000,150000,170000,200000,300000};
 		texts[] = {"S3000","S5000","S7000","S9000","S10000","S20000","S25000","S50000","S75000","S110000","S130000","S150000","S170000","S200000","S300000"};
-		default = 10000;
+		default = 25000;
 	};
 	class CTI_ECONOMY_TOWNS_OCCUPATION {
 		title = "INCOME: Towns Occupation";
@@ -469,8 +475,8 @@ class Params {
 	};
 	class CTI_TOWNS_AMOUNT {
 		title = "TOWNS: Amount";
-		values[] = {0,1,2,3,4,5,6};
-		texts[] = {"Extra Small","Small","Medium","Large","South","North","Full"};
+		values[] = {0,1,2,3,6}; //values[] = {0,1,2,3,4,5,6};
+		texts[] = {"Extra Small","Small","Medium","Large","Full"}; //texts[] = {"Extra Small","Small","Medium","Large","West","East","Full"};
 		default = 6;
 	};
 	class CTI_TOWNS_CAMPS_CREATE {
@@ -501,13 +507,13 @@ class Params {
 		title = "TOWNS: Occupation";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 3;
+		default = 2;
 	};
 	class CTI_TOWNS_RESISTANCE {
 		title = "TOWNS: Resistance";
 		values[] = {0,1,2,3,4};
 		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 2;
+		default = 1;
 	};
 	class CTI_UNITS_TOWN_PURCHASE {
 		title = "TOWNS: Purchase Infantry";
@@ -523,6 +529,8 @@ class Params {
 	};
 	class CTI_TOWNS_STARTING_MODE {
 		title = "TOWNS: Starting Mode";
+		//values[] = {-1,0,1,2,3,4,5};
+		//texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
 		values[] = {0,1,2,3,4,5};
 		texts[] = {"Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
 		default = 0;
