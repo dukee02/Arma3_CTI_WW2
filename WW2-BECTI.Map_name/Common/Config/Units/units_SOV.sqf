@@ -1674,43 +1674,11 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_f pushBack CTI_FACTORY_AIR;
 	_s pushBack "";
 	_d pushBack 0;
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_i16", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-	};
+	
 	_tech_level = _tech_level + 1;
 };
-if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_la5", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-		_c pushBack format["%1sab_la5_2", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-		_tech_level = _tech_level + 1;
-	};
+if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0) then {
+	_level = _level + 1;
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
@@ -1757,50 +1725,8 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_d pushBack 0;
 	//_c pushBack format["%1LIB_RA_P39_3", _sid];
 	//_c pushBack format["%1LIB_RA_P39_2", _sid];
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_p39", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-	};
+	
 	_tech_level = _tech_level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_tusb2", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-		_tech_level = _tech_level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_il2", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_AIR;
-		_s pushBack "";
-		_d pushBack 0;
-		_tech_level = _tech_level + 1;
-	};
 };
 
 //***************************************************************************************************************************************
@@ -1914,123 +1840,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
 _tech_level = 0;
-if(CTI_SAB_ADDON == 1) then {
-	//Level 0
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
-		_c pushBack format["%1sab_boat_freighter_i", _sid];
-		_p pushBack '';
-		_n pushBack 'Ammo Ship';
-		_o pushBack (10*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "service-ammotruck";
-		_d pushBack 50;
-		
-		_c pushBack format["%1sab_boat_liberty_i", _sid];
-		_p pushBack '';
-		_n pushBack 'Repair Ship';
-		_o pushBack (20*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "service-repairtruck";
-		_d pushBack 50;
-		
-		_c pushBack format["%1sab_boat_rubberboat3", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2;
-		_t pushBack (40*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		
-		_c pushBack format["%1sab_boat_torpedo_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack (40*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		
-		_c pushBack format["%1sab_boat_sreighter_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack (40*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		
-		_c pushBack format["%1sab_boat_subchaser_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack (40*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 10;
-	
-	};
-	//Level 1
-	_tech_level = _tech_level + 1;
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 1) then {
-		_c pushBack format["%1sab_boat_destroyer_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (5*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 50;
-		
-		_c pushBack format["%1sab_boat_u7_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (10*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 50;
-		
-	};
-	//Level 2
-	_tech_level = _tech_level + 1;
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 2) then {
-		_c pushBack format["%1sab_boat_cruiser_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (20*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 80;
-		
-	};
-	//Level 3
-	_tech_level = _tech_level + 1;
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 3) then {
-		_c pushBack format["%1sab_boat_battleship_i", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (30*((CTI_ECONOMY_PRIZE_NAVAL*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1))));
-		_t pushBack (30*(_tech_level+1));
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 100;
-		
-	};
-};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_SOV.sqf", format["units declared: [%1] ", count _c]] call CTI_CO_FNC_Log};
 

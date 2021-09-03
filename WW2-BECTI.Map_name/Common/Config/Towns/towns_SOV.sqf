@@ -307,60 +307,24 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_i16", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_i16", _sid],1]];
-		};
-	};
-	case 1: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_la5", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_i16", _sid],1]];
-		};
-	};
+	case 0;
+	case 1;
 	case 2: {
 		AIR_FIGHTER = [[format["%1LIB_Pe2", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_Pe2", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_la5", _sid],1]];
-		};
 	};
-	case 3: {
-		AIR_FIGHTER = [[format["%1LIB_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_Pe2", _sid],1]];
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			AIR_FIGHTER = [[format["%1LIB_P39_w", _sid],1]];
-		};
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_la5", _sid],1]];
-		};
-	};
-	case 4: {
-		AIR_FIGHTER = [[format["%1LIB_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_Pe2", _sid],1]];
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			AIR_FIGHTER = [[format["%1LIB_P39_w", _sid],1]];
-		};
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_BOMBER = [[format["%1sab_tusb2", _sid],1]];
-		};
-	};
+	case 3;
+	case 4;
 	case 5: {
 		AIR_FIGHTER = [[format["%1LIB_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_Pe2", _sid],1]];
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			AIR_FIGHTER = [[format["%1LIB_P39_w", _sid],1]];
 		};
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_BOMBER = [[format["%1sab_il2", _sid],1]];
-		};
 	};
 	default {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
-		};
+		AIR_FIGHTER = INFANTRY;
+		AIR_BOMBER = INFANTRY;
 	};
 };
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {

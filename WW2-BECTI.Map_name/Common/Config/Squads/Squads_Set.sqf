@@ -13,7 +13,13 @@ for '_i' from 0 to (count _v)-1 do {
 	_pool = [];
 	{ 
 		//--- Make sure that the pool contain valid units
-		//if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIO_DEBUG", "FILE: Common\Config\Squads\Squads_Set.sqf", format ["Set unit to Squad: <%1>", _x]] call CTI_CO_FNC_Log };
+		if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIO_DEBUG", "FILE: Common\Config\Squads\Squads_Set.sqf", format ["Set unit to Squad: <%1>", _x]] call CTI_CO_FNC_Log };
+		
+		if (_x select 0 isEqualType []) then {
+			_x = _x select 0;
+			//if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIO_DEBUG", "FILE: Common\Config\Squads\Squads_Set.sqf", format ["change unit to Squad: <%1>", _x]] call CTI_CO_FNC_Log };
+		};
+		
 		if (isClass(configFile >> "CfgVehicles" >> _x select 0)) then {
 			_pool pushBack _x;
 		} else {

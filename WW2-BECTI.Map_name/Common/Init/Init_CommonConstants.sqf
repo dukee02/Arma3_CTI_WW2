@@ -689,6 +689,7 @@ with missionNamespace do {
 	if (isNil 'CTI_SOV_SIDE') then {CTI_SOV_SIDE = 1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_US_SIDE') then {CTI_US_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_UK_SIDE') then {CTI_UK_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
+	if (isNil 'CTI_JPN_SIDE') then {CTI_JPN_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	
 	if (isNil 'CTI_WEST_AI') then {CTI_WEST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_EAST_AI') then {CTI_EAST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
@@ -797,9 +798,35 @@ with missionNamespace do {
 	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	
 	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
+	CTI_IFA3LIB_ADDON = 0;
 	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
+	
+	if (isNil 'CTI_SABFL_ADDON') then {
+		if (isClass(configFile >> "CfgVehicles" >> "sab_fl_bf109e")) then {
+			//check if the SABs new planes loaded, when loaded, we enable it by default
+			CTI_SABFL_ADDON = 1;
+		} else {
+			CTI_SABFL_ADDON = 0;
+		};
+	};
+	if (isNil 'CTI_SABNL_ADDON') then {
+		if (isClass(configFile >> "CfgVehicles" >> "sab_nl_mutsuki")) then {
+			//check if the SABs new ships loaded, when loaded, we enable it by default
+			CTI_SABNL_ADDON = 1;
+		} else {
+			CTI_SABNL_ADDON = 0;
+		};
+	};
+	if (isNil 'CTI_SAB_ADDON') then {
+		if (isClass(configFile >> "CfgVehicles" >> "sab_bf110")) then {
+			//check if the SABs old units loaded, when loaded, we enable it by default
+			CTI_SAB_ADDON = 1;
+		} else {
+			CTI_SAB_ADDON = 0;
+		};
+	};
 	
 	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};

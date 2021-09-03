@@ -435,18 +435,10 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_avia", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_bu131", _sid],1]];
-		};
-	};
+	case 0;
 	case 1;
 	case 2: {
 		AIR_BOMBER = [[format["%1ifa3_ju87_mg", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_bf109", _sid],1]];
-		};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			AIR_BOMBER = [[format["%1LIB_Ju87_w", _sid],1]];
 		};

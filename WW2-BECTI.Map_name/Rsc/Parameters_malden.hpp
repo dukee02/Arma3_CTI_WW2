@@ -623,30 +623,42 @@ class Params {
 		texts[] = {""};
 		default = 1;
 	};
-	class CTI_IFA3LIB_ADDON {
+	/*class CTI_IFA3LIB_ADDON {
 		title = "ADDON: IFA3 Liberation";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
+	};*/
+	class CTI_SABFL_ADDON {
+		title = "ADDON: SAB Flying Legends (adds some more Planes)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
 	};
-	class CTI_CSA38_ADDON {
-		title = "ADDON: CSA38 (only germans atm)";
+	class CTI_SABNL_ADDON {
+		title = "ADDON: SAB Naval Legends (adds more Ships)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	class CTI_SAB_ADDON {
+		title = "ADDON: SAB Secret Weapons (adds Ships and more Planes !but will change use on own risk!)";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};
+	/*class CTI_CSA38_ADDON {
+		title = "ADDON: CSA38";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
 	class CTI_FOW_ADDON {
 		title = "ADDON: FOW";
-		values[] = {0}; //values[] = {0,1};
-		texts[] = {"Disabled"}; //texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
-	class CTI_SAB_ADDON {
-		title = "ADDON: Secret Weapons (adds Ships and more Planes)";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
-	};
+	};*/
 	class SEPARATOR_LOG {
 		title = "=========================== LOG ============================";
 		values[] = {1};

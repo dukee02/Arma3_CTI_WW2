@@ -316,40 +316,14 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_gladiator", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_gladiator", _sid],1]];
-		};
-	};
-	case 1: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_ca12bo", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_ca12bo", _sid],1]];
-		};
-	};
+	case 0;
+	case 1;
 	case 2;
-	case 3: {
-		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_ca12bo", _sid],1]];
-		};
-	};
-	case 4: {
-		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mb5", _sid],1]];
-		};
-	};
+	case 3;
+	case 4;
 	case 5: {
 		AIR_FIGHTER = [[format["%1LIB_RAF_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_RAF_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mb5", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_meteor", _sid],1]];
-		};
 	};
 	default {
 		AIR_FIGHTER = INFANTRY;

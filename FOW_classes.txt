@@ -1,159 +1,227 @@
 // Export of 'WW2_FoW.Stratis' by dukee on v0.9
 
 
-fow_w_flak36_camo_ger_heer
-fow_w_flak36_gray_ger_heer
-fow_w_flak36_green_ger_heer
-fow_w_flak36_tan_ger_heer
-fow_w_pak40_camo_foliage_ger_heer
-fow_w_pak40_camo_ger_heer
-fow_w_pak40_yellow_ger_heer
-fow_w_pak40_gray_ger_heer
-
-fow_s_ger_heer_tankcrew_01_2nd_leutnant
-fow_s_ger_heer_tankcrew_01_gefreiter
-fow_s_ger_heer_tankcrew_01_obergefreiter
-fow_s_ger_heer_tankcrew_01_shutz
-fow_s_ger_heer_tankcrew_01_unteroffizier
-fow_s_ger_heer_tankcrew_02_2nd_leutnant
-fow_s_ger_heer_tankcrew_02_gefreiter
-fow_s_ger_heer_tankcrew_02_obergefreiter
-fow_s_ger_heer_tankcrew_02_shutz
-fow_s_ger_heer_tankcrew_02_unteroffizier
-
-fow_v_sdkfz_251_camo_ger_heer
-fow_v_sdkfz_251_camo_foliage_ger_heer
-fow_v_sdkfz_250_9_ger_heer
-fow_v_sdkfz_250_9_camo_foliage_ger_heer
-fow_v_sdkfz_250_9_camo_ger_heer
-fow_v_sdkfz_250_camo_ger_heer
-fow_v_sdkfz_250_camo_foliage_ger_heer
-fow_v_sdkfz_250_ger_heer
-
-fow_s_ger_heer_mg42_asst
-fow_s_ger_heer_mg42_sparebarrel
-fow_s_ger_heer_tl_mp40
-fow_s_ger_heer_tl_stg
-fow_s_ger_heer_tl_asst
-fow_s_ger_heer_mg34_gunner
-fow_s_ger_heer_mg42_gunner
-fow_s_ger_heer_medic
-fow_s_ger_heer_nco_mp40
-fow_s_ger_heer_radio_operator
-fow_s_ger_heer_rifleman
-fow_s_ger_heer_rifleman_g43
-fow_s_ger_heer_rifleman_mp40_pzf
-fow_s_ger_heer_rifleman_mp40
-
-fow_s_ger_heer_pzlehr_mg42_asst
-fow_s_ger_heer_pzlehr_mg42_sparebarrel
-fow_s_ger_heer_pzlehr_tl_mp40
-fow_s_ger_heer_pzlehr_tl_stg
-fow_s_ger_heer_pzlehr_tl_asst
-fow_s_ger_heer_pzlehr_mg34_gunner
-fow_s_ger_heer_pzlehr_mg42_gunner
-fow_s_ger_heer_pzlehr_medic
-fow_s_ger_heer_pzlehr_nco_mp40
-fow_s_ger_heer_pzlehr_radio_operator
-fow_s_ger_heer_pzlehr_rifleman
-fow_s_ger_heer_pzlehr_rifleman_g43
-fow_s_ger_heer_pzlehr_rifleman_mp40_pzf
-fow_s_ger_heer_pzlehr_rifleman_mp40
-
 fow_w_mg42_deployed_high_ger_heer
 fow_w_mg42_deployed_ger_heer
 fow_w_mg42_deployed_s_ger_heer
 fow_w_mg42_deployed_middle_ger_heer
+fow_w_pak40_camo_foliage_ger_heer
+fow_w_pak40_camo_ger_heer
+fow_w_pak40_yellow_ger_heer
+fow_w_pak40_gray_ger_heer
+fow_w_flak36_camo_ger_heer
+fow_w_flak36_gray_ger_heer
+fow_w_flak36_green_ger_heer
+fow_w_flak36_tan_ger_heer
 
-fow_v_panther_ger_heer
-fow_v_panther_camo_foliage_ger_heer
-fow_v_panther_camo_ger_heer
 
-fow_v_kubelwagen_ger_heer
-fow_v_kubelwagen_camo_ger_heer
-fow_v_kubelwagen_mg34_ger_heer
-fow_v_sdkfz_222_ger_heer
-fow_v_sdkfz_222_foliage_ger_heer
-fow_v_sdkfz_222_camo_ger_heer
-fow_v_sdkfz_234_1
-fow_v_truppenfahrrad_ger_heer
 
+
+
+fow_s_ger_heer_tankcrew_01_shutz
+fow_s_ger_heer_tankcrew_01_gefreiter
+fow_s_ger_heer_tankcrew_01_obergefreiter
+fow_s_ger_heer_tankcrew_01_unteroffizier
+fow_s_ger_heer_tankcrew_01_2nd_leutnant
+fow_s_ger_heer_tankcrew_02_shutz
+fow_s_ger_heer_tankcrew_02_gefreiter
+fow_s_ger_heer_tankcrew_02_obergefreiter
+fow_s_ger_heer_tankcrew_02_unteroffizier
+fow_s_ger_heer_tankcrew_02_2nd_leutnant
+
+//tech 0
+fow_s_ger_heer_rifleman
+fow_s_ger_heer_mg42_asst
+fow_s_ger_heer_mg42_sparebarrel
+fow_s_ger_heer_tl_mp40
+fow_s_ger_heer_medic
+fow_s_ger_heer_radio_operator
+fow_s_ger_heer_rifleman_mp40_pzf
+fow_s_ger_heer_rifleman_mp40
+
+//tech 1
+fow_s_ger_heer_rifleman_g43
+fow_s_ger_heer_tl_asst
+fow_s_ger_heer_mg34_gunner
+fow_s_ger_heer_nco_mp40
+
+//tech 2
+fow_s_ger_heer_tl_stg
+fow_s_ger_heer_mg42_gunner
+
+
+fow_s_ger_heer_pzlehr_mg42_asst
+fow_s_ger_heer_pzlehr_mg42_sparebarrel
+fow_s_ger_heer_pzlehr_tl_mp40
+fow_s_ger_heer_pzlehr_medic
+fow_s_ger_heer_pzlehr_radio_operator
+fow_s_ger_heer_pzlehr_rifleman
+fow_s_ger_heer_pzlehr_rifleman_mp40_pzf
+fow_s_ger_heer_pzlehr_rifleman_mp40
+
+fow_s_ger_heer_pzlehr_tl_asst
+fow_s_ger_heer_pzlehr_mg34_gunner
+fow_s_ger_heer_pzlehr_nco_mp40
+fow_s_ger_heer_pzlehr_rifleman_g43
+
+fow_s_ger_heer_pzlehr_tl_stg
+fow_s_ger_heer_pzlehr_mg42_gunner
+
+//FSJ green
 fow_s_ger_luft_mg42_asst
 fow_s_ger_luft_mg42_sparebarrel
-fow_s_ger_luft_mg34_gunner
-fow_s_ger_luft_mg42_gunner
 fow_s_ger_luft_medic
-fow_s_ger_luft_nco_mp40
 fow_s_ger_luft_radio_operator
 fow_s_ger_luft_rifleman
-fow_s_ger_luft_rifleman_fg42
-fow_s_ger_luft_rifleman_g43
 fow_s_ger_luft_rifleman_mp40
+
 fow_s_ger_luft_tl_mp40
+fow_s_ger_luft_mg34_gunner
+fow_s_ger_luft_nco_mp40
+fow_s_ger_luft_rifleman_g43
+fow_s_ger_luft_rifleman_fg42
+
+fow_s_ger_luft_mg42_gunner
 fow_s_ger_luft_tl_stg
 
+//FSJ camo desert mix
 fow_s_ger_luft_italy_mg42_asst
 fow_s_ger_luft_italy_mg42_sparebarrel
-fow_s_ger_luft_italy_mg34_gunner
-fow_s_ger_luft_italy_mg42_gunner
 fow_s_ger_luft_italy_medic
-fow_s_ger_luft_italy_nco_mp40
 fow_s_ger_luft_italy_radio_operator
 fow_s_ger_luft_italy_rifleman
+fow_s_ger_luft_italy_rifleman_mp40
+
+fow_s_ger_luft_italy_mg34_gunner
+fow_s_ger_luft_italy_tl_mp40
+fow_s_ger_luft_italy_nco_mp40
 fow_s_ger_luft_italy_rifleman_fg42
 fow_s_ger_luft_italy_rifleman_g43
-fow_s_ger_luft_italy_rifleman_mp40
-fow_s_ger_luft_italy_tl_mp40
+
+fow_s_ger_luft_italy_mg42_gunner
 fow_s_ger_luft_italy_tl_stg
 
+//FSJ camo green
 fow_s_ger_luft_camo_mg42_asst
 fow_s_ger_luft_camo_mg42_sparebarrel
-fow_s_ger_luft_camo_mg42_gunner
-fow_s_ger_luft_camo_mg34_gunner
 fow_s_ger_luft_camo_medic
-fow_s_ger_luft_camo_nco_mp40
 fow_s_ger_luft_camo_radio_operator
 fow_s_ger_luft_camo_rifleman
+fow_s_ger_luft_camo_rifleman_mp40
+
+fow_s_ger_luft_camo_mg34_gunner
+fow_s_ger_luft_camo_nco_mp40
+fow_s_ger_luft_camo_tl_mp40
 fow_s_ger_luft_camo_rifleman_fg42
 fow_s_ger_luft_camo_rifleman_g43
-fow_s_ger_luft_camo_rifleman_mp40
-fow_s_ger_luft_camo_tl_mp40
+
+fow_s_ger_luft_camo_mg42_gunner
 fow_s_ger_luft_camo_tl_stg
 
+//FSJ camo brown
 fow_s_ger_luft_camo2_mg42_asst
 fow_s_ger_luft_camo2_mg42_sparebarrel
-fow_s_ger_luft_camo2_mg42_gunner
-fow_s_ger_luft_camo2_mg34_gunner
 fow_s_ger_luft_camo2_medic
-fow_s_ger_luft_camo2_nco_mp40
 fow_s_ger_luft_camo2_radio_operator
 fow_s_ger_luft_camo2_rifleman
+fow_s_ger_luft_camo2_rifleman_mp40
+
+fow_s_ger_luft_camo2_nco_mp40
+fow_s_ger_luft_camo2_mg34_gunner
+fow_s_ger_luft_camo2_tl_mp40
 fow_s_ger_luft_camo2_rifleman_fg42
 fow_s_ger_luft_camo2_rifleman_g43
-fow_s_ger_luft_camo2_rifleman_mp40
-fow_s_ger_luft_camo2_tl_mp40
+
+fow_s_ger_luft_camo2_mg42_gunner
 fow_s_ger_luft_camo2_tl_stg
 
+//SS peadot
 fow_s_ger_ss_mg42_asst
 fow_s_ger_ss_mg42_sparebarrel
-fow_s_ger_ss_mg34_gunner
-fow_s_ger_ss_mg42_gunner
 fow_s_ger_ss_medic
 fow_s_ger_ss_nco_mp40
 fow_s_ger_ss_radio_operator
 fow_s_ger_ss_rifleman
-fow_s_ger_ss_rifleman_g43
 fow_s_ger_ss_rifleman_mp40
+
 fow_s_ger_ss_tl_mp40
+fow_s_ger_ss_rifleman_g43
+fow_s_ger_ss_mg34_gunner
+
+fow_s_ger_ss_mg42_gunner
 fow_s_ger_ss_tl_stg
 
+
+
+
+
+//tech 0
+fow_v_truppenfahrrad_ger_heer
+fow_v_truppenfahrrad_ger_ss
+fow_v_kubelwagen_ger_heer
+fow_v_kubelwagen_camo_ger_heer
+fow_v_sdkfz_250_camo_ger_heer
+fow_v_sdkfz_250_camo_foliage_ger_heer
+fow_v_sdkfz_250_ger_heer
+
+//tech 1
+fow_v_kubelwagen_mg34_ger_heer
+fow_v_sdkfz_250_9_ger_heer
+fow_v_sdkfz_250_9_camo_foliage_ger_heer
+fow_v_sdkfz_250_9_camo_ger_heer
+
+//tech 2
+fow_v_sdkfz_251_camo_ger_heer
+fow_v_sdkfz_251_camo_foliage_ger_heer
+
+//tech 3
+fow_v_sdkfz_222_ger_heer
+fow_v_sdkfz_222_foliage_ger_heer
+fow_v_sdkfz_222_camo_ger_heer
 fow_v_sdkfz_222_ger_ss
 fow_v_sdkfz_222_foliage_ger_ss
 fow_v_sdkfz_222_camo_ger_ss
 fow_v_sdkfz_222_camo_foliage_ger_ss
-fow_v_truppenfahrrad_ger_ss
 
+//tech 4
+fow_v_sdkfz_234_1
+
+
+
+//tech 4
+fow_v_panther_ger_heer
+fow_v_panther_camo_foliage_ger_heer
+fow_v_panther_camo_ger_heer
+
+
+
+//------------------------------------------------------------------------------------------------------
+//japain units
+fow_w_type92_tripod_ija
+fow_w_type92_tripod_high_ija
+fow_w_type92_tripod_low_s_ija
+fow_w_type92_tripod_low_ija
+fow_w_type92_tripod_middle_ija
+fow_w_type97_mortar_ija
+fow_w_type97_mortar_adv_ija
 fow_w_6Pounder_ija
+
+//yellow brown
+fow_s_ija_type99_asst
+fow_s_ija_type99_gunner
+fow_s_ija_medic
+fow_s_ija_nco
+fow_s_ija_officer
+fow_s_ija_rifleman
+fow_s_ija_rifleman_at
+//green
+fow_s_ija_snlf_type99_asst
+fow_s_ija_snlf_type99_gunner
+fow_s_ija_snlf_medic
+fow_s_ija_snlf_nco
+fow_s_ija_snlf_rifleman
+fow_s_ija_snlf_rifleman_at
+//bush camo
 fow_s_ija_crewman
 fow_s_ija_pilot
 fow_s_ija_f_type99_asst
@@ -164,374 +232,299 @@ fow_s_ija_f_officer
 fow_s_ija_f_rifleman
 fow_s_ija_f_rifleman_at
 
-fow_s_ija_snlf_type99_asst
-fow_s_ija_snlf_type99_gunner
-fow_s_ija_snlf_medic
-fow_s_ija_snlf_nco
-fow_s_ija_snlf_rifleman
-fow_s_ija_snlf_rifleman_at
-fow_s_ija_type99_asst
-fow_s_ija_type99_gunner
-fow_s_ija_medic
-fow_s_ija_nco
-fow_s_ija_officer
-fow_s_ija_rifleman
-fow_s_ija_rifleman_at
 
-fow_w_type97_mortar_ija
-fow_w_type97_mortar_adv_ija
-fow_w_type92_tripod_ija
-fow_w_type92_tripod_high_ija
-fow_w_type92_tripod_low_s_ija
-fow_w_type92_tripod_low_ija
-fow_w_type92_tripod_middle_ija
-
-fow_ija_type95_HaGo_1_ija
-fow_ija_type95_HaGo_2_ija
-fow_ija_type95_HaGo_3_ija
 fow_v_type97_truck_fuel_ija
 fow_v_type97_truck_ija
 fow_v_type97_truck_open_ija
 fow_v_type97_truck_utility_ija
 
+
+fow_ija_type95_HaGo_1_ija
+fow_ija_type95_HaGo_2_ija
+fow_ija_type95_HaGo_3_ija
+
+
 fow_va_a6m_green
 fow_va_a6m_white
 
-fow_s_aus_at_asst
-fow_s_aus_at_asst_l
-fow_s_aus_bren_asst
-fow_s_aus_bren_asst_l
-fow_s_aus_at
-fow_s_aus_at_l
-fow_s_aus_bren_gunner
-fow_s_aus_bren_gunner_l
-fow_s_aus_medic
-fow_s_aus_medic_l
-fow_s_aus_officer
-fow_s_aus_officer_l
-fow_s_aus_rifleman
-fow_s_aus_rifleman_l
-fow_s_aus_section_commander
-fow_s_aus_section_commander_l
-fow_s_aus_teamleader
-fow_s_aus_teamleader_l
-
-fow_s_hi_crewman
-fow_s_hi_at_asst
-fow_s_hi_at_asst_l
-fow_s_hi_bar_asst
-fow_s_hi_bar_asst_l
-fow_s_hi_m1919a6_asst
-fow_s_hi_m1919a6_asst_l
-fow_s_hi_at
-fow_s_hi_at_l
-fow_s_hi_bar_gunner
-fow_s_hi_bar_gunner_l
-fow_s_hi_m1919a6_gunner
-fow_s_hi_m1919a6_gunner_l
-fow_s_hi_medic
-fow_s_hi_medic_l
-fow_s_hi_nco
-fow_s_hi_nco_l
-fow_s_hi_officer
-fow_s_hi_officer_l
-fow_s_hi_radio_operator
-fow_s_hi_radio_operator_l
-fow_s_hi_rifleman
-fow_s_hi_rifleman_l
-fow_s_hi_rifleman_m1912
-fow_s_hi_rifleman_m1912_l
-fow_s_hi_rifleman_scout
-fow_s_hi_rifleman_scout_l
-fow_s_hi_sniper_m1903a1
-fow_s_hi_sniper_m1903a1_l
-fow_s_hi_teamleader
-fow_s_hi_teamleader_l
-fow_s_hi_teamleader_asst
-fow_s_hi_teamleader_asst_l
-fow_s_hi_smg_m55
-fow_s_hi_smg_m55_l
-
-fow_s_uk_bp_at_asst
-fow_s_uk_bp_bren_asst
-fow_s_uk_bp_at
-fow_s_uk_bp_bren_gunner
-fow_s_uk_bp_medic
-fow_s_uk_bp_officer
-fow_s_uk_bp_radio_operator
-fow_s_uk_bp_rifleman
-fow_s_uk_bp_section_commander
-fow_s_uk_bp_teamleader
-
-fow_s_uk_can_01_at_asst
-fow_s_uk_can_01_bren_asst
-fow_s_uk_can_01_at
-fow_s_uk_can_01_bren_gunner
-fow_s_uk_can_01_medic
-fow_s_uk_can_01_officer
-fow_s_uk_can_01_radio_operator
-fow_s_uk_can_01_rifleman
-fow_s_uk_can_01_section_commander
-fow_s_uk_can_01_teamleader
-fow_s_uk_can_02_at_asst
-fow_s_uk_can_02_bren_asst
-fow_s_uk_can_02_at
-fow_s_uk_can_02_bren_gunner
-fow_s_uk_can_02_medic
-fow_s_uk_can_02_officer
-fow_s_uk_can_02_radio_operator
-fow_s_uk_can_02_rifleman
-fow_s_uk_can_02_section_commander
-fow_s_uk_can_02_teamleader
-
+//------------------------------------------------------------------------------------------------------
+//UK
+fow_w_vickers_uk
 fow_w_6Pounder_uk
-fow_s_uk_cdo_at_asst
-fow_s_uk_cdo_bren_asst
-fow_s_uk_cdo_at
-fow_s_uk_cdo_bren_gunner
-fow_s_uk_cdo_medic
-fow_s_uk_cdo_officer
-fow_s_uk_cdo_radio_operator
-fow_s_uk_cdo_rifleman
-fow_s_uk_cdo_section_commander
-fow_s_uk_cdo_teamleader
 
-fow_s_uk_cdo_kieffer_bren_asst
-fow_s_uk_cdo_kieffer_bren_gunner
-fow_s_uk_cdo_kieffer_medic
-fow_s_uk_cdo_kieffer_officer
-fow_s_uk_cdo_kieffer_radio_operator
-fow_s_uk_cdo_kieffer_rifleman
-fow_s_uk_cdo_kieffer_section_commander
-fow_s_uk_cdo_kieffer_teamleader
-
-fow_s_uk_nl_cdo_bren_asst
-fow_s_uk_nl_cdo_bren_gunner
-fow_s_uk_nl_cdo_medic
-fow_s_uk_nl_cdo_officer
-fow_s_uk_nl_cdo_radio_operator
-fow_s_uk_nl_cdo_rifleman
-fow_s_uk_nl_cdo_section_commander
-fow_s_uk_nl_cdo_teamleader
-
-fow_s_uk_nor_cdo_bren_asst
-fow_s_uk_nor_cdo_bren_gunner
-fow_s_uk_nor_cdo_medic
-fow_s_uk_nor_cdo_officer
-fow_s_uk_nor_cdo_radio_operator
-fow_s_uk_nor_cdo_rifleman
-fow_s_uk_nor_cdo_section_commander
-fow_s_uk_nor_cdo_teamleader
-
-fow_s_uk_pol_cdo_bren_asst
-fow_s_uk_pol_cdo_bren_gunner
-fow_s_uk_pol_cdo_medic
-fow_s_uk_pol_cdo_officer
-fow_s_uk_pol_cdo_radio_operator
-fow_s_uk_pol_cdo_rifleman
-fow_s_uk_pol_cdo_section_commander
-fow_s_uk_pol_cdo_teamleader
 
 fow_s_uk_crewman
 fow_s_uk_at_asst
 fow_s_uk_bren_asst
-fow_s_uk_at
-fow_s_uk_bren_gunner
 fow_s_uk_medic
-fow_s_uk_officer
 fow_s_uk_radio_operator
 fow_s_uk_rifleman
+
+fow_s_uk_at
+fow_s_uk_bren_gunner
+fow_s_uk_officer
+
 fow_s_uk_section_commander
 fow_s_uk_teamleader
 
+
 fow_s_uk_para_at_asst
 fow_s_uk_para_bren_asst
-fow_s_uk_para_at
-fow_s_uk_para_bren_gunner
 fow_s_uk_para_medic
-fow_s_uk_para_officer
 fow_s_uk_para_radio_operator
 fow_s_uk_para_rifleman
+
+fow_s_uk_para_at
+fow_s_uk_para_bren_gunner
+fow_s_uk_para_officer
+
 fow_s_uk_para_section_commander
 fow_s_uk_para_teamleader
 
+//green camo
+fow_s_uk_seac_at_asst_l
+fow_s_uk_seac_bren_asst_l
+fow_s_uk_seac_medic_l
+fow_s_uk_seac_radio_operator_l
+fow_s_uk_seac_rifleman_l
+
+fow_s_uk_seac_at_l
+fow_s_uk_seac_bren_gunner_l
+fow_s_uk_seac_officer_l
+
+fow_s_uk_seac_section_commander_l
+fow_s_uk_seac_teamleader_l
+
+
+fow_s_uk_seac_at_asst
+fow_s_uk_seac_bren_asst
+fow_s_uk_seac_medic
+fow_s_uk_seac_radio_operator
+fow_s_uk_seac_rifleman
+
+fow_s_uk_seac_at
+fow_s_uk_seac_bren_gunner
+fow_s_uk_seac_officer
+
+fow_s_uk_seac_section_commander
+fow_s_uk_seac_teamleader
+
+
+//UK related nations
+fow_s_hi_crewman
+fow_s_hi_medic_l
+fow_s_hi_radio_operator_l
+fow_s_hi_rifleman_l
+fow_s_hi_rifleman_m1912_l
+fow_s_hi_rifleman_scout_l
+fow_s_hi_smg_m55_l
+
+fow_s_hi_bar_asst_l
+fow_s_hi_bar_gunner_l
+fow_s_hi_at_asst_l
+fow_s_hi_at_l
+fow_s_hi_nco_l
+fow_s_hi_officer_l
+
+fow_s_hi_m1919a6_asst_l
+fow_s_hi_m1919a6_gunner_l
+fow_s_hi_sniper_m1903a1_l
+fow_s_hi_teamleader_l
+fow_s_hi_teamleader_asst_l
+
+
+fow_s_hi_medic
+fow_s_hi_radio_operator
+fow_s_hi_rifleman
+fow_s_hi_rifleman_m1912
+fow_s_hi_rifleman_scout
+fow_s_hi_smg_m55
+
+fow_s_hi_at_asst
+fow_s_hi_at
+fow_s_hi_bar_asst
+fow_s_hi_bar_gunner
+fow_s_hi_nco
+fow_s_hi_officer
+
+fow_s_hi_m1919a6_asst
+fow_s_hi_m1919a6_gunner
+fow_s_hi_sniper_m1903a1
+fow_s_hi_teamleader
+fow_s_hi_teamleader_asst
+
+
+
+fow_s_uk_bp_at_asst
+fow_s_uk_bp_bren_asst
+fow_s_uk_bp_medic
+fow_s_uk_bp_radio_operator
+fow_s_uk_bp_rifleman
+
+fow_s_uk_bp_at
+fow_s_uk_bp_bren_gunner
+fow_s_uk_bp_officer
+
+fow_s_uk_bp_section_commander
+fow_s_uk_bp_teamleader
+
+
+fow_s_uk_can_01_at_asst
+fow_s_uk_can_01_bren_asst
+fow_s_uk_can_01_medic
+fow_s_uk_can_01_radio_operator
+fow_s_uk_can_01_rifleman
+
+fow_s_uk_can_01_at
+fow_s_uk_can_01_bren_gunner
+fow_s_uk_can_01_officer
+
+fow_s_uk_can_01_section_commander
+fow_s_uk_can_01_teamleader
+
+
+fow_s_uk_can_02_at_asst
+fow_s_uk_can_02_bren_asst
+fow_s_uk_can_02_medic
+fow_s_uk_can_02_radio_operator
+fow_s_uk_can_02_rifleman
+
+fow_s_uk_can_02_at
+fow_s_uk_can_02_bren_gunner
+fow_s_uk_can_02_officer
+
+fow_s_uk_can_02_section_commander
+fow_s_uk_can_02_teamleader
+
+
+fow_s_uk_cdo_at_asst
+fow_s_uk_cdo_bren_asst
+fow_s_uk_cdo_medic
+fow_s_uk_cdo_radio_operator
+fow_s_uk_cdo_rifleman
+
+fow_s_uk_cdo_at
+fow_s_uk_cdo_bren_gunner
+fow_s_uk_cdo_officer
+
+fow_s_uk_cdo_section_commander
+fow_s_uk_cdo_teamleader
+
+
+fow_s_uk_cdo_kieffer_bren_asst
+fow_s_uk_cdo_kieffer_medic
+fow_s_uk_cdo_kieffer_radio_operator
+fow_s_uk_cdo_kieffer_rifleman
+
+fow_s_uk_cdo_kieffer_bren_gunner
+fow_s_uk_cdo_kieffer_officer
+
+fow_s_uk_cdo_kieffer_section_commander
+fow_s_uk_cdo_kieffer_teamleader
+
+
+
+fow_s_aus_at_asst_l
+fow_s_aus_bren_asst_l
+fow_s_aus_medic_l
+fow_s_aus_rifleman_l
+
+fow_s_aus_at_l
+fow_s_aus_bren_gunner_l
+fow_s_aus_officer_l
+
+fow_s_aus_section_commander_l
+fow_s_aus_teamleader_l
+
+
+fow_s_aus_at_asst
+fow_s_aus_bren_asst
+fow_s_aus_medic
+fow_s_aus_rifleman
+
+fow_s_aus_at
+fow_s_aus_bren_gunner
+fow_s_aus_officer
+
+fow_s_aus_section_commander
+fow_s_aus_teamleader
+
+
+
+fow_s_uk_nl_cdo_bren_asst
+fow_s_uk_nl_cdo_medic
+fow_s_uk_nl_cdo_radio_operator
+fow_s_uk_nl_cdo_rifleman
+
+fow_s_uk_nl_cdo_bren_gunner
+fow_s_uk_nl_cdo_officer
+
+fow_s_uk_nl_cdo_section_commander
+fow_s_uk_nl_cdo_teamleader
+
+
+fow_s_uk_nor_cdo_bren_asst
+fow_s_uk_nor_cdo_medic
+fow_s_uk_nor_cdo_radio_operator
+fow_s_uk_nor_cdo_rifleman
+
+fow_s_uk_nor_cdo_bren_gunner
+fow_s_uk_nor_cdo_officer
+
+fow_s_uk_nor_cdo_section_commander
+fow_s_uk_nor_cdo_teamleader
+
+
+fow_s_uk_pol_cdo_bren_asst
+fow_s_uk_pol_cdo_medic
+fow_s_uk_pol_cdo_radio_operator
+fow_s_uk_pol_cdo_rifleman
+
+fow_s_uk_pol_cdo_bren_gunner
+fow_s_uk_pol_cdo_officer
+
+fow_s_uk_pol_cdo_section_commander
+fow_s_uk_pol_cdo_teamleader
+
+
 fow_s_uk_pol_para_at_asst
 fow_s_uk_pol_para_bren_asst
-fow_s_uk_pol_para_at
-fow_s_uk_pol_para_bren_gunner
 fow_s_uk_pol_para_medic
-fow_s_uk_pol_para_officer
 fow_s_uk_pol_para_radio_operator
 fow_s_uk_pol_para_rifleman
+
+fow_s_uk_pol_para_at
+fow_s_uk_pol_para_bren_gunner
+fow_s_uk_pol_para_officer
+
 fow_s_uk_pol_para_section_commander
 fow_s_uk_pol_para_teamleader
 
+
 fow_s_uk_pib_at_asst
 fow_s_uk_pib_bren_asst
-fow_s_uk_pib_at
-fow_s_uk_pib_bren_gunner
 fow_s_uk_pib_medic
-fow_s_uk_pib_officer
 fow_s_uk_pib_radio_operator
 fow_s_uk_pib_rifleman
+
+fow_s_uk_pib_at
+fow_s_uk_pib_bren_gunner
+fow_s_uk_pib_officer
+
 fow_s_uk_pib_section_commander
 fow_s_uk_pib_teamleader
 
-fow_s_uk_seac_at_asst
-fow_s_uk_seac_at_asst_l
-fow_s_uk_seac_bren_asst
-fow_s_uk_seac_bren_asst_l
-fow_s_uk_seac_at
-fow_s_uk_seac_at_l
-fow_s_uk_seac_bren_gunner
-fow_s_uk_seac_bren_gunner_l
-fow_s_uk_seac_medic
-fow_s_uk_seac_medic_l
-fow_s_uk_seac_officer
-fow_s_uk_seac_officer_l
-fow_s_uk_seac_radio_operator
-fow_s_uk_seac_radio_operator_l
-fow_s_uk_seac_rifleman
-fow_s_uk_seac_rifleman_l
-fow_s_uk_seac_section_commander
-fow_s_uk_seac_section_commander_l
-fow_s_uk_seac_teamleader
-fow_s_uk_seac_teamleader_l
 
-fow_w_vickers_uk
+
 fow_v_cromwell_uk
 fow_v_universalCarrier
 
 fow_va_f6f_faa
 fow_va_f6f_c_faa
 
-fow_s_us_ab_m42_at_asst
-fow_s_us_ab_m42_bar_asst
-fow_s_us_ab_m42_m1919a6_asst
-fow_s_us_ab_m42_at
-fow_s_us_ab_m42_bar_gunner
-fow_s_us_ab_m42_m1919a6_gunner
-fow_s_us_ab_m42_medic
-fow_s_us_ab_m42_nco
-fow_s_us_ab_m42_officer
-fow_s_us_ab_m42_radio_operator
-fow_s_us_ab_m42_rifleman
-fow_s_us_ab_m42_rifleman_gl
-fow_s_us_ab_m42_rifleman_ithaca37
-fow_s_us_ab_m42_rifleman_m1_carbine
-fow_s_us_ab_m42_rifleman_m1903
-fow_s_us_ab_m42_rifleman_m1912
-fow_s_us_ab_m42_rifleman_scout
-fow_s_us_ab_m42_sniper_m1903a1
-fow_s_us_ab_m42_teamleader
-fow_s_us_ab_m42_teamleader_asst
-fow_s_us_ab_m42_smg_m1a1
-fow_s_us_ab_m42_smg_m3
 
-fow_s_us_ab_m42_101_at_asst
-fow_s_us_ab_m42_101_bar_asst
-fow_s_us_ab_m42_101_m1919a6_asst
-fow_s_us_ab_m42_101_at
-fow_s_us_ab_m42_101_bar_gunner
-fow_s_us_ab_m42_101_m1919a6_gunner
-fow_s_us_ab_m42_101_medic
-fow_s_us_ab_m42_101_nco
-fow_s_us_ab_m42_101_officer
-fow_s_us_ab_m42_101_radio_operator
-fow_s_us_ab_m42_101_rifleman
-fow_s_us_ab_m42_101_rifleman_gl
-fow_s_us_ab_m42_101_rifleman_ithaca37
-fow_s_us_ab_m42_101_rifleman_m1_carbine
-fow_s_us_ab_m42_101_rifleman_m1903
-fow_s_us_ab_m42_101_rifleman_m1912
-fow_s_us_ab_m42_101_rifleman_scout
-fow_s_us_ab_m42_101_sniper_m1903a1
-fow_s_us_ab_m42_101_teamleader
-fow_s_us_ab_m42_101_teamleader_asst
-fow_s_us_ab_m42_101_smg_m1a1
-fow_s_us_ab_m42_101_smg_m3
-
-fow_s_us_ab_m42_82_at_asst
-fow_s_us_ab_m42_82_bar_asst
-fow_s_us_ab_m42_82_m1919a6_asst
-fow_s_us_ab_m42_82_at
-fow_s_us_ab_m42_82_bar_gunner
-fow_s_us_ab_m42_82_m1919a6_gunner
-fow_s_us_ab_m42_82_medic
-fow_s_us_ab_m42_82_nco
-fow_s_us_ab_m42_82_officer
-fow_s_us_ab_m42_82_radio_operator
-fow_s_us_ab_m42_82_rifleman
-fow_s_us_ab_m42_82_rifleman_gl
-fow_s_us_ab_m42_82_rifleman_ithaca37
-fow_s_us_ab_m42_82_rifleman_m1_carbine
-fow_s_us_ab_m42_82_rifleman_m1903
-fow_s_us_ab_m42_82_rifleman_m1912
-fow_s_us_ab_m42_82_rifleman_scout
-fow_s_us_ab_m42_82_sniper_m1903a1
-fow_s_us_ab_m42_82_teamleader
-fow_s_us_ab_m42_82_teamleader_asst
-fow_s_us_ab_m42_82_smg_m1a1
-fow_s_us_ab_m42_82_smg_m3
-
-fow_usa_lcvp
-fow_w_6Pounder_usa
-
-fow_s_us_coxswain
-fow_s_us_crewman
-fow_s_us_pilot_green
-fow_s_us_pilot
-
-fow_s_us_m37_at_asst
-fow_s_us_m37_bar_asst
-fow_s_us_m37_m1919a6_asst
-fow_s_us_m37_at
-fow_s_us_m37_engineer
-fow_s_us_m37_bar_gunner
-fow_s_us_m37_m1919a6_gunner
-fow_s_us_m37_medic
-fow_s_us_m37_nco
-fow_s_us_m37_officer
-fow_s_us_m37_radio_operator
-fow_s_us_m37_rifleman
-fow_s_us_m37_rifleman_gl
-fow_s_us_m37_rifleman_ithaca37
-fow_s_us_m37_rifleman_m1_carbine
-fow_s_us_m37_rifleman_m1903
-fow_s_us_m37_rifleman_m1912
-fow_s_us_m37_rifleman_scout
-fow_s_us_m37_sniper_m1903a1
-fow_s_us_m37_teamleader
-fow_s_us_m37_teamleader_asst
-fow_s_us_m37_smg_m1a1
-fow_s_us_m37_smg_m3
-
-fow_s_us_at_asst
-fow_s_us_bar_asst
-fow_s_us_m1919a6_asst
-fow_s_us_at
-fow_s_us_engineer
-fow_s_us_bar_gunner
-fow_s_us_m1919a6_gunner
-fow_s_us_medic
-fow_s_us_nco
-fow_s_us_officer
-fow_s_us_radio_operator
-fow_s_us_rifleman
-fow_s_us_rifleman_gl
-fow_s_us_rifleman_ithaca37
-fow_s_us_rifleman_m1_carbine
-fow_s_us_rifleman_m1903
-fow_s_us_rifleman_m1912
-fow_s_us_rifleman_scout
-fow_s_us_sniper_m1903a1
-fow_s_us_teamleader
-fow_s_us_teamleader_asst
-fow_s_us_smg_m1a1
-fow_s_us_smg_m3
-
-fow_w_m2_mortar_usa
-fow_w_m2_mortar_adv_usa
+//------------------------------------------------------------------------------------------------------
+//US
 fow_w_m1919_tripod_usa_m37
 fow_w_m1919_tripod_usa_m41
 fow_w_m1919a6_deployed_high_usa_m41
@@ -540,63 +533,6 @@ fow_w_m1919a6_deployed_usa_m37
 fow_w_m1919a6_deployed_usa_m41
 fow_w_m1919a6_deployed_middle_usa_m37
 fow_w_m1919a6_deployed_middle_usa_m41
-
-fow_v_m4a2_usa
-fow_v_m5a1_usa
-fow_v_lvta2_usa
-fow_v_gmc_usa
-fow_v_gmc_open_usa
-fow_v_willys_usa
-
-fow_s_us_p_crewman
-fow_s_us_p_at_asst
-fow_s_us_p_bar_asst
-fow_s_us_p_m1919a6_asst
-fow_s_us_p_at
-fow_s_us_p_engineer
-fow_s_us_p_bar_gunner
-fow_s_us_p_m1919a6_gunner
-fow_s_us_p_medic
-fow_s_us_p_nco
-fow_s_us_p_officer
-fow_s_us_p_radio_operator
-fow_s_us_p_rifleman
-fow_s_us_p_rifleman_gl
-fow_s_us_p_rifleman_ithaca37
-fow_s_us_p_rifleman_m1_carbine
-fow_s_us_p_rifleman_m1903
-fow_s_us_p_rifleman_m1912
-fow_s_us_p_rifleman_scout
-fow_s_us_p_sniper_m1903a1
-fow_s_us_p_teamleader
-fow_s_us_p_teamleader_asst
-fow_s_us_p_smg_m1a1
-fow_s_us_p_smg_m3
-
-fow_s_us_mm_at_asst
-fow_s_us_mm_bar_asst
-fow_s_us_mm_m1919a6_asst
-fow_s_us_mm_at
-fow_s_us_mm_engineer
-fow_s_us_mm_bar_gunner
-fow_s_us_mm_m1919a6_gunner
-fow_s_us_mm_medic
-fow_s_us_mm_nco
-fow_s_us_mm_officer
-fow_s_us_mm_radio_operator
-fow_s_us_mm_rifleman
-fow_s_us_mm_rifleman_gl
-fow_s_us_mm_rifleman_ithaca37
-fow_s_us_mm_rifleman_m1_carbine
-fow_s_us_mm_rifleman_m1903
-fow_s_us_mm_rifleman_m1912
-fow_s_us_mm_rifleman_scout
-fow_s_us_mm_sniper_m1903a1
-fow_s_us_mm_teamleader
-fow_s_us_mm_teamleader_asst
-fow_s_us_mm_smg_m1a1
-fow_s_us_mm_smg_m3
-
 fow_w_m1919_tripod_usa_mm
 fow_w_m1919_tripod_usa_p
 fow_w_m1919a6_deployed_high_usa_p
@@ -605,63 +541,6 @@ fow_w_m1919a6_deployed_usa_mm
 fow_w_m1919a6_deployed_usa_p
 fow_w_m1919a6_deployed_middle_usa_mm
 fow_w_m1919a6_deployed_middle_usa_p
-
-fow_v_lvta2_usa_p
-fow_usmc_lcvp
-fow_w_6Pounder_usmc
-
-fow_s_usmc_coxswain
-fow_s_usmc_crewman
-fow_s_usmc_at_asst
-fow_s_usmc_bar_asst
-fow_s_usmc_m1919a6_asst
-fow_s_usmc_at
-fow_s_usmc_bar_gunner
-fow_s_usmc_m1919a6_gunner
-fow_s_usmc_medic
-fow_s_usmc_nco
-fow_s_usmc_officer
-fow_s_usmc_rifleman_ithaca37
-fow_s_usmc_rifleman_m1_carbine
-fow_s_usmc_rifleman
-fow_s_usmc_rifleman_m1903
-fow_s_usmc_rifleman_m1912
-fow_s_usmc_teamleader
-
-fow_s_usmc_camo01_at_asst
-fow_s_usmc_camo01_bar_asst
-fow_s_usmc_camo01_m1919a6_asst
-fow_s_usmc_camo01_at
-fow_s_usmc_camo01_bar_gunner
-fow_s_usmc_camo01_m1919a6_gunner
-fow_s_usmc_camo01_medic
-fow_s_usmc_camo01_nco
-fow_s_usmc_camo01_officer
-fow_s_usmc_camo01_rifleman_ithaca37
-fow_s_usmc_camo01_rifleman_m1_carbine
-fow_s_usmc_camo01_rifleman
-fow_s_usmc_camo01_rifleman_m1903
-fow_s_usmc_camo01_rifleman_m1912
-fow_s_usmc_camo01_teamleader
-
-fow_s_usmc_camo02_at_asst
-fow_s_usmc_camo02_bar_asst
-fow_s_usmc_camo02_m1919a6_asst
-fow_s_usmc_camo02_at
-fow_s_usmc_camo02_bar_gunner
-fow_s_usmc_camo02_m1919a6_gunner
-fow_s_usmc_camo02_medic
-fow_s_usmc_camo02_nco
-fow_s_usmc_camo02_officer
-fow_s_usmc_camo02_rifleman_ithaca37
-fow_s_usmc_camo02_rifleman_m1_carbine
-fow_s_usmc_camo02_rifleman
-fow_s_usmc_camo02_rifleman_m1903
-fow_s_usmc_camo02_rifleman_m1912
-fow_s_usmc_camo02_teamleader
-
-fow_w_m2_mortar_usmc
-fow_w_m2_mortar_adv_usmc
 fow_w_m1919_tripod_usmc_camo01
 fow_w_m1919_tripod_usmc_camo02
 fow_w_m1919_tripod_usmc
@@ -674,13 +553,286 @@ fow_w_m1919a6_deployed_usmc_camo01
 fow_w_m1919a6_deployed_middle_usmc_camo01
 fow_w_m1919a6_deployed_middle_usmc_camo02
 fow_w_m1919a6_deployed_middle_usmc
+fow_w_m2_mortar_usa
+fow_w_m2_mortar_adv_usa
+fow_w_m2_mortar_usmc
+fow_w_m2_mortar_adv_usmc
+fow_w_6Pounder_usa
+fow_w_6Pounder_usmc
 
-fow_v_m4a2_usmc
-fow_v_m5a1_usmc
-fow_v_lvta2_usmc
+
+fow_s_us_coxswain
+fow_s_us_pilot_green
+fow_s_us_crewman		//desert
+fow_s_us_pilot
+
+fow_s_us_at_asst
+fow_s_us_engineer
+fow_s_us_medic
+fow_s_us_radio_operator
+fow_s_us_rifleman
+fow_s_us_rifleman_gl
+fow_s_us_rifleman_ithaca37
+fow_s_us_rifleman_m1903
+fow_s_us_rifleman_m1912
+fow_s_us_rifleman_scout
+fow_s_us_smg_m3
+
+fow_s_us_bar_asst
+fow_s_us_bar_gunner
+fow_s_us_at
+fow_s_us_nco
+fow_s_us_officer
+fow_s_us_rifleman_m1_carbine
+fow_s_us_smg_m1a1
+
+fow_s_us_m1919a6_asst
+fow_s_us_m1919a6_gunner
+fow_s_us_sniper_m1903a1
+fow_s_us_teamleader
+fow_s_us_teamleader_asst
+
+//desert
+fow_s_us_m37_at_asst
+fow_s_us_m37_engineer
+fow_s_us_m37_medic
+fow_s_us_m37_radio_operator
+fow_s_us_m37_rifleman
+fow_s_us_m37_rifleman_gl
+fow_s_us_m37_rifleman_ithaca37
+fow_s_us_m37_rifleman_m1903
+fow_s_us_m37_rifleman_m1912
+fow_s_us_m37_rifleman_scout
+fow_s_us_m37_smg_m3
+
+fow_s_us_m37_bar_asst
+fow_s_us_m37_bar_gunner
+fow_s_us_m37_at
+fow_s_us_m37_nco
+fow_s_us_m37_officer
+fow_s_us_m37_rifleman_m1_carbine
+fow_s_us_m37_smg_m1a1
+
+fow_s_us_m37_m1919a6_asst
+fow_s_us_m37_m1919a6_gunner
+fow_s_us_m37_sniper_m1903a1
+fow_s_us_m37_teamleader
+fow_s_us_m37_teamleader_asst
+
+//green light
+fow_s_us_mm_at_asst
+fow_s_us_mm_engineer
+fow_s_us_mm_medic
+fow_s_us_mm_radio_operator
+fow_s_us_mm_rifleman
+fow_s_us_mm_rifleman_gl
+fow_s_us_mm_rifleman_ithaca37
+fow_s_us_mm_rifleman_m1_carbine
+fow_s_us_mm_rifleman_m1903
+fow_s_us_mm_rifleman_m1912
+fow_s_us_mm_rifleman_scout
+fow_s_us_mm_smg_m3
+
+fow_s_us_mm_bar_asst
+fow_s_us_mm_bar_gunner
+fow_s_us_mm_at
+fow_s_us_mm_nco
+fow_s_us_mm_officer
+fow_s_us_mm_smg_m1a1
+
+fow_s_us_mm_m1919a6_asst
+fow_s_us_mm_m1919a6_gunner
+fow_s_us_mm_sniper_m1903a1
+fow_s_us_mm_teamleader
+fow_s_us_mm_teamleader_asst
+
+//green
+fow_s_us_p_crewman
+fow_s_us_p_at_asst
+fow_s_us_p_engineer
+fow_s_us_p_medic
+fow_s_us_p_radio_operator
+fow_s_us_p_rifleman
+fow_s_us_p_rifleman_gl
+fow_s_us_p_rifleman_ithaca37
+fow_s_us_p_rifleman_m1_carbine
+fow_s_us_p_rifleman_m1903
+fow_s_us_p_rifleman_m1912
+fow_s_us_p_rifleman_scout
+fow_s_us_p_smg_m3
+
+fow_s_us_p_bar_asst
+fow_s_us_p_bar_gunner
+fow_s_us_p_at
+fow_s_us_p_nco
+fow_s_us_p_officer
+fow_s_us_p_smg_m1a1
+
+fow_s_us_p_m1919a6_asst
+fow_s_us_p_m1919a6_gunner
+fow_s_us_p_sniper_m1903a1
+fow_s_us_p_teamleader
+fow_s_us_p_teamleader_asst
+
+//airborns
+fow_s_us_ab_m42_at_asst
+fow_s_us_ab_m42_medic
+fow_s_us_ab_m42_radio_operator
+fow_s_us_ab_m42_rifleman
+fow_s_us_ab_m42_rifleman_gl
+fow_s_us_ab_m42_rifleman_ithaca37
+fow_s_us_ab_m42_rifleman_m1_carbine
+fow_s_us_ab_m42_rifleman_m1903
+fow_s_us_ab_m42_rifleman_m1912
+fow_s_us_ab_m42_rifleman_scout
+fow_s_us_ab_m42_smg_m3
+
+fow_s_us_ab_m42_bar_asst
+fow_s_us_ab_m42_bar_gunner
+fow_s_us_ab_m42_at
+fow_s_us_ab_m42_nco
+fow_s_us_ab_m42_officer
+fow_s_us_ab_m42_smg_m1a1
+
+fow_s_us_ab_m42_m1919a6_asst
+fow_s_us_ab_m42_m1919a6_gunner
+fow_s_us_ab_m42_sniper_m1903a1
+fow_s_us_ab_m42_teamleader
+fow_s_us_ab_m42_teamleader_asst
+
+
+fow_s_us_ab_m42_101_at_asst
+fow_s_us_ab_m42_101_medic
+fow_s_us_ab_m42_101_radio_operator
+fow_s_us_ab_m42_101_rifleman
+fow_s_us_ab_m42_101_rifleman_gl
+fow_s_us_ab_m42_101_rifleman_ithaca37
+fow_s_us_ab_m42_101_rifleman_m1_carbine
+fow_s_us_ab_m42_101_rifleman_m1903
+fow_s_us_ab_m42_101_rifleman_m1912
+fow_s_us_ab_m42_101_rifleman_scout
+fow_s_us_ab_m42_101_smg_m3
+
+fow_s_us_ab_m42_101_bar_asst
+fow_s_us_ab_m42_101_bar_gunner
+fow_s_us_ab_m42_101_at
+fow_s_us_ab_m42_101_nco
+fow_s_us_ab_m42_101_officer
+fow_s_us_ab_m42_101_smg_m1a1
+
+fow_s_us_ab_m42_101_m1919a6_asst
+fow_s_us_ab_m42_101_m1919a6_gunner
+fow_s_us_ab_m42_101_sniper_m1903a1
+fow_s_us_ab_m42_101_teamleader
+fow_s_us_ab_m42_101_teamleader_asst
+
+
+fow_s_us_ab_m42_82_at_asst
+fow_s_us_ab_m42_82_medic
+fow_s_us_ab_m42_82_radio_operator
+fow_s_us_ab_m42_82_rifleman
+fow_s_us_ab_m42_82_rifleman_gl
+fow_s_us_ab_m42_82_rifleman_ithaca37
+fow_s_us_ab_m42_82_rifleman_m1_carbine
+fow_s_us_ab_m42_82_rifleman_m1903
+fow_s_us_ab_m42_82_rifleman_m1912
+fow_s_us_ab_m42_82_rifleman_scout
+fow_s_us_ab_m42_82_smg_m3
+
+fow_s_us_ab_m42_82_bar_asst
+fow_s_us_ab_m42_82_bar_gunner
+fow_s_us_ab_m42_82_at
+fow_s_us_ab_m42_82_nco
+fow_s_us_ab_m42_82_officer
+fow_s_us_ab_m42_82_smg_m1a1
+
+fow_s_us_ab_m42_82_m1919a6_asst
+fow_s_us_ab_m42_82_m1919a6_gunner
+fow_s_us_ab_m42_82_sniper_m1903a1
+fow_s_us_ab_m42_82_teamleader
+fow_s_us_ab_m42_82_teamleader_asst
+
+//US marines
+fow_s_usmc_coxswain
+fow_s_usmc_crewman
+
+fow_s_usmc_at_asst
+fow_s_usmc_bar_asst
+fow_s_usmc_m1919a6_asst
+fow_s_usmc_medic
+fow_s_usmc_rifleman_ithaca37
+fow_s_usmc_rifleman
+fow_s_usmc_rifleman_m1903
+fow_s_usmc_rifleman_m1912
+
+fow_s_usmc_at
+fow_s_usmc_bar_gunner
+fow_s_usmc_nco
+fow_s_usmc_officer
+
+fow_s_usmc_m1919a6_gunner
+fow_s_usmc_rifleman_m1_carbine
+fow_s_usmc_teamleader
+
+
+fow_s_usmc_camo01_at_asst
+fow_s_usmc_camo01_bar_asst
+fow_s_usmc_camo01_m1919a6_asst
+fow_s_usmc_camo01_medic
+fow_s_usmc_camo01_rifleman_ithaca37
+fow_s_usmc_camo01_rifleman
+fow_s_usmc_camo01_rifleman_m1903
+fow_s_usmc_camo01_rifleman_m1912
+
+fow_s_usmc_camo01_at
+fow_s_usmc_camo01_bar_gunner
+fow_s_usmc_camo01_nco
+fow_s_usmc_camo01_officer
+
+fow_s_usmc_camo01_m1919a6_gunner
+fow_s_usmc_camo01_rifleman_m1_carbine
+fow_s_usmc_camo01_teamleader
+
+
+fow_s_usmc_camo02_at_asst
+fow_s_usmc_camo02_bar_asst
+fow_s_usmc_camo02_m1919a6_asst
+fow_s_usmc_camo02_medic
+fow_s_usmc_camo02_rifleman_ithaca37
+fow_s_usmc_camo02_rifleman
+fow_s_usmc_camo02_rifleman_m1903
+fow_s_usmc_camo02_rifleman_m1912
+
+fow_s_usmc_camo02_at
+fow_s_usmc_camo02_bar_gunner
+fow_s_usmc_camo02_nco
+fow_s_usmc_camo02_officer
+
+fow_s_usmc_camo02_m1919a6_gunner
+fow_s_usmc_camo02_rifleman_m1_carbine
+fow_s_usmc_camo02_teamleader
+
+
+
+fow_v_willys_usa
+fow_v_willys_usmc
+
+fow_v_gmc_usa
+fow_v_gmc_open_usa
 fow_v_gmc_usmc
 fow_v_gmc_open_usmc
-fow_v_willys_usmc
+
+
+fow_v_lvta2_usa_p
+fow_v_lvta2_usa
+fow_v_lvta2_usmc
+
+fow_v_m5a1_usa
+fow_v_m5a1_usmc
+
+fow_v_m4a2_usa
+fow_v_m4a2_usmc
+
 
 fow_va_f6f
 fow_va_f6f_kick
@@ -689,3 +841,835 @@ fow_va_f6f_c
 fow_va_f6f_c_death
 fow_va_f6f_c_kick
 fow_va_f6f_c_sweet
+
+
+fow_usa_lcvp
+fow_usmc_lcvp
+
+-----------------------------------------------------------------------------------------------------
+fow_Flag_Germany
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_germany_co.paa'";
+
+fow_Flag_USA
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_USA_co.paa'";
+
+fow_Flag_Japan
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_Japan02_co.paa'";
+
+fow_Flag_Japan War
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_Japan01_co.paa'";
+
+fow_Flag_Australia
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_Australia_co.paa'";
+
+fow_Flag_Canada
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_canada_co.paa'";
+
+fow_Flag_New_Zealand
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_New_Zealand_co.paa'";
+
+fow_Flag_HorizonColonial
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_horizon_islands_colonial_co.paa'";
+
+fow_Flag_Netherlands
+init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_netherlands_co.paa'";
+
+-----------------------------------------------------------------------------------------------------
+
+
+this addItemToBackpack "fow_e_mk2";
+
+this addItemToBackpack "fow_e_no36mk1";
+this addItemToBackpack "fow_e_no69";
+this addItemToBackpack "fow_e_no73";
+this addItemToBackpack "fow_e_no77";
+this addItemToBackpack "fow_e_no79";
+this addItemToBackpack "fow_e_no82";
+
+this addItemToBackpack "fow_e_type97";
+this addItemToBackpack "fow_e_type99";
+this addItemToBackpack "fow_e_type99_at";
+
+
+
+this addItemToBackpack "fow_e_m24K_spli";
+this addItemToBackpack "fow_e_m24_at";
+this addItemToBackpack "fow_e_m24_spli";
+this addItemToBackpack "fow_e_m24";
+this addItemToBackpack "fow_e_m24K";
+this addItemToBackpack "fow_e_nb39b";
+
+
+this addItemToBackpack "fow_e_tnt_halfpound";
+this addItemToBackpack "fow_e_tnt_onepound_mag";
+this addItemToBackpack "fow_e_tnt_twohalfpound_mag";
+this addItemToBackpack "fow_e_tnt_twopound_mag";
+
+
+
+
+
+this addItemToBackpack "fow_i_fak_ger";
+this addItemToBackpack "fow_i_fak_ija";
+this addItemToBackpack "fow_i_fak_uk";
+this addItemToBackpack "fow_i_fak_us";
+this addItemToBackpack "fow_i_fak_us_red";
+this addItemToBackpack "fow_i_rangeTables_m2";
+this addItemToBackpack "fow_i_whistle";
+this addItemToBackpack "fow_i_rangeTables_type97";
+
+//-------------------------------------------------ger---------------------------------------------
+
+
+
+
+this addWeapon "fow_w_p08";
+this addHandgunItem "fow_8Rnd_9x19";
+
+this addWeapon "fow_w_ppk";
+this addHandgunItem "fow_7Rnd_765x17";
+
+this addWeapon "fow_w_p640p";
+this addHandgunItem "fow_13Rnd_9x19";
+
+
+this addWeapon "fow_w_mp40";
+this addPrimaryWeaponItem "fow_32Rnd_9x19_mp40";
+
+
+
+this addWeapon "fow_w_k98";
+this addWeapon "fow_w_k98_scoped";
+this addPrimaryWeaponItem "fow_5Rnd_792x57";
+
+
+this addWeapon "fow_w_g43";
+this addPrimaryWeaponItem "fow_10nd_792x57";
+
+
+
+this addWeapon "fow_w_fg42";
+this addPrimaryWeaponItem "fow_w_acc_fg42_bayo";
+this addPrimaryWeaponItem "fow_20Rnd_792x57";
+
+
+this addWeapon "fow_w_stg44";
+this addPrimaryWeaponItem "fow_30Rnd_792x33";
+
+
+this addWeapon "fow_w_mg34";
+this addWeapon "fow_w_mg42";
+this addPrimaryWeaponItem "fow_50Rnd_792x57";
+
+
+
+this addWeapon "fow_w_pzfaust_30_klein";
+this addSecondaryWeaponItem "fow_1Rnd_pzfaust_30_klein";
+
+this addWeapon "fow_w_pzfaust_30";
+this addSecondaryWeaponItem "fow_1Rnd_pzfaust_30";
+
+this addWeapon "fow_w_pzfaust_60";
+this addSecondaryWeaponItem "fow_1Rnd_pzfaust_60";
+
+this addWeapon "fow_w_pzfaust_100";
+this addSecondaryWeaponItem "fow_1Rnd_pzfaust_100";
+
+
+//-------------------------------------------------JPN---------------------------------------------
+
+
+this addWeapon "fow_w_type10";
+this addHandgunItem "fow_1Rnd_type10";
+
+this addWeapon "fow_w_type14";
+this addHandgunItem "fow_8Rnd_8x22";
+
+this addWeapon "fow_w_type99";
+this addWeapon "fow_w_type99_sniper";
+this addPrimaryWeaponItem "fow_5Rnd_77x58";
+this addPrimaryWeaponItem "fow_1Rnd_type2_40";
+this addPrimaryWeaponItem "fow_w_acc_type30_bayo";
+
+
+this addWeapon "fow_w_type100";
+this addPrimaryWeaponItem "fow_32Rnd_8x22";
+
+
+this addWeapon "fow_w_type99_lmg";
+this addPrimaryWeaponItem "fow_30Rnd_77x58";
+
+
+
+
+
+//-------------------------------------------------UK---------------------------------------------
+
+
+this addWeapon "fow_w_webley";
+this addHandgunItem "fow_6Rnd_455";
+
+this addWeapon "fow_w_welrod_mkii";
+this addHandgunItem "fow_8Rnd_765x17";
+
+this addWeapon "fow_w_ithaca37";
+this addPrimaryWeaponItem "fow_5Rnd_12G_Pellets";
+
+
+this addWeapon "fow_w_leeenfield_no4mk1";
+this addWeapon "fow_w_leeenfield_no4mk1_redwood";
+this addWeapon "fow_w_leeenfield_no5mk1_junglecarbine";
+this addPrimaryWeaponItem "fow_10Rnd_303";
+
+this addWeapon "fow_w_sten_mk2";
+this addPrimaryWeaponItem "fow_32Rnd_9x19_sten";
+
+this addWeapon "fow_w_sten_mk5";
+this addPrimaryWeaponItem "fow_32Rnd_9x19_sten";
+
+
+this addWeapon "fow_w_bren";
+this addPrimaryWeaponItem "fow_30Rnd_303_bren";
+
+this addWeapon "fow_w_piat";
+this addPrimaryWeaponItem "fow_1Rnd_piat_HEAT";
+this addItemToBackpack "fow_1Rnd_piat_HE";
+
+//-------------------------------------------------US---------------------------------------------
+
+
+this addWeapon "fow_w_m1911";
+this addHandgunItem "fow_7Rnd_45acp";
+
+this addWeapon "fow_w_M1912";
+this addPrimaryWeaponItem "fow_w_acc_M1897_bayo";
+this addPrimaryWeaponItem "fow_6Rnd_12G_Pellets";
+this addItemToBackpack "fow_6Rnd_12G_Slug";
+
+this addWeapon "fow_w_m1903A1";
+this addWeapon "fow_w_m1903A1_sniper";
+this addPrimaryWeaponItem "fow_5Rnd_762x63";
+
+this addWeapon "fow_w_m1_garand";
+this addWeapon "fow_w_m1_garand_2";
+this addWeapon "fow_w_m1_garand_l";
+this addPrimaryWeaponItem "fow_8Rnd_762x63";
+this addPrimaryWeaponItem "fow_1Rnd_m9a1";
+
+
+this addWeapon "fow_w_m1_carbine";
+this addPrimaryWeaponItem "fow_15Rnd_762x33";
+
+this addWeapon "fow_w_m3";
+this addWeapon "fow_w_m1_thompson";
+this addWeapon "fow_w_m1a1_thompson";
+this addPrimaryWeaponItem "fow_30Rnd_45acp";
+this addItemToBackpack "fow_30Rnd_45acp_T";
+
+this addWeapon "fow_w_m55_reising";
+this addPrimaryWeaponItem "fow_20Rnd_45acp";
+
+this addWeapon "fow_w_m1918a2";
+this addWeapon "fow_w_m1918a2_bak";
+this addPrimaryWeaponItem "fow_w_acc_m1918a2_handle";
+this addPrimaryWeaponItem "fow_20Rnd_762x63";
+this addPrimaryWeaponItem "fow_w_acc_m1918a2_bipod";
+
+
+this addWeapon "fow_w_m1919a4";
+this addWeapon "fow_w_m1919a6";
+this addPrimaryWeaponItem "fow_30Rnd_762x63";
+this addItemToBackpack "fow_50Rnd_762x63";
+this addItemToBackpack "fow_100Rnd_762x63";
+
+
+this addWeapon "fow_w_m1a1_bazooka";
+this addSecondaryWeaponItem "fow_1Rnd_m6a1";
+
+
+------------other---------------------------
+
+
+this addWeapon "fow_w_p35";
+this addHandgunItem "fow_8Rnd_9x19";
+
+
+
+
+####################uniforms########################################
+---------------austr---------------------------------
+
+this forceAddUniform "fow_u_aus_m37_01_private";
+this forceAddUniform "fow_u_aus_m37_02_private";
+this forceAddUniform "fow_u_aus_m37_03_private";
+
+---------------HI---------------------------------
+
+this forceAddUniform "fow_u_hi_35_01_private";
+this forceAddUniform "fow_u_hi_35_02_private";
+this forceAddUniform "fow_u_hi_35_03_private";
+
+---------------ger---------------------------------
+
+this forceAddUniform "fow_u_ger_fall_02_private";
+this forceAddUniform "fow_u_ger_fall_02_lance_corporal";
+this forceAddUniform "fow_u_ger_fall_02_corporal";
+this forceAddUniform "fow_u_ger_fall_02_sergeant";
+
+this forceAddUniform "fow_u_ger_fall_03_private";
+this forceAddUniform "fow_u_ger_fall_03_lance_corporal";
+this forceAddUniform "fow_u_ger_fall_03_corporal";
+this forceAddUniform "fow_u_ger_fall_03_sergeant";
+
+this forceAddUniform "fow_u_ger_fall_04_private";
+this forceAddUniform "fow_u_ger_fall_04_lance_corporal";
+this forceAddUniform "fow_u_ger_fall_04_corporal";
+this forceAddUniform "fow_u_ger_fall_04_sergeant";
+
+this forceAddUniform "fow_u_ger_fall_01_private";
+this forceAddUniform "fow_u_ger_fall_01_lance_corporal";
+this forceAddUniform "fow_u_ger_fall_01_corporal";
+this forceAddUniform "fow_u_ger_fall_01_sergeant";
+
+this forceAddUniform "fow_u_ger_m43_01_frag_private";
+this forceAddUniform "fow_u_ger_m43_01_lance_corporal";
+this forceAddUniform "fow_u_ger_m43_01_corporal";
+this forceAddUniform "fow_u_ger_m43_02_private";
+this forceAddUniform "fow_u_ger_m43_02_lance_corporal";
+this forceAddUniform "fow_u_ger_m43_02_corporal";
+this forceAddUniform "fow_u_ger_m43_hbt_private";
+
+this forceAddUniform "fow_u_ger_m43_ss_01_private";
+this forceAddUniform "fow_u_ger_m43_peadot_01_private";
+this forceAddUniform "fow_u_ger_m43_peadot_02_private";
+this forceAddUniform "fow_u_ger_m43_peadot_03_private";
+this forceAddUniform "fow_u_ger_m43_smock_01_private";
+this forceAddUniform "fow_u_ger_m43_smock_02_private";
+
+this forceAddUniform "fow_u_ger_pzlehr_01";
+this forceAddUniform "fow_u_ger_pzlehr_01_shutz";
+this forceAddUniform "fow_u_ger_pzlehr_01_gefreiter";
+this forceAddUniform "fow_u_ger_pzlehr_01_obergefreiter";
+this forceAddUniform "fow_u_ger_pzlehr_01_unteroffizier";
+this forceAddUniform "fow_u_ger_pzlehr_01_2nd_leutnant";
+
+this forceAddUniform "fow_u_ger_tankcrew_01";
+this forceAddUniform "fow_u_ger_tankcrew_01_shutz";
+this forceAddUniform "fow_u_ger_tankcrew_01_gefreiter";
+this forceAddUniform "fow_u_ger_tankcrew_01_obergefreiter";
+this forceAddUniform "fow_u_ger_tankcrew_01_unteroffizier";
+this forceAddUniform "fow_u_ger_tankcrew_01_2nd_leutnant";
+
+this forceAddUniform "fow_u_ger_tankcrew_02";
+this forceAddUniform "fow_u_ger_tankcrew_02_shutz";
+this forceAddUniform "fow_u_ger_tankcrew_02_gefreiter";
+this forceAddUniform "fow_u_ger_tankcrew_02_obergefreiter";
+this forceAddUniform "fow_u_ger_tankcrew_02_unteroffizier";
+this forceAddUniform "fow_u_ger_tankcrew_02_2nd_leutnant";
+
+
+---------------JPN---------------------------------
+
+this forceAddUniform "fow_u_ija_pilot";
+this forceAddUniform "fow_u_ija_type98";
+this forceAddUniform "fow_u_ija_type98_khakibrown";
+this forceAddUniform "fow_u_ija_type98_short";
+this forceAddUniform "fow_u_ija_type98_snlf";
+this forceAddUniform "fow_u_ija_type98_foliage";
+
+---------------UK---------------------------------
+
+
+this forceAddUniform "fow_u_uk_bd40_bp_01_private";
+this forceAddUniform "fow_u_uk_bd40_bp_01_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_bp_01_corporal";
+this forceAddUniform "fow_u_uk_bd40_bp_01_sergeant";
+this forceAddUniform "fow_u_uk_bd40_bp_01_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_can_01_private";
+this forceAddUniform "fow_u_uk_bd40_can_01_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_can_01_corporal";
+this forceAddUniform "fow_u_uk_bd40_can_01_sergeant";
+this forceAddUniform "fow_u_uk_bd40_can_01_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_can_02_private";
+this forceAddUniform "fow_u_uk_bd40_can_02_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_can_02_corporal";
+this forceAddUniform "fow_u_uk_bd40_can_02_sergeant";
+this forceAddUniform "fow_u_uk_bd40_can_02_lieutenant";
+
+this forceAddUniform "fow_u_uk_bd40_commando_01_private";
+this forceAddUniform "fow_u_uk_bd40_kieffer_01";
+this forceAddUniform "fow_u_uk_bd40_kieffer_02";
+
+this forceAddUniform "fow_u_uk_bd40_01_private";
+this forceAddUniform "fow_u_uk_bd40_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_01_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_corporal";
+this forceAddUniform "fow_u_uk_bd40_01_corporal";
+this forceAddUniform "fow_u_uk_bd40_01_sergeant";
+this forceAddUniform "fow_u_uk_bd40_01_lieutenant";
+this forceAddUniform "fow_u_uk_bd40_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_nl_01_commando_private";
+this forceAddUniform "fow_u_uk_bd40_nl_02_commando_private";
+this forceAddUniform "fow_u_uk_bd40_nl_01_commando_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_nl_01_commando_corporal";
+this forceAddUniform "fow_u_uk_bd40_nl_01_commando_sergeant";
+this forceAddUniform "fow_u_uk_bd40_nl_01_commando_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_nor_02_commando_private";
+this forceAddUniform "fow_u_uk_bd40_nor_01_commando_private";
+this forceAddUniform "fow_u_uk_bd40_nor_01_commando_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_nor_01_commando_corporal";
+this forceAddUniform "fow_u_uk_bd40_nor_01_commando_sergeant";
+this forceAddUniform "fow_u_uk_bd40_nor_01_commando_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_pib_01_private";
+this forceAddUniform "fow_u_uk_bd40_pib_01_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_pib_01_corporal";
+this forceAddUniform "fow_u_uk_bd40_pib_01_sergeant";
+this forceAddUniform "fow_u_uk_bd40_pib_01_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_pol_01_commando_private";
+this forceAddUniform "fow_u_uk_bd40_pol_02_commando_private";
+this forceAddUniform "fow_u_uk_bd40_pol_01_commando_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_pol_01_commando_corporal";
+this forceAddUniform "fow_u_uk_bd40_pol_01_commando_sergeant";
+this forceAddUniform "fow_u_uk_bd40_pol_01_commando_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_seac_01_private";
+this forceAddUniform "fow_u_uk_bd40_seac_02_private";
+this forceAddUniform "fow_u_uk_bd40_seac_01_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_seac_02_lance_corporal";
+this forceAddUniform "fow_u_uk_bd40_seac_01_corporal";
+this forceAddUniform "fow_u_uk_bd40_seac_02_corporal";
+this forceAddUniform "fow_u_uk_bd40_seac_01_sergeant";
+this forceAddUniform "fow_u_uk_bd40_seac_02_sergeant";
+this forceAddUniform "fow_u_uk_bd40_seac_01_lieutenant";
+this forceAddUniform "fow_u_uk_bd40_seac_02_lieutenant";
+
+
+this forceAddUniform "fow_u_uk_bd40_private";
+this forceAddUniform "fow_u_uk_bd40_sergeant";
+this forceAddUniform "fow_u_uk_parasmock";
+this forceAddUniform "fow_u_uk_pol_parasmock";
+
+---------------US---------------------------------
+
+
+this forceAddUniform "fow_u_us_m37_02_private";
+this forceAddUniform "fow_u_us_hbt_01_private";
+this forceAddUniform "fow_u_us_hbt_02_private";
+
+
+this forceAddUniform "fow_u_us_m37_01_private";
+this forceAddUniform "fow_u_us_m41_01_private";
+this forceAddUniform "fow_u_us_m41_02_private";
+this forceAddUniform "fow_u_us_m41_03_private";
+this forceAddUniform "fow_u_us_m41_04_private";
+
+
+this forceAddUniform "fow_u_us_m42_ab_01_101_private";
+this forceAddUniform "fow_u_us_m42_ab_01_101_corporal";
+this forceAddUniform "fow_u_us_m42_ab_01_101_sergeant";
+this forceAddUniform "fow_u_us_m42_ab_01_101_staffsergeant";
+
+this forceAddUniform "fow_u_us_m42_ab_01_101_flag_private";
+this forceAddUniform "fow_u_us_m42_ab_01_101_flag_corporal";
+this forceAddUniform "fow_u_us_m42_ab_01_101_flag_sergeant";
+this forceAddUniform "fow_u_us_m42_ab_01_101_flag_staffsergeant";
+
+
+this forceAddUniform "fow_u_us_m42_ab_01_82_private";
+this forceAddUniform "fow_u_us_m42_ab_01_82_corporal";
+this forceAddUniform "fow_u_us_m42_ab_01_82_sergeant";
+this forceAddUniform "fow_u_us_m42_ab_01_82_staffsergeant";
+
+this forceAddUniform "fow_u_us_m42_ab_01_82_flag_private";
+this forceAddUniform "fow_u_us_m42_ab_01_82_flag_corporal";
+this forceAddUniform "fow_u_us_m42_ab_01_82_flag_sergeant";
+this forceAddUniform "fow_u_us_m42_ab_01_82_flag_staffsergeant";
+
+this forceAddUniform "fow_u_us_m42_ab_01_private";
+this forceAddUniform "fow_u_us_m42_ab_01_corporal";
+this forceAddUniform "fow_u_us_m42_ab_01_sergeant";
+this forceAddUniform "fow_u_us_m42_ab_01_staffsergeant";
+
+this forceAddUniform "fow_u_us_pilot_01";
+this forceAddUniform "fow_u_us_pilot_02";
+this forceAddUniform "fow_u_usmc_m41_01_private";
+this forceAddUniform "fow_u_usmc_p41_01_private";
+this forceAddUniform "fow_u_usmc_p41_02_private";
+this forceAddUniform "fow_u_usmc_p42_01_dyed01_1_private";
+
+
+this forceAddUniform "fow_u_usmc_p42_01_camo01_1_private";
+this forceAddUniform "fow_u_usmc_p42_01_camo01_2_private";
+this forceAddUniform "fow_u_usmc_p42_01_camo01_3_private";
+this forceAddUniform "fow_u_usmc_p42_01_camo02_1_private";
+this forceAddUniform "fow_u_usmc_p42_01_camo02_2_private";
+this forceAddUniform "fow_u_usmc_p42_01_camo02_3_private";
+
+
+
+
+####################vests########################################
+---------------ger---------------------------------
+
+this addVest "fow_v_heer_k98_bayo";
+this addVest "fow_v_heer_p38";
+
+this addVest "fow_v_heer_tankcrew_p38";
+this addVest "fow_v_heer_g43";
+this addVest "fow_v_heer_mp40_nco";
+this addVest "fow_v_heer_k98_light";
+this addVest "fow_v_heer_k98";
+this addVest "fow_v_heer_k98_ass";
+this addVest "fow_v_heer_mp40";
+this addVest "fow_v_heer_mp44";
+this addVest "fow_v_heer_mg";
+this addVest "fow_v_fall_bandoleer";
+
+
+---------------JPN---------------------------------
+
+this addVest "fow_v_ija_bayonet";
+
+this addVest "fow_v_ija_officer";
+this addVest "fow_v_ija_medic";
+this addVest "fow_v_ija_nco";
+this addVest "fow_v_ija_mortar";
+this addVest "fow_v_ija_mg";
+this addVest "fow_v_ija_grenadier";
+this addVest "fow_v_ija_rifle";
+
+
+---------------UK---------------------------------
+
+
+this addVest "fow_v_uk_base_green";
+this addVest "fow_v_uk_base";
+this addVest "fow_v_uk_officer_green";
+this addVest "fow_v_uk_officer";
+this addVest "fow_v_uk_para_sten_green";
+this addVest "fow_v_uk_para_sten";
+this addVest "fow_v_uk_para_bren_green";
+this addVest "fow_v_uk_para_bren";
+this addVest "fow_v_uk_para_base_green";
+this addVest "fow_v_uk_para_base";
+this addVest "fow_v_uk_bren_green";
+this addVest "fow_v_uk_bren";
+this addVest "fow_v_uk_sten_green";
+this addVest "fow_v_uk_sten";
+
+
+
+---------------US---------------------------------
+
+this addVest "fow_v_us_ab_45";
+this addVest "fow_v_us_45";
+this addVest "fow_v_usmc_45";
+
+
+this addVest "fow_v_us_ab_thompson";
+this addVest "fow_v_us_thompson";
+this addVest "fow_v_usmc_thompson";
+this addVest "fow_v_us_ab_thompson_nco_scr";
+this addVest "fow_v_us_thompson_nco_scr";
+this addVest "fow_v_usmc_thompson_nco";
+this addVest "fow_v_us_ab_thompson_nco";
+this addVest "fow_v_us_thompson_nco";
+this addVest "fow_v_us_ab_garand";
+this addVest "fow_v_us_garand";
+this addVest "fow_v_usmc_garand";
+this addVest "fow_v_us_ab_carbine_eng";
+this addVest "fow_v_us_carbine_eng";
+this addVest "fow_v_us_ab_carbine_nco_scr";
+this addVest "fow_v_us_carbine_nco_scr";
+this addVest "fow_v_us_ab_carbine_nco";
+this addVest "fow_v_us_carbine_nco";
+this addVest "fow_v_us_medic";
+
+
+this addVest "fow_v_us_ab_grenade";
+this addVest "fow_v_us_grenade";
+this addVest "fow_v_us_ab_garand_bandoleer";
+this addVest "fow_v_us_garand_bandoleer";
+this addVest "fow_v_us_ab_asst_mg";
+this addVest "fow_v_us_asst_mg";
+this addVest "fow_v_us_ab_bar";
+this addVest "fow_v_us_bar";
+this addVest "fow_v_usmc_bar";
+this addVest "fow_v_us_ab_carbine";
+this addVest "fow_v_us_carbine";
+this addVest "fow_v_usmc_carbine";
+
+
+
+####################Backpacks########################################
+---------------ger---------------------------------
+
+
+this addBackpack "fow_b_heer_aframe";
+this addBackpack "fow_b_heer_ammo_belt";
+this addBackpack "fow_b_torn_radio";
+
+this addBackpack "fow_b_ammoboxes_mg34_42";
+
+this addBackpack "fow_b_grenadebag";
+this addBackpack "fow_b_ammoboxes";
+this addBackpack "fow_b_tornister_medic";
+
+
+---------------jpn---------------------------------
+
+this addBackpack "fow_b_ija_backpack";
+this addBackpack "fow_b_ija_backpack_foliage";
+
+this addBackpack "fow_b_ija_ammobox";
+this addBackpack "fow_b_ija_ammobox_metal";
+this addBackpack "fow_b_ija_ammobox_wood";
+
+
+this addBackpack "fow_b_ija_type92_support";
+this addBackpack "fow_b_ija_type92_weapon";
+
+this addBackpack "fow_b_ija_type97_mortar_support";
+this addBackpack "fow_b_ija_type97_mortar_weapon";
+this addBackpack "fow_b_ija_type97_mortar_adv_weapon";
+
+
+---------------uk---------------------------------
+
+
+
+this addBackpack "fow_b_uk_p37_blanco_shovel";
+this addBackpack "fow_b_uk_p37_shovel";
+this addBackpack "fow_b_uk_p37_blanco";
+this addBackpack "fow_b_uk_p37";
+this addBackpack "fow_b_uk_p37_radio_blanco";
+this addBackpack "fow_b_uk_p37_radio";
+
+this addBackpack "fow_b_uk_piat";
+this addBackpack "fow_b_uk_bergenpack";
+
+
+this addBackpack "fow_b_uk_vickers_support";
+this addBackpack "fow_b_uk_vickers_weapon";
+
+---------------us---------------------------------
+
+
+this addBackpack "fow_b_us_bandoleer";
+this addBackpack "fow_b_us_m2_fueltank";
+this addBackpack "fow_b_us_radio";
+this addBackpack "fow_b_us_radio_scr";
+
+this addBackpack "fow_b_us_m1928";
+this addBackpack "fow_b_usmc_m1928_02";
+this addBackpack "fow_b_usmc_m1928";
+this addBackpack "fow_b_us_m1944";
+this addBackpack "fow_b_us_m1944_ropes";
+
+this addBackpack "fow_b_us_rocket_bag";
+
+
+this addBackpack "fow_b_usa_m1919_support";
+this addBackpack "fow_b_usa_m1919_weapon";
+
+this addBackpack "fow_b_us_m2_mortar_support";
+this addBackpack "fow_b_us_m2_mortar_weapon";
+this addBackpack "fow_b_us_m2_mortar_adv_weapon";
+
+
+
+####################Headgear########################################
+---------------ger---------------------------------
+
+
+this addHeadgear "fow_h_ger_feldmutze";
+this addHeadgear "fow_h_ger_feldmutze_panzer";
+this addHeadgear "fow_h_ger_feldmutze_ss";
+this addHeadgear "fow_h_ger_headset";
+this addHeadgear "fow_h_ger_m38_feldmutze";
+this addHeadgear "fow_h_ger_m38_feldmutze_panzer";
+this addHeadgear "fow_h_ger_officer_cap";
+this addHeadgear "fow_h_ger_officer_cap_ss";
+
+this addHeadgear "fow_h_ger_m40_fall_01";
+this addHeadgear "fow_h_ger_m40_fall_02_camo";
+this addHeadgear "fow_h_ger_m40_heer_01";
+this addHeadgear "fow_h_ger_m40_heer_02";
+this addHeadgear "fow_h_ger_m40_heer_01_net";
+this addHeadgear "fow_h_ger_m40_luftwaffe_01";
+this addHeadgear "fow_h_ger_m40_luftwaffe_02";
+this addHeadgear "fow_h_ger_m42_heer_01";
+
+
+this addHeadgear "fow_h_ger_m40_fall_01_camo";
+this addHeadgear "fow_h_ger_m40_fall_01_net";
+this addHeadgear "fow_h_ger_m40_heer_camo";
+this addHeadgear "fow_h_ger_m40_ss_01";
+this addHeadgear "fow_h_ger_m40_ss_02";
+
+
+---------------HI---------------------------------
+
+this addHeadgear "fow_h_hi_beret";
+this addHeadgear "fow_h_hi_beret_headset";
+this addHeadgear "fow_h_hi_officer_cap";
+
+---------------JPN---------------------------------
+
+
+this addHeadgear "fow_h_ija_fieldcap_marine_neck";
+this addHeadgear "fow_h_ija_fieldcap_neck";
+this addHeadgear "fow_h_ija_fieldcap";
+this addHeadgear "fow_h_ija_fieldcap_marine";
+this addHeadgear "fow_h_ija_fieldcap_officer";
+this addHeadgear "fow_h_ija_flight_helmet";
+this addHeadgear "fow_h_ija_hakimachi";
+
+this addHeadgear "fow_h_ija_tank_helmet";
+this addHeadgear "fow_h_ija_type90";
+this addHeadgear "fow_h_ija_type90_net_neck";
+this addHeadgear "fow_h_ija_type90_net";
+this addHeadgear "fow_h_ija_type90_snlf";
+
+this addHeadgear "fow_h_ija_type90_foliage";
+
+
+
+---------------UK---------------------------------
+
+
+this addHeadgear "fow_h_uk_bp_beret";
+this addHeadgear "fow_h_uk_beret_commando";
+this addHeadgear "fow_h_uk_beret_commando_kieffer";
+this addHeadgear "fow_h_uk_beret_commando_nor";
+this addHeadgear "fow_h_uk_beret_commando_pol";
+this addHeadgear "fow_h_uk_beret_commando_nl";
+this addHeadgear "fow_h_uk_beret_para";
+this addHeadgear "fow_h_uk_beret_para_2";
+this addHeadgear "fow_h_uk_beret_para_pol";
+this addHeadgear "fow_h_uk_pib_beret";
+this addHeadgear "fow_h_uk_beret_rha";
+this addHeadgear "fow_h_uk_beret_rha_headset";
+this addHeadgear "fow_h_uk_beret_royalmarines";
+this addHeadgear "fow_h_uk_beret_rtr";
+this addHeadgear "fow_h_uk_beret_rtr_headset";
+this addHeadgear "fow_h_uk_beret_sas";
+this addHeadgear "fow_h_uk_beret_sas_2";
+this addHeadgear "fow_h_uk_jungle_hat_03";
+this addHeadgear "fow_h_uk_jungle_hat_01";
+this addHeadgear "fow_h_uk_jungle_hat_02";
+this addHeadgear "fow_h_uk_woolen_hat";
+this addHeadgear "fow_h_uk_woolen_hat02";
+
+this addHeadgear "fow_h_uk_mk2";
+this addHeadgear "fow_h_uk_mk2_net";
+this addHeadgear "fow_h_uk_mk2_para";
+this addHeadgear "fow_h_uk_pol_mk2_para";
+this addHeadgear "fow_h_uk_mk3";
+
+
+this addHeadgear "fow_h_uk_mk2_net_foliage";
+this addHeadgear "fow_h_uk_mk2_net_camo";
+this addHeadgear "fow_h_uk_mk2_para_camo";
+this addHeadgear "fow_h_uk_pol_mk2_para_camo";
+this addHeadgear "fow_h_uk_mk3_net_camo";
+
+
+---------------US---------------------------------
+
+
+this addHeadgear "fow_h_us_daisy_mae_01";
+this addHeadgear "fow_h_us_daisy_mae_02";
+this addHeadgear "fow_h_us_daisy_mae_03";
+
+
+this addHeadgear "fow_h_us_flight_helmet";
+this addHeadgear "fow_h_us_m1";
+this addHeadgear "fow_h_us_m1_closed";
+this addHeadgear "fow_h_us_m1_folded";
+this addHeadgear "fow_h_us_m1_medic";
+this addHeadgear "fow_h_us_m1_nco";
+this addHeadgear "fow_h_us_m1_nco_closed";
+this addHeadgear "fow_h_us_m1_nco_folded";
+this addHeadgear "fow_h_us_m1_net";
+this addHeadgear "fow_h_us_m1_officer";
+this addHeadgear "fow_h_us_m1_officer_closed";
+this addHeadgear "fow_h_us_m1_officer_folded";
+this addHeadgear "fow_h_us_m2";
+this addHeadgear "fow_h_us_m2_ace";
+this addHeadgear "fow_h_us_m2_clover";
+this addHeadgear "fow_h_us_m2_diamond";
+this addHeadgear "fow_h_us_m2_fak_net";
+this addHeadgear "fow_h_us_m2_heart";
+this addHeadgear "fow_h_us_m2_net_ace";
+this addHeadgear "fow_h_us_m2_net_clover";
+this addHeadgear "fow_h_us_m2_net_diamond";
+this addHeadgear "fow_h_us_m2_net_heart";
+this addHeadgear "fow_h_us_m2_net";
+
+this addHeadgear "fow_h_us_m2_camo_ace";
+this addHeadgear "fow_h_us_m2_camo_clover";
+this addHeadgear "fow_h_us_m2_camo_diamond";
+this addHeadgear "fow_h_us_m2_camo_heart";
+this addHeadgear "fow_h_us_m2_camo_open_ace";
+this addHeadgear "fow_h_us_m2_camo_open_clover";
+this addHeadgear "fow_h_us_m2_camo_open_diamond";
+this addHeadgear "fow_h_us_m2_camo_open_heart";
+this addHeadgear "fow_h_us_m2_camo_open";
+this addHeadgear "fow_h_us_m2_camo";
+this addHeadgear "fow_h_us_m2_fak_camo";
+this addHeadgear "fow_h_usmc_m1_camo_01";
+this addHeadgear "fow_h_usmc_m1_camo_02";
+this addHeadgear "fow_h_usmc_m1";
+
+
+
+------------misc items -------------------------
+
+
+this addGoggles "fow_g_glasses1";
+this addGoggles "fow_g_glasses2";
+this addGoggles "fow_g_glasses3";
+this addGoggles "fow_g_glasses4";
+
+this addGoggles "fow_g_gloves4";
+this addGoggles "fow_g_gloves5";
+this addGoggles "fow_g_gloves6";
+this addGoggles "fow_g_gloves2";
+this addGoggles "fow_g_gloves1";
+this addGoggles "fow_g_gloves3";
+
+this addGoggles "fow_g_watch2";
+this addGoggles "fow_g_watch1";
+
+
+
+this linkItem "fow_i_nvg_GER_ammoboxes_mg34";
+this linkItem "fow_i_nvg_GER_ammo_belt";
+this linkItem "fow_i_nvg_GER_ammoboxes";
+this linkItem "fow_i_nvg_GER_grenadebag";
+
+this linkItem "fow_i_nvg_US_A4Wool_Beige";
+this linkItem "fow_i_nvg_US_A4Wool_Blue";
+this linkItem "fow_i_nvg_US_A4Wool_Green";
+this linkItem "fow_i_nvg_US_scr";
+
+
+this addWeapon "fow_i_dienstglas";
+
+
+
+

@@ -3,250 +3,116 @@
 
 
 
-csa38_pak35
-csa38_GrW34
-CSA38_opelblitz3
-CSA38_opelblitz2
-CSA38_opelblitz
-CSA38_pragaRV6
-CSA38_8rad2
-CSA38_8rad
-CSA38_MG34t
+
+CSA38_MG34t			//tripod
 CSA38_MG34t4
 CSA38_MG34t3
 CSA38_MG34t2
+CSA38_zb30jt		//tripod
+csa38_GrW34
+csa38_pak35
+csa38_pak35_FR
+csa38_pak35_late
+csa38_pak35_W
+csa38_pak35_DE
 
+//Wehrmacht early
 CSA38_Gcrew2
-CSA38_WH16
-CSA38_WH5as1
-CSA38_WH5as2
-CSA38_WH5as3
-CSA38_WH4
-CSA38_WH4bb
-CSA38_WHoff4
-CSA38_WH5
-CSA38_WH6b
-CSA38_WH6
-CSA38_WH13
-CSA38_WH7
-CSA38_WH8
-CSA38_WH9
-CSA38_WHoff1
-CSA38_WHoff5
-CSA38_WHoff3
-CSA38_WHoff2
-CSA38_WH2Bi
+CSA38_Gcrew
+CSA38_Gcrew5		//crem off
+
+CSA38_WH2Bi			//recruits
 CSA38_WH2B
 CSA38_WH1B
-CSA38_WH4B
-CSA38_WH20
-CSA38_WH21
-CSA38_WH1S
-CSA38_WH22i
+CSA38_WH4B			//recruit SL
+
+CSA38_WH16			//Soldier Arty
+CSA38_WH22i			//Soldiers
 CSA38_WH22
 CSA38_WH1
 CSA38_WH2
 CSA38_WH22Ii
 CSA38_WH3
-CSA38_Gcrew
-CSA38_Gcrew5
+
+CSA38_WH4			//Engineer
+CSA38_WH4bb
+CSA38_WH13			//Medic
+
+CSA38_WH5			//MG
+CSA38_WH5as1
+CSA38_WH5as2
+CSA38_WH5as3
+CSA38_WH6b
+CSA38_WH6
+
+CSA38_WH1S			//Sniper
+
+CSA38_WH7			//WH SL
+CSA38_WH8
+CSA38_WH9
 CSA38_WH18
 CSA38_WH19
+CSA38_WH20
+CSA38_WH21
+CSA38_WHoff2
+CSA38_WHoff1		//WH TL
+CSA38_WHoff5
+CSA38_WHoff3
+CSA38_WHoff4		//WH General
 
-CSA38_opelblitz4
-CSA38_opelblitz5
-CSA38_opelblitz6
+//Wehrmacht late 40s
+CSA38_GcrewFR
 
-CSA38_pzbfwIA
-CSA38_pzbfwI
-CSA38_pzkpfwIA
-CSA38_pzkpfwI
-CSA38_pzIIa
-CSA38_pzIIb
-CSA38_pzII
-CSA38_pzIIIB
-CSA38_pzIIIC
-CSA38_pzIIID
-CSA38_pzIV
-CSA38_pzIVB
-CSA38_pzIVcv38
-CSA38_StugIII
+CSA38_40WH16		//Soldier Arty
+CSA38_40WH1			//Soldiers
+CSA38_40WH2
+CSA38_40WH3
+CSA38_40WH2b
 
-CSA38_8rad2PL
-CSA38_8radPL
+CSA38_40WH4			//Engineer
+CSA38_40WH4bb
+CSA38_40WH13		//Medic
 
-CSA38_pzbfwI_PL
-CSA38_ltm35_1
-CSA38_ltm38
-CSA38_pzkpfwIA_PL
-CSA38_pzkpfwI_PL
-CSA38_pzIIa_PL
-CSA38_pzIIb_PL
-CSA38_pzII_PL
-CSA38_pzIIIB_PL
-CSA38_pzIIIC_PL
-CSA38_pzIIID_PL
-CSA38_pzIV_PL
-CSA38_pzIVB_PL
-CSA38_pzIVC_PL
-
-csa38_pak35_FR
-CSA38_8rad2FR
-CSA38_8radFR
-
-CSA38_40WH16
+CSA38_40WH5			//MG
 CSA38_40WH5as1
 CSA38_40WH5as2
 CSA38_40WH5as3
-CSA38_40WH4
-CSA38_40WH4bb
-CSA38_40WH5
 CSA38_40WH6
-CSA38_40WH13
-CSA38_40WH7
+
+CSA38_40WH1S		//Sniper
+
+CSA38_40WH7			//WH SL
 CSA38_40WH8
 CSA38_40WH9
 CSA38_40WH20
 CSA38_40WH21
-CSA38_40WH1S
-CSA38_40WH1
-CSA38_40WH2
-CSA38_40WH3
-CSA38_40WH2b
-CSA38_GcrewFR
-CSA38_40WH18
+CSA38_40WH18		//WH TL
 CSA38_40WH19
 
-CSA38_pzbfwIamb
-CSA38_mzm35t
-CSA38_pzbfwI_FR
-CSA38_ltm35_FR2
-CSA38_ltm38_FR2
-CSA38_ltm35_FR
-CSA38_ltm38_FR
-CSA38_pzkpfwIA_FR
-CSA38_pzkpfwI_FR
-CSA38_pzIIa_FR
-CSA38_pzIIb_FR
-CSA38_pzII_FR
-CSA38_pzIIIB_FR
-CSA38_pzIIIC_FR
-CSA38_pzIIID_FR
-CSA38_pzIV_FR
-CSA38_pzIVB_FR
-CSA38_pzIVC_FR
-
-csa38_pak35_late
-CSA38_opelblitz3_LATE2
-CSA38_opelblitz3_LATE
-CSA38_opelblitz2_LATE2
-CSA38_opelblitz2_LATE
-CSA38_opelblitz_LATE2
-CSA38_opelblitz_LATE
-
-CSA38_8rad2LATE2
-CSA38_8rad2LATE
-CSA38_8radLATE
-CSA38_8radLATE2
-
-CSA38_opelblitz4_LATE2
-CSA38_opelblitz4_LATE
-CSA38_opelblitz5_LATE2
-CSA38_opelblitz5_LATE
-
-CSA38_ltm38_LATE2
-CSA38_ltm38_LATE
-CSA38_pzIIIB_LATE
-CSA38_pzIIIC_LATE
-CSA38_pzIIID_LATE
-CSA38_pzIV_LATE
-CSA38_pzIVB_LATE
-CSA38_pzIVC_LATE
-
-csa38_pak35_DE
-CSA38_opelblitz3_DE
-CSA38_opelblitz2_DE
-CSA38_opelblitz_DE
-
-CSA38_8rad2DE
-CSA38_8radDE
-CSA38_pzbfwIamb_DE
-
-CSA38_opelblitz4_DE
-CSA38_opelblitz5_DE
-
-CSA38_pzbfwI_DE
-CSA38_pzkpfwIA_DE
-CSA38_pzkpfwI_DE
-CSA38_pzIIa_DE
-CSA38_pzIIb_DE
-CSA38_pzII_DE
-csa38_matildaii_DE
-csa38_valentineMkII7
-
-csa38_pak35_W
-
-CSA38_opelblitz3_W
-CSA38_opelblitz2_W
-CSA38_opelblitz_W
-CSA38_opelblitz4_W
-CSA38_opelblitz5_W
-
-CSA38_8rad2W
-CSA38_8radW
-
-CSA38_pzbfwIamb_W
-CSA38_mzm35t_W
-CSA38_pzbfwI_W
-CSA38_ltm35_FR2_W
-CSA38_ltm38_FR2_W
-CSA38_ltm35_W
-CSA38_ltm38_W
-CSA38_pzkpfwIA_W
-CSA38_pzkpfwI_W
-CSA38_pzIIa_W
-CSA38_pzIIb_W
-CSA38_pzII_W
-CSA38_pzIIIB_W
-CSA38_pzIIIC_W
-CSA38_pzIIID_W
-CSA38_pzIV_W
-CSA38_pzIVB_W
-CSA38_pzIVC_W
-
-CSA38_SS6
-CSA38_SS5
-CSA38_SS8
-CSA38_SS10
-CSA38_SS9
-CSA38_SS20
-CSA38_SS21
-CSA38_SS14ii
-CSA38_SS14iii
-CSA38_SS21ii
+//SS early
+CSA38_SS21ii		//Soldiers
 CSA38_SS14i
 CSA38_SS14
 CSA38_SS1
 CSA38_SS3
 CSA38_SS2
 CSA38_SS13
-CSA38_SS18
+
+CSA38_SS5			//MG
+CSA38_SS6
+
+CSA38_SS14ii		//Sniper
+CSA38_SS14iii
+
+CSA38_SS8			//SL
+CSA38_SS9
+CSA38_SS10
+CSA38_SS20			//2. TL
+CSA38_SS21
+CSA38_SS18			//TL
 CSA38_SS19
 
-CSA38_zb30jt
-
-CSA38_40SS7
-CSA38_40SS6
-CSA38_40SS7c
-CSA38_40SS7b
-CSA38_40SS5
-CSA38_40SS8
-CSA38_40SS10
-CSA38_40SS9
-CSA38_40SS20
-CSA38_40SS21
-CSA38_40SS14ii
-CSA38_40SS14iii
+//SS late
 CSA38_40SS14i
 CSA38_40SS21ii
 CSA38_40SS14
@@ -254,9 +120,25 @@ CSA38_40SS1
 CSA38_40SS3
 CSA38_40SS2
 CSA38_40SS13
-CSA38_40SS18
+
+CSA38_40SS7			//MG
+CSA38_40SS6
+CSA38_40SS7c
+CSA38_40SS7b
+CSA38_40SS5
+
+CSA38_40SS14ii		//Sniper
+CSA38_40SS14iii
+
+CSA38_40SS8			//SL
+CSA38_40SS9
+CSA38_40SS10
+CSA38_40SS20		//2. TL
+CSA38_40SS21
+CSA38_40SS18			//TL
 CSA38_40SS19
 
+//NS sym rebel-troops
 CSA38_SFK15
 CSA38_SFK6
 CSA38_SFK16
@@ -276,16 +158,256 @@ CSA38_SFK11
 CSA38_SFK18
 CSA38_SFK19
 
-csa38_matildaii_RU1
-csa38_m3a3RU1
-csa38_t34RU1
-csa38_t34RU2
-csa38_valentineMkIIRU1
-csa38_matildaii_RU2
-csa38_m3a3RU2
-csa38_t34RU3
-csa38_valentineMkIIRU2
+//FR = grey | LATE = Y+camo | DE = desert | W = winter
 
+CSA38_opelblitz3
+CSA38_opelblitz2
+CSA38_opelblitz
+CSA38_opelblitz4	//ammo
+CSA38_opelblitz5	//fuel
+CSA38_opelblitz6	//repair
+CSA38_pragaRV6
+CSA38_opelblitz3_LATE2
+CSA38_opelblitz3_LATE
+CSA38_opelblitz2_LATE2
+CSA38_opelblitz2_LATE
+CSA38_opelblitz_LATE2
+CSA38_opelblitz_LATE
+CSA38_opelblitz4_LATE2	//ammo
+CSA38_opelblitz4_LATE	//ammo
+CSA38_opelblitz5_LATE2	//fuel
+CSA38_opelblitz5_LATE	//fuel
+CSA38_opelblitz3_DE
+CSA38_opelblitz2_DE
+CSA38_opelblitz_DE
+CSA38_opelblitz4_DE	//ammo
+CSA38_opelblitz5_DE	//fuel
+CSA38_opelblitz3_W
+CSA38_opelblitz2_W
+CSA38_opelblitz_W
+CSA38_opelblitz4_W	//ammo
+CSA38_opelblitz5_W	//fuel
+
+
+CSA38_8rad2
+CSA38_8rad
+CSA38_8rad2PL
+CSA38_8radPL
+CSA38_8rad2FR
+CSA38_8radFR
+CSA38_8radLATE
+CSA38_8radLATE2
+CSA38_8rad2LATE2
+CSA38_8rad2LATE
+CSA38_8rad2DE
+CSA38_8radDE
+CSA38_8rad2W
+CSA38_8radW
+
+
+//tech 0
+CSA38_pzbfwIA		//unarmed
+CSA38_pzbfwI
+CSA38_pzkpfwIA
+CSA38_pzkpfwI
+CSA38_pzIIa
+CSA38_pzIIb
+CSA38_pzII
+CSA38_ltm35_1
+CSA38_pzbfwI_PL
+CSA38_pzkpfwIA_PL
+CSA38_pzkpfwI_PL
+CSA38_pzIIa_PL
+CSA38_pzIIb_PL
+CSA38_pzII_PL
+CSA38_pzbfwI_FR
+CSA38_ltm35_FR
+CSA38_ltm35_FR2		//nazi
+CSA38_pzkpfwIA_FR
+CSA38_pzkpfwI_FR
+CSA38_pzIIa_FR
+CSA38_pzIIb_FR
+CSA38_pzII_FR
+CSA38_pzbfwI_W
+CSA38_ltm35_W
+CSA38_ltm35_FR2_W		//nazi
+CSA38_pzkpfwIA_W
+CSA38_pzkpfwI_W
+CSA38_pzIIa_W
+CSA38_pzIIb_W
+CSA38_pzII_W
+
+//tech 1
+CSA38_pzIIIB
+CSA38_pzIIIC
+CSA38_pzIIID
+CSA38_StugIII
+CSA38_ltm38
+CSA38_pzIIIB_PL
+CSA38_pzIIIC_PL
+CSA38_pzIIID_PL
+CSA38_pzbfwIamb		// medic?
+CSA38_mzm35t		//nazi, ammo?
+CSA38_ltm38_FR
+CSA38_ltm38_FR2		//nazi
+CSA38_pzIIIB_FR
+CSA38_pzIIIC_FR
+CSA38_pzIIID_FR
+CSA38_ltm38_LATE
+CSA38_ltm38_LATE2	//camo
+CSA38_pzIIIB_LATE
+CSA38_pzIIIC_LATE
+CSA38_pzIIID_LATE
+CSA38_pzbfwIamb_DE	// medic?
+CSA38_pzbfwI_DE
+CSA38_pzkpfwIA_DE
+CSA38_pzkpfwI_DE
+CSA38_pzIIa_DE
+CSA38_pzIIb_DE
+CSA38_pzII_DE
+csa38_matildaii_DE
+CSA38_pzbfwIamb_W	// medic?
+CSA38_mzm35t_W		//nazi, ammo?
+CSA38_ltm38_W
+CSA38_ltm38_FR2_W	//nazi
+CSA38_pzIIIB_W
+CSA38_pzIIIC_W
+CSA38_pzIIID_W
+
+//tech 2
+CSA38_pzIV
+CSA38_pzIVB
+CSA38_pzIVcv38
+CSA38_pzIV_PL
+CSA38_pzIVB_PL
+CSA38_pzIVC_PL
+CSA38_pzIV_FR
+CSA38_pzIVB_FR
+CSA38_pzIVC_FR
+CSA38_pzIV_LATE
+CSA38_pzIVB_LATE
+CSA38_pzIVC_LATE
+CSA38_pzIV_W
+CSA38_pzIVB_W
+CSA38_pzIVC_W
+
+//tech 2
+csa38_valentineMkII7
+
+//------------------------------------------------------------------------------------------------------
+//RUS
+//tech 0
+csa38_m3a3RU1
+csa38_m3a3RU2		//winter
+
+//tech 1
+csa38_t34RU1
+csa38_t34RU2		//camo red
+csa38_t34RU3		//winter
+
+//tech 2
+//tech 3
+csa38_matildaii_RU1
+csa38_matildaii_RU2		//winter
+
+//tech 4
+csa38_valentineMkIIRU1
+csa38_valentineMkIIRU2		//winter
+
+
+//------------------------------------------------------------------------------------------------------
+//british
+//statics
+CSA38_2inch_vehicle		//mortar
+CSA38_brenmkiit			//MG tripod
+CSA38_brenmkiit2
+
+
+CSA38_ENsoldier2_1		//MG ass
+CSA38_ENsoldier2		//MG
+CSA38_ENsoldier3_1		//medic
+CSA38_ENsoldier1_4		//AT boy
+
+csa38_ENsoldier144		//crew
+CSA38_ENsoldier1_7		//Soldier
+CSA38_ENsoldier1
+CSA38_ENsoldier1_5		//Sten	1
+CSA38_ENsoldier1_1		//Sten 2
+CSA38_ENsoldier1_2		//Sten 3
+CSA38_ENsoldier1_6		//Sten 4
+CSA38_ENsoldier1_3		//Sten 5
+
+CSA38_ENsoldier8_3		//platoon leader
+CSA38_ENsoldier8_2		//SL
+CSA38_ENsoldier8_1		//TL
+
+
+
+//tech 0
+//brown camo
+csa38_m3a37AD
+csa38_m3a37AD2		//red icon
+csa38_m3a37AD3
+csa38_m3a37AD4
+csa38_m3a37AD5
+csa38_m3a37AD8		//blue icon
+csa38_m3a37AD6
+csa38_m3a37AD7
+csa38_m3a37AD9
+csa38_m3a37AD10		//yellow icon
+csa38_m3a37AD11
+csa38_m3a37AD12
+csa38_m3a37AD13
+//green
+csa38_m3a3
+csa38_m3a37AD45
+csa38_m3a37AD452		//red icon
+csa38_m3a37AD453
+csa38_m3a37AD454
+csa38_m3a37AD455
+csa38_m3a37AD458		//blue icon
+csa38_m3a37AD456
+csa38_m3a37AD457
+csa38_m3a37AD459
+csa38_m3a37AD4510		//yellow icon
+csa38_m3a37AD4511
+csa38_m3a37AD4512
+csa38_m3a37AD4513
+//winter
+csa38_m3a37ADW
+csa38_m3a37ADW2		//red icon
+csa38_m3a37ADW3
+csa38_m3a37ADW4
+csa38_m3a37ADW5
+
+//tech 1
+//brown camo
+csa38_m5a17AD4
+csa38_m5a17AD		//No15 icon
+//green
+csa38_m5a17AD3
+csa38_m5a17AD2		//No15 icon
+//winter
+csa38_m5a17ADW
+
+//tech 2
+//brown camo
+csa38_valentineMkIIgreen
+csa38_valentineMkIIgreen2	//brown black
+csa38_valentineMkIIgreen3
+csa38_valentineMkIIgreen4
+//Yellow desert
+csa38_valentineMkII2
+csa38_valentineMkII
+csa38_valentineMkII6
+csa38_valentineMkII5	//yellow black
+csa38_valentineMkII4
+csa38_valentineMkII3	//yellow green
+//winter
+csa38_valentineMkIIW
+
+//tech 3
+//brown camo
 csa38_cromwell_2B
 csa38_cromwell_C2
 csa38_cromwell_C3
@@ -293,278 +415,254 @@ csa38_cromwell_C
 csa38_cromwell_D3
 csa38_cromwell_D2
 csa38_cromwell_D
-csa38_cromwell_2camo10
-csa38_cromwell_2camo5
-csa38_cromwell_2camo6
-csa38_cromwell_2camo11
-csa38_cromwell_2camo1
+csa38_cromwell_2
+csa38_cromwell_2camo1		//red icon
 csa38_cromwell_2camo2
 csa38_cromwell_2camo3
 csa38_cromwell_2camo4
-csa38_cromwell_2
-csa38_cromwell_2camo12
+csa38_cromwell_2camo5		//yellow icon
+csa38_cromwell_2camo6
 csa38_cromwell_2camo7
 csa38_cromwell_2camo8
-csa38_cromwell_2camo9
+csa38_cromwell_2camo9		//blue icon
+csa38_cromwell_2camo10
+csa38_cromwell_2camo11
+csa38_cromwell_2camo12
+csa38_cromwell_4EN			//mortar gun
 csa38_cromwell_DCS3
 csa38_cromwell_DCS
 csa38_cromwell_DCS2
-csa38_cromwell_4EN
-csa38_m3a37AD8
-csa38_m3a37AD2
-csa38_m3a37AD3
-csa38_m3a37AD4
-csa38_m3a37AD5
-csa38_m3a37AD6
-csa38_m3a37AD7
-csa38_m3a37AD
-csa38_m3a37AD9
-csa38_m3a37AD10
-csa38_m3a37AD11
-csa38_m3a37AD12
-csa38_m3a37AD13
-csa38_m5a17AD4
-csa38_m5a17AD
+//green
 csa38_cromwell_C453
 csa38_cromwell_C452
 csa38_cromwell_C45
 csa38_cromwell_D452
 csa38_cromwell_D453
 csa38_cromwell_D45
+csa38_cromwell_145
+csa38_cromwell_245
+csa38_cromwell_345
+csa38_cromwell_245camo1		//red icon
 csa38_cromwell_245camo2
 csa38_cromwell_245camo3
 csa38_cromwell_245camo4
-csa38_cromwell_245camo5
-csa38_cromwell_245camo1
+csa38_cromwell_245camo5		//yellow icon
 csa38_cromwell_245camo6
 csa38_cromwell_245camo7
-csa38_cromwell_245
-csa38_cromwell_245camo9
+csa38_cromwell_245camo8
+csa38_cromwell_245camo9		//blue icon
 csa38_cromwell_245camo10
 csa38_cromwell_245camo11
 csa38_cromwell_245camo12
-csa38_cromwell_245camo8
-csa38_cromwell_145
-csa38_cromwell_345
-csa38_cromwell_5EN45
+csa38_cromwell_5EN45			//mortar gun
 csa38_cromwell_6EN45
 csa38_cromwell_4EN45
-csa38_m3a37AD458
-csa38_m3a37AD452
-csa38_m3a37AD453
-csa38_m3a37AD454
-csa38_m3a37AD455
-csa38_m3a37AD456
-csa38_m3a37AD457
-csa38_m3a37AD45
-csa38_m3a37AD459
-csa38_m3a37AD4510
-csa38_m3a37AD4511
-csa38_m3a37AD4512
-csa38_m3a37AD4513
-csa38_m5a17AD3
-csa38_m5a17AD2
+//winter
 csa38_cromwell_C2W
 csa38_cromwell_C3W
 csa38_cromwell_CW
-csa38_cromwell_DW
+csa38_cromwell_2W
+csa38_cromwell_DW			//more green
 csa38_cromwell_D3W
 csa38_cromwell_D2W
-csa38_cromwell_2camo5W
-csa38_cromwell_2camo9W
-csa38_cromwell_2camo12W
-csa38_cromwell_2W
-csa38_cromwell_2camo1W
+csa38_cromwell_2camo1W		//red icon
 csa38_cromwell_2camo2W
 csa38_cromwell_2camo3W
 csa38_cromwell_2camo4W
-csa38_cromwell_2camo11W
+csa38_cromwell_2camo5W		//yellow icon
 csa38_cromwell_2camo6W
 csa38_cromwell_2camo7W
 csa38_cromwell_2camo8W
+csa38_cromwell_2camo9W		//blue icon
 csa38_cromwell_2camo10W
-csa38_cromwell_DCS2W
+csa38_cromwell_2camo12W
+csa38_cromwell_2camo11W
+csa38_cromwell_DCS2W			//mortar gun, more green
 csa38_cromwell_DCSW
 csa38_cromwell_DCS3W
-csa38_cromwell_4ENW
-csa38_m3a37ADW2
-csa38_m3a37ADW3
-csa38_m3a37ADW4
-csa38_m3a37ADW5
-csa38_m3a37ADW
-csa38_m5a17ADW
+csa38_cromwell_4ENW			//mortar gun
 
-CSA38_2inch_vehicle
-CSA38_brenmkiit2
-CSA38_brenmkiit
-
-CSA38_ENsoldier2_1
-CSA38_ENsoldier2
-CSA38_ENsoldier3_1
-CSA38_ENsoldier8_3
-CSA38_ENsoldier8_2
-CSA38_ENsoldier1_4
-CSA38_ENsoldier1_7
-CSA38_ENsoldier1
-CSA38_ENsoldier1_5
-CSA38_ENsoldier1_1
-CSA38_ENsoldier1_2
-CSA38_ENsoldier1_6
-CSA38_ENsoldier1_3
-csa38_ENsoldier144
-CSA38_ENsoldier8_1
-
-csa38_matildaii_5
-csa38_matildaii_4
-csa38_matildaii_1
+//tech 4
+csa38_matildaii_1		//brown camo
 csa38_matildaiiCS_1
-csa38_matildaiiCS_5
+csa38_matildaii_4		//brown black
 csa38_matildaiiCS_4
-csa38_m3a3
-csa38_valentineMkIIgreen2
-csa38_valentineMkIIgreen3
-csa38_valentineMkIIgreen
-csa38_valentineMkIIgreen4
-csa38_matildaii
-csa38_matildaii_2
-csa38_matildaii_6
-csa38_matildaiiCS_6
+csa38_matildaii_5		//green
+csa38_matildaiiCS_5
+csa38_matildaii			//yellow desert
 csa38_matildaiiCS
+csa38_matildaii_2		//yellow 2xgreen
 csa38_matildaiiCS_2
-csa38_valentineMkII5
-csa38_valentineMkII4
-csa38_valentineMkII3
-csa38_valentineMkII6
-csa38_valentineMkII2
-csa38_valentineMkII
-csa38_matildaii_3
+csa38_matildaii_6		//yellow green brown
+csa38_matildaiiCS_6
+csa38_matildaii_3		//winter
 csa38_matildaiiCS_3
-csa38_valentineMkIIW
 
-csa38_KPUV37
-CSA38_mvz36
-CSA38_mvz17
-CSA38_kolo
 
-CSA38_pragaRV2
-CSA38_pragaRV4
-CSA38_pragaRV
+
+//------------------------------------------------------------------------------------------------------
+//CZ
+
+CSA38_TKVZ24mg		//MG
 CSA38_TKVZ37MG
-CSA38_TKVZ24mg
 CSA38_tkvz37mg3
 CSA38_tkvz24mg2
 CSA38_tkvz24mg3
 CSA38_zb26t
 CSA38_zb26t2
+CSA38_mvz17			//mortar
+CSA38_mvz36			//mortar
+csa38_KPUV37		//AT gun
 
-CSA38_soldier2_4tk
-CSA38_soldier5_6
-CSA38_soldier2_1
-CSA38_soldier2_1B
-CSA38_soldier2_1C
-CSA38_soldier2_1tk
+//tech 0
 CSA38_CZcrew
 CSA38_CZcrew2
-CSA38_CZoff5
-CSA38_soldier5_1
-CSA38_soldier5_1b
-CSA38_soldier1
-CSA38_soldier2_2tk
-CSA38_soldier2_3tk
-CSA38_soldier2_2
-CSA38_soldier2
-CSA38_soldier3
-CSA38_soldier1_16
-CSA38_CZcrew5
-CSA38_CZoff9
-CSA38_CZoff4
-CSA38_CZoff10
-CSA38_CZoff8
-CSA38_CZoff1
-CSA38_CZoff7
-CSA38_CZoff2
-CSA38_soldier1_13
+CSA38_CZcrew3
+CSA38_CZcrew4
+CSA38_CZcrew5			//green camo
+CSA38_soldier1_13		//Prisoner
 CSA38_soldier1_14
 CSA38_soldier1_15
-CSA38_CZoff6
-CSA38_soldier8_2
-CSA38_soldier5_3
-CSA38_soldier5_4
-CSA38_soldier5_5
-CSA38_soldier1_4
+CSA38_soldier5_6		//artyman
+CSA38_soldier5_1		//grenadier
+CSA38_soldier5_1b		//grenadier
+CSA38_soldier1			//guard
+CSA38_soldier3			//medic
+CSA38_soldier1_16		//messager radioman
+CSA38_soldier1_4		//Soldier
 CSA38_soldier1_11
 CSA38_soldier1_2
 CSA38_soldier1_1
 CSA38_soldier1_12
 CSA38_soldier1_3
-CSA38_CZcrew3
-CSA38_CZcrew4
-CSA38_soldier8_1
+CSA38_soldier5_3		//mortarteam
+CSA38_soldier5_4
+CSA38_soldier5_5
 
-CSA38_pragaRV5
-CSA38_pragaRV7
-CSA38_ltvz34
-CSA38_ltvz35
-CSA38_ltvz38
-CSA38_TCvz33
-CSA38_pzkpfwIAvcz
-CSA38_pzkpfwIvcz
-CSA38_pzIIvcz
-CSA38_pzIIIBvcz
-CSA38_pzIIICvcz
-CSA38_pzIIIDvcz
-CSA38_pzIVvcz
-CSA38_pzIVBvcz
-csa38_t34cz2
-csa38_t34cz3
-csa38_t34cz4
-csa38_t34cz6
-csa38_t34cz1
-csa38_t34cz5
+//tech 1
+CSA38_soldier2_1		//MG team
+CSA38_soldier2_1B
+CSA38_soldier2_1C
+CSA38_soldier2_1tk
 
-CSA38_CZ44soldier2_1
-CSA38_CZ44soldier2
-csa38_CZsoldier1443
-CSA38_CZ44soldier8_2
-CSA38_CZ44soldier1_4
-CSA38_CZ44soldier1
-CSA38_CZ44soldier1_5
-CSA38_CZ44soldier1_1
-CSA38_CZ44soldier1_2
-CSA38_CZ44soldier1_3
-csa38_CZsoldier1442
+CSA38_soldier2_2
+CSA38_soldier2_2tk		//HMG team
+CSA38_soldier2_3tk
+CSA38_soldier2_4tk
+
+CSA38_soldier2			//MG
+
+//tech 2
+CSA38_soldier8_1	//SL
+CSA38_soldier8_2
+CSA38_CZoff6
+CSA38_CZoff2
+CSA38_CZoff8		//TL
+CSA38_CZoff1
+CSA38_CZoff7
+CSA38_CZoff9
+CSA38_CZoff4
+CSA38_CZoff10
+CSA38_CZoff5		//general
+
+//UK support
+csa38_CZsoldier1442			//crew
 csa38_CZsoldier1441
 csa38_CZsoldier144
-csa38_CZsoldier344
-CSA38_CZ44soldier8_1
+csa38_CZsoldier344			//crew MG
+CSA38_CZ44soldier1			//Soldier
+CSA38_CZ44soldier1_5		//Sten 1
+CSA38_CZ44soldier1_1		//Sten 2
+CSA38_CZ44soldier1_2		//Sten 3
+CSA38_CZ44soldier1_3		//Sten 5
+csa38_CZsoldier1443			//medic
+CSA38_CZ44soldier1_4		//AT boy
 
-csa38_cromwell_1
-csa38_cromwell_5
-csa38_cromwell_4
-csa38_m5a1
+CSA38_CZ44soldier2_1		//MG ass
+CSA38_CZ44soldier2			//MG
 
-CSA38_financ1
-CSA38_financ5
-CSA38_financ2
+CSA38_CZ44soldier8_2		//2. TL
+CSA38_CZ44soldier8_1		//TL
+
+
+
 CSA38_financ6
 CSA38_financ3
 CSA38_financ7
 CSA38_financ4
+CSA38_financ2		//MG
+CSA38_financ1		//SL
+CSA38_financ5		//TL
 
+CSA38_spol1
+CSA38_spol3
+CSA38_spol2			//MG
+CSA38_spol4			//SL
+
+
+//tech 0
+CSA38_kolo			//bike
+//tech 1
+CSA38_pragaRV2
+CSA38_pragaRV4
+CSA38_pragaRV
+CSA38_pragaRV5		//ammo
+CSA38_pragaRV7		//repair
+
+
+
+//tech 0
+CSA38_TCvz33
+CSA38_ltvz34
+
+//tech 1
+CSA38_ltvz35
+CSA38_pzkpfwIAvcz
+CSA38_pzkpfwIvcz
+
+//tech 2
+CSA38_ltvz38
+CSA38_pzIIvcz
+csa38_m5a1
+
+//tech 3
+CSA38_pzIIIBvcz
+CSA38_pzIIICvcz
+CSA38_pzIIIDvcz
+csa38_t34cz2		//named
+csa38_t34cz3
+csa38_t34cz4
+csa38_t34cz6		//camo
+csa38_t34cz1		//green
+csa38_t34cz5		//winter
+
+//tech 4
+CSA38_pzIVvcz
+CSA38_pzIVBvcz
+csa38_cromwell_1
+csa38_cromwell_5
+csa38_cromwell_4
+
+
+
+//polish units
 csa38_PLsoldier01
+csa38_m5a17APL
 csa38_cromwell_CPL
 csa38_cromwell_CPL2
 csa38_cromwell_CPLHELA
 csa38_cromwell_DPL
 csa38_cromwell_PL
-csa38_m5a17APL
 
+//Ungarn
 CSA38_R2W
 CSA38_R2late
 CSA38_R2
 CSA38_R2Tacam
 CSA38_T38
 CSA38_T38W
+
+
 CSA38_SKsoldier1
 CSA38_SKsoldier1_3
 CSA38_SKsoldier1_3B
@@ -578,12 +676,653 @@ CSA38_lt38
 CSA38_lt382
 CSA38_lt40kul
 CSA38_lt40
-CSA38_spol1
-CSA38_spol2
-CSA38_spol3
-CSA38_spol4
 
 CSA38_CIV1
 CSA38_CIV2
 CSA38_CIV3
 CSA38_CIV4
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+this addItemToBackpack "CSA38_F1";
+
+this addItemToBackpack "CSA38_rg21";
+this addItemToBackpack "CSA38_rg34";
+this addItemToBackpack "CSA38_rg38";
+
+this addItemToBackpack "CSA38_Gsmoke";
+this addItemToBackpack "CSA38_shg24";
+this addItemToBackpack "CSA38_shg24t";
+
+
+
+this addItemToBackpack "csa38_dyn2";
+this addItemToBackpack "csa38_dyn";
+this addItemToBackpack "csa38_dyn3";
+this addItemToBackpack "csa38_sm35";
+this addItemToBackpack "csa38_tmi35";
+
+
+this addItemToBackpack "CSA38_MedikitWH";
+this addItemToBackpack "CSA38_obvaz";
+this addItemToBackpack "CSA38_obvazWH";
+
+
+
+//-------------------------------------------------cz---------------------------------------------
+
+
+this addWeapon "csa38_lp082";
+this addWeapon "csa38_lp08";
+this addHandgunItem "csa38_9mm_8xLuger";
+this addItemToBackpack "csa38_9_MM_32xMP18";
+
+
+this addWeapon "csa38_czvz22";
+this addWeapon "csa38_czvz24";
+this addWeapon "csa38_czvz38";
+this addHandgunItem "CSA38_9mm_8xBrowning";
+
+this addWeapon "csa38_czvz27";
+this addHandgunItem "CSA38_7_65mm_8xBrowning";
+
+this addWeapon "csa38_czvz36";
+this addHandgunItem "CSA38_6_35mm_8xBrowning";
+
+this addWeapon "csa38_vz30";
+this addHandgunItem "csa38_FlareWhite26mm";
+this addItemToBackpack "csa38_FlareGreen26mm";
+this addItemToBackpack "csa38_FlareRed26mm";
+this addItemToBackpack "csa38_FlareYellow26mm";
+
+
+
+
+this addWeapon "CSA38_sm1924";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+
+this addWeapon "CSA38_vz22";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addWeapon "CSA38_vz23";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addWeapon "CSA38_vz24ii";		//sniper
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addWeapon "CSA38_vz24";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addWeapon "csa38_gvz23";
+this addPrimaryWeaponItem "CSA38_Grg21";
+this addWeapon "CSA38_vz33";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addItemToBackpack "CSA38_7_92_5xMauser2";
+this addItemToBackpack "csa38_7_92_5xMauserKAR";
+this addItemToBackpack "csa38_7_92_5xMauserKAR2";
+this addItemToBackpack "CSA38_7_92_5xMauser3";
+
+this addWeapon "CSA38_vz24iii";
+this addPrimaryWeaponItem "CSA38_7_92_20xMauserCZ";
+
+
+this addWeapon "CSA38_M1895";
+this addWeapon "CSA38_M1895H";
+this addPrimaryWeaponItem "csa38_8_00_5xMannlicher";
+this addPrimaryWeaponItem "csa38_m95Bayonet";
+this addPrimaryWeaponItem "CSA38_PGvz23_Empty";
+this addItemToBackpack "CSA38_2inch_illum_1rnd";
+this addItemToBackpack "CSA38_2inch_smoke_1rnd";
+this addItemToBackpack "CSA38_2inch_he_1rnd";
+
+
+this addWeapon "CSA38_MAS36";
+this addPrimaryWeaponItem "CSA38_7_5_5xMAS";
+
+
+this addWeapon "csa38_mas38";
+this addPrimaryWeaponItem "csa38_mas38mag";
+
+
+this addWeapon "CSA38_31m";
+this addPrimaryWeaponItem "csa38_8x56_25xMannlicherMG";
+
+
+
+this addWeapon "csa38_kpvz38P";
+this addWeapon "csa38_kpvz38";
+this addPrimaryWeaponItem "CSA38_9_mm_96xBrowning";
+this addItemToBackpack "CSA38_9_mm_36xBrowning";
+
+
+
+this addWeapon "CSA38_zb26";
+this addWeapon "CSA38_zb30";
+this addWeapon "CSA38_zb30j";
+this addPrimaryWeaponItem "CSA38_7_92_20xMauser";
+this addItemToBackpack "csa38_7_92_20xMauser2";
+this addItemToBackpack "CSA38_7_92_20xMauserGE";
+this addItemToBackpack "csa38_7_92_20xMauser2GE";
+this addItemToBackpack "CSA38_7_92_30xMauser";
+this addItemToBackpack "CSA38_7_92_47xMauser";
+this addItemToBackpack "CSA38_7_92_30xMauser2";
+this addItemToBackpack "CSA38_7_92_30xMauserGE";
+this addItemToBackpack "CSA38_7_92_47xMauserGE";
+this addItemToBackpack "csa38_7_92_30xMauser2GE";
+
+
+
+this addWeapon "CSA38_TKVZ37";
+this addPrimaryWeaponItem "CSA38_ZB53mg5";
+this addItemToBackpack "CSA38_ZB53mg6";
+
+this addWeapon "CSA38_TKVZ24";
+this addPrimaryWeaponItem "CSA38_TKVZ24mag2";
+this addItemToBackpack "CSA38_TKVZ24mag";
+
+
+
+this addWeapon "csa38_m36hlaven";
+this addWeapon "csa38_m36loziste";
+this addWeapon "csa38_m36podstavec";
+
+this addWeapon "CSA38_TKVZ24tripod";
+this addWeapon "CSA38_TKVZ37tripod";
+this addWeapon "CSA38_TKVZ24tripod";
+this addWeapon "CSA38_TKVZ37tripod";
+
+//-------------------------------------------------ger---------------------------------------------
+
+
+this addWeapon "csa38_m1896";
+this addWeapon "csa38_p38";
+this addHandgunItem "csa38_7_63mm_10xMauser";
+this addItemToBackpack "csa38_9mm_8xPARA";
+
+this addWeapon "csa38_p08";
+this addWeapon "csa38_p082";
+this addHandgunItem "csa38_9mm_8xLuger";
+this addHandgunItem "csa38_9_MM_32xMP18";
+
+this addWeapon "CSA38_WaltherPP";
+this addHandgunItem "csa38_7_65mm_8xBrow";
+this addItemToBackpack "CSA38_9mm_8xBrowning";
+
+this addWeapon "CSA38_WaltherPPK";
+this addHandgunItem "csa38_7_65mm_7xBrow";
+this addItemToBackpack "CSA38_9mm_8xBrowning";
+
+
+this addWeapon "CSA38_g98";
+this addWeapon "CSA38_kar98k";
+this addWeapon "CSA38_kar98k5";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addItemToBackpack "CSA38_7_92_5xMauser2";
+this addItemToBackpack "csa38_7_92_5xMauserKAR";
+this addItemToBackpack "csa38_7_92_5xMauserKAR2";
+this addItemToBackpack "CSA38_7_92_5xMauser3";
+
+this addWeapon "CSA38_kar98k2";	//sniper
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+this addWeapon "CSA38_kar98k4";	//sniper
+this addPrimaryWeaponItem "csa38_7_92_20xMauserKAR";
+
+this addWeapon "CSA38_kar98k3";
+this addWeapon "CSA38_kar98k6";
+this addPrimaryWeaponItem "csa38_7_92_20xMauserKAR";
+
+this addWeapon "CSA38_g98ii";	//sniper
+this addWeapon "CSA38_g98i";
+this addPrimaryWeaponItem "CSA38_7_92_5xMauser";
+
+this addWeapon "CSA38_g98iv";	//sniper
+this addWeapon "CSA38_g98iii";
+this addPrimaryWeaponItem "csa38_7_92_20xMauserKAR";
+
+this addWeapon "CSA38_M1895k";
+this addPrimaryWeaponItem "csa38_8_00_5xMannlicher";
+
+
+this addWeapon "CSA38_vz33_40";
+this addPrimaryWeaponItem "csa38_7_92_5xMauserKAR";
+this addWeapon "CSA38_vz33_40ii";
+this addPrimaryWeaponItem "csa38_7_92_20xMauserKAR";
+
+
+
+this addWeapon "CSA38_Mp18";
+this addPrimaryWeaponItem "csa38_9_MM_32xMP18";
+this addWeapon "CSA38_Mp28";
+this addPrimaryWeaponItem "csa38_9_MM_32xMP28";
+this addWeapon "CSA38_Mp35";
+this addPrimaryWeaponItem "csa38_9_MM_32xMP35";
+this addWeapon "CSA38_Mp38ii";
+this addWeapon "CSA38_Mp38";
+this addWeapon "CSA38_Mp40ii";
+this addWeapon "CSA38_Mp40";
+this addPrimaryWeaponItem "csa38_9_MM_32xPARA";
+this addItemToBackpack "csa38_32_9x19Blank";
+this addItemToBackpack "csa38_32_9x19";
+
+
+
+
+this addWeapon "CSA38_MG13";
+this addPrimaryWeaponItem "csa38_7_92_25xMauserMG";
+this addItemToBackpack "csa38_7_92_25xMauserMGAP";
+
+this addWeapon "CSA38_MG30";
+this addPrimaryWeaponItem "csa38_7_92_30xMauserMG";
+this addItemToBackpack "csa38_7_92_30xMauserMGAP";
+
+this addWeapon "CSA38_MG34";
+this addPrimaryWeaponItem "csa38_7_92_50xMauserMG";
+this addItemToBackpack "csa38_7_92_50xMauserMGAP";
+this addItemToBackpack "csa38_7_92_250xMauserMG";
+this addItemToBackpack "csa38_7_92_250xMauserMGAP";
+
+
+this addWeapon "CSA38_mg34tripod2";
+
+
+//-------------------------------------------------UK---------------------------------------------
+
+
+this addWeapon "CSA38_enf";
+this addHandgunItem "CSA38_6Rnd_38SW_Cylinder";
+
+this addWeapon "CSA38_SMLE";
+this addWeapon "CSA38_SMLE2";
+this addWeapon "CSA38_No4";
+this addPrimaryWeaponItem "CSA38_7_7_10x56R";
+this addItemToBackpack "CSA38_7_7_10x56Rblank";
+this addItemToBackpack "CSA38_7_7_10x56RAP";
+
+this addWeapon "CSA38_No4t";	//sniper
+this addPrimaryWeaponItem "CSA38_7_7_10x56R";
+
+
+
+this addWeapon "CSA38_OwenMkI2";
+this addWeapon "CSA38_OwenMkI2camo2";
+this addWeapon "CSA38_OwenMkI2camo";
+this addWeapon "CSA38_OwenMkI";
+this addWeapon "CSA38_OwenMkIcamo2";
+this addWeapon "CSA38_OwenMkIcamo";
+this addPrimaryWeaponItem "csa38_33_9x19";
+this addItemToBackpack "csa38_32_9x19Blank";
+this addItemToBackpack "csa38_9_MM_32xPARA";
+this addItemToBackpack "csa38_32_9x19";
+
+
+
+this addWeapon "CSA38_stenMkI";
+this addWeapon "CSA38_stenMkII";
+this addWeapon "CSA38_stenMkIII";
+this addWeapon "CSA38_stenMkIIs";
+this addWeapon "CSA38_stenMkIV";
+this addWeapon "CSA38_stenMkV";
+this addWeapon "CSA38_stenMkVI";
+this addPrimaryWeaponItem "csa38_32_9x19";
+this addItemToBackpack "csa38_9_MM_32xPARA";
+this addItemToBackpack "csa38_32_9x19Blank";
+
+
+
+this addWeapon "CSA38_BRENMKI2";
+this addWeapon "CSA38_BRENMKII2";
+this addPrimaryWeaponItem "CSA38_7_7_100x56R";
+this addItemToBackpack "CSA38_7_7_100x56RBlank";
+this addItemToBackpack "CSA38_7_7_100x56RAP";
+this addWeapon "CSA38_BRENMKI";
+this addWeapon "CSA38_BRENMKII";
+this addPrimaryWeaponItem "CSA38_7_7_30x56R";
+this addItemToBackpack "CSA38_7_7_30x56Rblank";
+this addItemToBackpack "CSA38_7_7_30x56RAP";
+
+
+this addWeapon "CSA38_boys";
+this addPrimaryWeaponItem "CSA38_5_13_9x99mmB";
+
+
+this addWeapon "CSA38_PIAT_Rifle";
+this addPrimaryWeaponItem "CSA38_PIATmagG";
+this addItemToBackpack "CSA38_PIATmagG3";
+this addItemToBackpack "CSA38_PIATmagG2";
+
+
+
+this addWeapon "CSA38_2inch_bag";
+this addSecondaryWeaponItem "CSA38_2inch_he_1rnd";
+this addItemToBackpack "CSA38_2inch_smoke_1rnd";
+this addItemToBackpack "CSA38_2inch_illum_1rnd";
+this addWeapon "csa38_brentripod2";
+
+
+//-------------------------------------------------US---------------------------------------------
+
+???
+
+
+
+
+
+
+
+
+####################uniforms########################################
+---------------civ---------------------------------
+
+
+this forceAddUniform "U_csa38_uniCIV01";
+this forceAddUniform "U_csa38_uniCIV02";
+this forceAddUniform "U_csa38_uniCIV03";
+
+
+---------------CZ---------------------------------
+
+
+this forceAddUniform "U_csa38_unicrew2CZ01";
+this forceAddUniform "U_csa38_unicrew2CZ02";
+this forceAddUniform "U_csa38_unicrew2CZ05";
+this forceAddUniform "U_csa38_unicrew2CZ04";
+
+this forceAddUniform "U_csa38_unicrewCZ01";
+
+this forceAddUniform "U_csa38_unioffCZ02";
+this forceAddUniform "U_csa38_unioffCZ03";
+this forceAddUniform "U_csa38_unioffCZ01";
+this forceAddUniform "U_csa38_unioffCZ04";
+
+this forceAddUniform "U_csa38_unifinCZ01";
+
+
+this forceAddUniform "U_csa38_uniCZ05";
+this forceAddUniform "U_csa38_uniCZ06";
+this forceAddUniform "U_csa38_uniCZ01";
+this forceAddUniform "U_csa38_uniCZ10";
+this forceAddUniform "U_csa38_uniCZ02";
+this forceAddUniform "U_csa38_uniCZ04";
+this forceAddUniform "U_csa38_uniCZ03";
+
+this forceAddUniform "U_csa38_uniCZ08";
+this forceAddUniform "U_csa38_uniCZ09";
+this forceAddUniform "U_csa38_uniCZ07";
+
+
+---------------ger---------------------------------
+
+
+this forceAddUniform "U_csa38_uniSFK01";
+this forceAddUniform "U_csa38_uniSFK02";
+this forceAddUniform "U_csa38_uniSFK03";
+this forceAddUniform "U_csa38_uniSFK04";
+this forceAddUniform "U_csa38_uniSFK05";
+this forceAddUniform "U_csa38_uniSFK06";
+this forceAddUniform "U_csa38_uniSFK07";
+
+this forceAddUniform "U_csa38_unipolCZ01";
+
+this forceAddUniform "U_csa38_unicrewCZ02";
+
+this forceAddUniform "U_csa38_unicrewGE01";
+this forceAddUniform "U_csa38_unicrewCZ03";
+this forceAddUniform "U_csa38_unicrewGE02";
+
+
+this forceAddUniform "U_csa38_uniGE08";
+this forceAddUniform "U_csa38_uniGE09";
+
+
+this forceAddUniform "U_csa38_uniGE01";
+this forceAddUniform "U_csa38_uniGE03";
+this forceAddUniform "U_csa38_uniGE04";
+this forceAddUniform "U_csa38_uniGE10";
+this forceAddUniform "U_csa38_uniGE11";
+this forceAddUniform "U_csa38_uniGE02";
+this forceAddUniform "U_csa38_uni40GE07";
+this forceAddUniform "U_csa38_uni40GE10";
+this forceAddUniform "U_csa38_uni40GE02";
+this forceAddUniform "U_csa38_uni40GE11";
+this forceAddUniform "U_csa38_40uniGE01";
+this forceAddUniform "U_csa38_uni40GE03";
+this forceAddUniform "U_csa38_uni40GE04";
+
+this forceAddUniform "U_csa38_uniGE06";
+this forceAddUniform "U_csa38_uni40GE06";
+this forceAddUniform "U_csa38_uniGE05";
+this forceAddUniform "U_csa38_uniGE13";
+this forceAddUniform "U_csa38_uniGE12";
+this forceAddUniform "U_csa38_uniGE07";
+this forceAddUniform "U_csa38_uni10GE06";
+this forceAddUniform "U_csa38_uni40GE05";
+this forceAddUniform "U_csa38_uni40GE13";
+this forceAddUniform "U_csa38_uni40GE12";
+
+this forceAddUniform "U_csa38_unioffGE03";
+this forceAddUniform "U_csa38_unioffGE02";
+this forceAddUniform "U_csa38_unioffGE01";
+
+
+
+---------------UK---------------------------------
+
+
+this forceAddUniform "U_csa38_unicrew2CZ03";
+this forceAddUniform "U_csa38_ENuni02";
+this forceAddUniform "U_csa38_ENuni03";
+this forceAddUniform "U_csa38_ENuni04";
+this forceAddUniform "U_csa38_ENuni01";
+
+
+
+---------------Other---------------------------------
+
+
+this forceAddUniform "U_csa38_PLuni01";
+this forceAddUniform "U_csa38_unicrewSK01";
+this forceAddUniform "U_csa38_uniSK01";
+
+
+####################vests########################################
+---------------cz---------------------------------
+
+
+this addVest "V_csa38_equip_CZ08";
+this addVest "V_csa38_equip_CZ16";
+this addVest "V_csa38_equip_CZ09";
+this addVest "V_csa38_equip_CZ15";
+this addVest "V_csa38_equip_CZ14";
+this addVest "V_csa38_equip_CZ13";
+this addVest "V_csa38_equip_CZ17";
+this addVest "V_csa38_equip_CZ19";
+this addVest "V_csa38_equip_CZ12";
+this addVest "V_csa38_equip_CZ10";
+this addVest "V_csa38_equip_CZ07";
+this addVest "V_csa38_equip_CZ11";
+this addVest "V_csa38_equip_CZ18";
+this addVest "V_csa38_equip_CZ06";
+this addVest "V_csa38_equip_CZ05";
+this addVest "V_csa38_equip_CZ04";
+this addVest "V_csa38_equip_CZ03";
+this addVest "V_csa38_equip_CZ01";
+this addVest "V_csa38_equip_CZ02";
+
+
+
+---------------ger---------------------------------
+
+
+this addVest "V_csa38_equip_GE13";
+this addVest "V_csa38_equip_GE14";
+this addVest "V_csa38_equip_GE11";
+this addVest "V_csa38_equip_GE12";
+this addVest "V_csa38_equip_GE09";
+this addVest "V_csa38_equip_GE02";
+this addVest "V_csa38_equip_GE03";
+this addVest "V_csa38_equip_GE04";
+this addVest "V_csa38_equip_GE07";
+this addVest "V_csa38_equip_GE06";
+this addVest "V_csa38_equip_GE05";
+this addVest "V_csa38_equip_GE10";
+this addVest "V_csa38_equip_GE01";
+this addVest "V_csa38_equip_GE08";
+this addVest "V_csa38_equip_GE02i";
+this addVest "V_csa38_equip_GE04i";
+this addVest "V_csa38_equip_GE01i";
+this addVest "V_csa38_equip_GE06i";
+this addVest "V_csa38_equip_GE03i";
+this addVest "V_csa38_equip_GE05i";
+this addVest "V_csa38_equip_GE07i";
+
+
+####################Backpacks########################################
+---------------cz---------------------------------
+
+
+this addBackpack "csa38_pouzdrovz23";
+
+this addBackpack "csa38_lkhaven";
+
+
+this addBackpack "csa38_CZBatoh";
+this addBackpack "csa38_CZBatoh3";
+this addBackpack "csa38_CZBatoh2";
+this addBackpack "csa38_CZBatoh4";
+
+
+
+
+---------------ger---------------------------------
+
+this addBackpack "csa38_GeMedicbag";
+
+this addBackpack "csa38_GEBatoh6";
+this addBackpack "csa38_GEBatoh5";
+
+
+this addBackpack "csa38_GEBatoh9";
+this addBackpack "csa38_GEBatoh7";
+this addBackpack "csa38_GEBatoh8";
+this addBackpack "csa38_GEBatoh3";
+
+
+####################Headgear########################################
+---------------BE---------------------------------
+
+this addHeadgear "Headgear_csa38_CZMKIIBE";
+this addHeadgear "Headgear_csa38_CZMKIIBEC";
+
+
+---------------CH---------------------------------
+
+this addHeadgear "Headgear_csa38_M35CH";
+
+---------------cz---------------------------------
+
+
+this addHeadgear "Headgear_csa38_CZbaret3";
+this addHeadgear "Headgear_csa38_CZbaret";
+this addHeadgear "Headgear_csa38_cepiceCZ3";
+this addHeadgear "Headgear_csa38_cepiceCZ4";
+this addHeadgear "Headgear_csa38_lodicka1";
+this addHeadgear "Headgear_csa38_cepiceCZ2";
+this addHeadgear "Headgear_csa38_cepiceCZ1";
+
+
+this addHeadgear "Headgear_csa38_M18CZ";
+this addHeadgear "Headgear_csa38_CZMKII";
+this addHeadgear "Headgear_csa38_CZMKIIC";
+this addHeadgear "Headgear_csa38_CZMKIIMEDCZ";
+this addHeadgear "Headgear_csa38_CZMKIIMEDCZC";
+this addHeadgear "Headgear_csa38_vz31";
+this addHeadgear "Headgear_csa38_vz32";
+
+
+---------------ger---------------------------------
+
+this addHeadgear "Headgear_csa38_cepiceGE1";
+this addHeadgear "Headgear_csa38_cepiceGE2";
+this addHeadgear "Headgear_csa38_m38cap3";
+this addHeadgear "Headgear_csa38_m38cap1";
+this addHeadgear "Headgear_csa38_m38cap4";
+this addHeadgear "Headgear_csa38_m38cap2";
+this addHeadgear "Headgear_csa38_m38cap5";
+this addHeadgear "Headgear_csa38_cepiceGE3";
+this addHeadgear "Headgear_csa38_cepiceGE5";
+this addHeadgear "Headgear_csa38_cepiceGE4";
+
+
+this addHeadgear "Headgear_csa38_M18SS";
+this addHeadgear "Headgear_csa38_M18WH";
+this addHeadgear "Headgear_csa38_M35SS40";
+this addHeadgear "Headgear_csa38_M35SS";
+this addHeadgear "Headgear_csa38_M35WH";
+this addHeadgear "Headgear_csa38_M35WH40";
+
+this addHeadgear "Headgear_csa38_M18ww1";
+
+
+---------------pl---------------------------------
+
+this addHeadgear "Headgear_csa38_CZbaret4";
+
+
+this addHeadgear "Headgear_csa38_CZMKIIPLC";
+this addHeadgear "Headgear_csa38_CZMKIIPL";
+this addHeadgear "Headgear_csa38_MKIICPL2";
+this addHeadgear "Headgear_csa38_MKIIPL2";
+
+---------------sk---------------------------------
+
+this addHeadgear "Headgear_csa38_vz32C";
+this addHeadgear "Headgear_csa38_vz32B";
+
+
+
+---------------uk---------------------------------
+
+this addHeadgear "Headgear_csa38_CZbaret2";
+
+
+
+this addHeadgear "Headgear_csa38_MKII";
+this addHeadgear "Headgear_csa38_MKIICWinter";
+this addHeadgear "Headgear_csa38_MKIIC";
+this addHeadgear "Headgear_csa38_MKIIWinter";
+this addHeadgear "Headgear_csa38_CZMKIIMED";
+this addHeadgear "Headgear_csa38_CZMKIIMEDC";
+
+
+------------misc items -------------------------
+
+
+this addWeapon "CSA38_Binocular";
+
+this addWeapon "csa38_Binocular2";
+this linkItem "csa38_ItemMap";
+this linkItem "csa38_ItemRadio";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

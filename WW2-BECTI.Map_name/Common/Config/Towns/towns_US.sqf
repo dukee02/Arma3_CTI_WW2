@@ -288,56 +288,24 @@ AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
 switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_p26", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_ryanpt", _sid],1]];
-		};
-	};
-	case 1: {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_texan", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_dauntless", _sid],1]];
-		};
-	};
+	case 0;
+	case 1;
 	case 2: {
 		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_corsair", _sid],1]];
-		};
 		AIR_BOMBER = [[format["%1LIB_US_P39_2", _sid],1]];
 		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 			AIR_BOMBER = [[format["%1LIB_US_NAC_P39", _sid],1]];
 		};
 	};
-	case 3: {
-		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mustang", _sid],1]];
-		};
-		AIR_BOMBER = [[format["%1LIB_P47", _sid],1]];
-	};
-	case 4: {
-		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_P47", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_mustang", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_b24", _sid],1]];
-		};
-	};
+	case 3;
+	case 4;
 	case 5: {
 		AIR_FIGHTER = [[format["%1LIB_US_P39", _sid],1]];
 		AIR_BOMBER = [[format["%1LIB_P47", _sid],1]];
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = [[format["%1sab_f6f", _sid],1]];
-			AIR_BOMBER = [[format["%1sab_b17", _sid],1]];
-		};
 	};
 	default {
-		if(CTI_SAB_ADDON == 1) then {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
-		};
+		AIR_FIGHTER = INFANTRY;
+		AIR_BOMBER = INFANTRY;
 	};
 };
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {

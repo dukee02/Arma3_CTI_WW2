@@ -382,20 +382,10 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_C47_Skytrain", _sid];
 	//_c pushBack format["%1LIB_C47_RAF_bob", _sid];
 	//_c pushBack format["%1LIB_C47_RAF_snafu", _sid];
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_c47", _sid];
-		_c pushBack format["%1sab_p26", _sid];
-		_c pushBack format["%1sab_ryanpt", _sid];
-	};
 	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_texan", _sid];
-		_c pushBack format["%1sab_dauntless", _sid];
-		_c pushBack format["%1sab_avenger", _sid];
-		_level = _level + 1;
-	};
+if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0 ) then {
+	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
@@ -405,46 +395,13 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	};
 	_c pushBack format["%1LIB_US_P39", _sid];
 	//_c pushBack format["%1LIB_US_P39_2", _sid];
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_p38", _sid];
-		_c pushBack format["%1sab_corsair", _sid];
-	};
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_P47", _sid];
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_mustang", _sid];
-		_c pushBack format["%1sab_p51b", _sid];
-		_c pushBack format["%1sab_a26", _sid];
-		_c pushBack format["%1sab_b25", _sid];
-	};
 	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_AIR >= _level && (CTI_SAB_ADDON > 0 || CTI_FOW_ADDON > 0)) then {
-	
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_tigercat", _sid];
-		_c pushBack format["%1sab_f6f", _sid];
-		_c pushBack format["%1sab_b24", _sid];
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack format["%1fow_va_f6f", _sid];
-		_c pushBack format["%1fow_va_f6f_kick", _sid];
-		_c pushBack format["%1fow_va_f6f_sweet", _sid];
-		_c pushBack format["%1fow_va_f6f_c", _sid];
-		_c pushBack format["%1fow_va_f6f_c_death", _sid];
-		_c pushBack format["%1fow_va_f6f_c_kick", _sid];
-		_c pushBack format["%1fow_va_f6f_c_sweet", _sid];
-	};
-	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON > 0) then {
-		_c pushBack format["%1sab_p61", _sid];
-		_c pushBack format["%1sab_b17", _sid];
-	};
-};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -576,31 +533,7 @@ if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 	
 	/*class  	fow_usa_lcvp;*/
 };
-if(CTI_SAB_ADDON == 1) then {
-	//Level 0
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
-		_c pushBack format["%1sab_boat_freighter", _sid];
-		_c pushBack format["%1sab_boat_liberty", _sid];
-		_c pushBack format["%1sab_boat_rubberboat", _sid];
-		_c pushBack format["%1sab_boat_torpedo", _sid];
-		_c pushBack format["%1sab_boat_sreighter", _sid];
-		_c pushBack format["%1sab_boat_subchaser", _sid];
-	};
-	//Level 1
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 1) then {
-		_c pushBack format["%1sab_boat_destroyer", _sid];
-		_c pushBack format["%1sab_boat_u7_o", _sid];
-	};
-	//Level 2
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 2) then {
-		_c pushBack format["%1sab_boat_cruiser", _sid];
-		_c pushBack format["%1sab_item_carrier_2", _sid];
-	};
-	//Level 3
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 3) then {
-		_c pushBack format["%1sab_boat_battleship", _sid];
-	};
-};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 

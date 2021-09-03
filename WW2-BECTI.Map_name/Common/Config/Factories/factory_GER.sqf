@@ -626,17 +626,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_HEAVY], _c];
 //--- Below is classnames for Units and AI avaiable to puchase from Air Factory.
 _c = [];
 _level = 0;
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_avia", _sid];
-		_c pushBack format["%1sab_bu131", _sid];
-		_c pushBack format["%1sab_avia_2", _sid];
-		_c pushBack format["%1sab_w34", _sid];
-		_c pushBack format["%1sab_w34f", _sid];
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_Ju87_w", _sid];
 	};
@@ -647,24 +637,11 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 		_c pushBack format["%1LIB_Ju87_Italy", _sid];
 	};
 	_c pushBack format["%1LIB_Ju87", _sid];
-	if(CTI_IFA3LIB_ADDON > 0) then {
-		_c pushBack format["%1ifa3_ju87_mg", _sid];
-	};
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_bf109", _sid];
-		_c pushBack format["%1sab_ju87", _sid];
-		_c pushBack format["%1sab_bf110", _sid];
-		_c pushBack format["%1sab_bf110_2", _sid];
-	};
 	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0  || CTI_IFA3_NEW > 0 ) then {
 	if(CTI_IFA3_NEW > 0) then {
 		_c pushBack format["%1LIB_Ju87_G2", _sid];
-	};
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_ju88", _sid];
-		_c pushBack format["%1sab_ju88_2", _sid];
 	};
 	_level = _level + 1;
 };
@@ -686,29 +663,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	//_c pushBack format["%1LIB_FW190F8_5", _sid];
 	//_c pushBack format["%1LIB_FW190F8_2", _sid];
 	//_c pushBack format["%1LIB_FW190F8_3", _sid];
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_fw190", _sid];
-		_c pushBack format["%1sab_fw190_2", _sid];
-		_c pushBack format["%1sab_he111", _sid];
-	};
 	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_bv141", _sid];
-		_c pushBack format["%1sab_do335", _sid];
-		_c pushBack format["%1sab_ta152c", _sid];
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_he162", _sid];
-		_c pushBack format["%1sab_hix", _sid];
-		_c pushBack format["%1sab_me262", _sid];
-		_c pushBack format["%1sab_me262_2", _sid];
-		_level = _level + 1;
-	};
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR];
 if (isNil "_priorUnits") then { 
@@ -847,29 +802,8 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_DEPOT], _c];
 //														Naval Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
-_c = [];
-if(CTI_SAB_ADDON == 1) then {
-	//Level 0
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
-		_c pushBack format["%1sab_boat_freighter_o", _sid];
-		_c pushBack format["%1sab_boat_torpedo_o", _sid];
-		_c pushBack format["%1sab_boat_s38_o", _sid];
-		_c pushBack format["%1sab_boat_sreighter_o", _sid];
-	};
-	//Level 1
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 1) then {
-		_c pushBack format["%1sab_boat_destroyer_o", _sid];
-		_c pushBack format["%1sab_boat_u7", _sid];
-	};
-	//Level 2
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 2) then {
-		_c pushBack format["%1sab_boat_cruiser_o", _sid];
-	};
-	//Level 3
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 3) then {
-		_c pushBack format["%1sab_boat_battleship_o", _sid];
-	};
-};
+/*_c = [];
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -879,3 +813,4 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER.sqf", format["units in factory %1: [%2] ", CTI_NAVAL, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_NAVAL], _c];
+*/

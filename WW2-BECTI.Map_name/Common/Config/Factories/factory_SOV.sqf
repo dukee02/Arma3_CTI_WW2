@@ -409,17 +409,10 @@ _c = [];
 _level = 0;
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1LIB_Li2", _sid];
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_i16", _sid];
-	};
 	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_la5", _sid];
-		_c pushBack format["%1sab_la5_2", _sid];
-		_level = _level + 1;
-	};
+if(CTI_SABFL_ADDON > 0 || CTI_SAB_ADDON > 0 ) then {
+	_level = _level + 1;
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
@@ -442,18 +435,6 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 		_c pushBack format["%1sab_p39", _sid];
 	};
 	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_tusb2", _sid];
-		_level = _level + 1;
-	};
-};
-if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	if(CTI_SAB_ADDON == 1) then {
-		_c pushBack format["%1sab_il2", _sid];
-		_level = _level + 1;
-	};
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR];
@@ -573,31 +554,8 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_DEPOT], _c];
 //														Naval Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
-_c = [];
-if(CTI_SAB_ADDON == 1) then {
-	//Level 0
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
-		_c pushBack format["%1sab_boat_freighter_i", _sid];
-		_c pushBack format["%1sab_boat_liberty_i", _sid];
-		_c pushBack format["%1sab_boat_rubberboat3", _sid];
-		_c pushBack format["%1sab_boat_torpedo_i", _sid];
-		_c pushBack format["%1sab_boat_sreighter_i", _sid];
-		_c pushBack format["%1sab_boat_subchaser_i", _sid];
-	};
-	//Level 1
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 1) then {
-		_c pushBack format["%1sab_boat_destroyer_i", _sid];
-		_c pushBack format["%1sab_boat_u7_i", _sid];
-	};
-	//Level 2
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 2) then {
-		_c pushBack format["%1sab_boat_cruiser_i", _sid];
-	};
-	//Level 3
-	if(CTI_ECONOMY_LEVEL_NAVAL >= 3) then {
-		_c pushBack format["%1sab_boat_battleship_i", _sid];
-	};
-};
+/*_c = [];
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -607,3 +565,4 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_SOV.sqf", format["units in factory %1: [%2] ", CTI_NAVAL, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_NAVAL], _c];
+*/
