@@ -654,7 +654,8 @@ class Params {
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
-	};*/class SEPARATOR_LOG {
+	};*/
+	class SEPARATOR_LOG {
 		title = "=========================== LOG-DEBUG-AND-TESTING ============================";
 		values[] = {1};
 		texts[] = {""};

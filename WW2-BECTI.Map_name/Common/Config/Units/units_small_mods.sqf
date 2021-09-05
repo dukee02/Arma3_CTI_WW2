@@ -254,7 +254,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
 			_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 			_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-			_c pushBack format["%1sab_fl_hurricane_2", _sid];
+			_c pushBack format["%1sab_fl_hurricane_trop", _sid];
 			_p pushBack '';
 			_n pushBack '';
 			_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -263,7 +263,12 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_f pushBack CTI_FACTORY_AIR;
 			_s pushBack "";
 			_d pushBack 0;
-			_c pushBack format["%1sab_fl_hurricane_trop", _sid];
+		};
+		_tech_level = 2;
+		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+			_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
+			_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
+			_c pushBack format["%1sab_fl_hurricane_2", _sid];
 			_p pushBack '';
 			_n pushBack '';
 			_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));

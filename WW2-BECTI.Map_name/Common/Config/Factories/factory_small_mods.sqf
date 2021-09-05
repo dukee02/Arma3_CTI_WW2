@@ -142,8 +142,10 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_c pushBack format["%1sab_fl_hurricane", _sid];
 		};
 		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
-			_c pushBack format["%1sab_fl_hurricane_2", _sid];
 			_c pushBack format["%1sab_fl_hurricane_trop", _sid];
+		};
+		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+			_c pushBack format["%1sab_fl_hurricane_2", _sid];
 		};
 		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
 			_c pushBack format["%1sab_fl_dh98", _sid];

@@ -1014,7 +1014,7 @@ _classes pushBack 		"Land_WW2_Setka_Vert";
 _prices pushBack 		300;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Camo";
-
+/*
 _headers pushBack 		"CamoNet Tank";
 _classes pushBack 		"Land_WW2_CamoNet_Tank";
 _prices pushBack 		300;
@@ -1062,7 +1062,7 @@ _classes pushBack 		"Land_CamoNetB_NATO";
 _prices pushBack 		300;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Camo";
-
+*/
 _headers pushBack 		"Jump Target";
 _classes pushBack 		"Land_JumpTarget_F";
 _prices pushBack 		100;
