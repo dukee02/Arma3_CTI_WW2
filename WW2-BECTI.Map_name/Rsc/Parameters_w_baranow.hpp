@@ -67,20 +67,20 @@ class Params {
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {

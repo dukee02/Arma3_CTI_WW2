@@ -563,8 +563,6 @@ fow_w_6Pounder_usmc
 
 fow_s_us_coxswain
 fow_s_us_pilot_green
-fow_s_us_crewman		//desert
-fow_s_us_pilot
 
 fow_s_us_at_asst
 fow_s_us_engineer
@@ -593,6 +591,9 @@ fow_s_us_teamleader
 fow_s_us_teamleader_asst
 
 //desert
+fow_s_us_crewman		//desert
+fow_s_us_pilot
+
 fow_s_us_m37_at_asst
 fow_s_us_m37_engineer
 fow_s_us_m37_medic
@@ -877,27 +878,27 @@ init = "(_this select 0) setFlagTexture '\fow\fow_main\flags\flag_netherlands_co
 -----------------------------------------------------------------------------------------------------
 
 
-this addItemToBackpack "fow_e_mk2";
+this addItemToBackpack "fow_e_mk2";			//normal grenade
+this addItemToBackpack "fow_e_no77";		//nebel
+this addItemToBackpack "fow_e_no82";		//aufschlag
 
-this addItemToBackpack "fow_e_no36mk1";
-this addItemToBackpack "fow_e_no69";
-this addItemToBackpack "fow_e_no73";
-this addItemToBackpack "fow_e_no77";
-this addItemToBackpack "fow_e_no79";
-this addItemToBackpack "fow_e_no82";
+this addItemToBackpack "fow_e_no36mk1";		//normal grenade
+this addItemToBackpack "fow_e_no69";		//aufschlag
+this addItemToBackpack "fow_e_no73";		//aufschlag AT?
+this addItemToBackpack "fow_e_no79";		//nebel
 
-this addItemToBackpack "fow_e_type97";
-this addItemToBackpack "fow_e_type99";
-this addItemToBackpack "fow_e_type99_at";
+this addItemToBackpack "fow_e_type97";		//normal grenade
+this addItemToBackpack "fow_e_type99";		//normal frag grenade
+this addItemToBackpack "fow_e_type99_at";	//AT
 
 
 
-this addItemToBackpack "fow_e_m24K_spli";
-this addItemToBackpack "fow_e_m24_at";
-this addItemToBackpack "fow_e_m24_spli";
-this addItemToBackpack "fow_e_m24";
-this addItemToBackpack "fow_e_m24K";
-this addItemToBackpack "fow_e_nb39b";
+this addItemToBackpack "fow_e_m24K_spli";	//normal frag grenade
+this addItemToBackpack "fow_e_m24_at";		//AT
+this addItemToBackpack "fow_e_m24_spli";	//normal frag grenade
+this addItemToBackpack "fow_e_m24";			//normal grenade
+this addItemToBackpack "fow_e_m24K";		//normal grenade
+this addItemToBackpack "fow_e_nb39b";		//nebel
 
 
 this addItemToBackpack "fow_e_tnt_halfpound";
@@ -933,8 +934,6 @@ this addWeapon "fow_w_p640p";
 this addHandgunItem "fow_13Rnd_9x19";
 
 
-this addWeapon "fow_w_mp40";
-this addPrimaryWeaponItem "fow_32Rnd_9x19_mp40";
 
 
 
@@ -947,6 +946,8 @@ this addWeapon "fow_w_g43";
 this addPrimaryWeaponItem "fow_10nd_792x57";
 
 
+this addWeapon "fow_w_mp40";
+this addPrimaryWeaponItem "fow_32Rnd_9x19_mp40";
 
 this addWeapon "fow_w_fg42";
 this addPrimaryWeaponItem "fow_w_acc_fg42_bayo";
@@ -1672,4 +1673,145 @@ this addWeapon "fow_i_dienstglas";
 
 
 
+------------ammo boxes -------------------------
 
+FOW_AB_UK_Carton_303_AP
+FOW_AB_UK_Carton_303
+FOW_AB_UK_Carton_303_T
+
+FOW_AB_IJA_Crate_20mm
+fow_ab_ija_81mm_type97_HE
+fow_ab_ija_81mm_type97_ILL
+fow_ab_ija_81mm_type97_SMOKE
+FOW_AB_IJA_Crate_Generic
+FOW_AB_IJA_Crate_Generic_P
+
+FOW_AB_US_Carton_3006_T
+FOW_AB_US_Carton_3006_AP
+FOW_AB_US_Carton_3006
+FOW_AB_US_Carton_3006_RG
+fow_ab_us_60mm_m2_HE
+fow_ab_us_60mm_m2_ILL
+fow_ab_us_60mm_m2_SMOKE
+FOW_AB_US_Carton_45
+FOW_AB_US_Carton_45_SMG
+FOW_AB_US_Crate_Generic
+
+fow_ab_ger_dropcanister
+
+
+------------fortification-------------------------
+
+Land_fow_wall_wood
+Land_fielddefence_01
+Land_fielddefence_02
+Land_fielddefence_03
+Land_fielddefence_04
+Land_fielddefence_05
+Land_fielddefence_06
+Land_fielddefence_07s
+Land_GeneralServiceTent
+fow_p_barbwire01
+fow_p_barbwire02
+fow_p_beachobstacle_01
+fow_p_beachobstacle_02
+fow_p_defenceposition_01
+fow_p_defenceposition_02
+
+fow_p_logbunker01
+fow_p_logbunker02
+fow_p_sandbag00
+fow_p_sandbag01
+fow_p_sandbag03_end
+fow_p_sandbag03_mid
+fow_p_sandbag04
+fow_p_sandbag05
+fow_p_sandbag1
+fow_p_sandbag2
+fow_p_dirtheap001
+fow_p_dirtheap002
+fow_p_dirtheap003
+fow_p_dirtheap004
+fow_p_dirtheap005
+fow_p_dirtheap006
+fow_p_dirtheap007
+fow_p_dirtheap008
+fow_p_dirtheap009
+fow_p_dirtheap010
+fow_p_dirtheap011
+fow_p_dirtheap012
+fow_p_dirtheap013
+fow_p_dirtheap014
+fow_p_dirtheap015
+fow_p_dirtheap016
+
+Land_wx_bunker
+Land_defPos1
+Land_defPos1_beach
+Land_defPos1_grass
+Land_defPos1_ground
+Land_defPos1_jungle
+Land_defPos1_marsh
+Land_trench03
+Land_trench04b
+Land_trench04
+Land_trench04_beach
+Land_trench04b_grass
+Land_trench04b_ground
+Land_trench04_grass
+Land_trench04_ground
+Land_trench04_jungle
+Land_trench04_marsh
+Land_trench04b_jungle
+Land_trench04b_marsh
+Land_trench04b_beach
+Land_trench05b
+Land_trench05
+Land_trench05_beach
+Land_trench05_grass
+Land_trench05_ground
+Land_trench05_jungle
+Land_trench05_marsh
+Land_trench05b_beach
+Land_trench05b_grass
+Land_trench05b_ground
+Land_trench05b_jungle
+Land_trench05b_marsh
+Land_trench06
+Land_trench06_beach
+Land_trench06_grass
+Land_trench06_ground
+Land_trench06_jungle
+Land_trench06_marsh
+Land_trench06b_beach
+Land_trench06b_grass
+Land_trench06b_ground
+Land_trench06b_jungle
+Land_trench06b_marsh
+Land_trench07
+Land_trench08
+Land_trench09
+Land_trenchfloor01
+Land_trenchfloor01_b
+land_wx_guardtower_01
+land_wx_guardtower_02
+
+fow_p_defenceposition_03
+fow_p_defenceposition_03_beach
+fow_p_defenceposition_03_grass
+fow_p_defenceposition_03_ground
+fow_p_defenceposition_03_jungle
+fow_p_defenceposition_03_marsh
+fow_p_defenceposition_04
+fow_p_defenceposition_04_beach
+fow_p_defenceposition_04_grass
+fow_p_defenceposition_04_ground
+fow_p_defenceposition_04_jungle
+fow_p_defenceposition_04_marsh
+fow_p_defenceposition_05
+fow_p_defenceposition_05_beach
+fow_p_defenceposition_05_grass
+fow_p_defenceposition_05_ground
+fow_p_defenceposition_05_jungle
+fow_p_defenceposition_05_marsh
+fow_p_defenceposition_06

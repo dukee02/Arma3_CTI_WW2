@@ -17,6 +17,33 @@ switch (missionNamespace getVariable format["CTI_%1FLAG", _side]) do {
 	case 4: {
 		_texture = "\A3\Data_F\Flags\Flag_uk_CO.paa";
 	};
+	case 5: {
+		_texture = "\fow\fow_main\flags\flag_germany_co.paa";
+	};
+	case 6: {
+		_texture = "\fow\fow_main\flags\flag_USA_co.paa";
+	};
+	case 7: {
+		_texture = "\fow\fow_main\flags\flag_Japan02_co.paa";
+	};
+	case 8: {
+		_texture = "\fow\fow_main\flags\flag_Japan01_co.paa";
+	};
+	case 9: {
+		_texture = "\fow\fow_main\flags\flag_Australia_co.paa";
+	};
+	case 10: {
+		_texture = "\fow\fow_main\flags\flag_canada_co.paa";
+	};
+	case 11: {
+		_texture = "\fow\fow_main\flags\flag_New_Zealand_co.paa";
+	};
+	case 12: {
+		_texture = "\fow\fow_main\flags\flag_horizon_islands_colonial_co.paa";
+	};
+	case 13: {
+		_texture = "\fow\fow_main\flags\flag_netherlands_co.paa";
+	};
 	/*case 5: {
 		_texture = "";
 	};*/

@@ -767,10 +767,17 @@ with missionNamespace do {
 	
 	if (isNil 'CTI_UNITS_FATIGUE') then {CTI_UNITS_FATIGUE = 0};
 	
-	if (isNil 'CTI_IFA3_NEW') then {CTI_IFA3_NEW = 1};
-	if (!isClass(configFile >> "CfgVehicles" >> "LIB_M4T34_Calliope")) then {
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_IFA3_NEW = 0;
+	if (isNil 'CTI_IFA3_NEW') then {CTI_IFA3_NEW = -1};
+	if(CTI_IFA3_NEW >= 0) then {
+		//if they want to play with ifa3 chack the modversion
+		if (!isClass(configFile >> "CfgVehicles" >> "LIB_M4T34_Calliope")) then {
+			//check if the IFA3_beta version is loaded or the stable
+			CTI_IFA3_NEW = 0;
+		};
+		if (!isClass(configFile >> "CfgVehicles" >> "LIB_US_Willys_MB")) then {
+			//check if the IFA3 version is loaded or no IFA3 is found
+			CTI_IFA3_NEW = -1;
+		};
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 Version <%1> ", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
 	

@@ -49,12 +49,16 @@ class Params {
 	};
 	class CTI_WEST_AI {
 		title = "BLUFOR (West) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
+		//values[] = {-1,0,1,2,3,4,5,6};
+		//texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "UK FoW"};
 		values[] = {-1,0,1,2,3};
 		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army"};
 		default = -1;
 	};
 	class CTI_EAST_AI {
 		title = "OPFOR (East) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
+		//values[] = {-1,0,1,2,3,4};
+		//texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW"};
 		values[] = {-1,0,1,2,3};
 		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army"};
 		default = -1;
@@ -67,20 +71,20 @@ class Params {
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
-		values[] = {0,1,2,3,4,5,6,7,/*8,9,*/10,11,12,13,/*14,15,16,17,18,19,20,*/21,22,23,24,25,26,27,28};
-		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Polish Armia Krajowa","France","France Libre",/*"Japain (Nippon)","Japain War (Nippon)",*/"USSR: Soviet Union","USSR: icon large","USSR: icon medium","USSR: icon small",/*"14","15","16","17","18","19","20",*/"GERMAN2","German Cross1","German Cross2","German Cross3","German Cross4","GERMAN Wehrmacht2","3rd Reich","3rd Reich Wehrmacht"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
 		default = 0; //0
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
@@ -619,12 +623,14 @@ class Params {
 		texts[] = {""};
 		default = 1;
 	};
-	/*class CTI_IFA3LIB_ADDON {
-		title = "ADDON: IFA3 Liberation";
-		values[] = {0,1};
+	class CTI_IFA3_NEW {
+		title = "ADDON: IFA3";
+		//values[] = {-1,0,1};
+		//texts[] = {"Disabled","Enabled","IFA3 beta"};
+		values[] = {-1,0};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
-	};*/
+	};
 	class CTI_SABFL_ADDON {
 		title = "ADDON: SAB Flying Legends (adds some more Planes)";
 		values[] = {0,1};
@@ -643,14 +649,14 @@ class Params {
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
-	/*class CTI_CSA38_ADDON {
-		title = "ADDON: CSA38";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
 	class CTI_FOW_ADDON {
 		title = "ADDON: FOW";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 0;
+	};
+	/*class CTI_CSA38_ADDON {
+		title = "ADDON: CSA38";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
