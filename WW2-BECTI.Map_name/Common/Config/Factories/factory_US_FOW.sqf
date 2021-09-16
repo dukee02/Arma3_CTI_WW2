@@ -238,7 +238,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_HEAVY], _c];
 _c = [];
 _level = 0;
 //Level 0 / 3
-if(CTI_IFA3_NEW >= 0) then {_level = 3} else {_level = 0};
+if(CTI_IFA3_NEW >= 0 || CTI_SAB_ADDON > 0) then {_level = 3} else {_level = 0};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	_c pushBack format["%1fow_va_f6f", _sid];
 	_c pushBack format["%1fow_va_f6f_kick", _sid];

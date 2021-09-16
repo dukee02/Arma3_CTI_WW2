@@ -204,7 +204,7 @@ _level = 0;
 };*/
 
 //Level 4
-if(CTI_IFA3_NEW >= 0) then {_level = 4} else {_level = 0};
+if(CTI_IFA3_NEW >= 0) then {_level = 4} else {_level = 1};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	
 	_c pushBack format["%1fow_v_panther_ger_heer", _sid];

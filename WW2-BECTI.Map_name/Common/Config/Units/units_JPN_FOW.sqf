@@ -367,7 +367,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Air Factory.
 //Level 0
-if(CTI_IFA3_NEW >= 0 || CTI_SAB_ADDON >= 0) then {_tech_level = 3} else {_tech_level = 0};
+if(CTI_IFA3_NEW >= 0 || CTI_SAB_ADDON > 0) then {_tech_level = 3} else {_tech_level = 0};
 if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
