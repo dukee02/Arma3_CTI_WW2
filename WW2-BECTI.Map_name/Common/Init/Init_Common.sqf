@@ -216,74 +216,70 @@ if(CTI_GUER_TOWNS == 1) then {
 	((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL.sqf";
 };
 
-if(CTI_WEST_TOWNS >= 0) then {
-	switch(CTI_WEST_TOWNS) do {
-		case 0: {
-			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER.sqf";
+
+{
+	if(_x >= 0) then {
+		switch(_x) do {
+			case 0: {
+				((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER.sqf";
+			};
+			case 1: {
+				((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV.sqf";
+			};
+			case 2: {
+				((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US.sqf";
+			};
+			case 3: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK.sqf";
+			};
+			case 4: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\towns_GER_FOW.sqf";
+			};
+			case 5: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\towns_JPN_FOW.sqf";
+			};
+			case 6: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\towns_US_FOW.sqf";
+			};
+			case 7: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\towns_UK_FOW.sqf";
+			};
+			default {};
 		};
-		case 1: {
-			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV.sqf";
-		};
-		case 2: {
-			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US.sqf";
-		};
-		case 3: {
-			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK.sqf";
-		};
-		default {};
 	};
-};
-if(CTI_EAST_TOWNS >= 0) then {
-	switch(CTI_EAST_TOWNS) do {
-		case 0: {
-			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER.sqf";
+}forEach [CTI_WEST_TOWNS, CTI_WEST_TOWNS];
+
+{
+	if(_x >= 0) then {
+		switch(_x) do {
+			case 0: {
+				((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER.sqf";
+			};
+			case 1: {
+				((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_SOV.sqf";
+			};
+			case 2: {
+				((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_US.sqf";
+			};
+			case 3: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_UK.sqf";
+			};
+			case 4: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER_FOW.sqf";
+			};
+			case 5: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_JPN_FOW.sqf";
+			};
+			case 6: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_US_FOW.sqf";
+			};
+			case 7: {
+				((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_UK_FOW.sqf";
+			};
+			default {};
 		};
-		case 1: {
-			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV.sqf";
-		};
-		case 2: {
-			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US.sqf";
-		};
-		case 3: {
-			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK.sqf";
-		};
-		default {};
 	};
-};
-if(CTI_WEST_AI >= 0) then {
-	switch(CTI_WEST_AI) do {
-		case 0: {
-			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER.sqf";
-		};
-		case 1: {
-			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_SOV.sqf";
-		};
-		case 2: {
-			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_US.sqf";
-		};
-		case 3: {
-			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_UK.sqf";
-		};
-		default {};
-	};
-};
-if(CTI_EAST_AI >= 0) then {
-	switch(CTI_EAST_AI) do {
-		case 0: {
-			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER.sqf";
-		};
-		case 1: {
-			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_SOV.sqf";
-		};
-		case 2: {
-			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_US.sqf";
-		};
-		case 3: {
-			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_UK.sqf";
-		};
-		default {};
-	};
-};
+}forEach [CTI_WEST_AI, CTI_EAST_AI];
 
 {
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Units\units_small_mods.sqf";
@@ -336,10 +332,10 @@ if(CTI_JPN_SIDE >= 0 && CTI_JPN_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_JPN_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 4) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 5) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 4) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 5) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side JPN [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_JPN_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
@@ -387,10 +383,10 @@ if(CTI_UK_SIDE >= 0 && CTI_UK_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_UK_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 3) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 3 || CTI_EAST_AI == 7) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 3) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 3 || CTI_EAST_AI == 7) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side UK [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_UK_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
@@ -438,10 +434,10 @@ if(CTI_US_SIDE >= 0 && CTI_US_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_US_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 2) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 2 || CTI_EAST_AI == 6) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 2) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 2 || CTI_EAST_AI == 6) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side US [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_US_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
@@ -542,10 +538,10 @@ if(CTI_GER_SIDE >= 0 && CTI_GER_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_GER_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 0) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 0 || CTI_EAST_AI == 4) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 0) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 0 || CTI_EAST_AI == 4) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side GER [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_GER_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {

@@ -25,23 +25,23 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\fa
 _priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
 if (isNil "_priorUnits" || _ai == 2) then { 
 	//We setup the standard units before the camo check to get secure
-	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1LIB_US_captain", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1LIB_US_grenadier", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_us_teamleader", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1fow_s_us_rifleman", _sid]];
 
-	missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1LIB_US_driver", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1LIB_US_rifleman", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1LIB_US_driver", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1LIB_US_Pilot", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1LIB_US_grenadier", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1fow_s_us_crewman", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1fow_s_us_rifleman", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1fow_s_us_crewman", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1fow_s_us_pilot", _sid]];
+	missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1fow_s_us_rifleman", _sid]];
 
 	//Set starting vehicles
 	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-		[format["%1LIB_US_Willys_MB", _sid], []], 
-		[format["%1LIB_US_Willys_MB", _sid], []]
+		[format["%1fow_v_willys_usa", _sid], []], 
+		[format["%1fow_v_willys_usa", _sid], []]
 	]];
 
 	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-		missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_us_teamleader", _sid]];
+		missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_us_m37_teamleader", _sid]];
 		missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1fow_s_us_m37_rifleman", _sid]];
 
 		missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1fow_s_us_crewman", _sid]];
@@ -52,8 +52,8 @@ if (isNil "_priorUnits" || _ai == 2) then {
 
 		//Set starting vehicles
 		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-			[format["%1LIB_US_NAC_Willys_MB", _sid], []], 
-			[format["%1LIB_US_NAC_Willys_MB", _sid], []]
+			[format["%1fow_v_willys_usa", _sid], []], 
+			[format["%1fow_v_willys_usa", _sid], []]
 		]];
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {

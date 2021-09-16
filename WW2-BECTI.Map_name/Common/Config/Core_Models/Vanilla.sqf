@@ -23,3 +23,5 @@ if (isClass(configFile >> "CfgVehicles" >> "Fortress2")) then {
 	missionNamespace setVariable ["CTI_CO_DEPOT_BUY_DISTANCE", 21];//--- Town depot buy distance.
 	missionNamespace setVariable ["CTI_CO_DEPOT_RDIR", 0];//--- Town depot placement direction.
 };
+//WarfareBCamp
+//WarfareBDepot

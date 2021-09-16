@@ -51,50 +51,204 @@ if((Side _unit == west && CTI_WEST_AI >= 0) || Side _unit == east && CTI_EAST_AI
 if(_voice_manuel) then {
 	switch(_voiceID) do {
 		case 0: {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01ger"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = German", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01ger"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = German", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case 1: {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01su"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = Soviet", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01su"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = Soviet", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case 2: {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = US-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = US-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case 3: {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01engb"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = UK-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01engb"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = UK-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
+		};
+		case 4: {
+			switch(true) do {
+				case(CTI_FOW_ADDON > 0):{
+					[_unit,"AsianHead_A03_04","male02chi"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = China", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				//case(CTI_IFA3_NEW >= 0):{
+				//};
+				default {
+					[_unit,"AsianHead_A03_04","male01chi"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default chi", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		default {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = default US-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel = default US-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice manuel default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 	};
 } else {
 	switch ((Side _unit) call CTI_CO_FNC_GetSideID) do {
 		case (CTI_GER_SIDE): {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01ger"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = German", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01ger"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = German", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case (CTI_SOV_SIDE): {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01su"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = Soviet", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01su"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = Soviet", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01rus"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default RUS", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case (CTI_US_SIDE): {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = US-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = US-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		case (CTI_UK_SIDE): {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01engb"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = UK-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01engb"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = UK-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01engb"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default engB", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
+		};
+		case (CTI_JPN_SIDE): {
+			switch(true) do {
+				case(CTI_FOW_ADDON > 0):{
+					[_unit,"AsianHead_A03_04","male02chi"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = China", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				//case(CTI_IFA3_NEW >= 0):{
+				//};
+				default {
+					[_unit,"AsianHead_A03_04","male01chi"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default chi", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 		default {
-			[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
-			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = default US-English", Side _unit]] call CTI_CO_FNC_Log };
+			switch(true) do {
+				//case(CTI_FOW_ADDON > 0):{
+				//};
+				//case(CTI_CSA38_ADDON > 0):{
+				//};
+				case(CTI_IFA3_NEW >= 0):{
+					[_unit,"LIB_WhiteHead_02_Dirt","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice = default US-English", Side _unit]] call CTI_CO_FNC_Log };
+				};
+				default {
+					[_unit,"WhiteHead_01","male01eng"] call BIS_fnc_setIdentity;
+					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["[%1] Units Voice default eng", Side _unit]] call CTI_CO_FNC_Log };
+				};
+			};
 		};
 	};	
 };
+
+
 
 //--- [Equipment check-in]
 _new = _gear select 1;
