@@ -230,7 +230,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 _c = [];
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//pushBack format["%1", _sid];						//ammotruck
+	//_c pushBack format["%1fow_v_type97_truck_ija", _sid];						//ammotruck
 	_c pushBack format["%1fow_v_type97_truck_fuel_ija", _sid];							//fueltruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];

@@ -439,6 +439,15 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	/*_c pushBack format["%1fow_v_type97_truck_ija", _sid];						//ammotruck
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 0;*/
 	
 	_c pushBack format["%1fow_v_type97_truck_fuel_ija", _sid];						//fueltruck
 	_p pushBack '';
@@ -448,7 +457,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_AMMO;
 	_s pushBack "service-fueltruck";
-	_d pushBack 0;	;	
+	_d pushBack 0;
 
 };
 

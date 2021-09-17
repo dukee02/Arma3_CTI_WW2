@@ -161,6 +161,7 @@ _s pushBack [];*/
 //***************************************************************************************************************************************
 //Tracked setup for the AI groups
 units_tracked = [];
+_level = 0;
 
 if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
 	units_tracked = +units_infantry;

@@ -617,7 +617,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
 	_d pushBack 0;	
-	_c pushBack format["%1fow_v_gmc_usmc", _sid];
+	/*_c pushBack format["%1fow_v_gmc_usmc", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -634,7 +634,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 };
 
 
@@ -647,7 +647,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	
-	_c pushBack format["%1fow_v_lvta2_usa_p", _sid];
+	/*_c pushBack format["%1fow_v_lvta2_usa_p", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -655,7 +655,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 	
 	_c pushBack format["%1fow_v_lvta2_usa", _sid];
 	_p pushBack '';
@@ -667,7 +667,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	_c pushBack format["%1fow_v_lvta2_usmc", _sid];
+	/*_c pushBack format["%1fow_v_lvta2_usmc", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack (CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
@@ -675,7 +675,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 	
 	_tech_level = _tech_level + 1;
 };
@@ -818,40 +818,21 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 //														Reapir Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Reapir Factory.
-/*_tech_level = 0;
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-			
-	_c pushBack format["%1LIB_US_GMC_Parm", _sid];						//repairtruck
-	_p pushBack '';
-	_n pushBack 'Repair Truck';
-	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack "service-repairtruck";
-	_d pushBack 0;
-	
-	_c pushBack format["CTI_Salvager_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_US_GMC_Open", _sid],"salvager"];
-	_d pushBack 0;
-		
-	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_US_GMC_Open", _sid],"salvager-independent"];
-	_d pushBack 0;
-};*/
+_tech_level = 0;
+
 if(CTI_IFA3_NEW < 0) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+				
+		_c pushBack format["%1fow_v_gmc_usmc", _sid];						//repairtruck
+		_p pushBack '';
+		_n pushBack 'Repair Truck';
+		_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+		_t pushBack (30*(_tech_level+1));
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack "service-repairtruck";
+		_d pushBack 0;
+	};
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvager Truck';
@@ -859,7 +840,7 @@ if(CTI_IFA3_NEW < 0) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_gmc_usmc", _sid],"salvager"];
+	_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager"];
 	_d pushBack 0;
 		
 	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
@@ -869,7 +850,7 @@ if(CTI_IFA3_NEW < 0) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_gmc_usmc", _sid],"salvager-independent"];
+	_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager-independent"];
 	_d pushBack 0;
 };
 
@@ -877,9 +858,8 @@ if(CTI_IFA3_NEW < 0) then {
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-/*if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		
-	_c pushBack format["%1LIB_US_GMC_Ammo", _sid];						//ammotruck
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_lvta2_usmc", _sid];						//ammotruck
 	_p pushBack '';
 	_n pushBack 'Ammo Truck';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
@@ -889,7 +869,7 @@ if(CTI_IFA3_NEW < 0) then {
 	_s pushBack "service-ammotruck";
 	_d pushBack 0;	
 
-	_c pushBack format["%1LIB_US_GMC_Fuel", _sid];						//fueltruck
+	_c pushBack format["%1fow_v_gmc_open_usmc", _sid];						//fueltruck
 	_p pushBack '';
 	_n pushBack 'Fuel Truck';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
@@ -897,9 +877,9 @@ if(CTI_IFA3_NEW < 0) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_AMMO;
 	_s pushBack "service-fueltruck";
-	_d pushBack 0;	
+	_d pushBack 0;
 
-};*/
+};
 
 
 //***************************************************************************************************************************************

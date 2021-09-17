@@ -24,12 +24,19 @@ class CfgPylonManager
 
 //Nothing is rearm everywhere
 rearmObjects[] = {
-	"B_Truck_01_ammo_F",
-	"B_T_Truck_01_ammo_F",
-	"O_Truck_02_Ammo_F",
-	"O_T_Truck_02_Ammo_F",
-	"O_Truck_03_ammo_F",
-	"I_Truck_02_ammo_F"
+	"RU_WarfareBVehicleServicePoint",		//Ammo building
+	"Land_Cargo_House_V1_F",				//Ammo building
+	
+	"LIB_OpelBlitz_Ammo_w",
+	"LIB_DAK_OpelBlitz_Ammo",
+	"LIB_SdKfz_7_Ammo",
+	"LIB_OpelBlitz_Ammo",
+	"LIB_US6_Ammo",
+	"LIB_US_GMC_Ammo_w",
+	"LIB_US_GMC_Ammo",
+	
+	"fow_v_sdkfz_250_9_camo_foliage_ger_heer",
+	"fow_v_lvta2_usmc"
 	};
 
 //Distance needed from rearmObjects[]

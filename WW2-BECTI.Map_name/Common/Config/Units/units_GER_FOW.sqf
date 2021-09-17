@@ -351,7 +351,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];
+	/*_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*1.5);
@@ -359,7 +359,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 	
 	_c pushBack format["%1fow_v_sdkfz_250_ger_heer", _sid];
 	_p pushBack '';
@@ -397,7 +397,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];
+	/*_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*1.5);
@@ -405,7 +405,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 	
 	_c pushBack format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid];
 	_p pushBack '';
@@ -433,7 +433,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];
+	/*_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*1.5);
@@ -441,7 +441,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 };
 //Level 3
 _tech_level = _tech_level + 1;
@@ -509,7 +509,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	_c pushBack format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid];
+	/*_c pushBack format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid];
 	_p pushBack '';
 	_n pushBack '';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))*1.5);
@@ -517,7 +517,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 0;*/
 };
 //Level 4
 _tech_level = _tech_level + 1;
@@ -607,58 +607,38 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 //														Reapir Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Reapir Factory.
-/*_tech_level = 0;
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {		
-	_c pushBack format["%1LIB_OpelBlitz_Parm", _sid];						//repairtruck
-	_p pushBack '';
-	_n pushBack 'Repair Truck';
-	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack "service-repairtruck";
-	_d pushBack 0;
-		
-	_c pushBack format["CTI_Salvager_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager"];
-	_d pushBack 0;
-		
-	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager-independent"];
-	_d pushBack 0;
-		
-};*/
+_tech_level = 0;
+
 if(CTI_IFA3_NEW < 0) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {		
+		_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];						//repairtruck
+		_p pushBack '';
+		_n pushBack 'Repair Vehicle';
+		_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+		_t pushBack (30*(_tech_level+1));
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack "service-repairtruck";
+		_d pushBack 0;
+	};
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
-	_n pushBack 'Salvager Truck';
+	_n pushBack 'Salvage Vehicle';
 	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_sdkfz_250_ger_heer", _sid],"salvager"];
+	_s pushBack [format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid],"salvager"];
 	_d pushBack 0;
 		
 	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
 	_p pushBack '';
-	_n pushBack 'Salvager Truck';
+	_n pushBack 'Salvage Vehicle';
 	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_sdkfz_250_ger_heer", _sid],"salvager-independent"];
+	_s pushBack [format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid],"salvager-independent"];
 	_d pushBack 0;
 };
 
@@ -666,10 +646,10 @@ if(CTI_IFA3_NEW < 0) then {
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-/*if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	_c pushBack format["%1LIB_OpelBlitz_Ammo", _sid];						//ammotruck
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];						//ammotruck
 	_p pushBack '';
-	_n pushBack 'Ammo Truck';
+	_n pushBack 'Ammo Vehicle';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -677,9 +657,9 @@ if(CTI_IFA3_NEW < 0) then {
 	_s pushBack "service-ammotruck";
 	_d pushBack 0;	
 
-	_c pushBack format["%1LIB_OpelBlitz_Fuel", _sid];						//fueltruck
+	_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];				//fueltruck
 	_p pushBack '';
-	_n pushBack 'Fuel Truck';
+	_n pushBack 'Fuel Vehicle';
 	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
@@ -688,7 +668,7 @@ if(CTI_IFA3_NEW < 0) then {
 	_d pushBack 0;	
 
 };
-*/
+
 //***************************************************************************************************************************************
 //														Naval Factory																	*
 //***************************************************************************************************************************************

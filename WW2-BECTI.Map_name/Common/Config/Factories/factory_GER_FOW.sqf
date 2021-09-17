@@ -123,7 +123,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_c pushBack format["%1fow_v_kubelwagen_ger_heer", _sid];
 	_c pushBack format["%1fow_v_kubelwagen_camo_ger_heer", _sid];
 	_c pushBack format["%1fow_v_sdkfz_250_camo_ger_heer", _sid];
-	_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//repair
 	_c pushBack format["%1fow_v_sdkfz_250_ger_heer", _sid];
 };
 //Level 1
@@ -135,7 +135,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	
 	_c pushBack format["%1fow_v_kubelwagen_mg34_ger_heer", _sid];
 	_c pushBack format["%1fow_v_sdkfz_250_9_ger_heer", _sid];
-	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];		//ammo
 	_c pushBack format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid];
 };
 //Level 2
@@ -146,7 +146,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	//};
 	
 	_c pushBack format["%1fow_v_sdkfz_251_camo_ger_heer", _sid];
-	_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];			//fuel
 };
 //Level 3
 if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
@@ -161,7 +161,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	_c pushBack format["%1fow_v_sdkfz_222_ger_ss", _sid];
 	_c pushBack format["%1fow_v_sdkfz_222_foliage_ger_ss", _sid];
 	_c pushBack format["%1fow_v_sdkfz_222_camo_ger_ss", _sid];
-	_c pushBack format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid];			//salvager
 };
 //Level 4
 if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
@@ -255,15 +255,9 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //														Repair Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Repair Factory.
-/*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1", _sid];
-	};
-	_c pushBack format["%1", _sid];
+_c = [];
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//Repair
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 
@@ -274,20 +268,15 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_FOW.sqf", format["units in factory %1: [%2] ", CTI_REPAIR, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
-*/
+
 //***************************************************************************************************************************************
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-/*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1", _sid];
-	};
-	_c pushBack format["%1", _sid];
+_c = [];
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];			//Ammo
+	_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];			//Fuel
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];
 if (isNil "_priorUnits") then { 
@@ -298,7 +287,7 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_FOW.sqf", format["units in factory %1: [%2] ", CTI_AMMO, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AMMO], _c];
-*/
+
 
 //***************************************************************************************************************************************
 //														Town Depot																		*

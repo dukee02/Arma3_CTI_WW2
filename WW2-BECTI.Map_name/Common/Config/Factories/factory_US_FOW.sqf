@@ -181,9 +181,9 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {	
 	_c pushBack format["%1fow_v_gmc_usa", _sid];	
-	_c pushBack format["%1fow_v_gmc_open_usa", _sid];	
-	_c pushBack format["%1fow_v_gmc_usmc", _sid];	
-	_c pushBack format["%1fow_v_gmc_open_usmc", _sid];	
+	_c pushBack format["%1fow_v_gmc_open_usa", _sid];
+	//_c pushBack format["%1fow_v_gmc_usmc", _sid];				//repair
+	//_c pushBack format["%1fow_v_gmc_open_usmc", _sid];		//fuel
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
@@ -203,9 +203,9 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 _c = [];
 _level = 0;
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	_c pushBack format["%1fow_v_lvta2_usa_p", _sid];
+	//_c pushBack format["%1fow_v_lvta2_usa_p", _sid];			//salvager
 	_c pushBack format["%1fow_v_lvta2_usa", _sid];
-	_c pushBack format["%1fow_v_lvta2_usmc", _sid];
+	//_c pushBack format["%1fow_v_lvta2_usmc", _sid];			//ammo
 	
 	_level = _level + 1;
 };
@@ -263,15 +263,9 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //														Reapir Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Reapir Factory.
-/*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1LIB_US_GMC_Parm_w", _sid];				//repairtruck
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	};
-	
-	_c pushBack format["%1LIB_US_GMC_Parm", _sid];						//repairtruck
+_c = [];
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_gmc_usmc", _sid];						//repairtruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 
@@ -282,21 +276,16 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_US_FOW.sqf", format["units in factory %1: [%2] ", CTI_REPAIR, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
-*/
+
 
 //***************************************************************************************************************************************
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-/*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1LIB_US_GMC_Ammo_w", _sid];				//ammotruck
-		_c pushBack format["%1LIB_US_GMC_Fuel_w", _sid];				//fueltruck
-	};
-	
-	_c pushBack format["%1LIB_US_GMC_Ammo", _sid];						//ammotruck
-	_c pushBack format["%1LIB_US_GMC_Fuel", _sid];						//fueltruck
+_c = [];
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_lvta2_usmc", _sid];						//ammotruck
+	_c pushBack format["%1fow_v_gmc_open_usmc", _sid];						//fueltruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];
 if (isNil "_priorUnits") then { 
@@ -307,7 +296,7 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_US_FOW.sqf", format["units in factory %1: [%2] ", CTI_AMMO, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AMMO], _c];
-*/
+
 
 //***************************************************************************************************************************************
 //														Town Depot																		*

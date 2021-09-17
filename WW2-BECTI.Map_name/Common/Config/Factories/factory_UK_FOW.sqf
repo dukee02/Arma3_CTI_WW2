@@ -36,8 +36,8 @@ if (isNil "_priorUnits" || _ai == 6) then {
 
 	//Set starting vehicles
 	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-		[format["%1LIB_UniversalCarrier", _sid], []], 
-		[format["%1LIB_UniversalCarrier", _sid], []]
+		[format["%1fow_v_universalCarrier", _sid], []], 
+		[format["%1fow_v_universalCarrier", _sid], []]
 	]];
 
 	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
@@ -52,8 +52,8 @@ if (isNil "_priorUnits" || _ai == 6) then {
 
 		//Set starting vehicles
 		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-			[format["%1LIB_UniversalCarrier_desert", _sid], []], 
-			[format["%1LIB_UniversalCarrier_desert", _sid], []]
+			[format["%1fow_v_universalCarrier", _sid], []], 
+			[format["%1fow_v_universalCarrier", _sid], []]
 		]];
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {
@@ -229,13 +229,8 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Repair Factory.
 /*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//};
-	//_c pushBack format["%1", _sid];						//repairtruck
-	_c pushBack format["%1", _sid];						//repairtruck
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_universalCarrier", _sid];						//repairtruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 
@@ -253,11 +248,9 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 /*_c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//pushBack format["%1", _sid];						//ammotruck
-	_c pushBack format["%1", _sid];							//ammotruck
+if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1fow_v_universalCarrier", _sid];							//ammotruck
+	_c pushBack format["%1fow_v_universalCarrier", _sid];							//fueltruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];
 if (isNil "_priorUnits") then { 
