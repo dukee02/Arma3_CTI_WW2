@@ -498,49 +498,49 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories pushBack 	"Defense";
 	};
 	if(CTI_FOW_ADDON > 0) then {
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG tripod m37";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m37", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG tripod m41";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m41", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG high m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_high_usa_m41", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG high m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_high_usa_m37", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_usa_m37", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_usa_m41", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG middle m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_middle_usa_m37", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
-		_headers pushBack 		"M1919 MG";
+		_headers pushBack 		"M1919 MG middle m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_middle_usa_m41", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
@@ -1143,55 +1143,55 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories pushBack 	"Fortification";
 	};
 	if(CTI_FOW_ADDON > 0) then {
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 3006 T";
 		_classes pushBack 		"FOW_AB_US_Carton_3006_T";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 3006 AP";
 		_classes pushBack 		"FOW_AB_US_Carton_3006_AP";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 3006";
 		_classes pushBack 		"FOW_AB_US_Carton_3006";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 3006 RG";
 		_classes pushBack 		"FOW_AB_US_Carton_3006_RG";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"us 60mm m2 HE";
 		_classes pushBack 		"fow_ab_us_60mm_m2_HE";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"us 60mm m2 ILL";
 		_classes pushBack 		"fow_ab_us_60mm_m2_ILL";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"us 60mm m2 SMOKE";
 		_classes pushBack 		"fow_ab_us_60mm_m2_SMOKE";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 45";
 		_classes pushBack 		"FOW_AB_US_Carton_45";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];
 		_categories pushBack 	"Fortification";
 		
-		_headers pushBack 		"";
+		_headers pushBack 		"US Carton 45_SMG";
 		_classes pushBack 		"FOW_AB_US_Carton_45_SMG";
 		_prices pushBack 		100;
 		_placements pushBack 	[180, 15];

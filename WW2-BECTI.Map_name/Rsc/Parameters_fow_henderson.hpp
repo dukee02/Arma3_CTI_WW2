@@ -225,7 +225,7 @@ class Params {
 		title = "BASE: Start-up Placement";
 		values[] = {1000,2000,4000,6000,8000,10000};
 		texts[] = {"1KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
-		default = 6000;
+		default = 4000;
 	};
 	class CTI_BASE_WORKERS_LIMIT {
 		title = "BASE: Worker Limit";
