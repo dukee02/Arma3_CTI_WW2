@@ -40,46 +40,46 @@ if(CTI_IFA3_NEW < 0) then {
 
 //Infantry setup for the AI groups
 units_infantry = [];
-units_to_add = [];
+inf_to_add = [];
 
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
-	units_to_add = [[format["%1fow_s_ija_snlf_rifleman", _sid], 1, 60]];
-	units_to_add pushBack [format["%1fow_s_ija_snlf_rifleman_at", _sid], 1, 40];
-	units_to_add pushBack [format["%1fow_s_ija_snlf_medic", _sid], 1, 20];
+	inf_to_add = [[format["%1fow_s_ija_snlf_rifleman", _sid], 1, 60]];
+	inf_to_add pushBack [format["%1fow_s_ija_snlf_rifleman_at", _sid], 1, 40];
+	inf_to_add pushBack [format["%1fow_s_ija_snlf_medic", _sid], 1, 20];
 	
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [[format["%1fow_s_ija_rifleman", _sid], 1, 60]];
-		units_to_add pushBack [format["%1fow_s_ija_rifleman_at", _sid], 1, 40];
-		units_to_add pushBack [format["%1fow_s_ija_medic", _sid], 1, 20];
+		inf_to_add = [[format["%1fow_s_ija_rifleman", _sid], 1, 60]];
+		inf_to_add pushBack [format["%1fow_s_ija_rifleman_at", _sid], 1, 40];
+		inf_to_add pushBack [format["%1fow_s_ija_medic", _sid], 1, 20];
 	};
-	units_to_add pushBack [format["%1fow_s_ija_f_rifleman", _sid], 1, 10];
-	units_to_add pushBack [format["%1fow_s_ija_f_rifleman_at", _sid], 1, 10];
-	units_to_add pushBack [format["%1fow_s_ija_f_medic", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ija_f_rifleman", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ija_f_rifleman_at", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ija_f_medic", _sid], 1, 10];
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
-	units_to_add = [[format["%1fow_s_ija_snlf_type99_asst", _sid], 1, 40]];
-	units_to_add pushBack [format["%1fow_s_ija_snlf_type99_gunner", _sid], 1, 30];
-	units_to_add pushBack [format["%1fow_s_ija_snlf_nco", _sid], 1, 10];
+	inf_to_add = [[format["%1fow_s_ija_snlf_type99_asst", _sid], 1, 40]];
+	inf_to_add pushBack [format["%1fow_s_ija_snlf_type99_gunner", _sid], 1, 30];
+	inf_to_add pushBack [format["%1fow_s_ija_snlf_nco", _sid], 1, 10];
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [[format["%1fow_s_ija_type99_asst", _sid], 1, 40]];
-		units_to_add pushBack [format["%1fow_s_ija_type99_gunner", _sid], 1, 30];
-		units_to_add pushBack [format["%1fow_s_ija_nco", _sid], 1, 10];
+		inf_to_add = [[format["%1fow_s_ija_type99_asst", _sid], 1, 40]];
+		inf_to_add pushBack [format["%1fow_s_ija_type99_gunner", _sid], 1, 30];
+		inf_to_add pushBack [format["%1fow_s_ija_nco", _sid], 1, 10];
 	};
-	units_to_add pushBack [format["%1fow_s_ija_f_type99_asst", _sid], 1, 20];
-	units_to_add pushBack [format["%1fow_s_ija_f_type99_gunner", _sid], 1, 10];
-	units_to_add pushBack [format["%1fow_s_ija_f_nco", _sid], 1, 5];
+	inf_to_add pushBack [format["%1fow_s_ija_f_type99_asst", _sid], 1, 20];
+	inf_to_add pushBack [format["%1fow_s_ija_f_type99_gunner", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ija_f_nco", _sid], 1, 5];
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
-	units_to_add = [[format["%1fow_s_ija_f_officer", _sid], 1, 10]];
+	inf_to_add = [[format["%1fow_s_ija_f_officer", _sid], 1, 10]];
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [[format["%1fow_s_ija_officer", _sid], 1, 10]];
+		inf_to_add = [[format["%1fow_s_ija_officer", _sid], 1, 10]];
 	};
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 
 _v pushBack "Infantry";
@@ -96,19 +96,19 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Wheeled setup for the AI groups
 units_wheeled = [];
-units_to_add = [];
+mot_to_add = [];
 
 if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
 	units_wheeled = +units_infantry;
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	units_to_add = [[format["%1fow_v_type97_truck_open_ija", _sid], 1, 20]];
-	units_to_add pushback [format["%1fow_v_type97_truck_ija", _sid], 1, 30];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid], 1, 20];
+	mot_to_add = [[format["%1fow_v_type97_truck_open_ija", _sid], 1, 20]];
+	mot_to_add pushback [format["%1fow_v_type97_truck_ija", _sid], 1, 30];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid], 1, 20];
 	
-	units_wheeled = units_to_add;
+	units_wheeled = mot_to_add;
 };
 
 _v pushBack "Motorized";
@@ -125,18 +125,18 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Tracked setup for the AI groups
 units_tracked = [];
-units_to_add = [];
+arm_to_add = [];
 
 if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
 	units_tracked = +units_infantry;
 };
 _level = 0;
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	units_to_add = [[format["%1fow_ija_type95_HaGo_1_ija", _sid], 1, 50]];
-	units_to_add pushback [format["%1fow_ija_type95_HaGo_2_ija", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_ija_type95_HaGo_3_ija", _sid], 1, 20];
+	arm_to_add = [[format["%1fow_ija_type95_HaGo_1_ija", _sid], 1, 50]];
+	arm_to_add pushback [format["%1fow_ija_type95_HaGo_2_ija", _sid], 1, 10];
+	arm_to_add pushback [format["%1fow_ija_type95_HaGo_3_ija", _sid], 1, 20];
 	
-	units_tracked = units_to_add;
+	units_tracked = arm_to_add;
 };
 
 _v pushBack "ArmoredMBT";

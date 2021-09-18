@@ -40,31 +40,31 @@ if(CTI_IFA3_NEW < 0) then {
 
 //Infantry setup for the AI groups
 units_infantry = [];
-units_to_add = [];
+inf_to_add = [];
 
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
-	units_to_add = [[format["%1fow_s_ger_heer_rifleman", _sid], 1, 60]];
-	units_to_add pushBack [format["%1fow_s_ger_heer_medic", _sid], 1, 20];
-	units_to_add pushBack [format["%1fow_s_ger_heer_radio_operator", _sid], 1, 30];
-	units_to_add pushBack [format["%1fow_s_ger_heer_rifleman_mp40", _sid], 1, 30];
-	units_to_add pushBack [format["%1fow_s_ger_heer_tl_mp40", _sid], 1, 10];
-	units_to_add pushBack [format["%1fow_s_ger_heer_rifleman_mp40_pzf", _sid], 1, 30];
+	inf_to_add = [[format["%1fow_s_ger_heer_rifleman", _sid], 1, 60]];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_medic", _sid], 1, 20];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_radio_operator", _sid], 1, 30];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_rifleman_mp40", _sid], 1, 30];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_tl_mp40", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_rifleman_mp40_pzf", _sid], 1, 30];
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
-	units_to_add = [[format["%1fow_s_ger_heer_rifleman_g43", _sid], 1, 40]];
-	units_to_add pushBack [format["%1fow_s_ger_heer_mg34_gunner", _sid], 1, 20];
-	units_to_add pushBack [format["%1fow_s_ger_heer_nco_mp40", _sid], 1, 10];
-	units_to_add pushBack [format["%1fow_s_ger_heer_tl_asst", _sid], 1, 10];
+	inf_to_add = [[format["%1fow_s_ger_heer_rifleman_g43", _sid], 1, 40]];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_mg34_gunner", _sid], 1, 20];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_nco_mp40", _sid], 1, 10];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_tl_asst", _sid], 1, 10];
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
-	units_to_add = [[format["%1fow_s_ger_heer_mg42_gunner", _sid], 1, 10]];
-	units_to_add pushBack [format["%1fow_s_ger_heer_tl_stg", _sid], 1, 5];
+	inf_to_add = [[format["%1fow_s_ger_heer_mg42_gunner", _sid], 1, 10]];
+	inf_to_add pushBack [format["%1fow_s_ger_heer_tl_stg", _sid], 1, 5];
 	
-	units_infantry append units_to_add;
+	units_infantry append inf_to_add;
 };
 
 _v pushBack "Infantry";
@@ -81,53 +81,53 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Wheeled setup for the AI groups
 units_wheeled = [];
-units_to_add = [];
+mot_to_add = [];
 
 if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
 	units_wheeled = +units_infantry;
 };
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	units_to_add = [[format["%1fow_v_kubelwagen_ger_heer", _sid], 1, 20]];
-	units_to_add pushback [format["%1fow_v_kubelwagen_camo_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_camo_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_ger_heer", _sid], 1, 30];
+	mot_to_add = [[format["%1fow_v_kubelwagen_ger_heer", _sid], 1, 20]];
+	mot_to_add pushback [format["%1fow_v_kubelwagen_camo_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_camo_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_ger_heer", _sid], 1, 30];
 	
-	units_wheeled = units_to_add;
+	units_wheeled = mot_to_add;
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	units_to_add = [[format["%1fow_v_kubelwagen_mg34_ger_heer", _sid], 1, 20]];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_9_ger_heer", _sid], 1, 30];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid], 1, 20];
+	mot_to_add = [[format["%1fow_v_kubelwagen_mg34_ger_heer", _sid], 1, 20]];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_ger_heer", _sid], 1, 30];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid], 1, 20];
 	
-	units_wheeled = units_to_add;
+	units_wheeled = mot_to_add;
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
-	units_to_add = [[format["%1fow_v_sdkfz_251_camo_ger_heer", _sid], 1, 40]];
-	units_to_add pushback [format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid], 1, 20];
+	mot_to_add = [[format["%1fow_v_sdkfz_251_camo_ger_heer", _sid], 1, 40]];
+	mot_to_add pushback [format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid], 1, 20];
 	
-	units_wheeled append units_to_add;
+	units_wheeled append mot_to_add;
 };
 //Level 3
 if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
-	units_to_add = [[format["%1fow_v_sdkfz_222_ger_heer", _sid], 1, 30]];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_foliage_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_camo_ger_heer", _sid], 1, 20];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_ger_ss", _sid], 1, 20];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_foliage_ger_ss", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_camo_ger_ss", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid], 1, 10];
+	mot_to_add = [[format["%1fow_v_sdkfz_222_ger_heer", _sid], 1, 30]];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_foliage_ger_heer", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_camo_ger_heer", _sid], 1, 20];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_ger_ss", _sid], 1, 20];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_foliage_ger_ss", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_camo_ger_ss", _sid], 1, 10];
+	mot_to_add pushback [format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid], 1, 10];
 	
-	units_wheeled append units_to_add;
+	units_wheeled append mot_to_add;
 };
 //Level 4
 if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
-	units_to_add = [[format["%1fow_v_sdkfz_234_1", _sid], 1, 30]];
+	mot_to_add = [[format["%1fow_v_sdkfz_234_1", _sid], 1, 30]];
 	
-	units_wheeled append units_to_add;
+	units_wheeled append mot_to_add;
 };
 
 _v pushBack "Motorized";
@@ -145,6 +145,7 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Tracked setup for the AI groups
 units_tracked = [];
+arm_to_add = [];
 _level = 0;
 
 if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
@@ -153,11 +154,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
 if(CTI_IFA3_NEW >= 0) then {_level = 4} else {_level = 0};
 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	units_to_add = [[format["%1fow_v_panther_ger_heer", _sid], 1, 50]];
-	units_to_add pushback [format["%1fow_v_panther_camo_foliage_ger_heer", _sid], 1, 10];
-	units_to_add pushback [format["%1fow_v_panther_camo_ger_heer", _sid], 1, 20];
+	arm_to_add = [[format["%1fow_v_panther_ger_heer", _sid], 1, 50]];
+	arm_to_add pushback [format["%1fow_v_panther_camo_foliage_ger_heer", _sid], 1, 10];
+	arm_to_add pushback [format["%1fow_v_panther_camo_ger_heer", _sid], 1, 20];
 	
-	units_tracked = units_to_add;
+	units_tracked = arm_to_add;
 	_level = _level + 1;
 };
 

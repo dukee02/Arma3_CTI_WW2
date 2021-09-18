@@ -116,14 +116,15 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
 
-_v pushBack "ArmoredMBT";
-_t pushBack "Tanks";
-_p pushBack units_tracked;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-
+if(count units_tracked > 0) then {
+	_v pushBack "ArmoredMBT";
+	_t pushBack "Tanks";
+	_p pushBack units_tracked;
+	_f pushBack CTI_HEAVY;
+	_m pushBack 500;
+	_c pushBack "Armored";
+	_s pushBack [];
+};
 
 //***************************************************************************************************************************************
 //														AntiAir																			*
@@ -339,16 +340,17 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	units_air append units_to_add;
 };
 
+if(count units_air > 0) then {
+	_v pushBack "Air";
+	_t pushBack "Air";
+	_p pushBack units_air;
+	_f pushBack CTI_AIR;
+	_m pushBack 1000;
+	_c pushBack "Air";
+	_s pushBack [];
+};
 
-_v pushBack "Air";
-_t pushBack "Air";
-_p pushBack units_air;
-_f pushBack CTI_AIR;
-_m pushBack 1000;
-_c pushBack "Air";
-_s pushBack [];
 
-
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\squads\squad_SOV.sqf", format["generated squads: [%1] ", count _v]] call CTI_CO_FNC_Log};
+if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\squads\squad_small_mods.sqf", format["generated squads: [%1] ", count _v]] call CTI_CO_FNC_Log};
 
 [_side, _v, _t, _p, _f, _m, _c, _s] call compile preprocessFileLineNumbers "Common\Config\Squads\Squads_Set.sqf";
