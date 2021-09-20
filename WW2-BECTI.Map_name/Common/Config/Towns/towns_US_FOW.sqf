@@ -99,10 +99,6 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		WHEELED_HEAVY = [[format["%1fow_v_gmc_usmc", _sid],1],[format["%1fow_v_gmc_open_usmc", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			WHEELED_LIGHT = INFANTRY;
-			WHEELED_HEAVY = INFANTRY_MG;
-		};
 	};
 };
 
@@ -144,11 +140,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		TRACKED_HEAVY = [[format["%1fow_v_m4a2_usa", _sid],1],[format["%1fow_v_m4a2_usmc", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			TRACKED_LIGHT = INFANTRY;
-			TRACKED_MEDIUM = INFANTRY_MG;
-			TRACKED_HEAVY = INFANTRY_AT;
-		};
 	};
 };
 
@@ -189,10 +180,6 @@ switch (CTI_ECONOMY_LEVEL_AIR) do {
 		AIR_BOMBER = [[format["%1fow_va_f6f_c", _sid],1],[format["%1fow_va_f6f_c_death", _sid],1],[format["%1fow_va_f6f_c_kick", _sid],1],[format["%1fow_va_f6f_c_sweet", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
-		};
 	};
 };
 

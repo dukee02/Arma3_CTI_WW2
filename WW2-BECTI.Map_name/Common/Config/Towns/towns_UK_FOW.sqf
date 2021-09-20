@@ -85,20 +85,16 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 WHEELED_LIGHT = [];
 WHEELED_HEAVY = [];
-if(CTI_IFA3_NEW < 0) then {
-	//switch (CTI_ECONOMY_LEVEL_WHEELED) do {
-		//default {
-			WHEELED_LIGHT = INFANTRY;
-			WHEELED_HEAVY = INFANTRY_MG;
-		//};
+//switch (CTI_ECONOMY_LEVEL_WHEELED) do {
+	//default {
 	//};
-	if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {
-		missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
-		missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], WHEELED_HEAVY];
-	} else {
-		missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], (missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]) + WHEELED_LIGHT];
-		missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], (missionNamespace getVariable format["%1WHEELED_SQ_HEAVY", _tag]) + WHEELED_HEAVY];
-	};
+//};
+if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {
+	missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
+	missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], WHEELED_HEAVY];
+} else {
+	missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], (missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]) + WHEELED_LIGHT];
+	missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], (missionNamespace getVariable format["%1WHEELED_SQ_HEAVY", _tag]) + WHEELED_HEAVY];
 };
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_UK_FOW.sqf", format["Town Squad <%1> with units <%2> ", format["%1WHEELED_SQ_LIGHT", _tag], missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]]] call CTI_CO_FNC_Log;
@@ -137,11 +133,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		TRACKED_HEAVY = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1fow_v_cromwell_uk", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			TRACKED_LIGHT = INFANTRY;
-			TRACKED_MEDIUM = INFANTRY_MG;
-			TRACKED_HEAVY = INFANTRY_AT;
-		};
 	};
 };
 if (isNil {missionNamespace getVariable format["%1TRACKED_SQ_LIGHT", _tag]}) then {
@@ -172,9 +163,6 @@ switch (CTI_ECONOMY_LEVEL_AIR) do {
 		if(CTI_IFA3_NEW < 0) then {
 			AIR_FIGHTER = [[format["%1fow_va_f6f_faa", _sid],1]];
 			AIR_BOMBER = [[format["%1fow_va_f6f_c_faa", _sid],1]];
-		} else {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
 		};
 	};
 	case 3;
@@ -184,10 +172,6 @@ switch (CTI_ECONOMY_LEVEL_AIR) do {
 		AIR_BOMBER = [[format["%1fow_va_f6f_c_faa", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
-		};
 	};
 };
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {

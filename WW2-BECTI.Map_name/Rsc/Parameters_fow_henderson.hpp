@@ -75,19 +75,19 @@ class Params {
 		title = "FLAG: Flagtexture of the West-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
 		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
-		default = 5; //0
+		default = 0; //0
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
-		default = 6; //0
+		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
+		default = 0; //0
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
-		default = 8; //0
+		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)"};
+		default = 0; //0
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
 		title = "UPGRADE: Max Level Gear";
@@ -633,6 +633,18 @@ class Params {
 		texts[] = {"Disabled","Enabled"};
 		default = -1;
 	};
+	class CTI_FOW_ADDON {
+		title = "ADDON: FOW";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 2;
+	};
+	/*class CTI_CSA38_ADDON {
+		title = "ADDON: CSA38";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
+		default = 0;
+	};*/
 	class CTI_SABFL_ADDON {
 		title = "ADDON: SAB Flying Legends (adds some more Planes)";
 		values[] = {0,1};
@@ -651,18 +663,6 @@ class Params {
 		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
-	class CTI_FOW_ADDON {
-		title = "ADDON: FOW";
-		values[] = {0,1,2};
-		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 2;
-	};
-	/*class CTI_CSA38_ADDON {
-		title = "ADDON: CSA38";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};*/
 	class SEPARATOR_LOG {
 		title = "=========================== LOG-DEBUG-AND-TESTING ============================";
 		values[] = {1};

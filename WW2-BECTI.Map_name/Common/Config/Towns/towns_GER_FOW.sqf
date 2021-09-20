@@ -91,10 +91,6 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		WHEELED_HEAVY = [[format["%1fow_v_sdkfz_234_1", _sid],1],[format["%1fow_v_sdkfz_222_ger_heer", _sid],1],[format["%1fow_v_sdkfz_222_camo_ger_heer", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			WHEELED_LIGHT = INFANTRY;
-			WHEELED_HEAVY = INFANTRY_MG;
-		};
 	};
 };
 
@@ -124,11 +120,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		TRACKED_HEAVY = [[format["%1fow_v_panther_camo_ger_heer", _sid],1],[format["%1fow_v_panther_camo_foliage_ger_heer", _sid],1]];
 	};
 	default {
-		if(CTI_IFA3_NEW < 0) then {
-			TRACKED_LIGHT = INFANTRY;
-			TRACKED_MEDIUM = INFANTRY_MG;
-			TRACKED_HEAVY = INFANTRY_AT;
-		};
 	};
 };
 
@@ -152,21 +143,16 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 AIR_FIGHTER = [];
 AIR_BOMBER = [];
-if(CTI_IFA3_NEW < 0) then {
-	//switch (CTI_ECONOMY_LEVEL_AIR) do {
-		//default {
-			AIR_FIGHTER = INFANTRY;
-			AIR_BOMBER = INFANTRY;
-		//};
-	//};
-
-	if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
-		missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
-		missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], AIR_BOMBER];
-	} else {
-		missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], (missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]) + AIR_FIGHTER];
-		missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], (missionNamespace getVariable format["%1AIR_SQ_BOMBER", _tag]) + AIR_BOMBER];
-	};
+//switch (CTI_ECONOMY_LEVEL_AIR) do {
+//	default {
+//	};
+//};
+if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
+	missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
+	missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], AIR_BOMBER];
+} else {
+	missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], (missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]) + AIR_FIGHTER];
+	missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], (missionNamespace getVariable format["%1AIR_SQ_BOMBER", _tag]) + AIR_BOMBER];
 };
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_GER.sqf", format["Town Squad <%1> with units <%2> ", format["%1AIR_SQ_FIGHTER", _tag], missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]]] call CTI_CO_FNC_Log;

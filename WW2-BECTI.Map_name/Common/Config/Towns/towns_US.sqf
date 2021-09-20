@@ -146,8 +146,6 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 		};
 	};
 	default {
-		WHEELED_LIGHT = INFANTRY;
-		WHEELED_HEAVY = INFANTRY_MG;
 	};
 };
 
@@ -217,9 +215,6 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		};
 	};
 	default {
-		TRACKED_LIGHT = INFANTRY;
-		TRACKED_MEDIUM = INFANTRY_MG;
-		TRACKED_HEAVY = INFANTRY_AT;
 	};
 };
 
@@ -261,8 +256,6 @@ switch (CTI_ECONOMY_LEVEL_AIR) do {
 		AIR_BOMBER = [[format["%1LIB_P47", _sid],1]];
 	};
 	default {
-		AIR_FIGHTER = INFANTRY;
-		AIR_BOMBER = INFANTRY;
 	};
 };
 

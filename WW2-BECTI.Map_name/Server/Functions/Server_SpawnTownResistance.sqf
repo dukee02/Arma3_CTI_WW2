@@ -134,6 +134,15 @@ switch (true) do {
 //--- Parse properly the pool.
 _pool = [];
 {
+	//check if there units in, if not set infantry as default
+	if(isNil _x) then {
+		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SpawnTownResistance.sqf", format ["Pool is null: <%1>",  _x]] call CTI_CO_FNC_Log;};
+	};
+	if(count _x == 0) then {
+		_x = ["GUER_INFANTRY_SQ_LIGHT", 4, 20];
+		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SpawnTownResistance.sqf", format ["Pool is empty, replaced with: <%1>",  _x]] call CTI_CO_FNC_Log;};
+	};
+	
 	_unit = _x select 0;
 	_presence = _x select 1;
 	_units = missionNamespace getVariable _unit;
