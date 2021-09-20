@@ -380,6 +380,10 @@ CTI_TOWNS_RESISTANCE_DETECTION_RANGE_AIR = 50; //--- Determine how high a threat
 CTI_TOWNS_RESISTANCE_INACTIVE_MAX = 300; //--- Determine how long a town may remain active when triggered
 CTI_TOWNS_RESISTANCE_MIN_ACTIVE = 5; //--- When the town is not held by the side and when no enemy is near, at least x enemies need to be alive for the town to be considered active
 	
+//--- Towns: Spawn delay	---		to prevent units to spawn into each other
+CTI_TOWNS_SPAWNDELAY_MIN = 5;		//--- min time in seconds to wait
+CTI_TOWNS_SPAWNDELAY_MAX = 30;		//--- max time in seconds to wait
+	
 //--- Towns: Mortars
 CTI_TOWNS_MORTARS_SCAN = 60; //--- Scan the area around a target for friends and enemies.	
 CTI_TOWNS_MORTARS_INTERVAL = 300; //--- AI Mortars may fire each x seconds.
