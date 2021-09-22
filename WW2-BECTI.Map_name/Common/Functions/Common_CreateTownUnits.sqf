@@ -18,10 +18,7 @@ _locked = if (CTI_TOWNS_VEHICLES_LOCK in [0,1,2]) then {
 _created_vehicles = [];
 
 //--- Create all the requested units for a town at the explicit given location
-for '_i' from 0 to count(_groups)-1 do {
-	//to prevent units to spawn into each other we add a dely on spawning each group
-	sleep (CTI_TOWNS_SPAWNDELAY_MIN + random CTI_TOWNS_SPAWNDELAY_MAX);
-	
+for '_i' from 0 to count(_groups)-1 do {	
 	_position = _positions select _i;
 	_team = _teams select _i;
 	_group = _groups select _i;

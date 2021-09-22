@@ -144,10 +144,6 @@ switch (true) do {
 _pool = [];
 {
 	//check if there units in, if not set infantry as default
-	if(isNil _x) then {
-		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SpawnTownOccupation.sqf", format ["Pool is null: <%1>",  _x]] call CTI_CO_FNC_Log;};
-		_x = [];
-	};
 	if(count _x == 0) then {
 		_x = ["GUER_INFANTRY_SQ_LIGHT", 4, 20];
 		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SpawnTownOccupation.sqf", format ["Pool is empty, replaced with: <%1>",  _x]] call CTI_CO_FNC_Log;};

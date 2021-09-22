@@ -520,6 +520,15 @@ with missionNamespace do {
  * - Server\Functions\FSM\Functions_FSM_RepairTruck.sqf: Contains the functions related to the Repair Truck FSM
  */
 
+CTI_GC_DELAY = 90;
+CTI_GC_DELAY_AIR = 360;
+CTI_GC_DELAY_CAR = 240;
+CTI_GC_DELAY_MAN = 120;
+CTI_GC_DELAY_TANK = 300;
+CTI_GC_DELAY_SHIP = 60;
+CTI_GC_DELAY_STATIC = 80;
+CTI_GC_DELAY_BUILDING = 30;
+
 //--- Vehicles: Misc
 CTI_VEHICLES_BOUNTY = 0.45; //--- Bounty upon entity killed.
 CTI_VEHICLES_EMPTY_SCAN_PERIOD = 15; //--- Scan for a crew member in a vehicle each x seconds
@@ -563,6 +572,9 @@ with missionNamespace do {
 	if (isNil 'CTI_VEHICLES_EMPTY_TIMEOUT') then {CTI_VEHICLES_EMPTY_TIMEOUT = 900};
 	if (isNil 'CTI_VEHICLES_SALVAGE_INDEPENDENT_MAX') then {CTI_VEHICLES_SALVAGE_INDEPENDENT_MAX = 2}; //--- Maximum amount of Independent Salvage Trucks which may be present per side
 };
+
+
+
 //----------------------------------------------WEATHER-------------------------------------------------------//
 
 CTI_WEATHER_RAIN = 0;				//Rain (Rain Requires Overcast Greater High {-1,0,30,50,75,100} texts = {"Random","Clear","Light","Medium","High","Max"}
@@ -625,18 +637,6 @@ with missionNamespace do {
 	};
 };
 
-//----------------------------------------------WEATHER-------------------------------------------------------//
-/*
-ReviveMode = 1;                         //0: disabled, 1: enabled, 2: controlled by player attributes
-ReviveUnconsciousStateMode = 0;         //0: basic, 1: advanced, 2: realistic
-ReviveRequiredTrait = 0;                //0: none, 1: medic trait is required
-ReviveRequiredItems = 2;                //0: none, 1: medkit, 2: medkit or first aid kit
-ReviveRequiredItemsFakConsumed = 1;     //0: first aid kit is not consumed upon revive, 1: first aid kit is consumed
-ReviveDelay = 20;                       //time needed to revive someone (in secs)
-ReviveMedicSpeedMultiplier = 3;         //speed multiplier for revive performed by medic
-ReviveForceRespawnDelay = 53;           //time needed to perform force respawn (in secs)
-ReviveBleedOutDelay = 120;              //unconscious state duration (in secs)
-*/
 //-----------------------------------------------------------------------------------------------------------------------//
 
 CTI_ARTILLERY_FILTER = 0; //--- Toggle artillery magazines like mines and AT mines (0: Disabled, 1: Enabled)
@@ -692,14 +692,6 @@ CTI_SCORE_SALVAGE_VALUE_PERPOINT = 2000; //--- Unit value / x
 CTI_SCORE_TOWN_VALUE_PERPOINT = 100; //--- Town value / x
 CTI_SCORE_CAMP_VALUE = 2; //--- Camp value
 
-CTI_GC_DELAY = 90;
-CTI_GC_DELAY_AIR = 360;
-CTI_GC_DELAY_CAR = 240;
-CTI_GC_DELAY_MAN = 120;
-CTI_GC_DELAY_TANK = 300;
-CTI_GC_DELAY_SHIP = 60;
-CTI_GC_DELAY_STATIC = 80;
-CTI_GC_DELAY_BUILDING = 30;
 
 with missionNamespace do {
 	if (isNil 'CTI_GER_SIDE') then {CTI_GER_SIDE = 0};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
@@ -798,59 +790,42 @@ with missionNamespace do {
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 Version <%1> ", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
 	
-	/*if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
-	if (!isClass(configFile >> "CfgVehicles" >> "VIOC_I_FFI_soldier")) then { //"VIOC_B_LIB_PzKpfwVI_E"
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 0;
-	};*/
 	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
-	if (isClass(configFile >> "CfgVehicles" >> "VIOC_I_FFI_soldier")) then {
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 1;
-	};
-	if (isClass(configFile >> "CfgVehicles" >> "VIOC_B_LIB_GER_rifleman")) then {
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 1;
-	};
-	if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 1;
-	};
-	if (isClass(configFile >> "CfgVehicles" >> "VIOC_I_LIB_GER_rifleman")) then {
-		//check if the IFA3_beta version is loaded or the stable
-		CTI_VIO_ADDON = 1;
-	};
-	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
-	
+	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
 	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
-	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
-	
-	if (isNil 'CTI_SABFL_ADDON') then {
-		if (isClass(configFile >> "CfgVehicles" >> "sab_fl_bf109e")) then {
-			//check if the SABs new planes loaded, when loaded, we enable it by default
-			CTI_SABFL_ADDON = 1;
-		} else {
-			CTI_SABFL_ADDON = 0;
+	if (isNil 'CTI_SABFL_ADDON') then {CTI_SABFL_ADDON = 0};
+	if (isNil 'CTI_SABNL_ADDON') then {CTI_SABNL_ADDON = 0};
+	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
+	//Check when IFA is loaded VIO patch is loaded too
+	if(CTI_IFA3_NEW >= 0) then {
+		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
+			//check if the IFA3_beta version is loaded or the stable
+			CTI_VIO_ADDON = 1;
 		};
 	};
-	if (isNil 'CTI_SABNL_ADDON') then {
-		if (isClass(configFile >> "CfgVehicles" >> "sab_nl_mutsuki")) then {
-			//check if the SABs new ships loaded, when loaded, we enable it by default
-			CTI_SABNL_ADDON = 1;
+	if(CTI_FOW_ADDON > 0) then {
+		//check for VIO units depends on this mod
+		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_fow_s_ger_heer_rifleman")) then {
+			CTI_VIO_ADDON = 1;
 		} else {
-			CTI_SABNL_ADDON = 0;
-		};
-	};
-	if (isNil 'CTI_SAB_ADDON') then {
-		if (isClass(configFile >> "CfgVehicles" >> "sab_bf110")) then {
-			//check if the SABs old units loaded, when loaded, we enable it by default
-			CTI_SAB_ADDON = 1;
-		} else {
-			CTI_SAB_ADDON = 0;
+			CTI_VIO_ADDON = 0;
 		};
 	};
 	
+	if (isClass(configFile >> "CfgVehicles" >> "sab_fl_bf109e")) then {
+		CTI_SABFL_ADDON = 1;
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_fl_bf109e")) then {CTI_VIO_ADDON = 0};
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "sab_nl_mutsuki")) then {
+		CTI_SABNL_ADDON = 1;
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_nl_mutsuki")) then {CTI_VIO_ADDON = 0};
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "sab_bf110")) then {
+		CTI_SAB_ADDON = 1;
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_bf110")) then {CTI_VIO_ADDON = 0};
+	};
+	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	
 	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};

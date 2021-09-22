@@ -318,8 +318,8 @@ if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 	};
 };
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	_c pushBack format["%1fow_v_m5a1_usa", _sid];
-	_c pushBack format["%1fow_v_m5a1_usmc", _sid];
+	_c pushBack format["%1fow_v_willys_usa", _sid];
+	_c pushBack format["%1fow_v_willys_usmc", _sid];
 };
 /*if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
