@@ -3,7 +3,16 @@
 	  "Praise the bugs!"
 */
 
- 
+#include "Rsc\Game.hpp"
+#include "Rsc\Resources.hpp"
+#include "Rsc\Dialogs.hpp"
+#include "Rsc\Notifications.hpp"
+#include "Rsc\Sounds.hpp"
+#include "Rsc\Debriefing.hpp"
+#include "Rsc\Parameters.hpp"
+#include "Rsc\titles.hpp"
+
+
 //--- Global Garbage Collection Settings
 MinPlayerDistance = 0;					//The minimum distance from any player. Set the value to 0 to remove the min. distance. 
 CorpseManagerMode = 1;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
@@ -12,8 +21,8 @@ CorpseRemovalMinTime = 60;				//Time in seconds before a dead body is removed wh
 CorpseRemovalMaxTime = 600;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
 WreckManagerMode = 1;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
 WreckLimit = 50;						//Maximum allowed number of destroyed vehicles in the scenario. 
-WreckRemovalMinTime = 150;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
-WreckRemovalMaxTime	= 1200;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
+WreckRemovalMinTime = 300;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
+WreckRemovalMaxTime	= 3000;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
 
 //--- Global Revive Settings
 //ReviveMode = 0;                         //0: disabled, 1: enabled, 2: controlled by player attributes
@@ -25,16 +34,6 @@ ReviveDelay = 18;                       //time needed to revive someone (in secs
 ReviveMedicSpeedMultiplier = 3;         //speed multiplier for revive performed by medic
 ReviveForceRespawnDelay = 5;			//time needed to perform force respawn (in secs)
 ReviveBleedOutDelay = 120;              //unconscious state duration (in secs)
-
-
-#include "Rsc\Game.hpp"
-#include "Rsc\Resources.hpp"
-#include "Rsc\Dialogs.hpp"
-#include "Rsc\Notifications.hpp"
-#include "Rsc\Sounds.hpp"
-#include "Rsc\Debriefing.hpp"
-#include "Rsc\Parameters.hpp"
-#include "Rsc\titles.hpp"
 
 enableDebugConsole = 1;
 

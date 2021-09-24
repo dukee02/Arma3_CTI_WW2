@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1731;
+		nextID=1741;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2902;
+		nextID=3112;
 	};
 	class Camera
 	{
-		pos[]={7796.5342,33.101521,1295.4287};
-		dir[]={-0.070042677,-0.84252334,0.53408659};
-		up[]={-0.10955446,0.53865987,0.83537018};
-		aside[]={0.99150985,7.4505806e-009,0.13003136};
+		pos[]={7812.7539,18.953714,1314.2168};
+		dir[]={-0.21162544,-0.46935526,0.85727507};
+		up[]={-0.11248749,0.88300943,0.45567641};
+		aside[]={0.97085607,-7.4505806e-009,0.23966387};
 	};
 };
 binarizationWanted=0;
@@ -92,10 +92,12 @@ class ScenarioData
 		maxPlayers=32;
 	};
 	wreckManagerMode=1;
-	wreckLimit=20;
+	wreckLimit=50;
+	wreckRemovalMinTime=1800;
 	wreckRemovalMaxTime=3600;
 	corpseManagerMode=1;
-	corpseLimit=10;
+	corpseLimit=200;
+	corpseRemovalMinTime=1800;
 };
 class CustomAttributes
 {
@@ -103,6 +105,63 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
+		{
+			property="ReviveForceRespawnDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=5;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ReviveDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=18;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveMedicSpeedMultiplier";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=3;
+				};
+			};
+		};
+		class Attribute3
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -120,7 +179,26 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=1;
+		class Attribute4
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=2;
+				};
+			};
+		};
+		nAttributes=5;
 	};
 	class Category1
 	{

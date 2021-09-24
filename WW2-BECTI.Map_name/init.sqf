@@ -119,15 +119,3 @@ if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then
 }; 
 
 _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
-
-
-	_testing = "";
-	_testing = "fow_w_type97_mortar_ija" call compile preprocessFileLineNumbers "Scripts\getTurretsWeapons.sqf";
-	["INFORMATION", "FILE: init.sqf", format["Ammo Test: <%1>", _testing]] call CTI_CO_FNC_Log;
-	
-	_testing = "fow_w_type97_mortar_adv_ija" call compile preprocessFileLineNumbers "Scripts\getTurretsWeapons.sqf";
-	["INFORMATION", "FILE: init.sqf", format["Ammo Test: <%1>", _testing]] call CTI_CO_FNC_Log;
-	
-	_testing = "fow_w_m2_mortar_usa" call compile preprocessFileLineNumbers "Scripts\getTurretsWeapons.sqf";
-	["INFORMATION", "FILE: init.sqf", format["Ammo Test: <%1>", _testing]] call CTI_CO_FNC_Log;
-
