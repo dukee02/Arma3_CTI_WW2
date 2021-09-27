@@ -2244,13 +2244,6 @@ if(CTI_IFA3_NEW >= 0) then {
 };
 
 if(CTI_FOW_ADDON > 0) then {
-	
-	_headers pushBack 		"Bunker Wood";
-	_classes pushBack 		"Land_wx_bunker";
-	_prices pushBack 		1000;
-	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Wood";
-	
 	_headers pushBack 		"Trench DefPos";
 	_classes pushBack 		"Land_defPos1";
 	_prices pushBack 		200;

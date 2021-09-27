@@ -11,7 +11,7 @@ if(CTI_VIO_ADDON == 0) then {
 };
 
 {
-	if(CTI_IFA3_NEW > 0) then {
+	if(CTI_IFA3_NEW >= 0) then {
 		_c pushBack format["%1LIB_GrWr34", _x];
 		_m pushBack ["LIB_8Rnd_81mmHE_GRWR34","ARTY_LIB_8Rnd_81mmHE_GRWR34","LIB_1rnd_81mmHE_GRWR34","LIB_81mm_GRWR34_SmokeShell"];
 		_b pushBack [1, 2, 4, 8];
@@ -94,46 +94,40 @@ if(CTI_VIO_ADDON == 0) then {
 			_r pushBack [[100,1000], [100,1500], [100,2000], [100,2500]];
 		};
 	};
-} forEach _sid;
-
-
-
+	
 	if(CTI_FOW_ADDON > 0) then {
-		_c pushBack "fow_w_type97_mortar_ija";
-		//_c pushBack format["%1fow_w_type97_mortar", _x];
+		_c pushBack format["%1fow_w_type97_mortar_ija", _x];
 		_m pushBack ["fow_1Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_SMOKE","fow_1Rnd_81mm_type97_SMOKE","fow_8Rnd_81mm_type97_ILL","fow_1Rnd_81mm_type97_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 		
-		_c pushBack "fow_w_type97_mortar_adv_ija";
-		//_c pushBack format["%1fow_w_type97_mortar_adv_ija", _x];
+		_c pushBack format["%1fow_w_type97_mortar_adv_ija", _x];
 		_m pushBack ["fow_1Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_SMOKE","fow_1Rnd_81mm_type97_SMOKE","fow_8Rnd_81mm_type97_ILL","fow_1Rnd_81mm_type97_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 		
-		_c pushBack "fow_w_m2_mortar_usa";
-		//_c pushBack format["%1fow_w_m2_mortar", _x];
+		_c pushBack format["%1fow_w_m2_mortar_usa", _x];
 		_m pushBack ["fow_1Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_SMOKE","fow_1Rnd_60mm_m2_SMOKE","fow_8Rnd_60mm_m2_ILL","fow_1Rnd_60mm_m2_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 		
-		_c pushBack "fow_w_m2_mortar_adv_usa";
-		//_c pushBack format["%1fow_w_m2_mortar", _x];
+		_c pushBack format["%1fow_w_m2_mortar_adv_usa", _x];
 		_m pushBack ["fow_1Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_SMOKE","fow_1Rnd_60mm_m2_SMOKE","fow_8Rnd_60mm_m2_ILL","fow_1Rnd_60mm_m2_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 		
-		_c pushBack "fow_w_m2_mortar_usmc";
-		//_c pushBack format["%1fow_w_m2_mortar", _x];
+		_c pushBack format["%1fow_w_m2_mortar_usmc", _x];
 		_m pushBack ["fow_1Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_SMOKE","fow_1Rnd_60mm_m2_SMOKE","fow_8Rnd_60mm_m2_ILL","fow_1Rnd_60mm_m2_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 		
-		_c pushBack "fow_w_m2_mortar_adv_usmc";
-		//_c pushBack format["%1fow_w_m2_mortar", _x];
+		_c pushBack format["%1fow_w_m2_mortar_adv_usmc", _x];
 		_m pushBack ["fow_1Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_HE","fow_8Rnd_60mm_m2_SMOKE","fow_1Rnd_60mm_m2_SMOKE","fow_8Rnd_60mm_m2_ILL","fow_1Rnd_60mm_m2_ILL"];
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 	};
+	
+} forEach _sid;
+
 
 [_c, _m, _b, _r] call compile preprocessFileLineNumbers "Common\Config\Artillery\Set_Artillery.sqf";

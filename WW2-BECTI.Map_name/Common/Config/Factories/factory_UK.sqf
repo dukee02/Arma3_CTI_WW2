@@ -23,7 +23,8 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\fa
 
 //check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
 _priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-if (isNil "_priorUnits" || _ai == 3) then {
+//if (isNil "_priorUnits" || _ai == 3) then {
+if (CTI_FOW_ADDON <= 2 || _ai == 3) then {
 	//We setup the standard units before the camo check to get secure
 	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1LIB_UK_Officer", _sid]];
 	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1LIB_UK_Rifleman_Jerkins", _sid]];
@@ -377,6 +378,11 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//};
 	//_c pushBack format["%1LIB_AustinK5_Tent", _sid];						//repairtruck
 	_c pushBack format["%1LIB_US6_Tent_Cargo", _sid];						//repairtruck
+};
+if(CTI_IFA3_NEW >= 0) then {
+	if!(CTI_UK_SIDE == CTI_US_SIDE) then {
+		_c pushBack format["CTI_Salvager_%1", _side];
+	};
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 

@@ -92,7 +92,17 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_s pushBack "";
 	_d pushBack 0;
 	
-	if(CTI_VIO_ADDON > 0) then {
+	_c pushBack format["%1LIB_WP_AT_grenadier", _sid];
+	_p pushBack '';
+	_n pushBack '';
+	_o pushBack (CTI_ECONOMY_PRIZE_INFANTRY*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_t pushBack _building_time;
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_BARRACKS;
+	_s pushBack "";
+	_d pushBack 0;
+	
+	if(CTI_VIO_ADDON > 0) then {	
 		_c pushBack format["%1WP_AT_soldier", _sid];
 		_p pushBack '';
 		_n pushBack '';

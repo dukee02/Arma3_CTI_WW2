@@ -832,26 +832,27 @@ if(CTI_IFA3_NEW < 0) then {
 		_f pushBack CTI_FACTORY_REPAIR;
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
-	};
-	_c pushBack format["CTI_Salvager_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager"];
-	_d pushBack 0;
 		
-	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack (30*(_tech_level+1));
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager-independent"];
-	_d pushBack 0;
+		_c pushBack format["CTI_Salvager_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack (30*(_tech_level+1));
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager"];
+		_d pushBack 0;
+			
+		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack (30*(_tech_level+1));
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1fow_v_lvta2_usa_p", _sid],"salvager-independent"];
+		_d pushBack 0;
+	};
 };
 
 //***************************************************************************************************************************************
