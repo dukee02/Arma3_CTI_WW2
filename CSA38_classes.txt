@@ -19,7 +19,7 @@ csa38_pak35_DE
 //Wehrmacht early
 CSA38_Gcrew2
 CSA38_Gcrew
-CSA38_Gcrew5		//crem off
+CSA38_Gcrew5		//crew off
 
 CSA38_WH2Bi			//recruits
 CSA38_WH2B
@@ -291,7 +291,7 @@ CSA38_pzIV_W
 CSA38_pzIVB_W
 CSA38_pzIVC_W
 
-//tech 2
+//tech 4
 csa38_valentineMkII7
 
 //------------------------------------------------------------------------------------------------------

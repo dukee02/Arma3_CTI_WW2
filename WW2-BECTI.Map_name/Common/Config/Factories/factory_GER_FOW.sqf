@@ -19,7 +19,7 @@ if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
 //CTI_CAMO_ACTIVATION = 0 only normal camo | 1 adds winter camo | 2 adds desert camo | 3 adds winter and desert camo
 
-if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_FOW.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
 //check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
 _priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
@@ -174,7 +174,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
 	_c pushBack format["%1fow_v_sdkfz_234_1", _sid];
 };
 
-	_c pushBack format["%1", _sid];
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 

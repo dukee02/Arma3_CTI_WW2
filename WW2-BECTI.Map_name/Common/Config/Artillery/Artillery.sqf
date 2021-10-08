@@ -127,6 +127,27 @@ if(CTI_VIO_ADDON == 0) then {
 		_r pushBack [[60,1260], [80,1800], [100,2400], [100,2400]];
 	};
 	
+	if(CTI_CSA_ADDON > 0) then {
+		_c pushBack format["%1csa38_GrW34", _x];
+		_m pushBack ["csa38_minawg34","csa38_minawg34_SmokeShell"];
+		_b pushBack [1, 2, 4, 8];
+		_r pushBack [[220,440], [440,900], [1730,3670], [1730,3670]];
+		
+		_c pushBack format["%1CSA38_2inch_vehicle", _x];
+		_m pushBack ["CSA38_2inch_he_1rnd","CSA38_2inch_smoke_1rnd","CSA38_2inch_illum_1rnd"];
+		_b pushBack [1];
+		_r pushBack [[30,650], [30,650], [30,650], [30,650]];
+		
+		_c pushBack format["%1CSA38_mvz36", _x];
+		_m pushBack ["csa38_minavz36"];
+		_b pushBack [1, 2, 4, 8];
+		_r pushBack [[25,450], [50,920], [205,3680], [205,3680]];
+		
+		_c pushBack format["%1csa38_KPUV37", _x];
+		_m pushBack ["CSA38_37mm_A4_AP","CSA38_37mm_A4_AP2","CSA38_37mm_A4_HE","CSA38_37mm_A4_APG","CSA38_37mm_A4_AP2G","CSA38_37mm_A4_HEG"];
+		_b pushBack [1, 2, 4, 8];
+		_r pushBack [[80,280], [160,570], [640,2290], [640,2290]];
+	};
 } forEach _sid;
 
 

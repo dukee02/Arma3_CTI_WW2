@@ -101,6 +101,19 @@ call compile preprocessFileLineNumbers "Common\Config\Artillery\Artillery.sqf";
 (east) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
 (resistance) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
 
+//CTI_CZ_SIDE declaration
+if(CTI_CZ_SIDE >= 0) then {
+	if(CTI_CSA_ADDON > 0) then {
+		((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_CZ_CSA.sqf";
+		((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_CZ_CSA.sqf";
+		if((CTI_CZ_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_CZ_SIDE == 1 && CTI_EAST_AI < 0)) then {
+			((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_CZ_CSA.sqf";
+		};
+		if((CTI_CZ_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_CZ_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_CZ_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
+			((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_CZ_CSA.sqf";
+		};
+	};
+};
 //CTI_JPN_SIDE declaration
 if(CTI_JPN_SIDE >= 0) then {
 	if(CTI_FOW_ADDON > 0) then {
@@ -134,6 +147,16 @@ if(CTI_UK_SIDE >= 0) then {
 		};
 		if((CTI_UK_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_UK_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK_FOW.sqf";
+		};
+	};
+	if(CTI_CSA_ADDON > 0) then {
+		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_UK_CSA.sqf";
+		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_UK_CSA.sqf";
+		if((CTI_UK_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_AI < 0)) then {
+			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_UK_CSA.sqf";
+		};
+		if((CTI_UK_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_UK_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
+			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK_CSA.sqf";
 		};
 	};
 };
@@ -205,6 +228,16 @@ if(CTI_GER_SIDE >= 0) then {
 			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER_FOW.sqf";
 		};
 	};
+	if(CTI_CSA_ADDON > 0) then {
+		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_GER_CSA.sqf";
+		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_GER_CSA.sqf";
+		if((CTI_GER_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_AI < 0)) then {
+			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER_CSA.sqf";
+		};
+		if((CTI_GER_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_GER_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
+			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER_CSA.sqf";
+		};
+	};
 };
 
 switch(CTI_GUER_TOWNS) do {
@@ -215,6 +248,10 @@ switch(CTI_GUER_TOWNS) do {
 	case 1: {
 		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_POL.sqf";
 		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL.sqf";
+		if(CTI_CSA_ADDON > 0) then {
+			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_POL_CSA.sqf";
+			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL_CSA.sqf";
+		};
 	};
 	default {};
 };
@@ -327,7 +364,57 @@ if ((missionNamespace getVariable "CTI_ECONOMY_CURRENCY_SYSTEM") == 1) then {
 };
 
 //--- AI/Players Loadouts, to prevent any bisteries, DO NOT give them a pistol.
-
+//CTI_CZ_SIDE declaration
+if(CTI_CZ_SIDE >= 0 && CTI_CZ_SIDE < 2) then {
+	_side_gear = WEST;
+	_load_loadout = false;
+	if(CTI_CZ_SIDE == 1) then {
+		_side_gear = EAST;
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 9) then { _load_loadout = true; };
+	} else {
+		_side_gear = WEST;
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 9) then { _load_loadout = true; };
+	};
+	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side CZ [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_CZ_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
+	if(_load_loadout) then {
+		//Czech
+		if(CTI_CSA_ADDON > 0 || (CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 0)) then {
+			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+				[["CSA38_M1895",["","","",""],["csa38_8_00_5xMannlicher"]],["",["","","",""],[]],
+				["",["","","",""],[""]]],
+				[["U_csa38_uniCZ05",["firstaidkit","firstaidkit","CSA38_rg34","CSA38_rg34"]],
+				["V_csa38_equip_CZ08",["csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher"]],
+				["csa38_pouzdrovz23",[]]],
+				["Headgear_csa38_M35CH",""],[["","CSA38_Binocular"],["csa38_ItemMap","","csa38_ItemRadio","itemcompass","itemwatch"]]]];
+		}/* else {
+			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+				[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
+				["",["","","",""],[""]]],
+				[["U_LIB_GER_schutze",["firstaidkit","firstaidkit"]],
+				["V_LIB_GER_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
+				["B_LIB_GER_A_frame",["LIB_Shg24","LIB_Shg24"]]],
+				["H_LIB_GER_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+			if(CTI_CAMO_ACTIVATION == 1 && CTI_IFA3_NEW == 0) then {		//Winter camo active
+				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+					[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
+					["",["","","",""],[""]]],
+					[["U_LIB_GER_Soldier3_w",["firstaidkit","firstaidkit"]],
+					["V_LIB_GER_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
+					["B_LIB_GER_A_frame",["LIB_Shg24","LIB_Shg24"]]],
+					["H_LIB_GER_Helmet_w",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+			};
+			if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+					[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
+					["",["","","",""],[""]]],
+					[["U_LIB_DAK_Soldier",["firstaidkit","firstaidkit"]],
+					["V_LIB_DAK_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
+					["B_LIB_DAK_A_frame",["LIB_Shg24","LIB_Shg24"]]],
+					["H_LIB_DAK_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+			};
+		}*/;
+	};
+};
 //CTI_JPN_SIDE declaration
 if(CTI_JPN_SIDE >= 0 && CTI_JPN_SIDE < 2) then {
 	_side_gear = WEST;
@@ -385,48 +472,58 @@ if(CTI_UK_SIDE >= 0 && CTI_UK_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_UK_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 3 || CTI_EAST_AI == 7) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 3 || CTI_EAST_AI == 7 || CTI_EAST_AI == 10) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 3 || CTI_WEST_AI == 7) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 3 || CTI_WEST_AI == 7 || CTI_WEST_AI == 10) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side UK [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_UK_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
 		//UK
-		if(CTI_FOW_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_FOW_ADDON > 0)) then {
+		if(CTI_CSA_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 0)) then {
 			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-				[["fow_w_leeenfield_no4mk1",["","","",""],["fow_10Rnd_303"]],["",["","","",""],[]],
+				[["CSA38_SMLE",["","","",""],["CSA38_7_7_10x56R"]],["",["","","",""],[]],
 				["",["","","",""],[""]]],
-				[["fow_u_uk_bd40_bp_01_private",["firstaidkit","firstaidkit","fow_e_no36mk1","fow_e_no36mk1"]],
-				["fow_v_uk_base",["fow_10Rnd_303","fow_10Rnd_303","fow_10Rnd_303","fow_10Rnd_303"]],
-				["fow_b_uk_p37_blanco_shovel",[]]],
-				["fow_h_uk_bp_beret",""],[["","Binocular"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+				[["U_csa38_ENuni02",["firstaidkit","firstaidkit","CSA38_F1","CSA38_7_7_10x56R","CSA38_7_7_10x56R"]],
+				["",[""]],
+				["",[]]],
+				["Headgear_csa38_CZbaret2",""],[["","Binocular"],["csa38_ItemMap","","csa38_ItemRadio","itemcompass","itemwatch"]]]];
 		} else {
-			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-				[["LIB_LeeEnfield_No1_Bayonet",["","","",""],["LIB_10Rnd_770x56"]],["",["","","",""],[]],
-				["",["","","",""],[""]]],
-				[["U_LIB_UK_P37",["firstaidkit","firstaidkit"]],
-				["V_LIB_UK_P37_Rifleman_Blanco",["LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56"]],
-				["B_LIB_UK_HSack_Blanco_Tea",["LIB_No77","LIB_No77"]]],
-				["H_LIB_UK_Helmet_Mk2",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
-			if(CTI_CAMO_ACTIVATION == 1 && CTI_IFA3_NEW == 0) then {		//Winter camo active
+			if(CTI_FOW_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_FOW_ADDON > 0)) then {
+				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+					[["fow_w_leeenfield_no4mk1",["","","",""],["fow_10Rnd_303"]],["",["","","",""],[]],
+					["",["","","",""],[""]]],
+					[["fow_u_uk_bd40_bp_01_private",["firstaidkit","firstaidkit","fow_e_no36mk1","fow_e_no36mk1"]],
+					["fow_v_uk_base",["fow_10Rnd_303","fow_10Rnd_303","fow_10Rnd_303","fow_10Rnd_303"]],
+					["fow_b_uk_p37_blanco_shovel",[]]],
+					["fow_h_uk_bp_beret",""],[["","Binocular"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+			} else {
 				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
 					[["LIB_LeeEnfield_No1_Bayonet",["","","",""],["LIB_10Rnd_770x56"]],["",["","","",""],[]],
 					["",["","","",""],[""]]],
-					[["U_LIB_UK_P37_w",["firstaidkit","firstaidkit"]],
+					[["U_LIB_UK_P37",["firstaidkit","firstaidkit"]],
 					["V_LIB_UK_P37_Rifleman_Blanco",["LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56"]],
 					["B_LIB_UK_HSack_Blanco_Tea",["LIB_No77","LIB_No77"]]],
-					["H_LIB_UK_Helmet_Mk2_w",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
-			};
-			if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-					[["LIB_LeeEnfield_No1_Bayonet",["","","",""],["LIB_10Rnd_770x56"]],["",["","","",""],[]],
-					["",["","","",""],[""]]],
-					[["U_LIB_UK_KhakiDrills",["firstaidkit","firstaidkit"]],
-					["V_LIB_UK_P37_Rifleman",["LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56"]],
-					["B_LIB_UK_HSack_Tea",["LIB_No77","LIB_No77"]]],
-					["H_LIB_UK_Helmet_Mk2_Desert",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
-			};
+					["H_LIB_UK_Helmet_Mk2",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+				if(CTI_CAMO_ACTIVATION == 1 && CTI_IFA3_NEW == 0) then {		//Winter camo active
+					missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+						[["LIB_LeeEnfield_No1_Bayonet",["","","",""],["LIB_10Rnd_770x56"]],["",["","","",""],[]],
+						["",["","","",""],[""]]],
+						[["U_LIB_UK_P37_w",["firstaidkit","firstaidkit"]],
+						["V_LIB_UK_P37_Rifleman_Blanco",["LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56"]],
+						["B_LIB_UK_HSack_Blanco_Tea",["LIB_No77","LIB_No77"]]],
+						["H_LIB_UK_Helmet_Mk2_w",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+				};
+				if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+					missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+						[["LIB_LeeEnfield_No1_Bayonet",["","","",""],["LIB_10Rnd_770x56"]],["",["","","",""],[]],
+						["",["","","",""],[""]]],
+						[["U_LIB_UK_KhakiDrills",["firstaidkit","firstaidkit"]],
+						["V_LIB_UK_P37_Rifleman",["LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56","LIB_10Rnd_770x56"]],
+						["B_LIB_UK_HSack_Tea",["LIB_No77","LIB_No77"]]],
+						["H_LIB_UK_Helmet_Mk2_Desert",""],[["","LIB_Binocular_UK"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+				};
+			};			
 		};
 	};
 };
@@ -541,47 +638,57 @@ if(CTI_GER_SIDE >= 0 && CTI_GER_SIDE < 2) then {
 	_load_loadout = false;
 	if(CTI_GER_SIDE == 1) then {
 		_side_gear = EAST;
-		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 0 || CTI_EAST_AI == 4) then { _load_loadout = true; };
+		if(CTI_EAST_AI == -1 || CTI_EAST_AI == 0 || CTI_EAST_AI == 4 || CTI_EAST_AI == 8) then { _load_loadout = true; };
 	} else {
 		_side_gear = WEST;
-		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 0 || CTI_WEST_AI == 4) then { _load_loadout = true; };
+		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 0 || CTI_WEST_AI == 4 || CTI_WEST_AI == 8) then { _load_loadout = true; };
 	};
 	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side GER [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_GER_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
 		//German
-		if(CTI_FOW_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_FOW_ADDON > 0)) then {
+		if(CTI_CSA_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 0)) then {
 			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-				[["fow_w_k98",["","","",""],["fow_5Rnd_792x57"]],["",["","","",""],[]],
+				[["CSA38_M1895k",["","","",""],["csa38_8_00_5xMannlicher"]],["",["","","",""],[]],
 				["",["","","",""],[""]]],
-				[["fow_u_ger_m43_01_frag_private",["firstaidkit","firstaidkit","fow_e_m24","fow_e_m24"]],
-				["fow_v_heer_k98_bayo",["fow_5Rnd_792x57","fow_5Rnd_792x57","fow_5Rnd_792x57","fow_5Rnd_792x57"]],
-				["fow_b_heer_aframe",[]]],
-				["fow_h_ger_m40_heer_01",""],[["","Binocular"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+				[["U_csa38_uniGE08",["firstaidkit","firstaidkit","CSA38_shg24","CSA38_shg24"]],
+				["V_csa38_equip_GE13",["csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher","csa38_8_00_5xMannlicher"]],
+				["csa38_GeMedicbag",[]]],
+				["Headgear_csa38_m38cap2",""],[["","csa38_Binocular2"],["csa38_ItemMap","","csa38_ItemRadio","itemcompass","itemwatch"]]]];
 		} else {
-			missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-				[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
-				["",["","","",""],[""]]],
-				[["U_LIB_GER_schutze",["firstaidkit","firstaidkit"]],
-				["V_LIB_GER_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
-				["B_LIB_GER_A_frame",["LIB_Shg24","LIB_Shg24"]]],
-				["H_LIB_GER_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
-			if(CTI_CAMO_ACTIVATION == 1 && CTI_IFA3_NEW == 0) then {		//Winter camo active
+			if(CTI_FOW_ADDON > 1 || (CTI_IFA3_NEW < 0 && CTI_FOW_ADDON > 0)) then {
+				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+					[["fow_w_k98",["","","",""],["fow_5Rnd_792x57"]],["",["","","",""],[]],
+					["",["","","",""],[""]]],
+					[["fow_u_ger_m43_01_frag_private",["firstaidkit","firstaidkit","fow_e_m24","fow_e_m24"]],
+					["fow_v_heer_k98_bayo",["fow_5Rnd_792x57","fow_5Rnd_792x57","fow_5Rnd_792x57","fow_5Rnd_792x57"]],
+					["fow_b_heer_aframe",[]]],
+					["fow_h_ger_m40_heer_01",""],[["","Binocular"],["itemmap","","itemradio","itemcompass","itemwatch"]]]];
+			} else {
 				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
 					[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
 					["",["","","",""],[""]]],
-					[["U_LIB_GER_Soldier3_w",["firstaidkit","firstaidkit"]],
+					[["U_LIB_GER_schutze",["firstaidkit","firstaidkit"]],
 					["V_LIB_GER_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
 					["B_LIB_GER_A_frame",["LIB_Shg24","LIB_Shg24"]]],
-					["H_LIB_GER_Helmet_w",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
-			};
-			if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-				missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
-					[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
-					["",["","","",""],[""]]],
-					[["U_LIB_DAK_Soldier",["firstaidkit","firstaidkit"]],
-					["V_LIB_DAK_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
-					["B_LIB_DAK_A_frame",["LIB_Shg24","LIB_Shg24"]]],
-					["H_LIB_DAK_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+					["H_LIB_GER_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+				if(CTI_CAMO_ACTIVATION == 1 && CTI_IFA3_NEW == 0) then {		//Winter camo active
+					missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+						[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
+						["",["","","",""],[""]]],
+						[["U_LIB_GER_Soldier3_w",["firstaidkit","firstaidkit"]],
+						["V_LIB_GER_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
+						["B_LIB_GER_A_frame",["LIB_Shg24","LIB_Shg24"]]],
+						["H_LIB_GER_Helmet_w",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+				};
+				if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+					missionNamespace setVariable [format["CTI_AI_%1_DEFAULT_GEAR", _side_gear], [
+						[["LIB_K98",["","","",""],["LIB_5Rnd_792x57"]],["",["","","",""],[]],
+						["",["","","",""],[""]]],
+						[["U_LIB_DAK_Soldier",["firstaidkit","firstaidkit"]],
+						["V_LIB_DAK_VestKar98",["LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57","LIB_5Rnd_792x57"]],
+						["B_LIB_DAK_A_frame",["LIB_Shg24","LIB_Shg24"]]],
+						["H_LIB_DAK_Helmet",""],[["","LIB_Binocular_GER"],["itemmap","","itemradio","itemcompass","itemwatch",""]]]];
+				};
 			};
 		};
 	};

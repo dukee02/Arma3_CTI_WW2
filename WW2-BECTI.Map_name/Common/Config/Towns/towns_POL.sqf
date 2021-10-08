@@ -90,7 +90,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 WHEELED_LIGHT = [];
 WHEELED_HEAVY = [];
 
-switch (CTI_ECONOMY_LEVEL_WHEELED) do {
+/*switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 	case 0;
 	case 1;
 	case 2;
@@ -102,7 +102,7 @@ switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 	};
 	default {
 	};
-};
+};*/
 
 missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
 missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], WHEELED_HEAVY];

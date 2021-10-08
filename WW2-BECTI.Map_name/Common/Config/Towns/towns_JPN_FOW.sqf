@@ -150,18 +150,10 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 AIR_FIGHTER = [];
 AIR_BOMBER = [];
 
-switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0;
-	case 1;
-	case 2;
-	case 3;
-	case 4: {
-		TRACKED_LIGHT = [[format["%1fow_ija_type95_HaGo_1_ija", _sid],1]];
-		TRACKED_MEDIUM = [[format["%1fow_ija_type95_HaGo_2_ija", _sid],1]];
-		TRACKED_HEAVY = [[format["%1fow_ija_type95_HaGo_3_ija", _sid],1]];
-	};
-	default {
-	};
+if(CTI_IFA3_NEW >= 0 || CTI_SAB_ADDON > 0) then {_tech_level = 3} else {_tech_level = 0};
+if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+	AIR_FIGHTER = [[format["%1fow_va_a6m_green", _sid],1]];
+	AIR_BOMBER = [[format["%1fow_va_a6m_white", _sid],1]];
 };
 
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
@@ -180,15 +172,12 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //														Town Anti-Air setup																*
 //***************************************************************************************************************************************
 ANTI_AIR = [];
-if(CTI_IFA3_NEW < 0) then {
-	ANTI_AIR = INFANTRY;
 
-	if (isNil {missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]}) then {
-		missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
-	} else {
-		missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], (missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]) + ANTI_AIR];
-	};
+if (isNil {missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]}) then {
+	missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
+} else {
+	missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], (missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]) + ANTI_AIR];
 };
 if (CTI_Log_Level >= CTI_Log_Debug) then {
-	["VIOC_DEBUG", "FILE: common\config\Towns_JPN_FOW.sqf", format["Town Squad <%1> with units <%2> ", format["%1SQ_ANTI_AIR", _tag], missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]]] call CTI_CO_FNC_Log;
+	["VIOC_DEBUG", "FILE: common\config\Towns_CZ_CSA.sqf", format["Town Squad <%1> with units <%2> ", format["%1SQ_ANTI_AIR", _tag], missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]]] call CTI_CO_FNC_Log;
 };

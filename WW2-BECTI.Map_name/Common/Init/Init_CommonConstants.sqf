@@ -699,6 +699,7 @@ with missionNamespace do {
 	if (isNil 'CTI_US_SIDE') then {CTI_US_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_UK_SIDE') then {CTI_UK_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_JPN_SIDE') then {CTI_JPN_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
+	if (isNil 'CTI_CZ_SIDE') then {CTI_CZ_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 		
 	if (isNil 'CTI_WEST_AI') then {CTI_WEST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_EAST_AI') then {CTI_EAST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
@@ -792,11 +793,10 @@ with missionNamespace do {
 	
 	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
-	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
-	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
+	if (isNil 'CTI_CSA_ADDON') then {CTI_CSA_ADDON = 0};
 	if (isNil 'CTI_SABFL_ADDON') then {CTI_SABFL_ADDON = 0};
 	if (isNil 'CTI_SABNL_ADDON') then {CTI_SABNL_ADDON = 0};
-	if (isNil 'CTI_CSA38_ADDON') then {CTI_CSA38_ADDON = 0};
+	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
 	//Check when IFA is loaded VIO patch is loaded too
 	if(CTI_IFA3_NEW >= 0) then {
 		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
