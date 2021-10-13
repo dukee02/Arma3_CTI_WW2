@@ -138,6 +138,19 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		fow_w_flak36_green_ger_heer
 		fow_w_flak36_tan_ger_heer*/
 	};
+	if(CTI_FOW_ADDON > 0) then {
+		_classes_town pushBack 		format["%1CSA38_MG34t", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%1CSA38_zb30jt", _sid];
+		_categories_town pushBack 	"AA";
+		
+		_classes_town pushBack 		format["%1csa38_GrW34", _sid];
+		_categories_town pushBack 	"Mortar";
+		
+		_classes_town pushBack 		format["%1csa38_pak35", _sid];
+		_categories_town pushBack 	"AT";		
+	};
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	//if(CTI_IFA3_NEW >= 0) then {
@@ -310,6 +323,22 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		fow_w_m2_mortar_usmc
 		fow_w_m2_mortar_adv_usmc
 		fow_w_6Pounder_usmc*/
+	};
+	if(CTI_CSA_ADDON > 0) then {
+		_classes_town pushBack 		format["%CSA38_TKVZ24mg", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%CSA38_TKVZ37MG", _sid];
+		_categories_town pushBack 	"AA";
+		
+		_classes_town pushBack 		format["%csa38_KPUV37", _sid];
+		_categories_town pushBack 	"AT";
+		
+		_classes_town pushBack 		format["%CSA38_mvz17", _sid];
+		_categories_town pushBack 	"Mortar";
+		
+		_classes_town pushBack 		format["%CSA38_mvz36", _sid];
+		_categories_town pushBack 	"Artillery";
 	};
 };
 

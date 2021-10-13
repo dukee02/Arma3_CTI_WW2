@@ -1162,7 +1162,9 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//_s pushBack "service-repairtruck";
 	//_d pushBack 0;
 	
-	if(CTI_UK_SIDE < 2) then {
+};
+if(CTI_IFA3_NEW >= 0) then {
+	if!(CTI_UK_SIDE == CTI_US_SIDE) then {
 		_c pushBack format["CTI_Salvager_%1", _faction];
 		_p pushBack '';
 		_n pushBack 'Salvager Truck';

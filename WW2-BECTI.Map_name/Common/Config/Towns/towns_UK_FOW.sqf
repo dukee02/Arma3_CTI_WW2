@@ -190,18 +190,17 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //														Town Anti-Air setup																*
 //***************************************************************************************************************************************
 ANTI_AIR = [];
-if(CTI_IFA3_NEW < 0) then {
-	ANTI_AIR = INFANTRY;
-	/*if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
+/*if(CTI_IFA3_NEW < 0) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
 		if(CTI_IFA3_NEW > 0) then {
 			ANTI_AIR = [[format["%1LIB_UK_M16_Halftrack", _sid],1],[format["%1LIB_UK_M16_Halftrack", _sid],1]];
 		};
-	};*/
-	if (isNil {missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]}) then {
-		missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
-	} else {
-		missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], (missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]) + ANTI_AIR];
 	};
+};*/
+if (isNil {missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]}) then {
+	missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], ANTI_AIR];
+} else {
+	missionNamespace setVariable [format["%1SQ_ANTI_AIR", _tag], (missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]) + ANTI_AIR];
 };
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_UK_FOW.sqf", format["Town Squad <%1> with units <%2> ", format["%1SQ_ANTI_AIR", _tag], missionNamespace getVariable format["%1SQ_ANTI_AIR", _tag]]] call CTI_CO_FNC_Log;

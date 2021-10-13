@@ -1876,8 +1876,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
 	_s pushBack "service-repairtruck";
-	_d pushBack 0;
-		
+	_d pushBack 0;		
+};
+
+if(CTI_IFA3_NEW >= 0) then {
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvager Truck';
@@ -1897,7 +1899,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_f pushBack CTI_FACTORY_REPAIR;
 	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager-independent"];
 	_d pushBack 0;
-		
 };
 
 //***************************************************************************************************************************************

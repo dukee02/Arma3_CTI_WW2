@@ -15,6 +15,14 @@ else {
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
 
+if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	//if(CTI_IFA3_NEW >= 0) then {
+	//} else {
+	//};
+	if(CTI_CSA_ADDON > 0) then {
+		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_pragaRV7", _sid]];
+	};
+};
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		//missionNamespace setVariable [format["CTI_%1_HQ", _side], ""];
@@ -56,8 +64,12 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_FOW_ADDON > 0) then {
 			missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid]];
 		};
+		if(CTI_CSA_ADDON > 0) then {
+			missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_opelblitz6", _sid]];
+		};
 	};
 };
+
 
 if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: Common\Config\Base\Base.sqf", format ["Set HQ Vehicle [%1] for side [%2]", missionNamespace getVariable format["CTI_%1_HQ", _side], _side]] call CTI_CO_FNC_Log };
 
@@ -188,6 +200,9 @@ if (!isClass(configFile >> "CfgVehicles" >> "LIB_Static_opelblitz_radio")) then 
 		};
 		case (CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) : {
 			_classes pushBack		["LIB_Static_opelblitz_radio", "LIB_OpelBlitz_2_Wreck"];
+		};
+		case (CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) : {
+			_classes pushBack		["LIB_Static_zis6_radar", "LIB_zis5v_Wreck"];
 		};
 	};
 };
@@ -383,11 +398,44 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories pushBack 	"Defense";
 	};
 	
-	//class 	csa38_GrW34;
-	//class 	CSA38_MG34t;
-	//class 	CSA38_MG34t4;
-	//class 	CSA38_MG34t3;
-	//class 	CSA38_MG34t2;
+	if(CTI_CSA_ADDON > 0) then {
+			
+		_headers pushBack 		"MG34 tripod";
+		_classes pushBack 		format["%1CSA38_MG34t", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"MG34 1";
+		_classes pushBack 		format["%1CSA38_MG34t4", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"MG34 2";
+		_classes pushBack 		format["%1CSA38_MG34t3", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"MG34 3";
+		_classes pushBack 		format["%1CSA38_MG34t2", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"ZB30 tripod";
+		_classes pushBack 		format["%1CSA38_zb30jt", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"GrWr34";
+		_classes pushBack 		format["%1csa38_GrW34", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+	};
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -601,6 +649,91 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 	};	
+	
+	if(CTI_CSA_ADDON > 0) then {
+			
+		_headers pushBack 		"Bren MK2 1 tripod";
+		_classes pushBack 		format["%CSA38_brenmkiit", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+			
+		_headers pushBack 		"Bren MK2 2 tripod";
+		_classes pushBack 		format["%CSA38_brenmkiit2", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"2inch (Mortar)";
+		_classes pushBack 		format["%CSA38_2inch_vehicle", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+	};
+};
+
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if(CTI_CSA_ADDON > 0) then {
+		_headers pushBack 		"VZ 24 tripod";
+		_classes pushBack 		format["%CSA38_TKVZ24mg", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VZ 37 tripod";
+		_classes pushBack 		format["%CSA38_TKVZ37MG", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VZ 37 high";
+		_classes pushBack 		format["%CSA38_tkvz37mg3", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VZ 27 high";
+		_classes pushBack 		format["%CSA38_tkvz24mg2", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VZ 27 2 high";
+		_classes pushBack 		format["%CSA38_tkvz24mg3", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VZ 26 high";
+		_classes pushBack 		format["%CSA38_zb26t", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"VB 26 high";
+		_classes pushBack 		format["%CSA38_zb26t2", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"mvz17 (Mortar)";
+		_classes pushBack 		format["%CSA38_mvz17", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"mvz36 (Mortar)";
+		_classes pushBack 		format["%CSA38_mvz36", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"KPUV37 AT";
+		_classes pushBack 		format["%csa38_KPUV37", _sid];
+		_prices pushBack 		3000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+	};
 };
 
 //******************************BASE GUN DEFENSE 1******************************
@@ -775,6 +908,37 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 	};
+	if(CTI_CSA_ADDON > 0) then {
+		_headers pushBack 		"Pak 35";
+		_classes pushBack 		format["%1csa38_pak35", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Pak 35 fr";
+		_classes pushBack 		format["%1csa38_pak35_FR", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Pak 35 late";
+		_classes pushBack 		format["%1csa38_pak35_late", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Pak 35 winter";
+		_classes pushBack 		format["%1csa38_pak35_W", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Pak 35 desert";
+		_classes pushBack 		format["%1csa38_pak35_DE", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+	};	
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW == 1) then {
@@ -2244,13 +2408,6 @@ if(CTI_IFA3_NEW >= 0) then {
 };
 
 if(CTI_FOW_ADDON > 0) then {
-	
-	_headers pushBack 		"Bunker Wood";
-	_classes pushBack 		"Land_wx_bunker";
-	_prices pushBack 		1000;
-	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Wood";
-	
 	_headers pushBack 		"Trench DefPos";
 	_classes pushBack 		"Land_defPos1";
 	_prices pushBack 		200;

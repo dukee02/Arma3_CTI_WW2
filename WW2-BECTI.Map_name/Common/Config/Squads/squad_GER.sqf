@@ -328,38 +328,43 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 units_air = [];
+air_to_add = [];
 _level = 0;
 
 if(CTI_ECONOMY_LEVEL_AIR < 0) then {
 	units_air = +units_infantry;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	units_to_add = [[format["%1LIB_Ju87", _sid], 1, 40]];
+	air_to_add = [[format["%1LIB_Ju87", _sid], 1, 40]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		units_to_add = [[format["%1LIB_Ju87_w", _sid], 1, 40]];
+		air_to_add = [[format["%1LIB_Ju87_w", _sid], 1, 40]];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [[format["%1LIB_DAK_Ju87", _sid], 1, 40]];
+		air_to_add = [[format["%1LIB_DAK_Ju87", _sid], 1, 40]];
 	};
-	units_air = units_to_add;
+	units_air = [];
+	units_air = +air_to_add;
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_IFA3_NEW > 0) then {
-		units_to_add = [[format["%1LIB_Ju87_G2", _sid], 1, 40]];
+		air_to_add = [[format["%1LIB_Ju87_G2", _sid], 1, 40]];
+		
+		units_air = [];
+		units_air = +air_to_add;
 	};
-	units_air append units_to_add;
 	_level = _level + 1;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-	units_to_add = [[format["%1LIB_FW190F8", _sid], 1, 50]];
+	air_to_add = [[format["%1LIB_FW190F8", _sid], 1, 50]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		units_to_add = [[format["%1LIB_FW190F8_w", _sid], 1, 50]];
+		air_to_add = [[format["%1LIB_FW190F8_w", _sid], 1, 50]];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo activea
-		units_to_add = [[format["%1LIB_DAK_FW190F8", _sid], 1, 50]];
+		air_to_add = [[format["%1LIB_DAK_FW190F8", _sid], 1, 50]];
 	};
-	units_air append units_to_add;
+	units_air = [];
+	units_air = +air_to_add;
 	_level = _level + 1;
 };
 

@@ -175,18 +175,16 @@ _s pushBack [];*/
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 units_air = [];
+air_to_add = [];
 _level = 0;
 
-if(CTI_ECONOMY_LEVEL_AIR < 0) then {
-	units_air = +units_infantry;
-};
 if(CTI_IFA3_NEW >= 0) then {_level = 3} else {_level = 0};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_IFA3_NEW > 0) then {
-		units_to_add = [[format["%1fow_va_a6m_green", _sid], 1, 40]];
-		units_to_add pushback [format["%1fow_va_a6m_white", _sid], 1, 60];
+		air_to_add = [[format["%1fow_va_a6m_green", _sid], 1, 40]];
+		air_to_add pushback [format["%1fow_va_a6m_white", _sid], 1, 60];
 	};
-	units_air = units_to_add;
+	units_air = +air_to_add;
 };
 
 _v pushBack "Air";
