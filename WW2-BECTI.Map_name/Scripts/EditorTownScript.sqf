@@ -14,7 +14,7 @@ get3DENSelected "object" select 0 get3DENAttribute "position" select 0 select 2;
 
 
 private _map = [
-    ["VIOC_B_fow_w_mg42_deployed_s_ger_heer",""]
+    ["VIOC_B_LIB_MG42_Lafette_Deployed",""]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 
@@ -37,7 +37,7 @@ collect3DENHistory {
 };
 
 private _map = [
-    ["VIOC_B_fow_w_pak40_gray_ger_heer",""]
+    ["VIOC_B_LIB_DAK_Pak40",""]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 
@@ -60,7 +60,7 @@ collect3DENHistory {
 };
 
 private _map = [
-    ["Land_BagBunker_Tower_F",""]
+    ["Fortress2","Land_BagBunker_Tower_F"]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 
