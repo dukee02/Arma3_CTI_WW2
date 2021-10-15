@@ -44,6 +44,9 @@ switch (missionNamespace getVariable format["CTI_%1FLAG", _side]) do {
 	case 13: {
 		_texture = "\fow\fow_main\flags\flag_netherlands_co.paa";
 	};
+	case 14: {
+		_texture = "ca\Ca_E\data\flag_cz_co.paa";
+	};
 	/*case 5: {
 		_texture = "";
 	};*/
