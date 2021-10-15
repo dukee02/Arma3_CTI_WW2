@@ -26,11 +26,11 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 //														Town infantry setup																*
 //***************************************************************************************************************************************
-/*
+
 INFANTRY = [];
 INFANTRY_MG = [];
 INFANTRY_AT = [];
-
+/*
 switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
 	case 1;
 	case 2: {
@@ -70,10 +70,10 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 //														Town Wheeled setup																*
 //***************************************************************************************************************************************
-/*
+
 WHEELED_LIGHT = [];
 WHEELED_HEAVY = [];
-
+/*
 switch (CTI_ECONOMY_LEVEL_WHEELED) do {
 	case 0: {
 		WHEELED_LIGHT = [[format["%1LIB_UK_Willys_MB_Hood", _sid],1]];
@@ -397,7 +397,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 ANTI_AIR = [];
 
-ANTI_AIR = INFANTRY;
+//ANTI_AIR = INFANTRY;
 /*if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
 	if(CTI_IFA3_NEW > 0) then {
 		ANTI_AIR = [[format["%1LIB_UK_M16_Halftrack", _sid],1],[format["%1LIB_UK_M16_Halftrack", _sid],1]];

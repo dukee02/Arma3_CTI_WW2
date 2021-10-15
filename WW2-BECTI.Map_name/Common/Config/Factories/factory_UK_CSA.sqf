@@ -132,7 +132,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 				_c pushBack format["%1csa38_m3a37ADW4", _sid];
 				_c pushBack format["%1csa38_m3a37ADW5", _sid];
 			};
-			default: {
+			default {
 				_c pushBack format["%1csa38_m3a37ADW", _sid];
 			};
 		};
@@ -151,7 +151,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 				_c pushBack format["%1csa38_m3a37AD4", _sid];
 				_c pushBack format["%1csa38_m3a37AD5", _sid];
 			};
-			default: {
+			default {
 				_c pushBack format["%1csa38_m3a37AD", _sid];
 				_c pushBack format["%1csa38_m3a37AD10", _sid];//yellow icon
 				_c pushBack format["%1csa38_m3a37AD11", _sid];
@@ -173,7 +173,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 			_c pushBack format["%1csa38_m3a37AD454", _sid];	
 			_c pushBack format["%1csa38_m3a37AD455", _sid];	
 		};
-		default: {
+		default {
 			_c pushBack format["%1csa38_m3a3", _sid];	
 			_c pushBack format["%1csa38_m3a37AD45", _sid];	
 			_c pushBack format["%1csa38_m3a37AD4510", _sid];	//yellow icon
@@ -231,7 +231,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 				_c pushBack format["%1csa38_cromwell_2camo3W", _sid];
 				_c pushBack format["%1csa38_cromwell_2camo4W", _sid];
 			};
-			default: {
+			default {
 				_c pushBack format["%1csa38_cromwell_C2W", _sid];
 				_c pushBack format["%1csa38_cromwell_C3W", _sid];
 				_c pushBack format["%1csa38_cromwell_CW", _sid];
@@ -265,7 +265,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 				_c pushBack format["%1csa38_cromwell_2camo3", _sid];
 				_c pushBack format["%1csa38_cromwell_2camo4", _sid];
 			};
-			default: {
+			default {
 				_c pushBack format["%1csa38_cromwell_2B", _sid];
 				_c pushBack format["%1csa38_cromwell_C2", _sid];
 				_c pushBack format["%1csa38_cromwell_C3", _sid];
@@ -300,7 +300,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 			_c pushBack format["%1csa38_cromwell_245camo3", _sid];	
 			_c pushBack format["%1csa38_cromwell_245camo4", _sid];	
 		};
-		default: {
+		default {
 			_c pushBack format["%1csa38_cromwell_C453", _sid];	
 			_c pushBack format["%1csa38_cromwell_C452", _sid];	
 			_c pushBack format["%1csa38_cromwell_C45", _sid];	

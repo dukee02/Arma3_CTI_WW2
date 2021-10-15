@@ -224,7 +224,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 _c = [];
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1CSA38_pragaRV7", _sid];						//repairtruck
-	if(CTI_IFA3_NEW < 0) then {
+	if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {
 		_c pushBack format["CTI_Salvager_%1", _side];
 	};
 };

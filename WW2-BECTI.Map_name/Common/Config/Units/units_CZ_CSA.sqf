@@ -876,7 +876,7 @@ _f pushBack CTI_FACTORY_REPAIR;
 _s pushBack "service-repairtruck";
 _d pushBack 0;
 
-if(CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 1) then {
+if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {		
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvage Truck';
