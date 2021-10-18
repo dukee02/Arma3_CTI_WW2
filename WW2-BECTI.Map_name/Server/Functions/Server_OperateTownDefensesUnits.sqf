@@ -41,6 +41,8 @@ switch (_action) do {
 		_defenseTeam = missionNamespace getVariable Format ["CTI_%1_DefenseTeam", _side];
 		if(_defenseTeam isEqualTo grpNull) then {
 			missionNamespace setVariable [Format ["CTI_%1_DefenseTeam", _side], createGroup _side];
+			_defenseTeam = missionNamespace getVariable Format ["CTI_%1_DefenseTeam", _side];
+			if (CTI_Log_Level >= CTI_Log_Warning) then {["WARNING", "FILE: Server\Functions\Server_OperateTownDefensesUnits.sqf", Format ["new Defense Team created [%1]", _defenseTeam]] Call CTI_CO_FNC_Log};
 		};
 		
 		//--- Man the mortars.

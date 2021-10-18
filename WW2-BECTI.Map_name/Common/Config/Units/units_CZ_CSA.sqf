@@ -797,42 +797,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 4) then {
 	
 };
 
-
-private _add_level = 1;
-if(CTI_IFA3_NEW >= 0) then {_tech_level = 4} else {_tech_level = 1; _add_level = 2;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	
-	_c pushBack format["%1fow_v_panther_ger_heer", _sid];
-	_p pushBack '';
-	_n pushBack '';
-	_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-	_t pushBack _building_time;
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_HEAVY;
-	_s pushBack "";
-	_d pushBack 0;
-	_c pushBack format["%1fow_v_panther_camo_foliage_ger_heer", _sid];
-	_p pushBack '';
-	_n pushBack '';
-	_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+_add_level)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-	_t pushBack _building_time;
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_HEAVY;
-	_s pushBack "";
-	_d pushBack 0;
-	_c pushBack format["%1fow_v_panther_camo_ger_heer", _sid];
-	_p pushBack '';
-	_n pushBack '';
-	_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+_add_level)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-	_t pushBack _building_time;
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_f pushBack CTI_FACTORY_HEAVY;
-	_s pushBack "";
-	_d pushBack 0;
-};
-
 //***************************************************************************************************************************************
 //														Air Factory																		*
 //***************************************************************************************************************************************
