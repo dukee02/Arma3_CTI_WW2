@@ -672,7 +672,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 
-if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 0) then {
 		_headers pushBack 		"VZ 24 tripod";
 		_classes pushBack 		format["%CSA38_TKVZ24mg", _sid];
