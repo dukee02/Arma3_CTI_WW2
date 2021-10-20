@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=4401;
+		nextID=4489;
 	};
 	class Camera
 	{
-		pos[]={1217.5601,37.180885,1645.9139};
+		pos[]={1216.7949,40.981796,1643.2452};
 		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
 		up[]={-1.2363449e-007,0.70710671,0.70710683};
 		aside[]={1,0,1.7484557e-007};
@@ -31,9 +31,7 @@ sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
-	"IFA3_Side_Patch",
 	"A3_Ui_F",
-	"csa38ii_data",
 	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F"
 };
@@ -41,7 +39,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=4;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -51,29 +49,17 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="IFA3_Side_Patch";
-			name="IFA3_Side_Patch";
-		};
-		class Item2
-		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
-		{
-			className="csa38ii_data";
-			name="csa38ii_data";
-			author="CSA38 Team";
-			url="http://www.moddb.com/mods/csa38-czechoslovak-army-1938";
-		};
-		class Item4
+		class Item2
 		{
 			className="WW2_Core_c_IF_Gui_c";
 			name="WW2_Core_c_IF_Gui_c";
 		};
-		class Item5
+		class Item3
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";

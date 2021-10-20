@@ -1,14 +1,60 @@
 // Export of 'WW2_NF_units.Stratis' by dukee on v0.9
 
+//Trenches
+land_NORTH_S_TrenchLong
+land_NORTH_TrenchLong
+land_NORTH_S_G_TrenchLong
+land_NORTH_S_G_TrenchLong_one
+land_NORTH_S_TrenchLong_one
+land_NORTH_TrenchLong_one
+land_NORTH_Trenchwalllong
+land_NORTH_Trenchwallshort
+land_NORTH_S_TrenchCorner60
+land_NORTH_TrenchCorner60
+land_NORTH_S_G_TrenchCorner60
+land_NORTH_S_TrenchCorner
+land_NORTH_TrenchCorner
+land_NORTH_S_G_TrenchCorner
+land_NORTH_S_TrenchEnd
+land_NORTH_TrenchEnd
+land_NORTH_S_G_TrenchEnd
+land_NORTH_S_TrenchEntrance
+land_NORTH_TrenchEntrance
+land_NORTH_S_G_TrenchEntrance
+land_NORTH_S_TrenchShort
+land_NORTH_TrenchShort
+land_NORTH_S_G_TrenchShort
+land_NORTH_S_TrenchT
+land_NORTH_TrenchT
+land_NORTH_S_G_TrenchT
+
+
+//Flags:
+EastKarelia
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_fin_eastkarelia_CO.paa'";
+FIN_Military
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_fin_military_CO.paa'";
+FIN_State
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_fin_state_CO.paa'";
+Flag_FIN
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_fin_CO.paa'";
+NOR_Military
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_nor_military_CO.paa'";
+NOR
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_nor_CO.paa'";
+USSR
+init = "(_this select 0) setFlagTexture '\NORTH\NF_Misc_Objects\flags\data\flag_ussr_CO.paa'";
+
+
 
 //std statics
-NORTH_152h38
-NORTH_37pstk36
-NORTH_45pstk37
-NORTH_50krh38
-NORTH_76k36
-NORTH_76rk27
-NORTH_81krh32
+NORTH_152h38		//arty
+NORTH_37pstk36		//light AT
+NORTH_45pstk37		//med AT
+NORTH_50krh38		//light mortar
+NORTH_76k36			//Heavy AT
+NORTH_76rk27		//Inf. cannon
+NORTH_81krh32		//mortar
 
 //----------FIN Army Winter 1939------------
 I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos
