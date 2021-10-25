@@ -1485,6 +1485,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
 //Level 0
 _tech_level = 0;
+if(CTI_CSA_ADDON > 0) then {_tech_level = 1;} else {_tech_level = 0;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
@@ -1568,7 +1569,8 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
 	_d pushBack 0;
-	_tech_level = _tech_level + 1;
+	
+	if(CTI_CSA_ADDON == 0) then {_tech_level = _tech_level + 1;};
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {

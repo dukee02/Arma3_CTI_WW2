@@ -131,7 +131,7 @@ if(CTI_VIO_ADDON == 0) then {
 		_c pushBack format["%1csa38_GrW34", _x];
 		_m pushBack ["csa38_minawg34","csa38_minawg34_SmokeShell"];
 		_b pushBack [1, 2, 4, 8];
-		_r pushBack [[220,440], [440,900], [1730,3670], [1730,3670]];
+		_r pushBack [[220,449], [432,918], [1730,3670], [1730,3670]];
 		
 		_c pushBack format["%1CSA38_2inch_vehicle", _x];
 		_m pushBack ["CSA38_2inch_he_1rnd","CSA38_2inch_smoke_1rnd","CSA38_2inch_illum_1rnd"];

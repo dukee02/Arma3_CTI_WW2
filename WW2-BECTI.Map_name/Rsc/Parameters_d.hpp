@@ -404,7 +404,7 @@ class Params {
 	class CTI_ARTILLERY_TIMEOUT {
 		title = "ARTILLERY: Delay between each fire mission (if Arty not Disabled or with Ballistic Computer)";
 		values[] = {0,60,120,180,240,300,600};
-		texts[] = {"Disabled","0","60","120","180","240","300","600"};
+		texts[] = {"Disabled","60","120","180","240","300","600"};
 		default = 180;
 	};
 	class CTI_GAMEPLAY_TEAMSTACK_DISABLE {

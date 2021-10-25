@@ -356,6 +356,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 _c = [];
 //Level 0
 _level = 0;
+if(CTI_CSA_ADDON > 0) then {_level = 1;} else {_level = 0;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_StuG_III_G_w", _sid];
@@ -378,7 +379,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1LIB_DAK_PzKpfwIV_H", _sid];
 	};
 	_c pushBack format["%1LIB_PzKpfwIV_H", _sid];
-	_level = _level + 1;
+	if(CTI_CSA_ADDON == 0) then {_level = _level + 1;};
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {

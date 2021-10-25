@@ -848,7 +848,9 @@ if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager"];
+	if(CTI_IFA3_NEW < 0) then {
+		_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager"]; } else {
+		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager"];};
 	_d pushBack 0;
 		
 	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
@@ -858,7 +860,9 @@ if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager-independent"];
+	if(CTI_IFA3_NEW < 0) then {
+		_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager-independent"];} else {
+		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager-independent"];};
 	_d pushBack 0;
 };
 
