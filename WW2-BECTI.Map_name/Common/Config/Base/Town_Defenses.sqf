@@ -207,8 +207,19 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_classes_town pushBack 		format["%1LIB_61k", _sid];
 		_categories_town pushBack 	"AA";
 	};	
-	//if(CTI_FOW_ADDON > 0) then {
-	//};
+	if(CTI_NF_ADDON > 0) then {
+		_classes_town pushBack 		format["%1NORTH_SOV_76mm1927", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%1NORTH_SOV_45mm1937", _sid];
+		_categories_town pushBack 	"AT";
+		
+		_classes_town pushBack 		format["%1NORTH_SOV_76mm1936", _sid];
+		_categories_town pushBack 	"AT";
+		
+		_classes_town pushBack 		format["%1NORTH_SOV_50rm38", _sid];
+		_categories_town pushBack 	"Mortar";
+	};
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
@@ -325,23 +336,44 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		fow_w_6Pounder_usmc*/
 	};
 	if(CTI_CSA_ADDON > 0) then {
-		_classes_town pushBack 		format["%CSA38_TKVZ24mg", _sid];
+		_classes_town pushBack 		format["%1CSA38_TKVZ24mg", _sid];
 		_categories_town pushBack 	"MG";
 		
-		_classes_town pushBack 		format["%CSA38_TKVZ37MG", _sid];
+		_classes_town pushBack 		format["%1CSA38_TKVZ37MG", _sid];
 		_categories_town pushBack 	"AA";
 		
-		_classes_town pushBack 		format["%csa38_KPUV37", _sid];
+		_classes_town pushBack 		format["%1csa38_KPUV37", _sid];
 		_categories_town pushBack 	"AT";
 		
-		_classes_town pushBack 		format["%CSA38_mvz17", _sid];
+		_classes_town pushBack 		format["%1CSA38_mvz17", _sid];
 		_categories_town pushBack 	"Mortar";
 		
-		_classes_town pushBack 		format["%CSA38_mvz36", _sid];
+		_classes_town pushBack 		format["%1CSA38_mvz36", _sid];
 		_categories_town pushBack 	"Artillery";
 	};
 };
 
+if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if(CTI_NF_ADDON > 0) then {
+		_classes_town pushBack 		format["%1NORTH_FIN_S_41_Lahti_L39", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_S_Maxim_41", _sid];
+		_categories_town pushBack 	"AA";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_S_41_37PSTK36", _sid];
+		_categories_town pushBack 	"AT";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_S_41_76k36", _sid];
+		_categories_town pushBack 	"AT";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_S_41_81krh32", _sid];
+		_categories_town pushBack 	"Mortar";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_S_41_152H38", _sid];
+		_categories_town pushBack 	"Artillery";
+	};
+};
 
 //--- Defenses management for towns.
 if (isServer) then {[_side, _classes_town, _categories_town] Call Compile preprocessFileLineNumbers "Common\Config\Config_Defenses_Towns.sqf"};

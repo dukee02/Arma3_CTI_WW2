@@ -142,7 +142,7 @@ call compile preprocessFile "Client\Functions\UI\Functions_UI_UpgradeMenu.sqf";
 
 
 if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
+	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER.sqf";
 	};
 	if(CTI_FOW_ADDON > 1) then {
@@ -153,12 +153,15 @@ if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_SOV_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
+	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV.sqf";
 	};
-	(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV.sqf";
+	if(CTI_NF_ADDON > 1) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV_NF.sqf";
+	};
 };
 if(CTI_US_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
+	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US.sqf";
 	};
 	if(CTI_FOW_ADDON > 1) then {
@@ -166,7 +169,7 @@ if(CTI_US_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_UK_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
+	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK.sqf";
 	};
 	if(CTI_FOW_ADDON > 1) then {
@@ -184,6 +187,11 @@ if(CTI_JPN_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 if(CTI_CZ_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 1) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_CZ_CSA.sqf";
+	};
+};
+if(CTI_FIN_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
+	if(CTI_NF_ADDON > 1) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FIN_NF.sqf";
 	};
 };
 

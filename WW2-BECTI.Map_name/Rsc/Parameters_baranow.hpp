@@ -41,34 +41,40 @@ class Params {
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
 		default = -1; //-1
 	};
+	class CTI_FIN_SIDE {
+		title = "Czech Side (CSA38 needed)";
+		values[] = {-1,0,1,2};
+		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
+		default = -1; //-1
+	};
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
 		values[] = {0,1,2};
-		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER - difficulty normal)"};
+		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER)"};
 		default = 2;
 	};
 	class CTI_WEST_TOWNS {
 		title = "BLUFOR (West) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_EAST_TOWNS {
 		title = "OPFOR (East) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_WEST_AI {
 		title = "BLUFOR (West) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_EAST_AI {
 		title = "OPFOR (East) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_CAMO_ACTIVATION {
@@ -655,6 +661,12 @@ class Params {
 	};
 	class CTI_CSA_ADDON {
 		title = "ADDON: CSA38";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 0;
+	};
+	class CTI_NF_ADDON {
+		title = "ADDON: Northern Fronts";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;

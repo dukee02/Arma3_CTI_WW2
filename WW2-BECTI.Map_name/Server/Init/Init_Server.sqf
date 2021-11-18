@@ -186,6 +186,7 @@ if (_attempts >= 300) then {
 	
 	//--- Startup vehicles
 	{
+		//if((_x select 0) isEqualType []) then {_x = _x select 0;};
 		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Init\Init_Server.sqf", format["starting vehicles: side: [%1] | unit: [%2]", _side, _x]] call CTI_CO_FNC_Log};
 		_model = _x select 0;
 		_equipment = _x select 1;

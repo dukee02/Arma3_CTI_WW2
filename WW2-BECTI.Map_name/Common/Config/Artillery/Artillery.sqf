@@ -148,6 +148,73 @@ if(CTI_VIO_ADDON == 0) then {
 		_b pushBack [1, 2, 4, 8];
 		_r pushBack [[80,280], [160,570], [640,2290], [640,2290]];
 	};
+	
+	if(CTI_NF_ADDON > 0) then {		
+		_c pushBack format["%1NORTH_FIN_W_50krh38", _x];//light mortar
+		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+		
+		_c pushBack format["%1NORTH_FIN_W_81krh32", _x];//mortar
+		_m pushBack ["NORTH_10Shell_81mm_MortarHEshell_81krh32","NORTH_10Shell_81mm_MortarSmokeShell_81krh32"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[88,358], [88,358], [226,918], [627,2552]];
+		
+		_c pushBack format["%1NORTH_FIN_W_152H38", _x];//arty
+		_m pushBack ["NORTH_10Shell_152mmHE_152h38"];
+		_b pushBack [1, 2, 4, 8,10];
+		_r pushBack [[0,957], [0,2387], [0,6110], [0,16974], [0,26522]];
+		
+		_c pushBack format["%1NORTH_FIN_S_41_50krh38", _x];//light mortar
+		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+		
+		_c pushBack format["%1NORTH_FIN_S_41_81krh32", _x];//mortar
+		_m pushBack ["NORTH_10Shell_81mm_MortarHEshell_81krh32","NORTH_10Shell_81mm_MortarSmokeShell_81krh32"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[88,358], [88,358], [226,918], [627,2552]];
+		
+		_c pushBack format["%1NORTH_FIN_S_41_152H38", _x];//arty
+		_m pushBack ["NORTH_10Shell_152mmHE_152h38"];
+		_b pushBack [1, 2, 4, 8,10];
+		_r pushBack [[0,957], [0,2387], [0,6110], [0,16974], [0,26522]];
+		
+		_c pushBack format["%1NORTH_FIN_50krh38", _x];//light mortar
+		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+		
+		_c pushBack format["%1NORTH_FIN_81krh32", _x];//mortar
+		_m pushBack ["NORTH_10Shell_81mm_MortarHEshell_81krh32","NORTH_10Shell_81mm_MortarSmokeShell_81krh32"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[88,358], [88,358], [226,918], [627,2552]];
+		
+		_c pushBack format["%1NORTH_FIN_152H38", _x];//arty
+		_m pushBack ["NORTH_10Shell_152mmHE_152h38"];
+		_b pushBack [1, 2, 4, 8,10];
+		_r pushBack [[0,957], [0,2387], [0,6110], [0,16974], [0,26522]];
+
+		_c pushBack format["%1NORTH_SOV_W_39_152mm1938", _x];//arty
+		_m pushBack ["NORTH_10Shell_152mmHE_152h38"];
+		_b pushBack [1, 2, 4, 8,10];
+		_r pushBack [[0,957], [0,2387], [0,6110], [0,16974], [0,26522]];
+		
+		_c pushBack format["%1NORTH_SOV_W_39_50rm38", _x];//light mortar
+		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+		
+		_c pushBack format["%1NORTH_SOV_152mm1938", _x];//arty
+		_m pushBack ["NORTH_10Shell_152mmHE_152h38"];
+		_b pushBack [1, 2, 4, 8,10];
+		_r pushBack [[0,957], [0,2387], [0,6110], [0,16974], [0,26522]];
+		
+		_c pushBack format["%1NORTH_SOV_50rm38", _x];//light mortar
+		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+	};
 } forEach _sid;
 
 

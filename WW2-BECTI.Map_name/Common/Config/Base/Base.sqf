@@ -69,7 +69,13 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 };
-
+if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "LIB_OpelBlitz_Parm")) then {
+		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]];
+	} else {
+		//needs a solution!
+	};
+};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: Common\Config\Base\Base.sqf", format ["Set HQ Vehicle [%1] for side [%2]", missionNamespace getVariable format["CTI_%1_HQ", _side], _side]] call CTI_CO_FNC_Log };
 
@@ -203,6 +209,12 @@ if (!isClass(configFile >> "CfgVehicles" >> "LIB_Static_opelblitz_radio")) then 
 		};
 		case (CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) : {
 			_classes pushBack		["LIB_Static_zis6_radar", "LIB_zis5v_Wreck"];
+		};
+		case (CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) : {
+			_classes pushBack		["LIB_Static_opelblitz_radio", "LIB_OpelBlitz_2_Wreck"];
+		};
+		default {
+			_classes pushBack		["Land_Research_house_V1_F", "Land_Research_house_V1_ruins_F"];								//Altis Military Buildings
 		};
 	};
 };
@@ -483,6 +495,102 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 	//if(CTI_FOW_ADDON > 0) then {
 	//};
+	
+	if(CTI_NF_ADDON > 0) then {
+		//winter
+		_headers pushBack 		"45mm1937 light AT (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_45mm1937", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1936 heavy AT (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1936", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"50rm38 light mortar (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_50rm38", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"152mm1938 Arty (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_152mm1938", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1927 light cannon (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1927", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1902 cannon (w)";
+		_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1902", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		//summer
+		_headers pushBack 		"45mm1937 light AT";
+		_classes pushBack 		format["%1NORTH_SOV_45mm1937", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1936 heavy AT";
+		_classes pushBack 		format["%1NORTH_SOV_76mm1936", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"50rm38 light mortar";
+		_classes pushBack 		format["%1NORTH_SOV_50rm38", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"152mm1938 Arty";
+		_classes pushBack 		format["%1NORTH_SOV_152mm1938", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1927 light cannon";
+		_classes pushBack 		format["%1NORTH_SOV_76mm1927", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76mm1902 cannon";
+		_classes pushBack 		format["%1NORTH_SOV_76mm1902", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+
+		/*class NORTH_SOV_W_41_152mm1938;//arty
+		class NORTH_SOV_W_41_45mm1937;//light AT
+		class NORTH_SOV_W_41_50rm38;//light mortar
+		class NORTH_SOV_W_41_76mm1902;//Heavy Inf. cannon
+		class NORTH_SOV_W_41_76mm1927;//Inf. cannon
+		class NORTH_SOV_W_41_76mm1936;//Heavy AT
+
+		class NORTH_SOV_41_152mm1938;
+		class NORTH_SOV_41_45mm1937;
+		class NORTH_SOV_41_50rm38;
+		class NORTH_SOV_41_76mm1902;
+		class NORTH_SOV_41_76mm1927;
+		class NORTH_SOV_41_76mm1936;
+
+		class NORTH_SOV_W_152mm1938;
+		class NORTH_SOV_W_45mm1937;
+		class NORTH_SOV_W_50rm38;
+		class NORTH_SOV_W_76mm1902;
+		class NORTH_SOV_W_76mm1927;
+		class NORTH_SOV_W_76mm1936;*/
+	};
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	
@@ -653,19 +761,19 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 0) then {
 			
 		_headers pushBack 		"Bren MK2 1 tripod";
-		_classes pushBack 		format["%CSA38_brenmkiit", _sid];
+		_classes pushBack 		format["%1CSA38_brenmkiit", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 			
 		_headers pushBack 		"Bren MK2 2 tripod";
-		_classes pushBack 		format["%CSA38_brenmkiit2", _sid];
+		_classes pushBack 		format["%1CSA38_brenmkiit2", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"2inch (Mortar)";
-		_classes pushBack 		format["%CSA38_2inch_vehicle", _sid];
+		_classes pushBack 		format["%1CSA38_2inch_vehicle", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
@@ -675,64 +783,346 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 0) then {
 		_headers pushBack 		"VZ 24 tripod";
-		_classes pushBack 		format["%CSA38_TKVZ24mg", _sid];
+		_classes pushBack 		format["%1CSA38_TKVZ24mg", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VZ 37 tripod";
-		_classes pushBack 		format["%CSA38_TKVZ37MG", _sid];
+		_classes pushBack 		format["%1CSA38_TKVZ37MG", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VZ 37 high";
-		_classes pushBack 		format["%CSA38_tkvz37mg3", _sid];
+		_classes pushBack 		format["%1CSA38_tkvz37mg3", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VZ 27 high";
-		_classes pushBack 		format["%CSA38_tkvz24mg2", _sid];
+		_classes pushBack 		format["%1CSA38_tkvz24mg2", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VZ 27 2 high";
-		_classes pushBack 		format["%CSA38_tkvz24mg3", _sid];
+		_classes pushBack 		format["%1CSA38_tkvz24mg3", _sid];
 		_prices pushBack 		1000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VZ 26 high";
-		_classes pushBack 		format["%CSA38_zb26t", _sid];
+		_classes pushBack 		format["%1CSA38_zb26t", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"VB 26 high";
-		_classes pushBack 		format["%CSA38_zb26t2", _sid];
+		_classes pushBack 		format["%1CSA38_zb26t2", _sid];
 		_prices pushBack 		500;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"mvz17 (Mortar)";
-		_classes pushBack 		format["%CSA38_mvz17", _sid];
+		_classes pushBack 		format["%1CSA38_mvz17", _sid];
 		_prices pushBack 		2000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"mvz36 (Mortar)";
-		_classes pushBack 		format["%CSA38_mvz36", _sid];
+		_classes pushBack 		format["%1CSA38_mvz36", _sid];
 		_prices pushBack 		2000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		
 		_headers pushBack 		"KPUV37 AT";
-		_classes pushBack 		format["%csa38_KPUV37", _sid];
+		_classes pushBack 		format["%1csa38_KPUV37", _sid];
 		_prices pushBack 		3000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
+	};
+};
+
+if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if(CTI_NF_ADDON > 0) then {
+		//winter
+		_headers pushBack 		"Maxim MG (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_Maxim", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG medium (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_Maxim_Medium", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG high (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_Maxim_High", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Lahti HMG (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_Lahti_L39", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"37 PSTK 36 light AT (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_37PSTK36", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"45 PSTK 37 medium AT (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_45PSTK37", _sid];
+		_prices pushBack 		3000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k36 heavy AT (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_76k36", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"50krh38 light mortar (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_50krh38", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"81krh32 mortar (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_81krh32", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"152H38 Arty (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_152H38", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k02 light cannon (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_76k02", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76RK27 cannon (w)";
+		_classes pushBack 		format["%1NORTH_FIN_W_76RK27", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		//summer
+		_headers pushBack 		"Maxim MG";
+		_classes pushBack 		format["%1NORTH_FIN_S_Maxim_41", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG medium";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_Medium", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG high";
+		_classes pushBack 		format["%1NORTH_FIN_S_Maxim_High_41", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Lahti HMG";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_Lahti_L39", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"37 PSTK 36 light AT";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_37PSTK36", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"45 PSTK 37 medium AT";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_45PSTK37", _sid];
+		_prices pushBack 		3000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k36 heavy AT";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_76k36", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"50krh38 light mortar";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_50krh38", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"81krh32 mortar";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_81krh32", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"152H38 Arty";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_152H38", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k02 light cannon";
+		_classes pushBack 		format["%1NORTH_FIN_S_41_76RK27", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76RK27 cannon";
+		_classes pushBack 		format["%1NORTH_FIN_41_S_76k02", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		//camo
+		_headers pushBack 		"Maxim MG camo";
+		_classes pushBack 		format["%1NORTH_FIN_Maxim", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG medium camo";
+		_classes pushBack 		format["%1NORTH_FIN_Maxim_Medium", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Maxim MG high camo";
+		_classes pushBack 		format["%1NORTH_FIN_Maxim_High", _sid];
+		_prices pushBack 		500;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"Lahti HMG camo";
+		_classes pushBack 		format["%1NORTH_FIN_Lahti_L39", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"37 PSTK 36 light AT camo";
+		_classes pushBack 		format["%1NORTH_FIN_37PSTK36", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"45 PSTK 37 medium AT camo";
+		_classes pushBack 		format["%1NORTH_FIN_45PSTK37", _sid];
+		_prices pushBack 		3000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k36 heavy AT camo";
+		_classes pushBack 		format["%1NORTH_FIN_76k36", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"50krh38 light mortar camo";
+		_classes pushBack 		format["%1NORTH_FIN_50krh38", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"81krh32 mortar camo";
+		_classes pushBack 		format["%1NORTH_FIN_81krh32", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"152H38 Arty camo";
+		_classes pushBack 		format["%1NORTH_FIN_152H38", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76k02 light cannon camo";
+		_classes pushBack 		format["%1NORTH_FIN_76RK27", _sid];
+		_prices pushBack 		1000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		_headers pushBack 		"76RK27 cannon camo";
+		_classes pushBack 		format["%1NORTH_FIN_76k02", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		
+		/*//Statics
+		class NORTH_152h38;		//arty
+		class NORTH_37pstk36;		//light AT
+		class NORTH_45pstk37;		//med AT
+		class NORTH_50krh38;		//light mortar
+		class NORTH_76k36;			//Heavy AT
+		class NORTH_76rk27;		//Inf. cannon
+		class NORTH_81krh32;		//mortar
+		//statics winter
+		class NORTH_FIN_W_39_152H38;
+		class NORTH_FIN_W_39_37PSTK36;
+		class NORTH_FIN_W_39_45PSTK37;
+		class NORTH_FIN_W_39_50krh38;
+		class NORTH_FIN_W_39_76k02;
+		class NORTH_FIN_W_39_76k36;
+		class NORTH_FIN_W_39_76RK27;
+		class NORTH_FIN_W_39_81krh32;
+		class NORTH_FIN_W_39_Maxim_High;
+		class NORTH_FIN_W_39_Maxim_Medium;
+		class NORTH_FIN_W_39_Maxim;
+
+		class NORTH_FIN_W_41_152H38;
+		class NORTH_FIN_W_41_37PSTK36;
+		class NORTH_FIN_W_41_45PSTK37;
+		class NORTH_FIN_W_41_50krh38;
+		class NORTH_FIN_W_41_76k02;
+		class NORTH_FIN_W_41_76k36;
+		class NORTH_FIN_W_41_76RK27;
+		class NORTH_FIN_W_41_81krh32;
+		class NORTH_FIN_W_41_Lahti_L39;
+		class NORTH_FIN_W_41_Maxim_High;
+		class NORTH_FIN_W_41_Maxim_Medium;
+		class NORTH_FIN_W_41_Maxim;
+
+		class NORTH_FIN_41_152H38;
+		class NORTH_FIN_41_37PSTK36;
+		class NORTH_FIN_41_45PSTK37;
+		class NORTH_FIN_41_50krh38;
+		class NORTH_FIN_41_76k02;
+		class NORTH_FIN_41_76k36;
+		class NORTH_FIN_41_76RK27;
+		class NORTH_FIN_41_81krh32;
+		class NORTH_FIN_41_Lahti_L39;
+		class NORTH_FIN_41_Maxim_High;
+		class NORTH_FIN_41_Maxim_Medium;
+		class NORTH_FIN_Maxim_41;
+		//camo
+		class NORTH_FIN_S_152H38;
+		class NORTH_FIN_S_37PSTK36;
+		class NORTH_FIN_S_45PSTK37;
+		class NORTH_FIN_S_50krh38;
+		class NORTH_FIN_S_76k02;
+		class NORTH_FIN_S_76k36;
+		class NORTH_FIN_S_76RK27;
+		class NORTH_FIN_S_81krh32;
+		class NORTH_FIN_S_Lahti_L39;
+		class NORTH_Maxim_High_Base;
+		class NORTH_FIN_S_Maxim_High;
+		class NORTH_FIN_S_Maxim_Medium;
+		class NORTH_FIN_S_Maxim;*/
 	};
 };
 
