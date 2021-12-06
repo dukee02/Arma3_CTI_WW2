@@ -110,7 +110,7 @@ TRACKED_HEAVY = [];
 
 switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 	case 0: {
-		switch (CTI_ECONOMY_LEVEL_TRACKED) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {	//Winter camo active
 				TRACKED_LIGHT = [[format["%1CSA38_pzbfwI_W", _sid],1]];
 				TRACKED_MEDIUM = [[format["%1CSA38_ltm35_W", _sid],1],[format["%1CSA38_pzkpfwI_W", _sid],1]];
@@ -130,7 +130,7 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		
 	};
 	case 1: {
-		switch (CTI_ECONOMY_LEVEL_TRACKED) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {	//Winter camo active
 				TRACKED_LIGHT = [[format["%1CSA38_pzbfwI_W", _sid],1],[format["%1CSA38_pzkpfwI_W", _sid],1]];
 				TRACKED_MEDIUM = [[format["%1CSA38_ltm35_W", _sid],1],[format["%1CSA38_ltm38_W", _sid],1]];
@@ -145,7 +145,7 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		
 	};
 	case 2: {
-		switch (CTI_ECONOMY_LEVEL_TRACKED) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {	//Winter camo active
 				TRACKED_LIGHT = [[format["%1CSA38_pzbfwI_W", _sid],1],[format["%1CSA38_pzkpfwI_W", _sid],1]];
 				TRACKED_MEDIUM = [[format["%1CSA38_ltm35_W", _sid],1],[format["%1CSA38_ltm38_W", _sid],1],[format["%1CSA38_pzII_W", _sid],1]];
@@ -159,8 +159,10 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		};
 		
 	};
-	case 3: {
-		switch (CTI_ECONOMY_LEVEL_TRACKED) do {
+	case 3;
+	case 4;
+	case 5: {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {	//Winter camo active
 				TRACKED_LIGHT = [[format["%1CSA38_pzbfwI_W", _sid],1],[format["%1CSA38_pzkpfwI_W", _sid],1]];
 				TRACKED_MEDIUM = [[format["%1CSA38_ltm35_W", _sid],1],[format["%1CSA38_ltm38_W", _sid],1],[format["%1CSA38_pzII_W", _sid],1]];

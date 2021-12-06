@@ -12,7 +12,6 @@
 #include "Rsc\Parameters.hpp"
 #include "Rsc\titles.hpp"
 
-
 //--- Global Garbage Collection Settings
 MinPlayerDistance = 0;					//The minimum distance from any player. Set the value to 0 to remove the min. distance. 
 CorpseManagerMode = 1;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
