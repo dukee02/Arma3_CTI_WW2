@@ -85,20 +85,20 @@ class Params {
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
-		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
 		default = 0; //0
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
-		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
 		default = 0; //0
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
-		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
 		default = 0; //0
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
