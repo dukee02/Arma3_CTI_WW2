@@ -32,7 +32,7 @@ INFANTRY_AT = [];
 
 switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
 	case 1: {
-		switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {
 				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
 				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1]];
@@ -51,7 +51,7 @@ switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
 		};
 	};
 	case 2: {
-		switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {
 				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Sniper", _sid],1]];
 				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1]];
@@ -70,7 +70,7 @@ switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
 		};
 	};
 	default {
-		switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
+		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {
 				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
 				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1]];

@@ -1,4 +1,4 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai"];
+private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_tech_level"];
 _side = _this;
 _ai = -1;
 
@@ -123,11 +123,12 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 _c = [];
 //Level start
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {	
+_tech_level = 0;
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {	
 	_c pushBack format["%1CSA38_pragaRV6", _sid];
 };
 //Level 1
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_opelblitz_W", _sid];
 		_c pushBack format["%1CSA38_opelblitz2_W", _sid];
@@ -161,11 +162,8 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
 	_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel */
 };
-//Level 2
-//if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
-//};
-//Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
+if(CTI_IFA3_NEW >= 0) then {_tech_level = 3} else {_tech_level = 0};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_8radW", _sid];
 		_c pushBack format["%1CSA38_8rad2W", _sid];

@@ -121,41 +121,26 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	//};
 	
 	_c pushBack format["%1fow_v_truppenfahrrad_ger_heer", _sid];
+	_c pushBack format["%1fow_v_sdkfz_250_camo_ger_heer", _sid];
+	_c pushBack format["%1fow_v_sdkfz_250_ger_heer", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//repair
 	_c pushBack format["%1fow_v_kubelwagen_ger_heer", _sid];
 	_c pushBack format["%1fow_v_kubelwagen_camo_ger_heer", _sid];
-	_c pushBack format["%1fow_v_sdkfz_250_camo_ger_heer", _sid];
-	//_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//repair
-	_c pushBack format["%1fow_v_sdkfz_250_ger_heer", _sid];
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//};
-	
 	_c pushBack format["%1fow_v_kubelwagen_mg34_ger_heer", _sid];
 	_c pushBack format["%1fow_v_sdkfz_250_9_ger_heer", _sid];
-	//_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];		//ammo
 	_c pushBack format["%1fow_v_sdkfz_250_9_camo_ger_heer", _sid];
+	//_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];		//ammo
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//};
-	
 	_c pushBack format["%1fow_v_sdkfz_251_camo_ger_heer", _sid];
 	//_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];			//fuel
 };
 //Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//};
-	
+if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {	
 	_c pushBack format["%1fow_v_sdkfz_222_ger_heer", _sid];
 	_c pushBack format["%1fow_v_sdkfz_222_foliage_ger_heer", _sid];
 	_c pushBack format["%1fow_v_sdkfz_222_camo_ger_heer", _sid];
@@ -165,12 +150,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	//_c pushBack format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid];			//salvager
 };
 //Level 4
-if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//};
-	
+if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {	
 	_c pushBack format["%1fow_v_sdkfz_234_1", _sid];
 };
 

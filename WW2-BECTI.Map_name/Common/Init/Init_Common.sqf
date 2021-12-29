@@ -91,9 +91,6 @@ CTI_CO_CustomIterator = 0;
 
 call compile preprocessFileLineNumbers "Common\Config\Artillery\Artillery.sqf";
 
-(west) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
-(east) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
-
 (west) call compile preprocessFileLineNumbers "Common\Config\Base\Base.sqf";
 (east) call compile preprocessFileLineNumbers "Common\Config\Base\Base.sqf";
 
@@ -112,6 +109,7 @@ if(CTI_FIN_SIDE >= 0) then {
 		if((CTI_FIN_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_FIN_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_FIN_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_FIN_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FIN_NF.sqf";
 		};
+		((CTI_FIN_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FIN_NF.sqf";
 	};
 };
 //CTI_CZ_SIDE declaration
@@ -125,6 +123,7 @@ if(CTI_CZ_SIDE >= 0) then {
 		if((CTI_CZ_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_CZ_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_CZ_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_CZ_CSA.sqf";
 		};
+		((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_CZ_CSA.sqf";
 	};
 };
 //CTI_JPN_SIDE declaration
@@ -138,6 +137,7 @@ if(CTI_JPN_SIDE >= 0) then {
 		if((CTI_JPN_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_JPN_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_JPN_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_JPN_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_JPN_FOW.sqf";
 		};
+		((CTI_JPN_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_JPN_FOW.sqf";
 	};
 };
 //CTI_UK_SIDE declaration
@@ -153,6 +153,7 @@ if(CTI_UK_SIDE >= 0) then {
 		if((CTI_UK_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_UK_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK.sqf";
 		};
+		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_UK_FOW.sqf";
@@ -163,6 +164,7 @@ if(CTI_UK_SIDE >= 0) then {
 		if((CTI_UK_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_UK_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK_FOW.sqf";
 		};
+		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK_FOW.sqf";
 	};
 	if(CTI_CSA_ADDON > 0) then {
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_UK_CSA.sqf";
@@ -173,6 +175,7 @@ if(CTI_UK_SIDE >= 0) then {
 		if((CTI_UK_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_UK_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_UK_CSA.sqf";
 		};
+		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK_CSA.sqf";
 	};
 };
 //CTI_US_SIDE declaration
@@ -188,6 +191,7 @@ if(CTI_US_SIDE >= 0) then {
 		if((CTI_US_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_US_SIDE >= 1 && CTI_EAST_TOWNS < 0) || (CTI_US_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US.sqf";
 		};
+		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_US_FOW.sqf";
@@ -198,6 +202,7 @@ if(CTI_US_SIDE >= 0) then {
 		if((CTI_US_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_US_SIDE >= 1 && CTI_EAST_TOWNS < 0) || (CTI_US_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US_FOW.sqf";
 		};
+		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_FOW.sqf";
 	};
 };
 //CTI_SOV_SIDE declaration
@@ -213,6 +218,7 @@ if(CTI_SOV_SIDE >= 0) then {
 		if((CTI_SOV_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_SOV_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_SOV_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV.sqf";
 		};
+		((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV.sqf";
 	};
 	/*if(CTI_FOW_ADDON > 0) then {
 		((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_SOV.sqf";
@@ -233,6 +239,7 @@ if(CTI_SOV_SIDE >= 0) then {
 		if((CTI_SOV_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_SOV_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_SOV_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV_NF.sqf";
 		};
+		((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV_NF.sqf";
 	};
 };
 //CTI_GER_SIDE declaration
@@ -248,6 +255,7 @@ if(CTI_GER_SIDE >= 0) then {
 		if((CTI_GER_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_GER_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER.sqf";
 		};
+		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_GER_FOW.sqf";
@@ -258,6 +266,7 @@ if(CTI_GER_SIDE >= 0) then {
 		if((CTI_GER_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_GER_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER_FOW.sqf";
 		};
+		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_FOW.sqf";
 	};
 	if(CTI_CSA_ADDON > 0) then {
 		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_GER_CSA.sqf";
@@ -268,6 +277,7 @@ if(CTI_GER_SIDE >= 0) then {
 		if((CTI_GER_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_GER_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
 			((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER_CSA.sqf";
 		};
+		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_CSA.sqf";
 	};
 };
 
@@ -286,6 +296,9 @@ switch(CTI_GUER_TOWNS) do {
 	};
 	default {};
 };
+
+(west) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
+(east) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
 
 {
 	if(_x >= 0) then {
@@ -435,7 +448,7 @@ if(CTI_FIN_SIDE >= 0 && CTI_FIN_SIDE < 2) then {
 		_side_gear = WEST;
 		if(CTI_WEST_AI == -1 || CTI_WEST_AI == 11) then { _load_loadout = true; };
 	};
-	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side CZ [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_CZ_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
+	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\init\init_common.sqf", format["Loadout: side FIN [%1], WAI: [%2], EAI: [%3], load: [%4]", CTI_FIN_SIDE, CTI_WEST_AI, CTI_EAST_AI, _load_loadout]] call CTI_CO_FNC_Log;};
 	if(_load_loadout) then {
 		//Finnish
 		if(CTI_NF_ADDON > 0 || (CTI_IFA3_NEW < 0 && CTI_NF_ADDON > 0)) then {

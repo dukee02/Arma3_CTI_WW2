@@ -94,6 +94,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\f
 _c = [];
 //Level start
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+	_tech_level = 0;
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_GER_Gun_crew_w", _sid];
 		_c pushBack format["%1LIB_GER_Rifleman3_w", _sid];
@@ -141,6 +142,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+	_tech_level = 1;
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_GER_Mgunner_w", _sid];
 		_c pushBack format["%1LIB_GER_Ober_lieutenant_w", _sid];
@@ -172,6 +174,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 };
 //Level 2
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+	_tech_level = 2;
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_GER_Hauptmann_w", _sid];
 		_c pushBack format["%1LIB_GER_Oberst_w", _sid];
@@ -217,7 +220,6 @@ if (isNil "_priorUnits") then {
 };
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER.sqf", format["units in factory %1: [%2] ", CTI_BARRACKS, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c];
-
 
 //***************************************************************************************************************************************
 //														Light Factory																	*

@@ -477,8 +477,6 @@ if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 	_c pushBack format["%1LIB_LCI", _sid];
 	_c pushBack format["%1LIB_LCM3_Armed", _sid];
 	_c pushBack format["%1LIB_LCVP", _sid];
-	
-	/*class  	fow_usa_lcvp;*/
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 

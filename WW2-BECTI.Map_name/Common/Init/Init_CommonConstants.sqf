@@ -248,18 +248,25 @@ CTI_UPGRADE_TOWNS = 10;
 CTI_UPGRADE_SUPPLY = 11;
 CTI_UPGRADE_GEAR = 12;
 
-/*CTI_UPGRADE_GEAR = 0;
-CTI_UPGRADE_BARRACKS = 1;
-CTI_UPGRADE_LIGHT = 2;
-CTI_UPGRADE_HEAVY = 3;
-CTI_UPGRADE_AIR = 4;
-CTI_UPGRADE_TOWNS = 5;
-CTI_UPGRADE_SUPPLY = 6;
-CTI_UPGRADE_AIR_FFAR = 7;
-CTI_UPGRADE_AIR_AT = 8;
-CTI_UPGRADE_AIR_AA = 9;
-CTI_UPGRADE_AIR_CM = 10;
-CTI_UPGRADE_SATELLITE = 11;*/
+with missionNamespace do {	
+	//Global max levels and multiplicators
+	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_LEVEL_MULTI = 100};
+	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_RESEARCH_MULTI = 100};
+	if (isNil 'CTI_ECONOMY_LEVEL_GEAR') then {CTI_ECONOMY_LEVEL_GEAR = 2};
+	if (isNil 'CTI_ECONOMY_LEVEL_INFANTRY') then {CTI_ECONOMY_LEVEL_INFANTRY = 2};
+	if (isNil 'CTI_ECONOMY_LEVEL_WHEELED') then {CTI_ECONOMY_LEVEL_WHEELED = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_TRACKED') then {CTI_ECONOMY_LEVEL_TRACKED = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_AIR') then {CTI_ECONOMY_LEVEL_AIR = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_NAVAL') then {CTI_ECONOMY_LEVEL_NAVAL = 3};
+	if (isNil 'CTI_ECONOMY_UPGRADE_TIMECAP') then {CTI_ECONOMY_UPGRADE_TIMECAP = 600};
+	if (isNil 'CTI_ECONOMY_TIME_MULTI') then {CTI_ECONOMY_TIME_MULTI = 2};
+	
+	//setup the default values for the tech tree
+	//It gets changed in the factory.sqf and used in Upgrades.sqf
+	missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", west], [0,0,0,0,0,1,1,1,1,1,3,4,0]];
+	missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", east], [0,0,0,0,0,1,1,1,1,1,3,4,0]];
+};
+
 //-----------------------------------------------------------------------------------------------------------------------//
 
 
@@ -740,17 +747,7 @@ with missionNamespace do {
 	if (isNil 'CTI_ECONOMY_PRIZE_TRACKED') then {CTI_ECONOMY_PRIZE_TRACKED = 5000};
 	if (isNil 'CTI_ECONOMY_PRIZE_AIR') then {CTI_ECONOMY_PRIZE_AIR = 10000};
 	if (isNil 'CTI_ECONOMY_PRIZE_NAVAL') then {CTI_ECONOMY_PRIZE_NAVAL = 2000};
-	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_LEVEL_MULTI = 100};
-	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_RESEARCH_MULTI = 100};
 	if (isNil 'CTI_ECONOMY_PRIZE_ARMED') then {CTI_ECONOMY_PRIZE_ARMED = 300};
-	if (isNil 'CTI_ECONOMY_LEVEL_GEAR') then {CTI_ECONOMY_LEVEL_GEAR = 2};
-	if (isNil 'CTI_ECONOMY_LEVEL_INFANTRY') then {CTI_ECONOMY_LEVEL_INFANTRY = 2};
-	if (isNil 'CTI_ECONOMY_LEVEL_WHEELED') then {CTI_ECONOMY_LEVEL_WHEELED = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_TRACKED') then {CTI_ECONOMY_LEVEL_TRACKED = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_AIR') then {CTI_ECONOMY_LEVEL_AIR = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_NAVAL') then {CTI_ECONOMY_LEVEL_NAVAL = 3};
-	if (isNil 'CTI_ECONOMY_UPGRADE_TIMECAP') then {CTI_ECONOMY_UPGRADE_TIMECAP = 600};
-	if (isNil 'CTI_ECONOMY_TIME_MULTI') then {CTI_ECONOMY_TIME_MULTI = 2};
 	
 	CTI_VEHICLES_SALVAGER_PRICE = ((CTI_ECONOMY_PRIZE_WHEELED*((CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED)); //--- Determine the cost of the salvage trucks
 		

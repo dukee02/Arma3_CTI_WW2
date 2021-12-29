@@ -213,8 +213,14 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 _c = [];
 //Level start
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		_c pushBack format["%1LIB_Willys_MB_w", _sid];
+		_c pushBack format["%1LIB_Willys_MB_Hood_w", _sid];
+	};
 	_c pushBack format["%1LIB_GazM1_SOV", _sid];	
 	_c pushBack format["%1LIB_GazM1_SOV_camo_sand", _sid];
+	_c pushBack format["%1LIB_Willys_MB", _sid];
+	_c pushBack format["%1LIB_Willys_MB_Hood", _sid];
 };
 //Level 1
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
@@ -236,15 +242,11 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 		_c pushBack format["%1LIB_SOV_M3_Halftrack_w", _sid];
 		_c pushBack format["%1LIB_Scout_M3_FFV_w", _sid];
 		_c pushBack format["%1LIB_Scout_m3_w", _sid];
-		_c pushBack format["%1LIB_Willys_MB_w", _sid];
-		_c pushBack format["%1LIB_Willys_MB_Hood_w", _sid];
 		_c pushBack format["%1LIB_Willys_MB_Ambulance_w", _sid];	//medic
 	};
 	_c pushBack format["%1LIB_SOV_M3_Halftrack", _sid];
 	_c pushBack format["%1LIB_Scout_M3", _sid];
 	_c pushBack format["%1LIB_Scout_M3_FFV", _sid];
-	_c pushBack format["%1LIB_Willys_MB", _sid];
-	_c pushBack format["%1LIB_Willys_MB_Hood", _sid];
 	_c pushBack format["%1LIB_Willys_MB_Ambulance", _sid];			//medic
 };
 //Level 3

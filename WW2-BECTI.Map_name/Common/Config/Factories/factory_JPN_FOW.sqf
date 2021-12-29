@@ -1,6 +1,7 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai"];
+private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_tech_level"];
 _side = _this;
 _ai = -1;
+_tech_level = 0;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -139,18 +140,8 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 _c = [];
-//Level start
-/*if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	//};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1", _sid];
-	};
-	
-	_c pushBack format["%1", _sid];
-};*/
-//Level 1
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA3_NEW >= 0) then {_tech_level = 1;} else {_tech_level = 0;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_c pushBack format["%1fow_v_type97_truck_open_ija", _sid];
 	_c pushBack format["%1fow_v_type97_truck_ija", _sid];
 	//_c pushBack format["%1fow_v_type97_truck_fuel_ija", _sid];				//fueltruck

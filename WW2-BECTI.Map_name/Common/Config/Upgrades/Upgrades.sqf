@@ -1,7 +1,34 @@
-private ["_side, _cost_level"];
+private ["_side", "_cost_level", "_cost", "_upgrade_levels", "_upgrades_enabled", "_upgrade_cost", "_upgrade_links", "_links", "_upgrade_time", "_time", "_time_level_base", "_upgrade_labels"];
 
 _side = _this;
 _cost_level = 1000;
+_cost = 1;
+
+/************************************************************************************************************************************************
+ *															UPGRADES_LEVELS																		*
+ *													check calculatet max and defined max and													*
+ *													setup the activated max upgrade level														*
+ ************************************************************************************************************************************************/
+//_upgrade_levels = [];
+_upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
+if (isNil "_upgrade_levels") then { 
+	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
+} else {
+	if(_upgrade_levels select CTI_UPGRADE_BARRACKS > CTI_ECONOMY_LEVEL_INFANTRY) then {_upgrade_levels set [CTI_UPGRADE_BARRACKS, CTI_ECONOMY_LEVEL_INFANTRY]};		//--- Barracks
+	if(_upgrade_levels select CTI_UPGRADE_LIGHT > CTI_ECONOMY_LEVEL_TRACKED) then {_upgrade_levels set [CTI_UPGRADE_LIGHT, CTI_ECONOMY_LEVEL_TRACKED]};				//--- Light
+	if(_upgrade_levels select CTI_UPGRADE_HEAVY > CTI_ECONOMY_LEVEL_TRACKED) then {_upgrade_levels set [CTI_UPGRADE_HEAVY, CTI_ECONOMY_LEVEL_TRACKED]};				//--- Heavy
+	if(_upgrade_levels select CTI_UPGRADE_AIR > CTI_ECONOMY_LEVEL_AIR) then {_upgrade_levels set [CTI_UPGRADE_AIR, CTI_ECONOMY_LEVEL_AIR]};							//--- Air
+	if(_upgrade_levels select CTI_UPGRADE_NAVAL > CTI_ECONOMY_LEVEL_NAVAL) then {_upgrade_levels set [CTI_UPGRADE_NAVAL, CTI_ECONOMY_LEVEL_NAVAL]};					//--- Naval
+	_upgrade_levels set [CTI_UPGRADE_SATELLITE, 1];																													//--- Satellite
+	_upgrade_levels set [CTI_UPGRADE_AIR_FFAR, 1];																													//--- Air FFAR
+	_upgrade_levels set [CTI_UPGRADE_AIR_AT, 1];																													//--- Air AT
+	_upgrade_levels set [CTI_UPGRADE_AIR_AA, 1];																													//--- Air AA
+	_upgrade_levels set [CTI_UPGRADE_AIR_CM, 1];																													//--- Air CM
+	_upgrade_levels set [CTI_UPGRADE_TOWNS, 3];																														//--- Towns Occupation
+	_upgrade_levels set [CTI_UPGRADE_SUPPLY, 4];																													//--- Supply
+	if(_upgrade_levels select CTI_UPGRADE_GEAR > CTI_ECONOMY_LEVEL_GEAR) then {_upgrade_levels set [CTI_UPGRADE_GEAR, CTI_ECONOMY_LEVEL_GEAR]};						//--- Gear
+};
+missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", _side], _upgrade_levels];
 
 /************************************************************************************************************************************************
  *															UPGRADES_ENABLED																	*
@@ -80,26 +107,6 @@ for [{private _i = 0}, {_i < CTI_ECONOMY_LEVEL_GEAR}, {_i = _i + 1}] do {
 }; 
 _upgrade_cost pushBack _cost;															//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_COSTS", _side], _upgrade_cost];
-
-/************************************************************************************************************************************************
- *															UPGRADES_LEVELS																		*
- *													setup the activated max upgrade level														*
- ************************************************************************************************************************************************/
-_upgrade_levels = [];
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_INFANTRY; 	//--- Barracks
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_WHEELED; 	//--- Light
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_TRACKED; 	//--- Heavy
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_AIR; 		//--- Air
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_NAVAL; 		//--- Naval
-_upgrade_levels pushBack 1; 							//--- Satellite
-_upgrade_levels pushBack 1; 							//--- Air FFAR
-_upgrade_levels pushBack 1;								//--- Air AT
-_upgrade_levels pushBack 1; 							//--- Air AA
-_upgrade_levels pushBack 1; 							//--- Air CM
-_upgrade_levels pushBack 3; 							//--- Towns Occupation
-_upgrade_levels pushBack 4; 							//--- Supply
-_upgrade_levels pushBack CTI_ECONOMY_LEVEL_GEAR;		//--- Gear
-missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", _side], _upgrade_levels];
 
 /************************************************************************************************************************************************
  *															UPGRADES_LINKS																		*

@@ -9,7 +9,7 @@ class Params {
 		title = "German Side";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_SOV_SIDE {
 		title = "Soviet Side (only with IFA3)";
@@ -21,31 +21,31 @@ class Params {
 		title = "US Side (not in CSA38)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2; //-1
+		default = 2;
 	};
 	class CTI_UK_SIDE {
 		title = "UK Side (only full in IFA3)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2; //-1
+		default = 2;
 	};
 	class CTI_JPN_SIDE {
 		title = "Japain Side (FoW needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
 	};
 	class CTI_CZ_SIDE {
 		title = "Czech Side (CSA38 needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
 	};
 	class CTI_FIN_SIDE {
 		title = "Finnish Side (Northern Fronts needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
 	};
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
@@ -87,61 +87,61 @@ class Params {
 		title = "FLAG: Flagtexture of the West-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
 		title = "UPGRADE: Max Level Gear";
-		values[] = {-1,0,1,2};
-		texts[] = {"Disable all gear","0","1","2"};
-		default = 2; //2
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_INFANTRY {
 		title = "UPGRADE: Max Level Infantry";
-		values[] = {-1,0,1,2};
-		texts[] = {"Disable this units","0","1","2"};
-		default = 2; //2
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_WHEELED {
 		title = "UPGRADE: Max Level Wheeled";
-		values[] = {-1,0,1,2,3,4};
-		texts[] = {"Disable this units","0","1","2","3","4"};
-		default = 4; //4
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_TRACKED {
 		title = "UPGRADE: Max Level Tracked";
-		values[] = {-1,0,1,2,3,4};
-		texts[] = {"Disable this units","0","1","2","3","4"};
-		default = 4; //4
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_NAVAL {
 		title = "UPGRADE: Max Level Naval";
-		values[] = {-1,0,1,2,3};
-		texts[] = {"Disable this units","0","1","2","3"};
-		default = -1; //3
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_AIR {
 		title = "UPGRADE: Max Level Air";
-		values[] = {-1,0,1,2,3,4,5};
-		texts[] = {"Disable this units","0","1","2","3","4","5"};
-		default = 2; //5
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_UPGRADE_TIMECAP {
 		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
 		values[] = {300,400,500,600,700,800,900,1000,1100,1200};
 		texts[] = {"300s","400s","500s","600s","700s","800s","900s","1000s","1100s","1200s"};
-		default = 600; //600
+		default = 600;
 	};
 	class CTI_ECONOMY_TIME_MULTI {
 		title = "BASE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
