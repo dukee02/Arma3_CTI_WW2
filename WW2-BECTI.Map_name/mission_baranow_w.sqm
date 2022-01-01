@@ -30,7 +30,7 @@ binarizationWanted=0;
 sourceName="VIO-BECTI-WW2";
 addons[]=
 {
-	"A3_Characters_F"
+	"A3_Characters_F",
 	"A3_Ui_F",
 	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F"

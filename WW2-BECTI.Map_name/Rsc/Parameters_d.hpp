@@ -96,40 +96,40 @@ class Params {
 		default = 0; //0
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
-		title = "UPGRADE: Max Level Gear";
-		values[] = {-1,0,1,2};
-		texts[] = {"Disable all gear","0","1","2"};
-		default = 2; //2
+		title = "UPGRADE: Max Level Gear (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_INFANTRY {
-		title = "UPGRADE: Max Level Infantry";
-		values[] = {-1,0,1,2};
-		texts[] = {"Disable this units","0","1","2"};
-		default = 2; //2
+		title = "UPGRADE: Max Level Infantry (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_WHEELED {
-		title = "UPGRADE: Max Level Wheeled";
-		values[] = {-1,0,1,2,3,4};
-		texts[] = {"Disable this units","0","1","2","3","4"};
-		default = 4; //4
+		title = "UPGRADE: Max Level Wheeled (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_TRACKED {
-		title = "UPGRADE: Max Level Tracked";
-		values[] = {-1,0,1,2,3,4};
-		texts[] = {"Disable this units","0","1","2","3","4"};
-		default = 4; //4
+		title = "UPGRADE: Max Level Tracked (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_NAVAL {
-		title = "UPGRADE: Max Level Naval";
-		values[] = {-1,0,1,2,3};
-		texts[] = {"Disable this units","0","1","2","3"};
-		default = -1; //3
+		title = "UPGRADE: Max Level Naval (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_LEVEL_AIR {
-		title = "UPGRADE: Max Level Air";
-		values[] = {-1,0,1,2,3,4,5};
-		texts[] = {"Disable this units","0","1","2","3","4","5"};
-		default = 2; //5
+		title = "UPGRADE: Max Level Air (depends on activated stuff, gets adjust to lower)";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
 	};
 	class CTI_ECONOMY_UPGRADE_TIMECAP {
 		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
@@ -138,7 +138,7 @@ class Params {
 		default = 600; //600
 	};
 	class CTI_ECONOMY_TIME_MULTI {
-		title = "BASE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
+		title = "UPGRADE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
 		values[] = {1,2,3,4,5,6,8,10};
 		texts[] = {"1","2","3","4","5","6","8","10"};
 		default = 2; //5
@@ -661,12 +661,18 @@ class Params {
 		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
 	};
-	/*class CTI_CSA38_ADDON {
+	class CTI_CSA_ADDON {
 		title = "ADDON: CSA38";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
-	};*/
+	};
+	class CTI_NF_ADDON {
+		title = "ADDON: Northern Fronts";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 0;
+	};
 	class CTI_SABFL_ADDON {
 		title = "ADDON: SAB Flying Legends (adds some more Planes)";
 		values[] = {0,1};
