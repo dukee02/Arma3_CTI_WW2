@@ -87,18 +87,20 @@ _level = 0;
 //};
 //if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-		/*if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1", _sid];
+if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			/*if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+				_c pushBack format["%1", _sid];
+			};
+			if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+				_c pushBack format["%1", _sid];
+			};*/
+			_c pushBack format["%1SOV_BT_BT7A", _sid];
+			_c pushBack format["%1SOV_BT_BT7_M1937", _sid];
+			_c pushBack format["%1SOV_BT_BT7TU_M1937", _sid];
+			_level = _level + 1;
 		};
-		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-			_c pushBack format["%1", _sid];
-		};*/
-		_c pushBack format["%1SOV_BT_BT7A", _sid];
-		_c pushBack format["%1SOV_BT_BT7_M1937", _sid];
-		_c pushBack format["%1SOV_BT_BT7TU_M1937", _sid];
-		_level = _level + 1;
 	};
 };
 //if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {

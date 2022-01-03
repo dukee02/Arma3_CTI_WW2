@@ -679,24 +679,6 @@ class Params {
 		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
 	};
-	class CTI_SABFL_ADDON {
-		title = "ADDON: SAB Flying Legends (adds some more Planes)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
-	class CTI_SABNL_ADDON {
-		title = "ADDON: SAB Naval Legends (adds more Ships)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
-	class CTI_SAB_ADDON {
-		title = "ADDON: SAB Secret Weapons (adds Ships and more Planes !but will change use on own risk!)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
 	class SEPARATOR_LOG {
 		title = "=========================== LOG-DEBUG-AND-TESTING ============================";
 		values[] = {1};

@@ -118,19 +118,20 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 TRACKED_LIGHT = [];
 TRACKED_MEDIUM = [];
 TRACKED_HEAVY = [];
-
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	switch (CTI_ECONOMY_LEVEL_TRACKED) do {
-		case 0;
-		case 1;
-		case 2;
-		case 3;
-		case 4: {
-			TRACKED_LIGHT append [[format["%1SOV_BT_BT7A", _sid],1],[format["%1SOV_BT_BT7_M1937", _sid],1],[format["%1SOV_BT_BT7TU_M1937", _sid],1]];
-		};
-		default {
-		};
-	};	
+if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		switch (CTI_ECONOMY_LEVEL_TRACKED) do {
+			case 0;
+			case 1;
+			case 2;
+			case 3;
+			case 4: {
+				TRACKED_LIGHT append [[format["%1SOV_BT_BT7A", _sid],1],[format["%1SOV_BT_BT7_M1937", _sid],1],[format["%1SOV_BT_BT7TU_M1937", _sid],1]];
+			};
+			default {
+			};
+		};	
+	};
 };
 
 

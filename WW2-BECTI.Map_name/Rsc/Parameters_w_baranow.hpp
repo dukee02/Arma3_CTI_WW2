@@ -39,61 +39,67 @@ class Params {
 		title = "Czech Side (CSA38 needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
+	};
+	class CTI_FIN_SIDE {
+		title = "Finnish Side (Northern Fronts needed)";
+		values[] = {-1,0,1,2};
+		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
+		default = -1;
 	};
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
 		values[] = {0,1,2};
-		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER - difficulty normal)"};
+		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER)"};
 		default = 2;
 	};
 	class CTI_WEST_TOWNS {
 		title = "BLUFOR (West) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_EAST_TOWNS {
 		title = "OPFOR (East) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_WEST_AI {
 		title = "BLUFOR (West) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_EAST_AI {
 		title = "OPFOR (East) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
+		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
 		default = -1;
 	};
 	class CTI_CAMO_ACTIVATION {
 		title = "Main Camo";
 		values[] = {0,1,2,3};
 		texts[] = {"Standard", "Winter", "Desert", "All active (Main = Standard)"};
-		default = 1;
+		default = 0;
 	};
 	class CTI_WEST_FLAG {
 		title = "FLAG: Flagtexture of the West-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Blue","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_EAST_FLAG {
 		title = "FLAG: Flagtexture of the East-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Red","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_GUER_FLAG {
 		title = "FLAG: Flagtexture of the Independent-Side";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
 		texts[] = {"Standard Green","German Wehrmacht","USSR","USA","Great Britain","Germany (FOW)","USA (FOW)","Japan02 (FOW)","Japan01 (FOW)","Australia (FOW)","Canada (FOW)","New Zealand (FOW)","Horizon Islands Colonial (FOW)","Netherlands (FOW)","Czech (CSA)","East Karelia (NF)","Finnish Military (NF)","Finnish State (NF)","Finnish (NF)","Norway Military (NF)","Norway (NF)","USSR (NF)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_ECONOMY_LEVEL_GEAR {
 		title = "UPGRADE: Max Level Gear (depends on activated stuff, gets adjust to lower)";
@@ -669,24 +675,6 @@ class Params {
 		title = "ADDON: Northern Fronts";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 0;
-	};
-	class CTI_SABFL_ADDON {
-		title = "ADDON: SAB Flying Legends (adds some more Planes)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
-	class CTI_SABNL_ADDON {
-		title = "ADDON: SAB Naval Legends (adds more Ships)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
-	};
-	class CTI_SAB_ADDON {
-		title = "ADDON: SAB Secret Weapons (adds Ships and more Planes !but will change use on own risk!)";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
 	class SEPARATOR_LOG {

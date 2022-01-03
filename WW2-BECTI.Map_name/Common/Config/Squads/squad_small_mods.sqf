@@ -104,13 +104,15 @@ units_to_add = [];
 //};
 //if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
-		units_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
-		units_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
-		units_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
-		
-		units_tracked pushBack units_to_add;
+if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
+			units_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
+			units_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
+			units_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
+			
+			units_tracked pushBack units_to_add;
+		};
 	};
 };
 //if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
