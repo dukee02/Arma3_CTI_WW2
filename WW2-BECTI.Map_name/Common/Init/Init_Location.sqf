@@ -111,7 +111,7 @@ if (CTI_IsServer) then {
 				
 			_town setVariable [format ["CTI_flag%1", _i], _flag];
 		};
-		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Init\Init_Location.sqf", format ["For Town [%1] side: [%2] set Flag to: [%3].", _town getVariable "cti_town_name", _town_side, missionNamespace getVariable Format["CTI_%1FLAG0", _town_side]]] call CTI_CO_FNC_Log};
+		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Init\Init_Location.sqf", format ["For Town [%1] side: [%2] set Flag to: [%3].", _town getVariable "cti_town_name", _town_side, missionNamespace getVariable Format["CTI_%1FLAG", _town_side]]] call CTI_CO_FNC_Log};
 			
 		{
 			Private ["_camp_health","_flag","_pos","_campmodel"];
