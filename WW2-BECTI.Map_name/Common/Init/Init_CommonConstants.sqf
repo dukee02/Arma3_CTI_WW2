@@ -797,6 +797,9 @@ with missionNamespace do {
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_CSA_ADDON') then {CTI_CSA_ADDON = 0};
 	if (isNil 'CTI_NF_ADDON') then {CTI_NF_ADDON = 0};
+	if (isNil 'CTI_SABFL_ADDON') then {CTI_SABFL_ADDON = 0};
+	if (isNil 'CTI_SABNL_ADDON') then {CTI_SABNL_ADDON = 0};
+	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
 	//Check when IFA is loaded VIO patch is loaded too
 	if(CTI_IFA3_NEW >= 0) then {
 		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
@@ -805,7 +808,7 @@ with missionNamespace do {
 		};
 	};
 	if(CTI_FOW_ADDON > 0) then {
-		if (isClass(configFile >> "CfgVehicles" >> "fow_s_ger_heer_rifleman")) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "fow_s_ger_heer_rifleman")) then {
 			CTI_FOW_ADDON = 0;
 			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["FOW configured but not loaded! <%1>", CTI_FOW_ADDON]] call CTI_CO_FNC_Log; };
 		};
@@ -817,7 +820,7 @@ with missionNamespace do {
 		};
 	};
 	if(CTI_CSA_ADDON > 0) then {
-		if (isClass(configFile >> "CfgVehicles" >> "CSA38_WH2Bi")) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "CSA38_WH2Bi")) then {
 			CTI_CSA_ADDON = 0;
 			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["CSA configured but not loaded! <%1>", CTI_CSA_ADDON]] call CTI_CO_FNC_Log; };
 		};
@@ -829,7 +832,7 @@ with missionNamespace do {
 		};
 	};
 	if(CTI_NF_ADDON > 0) then {
-		if (isClass(configFile >> "CfgVehicles" >> "I_NORTH_FIN_W_41_Unequipped")) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "I_NORTH_FIN_W_41_Unequipped")) then {
 			CTI_NF_ADDON = 0;
 			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["NF configured but not loaded! <%1>", CTI_NF_ADDON]] call CTI_CO_FNC_Log; };
 		};

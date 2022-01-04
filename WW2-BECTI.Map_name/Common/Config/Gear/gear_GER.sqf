@@ -573,7 +573,7 @@ if(CTI_IFA3_NEW == 0) then {
 };
 
 //Update the calculatetd max upgrade level
-ifisNil 'CTI_Init_Common' && (_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
+if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 	_upgrade_levels set [CTI_UPGRADE_GEAR, _tech_level];
 };
 
