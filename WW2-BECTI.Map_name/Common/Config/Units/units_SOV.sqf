@@ -386,7 +386,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	_tech_level = _tech_level + 1;
 };
 
 //Update the calculatetd max upgrade level
@@ -560,8 +559,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
 	_d pushBack 0;
-	
-	_tech_level = _tech_level + 1;
 };
 
 //Update the calculatetd max upgrade level

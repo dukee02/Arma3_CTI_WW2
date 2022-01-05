@@ -222,7 +222,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman_SSGT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_39_SGTMAJ", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid];
+			//_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid];		//-> Warning Message: Bad vehicle type fin_gasmaskbag
 			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_39_Patrolman_NCO", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_39_Patrolman_Officer", _sid];

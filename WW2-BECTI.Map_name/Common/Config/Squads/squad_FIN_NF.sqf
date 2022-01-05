@@ -113,7 +113,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];		//-> Warning Message: Bad vehicle type fin_gasmaskbag
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Patrolman_NCO", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Patrolman_Officer", _sid], 1, 20];

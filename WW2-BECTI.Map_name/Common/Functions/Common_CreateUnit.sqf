@@ -51,7 +51,7 @@ if (typeName _sideID == "SIDE") then {_sideID = (_sideID) call CTI_CO_FNC_GetSid
 _spawn_unit = true;
 
 if(isNull _team) then {_spawn_unit = false};
-if(isNil _classname) then {_spawn_unit = false};
+if(isNil "_classname") then {_spawn_unit = false};
 if(_classname == "") then {_spawn_unit = false};
 
 if(_spawn_unit == true) then {
