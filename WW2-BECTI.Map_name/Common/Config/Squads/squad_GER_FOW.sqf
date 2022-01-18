@@ -1,5 +1,6 @@
 _side = _this;
 _sid = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -41,8 +42,12 @@ if(CTI_IFA3_NEW < 0) then {
 //Infantry setup for the AI groups
 units_infantry = [];
 inf_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_GER_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1fow_s_ger_heer_rifleman", _sid], 1, 60]];
 	inf_to_add pushBack [format["%1fow_s_ger_heer_medic", _sid], 1, 20];
 	inf_to_add pushBack [format["%1fow_s_ger_heer_radio_operator", _sid], 1, 30];
@@ -52,7 +57,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1fow_s_ger_heer_rifleman_g43", _sid], 1, 40]];
 	inf_to_add pushBack [format["%1fow_s_ger_heer_mg34_gunner", _sid], 1, 20];
 	inf_to_add pushBack [format["%1fow_s_ger_heer_nco_mp40", _sid], 1, 10];
@@ -60,7 +68,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 	
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1fow_s_ger_heer_mg42_gunner", _sid], 1, 10]];
 	inf_to_add pushBack [format["%1fow_s_ger_heer_tl_stg", _sid], 1, 5];
 	
@@ -82,11 +93,12 @@ _s pushBack [];
 //Wheeled setup for the AI groups
 units_wheeled = [];
 mot_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
-	units_wheeled = +units_infantry;
-};
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1fow_v_kubelwagen_ger_heer", _sid], 1, 20]];
 	mot_to_add pushback [format["%1fow_v_kubelwagen_camo_ger_heer", _sid], 1, 10];
 	mot_to_add pushback [format["%1fow_v_sdkfz_250_camo_ger_heer", _sid], 1, 10];
@@ -95,8 +107,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	
 	units_wheeled = mot_to_add;
 };
-//Level 1
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1fow_v_kubelwagen_mg34_ger_heer", _sid], 1, 20]];
 	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_ger_heer", _sid], 1, 30];
 	mot_to_add pushback [format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid], 1, 10];
@@ -104,15 +118,19 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	
 	units_wheeled = mot_to_add;
 };
-//Level 2
-if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1fow_v_sdkfz_251_camo_ger_heer", _sid], 1, 40]];
 	mot_to_add pushback [format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid], 1, 20];
 	
 	units_wheeled append mot_to_add;
 };
-//Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1fow_v_sdkfz_222_ger_heer", _sid], 1, 30]];
 	mot_to_add pushback [format["%1fow_v_sdkfz_222_foliage_ger_heer", _sid], 1, 10];
 	mot_to_add pushback [format["%1fow_v_sdkfz_222_camo_ger_heer", _sid], 1, 20];
@@ -123,8 +141,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 	
 	units_wheeled append mot_to_add;
 };
-//Level 4
-if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1fow_v_sdkfz_234_1", _sid], 1, 30]];
 	
 	units_wheeled append mot_to_add;
@@ -146,13 +166,11 @@ _s pushBack [];
 //Tracked setup for the AI groups
 units_tracked = [];
 arm_to_add = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
-	units_tracked = +units_infantry;
-};
-if(CTI_IFA3_NEW >= 0) then {_level = 4} else {_level = 0};
-
+_matrix_cnt = [6, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1fow_v_panther_ger_heer", _sid], 1, 50]];
 	arm_to_add pushback [format["%1fow_v_panther_camo_foliage_ger_heer", _sid], 1, 10];
@@ -198,8 +216,11 @@ _s pushBack [];*/
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 /*units_air = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_AIR < 0) then {
 	units_air = +units_infantry;
 };

@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 
 _side = _this;
 _faction = "";
@@ -46,8 +46,12 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\un
 //														Barracks Factory																*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Barracks Factory.
-_tech_level = 0;
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 	_time = (1*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<3): {3}; case (_time>50): {50}; default {_time}};
 	/*if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -91,10 +95,11 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	_tech_level = _tech_level + 1;
 };
-//Level 1
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 	_time = (1*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<3): {3}; case (_time>50): {50}; default {_time}};
 	
@@ -127,9 +132,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	_tech_level = _tech_level + 1;
 };
-//Level 2
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
 	_time = (1*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<3): {3}; case (_time>50): {50}; default {_time}};
@@ -166,7 +172,11 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_BARRACKS) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 //Level start
-_tech_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {	
 	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time};};
@@ -180,10 +190,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
 	_d pushBack 0;
-	
-	_tech_level = _tech_level + 1;
 };
-//Level 1
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time};};
@@ -233,9 +243,10 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	_tech_level = _tech_level + 1;
 };
-if(CTI_IFA3_NEW >= 0) then {_tech_level = 3} else {_tech_level = 0};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time};};
@@ -283,49 +294,80 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_LIGHT) then {
 //														Heavy Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
-_level = 0;
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzbfwI_W", _sid];
-		_c pushBack format["%1CSA38_ltm35_W", _sid];
-		//_c pushBack format["%1CSA38_ltm35_FR2_W", _sid];//nazi
 		_c pushBack format["%1CSA38_pzkpfwIA_W", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_W", _sid];
-		_c pushBack format["%1CSA38_pzIIa_W", _sid];
-		_c pushBack format["%1CSA38_pzIIb_W", _sid];
-		_c pushBack format["%1CSA38_pzII_W", _sid];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwI_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_DE", _sid];
-		_c pushBack format["%1CSA38_pzIIa_DE", _sid];
-		_c pushBack format["%1CSA38_pzIIb_DE", _sid];
-		_c pushBack format["%1CSA38_pzII_DE", _sid];
 	};
 	_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
 	_c pushBack format["%1CSA38_pzbfwI", _sid];
 	_c pushBack format["%1CSA38_pzkpfwIA", _sid];
 	_c pushBack format["%1CSA38_pzkpfwI", _sid];
+	
+	/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
+	_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
+	_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
+	
+	_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
+	_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
+	_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];*/
+	
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack (CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+		_t pushBack _building_time;
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
+	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		_c pushBack format["%1CSA38_pzIIa_W", _sid];
+		_c pushBack format["%1CSA38_pzIIb_W", _sid];
+		_c pushBack format["%1CSA38_pzII_W", _sid];
+		_c pushBack format["%1CSA38_ltm35_W", _sid];
+		//_c pushBack format["%1CSA38_ltm35_FR2_W", _sid];//nazi
+	};
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		_c pushBack format["%1CSA38_pzIIa_DE", _sid];
+		_c pushBack format["%1CSA38_pzIIb_DE", _sid];
+		_c pushBack format["%1CSA38_pzII_DE", _sid];
+	};
 	_c pushBack format["%1CSA38_pzIIa", _sid];
 	_c pushBack format["%1CSA38_pzIIb", _sid];
 	_c pushBack format["%1CSA38_pzII", _sid];
 	_c pushBack format["%1CSA38_ltm35_1", _sid];
 	
-	/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
-	_c pushBack format["%1CSA38_pzIIa_PL", _sid];
+	/*_c pushBack format["%1CSA38_pzIIa_PL", _sid];
 	_c pushBack format["%1CSA38_pzIIb_PL", _sid];
 	_c pushBack format["%1CSA38_pzII_PL", _sid];
 	
-	_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
 	_c pushBack format["%1CSA38_ltm35_FR", _sid];
 	//_c pushBack format["%1CSA38_ltm35_FR2", _sid];//nazi
-	_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];
 	_c pushBack format["%1CSA38_pzIIa_FR", _sid];
 	_c pushBack format["%1CSA38_pzIIb_FR", _sid];
 	_c pushBack format["%1CSA38_pzII_FR", _sid];*/
@@ -343,10 +385,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	
-	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -421,10 +464,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_s pushBack "service-medic";
 		_d pushBack 0;	
 	};
-	
-	_level = _level + 1;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -464,12 +508,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	
-	_level = _level + 1;
 };
 
-//Level 3
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	
@@ -488,8 +531,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_s pushBack "";
 		_d pushBack 0;	
 	};
-	
-	_level = _level + 1;
 };
 
 //Update the calculatetd max upgrade level
@@ -503,7 +544,12 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_HEAVY) then {
 //--- Below is classnames for Units and AI avaiable to puchase from Air Factory.
 //Level 1
 _tech_level = 0;
-/*if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
+/*_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -729,6 +775,11 @@ _d pushBack 0;
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
 _tech_level = 0;
+/*_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};*/
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_NAVAL) then {

@@ -93,7 +93,12 @@ switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 	case 2;
 	case 3;
 	case 4;
-	case 5: {
+	case 5;
+	case 6;
+	case 7;
+	case 8;
+	case 9;
+	case 10: {
 		TRACKED_LIGHT = [[format["%1csa38_m5a17APL", _sid],1]];
 		TRACKED_MEDIUM = [[format["%1csa38_m5a17APL", _sid],1]];
 		TRACKED_HEAVY = [[format["%1csa38_cromwell_CPL", _sid],1],[format["%1csa38_cromwell_CPL2", _sid],1],[format["%1csa38_cromwell_PL", _sid],1],[format["%1csa38_cromwell_DPL", _sid],1]];

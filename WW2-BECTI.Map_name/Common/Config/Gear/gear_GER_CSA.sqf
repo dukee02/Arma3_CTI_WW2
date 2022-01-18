@@ -57,36 +57,40 @@ _p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEV
 _i pushBack "CSA38_shg24t";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 40*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-/*
-_i pushBack "fow_e_m24K_spli";//normal frag grenade
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 30*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "fow_e_nb39b";//nebel
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 10*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "fow_e_m24_at";//AT
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-	
-_i pushBack "fow_e_tnt_halfpound";
+_i pushBack "CSA38_eh39";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 25*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "fow_e_tnt_onepound_mag";
+_i pushBack "CSA38_eh393";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "CSA38_eh392";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "csa38_dyn";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "fow_e_tnt_twohalfpound_mag";
+_i pushBack "csa38_dyn2";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 75*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
-_i pushBack "fow_e_tnt_twopound_mag";
+_i pushBack "csa38_dyn3";
 _u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 _p pushBack round 100*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-*/
+
+_i pushBack "csa38_sm35";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+
+_i pushBack "csa38_tmi35";
+_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+_p pushBack round 100*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {

@@ -15,7 +15,7 @@ if (isNil "_upgrade_levels") then {
 	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
 } else {
 	if(_upgrade_levels select CTI_UPGRADE_BARRACKS > CTI_ECONOMY_LEVEL_INFANTRY) then {_upgrade_levels set [CTI_UPGRADE_BARRACKS, CTI_ECONOMY_LEVEL_INFANTRY]};		//--- Barracks
-	if(_upgrade_levels select CTI_UPGRADE_LIGHT > CTI_ECONOMY_LEVEL_TRACKED) then {_upgrade_levels set [CTI_UPGRADE_LIGHT, CTI_ECONOMY_LEVEL_TRACKED]};				//--- Light
+	if(_upgrade_levels select CTI_UPGRADE_LIGHT > CTI_ECONOMY_LEVEL_WHEELED) then {_upgrade_levels set [CTI_UPGRADE_LIGHT, CTI_ECONOMY_LEVEL_WHEELED]};				//--- Light
 	if(_upgrade_levels select CTI_UPGRADE_HEAVY > CTI_ECONOMY_LEVEL_TRACKED) then {_upgrade_levels set [CTI_UPGRADE_HEAVY, CTI_ECONOMY_LEVEL_TRACKED]};				//--- Heavy
 	if(_upgrade_levels select CTI_UPGRADE_AIR > CTI_ECONOMY_LEVEL_AIR) then {_upgrade_levels set [CTI_UPGRADE_AIR, CTI_ECONOMY_LEVEL_AIR]};							//--- Air
 	if(_upgrade_levels select CTI_UPGRADE_NAVAL > CTI_ECONOMY_LEVEL_NAVAL) then {_upgrade_levels set [CTI_UPGRADE_NAVAL, CTI_ECONOMY_LEVEL_NAVAL]};					//--- Naval
@@ -29,6 +29,7 @@ if (isNil "_upgrade_levels") then {
 	if(_upgrade_levels select CTI_UPGRADE_GEAR > CTI_ECONOMY_LEVEL_GEAR) then {_upgrade_levels set [CTI_UPGRADE_GEAR, CTI_ECONOMY_LEVEL_GEAR]};						//--- Gear
 };
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", _side], _upgrade_levels];
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\upgrades\upgrades.sqf", format["Upgrade levels for %1: <%2>", _upgrade_levels]] call CTI_CO_FNC_Log;};
 
 /************************************************************************************************************************************************
  *															UPGRADES_ENABLED																	*
@@ -49,6 +50,7 @@ _upgrades_enabled pushBack ((missionNamespace getVariable "CTI_TOWNS_OCCUPATION"
 _upgrades_enabled pushBack ((missionNamespace getVariable "CTI_ECONOMY_CURRENCY_SYSTEM") == 0);  	//--- Supply
 _upgrades_enabled pushBack true; //(CTI_NO_UPGRADE_MODE == 0); 	//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_ENABLED", _side], _upgrades_enabled];
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\upgrades\upgrades.sqf", format["Upgrades enabled for %1: <%2>", _upgrades_enabled]] call CTI_CO_FNC_Log;};
 
 /************************************************************************************************************************************************
  *															UPGRADES_COSTS																		*
@@ -107,6 +109,7 @@ for [{private _i = 0}, {_i < (_upgrade_levels select CTI_UPGRADE_GEAR)}, {_i = _
 }; 
 _upgrade_cost pushBack _cost;															//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_COSTS", _side], _upgrade_cost];
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\upgrades\upgrades.sqf", format["Upgrade costs for %1: <%2>", _upgrade_cost]] call CTI_CO_FNC_Log;};
 
 /************************************************************************************************************************************************
  *															UPGRADES_LINKS																		*
@@ -151,6 +154,7 @@ for [{private _i = 0}, {_i < (_upgrade_levels select CTI_UPGRADE_GEAR)}, {_i = _
 };
 _upgrade_links pushBack _links;				//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_LINKS", _side], _upgrade_links];
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\upgrades\upgrades.sqf", format["Upgrade links for %1: <%2>", _upgrade_links]] call CTI_CO_FNC_Log;};
 
 /************************************************************************************************************************************************
  *															UPGRADES_TIMES																		*
@@ -212,6 +216,7 @@ for [{private _i = 0}, {_i < (_upgrade_levels select CTI_UPGRADE_GEAR)}, {_i = _
 }; 
 _upgrade_time pushBack _time;													//--- Gear
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_TIMES", _side], _upgrade_time];
+if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\upgrades\upgrades.sqf", format["Upgrade times for %1: <%2>", _upgrade_time]] call CTI_CO_FNC_Log;};
 
 //todo, on commander missing link checkup, skip disabled upgrades.
 missionNamespace setVariable [Format["CTI_%1_UPGRADES_AI_ORDER", _side], [

@@ -1,5 +1,6 @@
 _side = _this;
 _sid = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -39,8 +40,12 @@ missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], ["Air"]];
 //Infantry setup for the AI groups
 units_infantry = [];
 inf_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			inf_to_add = [[format["%1O_NORTH_SOV_W_41_Medic", _sid], 1, 60]];
@@ -73,7 +78,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	};
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			inf_to_add = [[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid], 1, 60]];
@@ -102,7 +110,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 	};
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			inf_to_add = [[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid], 1, 60]];
@@ -148,8 +159,12 @@ _s pushBack [];
 //Wheeled setup for the AI groups
 /*units_wheeled = [];
 mot_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1LIB_GazM1_SOV", _sid], 1, 10]];	
 	units_wheeled = mot_to_add;
 };
@@ -169,9 +184,12 @@ _s pushBack [];
 //Tracked setup for the AI groups
 units_tracked = [];
 arm_to_add = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			arm_to_add = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid], 1, 60]];
@@ -184,31 +202,49 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 	};
 	units_tracked append arm_to_add;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			arm_to_add = [[format["%1NORTH_SOV_W_41_T26_M33", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T26_M38", _sid], 1, 20];
 			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T26_M33com", _sid], 1, 20];
 		};
 		default {
 			arm_to_add = [[format["%1NORTH_SOV_41_T26_M33", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_SOV_41_T26_M38", _sid], 1, 20];
 			arm_to_add pushBack [format["%1NORTH_SOV_41_T26_M33com", _sid], 1, 20];
 		};
 	};
 	units_tracked append arm_to_add;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			arm_to_add = [[format["%1NORTH_SOV_W_41_T28", _sid], 1, 60]];
 			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T28_com", _sid], 1, 20];
-			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T28e", _sid], 1, 20];
+			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T26_M38", _sid], 1, 20];
 		};
 		default {
 			arm_to_add = [[format["%1NORTH_SOV_41_T28", _sid], 1, 60]];
 			arm_to_add pushBack [format["%1NORTH_SOV_41_T28_com", _sid], 1, 20];
+			arm_to_add pushBack [format["%1NORTH_SOV_41_T26_M38", _sid], 1, 20];
+		};
+	};
+	units_tracked append arm_to_add;
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			arm_to_add pushBack [format["%1NORTH_SOV_W_41_T28e", _sid], 1, 20];
+		};
+		default {
 			arm_to_add pushBack [format["%1NORTH_SOV_41_T28e", _sid], 1, 20];
 		};
 	};
@@ -247,8 +283,11 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 /*units_air = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	units_air = [[format["%1LIB_Pe2", _sid], 1, 50]];
 	_level = _level + 2;

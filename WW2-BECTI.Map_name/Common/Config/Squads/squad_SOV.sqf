@@ -1,5 +1,6 @@
 _side = _this;
 _sid = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -39,8 +40,12 @@ missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], ["Air"]];
 //Infantry setup for the AI groups
 units_infantry = [];
 inf_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_SOV_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1LIB_SOV_rifleman", _sid], 1, 60]];
 	inf_to_add pushBack [format["%1LIB_SOV_medic", _sid], 1, 20];
 	inf_to_add pushBack [format["%1LIB_SOV_AT_grenadier", _sid], 1, 30];
@@ -66,7 +71,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	};
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1LIB_SOV_staff_sergeant", _sid], 1, 30]];
 	inf_to_add pushBack [format["%1LIB_SOV_smgunner_summer", _sid], 1, 20];
 	inf_to_add pushBack [format["%1LIB_SOV_AT_M1A1_soldier", _sid], 1, 40];
@@ -85,7 +93,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 	};
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1LIB_SOV_scout_sniper", _sid], 1, 10]];
 	inf_to_add pushBack [format["%1LIB_SOV_p_officer", _sid], 1, 5];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -114,16 +125,20 @@ _s pushBack [];
 //Wheeled setup for the AI groups
 units_wheeled = [];
 mot_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
-	units_wheeled = +units_infantry;
-};
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1LIB_GazM1_SOV", _sid], 1, 10]];	
+	
 	units_wheeled = mot_to_add;
 };
-//Level 2
-if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1LIB_SOV_M3_Halftrack", _sid], 1, 40]];
 	mot_to_add pushBack [format["%1LIB_Scout_M3", _sid], 1, 40];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -132,16 +147,20 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
 	};
 	units_wheeled = mot_to_add;
 };
-//Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1LIB_SdKfz251_captured_FFV", _sid], 1, 40]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		mot_to_add = [[format["%1LIB_SdKfz251_captured_FFV_w", _sid], 1, 40]];
 	};
 	units_wheeled append mot_to_add;
 };
-//Level 4
-if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	units_wheeled pushBack [format["%1LIB_US6_BM13", _sid], 1, 20];
 };
 
@@ -160,53 +179,74 @@ _s pushBack [];
 //Tracked setup for the AI groups
 units_tracked = [];
 arm_to_add = [];
-_level = 0;
+_matrix_cnt = 0;
+if(CTI_IFA3_NEW > 0) then {
+	_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+	_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_IFA_NEW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_TRACKED < 0) then {
-	units_tracked = +units_infantry;
-};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_IFA3_NEW > 0) then {
+	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		arm_to_add = [[format["%LIB_UniversalCarrier_SOV", _sid], 1, 10]];
 		units_tracked = arm_to_add;
 	};
-	_level = _level + 1;
-};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	arm_to_add = [[format["%1LIB_T34_76", _sid], 1, 40]];
-	if(CTI_IFA3_NEW > 0) then {
+
+	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		arm_to_add pushBack [format["%1LIB_M3A3_Stuart_SOV", _sid], 1, 30];
-	};
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		arm_to_add = [[format["%1LIB_T34_76_w", _sid], 1, 40]];
-		if(CTI_IFA3_NEW > 0) then {
+		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			arm_to_add pushBack [format["%1LIB_M3A3_Stuart_SOV_w", _sid], 1, 30];
 		};
+		units_tracked = arm_to_add;
+	};
+};
+	
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	arm_to_add = [[format["%1LIB_T34_76", _sid], 1, 40]];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		arm_to_add = [[format["%1LIB_T34_76_w", _sid], 1, 40]];
 	};
 	units_tracked = arm_to_add;
-	_level = _level + 1;
 };
-//Level 2
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1LIB_SU85", _sid], 1, 40]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		arm_to_add = [[format["%1LIB_M4A2_SOV_w", _sid], 1, 30]];
 		arm_to_add pushBack [format["%1LIB_SU85_w", _sid], 1, 40];
 	};
 	units_tracked append arm_to_add;
-	_level = _level + 1;
 };
-//Level 3
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	arm_to_add = [[format["%1LIB_M4A2_SOV", _sid], 1, 30]];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		arm_to_add = [[format["%1LIB_M4A2_SOV_w", _sid], 1, 30]];
+	};
+	units_tracked append arm_to_add;
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1LIB_T34_85", _sid], 1, 40]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		arm_to_add = [[format["%1LIB_T34_85_w", _sid], 1, 40]];
 	};
-	arm_to_add pushBack [format["%1LIB_M4A2_SOV", _sid], 1, 30];
 	units_tracked append arm_to_add;
-	_level = _level + 1;
 };
-//Level 4
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1LIB_JS2_43", _sid], 1, 60]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -229,13 +269,17 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //AntiAir setup for the AI groups
 units_antiair = [];
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
-	units_antiair = +units_infantry;
-};
+_matrix_cnt = [1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	units_antiair = [[format["%1LIB_Zis5v_61K", _sid], 1, 30]];
 };
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
 	if(CTI_IFA3_NEW > 0) then {
 		units_antiair pushBack [format["%1LIB_SOV_M16_Halftrack", _sid], 1, 40];
@@ -256,20 +300,21 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 units_air = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_AIR < 0) then {
-	units_air = +units_infantry;
-};
+_matrix_cnt = [1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	//if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 	//	_c pushBack [format["%1LIB_Pe2_2_w", _sid], 1, 40];
 	//	_c pushBack [format["%1LIB_Pe2_w", _sid], 1, 40];
 	//};
 	units_air = [[format["%1LIB_Pe2", _sid], 1, 50]];
-	_level = _level + 2;
 };
-//Level 3
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	units_to_add = [[format["%1LIB_P39", _sid], 1, 60]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active

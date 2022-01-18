@@ -87,6 +87,10 @@ CTI_CO_FNC_SanitizeAircraftFFAR = compileFinal preprocessFileLineNumbers "Common
 CTI_CO_FNC_SanitizeArtillery = compileFinal preprocessFileLineNumbers "Common\Functions\Common_SanitizeArtillery.sqf";
 CTI_CO_FNC_SetCommanderVotes = compileFinal preprocessFileLineNumbers "Common\Functions\Common_SetCommanderVotes.sqf";
 
+CTI_CO_FNC_GetTechmatrix = compileFinal preprocessFileLineNumbers "Common\Functions\Common_GetTechmatrix.sqf";
+CTI_CO_FNC_MergeMatrixArray = compileFinal preprocessFileLineNumbers "Common\Functions\Common_MergeMatrixArray.sqf";
+CTI_CO_FNC_CheckCountUp = compileFinal preprocessFileLineNumbers "Common\Functions\Common_CheckCountUp.sqf";
+
 CTI_CO_CustomIterator = 0;
 
 call compile preprocessFileLineNumbers "Common\Config\Artillery\Artillery.sqf";
@@ -142,9 +146,8 @@ if(CTI_JPN_SIDE >= 0) then {
 };
 //CTI_UK_SIDE declaration
 if(CTI_UK_SIDE >= 0) then {
-	//if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0) then {
-	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA3_NEW >= 0) then {
+	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_UK.sqf";
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_UK.sqf";
 		if((CTI_UK_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_AI < 0)) then {
@@ -180,9 +183,8 @@ if(CTI_UK_SIDE >= 0) then {
 };
 //CTI_US_SIDE declaration
 if(CTI_US_SIDE >= 0) then {
-	//if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0) then {
-	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA3_NEW >= 0) then {
+	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_US.sqf";
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_US.sqf";
 		if((CTI_US_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_US_SIDE >= 1 && CTI_EAST_AI < 0)) then {
@@ -207,9 +209,8 @@ if(CTI_US_SIDE >= 0) then {
 };
 //CTI_SOV_SIDE declaration
 if(CTI_SOV_SIDE >= 0) then {
-	//if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0) then {
-	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA3_NEW >= 0) then {
+	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_SOV.sqf";
 		((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_SOV.sqf";
 		if((CTI_SOV_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_SOV_SIDE == 1 && CTI_EAST_AI < 0)) then {
@@ -244,9 +245,8 @@ if(CTI_SOV_SIDE >= 0) then {
 };
 //CTI_GER_SIDE declaration
 if(CTI_GER_SIDE >= 0) then {
-	//if(CTI_FOW_ADDON < 2 && CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0) then {
-	if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA3_NEW >= 0) then {
+	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
 		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_GER.sqf";
 		((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_GER.sqf";
 		if((CTI_GER_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_GER_SIDE == 1 && CTI_EAST_AI < 0)) then {
@@ -287,18 +287,15 @@ switch(CTI_GUER_TOWNS) do {
 		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FFI.sqf";
 	};
 	case 1: {
-		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_POL.sqf";
-		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL.sqf";
 		if(CTI_CSA_ADDON > 0) then {
 			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_POL_CSA.sqf";
 			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL_CSA.sqf";
 		};
+		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_POL.sqf";
+		((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_POL.sqf";
 	};
 	default {};
 };
-
-(west) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
-(east) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
 
 {
 	if(_x >= 0) then {
@@ -400,7 +397,8 @@ switch(CTI_GUER_TOWNS) do {
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_small_mods.sqf";
 } forEach [west,east,resistance];
 
-
+(west) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
+(east) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
 
 //--- Network communication handler
 "CTI_NetCom" addPublicVariableEventHandler {(_this select 1) Spawn CTI_CO_FNC_OnPVFReceived};

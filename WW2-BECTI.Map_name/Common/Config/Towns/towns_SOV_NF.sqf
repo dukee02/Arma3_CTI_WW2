@@ -1,6 +1,7 @@
 _side = _this;
 _sid = "";
 _tag = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -29,63 +30,71 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 INFANTRY = [];
 INFANTRY_MG = [];
 INFANTRY_AT = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
-	case 1: {
-		switch (CTI_CAMO_ACTIVATION) do {
-			case 1: {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1]];
-			};
-			case 2: {
-				INFANTRY = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1]];
-			};
-			default {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1]];
-			};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1]];
+		};
+		case 2: {
+			INFANTRY = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1]];
+		};
+		default {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Officer_2ndLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1]];
 		};
 	};
-	case 2: {
-		switch (CTI_CAMO_ACTIVATION) do {
-			case 1: {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Sniper", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1]];
-			};
-			case 2: {
-				INFANTRY = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Sniper", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1]];
-			};
-			default {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Sniper", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1]];
-			};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Sniper", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_W_41_Machinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Submachinegunner", _sid],1]];
+		};
+		case 2: {
+			INFANTRY = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Sniper", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_41_Machinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_41_Submachinegunner", _sid],1]];
+		};
+		default {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Sniper", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner", _sid],1],[format["%1O_NORTH_SOV_W_39_Machinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Officer_1stLt", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Autorifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Submachinegunner", _sid],1]];
 		};
 	};
-	default {
-		switch (CTI_CAMO_ACTIVATION) do {
-			case 1: {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50", _sid],1]];
-			};
-			case 2: {
-				INFANTRY = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50", _sid],1]];
-			};
-			default {
-				INFANTRY = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1]];
-				INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1]];
-				INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50", _sid],1]];
-			};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_41_Rifleman", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_41_Medic", _sid],1],[format["%1O_NORTH_SOV_W_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_W_41_Crewman_Mortar50", _sid],1]];
+		};
+		case 2: {
+			INFANTRY = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_41_Rifleman", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_41_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_41_Medic", _sid],1],[format["%1O_NORTH_SOV_41_Rifleman_CPL", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_41_Crewman_Mortar50", _sid],1]];
+		};
+		default {
+			INFANTRY = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1],[format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid],1]];
+			INFANTRY_AT = [[format["%1O_NORTH_SOV_W_39_Rifleman_SGTMAJ", _sid],1],[format["%1O_NORTH_SOV_W_39_Medic", _sid],1],[format["%1O_NORTH_SOV_W_39_Rifleman_SGT", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50_Assistant", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50", _sid],1],[format["%1O_NORTH_SOV_W_39_Crewman_Mortar50", _sid],1]];
 		};
 	};
 };
@@ -108,17 +117,18 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 //														Town Wheeled setup																*
 //***************************************************************************************************************************************
-/*WHEELED_LIGHT = [];
+WHEELED_LIGHT = [];
 WHEELED_HEAVY = [];
+/*_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_WHEELED) do {
-	case 0: {
-		WHEELED_LIGHT = [[format["%1LIB_GazM1_SOV", _sid],1],[format["%1LIB_GazM1_SOV", _sid],1]];
-		WHEELED_HEAVY = [[format["%1LIB_GazM1_SOV_camo_sand", _sid],1],[format["%1LIB_GazM1_SOV_camo_sand", _sid],1]];
-	};
-	default {
-	};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+	WHEELED_LIGHT = [[format["%1LIB_GazM1_SOV", _sid],1],[format["%1LIB_GazM1_SOV", _sid],1]];
+	WHEELED_HEAVY = [[format["%1LIB_GazM1_SOV_camo_sand", _sid],1],[format["%1LIB_GazM1_SOV_camo_sand", _sid],1]];
 };
+*/
 
 if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
@@ -131,58 +141,84 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_SOV_NF.sqf", format["Town Squad <%1> with units <%2> ", format["%1WHEELED_SQ_LIGHT", _tag], missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]]] call CTI_CO_FNC_Log;
 	["VIOC_DEBUG", "FILE: common\config\Towns_SOV_NF.sqf", format["Town Squad <%1> with units <%2> ", format["%1WHEELED_SQ_HEAVY", _tag], missionNamespace getVariable format["%1WHEELED_SQ_HEAVY", _tag]]] call CTI_CO_FNC_Log;
 };
-*/
+
 //***************************************************************************************************************************************
 //														Town Tracked setup																*
 //***************************************************************************************************************************************
 TRACKED_LIGHT = [];
 TRACKED_MEDIUM = [];
 TRACKED_HEAVY = [];
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_TRACKED) do {
-	case 1: {
-		switch(CTI_CAMO_ACTIVATION) do {
-			case 1: {//Winter camo active
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1],[format["%1NORTH_SOV_W_41_T26_M38", _sid],1],[format["%1NORTH_SOV_W_41_T26_M33com", _sid],1]];
-			};
-			default {
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M33", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T26_M33", _sid],1],[format["%1NORTH_SOV_41_T26_M38", _sid],1],[format["%1NORTH_SOV_41_T26_M33com", _sid],1]];
-			};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
 		};
-	};
-	case 2: {
-		switch(CTI_CAMO_ACTIVATION) do {
-			case 1: {//Winter camo active
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1],[format["%1NORTH_SOV_W_41_T26_M38", _sid],1],[format["%1NORTH_SOV_W_41_T26_M33com", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T28", _sid],1],[format["%1NORTH_SOV_W_41_T28_com", _sid],1],[format["%1NORTH_SOV_W_41_T28e", _sid],1]];
-			};
-			default {
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M33", _sid],1],[format["%1NORTH_SOV_41_T26_M38", _sid],1],[format["%1NORTH_SOV_41_T26_M33com", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T28", _sid],1],[format["%1NORTH_SOV_41_T28_com", _sid],1],[format["%1NORTH_SOV_41_T28e", _sid],1]];
-			};
-		};
-	};
-	default {
-		switch(CTI_CAMO_ACTIVATION) do {
-			case 1: {//Winter camo active
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
-			};
-			default {
-				TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1]];
-				TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
-				TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
-			};
+		default {
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
 		};
 	};
 };
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1],[format["%1NORTH_SOV_W_41_T26_M38", _sid],1],[format["%1NORTH_SOV_W_41_T26_M33com", _sid],1]];
+		};
+		default {
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M33", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T26_M33", _sid],1],[format["%1NORTH_SOV_41_T26_M38", _sid],1],[format["%1NORTH_SOV_41_T26_M33com", _sid],1]];
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1],[format["%1NORTH_SOV_W_41_T26_M38", _sid],1],[format["%1NORTH_SOV_W_41_T26_M33com", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T28", _sid],1],[format["%1NORTH_SOV_W_41_T28_com", _sid],1]];
+		};
+		default {
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M33", _sid],1],[format["%1NORTH_SOV_41_T26_M38", _sid],1],[format["%1NORTH_SOV_41_T26_M33com", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T28", _sid],1],[format["%1NORTH_SOV_41_T28_com", _sid],1]];
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_W_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_W_41_T26_M33", _sid],1],[format["%1NORTH_SOV_W_41_T26_M38", _sid],1],[format["%1NORTH_SOV_W_41_T26_M33com", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_W_41_T28", _sid],1],[format["%1NORTH_SOV_W_41_T28_com", _sid],1],[format["%1NORTH_SOV_W_41_T28e", _sid],1]];
+		};
+		default {
+			TRACKED_LIGHT = [[format["%1NORTH_SOV_41_T26_M33_OT", _sid],1],[format["%1NORTH_SOV_41_T26_M31", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1NORTH_SOV_41_T26_M33", _sid],1],[format["%1NORTH_SOV_41_T26_M38", _sid],1],[format["%1NORTH_SOV_41_T26_M33com", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_41_T28", _sid],1],[format["%1NORTH_SOV_41_T28_com", _sid],1],[format["%1NORTH_SOV_41_T28e", _sid],1]];
+		};
+	};
+};
+
 
 if (isNil {missionNamespace getVariable format["%1TRACKED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1TRACKED_SQ_LIGHT", _tag], TRACKED_LIGHT];
@@ -202,18 +238,18 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 //														Town Air setup																	*
 //***************************************************************************************************************************************
-/*AIR_FIGHTER = [];
+AIR_FIGHTER = [];
 AIR_BOMBER = [];
+/*_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0;
-	case 1: {
-		AIR_FIGHTER = [[format["%1LIB_Pe2", _sid],1]];
-		AIR_BOMBER = [[format["%1LIB_Pe2", _sid],1]];
-	};
-	default {
-	};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+	AIR_FIGHTER = [[format["%1", _sid],1]];
+	AIR_BOMBER = [[format["%1", _sid],1]];
 };
+*/
 
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
 	missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
@@ -226,7 +262,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_SOV_NF.sqf", format["Town Squad <%1> with units <%2> ", format["%1AIR_SQ_FIGHTER", _tag], missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]]] call CTI_CO_FNC_Log;
 	["VIOC_DEBUG", "FILE: common\config\Towns_SOV_NF.sqf", format["Town Squad <%1> with units <%2> ", format["%1AIR_SQ_BOMBER", _tag], missionNamespace getVariable format["%1AIR_SQ_BOMBER", _tag]]] call CTI_CO_FNC_Log;
 };
-*/
+
 //***************************************************************************************************************************************
 //														Town Anti-Air setup																*
 //***************************************************************************************************************************************
