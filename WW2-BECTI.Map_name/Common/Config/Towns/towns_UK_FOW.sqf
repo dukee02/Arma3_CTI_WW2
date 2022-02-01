@@ -1,6 +1,7 @@
 _side = _this;
 _sid = "";
 _tag = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -29,42 +30,60 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 INFANTRY = [];
 INFANTRY_MG = [];
 INFANTRY_AT = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_UK_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_INFANTRY) do {
-	case 1: {
-		INFANTRY = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
-		INFANTRY_MG = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
-		INFANTRY_AT = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
-
-		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 2: {		//Desert camo active
 			INFANTRY = [[format["%1fow_s_uk_seac_officer_l", _sid],1],[format["%1fow_s_uk_seac_medic_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_bren_gunner_l", _sid],1],[format["%1fow_s_uk_seac_at_l", _sid],1]];
 			INFANTRY_MG = [[format["%1fow_s_uk_seac_officer", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1]];
 			INFANTRY_AT = [[format["%1fow_s_uk_seac_officer", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1]];
 		};
+		default {
+			INFANTRY = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
+			INFANTRY_AT = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
+		};
 	};
-	case 2: {
-		INFANTRY = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
-		INFANTRY_MG = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
-		INFANTRY_AT = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
+};
 
-		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 2: {		//Desert camo active
 			INFANTRY = [[format["%1fow_s_uk_seac_section_commander_l", _sid],1],[format["%1fow_s_uk_seac_medic_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_bren_gunner_l", _sid],1],[format["%1fow_s_uk_seac_at_l", _sid],1]];
 			INFANTRY_MG = [[format["%1fow_s_uk_seac_section_commander", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1]];
 			INFANTRY_AT = [[format["%1fow_s_uk_seac_section_commander", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1]];
 		};
+		default {
+			INFANTRY = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
+			INFANTRY_AT = [[format["%1fow_s_uk_section_commander", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
+		};
 	};
-	default {
-		INFANTRY = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
-		INFANTRY_MG = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
-		INFANTRY_AT = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
+};
 
-		if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 2: {		//Desert camo active
 			INFANTRY = [[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_medic_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_rifleman_l", _sid],1],[format["%1fow_s_uk_seac_at_asst_l", _sid],1]];
 			INFANTRY_MG = [[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1]];
 			INFANTRY_AT = [[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_medic", _sid],1],[format["%1fow_s_uk_seac_rifleman", _sid],1],[format["%1fow_s_uk_seac_bren_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1],[format["%1fow_s_uk_seac_at_asst", _sid],1]];
 		};
+		default {
+			INFANTRY = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1],[format["%1fow_s_uk_bren_asst", _sid],1]];
+			INFANTRY_AT = [[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_medic", _sid],1],[format["%1fow_s_uk_rifleman", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1],[format["%1fow_s_uk_at_asst", _sid],1]];
+		};
 	};
 };
+
 if (isNil {missionNamespace getVariable format["%1INFANTRY_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1INFANTRY_SQ_LIGHT", _tag], INFANTRY];
 	missionNamespace setVariable [format["%1INFANTRY_SQ_MG", _tag], INFANTRY_MG];
@@ -85,10 +104,17 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 WHEELED_LIGHT = [];
 WHEELED_HEAVY = [];
-//switch (CTI_ECONOMY_LEVEL_WHEELED) do {
-	//default {
-	//};
-//};
+/*_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_UK_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+	WHEELED_LIGHT = [[format["%1LIB_GazM1_SOV", _sid],1],[format["%1LIB_GazM1_SOV", _sid],1]];
+	WHEELED_HEAVY = [[format["%1LIB_GazM1_SOV_camo_sand", _sid],1],[format["%1LIB_GazM1_SOV_camo_sand", _sid],1]];
+};
+*/
+
 if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1WHEELED_SQ_LIGHT", _tag], WHEELED_LIGHT];
 	missionNamespace setVariable [format["%1WHEELED_SQ_HEAVY", _tag], WHEELED_HEAVY];
@@ -107,34 +133,25 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 TRACKED_LIGHT = [];
 TRACKED_MEDIUM = [];
 TRACKED_HEAVY = [];
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_TRACKED) do {
-	case 0: {
-		TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
-		TRACKED_MEDIUM = [[format["%1fow_v_universalCarrier", _sid],1]];
-		TRACKED_HEAVY = [[format["%1fow_v_universalCarrier", _sid],1]];
-	};
-	case 1: {
-		if(CTI_IFA3_NEW < 0) then {
-			TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1]];
-			TRACKED_HEAVY = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1fow_v_cromwell_uk", _sid],1]];
-		} else {
-			TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1fow_v_universalCarrier", _sid],1]];
-			TRACKED_HEAVY = [[format["%1fow_v_universalCarrier", _sid],1]];
-		};
-	};
-	case 2;
-	case 3;
-	case 4: {
-		TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
-		TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1]];
-		TRACKED_HEAVY = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1fow_v_cromwell_uk", _sid],1]];
-	};
-	default {
-	};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
+	TRACKED_MEDIUM = [[format["%1fow_v_universalCarrier", _sid],1]];
+	TRACKED_HEAVY = [[format["%1fow_v_universalCarrier", _sid],1]];
 };
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	TRACKED_LIGHT = [[format["%1fow_v_universalCarrier", _sid],1]];
+	TRACKED_MEDIUM = [[format["%1fow_v_cromwell_uk", _sid],1]];
+	TRACKED_HEAVY = [[format["%1fow_v_cromwell_uk", _sid],1],[format["%1fow_v_cromwell_uk", _sid],1]];
+};
+
 if (isNil {missionNamespace getVariable format["%1TRACKED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1TRACKED_SQ_LIGHT", _tag], TRACKED_LIGHT];
 	missionNamespace setVariable [format["%1TRACKED_SQ_MEDIUM", _tag], TRACKED_MEDIUM];
@@ -155,25 +172,16 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //***************************************************************************************************************************************
 AIR_FIGHTER = [];
 AIR_BOMBER = [];
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_FOW_ID] call CTI_CO_FNC_GetTechmatrix;
 
-switch (CTI_ECONOMY_LEVEL_AIR) do {
-	case 0;
-	case 1;
-	case 2: {
-		if(CTI_IFA3_NEW < 0) then {
-			AIR_FIGHTER = [[format["%1fow_va_f6f_faa", _sid],1]];
-			AIR_BOMBER = [[format["%1fow_va_f6f_c_faa", _sid],1]];
-		};
-	};
-	case 3;
-	case 4;
-	case 5: {
-		AIR_FIGHTER = [[format["%1fow_va_f6f_faa", _sid],1]];
-		AIR_BOMBER = [[format["%1fow_va_f6f_c_faa", _sid],1]];
-	};
-	default {
-	};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+	AIR_FIGHTER = [[format["%1fow_va_f6f_faa", _sid],1]];
+	AIR_BOMBER = [[format["%1fow_va_f6f_c_faa", _sid],1]];
 };
+
 if (isNil {missionNamespace getVariable format["%1AIR_SQ_FIGHTER", _tag]}) then {
 	missionNamespace setVariable [format["%1AIR_SQ_FIGHTER", _tag], AIR_FIGHTER];
 	missionNamespace setVariable [format["%1AIR_SQ_BOMBER", _tag], AIR_BOMBER];

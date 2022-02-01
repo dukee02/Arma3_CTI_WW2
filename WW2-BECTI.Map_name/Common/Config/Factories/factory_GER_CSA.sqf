@@ -1,4 +1,4 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai"];
+private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 _side = _this;
 _ai = -1;
 
@@ -49,8 +49,12 @@ if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\f
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Barracks Factory.
 _c = [];
-//Level start
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	/*if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1", _sid];
 	};
@@ -79,8 +83,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_c pushBack format["%1CSA38_WH4bb", _sid];
 	_c pushBack format["%1CSA38_WH13", _sid];//Medic
 };
-//Level 1
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	_c pushBack format["%1CSA38_WH5", _sid];//MG
 	_c pushBack format["%1CSA38_WH5as1", _sid];
 	_c pushBack format["%1CSA38_WH5as2", _sid];
@@ -97,8 +103,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 	_c pushBack format["%1CSA38_WH21", _sid];
 	_c pushBack format["%1CSA38_WHoff2", _sid];
 };
-//Level 2
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	_c pushBack format["%1CSA38_WH1S", _sid];//Sniper
 	
 	_c pushBack format["%1CSA38_WHoff1", _sid];//WH TL
@@ -123,11 +131,18 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 _c = [];
 //Level start
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {	
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {	
 	_c pushBack format["%1CSA38_pragaRV6", _sid];
 };
-//Level 1
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_opelblitz_W", _sid];
 		_c pushBack format["%1CSA38_opelblitz2_W", _sid];
@@ -142,30 +157,30 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		//_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		//_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
-	
-	//_c pushBack format["%1CSA38_opelblitz3", _sid];//salvager
-	_c pushBack format["%1CSA38_opelblitz2", _sid];
-	_c pushBack format["%1CSA38_opelblitz", _sid];
-	//_c pushBack format["%1CSA38_opelblitz_LATE", _sid];
-	//_c pushBack format["%1CSA38_opelblitz2_LATE", _sid];
-	_c pushBack format["%1CSA38_opelblitz3_LATE", _sid];
-	//_c pushBack format["%1CSA38_opelblitz_LATE2", _sid];
-	//_c pushBack format["%1CSA38_opelblitz2_LATE2", _sid];
-	//_c pushBack format["%1CSA38_opelblitz3_LATE2", _sid];
-	
-	/*_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
-	_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
-	_c pushBack format["%1CSA38_opelblitz6", _sid];//repair
-	_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
-	_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
-	_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
-	_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel */
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		//_c pushBack format["%1CSA38_opelblitz3", _sid];//salvager
+		_c pushBack format["%1CSA38_opelblitz2", _sid];
+		_c pushBack format["%1CSA38_opelblitz", _sid];
+		//_c pushBack format["%1CSA38_opelblitz_LATE", _sid];
+		//_c pushBack format["%1CSA38_opelblitz2_LATE", _sid];
+		_c pushBack format["%1CSA38_opelblitz3_LATE", _sid];
+		//_c pushBack format["%1CSA38_opelblitz_LATE2", _sid];
+		//_c pushBack format["%1CSA38_opelblitz2_LATE2", _sid];
+		//_c pushBack format["%1CSA38_opelblitz3_LATE2", _sid];
+		
+		/*_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
+		_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
+		_c pushBack format["%1CSA38_opelblitz6", _sid];//repair
+		_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
+		_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
+		_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
+		_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel */
+	};
 };
-//Level 2
-//if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
-//};
-//Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_8radW", _sid];
 		_c pushBack format["%1CSA38_8rad2W", _sid];
@@ -174,21 +189,19 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 		_c pushBack format["%1CSA38_8radDE", _sid];
 		_c pushBack format["%1CSA38_8rad2DE", _sid];
 	};
-	
-	_c pushBack format["%1CSA38_8rad", _sid];
-	_c pushBack format["%1CSA38_8rad2", _sid];
-	//_c pushBack format["%1CSA38_8radPL", _sid];
-	//_c pushBack format["%1CSA38_8rad2PL", _sid];
-	//_c pushBack format["%1CSA38_8radFR", _sid];
-	//_c pushBack format["%1CSA38_8rad2FR", _sid];
-	//_c pushBack format["%1CSA38_8radLATE", _sid];
-	//_c pushBack format["%1CSA38_8rad2LATE", _sid];
-	//_c pushBack format["%1CSA38_8radLATE2", _sid];
-	//_c pushBack format["%1CSA38_8rad2LATE2", _sid];
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_8rad", _sid];
+		_c pushBack format["%1CSA38_8rad2", _sid];
+		//_c pushBack format["%1CSA38_8radPL", _sid];
+		//_c pushBack format["%1CSA38_8rad2PL", _sid];
+		//_c pushBack format["%1CSA38_8radFR", _sid];
+		//_c pushBack format["%1CSA38_8rad2FR", _sid];
+		//_c pushBack format["%1CSA38_8radLATE", _sid];
+		//_c pushBack format["%1CSA38_8rad2LATE", _sid];
+		//_c pushBack format["%1CSA38_8radLATE2", _sid];
+		//_c pushBack format["%1CSA38_8rad2LATE2", _sid];
+	};
 };
-//Level 4
-//if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
-//};
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
@@ -206,53 +219,74 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
 _c = [];
-//Level 0
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzbfwI_W", _sid];
-		_c pushBack format["%1CSA38_ltm35_W", _sid];
-		//_c pushBack format["%1CSA38_ltm35_FR2_W", _sid];//nazi
 		_c pushBack format["%1CSA38_pzkpfwIA_W", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_W", _sid];
-		_c pushBack format["%1CSA38_pzIIa_W", _sid];
-		_c pushBack format["%1CSA38_pzIIb_W", _sid];
-		_c pushBack format["%1CSA38_pzII_W", _sid];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwI_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_DE", _sid];
+	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
+		_c pushBack format["%1CSA38_pzbfwI", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
+		
+		_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];*/
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		_c pushBack format["%1CSA38_pzIIa_W", _sid];
+		_c pushBack format["%1CSA38_pzIIb_W", _sid];
+		_c pushBack format["%1CSA38_pzII_W", _sid];
+		_c pushBack format["%1CSA38_ltm35_W", _sid];
+		//_c pushBack format["%1CSA38_ltm35_FR2_W", _sid];//nazi
+	};
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzIIa_DE", _sid];
 		_c pushBack format["%1CSA38_pzIIb_DE", _sid];
 		_c pushBack format["%1CSA38_pzII_DE", _sid];
+		//_c pushBack format["%1CSA38_pzII_DE2", _sid];
 	};
-	_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
-	_c pushBack format["%1CSA38_pzbfwI", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI", _sid];
-	_c pushBack format["%1CSA38_pzIIa", _sid];
-	_c pushBack format["%1CSA38_pzIIb", _sid];
-	_c pushBack format["%1CSA38_pzII", _sid];
-	_c pushBack format["%1CSA38_ltm35_1", _sid];
-	
-	/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
-	_c pushBack format["%1CSA38_pzIIa_PL", _sid];
-	_c pushBack format["%1CSA38_pzIIb_PL", _sid];
-	_c pushBack format["%1CSA38_pzII_PL", _sid];
-	
-	_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
-	_c pushBack format["%1CSA38_ltm35_FR", _sid];
-	//_c pushBack format["%1CSA38_ltm35_FR2", _sid];//nazi
-	_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIa_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIb_FR", _sid];
-	_c pushBack format["%1CSA38_pzII_FR", _sid];*/
-	_level = _level + 1;
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIIa", _sid];
+		_c pushBack format["%1CSA38_pzIIb", _sid];
+		_c pushBack format["%1CSA38_pzII", _sid];
+		_c pushBack format["%1CSA38_ltm35_1", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzIIa_PL", _sid];
+		_c pushBack format["%1CSA38_pzIIb_PL", _sid];
+		_c pushBack format["%1CSA38_pzII_PL", _sid];
+		
+		_c pushBack format["%1CSA38_ltm35_FR", _sid];
+		//_c pushBack format["%1CSA38_ltm35_FR2", _sid];//nazi
+		_c pushBack format["%1CSA38_pzIIa_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIb_FR", _sid];
+		_c pushBack format["%1CSA38_pzII_FR", _sid];*/
+	};
 };
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzbfwIamb_W", _sid];// medic?
@@ -265,64 +299,72 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwIamb_DE", _sid];// medic?
-		_c pushBack format["%1csa38_matildaii_DE", _sid];
+		_c pushBack format["%1CSA38_pzIIID_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIIID_DAK2", _sid];
 	};
-	_c pushBack format["%1CSA38_pzIIIB", _sid];
-	_c pushBack format["%1CSA38_pzIIIC", _sid];
-	_c pushBack format["%1CSA38_pzIIID", _sid];
-	_c pushBack format["%1CSA38_StugIII", _sid];
-	_c pushBack format["%1CSA38_ltm38", _sid];
-	
-	//_c pushBack format["%1CSA38_pzIIIB_PL", _sid];
-	//_c pushBack format["%1CSA38_pzIIIC_PL", _sid];
-	//_c pushBack format["%1CSA38_pzIIID_PL", _sid];
-	_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
-	//_c pushBack format["%1CSA38_mzm35t", _sid];//nazi, ammo?
-	
-	/*_c pushBack format["%1CSA38_ltm38_FR", _sid];
-	//_c pushBack format["%1CSA38_ltm38_FR2", _sid];//nazi
-	_c pushBack format["%1CSA38_pzIIIB_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIIC_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIID_FR", _sid];
-	
-	_c pushBack format["%1CSA38_ltm38_LATE", _sid];
-	_c pushBack format["%1CSA38_ltm38_LATE2", _sid];//camo
-	_c pushBack format["%1CSA38_pzIIIB_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIIIC_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIIID_LATE", _sid];*/
-	_level = _level + 1;
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIIIB", _sid];
+		_c pushBack format["%1CSA38_pzIIIC", _sid];
+		_c pushBack format["%1CSA38_pzIIID", _sid];
+		_c pushBack format["%1CSA38_StugIII", _sid];
+		_c pushBack format["%1CSA38_ltm38", _sid];
+		
+		//_c pushBack format["%1CSA38_pzIIIB_PL", _sid];
+		//_c pushBack format["%1CSA38_pzIIIC_PL", _sid];
+		//_c pushBack format["%1CSA38_pzIIID_PL", _sid];
+		_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
+		//_c pushBack format["%1CSA38_mzm35t", _sid];//nazi, ammo?
+		
+		/*_c pushBack format["%1CSA38_ltm38_FR", _sid];
+		//_c pushBack format["%1CSA38_ltm38_FR2", _sid];//nazi
+		_c pushBack format["%1CSA38_pzIIIB_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIIC_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIID_FR", _sid];
+		
+		_c pushBack format["%1CSA38_ltm38_LATE", _sid];
+		_c pushBack format["%1CSA38_ltm38_LATE2", _sid];//camo
+		_c pushBack format["%1CSA38_pzIIIB_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIIIC_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIIID_LATE", _sid];*/
+	};
 };
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzIV_W", _sid];
 		_c pushBack format["%1CSA38_pzIVB_W", _sid];
 		_c pushBack format["%1CSA38_pzIVC_W", _sid];
 	};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//	_c pushBack format["%1", _sid];
-	//};
-	_c pushBack format["%1CSA38_pzIV", _sid];
-	_c pushBack format["%1CSA38_pzIVB", _sid];
-	_c pushBack format["%1CSA38_pzIVcv38", _sid];
-	
-	/*_c pushBack format["%1CSA38_pzIV_PL", _sid];
-	_c pushBack format["%1CSA38_pzIVB_PL", _sid];
-	_c pushBack format["%1CSA38_pzIVC_PL", _sid];
-	
-	_c pushBack format["%1CSA38_pzIV_FR", _sid];
-	_c pushBack format["%1CSA38_pzIVB_FR", _sid];
-	_c pushBack format["%1CSA38_pzIVC_FR", _sid];
-	
-	_c pushBack format["%1CSA38_pzIV_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
-	_level = _level + 1;
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		_c pushBack format["%1CSA38_pzIV_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIVB_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIVC_DAK", _sid];
+	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIV", _sid];
+		_c pushBack format["%1CSA38_pzIVB", _sid];
+		_c pushBack format["%1CSA38_pzIVcv38", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzIV_PL", _sid];
+		_c pushBack format["%1CSA38_pzIVB_PL", _sid];
+		_c pushBack format["%1CSA38_pzIVC_PL", _sid];
+		
+		_c pushBack format["%1CSA38_pzIV_FR", _sid];
+		_c pushBack format["%1CSA38_pzIVB_FR", _sid];
+		_c pushBack format["%1CSA38_pzIVC_FR", _sid];
+		
+		_c pushBack format["%1CSA38_pzIV_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
+	};
 };
 
-//Level 3
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1csa38_valentineMkII7", _sid];
-	_level = _level + 1;
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_HEAVY];
@@ -341,7 +383,11 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_HEAVY], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Air Factory.
 /*_c = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1", _sid];
@@ -399,12 +445,16 @@ if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo a
 	_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 	_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 };
-_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
-_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
-_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
-_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
-_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
-_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel
+if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
+	_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
+};
+if(CTI_CAMO_ACTIVATION > 3) then {		//all camo active
+	_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
+	_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
+	_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
+	_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel
+};
 	
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];
@@ -440,10 +490,12 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 		_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
-	_c pushBack format["%1CSA38_opelblitz2", _sid];
-	_c pushBack format["%1CSA38_opelblitz6", _sid];//repair
-	_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
-	_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_opelblitz2", _sid];
+		_c pushBack format["%1CSA38_opelblitz6", _sid];//repair
+		_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
+		_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
+	};
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_DEPOT];
 if (isNil "_priorUnits") then { 
@@ -460,6 +512,11 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_DEPOT], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
 /*_c = [];
+_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
+
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL];
 if (isNil "_priorUnits") then { 

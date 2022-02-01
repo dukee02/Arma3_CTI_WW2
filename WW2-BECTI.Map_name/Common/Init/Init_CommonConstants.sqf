@@ -27,6 +27,26 @@ CTI_EAST_COLOR = "ColorRed";
 CTI_RESISTANCE_COLOR = "ColorGreen";
 CTI_UNKNOWN_COLOR = "ColorBlack";
 
+//--- National IDs
+CTI_GER_ID = 0;
+CTI_SOV_ID = 1;
+CTI_UK_ID = 2;
+CTI_US_ID = 3;
+CTI_JPN_ID = 4;
+CTI_CZ_ID = 5;
+CTI_FIN_ID = 6;
+
+//--- Mod IDs
+CTI_IFA_ID = 0;
+CTI_IFA_NEW_ID = 1;
+CTI_FOW_ID = 2;
+CTI_CSA_ID = 3;
+CTI_NF_ID = 4;
+CTI_SABFL_ID = 5;
+CTI_SABNL_ID = 6;
+CTI_SAB_ID = 7;
+CTI_BT_ID = 8;
+
 CTI_GEAR_TAB_PRIMARY = 0;
 CTI_GEAR_TAB_SECONDARY = 1;
 CTI_GEAR_TAB_HANDGUN = 2;
@@ -248,18 +268,25 @@ CTI_UPGRADE_TOWNS = 10;
 CTI_UPGRADE_SUPPLY = 11;
 CTI_UPGRADE_GEAR = 12;
 
-/*CTI_UPGRADE_GEAR = 0;
-CTI_UPGRADE_BARRACKS = 1;
-CTI_UPGRADE_LIGHT = 2;
-CTI_UPGRADE_HEAVY = 3;
-CTI_UPGRADE_AIR = 4;
-CTI_UPGRADE_TOWNS = 5;
-CTI_UPGRADE_SUPPLY = 6;
-CTI_UPGRADE_AIR_FFAR = 7;
-CTI_UPGRADE_AIR_AT = 8;
-CTI_UPGRADE_AIR_AA = 9;
-CTI_UPGRADE_AIR_CM = 10;
-CTI_UPGRADE_SATELLITE = 11;*/
+with missionNamespace do {	
+	//Global max levels and multiplicators
+	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_LEVEL_MULTI = 100};
+	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_RESEARCH_MULTI = 100};
+	if (isNil 'CTI_ECONOMY_LEVEL_GEAR') then {CTI_ECONOMY_LEVEL_GEAR = 2};
+	if (isNil 'CTI_ECONOMY_LEVEL_INFANTRY') then {CTI_ECONOMY_LEVEL_INFANTRY = 2};
+	if (isNil 'CTI_ECONOMY_LEVEL_WHEELED') then {CTI_ECONOMY_LEVEL_WHEELED = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_TRACKED') then {CTI_ECONOMY_LEVEL_TRACKED = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_AIR') then {CTI_ECONOMY_LEVEL_AIR = 4};
+	if (isNil 'CTI_ECONOMY_LEVEL_NAVAL') then {CTI_ECONOMY_LEVEL_NAVAL = 3};
+	if (isNil 'CTI_ECONOMY_UPGRADE_TIMECAP') then {CTI_ECONOMY_UPGRADE_TIMECAP = 600};
+	if (isNil 'CTI_ECONOMY_TIME_MULTI') then {CTI_ECONOMY_TIME_MULTI = 2};
+	
+	//setup the default values for the tech tree
+	//It gets changed in the factory.sqf and used in Upgrades.sqf
+	missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", west], [0,0,0,0,0,1,1,1,1,1,3,4,0]];
+	missionNamespace setVariable [Format["CTI_%1_UPGRADES_LEVELS", east], [0,0,0,0,0,1,1,1,1,1,3,4,0]];
+};
+
 //-----------------------------------------------------------------------------------------------------------------------//
 
 
@@ -700,6 +727,7 @@ with missionNamespace do {
 	if (isNil 'CTI_UK_SIDE') then {CTI_UK_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_JPN_SIDE') then {CTI_JPN_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_CZ_SIDE') then {CTI_CZ_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
+	if (isNil 'CTI_FIN_SIDE') then {CTI_FIN_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 		
 	if (isNil 'CTI_WEST_AI') then {CTI_WEST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_EAST_AI') then {CTI_EAST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
@@ -726,7 +754,7 @@ with missionNamespace do {
 	if (isNil 'CTI_ECONOMY_STARTUP_FUNDS_WEST_COMMANDER') then {CTI_ECONOMY_STARTUP_FUNDS_WEST_COMMANDER = 9000};
 	if (isNil 'CTI_ECONOMY_STARTUP_SUPPLY_WEST') then {CTI_ECONOMY_STARTUP_SUPPLY_WEST = 1200};
 	if (isNil 'CTI_ECONOMY_TOWNS_OCCUPATION') then {CTI_ECONOMY_TOWNS_OCCUPATION = 1}; //--- Determine if towns need to be occupied to bring more resources
-	
+		
 	// CTI_ECONOMY_STARTUP_FUNDS_EAST = 80000;
 	// CTI_ECONOMY_STARTUP_FUNDS_EAST_COMMANDER = 400000;
 	// CTI_ECONOMY_STARTUP_FUNDS_WEST = 80000;
@@ -739,17 +767,7 @@ with missionNamespace do {
 	if (isNil 'CTI_ECONOMY_PRIZE_TRACKED') then {CTI_ECONOMY_PRIZE_TRACKED = 5000};
 	if (isNil 'CTI_ECONOMY_PRIZE_AIR') then {CTI_ECONOMY_PRIZE_AIR = 10000};
 	if (isNil 'CTI_ECONOMY_PRIZE_NAVAL') then {CTI_ECONOMY_PRIZE_NAVAL = 2000};
-	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_LEVEL_MULTI = 100};
-	if (isNil 'CTI_ECONOMY_LEVEL_MULTI') then {CTI_ECONOMY_RESEARCH_MULTI = 100};
 	if (isNil 'CTI_ECONOMY_PRIZE_ARMED') then {CTI_ECONOMY_PRIZE_ARMED = 300};
-	if (isNil 'CTI_ECONOMY_LEVEL_GEAR') then {CTI_ECONOMY_LEVEL_GEAR = 2};
-	if (isNil 'CTI_ECONOMY_LEVEL_INFANTRY') then {CTI_ECONOMY_LEVEL_INFANTRY = 2};
-	if (isNil 'CTI_ECONOMY_LEVEL_WHEELED') then {CTI_ECONOMY_LEVEL_WHEELED = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_TRACKED') then {CTI_ECONOMY_LEVEL_TRACKED = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_AIR') then {CTI_ECONOMY_LEVEL_AIR = 4};
-	if (isNil 'CTI_ECONOMY_LEVEL_NAVAL') then {CTI_ECONOMY_LEVEL_NAVAL = 3};
-	if (isNil 'CTI_ECONOMY_UPGRADE_TIMECAP') then {CTI_ECONOMY_UPGRADE_TIMECAP = 600};
-	if (isNil 'CTI_ECONOMY_TIME_MULTI') then {CTI_ECONOMY_TIME_MULTI = 2};
 	
 	CTI_VEHICLES_SALVAGER_PRICE = ((CTI_ECONOMY_PRIZE_WHEELED*((CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED)); //--- Determine the cost of the salvage trucks
 		
@@ -783,49 +801,101 @@ with missionNamespace do {
 		if (!isClass(configFile >> "CfgVehicles" >> "LIB_M4T34_Calliope")) then {
 			//check if the IFA3_beta version is loaded or the stable
 			CTI_IFA3_NEW = 0;
+			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 found! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
+		} else {
+			CTI_IFA3_NEW = 1;
+			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 beta Version found! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
 		};
 		if (!isClass(configFile >> "CfgVehicles" >> "LIB_US_Willys_MB")) then {
 			//check if the IFA3 version is loaded or no IFA3 is found
 			CTI_IFA3_NEW = -1;
+			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 configured but not loaded! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
 		};
 	};
-	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 Version <%1> ", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
 	
-	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
+	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_CSA_ADDON') then {CTI_CSA_ADDON = 0};
+	if (isNil 'CTI_NF_ADDON') then {CTI_NF_ADDON = 0};
 	if (isNil 'CTI_SABFL_ADDON') then {CTI_SABFL_ADDON = 0};
 	if (isNil 'CTI_SABNL_ADDON') then {CTI_SABNL_ADDON = 0};
-	if (isNil 'CTI_IFA3LIB_ADDON') then {CTI_IFA3LIB_ADDON = 0};
-	//Check when IFA is loaded VIO patch is loaded too
+	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
+	if (isNil 'CTI_BT_ADDON') then {CTI_BT_ADDON = 0};
+	//Check when IFA is loaded VIO patch is loaded too?
 	if(CTI_IFA3_NEW >= 0) then {
-		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
-			//check if the IFA3_beta version is loaded or the stable
-			CTI_VIO_ADDON = 1;
-		};
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		//check for VIO units depends on this mod
-		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_fow_s_ger_heer_rifleman")) then {
-			CTI_VIO_ADDON = 1;
-		} else {
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
+			//check if the VIO addon is loaded or the stable
 			CTI_VIO_ADDON = 0;
 		};
 	};
-	
+	if(CTI_FOW_ADDON > 0) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "fow_s_ger_heer_rifleman")) then {
+			CTI_FOW_ADDON = 0;
+			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["FOW configured but not loaded! <%1>", CTI_FOW_ADDON]] call CTI_CO_FNC_Log; };
+		};
+		//check for VIO units depends on this mod
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_fow_s_ger_heer_rifleman")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-FOW addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	};
+	if(CTI_CSA_ADDON > 0) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "CSA38_WH2Bi")) then {
+			CTI_CSA_ADDON = 0;
+			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["CSA configured but not loaded! <%1>", CTI_CSA_ADDON]] call CTI_CO_FNC_Log; };
+		};
+		//check for VIO units depends on this mod
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_CSA38_WH2Bi")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-CSA addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	};
+	if(CTI_NF_ADDON > 0) then {
+		if !(isClass(configFile >> "CfgVehicles" >> "I_NORTH_FIN_W_41_Unequipped")) then {
+			CTI_NF_ADDON = 0;
+			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["NF configured but not loaded! <%1>", CTI_NF_ADDON]] call CTI_CO_FNC_Log; };
+		};
+		//check for VIO units depends on this mod
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_I_NORTH_FIN_W_41_Unequipped")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-NF addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	};
+		
 	if (isClass(configFile >> "CfgVehicles" >> "sab_fl_bf109e")) then {
 		CTI_SABFL_ADDON = 1;
-		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_fl_bf109e")) then {CTI_VIO_ADDON = 0};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["SAB FL found! <%1>", CTI_SABFL_ADDON]] call CTI_CO_FNC_Log; };
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_fl_bf109e")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-WW2 for SAB FL addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	};
 	if (isClass(configFile >> "CfgVehicles" >> "sab_nl_mutsuki")) then {
 		CTI_SABNL_ADDON = 1;
-		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_nl_mutsuki")) then {CTI_VIO_ADDON = 0};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["SAB NL found! <%1>", CTI_SABNL_ADDON]] call CTI_CO_FNC_Log; };
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_nl_mutsuki")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-WW2 for SAB NL addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	};
 	if (isClass(configFile >> "CfgVehicles" >> "sab_bf110")) then {
 		CTI_SAB_ADDON = 1;
-		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_bf110")) then {CTI_VIO_ADDON = 0};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["SAB old found! <%1>", CTI_SAB_ADDON]] call CTI_CO_FNC_Log; };
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_bf110")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-SAB old addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	};
-	if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\init\Init_CommonConstants.sqf", format["addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+		CTI_BT_ADDON = 1;
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["BT-Mod found! <%1>", CTI_BT_ADDON]] call CTI_CO_FNC_Log; };
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_SOV_BT_BT7A")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-WW2 for BT-mod addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	};
+	
+	if (isNil 'CTI_STREAM_BLOCK') then {CTI_STREAM_BLOCK = 0};
 	
 	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};

@@ -1,5 +1,6 @@
 _side = _this;
 _sid = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -41,8 +42,12 @@ if(CTI_IFA3_NEW < 0) then {
 //Infantry setup for the AI groups
 units_infantry = [];
 inf_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_BARRACKS] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_BARRACKS, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1CSA38_WH2Bi", _sid], 1, 50]];//recruits
 	inf_to_add pushBack [format["%1CSA38_WH2B", _sid], 1, 50];
 	inf_to_add pushBack [format["%1CSA38_WH1B", _sid], 1, 50];
@@ -60,7 +65,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1CSA38_WH5", _sid], 1, 40]];//MG
 	inf_to_add pushBack [format["%1CSA38_WH5as1", _sid], 1, 30];
 	inf_to_add pushBack [format["%1CSA38_WH5as2", _sid], 1, 30];
@@ -79,7 +87,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 	
 	units_infantry append inf_to_add;
 };
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	inf_to_add = [[format["%1CSA38_WH1S", _sid], 1, 30]];
 	
 	inf_to_add pushBack [format["%1CSA38_WHoff1", _sid], 1, 10];
@@ -105,15 +116,22 @@ _s pushBack [];
 //Wheeled setup for the AI groups
 units_wheeled = [];
 mot_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-//Level 3
-if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
+_matrix_cnt = [3, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1CSA38_8rad", _sid], 1, 30]];
 	mot_to_add pushback [format["%1CSA38_8rad2", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8radPL", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2PL", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8radFR", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2FR", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8radPL", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8rad2PL", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8radFR", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8rad2FR", _sid], 1, 10];
+	mot_to_add pushback [format["%1CSA38_8radLATE", _sid], 1, 10];
+	mot_to_add pushback [format["%1CSA38_8rad2LATE", _sid], 1, 20];
+	mot_to_add pushback [format["%1CSA38_8radLATE2", _sid], 1, 20];
+	mot_to_add pushback [format["%1CSA38_8rad2LATE2", _sid], 1, 10];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		mot_to_add = [[format["%1CSA38_8radW", _sid], 1, 30]];
 		mot_to_add pushback [format["%1CSA38_8rad2W", _sid], 1, 10];
@@ -122,10 +140,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 3) then {
 		mot_to_add = [[format["%1CSA38_8radDE", _sid], 1, 30]];
 		mot_to_add pushback [format["%1CSA38_8rad2DE", _sid], 1, 10];
 	};
-	mot_to_add pushback [format["%1CSA38_8radLATE", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2LATE", _sid], 1, 20];
-	mot_to_add pushback [format["%1CSA38_8radLATE2", _sid], 1, 20];
-	mot_to_add pushback [format["%1CSA38_8rad2LATE2", _sid], 1, 10];
 	
 	units_wheeled append mot_to_add;
 };
@@ -146,58 +160,76 @@ _s pushBack [];
 //Tracked setup for the AI groups
 units_tracked = [];
 arm_to_add = [];
+_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
 
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
 	arm_to_add = [[format["%1CSA38_pzkpfwI", _sid], 1, 50]];
 	arm_to_add pushback [format["%1CSA38_pzkpfwIA", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzII", _sid], 1, 10];
+	
+	//arm_to_add pushback [format["%1CSA38_pzkpfwI_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzkpfwIA_PL", _sid], 1, 10];
+	
+	//arm_to_add pushback [format["%1CSA38_pzkpfwI_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzkpfwIA_FR", _sid], 1, 10];
+	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
+		arm_to_add = [[format["%1CSA38_pzkpfwI_W", _sid], 1, 50]];
+		arm_to_add pushback [format["%1CSA38_pzkpfwIA_W", _sid], 1, 10];
+	};
+	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
+		arm_to_add = [[format["%1CSA38_pzkpfwI_DE", _sid], 1, 50]];
+		arm_to_add pushback [format["%1CSA38_pzbfwI_DE", _sid], 1, 10];
+	};
+	units_tracked = arm_to_add;
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
+	arm_to_add = [[format["%1CSA38_pzII", _sid], 1, 50]];
 	arm_to_add pushback [format["%1CSA38_pzIIa", _sid], 1, 10];
 	arm_to_add pushback [format["%1CSA38_pzIIb", _sid], 1, 10];
 	arm_to_add pushback [format["%1CSA38_ltm35_1", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzkpfwI_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzkpfwIA_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzII_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIa_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIb_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzII_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIa_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIb_PL", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzkpfwI_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzkpfwIA_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzII_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIa_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIb_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_ltm35_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzII_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIa_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIb_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_ltm35_FR", _sid], 1, 10];
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
-		arm_to_add = [[format["%1CSA38_pzkpfwI_W", _sid], 1, 50]];
-		arm_to_add pushback [format["%1CSA38_pzkpfwIA_W", _sid], 1, 10];
-		arm_to_add pushback [format["%1CSA38_pzII_W", _sid], 1, 10];
+		arm_to_add = [[format["%1CSA38_pzII_W", _sid], 1, 50]];
 		arm_to_add pushback [format["%1CSA38_pzIIa_W", _sid], 1, 10];
 		arm_to_add pushback [format["%1CSA38_pzIIb_W", _sid], 1, 10];
 		arm_to_add pushback [format["%1CSA38_ltm35_W", _sid], 1, 10];
 	};
 	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-		arm_to_add = [[format["%1CSA38_pzkpfwI_DE", _sid], 1, 50]];
-		arm_to_add pushback [format["%1CSA38_pzbfwI_DE", _sid], 1, 10];
-		arm_to_add pushback [format["%1CSA38_pzII_DE", _sid], 1, 10];
+		arm_to_add = [[format["%1CSA38_pzII_DE", _sid], 1, 50]];
 		arm_to_add pushback [format["%1CSA38_pzIIa_DE", _sid], 1, 10];
 		arm_to_add pushback [format["%1CSA38_pzIIb_DE", _sid], 1, 10];
 	};
 	units_tracked = arm_to_add;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1CSA38_pzIIIB", _sid], 1, 50]];
 	arm_to_add pushback [format["%1CSA38_pzIIIC", _sid], 1, 10];
 	arm_to_add pushback [format["%1CSA38_pzIIID", _sid], 1, 10];
 	arm_to_add pushback [format["%1CSA38_ltm38", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzIIIB_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIIC_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIID_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIB_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIC_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIID_PL", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzIIIB_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIIC_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIID_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_ltm38_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIB_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIC_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIID_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_ltm38_FR", _sid], 1, 10];
 	
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 		arm_to_add = [[format["%1CSA38_pzIIIB_W", _sid], 1, 50]];
@@ -205,44 +237,46 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
 		arm_to_add pushback [format["%1CSA38_pzIIIC_W", _sid], 1, 10];
 		arm_to_add pushback [format["%1CSA38_ltm38_W", _sid], 1, 10];
 	};
-	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-		arm_to_add pushback [format["%1csa38_matildaii_DE", _sid], 1, 10];
-	};
 	arm_to_add pushback [format["%1CSA38_StugIII", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_ltm38_LATE", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_ltm38_LATE2", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIIB_LATE", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIIC_LATE", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIIIC_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_ltm38_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_ltm38_LATE2", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIB_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIC_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIIIC_LATE", _sid], 1, 10];
 	
 	units_tracked append arm_to_add;
 };
-if(CTI_ECONOMY_LEVEL_TRACKED >= 2) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1CSA38_pzIV", _sid], 1, 50]];
 	arm_to_add pushback [format["%1CSA38_pzIVB", _sid], 1, 10];
 	arm_to_add pushback [format["%1CSA38_pzIVcv38", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzIV_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVB_PL", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVC_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIV_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVB_PL", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVC_PL", _sid], 1, 10];
 	
-	arm_to_add pushback [format["%1CSA38_pzIV_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVB_FR", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVC_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIV_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVB_FR", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVC_FR", _sid], 1, 10];
 	
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		arm_to_add = [[format["%1CSA38_pzIV_W", _sid], 1, 50]];
 		arm_to_add pushback [format["%1CSA38_pzIVB_W", _sid], 1, 10];
 		arm_to_add pushback [format["%1CSA38_pzIVC_W", _sid], 1, 10];
 	};
-	arm_to_add pushback [format["%1CSA38_pzIV_LATE", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVB_LATE", _sid], 1, 10];
-	arm_to_add pushback [format["%1CSA38_pzIVC_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIV_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVB_LATE", _sid], 1, 10];
+	//arm_to_add pushback [format["%1CSA38_pzIVC_LATE", _sid], 1, 10];
 	
 	units_tracked append arm_to_add;
 };
-//Level 3
-if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	units_tracked pushback [format["%1csa38_valentineMkII7", _sid], 1, 10];
 };
 
@@ -283,9 +317,12 @@ _s pushBack [];*/
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 /*units_air = [];
-_level = 0;
+_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(CTI_ECONOMY_LEVEL_AIR < 0) then {
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_AIR < _level) then {
 	units_air = +units_infantry;
 };
 if(CTI_ECONOMY_LEVEL_AIR >= _level) then {

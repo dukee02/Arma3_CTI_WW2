@@ -44,6 +44,30 @@ switch (missionNamespace getVariable format["CTI_%1FLAG", _side]) do {
 	case 13: {
 		_texture = "\fow\fow_main\flags\flag_netherlands_co.paa";
 	};
+	case 14: {
+		_texture = "ca\Ca_E\data\flag_cz_co.paa";
+	};
+	case 15: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_fin_eastkarelia_CO.paa";		//EastKarelia
+	};
+	case 16: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_fin_military_CO.paa";		//FIN_Military
+	};
+	case 17: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_fin_state_CO.paa";		//FIN_State
+	};
+	case 18: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_fin_CO.paa";		//Flag_FIN
+	};
+	case 19: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_nor_military_CO.paa";	//NOR_Military
+	};
+	case 20: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_nor_CO.paa";			//NOR
+	};
+	case 21: {
+		_texture = "\NORTH\NF_Misc_Objects\flags\data\flag_ussr_CO.paa";		//USSR
+	};
 	/*case 5: {
 		_texture = "";
 	};*/
@@ -61,7 +85,7 @@ switch (missionNamespace getVariable format["CTI_%1FLAG", _side]) do {
 		};
 	};
 };
-	
+
 if(_side == "WEST_") then {
 	missionNamespace setVariable ["CTI_WESTFLAG", _texture];
 } else {

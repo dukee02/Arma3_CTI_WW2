@@ -10,11 +10,30 @@ get3DENSelected "object" select 0 get3DENAttribute "position"
 get3DENSelected "object" select 0 get3DENAttribute "position" select 0 select 2;
 
 
+
+
+
+private _map = [
+    ["B_HMG_01_high_F","LIB_MG42_Lafette_Deployed"]
+];
+private _newpos = screenToWorld [0.5,0.5];
+
+collect3DENHistory {
+    {
+		_newPos = _x get3DENAttribute "position";
+		_newPos set [2, 0];
+		_x set3DENAttribute ["position", _newPos];
+		
+    }
+    forEach (all3DENEntities select 0);
+};
+
+
 //-------------------------------------------------------------------------------------------------
 
 
 private _map = [
-    ["VIOC_B_fow_w_mg42_deployed_s_ger_heer",""]
+    ["B_HMG_01_high_F","LIB_MG42_Lafette_Deployed"]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 
@@ -37,7 +56,7 @@ collect3DENHistory {
 };
 
 private _map = [
-    ["VIOC_B_fow_w_pak40_gray_ger_heer",""]
+    ["B_static_AT_F","LIB_Pak40"]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 
@@ -60,7 +79,7 @@ collect3DENHistory {
 };
 
 private _map = [
-    ["Land_BagBunker_Tower_F",""]
+    ["Land_BagBunker_Tower_F","Fortress2"]
 ];
 private _newpos = screenToWorld [0.5,0.5];
 

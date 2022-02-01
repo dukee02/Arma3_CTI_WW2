@@ -1,5 +1,6 @@
 _side = _this;
 _sid = "";
+_level = -1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -104,13 +105,20 @@ units_to_add = [];
 //};
 //if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_ECONOMY_LEVEL_TRACKED >= 0) then {
-		units_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
-		units_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
-		units_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
+if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_BT_ID] call CTI_CO_FNC_GetTechmatrix;
 		
-		units_tracked pushBack units_to_add;
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			units_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
+			units_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
+			units_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
+			
+			units_tracked pushBack units_to_add;
+		};
 	};
 };
 //if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
@@ -167,30 +175,59 @@ units_air = [];
 units_to_add = [];
 
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	
 	if(CTI_SAB_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add = [[format["%1sab_gladiator", _sid], 1, 40]];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_ca12bo", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_mb5", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_meteor", _sid], 1, 40];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_hurricane", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
-			units_to_add pushBack [format["%1sab_fl_hurricane_2", _sid], 1, 40];
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_hurricane_trop", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
+			units_to_add pushBack [format["%1sab_fl_hurricane_2", _sid], 1, 40];
+		};
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_dh98", _sid], 1, 20];
 		};
 	};
@@ -198,37 +235,62 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_US_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add = [[format["%1sab_p26", _sid], 1, 30]];
 			units_to_add pushBack [format["%1sab_ryanpt", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_texan", _sid], 1, 30];
 			units_to_add pushBack [format["%1sab_dauntless", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_avenger", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_p38", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_corsair", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_mustang", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_p51b", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_a26", _sid], 1, 20];
 			units_to_add pushBack [format["%1sab_b25", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_tigercat", _sid], 1, 20];
 			units_to_add pushBack [format["%1sab_f6f", _sid], 1, 30];
 			units_to_add pushBack [format["%1sab_b24", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 5) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_p61", _sid], 1, 20];
 			units_to_add pushBack [format["%1sab_b17", _sid], 1, 20];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_US_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_p51d", _sid], 1, 30];
 		};
 	};
@@ -236,25 +298,47 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add = [[format["%1sab_i16", _sid], 1, 30]];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_la5", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_la5_2", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_p39", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_tusb2", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 5) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_il2", _sid], 1, 30];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_yak3", _sid], 1, 40];
 		};
 	};
@@ -262,34 +346,54 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add = [[format["%1sab_avia", _sid], 1, 40]];
 			units_to_add pushBack [format["%1sab_bu131", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_avia_2", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_w34", _sid], 1, 20];
 			units_to_add pushBack [format["%1sab_w34f", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_bf109", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_ju87", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_bf110", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_bf110_2", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_ju88", _sid], 1, 20];
 			units_to_add pushBack [format["%1sab_ju88_2", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fw190", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_fw190_2", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_he111", _sid], 1, 20];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_bv141", _sid], 1, 10];
 			units_to_add pushBack [format["%1sab_do335", _sid], 1, 10];
 			units_to_add pushBack [format["%1sab_ta152c", _sid], 1, 10];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 5) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_he162", _sid], 1, 10];
 			units_to_add pushBack [format["%1sab_hix", _sid], 1, 10];
 			units_to_add pushBack [format["%1sab_me262", _sid], 1, 20];
@@ -297,20 +401,37 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_bf109e", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_bf109f", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_bf109g", _sid], 1, 40];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_bf109k", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_fl_fw190a", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_fl_ju88a", _sid], 1, 30];
 		};
 	};
@@ -318,22 +439,39 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
-		if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
+		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_JPN_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add = [[format["%1sab_m6a", _sid], 1, 30]];
 			units_to_add pushBack [format["%1sab_m6av2", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 1) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_a5m", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 2) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_aichival", _sid], 1, 30];
 			units_to_add pushBack [format["%1sab_kate", _sid], 1, 30];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 3) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_ki61", _sid], 1, 40];
 			units_to_add pushBack [format["%1sab_zero", _sid], 1, 60];
 		};
-		if(CTI_ECONOMY_LEVEL_AIR >= 4) then {
+		
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 			units_to_add pushBack [format["%1sab_ki100", _sid], 1, 20];
 		};
 	};

@@ -1,0 +1,108 @@
+[h1]Info about our WW2 BECTIS: [/h1] 
+
+The WW2 version needs one of the 4 mods (IFA3, CSA38, Northern Fronts, Faces of War) to work at all. 
+
+[h1]CTI features: [/h1] 
+[list]
+    [*]Classic Team vs Team (TvT) max. 16vs16
+    [*]Warfare on all levels (on foot, in the vehicle, in the air).
+    [*]Free choice of units, put your team together yourself.
+    [*]Free base construction, several bases also possible.
+    [*]Researchable  technology tree. Research for better units, thus earlier Tankrush not possible.
+    [*]No fixed script, every game can run differently.
+[/list]
+
+[h1]BECTI special features: [/h1] 
+[list]
+    [*]Large WW2 mod support: IFA3, CSA38, Northern Fronts, Faces of War, Bystrokhodny BT7, SAB secret weapons, Flying Legends, Naval Legends
+    [*]Mission designed for PvP, but also Coop possible.
+    [*]New start modes for Coop, where the own side holds an adjustable small radius to start.
+    [*]AI group leader nation adjustable.
+    [*]The nations side can be changed.
+    [*]Defender nation for cities adjustable.
+    [*]Maximum possible technology level is calculated automatically based on the activated mods
+    [*]Maximum technology level can restricted.
+    [*]Research cost and time can be set.
+    [*]Free choice of depot flags.
+    [*]Freely adjustable costs for the units, equipment and weapons.
+    [*]Adjustable skill of the AI.
+    [*]Adjustable damage system for base building.
+    [*]New weather script.
+    [*]Optional field repair for players.
+    [*]igiload rewritten for most WW2 vehicles and statics.
+    [*]Adjustable cool-down for CTI artillery strikes.
+	[*]HQ gives artillery warning with rough direction (ballance).
+[/list]
+
+Switching nations to other sites works without our Side-Patch, but can lead to display errors and other misbehavior. We advise everyone to use the needed Side-Patch together with the mission.
+
+[h1]Our Side-Patches for World-War 2: [/h1] 
+[list]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1558147115]Side-Patch-WW2[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2555935114]Side-Patch-IFA3[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588007667]Side-Patch-SAB[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588035753]Side-Patch-CSA[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588040319]Side-Patch-FoW[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723493856]Side-Patch-NF[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588046710]Side-Patch-WW2-AIO[/url]
+[/list]
+
+[h1]Help and player search: [/h1]
+If you want to know more about the mission, find servers on which the mission is running or find other players to play together/against each other, our [url=https://discord.gg/sJw2Nynh7s]discord[/url] is a good address.
+
+--------------------------------German part--------------------------
+
+[h1]Infos zu unseren WW2 BECTIS: [/h1] 
+
+Die WW2 Version benötigt einen der 4 Mods (IFA3, CSA38, Northern Fronts, Faces of War) um überhaupt zu funktioniern zu können. 
+
+[h1]CTI features: [/h1] 
+[list]
+    [*]Klassisches Team gegen Team (TvT) max. 16vs16
+    [*]Warfare auf allen Ebenen (zu Fuß, im Fahrzeug, in der Luft).
+    [*]Freie Einheitenwahl, stelle dir dein Team selbst zusammen.
+    [*]Freier Basisbau, auch mehere Basen möglich.
+    [*]Erforschbarer Technologiebaum. Forschung für bessere Einheiten, somit früher Tankrush nicht möglich.
+    [*]Kein festes Script, jede Partie kann anders verlaufen.
+[/list]
+
+[h1]BECTI special features: [/h1] 
+[list]
+    [*]Große WW2 Mod-Unterstützung: IFA3, CSA38, Northern Fronts, Faces of War, Bystrokhodny BT7, SAB secret weapons, Flying Legends, Naval Legends
+    [*]Mission zwar für PvP ausgelegt, aber auch Coop möglich.
+    [*]Neue Startmodis für Coop, bei der die eigene Seite einen einstellbaren kleinen Radius hällt zum Start.
+    [*]Nation der KI-Gruppenführer einstellbar.
+    [*]Die Seite der Nationen kann geändert werden.
+    [*]Verteidiger Nation für Städte einstellbar.
+    [*]Maximal mögliche Technologiestufe wird anhand der aktivierten Mods automatisch berechnet.
+    [*]Maximale Technologiestufe kann begrenzt werden.
+    [*]Forschungskosten und Zeit kann eingestellt werden.
+    [*]Freie Auswahl der Depot-Flaggen.
+    [*]Frei einstellbare Kosten für die Einheiten, Equipment und Waffen.
+    [*]Einstellbarer Skill der AI.
+    [*]Einstellbares Schadenssystem für Basisgebäude.
+    [*]Neues Wetter-skript.
+    [*]Optionale Feldreparatur für Spieler.
+    [*]igiload für die meisten WW2 Fahrzeuge und Geschütze umgeschrieben.
+    [*]Einstellbarer Cool-Down für CTI-Artillerieschläge.
+    [*]HQ gibt Artillerie-Warnung mit grober Richtung an (ballance).
+[/list]
+
+Switchen der Nationen auf andere Seiten funktioniert auch ohne Side-Patch, kann aber zu Anzeigefehlern und anderem Fehlverhalten führen. Wir raten jedem, den Side-Patch zusammen mit der Mission zu nutzen.
+
+[h1]Unsere Side-Patches für World-War 2: [/h1] 
+[list]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1558147115]Side-Patch-WW2[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2555935114]Side-Patch-IFA3[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588007667]Side-Patch-SAB[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588035753]Side-Patch-CSA[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588040319]Side-Patch-FoW[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723493856]Side-Patch-NF[/url]
+    [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588046710]Side-Patch-WW2-AIO[/url]
+[/list]
+
+[h1]Hilfe und Spielersuche: [/h1]
+Willst du mehr über die Mission wissen, Server finden auf denen die Mission läuft oder andere Spieler finden fürs gemeinsame miteinander/gegeneinander ist unser [url=https://discord.gg/sJw2Nynh7s] discord [/url] eine gute Adresse.
+
+Happy fighting
+dukee
