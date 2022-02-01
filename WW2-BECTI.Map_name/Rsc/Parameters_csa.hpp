@@ -9,37 +9,37 @@ class Params {
 		title = "German Side";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 0; //0
+		default = 0;
 	};
 	class CTI_SOV_SIDE {
 		title = "Soviet Side (only with IFA3)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 1;
+		default = -1;
 	};
 	class CTI_US_SIDE {
 		title = "US Side (not in CSA38)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2; //-1
+		default = -1;
 	};
 	class CTI_UK_SIDE {
 		title = "UK Side (only full in IFA3)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2; //-1
+		default = -1;
 	};
 	class CTI_JPN_SIDE {
 		title = "Japan Side (FoW needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
 	};
 	class CTI_CZ_SIDE {
 		title = "Czech Side (CSA38 needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1;
+		default = 1;
 	};
 	class CTI_FIN_SIDE {
 		title = "Finnish Side (Northern Fronts needed)";
@@ -50,7 +50,7 @@ class Params {
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
 		values[] = {0,1,2};
-		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER)"};
+		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3/CSA needed)","3rd Party (needs one Side on GUER)"};
 		default = 2;
 	};
 	class CTI_WEST_TOWNS {
@@ -141,7 +141,7 @@ class Params {
 		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
 		values[] = {300,400,500,600,700,800,900,1000,1100,1200};
 		texts[] = {"300s","400s","500s","600s","700s","800s","900s","1000s","1100s","1200s"};
-		default = 600; //600
+		default = 600;
 	};
 	class CTI_ECONOMY_TIME_MULTI {
 		title = "UPGRADE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
@@ -237,7 +237,7 @@ class Params {
 		title = "BASE: Start-up Placement";
 		values[] = {1000,2000,4000,6000,8000,10000};
 		texts[] = {"1KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
-		default = 4000;
+		default = 6000;
 	};
 	class CTI_BASE_WORKERS_LIMIT {
 		title = "BASE: Worker Limit";
@@ -255,7 +255,7 @@ class Params {
 		title = "INCOME: Delay";
 		values[] = {30,45,60,90,120,150,180,300};
 		texts[] = {"30 Seconds","45 Seconds","01:00 Minutes","01:30 Minutes","02:00 Minutes","02:30 Minutes","03:00 Minutes","05:00 Minutes"};
-		default = 30;
+		default = 120;
 	};
 	class CTI_ECONOMY_CURRENCY_SYSTEM {
 		title = "INCOME: Currency";
@@ -267,7 +267,7 @@ class Params {
 		title = "INCOME: Starting Funds (East Commander)";
 		values[] = {10000,15000,20000,25000,30000,35000,40000,45000,50000,60000,80000,100000,200000,300000,400000,500000,600000,700000,800000};
 		texts[] = {"$10000","$15000","$20000","$25000","$30000","$35000","$40000","$45000","$50000","$60000","$80000","$100000","$200000","$300000","$400000","$500000","$600000","$700000","$800000"};
-		default = 20000;
+		default = 10000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_EAST {
 		title = "INCOME: Starting Funds (East Players)";
@@ -279,13 +279,13 @@ class Params {
 		title = "INCOME: Starting Supply (East)";
 		values[] = {3000,5000,7000,9000,10000,20000,25000,50000,75000,110000,130000,150000,170000,200000,300000};
 		texts[] = {"S3000","S5000","S7000","S9000","S10000","S20000","S25000","S50000","S75000","S110000","S130000","S150000","S170000","S200000","S300000"};
-		default = 25000;
+		default = 10000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_WEST_COMMANDER {
 		title = "INCOME: Starting Funds (West Commander)";
 		values[] = {10000,15000,20000,25000,30000,35000,40000,45000,50000,60000,80000,100000,200000,300000,400000,500000,600000,700000,800000};
 		texts[] = {"$10000","$15000","$20000","$25000","$30000","$35000","$40000","$45000","$50000","$60000","$80000","$100000","$200000","$300000","$400000","$500000","$600000","$700000","$800000"};
-		default = 20000;
+		default = 10000;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_WEST {
 		title = "INCOME: Starting Funds (West Players)";
@@ -297,7 +297,7 @@ class Params {
 		title = "INCOME: Starting Supply (West)";
 		values[] = {3000,5000,7000,9000,10000,20000,25000,50000,75000,110000,130000,150000,170000,200000,300000};
 		texts[] = {"S3000","S5000","S7000","S9000","S10000","S20000","S25000","S50000","S75000","S110000","S130000","S150000","S170000","S200000","S300000"};
-		default = 25000;
+		default = 10000;
 	};
 	class CTI_ECONOMY_TOWNS_OCCUPATION {
 		title = "INCOME: Towns Occupation";
@@ -659,7 +659,7 @@ class Params {
 		//texts[] = {"Disabled","Enabled","IFA3 beta"};
 		values[] = {-1,0};
 		texts[] = {"Disabled","Enabled"};
-		default = 0;
+		default = -1;
 	};
 	class CTI_FOW_ADDON {
 		title = "ADDON: FOW";
@@ -671,7 +671,7 @@ class Params {
 		title = "ADDON: CSA38";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 0;
+		default = 2;
 	};
 	class CTI_NF_ADDON {
 		title = "ADDON: Northern Fronts";

@@ -34,7 +34,10 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
-		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
+			default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
+		};
 	} else {
 		if(CTI_FOW_ADDON > 0) then {
 			missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_universalCarrier", _sid]];
@@ -43,7 +46,10 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
-		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
+			default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
+		};
 	} else {
 		if(CTI_FOW_ADDON > 0) then {
 			missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_gmc_usmc", _sid]];
@@ -51,15 +57,22 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_Parm", _sid]];
+	if (isClass(configFile >> "CfgVehicles" >> "LIB_Zis6_Parm")) then {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_parm_w", _sid]];};		//Winter camo
+			default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_Parm", _sid]];};		//default/woodland camo
+		};
 	} else {
 		//if(CTI_FOW_ADDON > 0) then {};
 	};
 };
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
-		missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]];
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm_w", _sid]];};		//Winter camo
+			case 2: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_DAK_OpelBlitz_Parm", _sid]];};		//Desert camo
+			default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]];};		//default/woodland camo
+		};
 	} else {
 		if(CTI_FOW_ADDON > 0) then {
 			missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid]];
@@ -179,8 +192,6 @@ _specials = [];
 */
 
 /*_headers = _headers 		+ [[CTI_HQ_DEPLOYED, "HQ", "HQdeployed"]];
-//_classes = _classes 		+ [["Land_Bunker_01_HQ_F", "Land_Bunker_01_HQ_F"]];
-//_classes = _classes 		+ [["LIB_Static_zis6_radar", "LIB_zis5v_Wreck"]];
 _classes = _classes 		+ [["LIB_Static_opelblitz_radio", "LIB_OpelBlitz_2_Wreck"]];
 _prices = _prices 			+ [CTI_BASE_HQ_DEPLOY_COST];
 _times = _times 			+ [1];

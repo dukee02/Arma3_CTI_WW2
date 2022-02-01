@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_stream"];
 
 _side = _this;
 _faction = "";
@@ -394,13 +394,15 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_LIGHT) then {
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
 _matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_FIN_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
+//Streaming issue with nazi symbols, if its activated the fin default gets loaded
+if(CTI_STREAM_BLOCK > 0) then {_stream = 0;} else {_stream = CTI_CAMO_ACTIVATION;};
 
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {//Winter camo active
 			_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
 			_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _sid];
@@ -434,7 +436,7 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {//Winter camo active
 			_c pushBack format["%1NORTH_FIN_W_41_T26_M33", _sid];
 			_c pushBack format["%1NORTH_FIN_W_41_T26E", _sid];
@@ -468,7 +470,7 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {//Winter camo active
 			_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
 			_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
@@ -500,7 +502,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {//Winter camo active
 			_c pushBack format["%1NORTH_FIN_W_41_T28e", _sid];
 		};

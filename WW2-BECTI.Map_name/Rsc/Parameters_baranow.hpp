@@ -30,7 +30,7 @@ class Params {
 		default = 2; //-1
 	};
 	class CTI_JPN_SIDE {
-		title = "Japain Side (FoW needed)";
+		title = "Japan Side (FoW needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
 		default = -1; //-1
@@ -42,10 +42,10 @@ class Params {
 		default = -1; //-1
 	};
 	class CTI_FIN_SIDE {
-		title = "Czech Side (CSA38 needed)";
+		title = "Finnish Side (Northern Fronts needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = -1; //-1
+		default = -1;
 	};
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";

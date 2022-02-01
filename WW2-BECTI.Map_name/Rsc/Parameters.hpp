@@ -30,7 +30,7 @@ class Params {
 		default = 2;
 	};
 	class CTI_JPN_SIDE {
-		title = "Japain Side (FoW needed)";
+		title = "Japan Side (FoW needed)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
 		default = -1;

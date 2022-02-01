@@ -83,8 +83,8 @@ _matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
-	WHEELED_LIGHT = [[format["%1CSA38_8rad", _sid],1],[format["%1CSA38_8radPL", _sid],1],[format["%1CSA38_8radFR", _sid],1]];
-	WHEELED_HEAVY = [[format["%1CSA38_8rad2", _sid],1],[format["%1CSA38_8rad2PL", _sid],1],[format["%1CSA38_8rad2FR", _sid],1]];
+	WHEELED_LIGHT = [[format["%1CSA38_8rad", _sid],1],[format["%1CSA38_8radPL", _sid],1],[format["%1CSA38_8radFR", _sid],1],[format["%1CSA38_8radLATE", _sid],1],[format["%1CSA38_8radLATE2", _sid],1]];
+	WHEELED_HEAVY = [[format["%1CSA38_8rad2", _sid],1],[format["%1CSA38_8rad2PL", _sid],1],[format["%1CSA38_8rad2FR", _sid],1],[format["%1CSA38_8rad2LATE", _sid],1],[format["%1CSA38_8rad2LATE2", _sid],1]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		WHEELED_LIGHT = [[format["%1CSA38_8radW", _sid],1]];
 		WHEELED_HEAVY = [[format["%1CSA38_8rad2W", _sid],1]];
@@ -93,8 +93,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 		WHEELED_LIGHT = [[format["%1CSA38_8radDE", _sid],1]];
 		WHEELED_HEAVY = [[format["%1CSA38_8rad2DE", _sid],1]];
 	};
-	WHEELED_LIGHT append [[format["%1CSA38_8radLATE", _sid],1],[format["%1CSA38_8radLATE2", _sid],1]];
-	WHEELED_HEAVY append [[format["%1CSA38_8rad2LATE", _sid],1],[format["%1CSA38_8rad2LATE2", _sid],1]];
 };
 
 if (isNil {missionNamespace getVariable format["%1WHEELED_SQ_LIGHT", _tag]}) then {

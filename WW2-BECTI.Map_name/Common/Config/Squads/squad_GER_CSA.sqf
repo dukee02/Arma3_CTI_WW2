@@ -124,10 +124,14 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	mot_to_add = [[format["%1CSA38_8rad", _sid], 1, 30]];
 	mot_to_add pushback [format["%1CSA38_8rad2", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8radPL", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2PL", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8radFR", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2FR", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8radPL", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8rad2PL", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8radFR", _sid], 1, 10];
+	//mot_to_add pushback [format["%1CSA38_8rad2FR", _sid], 1, 10];
+	mot_to_add pushback [format["%1CSA38_8radLATE", _sid], 1, 10];
+	mot_to_add pushback [format["%1CSA38_8rad2LATE", _sid], 1, 20];
+	mot_to_add pushback [format["%1CSA38_8radLATE2", _sid], 1, 20];
+	mot_to_add pushback [format["%1CSA38_8rad2LATE2", _sid], 1, 10];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		mot_to_add = [[format["%1CSA38_8radW", _sid], 1, 30]];
 		mot_to_add pushback [format["%1CSA38_8rad2W", _sid], 1, 10];
@@ -136,10 +140,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 		mot_to_add = [[format["%1CSA38_8radDE", _sid], 1, 30]];
 		mot_to_add pushback [format["%1CSA38_8rad2DE", _sid], 1, 10];
 	};
-	mot_to_add pushback [format["%1CSA38_8radLATE", _sid], 1, 10];
-	mot_to_add pushback [format["%1CSA38_8rad2LATE", _sid], 1, 20];
-	mot_to_add pushback [format["%1CSA38_8radLATE2", _sid], 1, 20];
-	mot_to_add pushback [format["%1CSA38_8rad2LATE2", _sid], 1, 10];
 	
 	units_wheeled append mot_to_add;
 };

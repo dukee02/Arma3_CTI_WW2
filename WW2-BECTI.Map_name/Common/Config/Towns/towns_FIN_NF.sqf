@@ -149,11 +149,14 @@ TRACKED_MEDIUM = [];
 TRACKED_HEAVY = [];
 _matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_FIN_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
+//Streaming issue with nazi symbols, if its activated the fin default gets loaded
+_stream = 1;
+if(CTI_STREAM_BLOCK == 0) then {_stream = CTI_CAMO_ACTIVATION};
 
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {
 			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
@@ -175,7 +178,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {
 			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1]];
@@ -197,7 +200,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {
 			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];
@@ -219,7 +222,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
+	switch(_stream) do {
 		case 1: {
 			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
 			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];

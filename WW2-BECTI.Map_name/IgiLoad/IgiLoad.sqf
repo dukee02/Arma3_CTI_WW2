@@ -1,5 +1,5 @@
 //if true then show debug globalChat (TODO add more hints)
-IL_DevMod = true;
+IL_DevMod = false;
 
 //waitUntil { !(isNull player) };
 waitUntil { time > 0 };
@@ -1221,6 +1221,19 @@ if (isnil "IL_Variables") then
 	//*****************************************************************************************************************
 	//*										VIOC Units declaration
 	//*****************************************************************************************************************	
+	
+	IL_Supported_Motorcicle_Cargo = 
+		[
+			"R71USA",
+			"R71GerPre43",
+			"R71Ger44",
+			"R71Ger44Camo",
+			"R71RusOlive",
+			"R71RusGreenCamo",
+			"R71RusDark",
+			"R71RusGreen"
+		];
+	
 	IL_Supported_Small_Crates = [];
 	IL_Supported_Medium_Crates =  [];
 	IL_Supported_Large_Crates =  [];
@@ -1236,6 +1249,11 @@ if (isnil "IL_Variables") then
 	IL_Supported_Truck_Cargo =  [];
 	IL_Supported_Car_Cargo =  [];
 	IL_Supported_Armoured_Cargo =  [];
+	IL_Supported_Small_Tank_Cargo = [];
+	IL_Supported_Gaz_Zis5_Cargo = [];
+	IL_Supported_Truck_Cargo = [];
+	IL_Supported_Car_Cargo = [];
+	IL_Supported_Armoured_Cargo = [];
 	IL_Supported_Small_Tank_Cargo = [];
 	
 	
@@ -1415,144 +1433,237 @@ if (isnil "IL_Variables") then
 		IL_Supported_XLarge_Static_Cargo pushBack format["%1NORTH_SOV_W_39_76mm1936", _x];
 		IL_Supported_XLarge_Static_Cargo pushBack format["%1NORTH_SOV_76mm1936", _x];
 		
-		//IL_Supported_XLarge_Static_Cargo pushBack format["%1", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_w", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v", _x];
+		
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open_Cargo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Tent_Cargo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Tent", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Tent_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Open_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Tent", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Open", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_Y_Camo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Tent_Y_Camo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Open", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Tent", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_G_Camo_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_Y_Camo_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Tent_Y_Camo_w", _x];
+		
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_Hood_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_M1919_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_Ambulance_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_M1919", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_Ambulance", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_NAC_Willys_MB", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_NAC_Willys_MB_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_NAC_Willys_MB_M1919", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_US_NAC_Willys_MB_Ambulance", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_camo", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_Hood_camo", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_Hood_sernyt", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_sernyt", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_MG42", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_MG42_camo", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_MG42_sernyt", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Kfz1_Hood_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_DAK_Kfz1", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_DAK_Kfz1_hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_DAK_Kfz1_MG42", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_GazM1_SOV", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_GazM1_SOV_camo_sand", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Hood_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Ambulance_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Ambulance", _x];
+		
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_m3_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_M3_FFV_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_M3", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_M3_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_NAC_Scout_M3", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_NAC_Scout_M3_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_M3_Halftrack_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_M3_Halftrack", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_NAC_M3_Halftrack", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_M8_Greyhound", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_DAK_SdKfz251", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_DAK_SdKfz251_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_Sdkfz251_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_FFV_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_DAK_M3_Halftrack", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_DAK_Scout_M3", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_DAK_Scout_M3_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SOV_M3_Halftrack_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SOV_M3_Halftrack", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_captured_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_captured_FFV_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_captured", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_SdKfz251_captured_FFV", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_Scout_m3_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_Scout_M3_FFV_w", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_Scout_M3", _x];
+		IL_Supported_Armoured_Cargo pushBack format["%1LIB_Scout_M3_FFV", _x];
+		
+		//IL_Supported_Armoured_Cargo pushBack format["%1", _x];
+		//IL_Supported_XLarge_Static_Cargo pushBack format["%", _x];
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1LIB_M3A3_Stuart", _x];
+		//IL_Supported_Small_Tank_Cargo pushBack format["%1LIB_StuG_III_G", _x];
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwI_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwIA_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwI_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwI_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwIA_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwI_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwIA", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwI", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwIA", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwI", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwI_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwIA_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwI_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwI_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwIA_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzkpfwI_FR", _x];
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIa_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIb_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm35_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm35_FR2_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIa_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIb_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII_DE2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIa", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIb", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm35_1", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIa_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIb_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm35_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm35_FR2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIa_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIb_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzII_FR", _x];
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwIamb_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_mzm35t_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_FR2_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwIamb", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_mzm35t", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzbfwIamb_DE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_FR2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_LATE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_ltm38_LATE2", _x];
+		
+		/*IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_StugIII", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIB_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIC_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_W", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_DAK", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_DAK2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIB", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIC", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIB_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIC_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_PL", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIB_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIC_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_FR", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIB_LATE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIIC_LATE", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1CSA38_pzIIID_LATE", _x];*/
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26_M33_OT", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26_M31", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26_M33_OT", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26_M31", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26_M33", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26_M33com", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26_M33", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26_M33com", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26_M38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26_M38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M31", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M31", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M33_OT", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_39_T26_M31", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_39_T26_M33_OT", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M33", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26E", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M33", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26E", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_39_T26_M33", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_Vickers6t", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_39_T26_M38", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37ADW2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37ADW3", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37ADW4", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37ADW5", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37ADW", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD8", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD6", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD7", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD9", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD2", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD3", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD4", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD5", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD10", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD11", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD12", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD13", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD458", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD456", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD457%", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD459", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD452", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD453", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD454", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD455", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a3", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD45", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD4510", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD4511", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD4512", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m3a37AD4513", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m5a17ADW", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m5a17AD4", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m5a17AD", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m5a17AD3", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1csa38_m5a17AD2", _x];
+		
+		IL_Supported_Small_Tank_Cargo pushBack format["%1SOV_BT_BT7A", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1SOV_BT_BT7_M1937", _x];
+		IL_Supported_Small_Tank_Cargo pushBack format["%1SOV_BT_BT7TU_M1937", _x];
 		
 	} forEach _sid;
 	
-	IL_Supported_Motorcicle_Cargo = 
-		[
-			"R71USA",
-			"R71GerPre43",
-			"R71Ger44",
-			"R71Ger44Camo",
-			"R71RusOlive",
-			"R71RusGreenCamo",
-			"R71RusDark",
-			"R71RusGreen"
-		];
-	IL_Supported_Gaz_Zis5_Cargo = 
-		[
-			"ifa3_gaz55_ger",
-			"ifa3_gaz55",
-			"ifa3_gaz55_van",
-			"LIB_Zis5v_w",
-			"LIB_Zis5v",
-			"ifa3_gazaa",
-			"ifa3_gazaa_IZ",
-			"ifa3_gaz",
-			"ifa3_gaz2"
-		];
-	IL_Supported_Truck_Cargo = 
-		[
-			"LIB_US6_Open",
-			"LIB_US6_Open_Cargo",
-			"LIB_US6_Tent_Cargo",
-			"LIB_US6_Tent",
-			"LIB_US_GMC_Tent_w",
-			"LIB_US_GMC_Open_w",
-			"LIB_US_GMC_Tent",
-			"LIB_US_GMC_Open",			
-			"LIB_OpelBlitz_Open_Y_Camo",
-			"LIB_OpelBlitz_Tent_Y_Camo",
-			"LIB_DAK_OpelBlitz_Open",
-			"LIB_DAK_OpelBlitz_Tent",
-			"LIB_OpelBlitz_Open_G_Camo_w",
-			"LIB_OpelBlitz_Open_Y_Camo_w",
-			"LIB_OpelBlitz_Tent_Y_Camo_w"
-		];
-	IL_Supported_Car_Cargo = 
-		[
-			"LIB_US_Willys_MB_w",
-			"LIB_US_Willys_MB_Hood_w",
-			"LIB_US_Willys_MB_M1919_w",
-			"LIB_US_Willys_MB_Ambulance_w",
-			"LIB_US_Willys_MB",
-			"LIB_US_Willys_MB_Hood",
-			"LIB_US_Willys_MB_M1919",
-			"LIB_US_Willys_MB_Ambulance",
-			"LIB_US_NAC_Willys_MB",
-			"LIB_US_NAC_Willys_MB_Hood",
-			"LIB_US_NAC_Willys_MB_M1919",
-			"LIB_US_NAC_Willys_MB_Ambulance",
-			"LIB_Kfz1",
-			"LIB_Kfz1_camo",
-			"LIB_Kfz1_Hood",
-			"LIB_Kfz1_Hood_camo",
-			"LIB_Kfz1_Hood_sernyt",
-			"LIB_Kfz1_sernyt",
-			"LIB_Kfz1_MG42",
-			"LIB_Kfz1_MG42_camo",
-			"LIB_Kfz1_MG42_sernyt",
-			"LIB_Kfz1_w",
-			"LIB_Kfz1_Hood_w",
-			"LIB_DAK_Kfz1",
-			"LIB_DAK_Kfz1_hood",
-			"LIB_DAK_Kfz1_MG42",
-			"LIB_GazM1_SOV",
-			"LIB_GazM1_SOV_camo_sand",
-			"LIB_Willys_MB_w",
-			"LIB_Willys_MB_Hood_w",
-			"LIB_Willys_MB_Ambulance_w",
-			"LIB_Willys_MB",
-			"LIB_Willys_MB_Hood",
-			"LIB_Willys_MB_Ambulance"
-		];
-		
-	IL_Supported_Armoured_Cargo = 
-		[
-			"LIB_US_Scout_m3_w",
-			"LIB_US_Scout_M3_FFV_w",
-			"LIB_US_Scout_M3",
-			"LIB_US_Scout_M3_FFV",
-			"LIB_US_NAC_Scout_M3",
-			"LIB_US_NAC_Scout_M3_FFV",
-			"LIB_US_M3_Halftrack_w",
-			"LIB_US_M3_Halftrack",
-			"LIB_US_NAC_M3_Halftrack",
-			"LIB_M8_Greyhound",
-			"LIB_SdKfz251_FFV",
-			"ifa3_sdkfz251T_2mg",
-			"ifa3_sdkfz251T",
-			"LIB_SdKfz251",
-			"LIB_DAK_SdKfz251",
-			"LIB_DAK_SdKfz251_FFV",
-			"LIB_Sdkfz251_w",
-			"LIB_SdKfz251_FFV_w",
-			"LIB_DAK_M3_Halftrack",
-			"LIB_DAK_Scout_M3",
-			"LIB_DAK_Scout_M3_FFV",
-			"ifa3_ba64B",
-			"LIB_SOV_M3_Halftrack_w",
-			"LIB_SOV_M3_Halftrack",
-			"LIB_SdKfz251_captured_w",
-			"LIB_SdKfz251_captured_FFV_w",
-			"LIB_SdKfz251_captured",
-			"LIB_SdKfz251_captured_FFV",
-			"LIB_Scout_m3_w",
-			"LIB_Scout_M3_FFV_w",
-			"LIB_Scout_M3",
-			"LIB_Scout_M3_FFV"
-		];
-		
-	IL_Supported_Small_Tank_Cargo = 
-		[
-			"LIB_M3A3_Stuart",
-			"pz2f",
-			"pz2f2",
-			"ifa3_pz3j",
-			"ifa3_pz3N",
-			"ifa3_StuG_III_G",
-			"ifa3_StuH_42",
-			"LIB_StuG_III_G",
-			"ifa3_t26_w",
-			"ifa3_t26",
-			"ifa3_t60",
-			"ifa3_t70m",
-			"ifa3_pz3J_sov"
-			//"ifa3_Ba10_wm",
-			//"ifa3_Ba10",
-		];
-
+	
 	//TODO
 	//IL_Supported_Backpack = ["B_AssaultPack_blk", "B_AssaultPack_cbr", "B_AssaultPack_dgtl", "B_AssaultPack_khk", "B_AssaultPack_mcamo", "B_AssaultPack_ocamo", "B_AssaultPack_rgr", "B_AssaultPack_sgg", "B_AssaultPackG", "B_Bergen_blk", "B_Bergen_mcamo", "B_Bergen_rgr", "B_Bergen_sgg", "B_BergenC_blu", "B_BergenC_grn", "B_BergenC_red", "B_BergenG", "B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_mcamo", "B_Carryall_ocamo", "B_Carryall_oli", "B_Carryall_oucamo", "B_FieldPack_blk", "B_FieldPack_cbr", "B_FieldPack_khk", "B_FieldPack_ocamo", "B_FieldPack_oli", "B_FieldPack_oucamo", "B_HuntingBackpack", "B_Kitbag_cbr", "B_Kitbag_mcamo", "B_Kitbag_sgg", "B_OutdoorPack_blk", "B_OutdoorPack_blu", "B_OutdoorPack_tan", "B_TacticalPack_blk", "B_TacticalPack_mcamo", "B_TacticalPack_ocamo", "B_TacticalPack_oli", "B_TacticalPack_rgr", "C_Bergen_blu", "C_Bergen_grn", "C_Bergen_red", "G_AssaultPack", "G_Bergen"];
 	//IL_Supported_Backpack_Support = ["B_HMG_01_support_F", "B_HMG_01_support_high_F", "B_Mortar_01_support_F", "I_Mortar_01_support_F", "O_Mortar_01_support_F"];

@@ -211,6 +211,8 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		//_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		//_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	};
 	
 	//_c pushBack format["%1CSA38_opelblitz3", _sid];//salvager
 	_c pushBack format["%1CSA38_opelblitz2", _sid];
@@ -258,17 +260,19 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_c pushBack format["%1CSA38_8radDE", _sid];
 		_c pushBack format["%1CSA38_8rad2DE", _sid];
 	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_8rad", _sid];
+		_c pushBack format["%1CSA38_8rad2", _sid];
+		//_c pushBack format["%1CSA38_8radPL", _sid];
+		//_c pushBack format["%1CSA38_8rad2PL", _sid];
+		//_c pushBack format["%1CSA38_8radFR", _sid];
+		//_c pushBack format["%1CSA38_8rad2FR", _sid];
+		_c pushBack format["%1CSA38_8radLATE", _sid];
+		_c pushBack format["%1CSA38_8rad2LATE", _sid];
+		_c pushBack format["%1CSA38_8radLATE2", _sid];
+		_c pushBack format["%1CSA38_8rad2LATE2", _sid];
+	};
 	
-	_c pushBack format["%1CSA38_8rad", _sid];
-	_c pushBack format["%1CSA38_8rad2", _sid];
-	//_c pushBack format["%1CSA38_8radPL", _sid];
-	//_c pushBack format["%1CSA38_8rad2PL", _sid];
-	//_c pushBack format["%1CSA38_8radFR", _sid];
-	//_c pushBack format["%1CSA38_8rad2FR", _sid];
-	//_c pushBack format["%1CSA38_8radLATE", _sid];
-	//_c pushBack format["%1CSA38_8rad2LATE", _sid];
-	//_c pushBack format["%1CSA38_8radLATE2", _sid];
-	//_c pushBack format["%1CSA38_8rad2LATE2", _sid];
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -312,18 +316,20 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzkpfwIA_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_DE", _sid];
 	};
-	_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
-	_c pushBack format["%1CSA38_pzbfwI", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI", _sid];
-	
-	/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
-	
-	_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
-	_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
-	_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];*/
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
+		_c pushBack format["%1CSA38_pzbfwI", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzbfwI_PL", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA_PL", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI_PL", _sid];
+		
+		_c pushBack format["%1CSA38_pzbfwI_FR", _sid];
+		_c pushBack format["%1CSA38_pzkpfwIA_FR", _sid];
+		_c pushBack format["%1CSA38_pzkpfwI_FR", _sid];*/
+	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -357,20 +363,22 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzIIb_DE", _sid];
 		_c pushBack format["%1CSA38_pzII_DE", _sid];
 	};
-	_c pushBack format["%1CSA38_pzIIa", _sid];
-	_c pushBack format["%1CSA38_pzIIb", _sid];
-	_c pushBack format["%1CSA38_pzII", _sid];
-	_c pushBack format["%1CSA38_ltm35_1", _sid];
-	
-	/*_c pushBack format["%1CSA38_pzIIa_PL", _sid];
-	_c pushBack format["%1CSA38_pzIIb_PL", _sid];
-	_c pushBack format["%1CSA38_pzII_PL", _sid];
-	
-	_c pushBack format["%1CSA38_ltm35_FR", _sid];
-	//_c pushBack format["%1CSA38_ltm35_FR2", _sid];//nazi
-	_c pushBack format["%1CSA38_pzIIa_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIb_FR", _sid];
-	_c pushBack format["%1CSA38_pzII_FR", _sid];*/
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIIa", _sid];
+		_c pushBack format["%1CSA38_pzIIb", _sid];
+		_c pushBack format["%1CSA38_pzII", _sid];
+		_c pushBack format["%1CSA38_ltm35_1", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzIIa_PL", _sid];
+		_c pushBack format["%1CSA38_pzIIb_PL", _sid];
+		_c pushBack format["%1CSA38_pzII_PL", _sid];
+		
+		_c pushBack format["%1CSA38_ltm35_FR", _sid];
+		//_c pushBack format["%1CSA38_ltm35_FR2", _sid];//nazi
+		_c pushBack format["%1CSA38_pzIIa_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIb_FR", _sid];
+		_c pushBack format["%1CSA38_pzII_FR", _sid];*/
+	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -405,29 +413,31 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzbfwIamb_DE", _sid];// medic?
 		_c pushBack format["%1csa38_matildaii_DE", _sid];
 	};
-	_c pushBack format["%1CSA38_pzIIIB", _sid];
-	_c pushBack format["%1CSA38_pzIIIC", _sid];
-	_c pushBack format["%1CSA38_pzIIID", _sid];
-	_c pushBack format["%1CSA38_StugIII", _sid];
-	_c pushBack format["%1CSA38_ltm38", _sid];
-	
-	//_c pushBack format["%1CSA38_pzIIIB_PL", _sid];
-	//_c pushBack format["%1CSA38_pzIIIC_PL", _sid];
-	//_c pushBack format["%1CSA38_pzIIID_PL", _sid];
-	_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
-	//_c pushBack format["%1CSA38_mzm35t", _sid];//nazi, ammo?
-	
-	/*_c pushBack format["%1CSA38_ltm38_FR", _sid];
-	//_c pushBack format["%1CSA38_ltm38_FR2", _sid];//nazi
-	_c pushBack format["%1CSA38_pzIIIB_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIIC_FR", _sid];
-	_c pushBack format["%1CSA38_pzIIID_FR", _sid];
-	
-	_c pushBack format["%1CSA38_ltm38_LATE", _sid];
-	_c pushBack format["%1CSA38_ltm38_LATE2", _sid];//camo
-	_c pushBack format["%1CSA38_pzIIIB_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIIIC_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIIID_LATE", _sid];*/
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIIIB", _sid];
+		_c pushBack format["%1CSA38_pzIIIC", _sid];
+		_c pushBack format["%1CSA38_pzIIID", _sid];
+		_c pushBack format["%1CSA38_StugIII", _sid];
+		_c pushBack format["%1CSA38_ltm38", _sid];
+		
+		//_c pushBack format["%1CSA38_pzIIIB_PL", _sid];
+		//_c pushBack format["%1CSA38_pzIIIC_PL", _sid];
+		//_c pushBack format["%1CSA38_pzIIID_PL", _sid];
+		_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
+		//_c pushBack format["%1CSA38_mzm35t", _sid];//nazi, ammo?
+		
+		/*_c pushBack format["%1CSA38_ltm38_FR", _sid];
+		//_c pushBack format["%1CSA38_ltm38_FR2", _sid];//nazi
+		_c pushBack format["%1CSA38_pzIIIB_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIIC_FR", _sid];
+		_c pushBack format["%1CSA38_pzIIID_FR", _sid];
+		
+		_c pushBack format["%1CSA38_ltm38_LATE", _sid];
+		_c pushBack format["%1CSA38_ltm38_LATE2", _sid];//camo
+		_c pushBack format["%1CSA38_pzIIIB_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIIIC_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIIID_LATE", _sid];*/
+	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -449,7 +459,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwIamb_DE", _sid];// medic?
 	};
-	_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+		_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
+	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -476,24 +488,23 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzIVB_W", _sid];
 		_c pushBack format["%1CSA38_pzIVC_W", _sid];
 	};
-	//if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-	//	_c pushBack format["%1", _sid];
-	//};
-	_c pushBack format["%1CSA38_pzIV", _sid];
-	_c pushBack format["%1CSA38_pzIVB", _sid];
-	_c pushBack format["%1CSA38_pzIVcv38", _sid];
-	
-	/*_c pushBack format["%1CSA38_pzIV_PL", _sid];
-	_c pushBack format["%1CSA38_pzIVB_PL", _sid];
-	_c pushBack format["%1CSA38_pzIVC_PL", _sid];
-	
-	_c pushBack format["%1CSA38_pzIV_FR", _sid];
-	_c pushBack format["%1CSA38_pzIVB_FR", _sid];
-	_c pushBack format["%1CSA38_pzIVC_FR", _sid];
-	
-	_c pushBack format["%1CSA38_pzIV_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
-	_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {		//default camo active
+		_c pushBack format["%1CSA38_pzIV", _sid];
+		_c pushBack format["%1CSA38_pzIVB", _sid];
+		_c pushBack format["%1CSA38_pzIVcv38", _sid];
+		
+		/*_c pushBack format["%1CSA38_pzIV_PL", _sid];
+		_c pushBack format["%1CSA38_pzIVB_PL", _sid];
+		_c pushBack format["%1CSA38_pzIVC_PL", _sid];
+		
+		_c pushBack format["%1CSA38_pzIV_FR", _sid];
+		_c pushBack format["%1CSA38_pzIVB_FR", _sid];
+		_c pushBack format["%1CSA38_pzIVC_FR", _sid];
+		
+		_c pushBack format["%1CSA38_pzIV_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
+		_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
+	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -709,65 +720,68 @@ if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo a
 	_d pushBack 0;	
 
 };
-_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
-_p pushBack '';
-_n pushBack 'Ammo Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-ammotruck";
-_d pushBack 0;	
+if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 0;	
 
-_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
-_p pushBack '';
-_n pushBack 'Fuel Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-fueltruck";
-_d pushBack 0;	
+	_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
+	_p pushBack '';
+	_n pushBack 'Fuel Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-fueltruck";
+	_d pushBack 0;	
+};
+if(CTI_CAMO_ACTIVATION > 3) then {		//all camo active
+	_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 0;	
 
-_c pushBack format["%1CSA38_opelblitz4_LATE", _sid];//ammo
-_p pushBack '';
-_n pushBack 'Ammo Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-ammotruck";
-_d pushBack 0;	
+	_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
+	_p pushBack '';
+	_n pushBack 'Fuel Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-fueltruck";
+	_d pushBack 0;	
 
-_c pushBack format["%1CSA38_opelblitz5_LATE", _sid];//fuel
-_p pushBack '';
-_n pushBack 'Fuel Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-fueltruck";
-_d pushBack 0;	
+	_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 0;	
 
-_c pushBack format["%1CSA38_opelblitz4_LATE2", _sid];//ammo
-_p pushBack '';
-_n pushBack 'Ammo Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-ammotruck";
-_d pushBack 0;	
-
-_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel
-_p pushBack '';
-_n pushBack 'Fuel Truck';
-_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-_t pushBack (30*(_tech_level+1));
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-fueltruck";
-_d pushBack 0;	
+	_c pushBack format["%1CSA38_opelblitz5_LATE2", _sid];//fuel
+	_p pushBack '';
+	_n pushBack 'Fuel Truck';
+	_o pushBack ((CTI_ECONOMY_PRIZE_WHEELED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+	_t pushBack (30*(_tech_level+1));
+	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-fueltruck";
+	_d pushBack 0;	
+};
 
 
 //***************************************************************************************************************************************
