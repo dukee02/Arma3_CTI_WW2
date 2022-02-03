@@ -24,6 +24,27 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 (_tag) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SetTownFlag.sqf";
 
+//needed for townvehicles if nation on IND side
+if(_tag == "GUER_") then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1O_NORTH_SOV_W_41_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1O_NORTH_SOV_T_W_41_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1O_NORTH_SOV_AIR_W_41_Officer_Cpt", _sid]];
+		};
+		case 2: {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1O_NORTH_SOV_41_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1O_NORTH_SOV_T_41_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1O_NORTH_SOV_41_AIR_Officer_Cpt", _sid]];
+		};
+		default {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1O_NORTH_SOV_ART_W_39_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1O_NORTH_SOV_T_W_39_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1O_NORTH_SOV_AIR_W_41_Officer_Cpt", _sid]];
+		};
+	};
+};
+
 //***************************************************************************************************************************************
 //														Town infantry setup																*
 //***************************************************************************************************************************************

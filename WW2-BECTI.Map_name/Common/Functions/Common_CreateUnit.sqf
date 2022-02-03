@@ -36,7 +36,7 @@
 	  -> Create a "B_Soldier_F" at the player's position, initialize it over the network and ignore the formation on creation
 */
 
-private ["_net", "_position", "_sideID", "_special", "_team", "_type", "_unit", "_classname"];
+private ["_net", "_position", "_sideID", "_special", "_team", "_type", "_unit", "_classname", "_spawn_unit"];
 
 _classname = _this select 0;
 _team = _this select 1;
@@ -51,8 +51,10 @@ if (typeName _sideID == "SIDE") then {_sideID = (_sideID) call CTI_CO_FNC_GetSid
 _spawn_unit = true;
 
 if(isNull _team) then {_spawn_unit = false};
-if(isNil "_classname") then {_spawn_unit = false};
-if(_classname == "") then {_spawn_unit = false};
+if(isNil "_classname") then {
+	_spawn_unit = false;
+	["ERROR", "FILE: Common\Functions\Common_CreateUnit.sqf", format["Can't create unit is nil on team [%1] at [%2] on side [%3], net? [%4] special? [%5]", _team, _position, _sideID, _net, _special]] call CTI_CO_FNC_Log;
+};
 
 if(_spawn_unit == true) then {
 	if (CTI_Log_Level >= CTI_Log_Debug) then {
@@ -76,7 +78,10 @@ if(_spawn_unit == true) then {
 	_unit setSkill (CTI_AI_SKILL_BASE + (random CTI_AI_SKILL_SPAN));
 	[_unit] joinSilent _team;
 	_unit addRating 1000;
-	//{player reveal _unit} forEach allUnits; // unit sometimes a long time unrecognised -> force revealing units with reveal command usually solves the problem
+	{//unit sometimes a long time unrecognised -> force revealing units with reveal command usually solves the problem
+		player reveal [_unit, 4];
+	} forEach allUnits; 
+	
 	deleteGroup _dummyGroup;
 
 	if (_net) then {_unit setVariable ["cti_net", _sideID, true]};
@@ -85,6 +90,4 @@ if(_spawn_unit == true) then {
 	_unit addEventHandler ["killed", Format["[_this select 0, _this select 1, %1, 'vehicle'] Spawn CTI_CO_FNC_OnUnitKilled;", _sideID]];
 	
 	_unit
-} else {
-	["ERROR", "FILE: Common\Functions\Common_CreateUnit.sqf", format["Can't create unit [%1] on team [%2] at [%3] on side [%4], net? [%5] special? [%6]", _classname, _team, _position, _sideID, _net, _special]] call CTI_CO_FNC_Log;
 };

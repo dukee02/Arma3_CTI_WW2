@@ -62,13 +62,13 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Rifleman_AT", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Rifleman_AT_L39", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Rifleman_AT_L39_Asst", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar50", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar81", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar50_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar81_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Maxim_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar50", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar81", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar50_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Crewman_Mortar81_Assistant", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Pioneer", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Pioneer_demo", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_W_41_Pioneer_demo_improvised", _sid], 1, 20];
@@ -88,13 +88,13 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39_Asst", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar50", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar81", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar50_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar81_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar50", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar81", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar50_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Mortar81_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Crewman_Maxim_Assistant", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Patrolman_NCO", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Patrolman_Radio", _sid], 1, 20];
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Patrolman", _sid], 1, 20];
@@ -104,32 +104,32 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Pioneer_CPL", _sid], 1, 20];
 		};
 		default {
-			inf_to_add = [[format["%1I_NORTH_FIN_W_39_Sentry", _sid], 1, 60]];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Sentry_Night", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Civil_Guardsman", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_1CL", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_SGT", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_SSGT", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_SGTMAJ", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Medic", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim", _sid], 1, 20];
-			//inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];		//-> Warning Message: Bad vehicle type fin_gasmaskbag
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Patrolman_NCO", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Patrolman_Officer", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Patrolman", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Mortar50", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Mortar81", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Mortar50_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Crewman_Mortar81_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Pioneer", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Pioneer_demo", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Pioneer_demo_improvised", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Pioneer_CPL", _sid], 1, 20];
+			inf_to_add = [[format["%1I_NORTH_FIN_41_Sentry", _sid], 1, 60]];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Sentry_Night", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_1CL", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_SGT", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_SSGT", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_SgtMaj", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Medic", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_AT_Kasapanos", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_AT", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Rifleman_AT_L39_Asst", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Maxim", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Maxim_Assistant_Ammo", _sid], 1, 20];		//-> Warning Message: Bad vehicle type fin_gasmaskbag
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Maxim_Assistant", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Patrolman_Radio", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Patrolman", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Mortar50", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Mortar81", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Mortar50_Assistant", _sid], 1, 20];
+			//inf_to_add pushBack [format["%1I_NORTH_FIN_41_Crewman_Mortar81_Assistant", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Pioneer", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Pioneer_demo", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Pioneer_demo_improvised", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Pioneer_CPL", _sid], 1, 20];
 		};
 	};
 	units_infantry append inf_to_add;
@@ -157,13 +157,12 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Submachinegunner_SSGT", _sid], 1, 20];
 		};
 		default {
-			inf_to_add = [[format["%1I_NORTH_FIN_W_39_Autorifleman", _sid], 1, 60]];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner_SIG", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner_1CL", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner_CPL", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner_SSGT", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Submachinegunner_SGT", _sid], 1, 20];
+			inf_to_add = [[format["%1I_NORTH_FIN_41_Autorifleman", _sid], 1, 60]];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Submachinegunner", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Submachinegunner_1CL", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Submachinegunner_CPL", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Submachinegunner_SSGT", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Submachinegunner_SGT", _sid], 1, 20];
 		};
 	};
 	units_infantry append inf_to_add;
@@ -188,11 +187,11 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			inf_to_add pushBack [format["%1I_NORTH_FIN_S_41_Sniper", _sid], 1, 20];
 		};
 		default {
-			inf_to_add = [[format["%1I_NORTH_FIN_W_39_Machinegunner_DP", _sid], 1, 60]];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Machinegunner", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Machinegunner_Assistant_DP", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Machinegunner_Assistant", _sid], 1, 20];
-			inf_to_add pushBack [format["%1I_NORTH_FIN_W_39_Sniper", _sid], 1, 20];
+			inf_to_add = [[format["%1I_NORTH_FIN_41_Machinegunner_DP", _sid], 1, 60]];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Machinegunner", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Machinegunner_Asst_DP", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Machinegunner_Asst", _sid], 1, 20];
+			inf_to_add pushBack [format["%1I_NORTH_FIN_41_Sniper", _sid], 1, 20];
 		};
 	};
 	units_infantry append inf_to_add;
@@ -240,45 +239,27 @@ units_tracked = [];
 arm_to_add = [];
 _matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_FIN_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
-//Streaming issue with nazi symbols, if its activated the fin default gets loaded
-_stream = 1;
-if(CTI_STREAM_BLOCK == 0) then {_stream = CTI_CAMO_ACTIVATION};
 
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch (_stream) do {
-		case 1: {
-			arm_to_add = [[format["%1NORTH_FIN_W_41_T26_M31", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26_M33_OT", _sid], 1, 20];
-		};
-		case 2: {
-			arm_to_add = [[format["%1NORTH_FIN_S_41_T26_M31", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26_M33_OT", _sid], 1, 20];
-		};
-		default {
-			arm_to_add = [[format["%1NORTH_FIN_W_39_T26_M31", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_W_39_T26_M33_OT", _sid], 1, 20];
-		};
-	};
-	units_tracked append arm_to_add;
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch (_stream) do {
-		case 1: {
-			arm_to_add = [[format["%1NORTH_FIN_W_41_T26_M33", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26E", _sid], 1, 20];
-		};
-		case 2: {
-			arm_to_add = [[format["%1NORTH_FIN_S_41_T26_M33", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26E", _sid], 1, 20];
-		};
-		default {
-			arm_to_add = [[format["%1NORTH_FIN_W_39_T26_M33", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_Vickers6t", _sid], 1, 20];
+	if(CTI_STREAM_BLOCK > 0) then {
+		arm_to_add = [[format["%1NORTH_FIN_W_39_T26_M31", _sid], 1, 60]];
+		arm_to_add pushBack [format["%1NORTH_FIN_W_39_T26_M33_OT", _sid], 1, 20];
+	} else {
+		switch (CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				arm_to_add = [[format["%1NORTH_FIN_W_41_T26_M31", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26_M33_OT", _sid], 1, 20];
+			};
+			case 2: {
+				arm_to_add = [[format["%1NORTH_FIN_S_41_T26_M31", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26_M33_OT", _sid], 1, 20];
+			};
+			default {
+				arm_to_add = [[format["%1NORTH_FIN_41_T26_M31", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_41_T26_M33_OT", _sid], 1, 20];
+			};
 		};
 	};
 	units_tracked append arm_to_add;
@@ -287,18 +268,23 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch (_stream) do {
-		case 1: {
-			arm_to_add = [[format["%1NORTH_FIN_W_41_T28", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26_M38", _sid], 1, 20];
-		};
-		case 2: {
-			arm_to_add = [[format["%1NORTH_FIN_S_41_T28", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26_M38", _sid], 1, 20];
-		};
-		default {
-			arm_to_add = [[format["%1NORTH_FIN_W_39_T28", _sid], 1, 60]];
-			arm_to_add pushBack [format["%1NORTH_FIN_W_39_T26_M38", _sid], 1, 20];
+	if(CTI_STREAM_BLOCK > 0) then {
+		arm_to_add = [[format["%1NORTH_FIN_W_39_T26_M33", _sid], 1, 60]];
+		arm_to_add pushBack [format["%1NORTH_FIN_Vickers6t", _sid], 1, 20];
+	} else {
+		switch (CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				arm_to_add = [[format["%1NORTH_FIN_W_41_T26_M33", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26E", _sid], 1, 20];
+			};
+			case 2: {
+				arm_to_add = [[format["%1NORTH_FIN_S_41_T26_M33", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26E", _sid], 1, 20];
+			};
+			default {
+				arm_to_add = [[format["%1NORTH_FIN_41_T26_M33", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_41_T26E", _sid], 1, 20];
+			};
 		};
 	};
 	units_tracked append arm_to_add;
@@ -307,14 +293,43 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch (_stream) do {
-		case 1: {
-			units_tracked pushBack [format["%1NORTH_FIN_W_41_T28e", _sid], 1, 20];
+	if(CTI_STREAM_BLOCK > 0) then {
+		arm_to_add = [[format["%1NORTH_FIN_W_39_T26_M38", _sid], 1, 60]];
+	} else {
+		switch (CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				arm_to_add = [[format["%1NORTH_FIN_W_41_T28", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26_M38", _sid], 1, 20];
+			};
+			case 2: {
+				arm_to_add = [[format["%1NORTH_FIN_S_41_T28", _sid], 1, 60]];
+				arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26_M38", _sid], 1, 20];
+			};
+			default {
+				arm_to_add = [[format["%1NORTH_FIN_41_T26_M38", _sid], 1, 40]];
+				arm_to_add pushBack [format["%1NORTH_FIN_41_T28", _sid], 1, 60];
+			};
 		};
-		case 2: {
-			units_tracked pushBack [format["%1NORTH_FIN_S_41_T28e", _sid], 1, 20];
-		};
-		default {
+	};
+	units_tracked append arm_to_add;
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+		units_tracked pushBack [format["%1NORTH_FIN_W_39_T28", _sid], 1, 20];
+	} else {
+		switch (CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				units_tracked pushBack [format["%1NORTH_FIN_W_41_T28e", _sid], 1, 20];
+			};
+			case 2: {
+				units_tracked pushBack [format["%1NORTH_FIN_S_41_T28e", _sid], 1, 20];
+			};
+			default {
+				units_tracked pushBack [format["%1NORTH_FIN_41_T28e", _sid], 1, 20];
+			};
 		};
 	};
 };

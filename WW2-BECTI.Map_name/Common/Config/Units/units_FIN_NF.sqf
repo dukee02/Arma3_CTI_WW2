@@ -150,52 +150,50 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_SSGT", _sid];
 		};
 		default {
-			//----------FIN Army Winter 1939------------
-			_c pushBack format["%1I_NORTH_FIN_W_39_Unequipped", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Sentry", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Sentry_Night", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Civil_Guardsman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_1CL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_SGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_SSGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_SGTMAJ", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Medic", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid];
+			//----------FIN Army 1941------------
+			_c pushBack format["%1I_NORTH_FIN_41_Unequipped", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Sentry", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Sentry_Night", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_1CL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_SGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_SgtMaj", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Medic", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT_Kasapanos", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT_L39_Asst", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Unequip", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Radioman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman_1CL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman_CPL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman_SGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Rifleman_SSGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_SGTMAJ", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim", _sid];
-			//_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant_Ammo", _sid];	//-> Warning Message: Bad vehicle type fin_gasmaskbag
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Maxim_Assistant", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Patrolman_NCO", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Patrolman_Officer", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Patrolman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Mortar50", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Mortar81", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Mortar50_Assistant", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Crewman_Mortar81_Assistant", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Pioneer", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Pioneer_demo", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Pioneer_demo_improvised", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Pioneer_CPL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_1CL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_CPL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_1STLT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_2NDLT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_CPT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_SGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_SGTMAJ", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_39_Crewman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Unequip", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Radioman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Rifleman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_41_Rifleman_1CL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Rifleman_CPL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Rifleman_SGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Rifleman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_SGTMAJ", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Maxim", _sid];
+			//_c pushBack format["%1I_NORTH_FIN_41_Crewman_Maxim_Assistant_Ammo", _sid];		//-> Warning Message: Bad vehicle type fin_gasmaskbag
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Maxim_Assistant", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Patrolman_Radio", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Patrolman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Mortar50", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Mortar81", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Mortar50_Assistant", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Crewman_Mortar81_Assistant", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Pioneer", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Pioneer_demo", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Pioneer_demo_improvised", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Pioneer_CPL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_1CL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SGTMAJ", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_SgtMaj", _sid];
 		};
 	};
 	//set all other vars in a slope
@@ -260,21 +258,23 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		};
 		default {
 			//----------FIN Army Winter 1939------------
-			_c pushBack format["%1I_NORTH_FIN_W_39_Autorifleman", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner_SIG", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner_1CL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner_CPL", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner_SSGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Submachinegunner_SGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Officer_1stLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Autorifleman", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Submachinegunner", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Submachinegunner_1CL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Submachinegunner_CPL", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Submachinegunner_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Submachinegunner_SGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Officer_1stLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Officer_2ndLt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Officer_1stLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Officer_2ndLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_AIR_W_39_Pilot_SgtMaj", _sid];
-			_c pushBack format["%1I_NORTH_FIN_AIR_W_39_Pilot_1stLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_AIR_W_39_Pilot_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_1stLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_1stLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Patrolman_NCO", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Patrolman_Officer", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_1STLT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_2NDLT", _sid];
 		};
 	};
 	//set all other vars in a slope
@@ -326,16 +326,18 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_Cpt", _sid];
 		};
 		default {
-			//----------FIN Army Winter 1939------------
-			_c pushBack format["%1I_NORTH_FIN_W_39_Machinegunner_DP", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Machinegunner", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Machinegunner_Assistant_DP", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Machinegunner_Assistant", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Sniper", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_39_Officer_Cpt", _sid];
+			//----------FIN Army 1941------------
+			_c pushBack format["%1I_NORTH_FIN_41_Machinegunner_DP", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Machinegunner", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Machinegunner_Asst_DP", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Machinegunner_Asst", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Sniper", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_Officer_Cpt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_W_39_Officer_Cpt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_AIR_W_39_Pilot_Cpt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_Cpt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_Cpt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];
 		};
 	};
 	//set all other vars in a slope
@@ -394,60 +396,29 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_LIGHT) then {
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
 _matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_FIN_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
-//Streaming issue with nazi symbols, if its activated the fin default gets loaded
-if(CTI_STREAM_BLOCK > 0) then {_stream = 0;} else {_stream = CTI_CAMO_ACTIVATION;};
 
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(_stream) do {
-		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
-			_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _sid];
-		};
-		case 2: {//Summer camo active
-			_c pushBack format["%1NORTH_FIN_S_41_T26_M31", _sid];
-			_c pushBack format["%1NORTH_FIN_S_41_T26_M33_OT", _sid];
-		};
-		default {
-			_c pushBack format["%1NORTH_FIN_W_39_T26_M31", _sid];
-			_c pushBack format["%1NORTH_FIN_W_39_T26_M33_OT", _sid];
-		};
-	};
-	//set all other vars in a slope
-	_cntstart = count _c;
-	_cntend = count _p;
-	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
-		_t pushBack _building_time;
-		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;	
-	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(_stream) do {
-		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_FIN_W_41_T26_M33", _sid];
-			_c pushBack format["%1NORTH_FIN_W_41_T26E", _sid];
-		};
-		case 2: {//Summer camo active
-			_c pushBack format["%1NORTH_FIN_S_41_T26_M33", _sid];
-			_c pushBack format["%1NORTH_FIN_S_41_T26E", _sid];
-		};
-		default {
-			_c pushBack format["%1NORTH_FIN_W_39_T26_M33", _sid];
-			_c pushBack format["%1NORTH_FIN_Vickers6t", _sid];
+	if(CTI_STREAM_BLOCK > 0) then {
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M31", _sid];
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M33_OT", _sid];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M33_OT", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T26_M33", _sid];
+			};
 		};
 	};
 	//set all other vars in a slope
@@ -470,18 +441,23 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
 	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-	switch(_stream) do {
-		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
-			_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
-		};
-		case 2: {//Summer camo active
-			_c pushBack format["%1NORTH_FIN_S_41_T26_M38", _sid];
-			_c pushBack format["%1NORTH_FIN_S_41_T28", _sid];
-		};
-		default {
-			_c pushBack format["%1NORTH_FIN_W_39_T26_M38", _sid];
-			_c pushBack format["%1NORTH_FIN_W_39_T28", _sid];
+	if(CTI_STREAM_BLOCK > 0) then {
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M33", _sid];
+		_c pushBack format["%1NORTH_FIN_Vickers6t", _sid];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M33", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T26E", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M33", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T26E", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_41_T26_M33", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T26E", _sid];
+			};
 		};
 	};
 	//set all other vars in a slope
@@ -502,14 +478,57 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	switch(_stream) do {
-		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_FIN_W_41_T28e", _sid];
+	_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
+	_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
+	if(CTI_STREAM_BLOCK > 0) then {
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M38", _sid];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M38", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T28", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_41_T26_M38", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T28", _sid];
+			};
 		};
-		case 2: {//Summer camo active
-			_c pushBack format["%1NORTH_FIN_S_41_T28e", _sid];
-		};
-		default {
+	};
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ((CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))+(CTI_ECONOMY_PRIZE_ARMED*(_tech_level+1)));
+		_t pushBack _building_time;
+		_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+		_c pushBack format["%1NORTH_FIN_W_39_T28", _sid];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_T28e", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_T28e", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_41_T28e", _sid];
+			};
 		};
 	};
 	//set all other vars in a slope

@@ -24,6 +24,13 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 (_tag) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SetTownFlag.sqf";
 
+//needed for townvehicles if nation on IND side
+if(_tag == "GUER_") then {
+	missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1fow_s_uk_rifleman", _sid]];
+	missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1fow_s_uk_crewman", _sid]];
+	missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1fow_s_uk_para_section_commander", _sid]];
+};
+
 //***************************************************************************************************************************************
 //														Town infantry setup																*
 //***************************************************************************************************************************************

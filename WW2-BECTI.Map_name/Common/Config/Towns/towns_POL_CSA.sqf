@@ -24,12 +24,11 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 (_tag) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SetTownFlag.sqf";
 
 //needed for townvehicles
-missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1LIB_WP_Starszy_strzelec", _sid]];
-missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1LIB_WP_Strzelec", _sid]];
-missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1LIB_WP_Strzelec", _sid]];
-/*missionNamespace setVariable [format["CTI_%1Soldier", _tag], 'LIB_WP_Porucznic'];
-missionNamespace setVariable [format["CTI_%1Crew", _tag], 'LIB_WP_Strzelec'];
-missionNamespace setVariable [format["CTI_%1Pilot", _tag], 'LIB_WP_Strzelec'];*/
+if (isNil {missionNamespace getVariable format["CTI_%1Soldier", _tag]}) then {
+	missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1csa38_PLsoldier01", _sid]];
+	missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1csa38_PLsoldier01", _sid]];
+	missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1csa38_PLsoldier01", _sid]];
+};
 
 //***************************************************************************************************************************************
 //														Town infantry setup																*

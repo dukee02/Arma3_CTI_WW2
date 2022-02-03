@@ -56,14 +56,15 @@ CTI_GEAR_TAB_MISC = 5;
 CTI_GEAR_TAB_EQUIPMENT = 6;
 CTI_GEAR_TAB_TEMPLATES = 7;
 
-CTI_UNIT_LABEL = 0;
-CTI_UNIT_PICTURE = 1;
-CTI_UNIT_PRICE = 2;
-CTI_UNIT_TIME = 3;
-CTI_UNIT_UPGRADE = 4;
-CTI_UNIT_FACTORY = 5;
-CTI_UNIT_TURRETS = 6;
-CTI_UNIT_SCRIPTS = 7;
+CTI_UNIT_LABEL = 0;		//--- Classname.
+CTI_UNIT_PICTURE = 1;	//--- Picture. 
+CTI_UNIT_PRICE = 2;		//--- Price.
+CTI_UNIT_TIME = 3;		//--- Build time.
+CTI_UNIT_UPGRADE = 4;	//--- Upgrade level needed.    0 1 2 3...
+CTI_UNIT_FACTORY = 5;	//--- Built from Factory.
+CTI_UNIT_TURRETS = 6;	//--- Turrets.
+CTI_UNIT_SCRIPTS = 7;	//--- Script.
+CTI_UNIT_DISTANCE = 8;	//--- Extra Distance. (From Factory)
 
 CTI_WEST_ID = 0;
 CTI_EAST_ID = 1;

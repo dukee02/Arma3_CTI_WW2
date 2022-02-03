@@ -24,6 +24,27 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 };
 (_tag) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SetTownFlag.sqf";
 
+//needed for townvehicles if nation on IND side
+if(_tag == "GUER_") then {
+	switch (CTI_CAMO_ACTIVATION) do {
+		case 1: {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1I_NORTH_FIN_W_41_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1I_NORTH_FIN_T_W_41_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1I_NORTH_FIN_W_41_AIR_Pilot_Cpt", _sid]];
+		};
+		case 2: {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1I_NORTH_FIN_S_41_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1I_NORTH_FIN_T_S_41_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1I_NORTH_FIN_S_41_AIR_Pilot_Cpt", _sid]];
+		};
+		default {
+			missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1I_NORTH_FIN_ART_41_Rifleman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1I_NORTH_FIN_T_41_Crewman", _sid]];
+			missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1I_NORTH_FIN_41_AIR_Pilot_SgtMaj", _sid]];
+		};
+	};
+};
+
 //***************************************************************************************************************************************
 //														Town infantry setup																*
 //***************************************************************************************************************************************
@@ -48,9 +69,9 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			INFANTRY_AT = [[format["%1I_NORTH_FIN_S_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_S_41_Medic", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1]];
 		};
 		default {
-			INFANTRY = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1]];
-			INFANTRY_MG = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Autorifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Submachinegunner", _sid],1],[format["%1I_NORTH_FIN_W_39_Submachinegunner", _sid],1]];
-			INFANTRY_AT = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1]];
+			INFANTRY = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Autorifleman", _sid],1],[format["%1I_NORTH_FIN_41_Submachinegunner", _sid],1],[format["%1I_NORTH_FIN_41_Submachinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid],1]];
 		};
 	};
 };
@@ -70,9 +91,9 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			INFANTRY_AT = [[format["%1I_NORTH_FIN_S_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_S_41_Medic", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1]];
 		};
 		default {
-			INFANTRY = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Sniper", _sid],1]];
-			INFANTRY_MG = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Autorifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Submachinegunner", _sid],1],[format["%1I_NORTH_FIN_W_39_Machinegunner", _sid],1]];
-			INFANTRY_AT = [[format["%1I_NORTH_FIN_W_39_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1]];
+			INFANTRY = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Sniper", _sid],1]];
+			INFANTRY_MG = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Autorifleman", _sid],1],[format["%1I_NORTH_FIN_41_Submachinegunner", _sid],1],[format["%1I_NORTH_FIN_41_Machinegunner", _sid],1]];
+			INFANTRY_AT = [[format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid],1]];
 		};
 	};
 };
@@ -92,9 +113,9 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			INFANTRY_AT = [[format["%1I_NORTH_FIN_S_41_SgtMaj", _sid],1],[format["%1I_NORTH_FIN_S_41_Medic", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_S_41_Rifleman_AT", _sid],1]];
 		};
 		default {
-			INFANTRY = [[format["%1I_NORTH_FIN_W_39_SGTMAJ", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman", _sid],1]];
-			INFANTRY_MG = [[format["%1I_NORTH_FIN_W_39_SGTMAJ", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Patrolman", _sid],1],[format["%1I_NORTH_FIN_W_39_Patrolman", _sid],1],[format["%1I_NORTH_FIN_W_39_Patrolman", _sid],1]];
-			INFANTRY_AT = [[format["%1I_NORTH_FIN_W_39_SGTMAJ", _sid],1],[format["%1I_NORTH_FIN_W_39_Medic", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_W_39_Rifleman_AT", _sid],1]];
+			INFANTRY = [[format["%1I_NORTH_FIN_41_SgtMaj", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman", _sid],1]];
+			INFANTRY_MG = [[format["%1I_NORTH_FIN_41_SgtMaj", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Patrolman", _sid],1],[format["%1I_NORTH_FIN_41_Patrolman", _sid],1],[format["%1I_NORTH_FIN_41_Patrolman", _sid],1]];
+			INFANTRY_AT = [[format["%1I_NORTH_FIN_41_SgtMaj", _sid],1],[format["%1I_NORTH_FIN_41_Medic", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_CPL", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_Kasapanos", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT", _sid],1],[format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid],1]];
 		};
 	};
 };
@@ -149,50 +170,31 @@ TRACKED_MEDIUM = [];
 TRACKED_HEAVY = [];
 _matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_FIN_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
-//Streaming issue with nazi symbols, if its activated the fin default gets loaded
-_stream = 1;
-if(CTI_STREAM_BLOCK == 0) then {_stream = CTI_CAMO_ACTIVATION};
 
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(_stream) do {
-		case 1: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
-		};
-		case 2: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
-		};
-		default {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
-		};
-	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(_stream) do {
-		case 1: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T26_M33", _sid],1]];
-		};
-		case 2: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T26_M33", _sid],1]];
-		};
-		default {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T26_M33", _sid],1]];
+	if(CTI_STREAM_BLOCK > 0) then {
+		TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1]];
+		TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
+		TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
+			};
+			case 2: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
+			};
+			default {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_41_T26_M33_OT", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_41_T26_M31", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_41_T26_M31", _sid],1]];
+			};
 		};
 	};
 };
@@ -200,21 +202,27 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(_stream) do {
-		case 1: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T28", _sid],1]];
-		};
-		case 2: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1],[format["%1NORTH_FIN_S_41_T26_M33", _sid],1],[format["%1NORTH_FIN_S_41_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T28", _sid],1]];
-		};
-		default {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1],[format["%1NORTH_FIN_W_39_T26_M33", _sid],1],[format["%1NORTH_FIN_W_39_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T28", _sid],1]];
+	if(CTI_STREAM_BLOCK > 0) then {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T26_M33", _sid],1]];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T26_M33", _sid],1]];
+			};
+			case 2: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T26_M33", _sid],1]];
+			};
+			default {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_41_T26E", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_41_T26_M33", _sid],1]];
+			};
 		};
 	};
 };
@@ -222,21 +230,55 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(_stream) do {
-		case 1: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T28", _sid],1],[format["%1NORTH_FIN_W_41_T28e", _sid],1]];
+	if(CTI_STREAM_BLOCK > 0) then {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1],[format["%1NORTH_FIN_W_39_T26_M33", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T26_M38", _sid],1]];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T28", _sid],1]];
+			};
+			case 2: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1],[format["%1NORTH_FIN_S_41_T26_M33", _sid],1],[format["%1NORTH_FIN_S_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T28", _sid],1]];
+			};
+			default {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_41_T26E", _sid],1],[format["%1NORTH_FIN_41_T26_M33", _sid],1],[format["%1NORTH_FIN_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_41_T28", _sid],1]];
+			};
 		};
-		case 2: {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1],[format["%1NORTH_FIN_S_41_T26_M33", _sid],1],[format["%1NORTH_FIN_S_41_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T28", _sid],1],[format["%1NORTH_FIN_S_41_T28e", _sid],1]];
-		};
-		default {
-			TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1],[format["%1NORTH_FIN_W_39_T26_M33", _sid],1],[format["%1NORTH_FIN_W_39_T26_M38", _sid],1]];
-			TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T28", _sid],1]];
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_39_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_39_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_Vickers6t", _sid],1],[format["%1NORTH_FIN_W_39_T26_M33", _sid],1],[format["%1NORTH_FIN_W_39_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_39_T28", _sid],1]];
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_W_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_W_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_41_T26E", _sid],1],[format["%1NORTH_FIN_W_41_T26_M33", _sid],1],[format["%1NORTH_FIN_W_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T28", _sid],1],[format["%1NORTH_FIN_W_41_T28e", _sid],1]];
+			};
+			case 2: {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_S_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_S_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_41_T26E", _sid],1],[format["%1NORTH_FIN_S_41_T26_M33", _sid],1],[format["%1NORTH_FIN_S_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T28", _sid],1],[format["%1NORTH_FIN_S_41_T28e", _sid],1]];
+			};
+			default {
+				TRACKED_LIGHT = [[format["%1NORTH_FIN_41_T26_M33_OT", _sid],1],[format["%1NORTH_FIN_41_T26_M31", _sid],1]];
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_41_T26E", _sid],1],[format["%1NORTH_FIN_41_T26_M33", _sid],1],[format["%1NORTH_FIN_41_T26_M38", _sid],1]];
+				TRACKED_HEAVY = [[format["%1NORTH_FIN_41_T28", _sid],1],[format["%1NORTH_FIN_41_T28e", _sid],1]];
+			};
 		};
 	};
 };
