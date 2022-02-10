@@ -391,8 +391,8 @@ class Params {
 	};
   	class CTI_WEATHER_CHANGES {
 		title = "WEATHER: Simple presets";
-		values[] = {0,1,2};
-		texts[] = {"Sunny start, random normal weather","Sunny", "complete random"};
+		values[] = {0,1,2,3};
+		texts[] = {"Sunny start, random normal weather", "Sunny", "normal light weather", "complete random"};
 		default = 0;
 	};
 	class SEPERATOR_GAMEPLAY {
@@ -699,6 +699,12 @@ class Params {
 		title = "LOG: Set level of Logging";
 		values[] = {0,1,2,3};
 		texts[] = {"Error","Warning","Information","Debug"};
+		default = 0;
+	};
+	class CTI_STREAM_BLOCK {
+		title = "Block Nazi symbols for streaming?";
+		values[] = {0,1};
+		texts[] = {"Disabled","Enabled"};
 		default = 0;
 	};
 };
