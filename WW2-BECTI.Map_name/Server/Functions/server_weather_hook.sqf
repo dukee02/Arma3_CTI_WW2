@@ -65,13 +65,21 @@ if (CTI_WEATHER_STORM_TIME == -1) then { _storm_time_setting = random 1800 };
 
 //Initial Weather Settings
 _nexttime = 0;
-_nexttime setRain _rain_setting;
-_nexttime setOvercast _overcast_setting;
-_nexttime setFog [_fog_setting, _fog_decay_setting, _fog_alt_setting];
-setWind [random [-10,0,10], random [-10,0,10], true];
-_nexttime setWindStr _wind_setting;
+//_nexttime setRain _rain_setting;
+//_nexttime setOvercast _overcast_setting;
+//_nexttime setFog [_fog_setting, _fog_decay_setting, _fog_alt_setting];
+
+_nexttime setRain 0;
+_nexttime setOvercast 0;
+_nexttime setFog 0;
+_nexttime setWaves 0;
+_nexttime setWindStr 0;
+setWind [1, 1, false];
+			
+//setWind [random [-10,0,10], random [-10,0,10], true];
+//_nexttime setWindStr _wind_setting;
 //_nexttime setWindDir random 360;
-_nexttime setWaves _waves_setting;
+//_nexttime setWaves _waves_setting;
 _fog_forecast = fogForecast;
 _overcast_forecast = overcastForecast;
 
@@ -85,10 +93,10 @@ while {!CTI_GameOver} do {
 			_nexttime setOvercast 0;
 			_nexttime setFog 0;
 			_nexttime setWaves 0;
+			_nexttime setWindStr 0;
+			setWind [1, 1, false];
 			_fog_forecast = fogForecast;
 			_overcast_forecast = overcastForecast;
-			setWind [1, 1, false];
-			_nexttime setWindStr 0;
 			//update every 30min
 			//sleep 1800;
 		};
