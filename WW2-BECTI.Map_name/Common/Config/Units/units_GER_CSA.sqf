@@ -211,8 +211,8 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		//_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		//_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
-	};
+	//if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
+	//};
 	
 	//_c pushBack format["%1CSA38_opelblitz3", _sid];//salvager
 	_c pushBack format["%1CSA38_opelblitz2", _sid];
@@ -260,7 +260,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_c pushBack format["%1CSA38_8radDE", _sid];
 		_c pushBack format["%1CSA38_8rad2DE", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_8rad", _sid];
 		_c pushBack format["%1CSA38_8rad2", _sid];
 		//_c pushBack format["%1CSA38_8radPL", _sid];
@@ -316,7 +316,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzkpfwIA_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_DE", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
 		_c pushBack format["%1CSA38_pzbfwI", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA", _sid];
@@ -363,7 +363,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzIIb_DE", _sid];
 		_c pushBack format["%1CSA38_pzII_DE", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIIa", _sid];
 		_c pushBack format["%1CSA38_pzIIb", _sid];
 		_c pushBack format["%1CSA38_pzII", _sid];
@@ -411,9 +411,10 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwIamb_DE", _sid];// medic?
-		_c pushBack format["%1csa38_matildaii_DE", _sid];
+		_c pushBack format["%1CSA38_pzIIID_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIIID_DAK2", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIIIB", _sid];
 		_c pushBack format["%1CSA38_pzIIIC", _sid];
 		_c pushBack format["%1CSA38_pzIIID", _sid];
@@ -459,7 +460,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1CSA38_pzbfwIamb_DE", _sid];// medic?
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzbfwIamb", _sid];// medic?
 	};
 	
@@ -488,7 +489,12 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_c pushBack format["%1CSA38_pzIVB_W", _sid];
 		_c pushBack format["%1CSA38_pzIVC_W", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		_c pushBack format["%1CSA38_pzIV_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIVB_DAK", _sid];
+		_c pushBack format["%1CSA38_pzIVC_DAK", _sid];
+	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIV", _sid];
 		_c pushBack format["%1CSA38_pzIVB", _sid];
 		_c pushBack format["%1CSA38_pzIVcv38", _sid];
@@ -720,7 +726,7 @@ if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo a
 	_d pushBack 0;	
 
 };
-if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 	_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
 	_p pushBack '';
 	_n pushBack 'Ammo Truck';

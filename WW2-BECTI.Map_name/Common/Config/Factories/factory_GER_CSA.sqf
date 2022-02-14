@@ -157,7 +157,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 		//_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		//_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		//_c pushBack format["%1CSA38_opelblitz3", _sid];//salvager
 		_c pushBack format["%1CSA38_opelblitz2", _sid];
 		_c pushBack format["%1CSA38_opelblitz", _sid];
@@ -189,7 +189,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 		_c pushBack format["%1CSA38_8radDE", _sid];
 		_c pushBack format["%1CSA38_8rad2DE", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_8rad", _sid];
 		_c pushBack format["%1CSA38_8rad2", _sid];
 		//_c pushBack format["%1CSA38_8radPL", _sid];
@@ -225,6 +225,10 @@ _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	
+	
+	
+	
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzbfwI_W", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA_W", _sid];
@@ -235,7 +239,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzkpfwIA_DE", _sid];
 		_c pushBack format["%1CSA38_pzkpfwI_DE", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzbfwIA", _sid];//unarmed
 		_c pushBack format["%1CSA38_pzbfwI", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA", _sid];
@@ -267,7 +271,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzII_DE", _sid];
 		//_c pushBack format["%1CSA38_pzII_DE2", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIIa", _sid];
 		_c pushBack format["%1CSA38_pzIIb", _sid];
 		_c pushBack format["%1CSA38_pzII", _sid];
@@ -302,7 +306,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzIIID_DAK", _sid];
 		_c pushBack format["%1CSA38_pzIIID_DAK2", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIIIB", _sid];
 		_c pushBack format["%1CSA38_pzIIIC", _sid];
 		_c pushBack format["%1CSA38_pzIIID", _sid];
@@ -342,7 +346,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzIVB_DAK", _sid];
 		_c pushBack format["%1CSA38_pzIVC_DAK", _sid];
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_pzIV", _sid];
 		_c pushBack format["%1CSA38_pzIVB", _sid];
 		_c pushBack format["%1CSA38_pzIVcv38", _sid];
@@ -417,6 +421,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 _c = [];
 
 _c pushBack format["%1CSA38_opelblitz6", _sid];//repair
+
 if(CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 1) then {
 	_c pushBack format["CTI_Salvager_%1", _side];	
 };
@@ -445,7 +450,7 @@ if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo a
 	_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 	_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 };
-if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 	_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
 	_c pushBack format["%1CSA38_opelblitz5", _sid];//fuel
 };
@@ -490,7 +495,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 		_c pushBack format["%1CSA38_opelblitz4_DE", _sid];//ammo
 		_c pushBack format["%1CSA38_opelblitz5_DE", _sid];//fuel
 	};
-	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 3) then {		//default camo active
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 2) then {		//default camo active
 		_c pushBack format["%1CSA38_opelblitz2", _sid];
 		_c pushBack format["%1CSA38_opelblitz6", _sid];//repair
 		_c pushBack format["%1CSA38_opelblitz4", _sid];//ammo
