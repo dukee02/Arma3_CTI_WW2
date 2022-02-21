@@ -70,6 +70,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//SOV
@@ -91,6 +93,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//UK
@@ -112,6 +116,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//US
@@ -133,6 +139,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//JPN
@@ -154,6 +162,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//CZ
@@ -175,6 +185,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//FIN
@@ -196,6 +208,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		]
 	],
@@ -220,6 +234,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//SOV
@@ -241,6 +257,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//UK
@@ -262,6 +280,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//US
@@ -283,6 +303,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//JPN
@@ -304,6 +326,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//CZ
@@ -325,6 +349,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		],
 		//FIN
@@ -346,6 +372,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false],
 			//BT
+			[false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false]
 		]
 	],
@@ -370,6 +398,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		],
 		//SOV
@@ -391,7 +421,9 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
-			[false,true,false,false,false,false,false,false]
+			[false,true,false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,false,false,false,false]
 		],
 		//UK
 		[
@@ -412,6 +444,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		],
 		//US
@@ -433,6 +467,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		],
 		//JPN
@@ -454,6 +490,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		],
 		//CZ
@@ -475,6 +513,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		],
 		//FIN
@@ -496,6 +536,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
 		]
 	],
@@ -520,7 +562,9 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true,true,true],
 			//BT
-			[false,false,false,false,false,false]
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,true,true,false,true,false]
 		],
 		//SOV
 		[
@@ -541,7 +585,9 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true,true,false],
 			//BT
-			[false,false,false,false,false,false]
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,true,false]
 		],
 		//UK
 		[
@@ -556,13 +602,15 @@ _tech_matrix =
 			//NF
 			[false,false,false,false,false,false],
 			//SABFL
-			[true,true,true,false,true,false],
+			[true,false,true,true,true,false],
 			//SABNL
 			[false,false,false,false,false,false],
 			//SAB
 			[true,true,false,true,true,false],
 			//BT
-			[false,false,false,false,false,false]
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,false,true]
 		],
 		//US
 		[
@@ -583,7 +631,9 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true,true,true],
 			//BT
-			[false,false,false,false,false,false]
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,true,true,false,true]
 		],
 		//JPN
 		[
@@ -598,12 +648,14 @@ _tech_matrix =
 			//NF
 			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false,false],
+			[false,false,false,true,false,false],
 			//SABNL
 			[false,false,false,false,false,false],
 			//SAB
 			[true,true,true,true,true,false],
 			//BT
+			[false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false]
 		],
 		//CZ
@@ -625,6 +677,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false]
 		],
 		//FIN
@@ -646,6 +700,8 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false],
 			//BT
+			[false,false,false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false,false,false]
 		]
 	],
@@ -670,7 +726,9 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true],
 			//BT
-			[]
+			[false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false]
 		],
 		//SOV
 		[
@@ -691,6 +749,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		],
 		//UK
@@ -712,6 +772,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		],
 		//US
@@ -733,6 +795,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		],
 		//JPN
@@ -754,6 +818,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true,true],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		],
 		//CZ
@@ -775,6 +841,8 @@ _tech_matrix =
 			//SAB
 			[false,false,false,false],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		],
 		//FIN
@@ -796,6 +864,8 @@ _tech_matrix =
 			//SAB
 			[false,false,false,false],
 			//BT
+			[false,false,false,false],
+			//SAB reloaded
 			[false,false,false,false]
 		]
 	],
@@ -821,6 +891,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//SOV
@@ -842,6 +914,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//UK
@@ -863,6 +937,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//US
@@ -884,6 +960,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//JPN
@@ -905,6 +983,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//CZ
@@ -926,6 +1006,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		],
 		//FIN
@@ -947,6 +1029,8 @@ _tech_matrix =
 			//SAB
 			[true,true,true],
 			//BT
+			[true,true,true],
+			//SAB reloaded
 			[true,true,true]
 		]
 	]

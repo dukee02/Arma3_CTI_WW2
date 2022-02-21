@@ -46,6 +46,7 @@ CTI_SABFL_ID = 5;
 CTI_SABNL_ID = 6;
 CTI_SAB_ID = 7;
 CTI_BT_ID = 8;
+CTI_SABRL_ID = 9;
 
 CTI_GEAR_TAB_PRIMARY = 0;
 CTI_GEAR_TAB_SECONDARY = 1;
@@ -556,6 +557,8 @@ CTI_GC_DELAY_TANK = 300;
 CTI_GC_DELAY_SHIP = 60;
 CTI_GC_DELAY_STATIC = 80;
 CTI_GC_DELAY_BUILDING = 30;
+CTI_GC_TOWN_OBJECTS = ["TREE", "SMALL TREE", "BUSH"];		//Garbaged these objects if destroyed
+CTI_GC_RANGE_TOWN = 600;									//Range around the main bunker, where objects gets garbaged
 
 //--- Vehicles: Misc
 CTI_VEHICLES_BOUNTY = 0.45; //--- Bounty upon entity killed.
@@ -827,6 +830,7 @@ with missionNamespace do {
 	if (isNil 'CTI_SABNL_ADDON') then {CTI_SABNL_ADDON = 0};
 	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
 	if (isNil 'CTI_BT_ADDON') then {CTI_BT_ADDON = 0};
+	if (isNil 'CTI_SABRL_ADDON') then {CTI_SABRL_ADDON = 0};
 	//Check when IFA is loaded VIO patch is loaded too?
 	if(CTI_IFA3_NEW >= 0) then {
 		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
@@ -899,6 +903,14 @@ with missionNamespace do {
 			CTI_VIO_ADDON = 0;
 		};
 		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-WW2 for BT-mod addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "sab_sw_bf110")) then {
+		CTI_SABRL_ADDON = 1;
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["SAB reloaded-Mod found! <%1>", CTI_BT_ADDON]] call CTI_CO_FNC_Log; };
+		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_sab_sw_bf110")) then {
+			CTI_VIO_ADDON = 0;
+		};
+		if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["VIO-WW2 for SAB reloaded addon loaded? <%1> ", CTI_VIO_ADDON]] call CTI_CO_FNC_Log; };
 	};
 	
 	if (isNil 'CTI_STREAM_BLOCK') then {CTI_STREAM_BLOCK = 0};

@@ -13,7 +13,6 @@ This mission basically needs only one of the main WW2 mods (IFA3/Faces of War/CS
     [*]Researchable technology tree. Research for better units, thus earlier Tankrush not possible.
     [*]No fixed script, every game can run differently.
 [/list]
-
 [h1]BECTI special features: [/h1] 
 [list]
     [*]Large WW2 mod support: IFA3, CSA38, Northern Fronts, Faces of War, Bystrokhodny BT7, SAB secret weapons, Flying Legends, Naval Legends
@@ -35,7 +34,21 @@ This mission basically needs only one of the main WW2 mods (IFA3/Faces of War/CS
     [*]Adjustable cool-down for CTI artillery strikes.
 	[*]HQ gives artillery warning with rough direction (ballance).
 [/list]
-
+[h1]Mod Overview: [/h1] 
+[list]
+    [*]IFA3_____________: Main mod and when loaded serves as a backup
+    [*]CSA38____________: Works alone
+    [*]Northern Fronts__: Works alone with limitation, as no logistics troops
+    [*]Faces of War_____: Works alone
+    [*]
+    [*]Bystrokhodny BT7_: Units are automatically added
+    [*]Flying Legends___: Units are automatically added
+    [*]Naval Legends____: Units are automatically added
+    [*]SAB sec. weap.___: Units are automatically added, but mod should be deleted as SAB said.
+    [*]SAB sw reloaded__: Units are automatically added
+[/list]
+All mods can be combined with each other. CSA, Northern Fronts and Faces of War can explicitly replace IFA3 as the main mod, which changes the spawn of the base units. 
+The smaller automatic mods add their units to the activated nations without having to be explicitly set.
 [h1]CTI main description: [/h1]
 CTI (Conquer The Island) is a mission that already existed in ArmA2 under the name Warfare. Here 2 factions are facing each other and fight for supremacy over the map. Depending on the map and the setting, a 3rd independent faction can also be involved, but it does not actively participate. but does not actively participate in the action. The goal is to find and destroy the enemy base or alternatively capture all cities/villages. These cities/villages also serve to generate "supplies" with which the "research" can be advanced, the own base can be expanded and further bases can be built. To capture a town/village it is sufficient to be within a small radius of the main bunker, without enemy forces being are also in this zone.
 
@@ -50,7 +63,6 @@ Each faction is led by a commander, who is chosen at the beginning by all player
 Instead of simply making small changes and then uploading a new version yourself, just [url=https://discord.gg/sJw2Nynh7s]contact us[/url]. Often desired features are already in the planning stages and you may be able to help us. Many very similar/similar missions just make it harder to keep track.
 [h1]Help and player search: [/h1]
 Want to know more about the mission, find servers running the mission or find other players to share with/against, our [url=https://steamcommunity.com/groups/vio-community] Steam-Community [/url] and our [url=https://discord.gg/sJw2Nynh7s] discord [/url] are a good a good address for this.
-[h1]CREDITS[/h1]
 [h1]Authors:[/h1]
 [list]
     [*][b]dukee[/b]: Projectlead and main developer
@@ -63,6 +75,18 @@ Want to know more about the mission, find servers running the mission or find ot
 
 [h1]If you like my work, you can[url=paypal.me/dukeeVio] Support me [/url][/h1]
 
+[h1]usefull links:[/h1]
+[url=https://steamcommunity.com/groups/vio-community] Steam-Community [/url]
+[url=https://steamcommunity.com/groups/vio-community/discussions/0/3190239190930251887/] WW2 BECTI Info + Server template [/url]
+[url=https://docs.google.com/spreadsheets/d/1HN6bopGMsHu7rxPnNN9V3aLaOEFsaQNu4yYJAimcTs0/edit?usp=sharing] Techtree [/url]
+[url=https://discord.gg/sJw2Nynh7s] Discord [/url]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2564772956] VIO BECTI [IFA3 only] Collection [/url]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2754192763] VIO BECTI WW2 Collection [/url]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2484775180] VIO-BECTI Vanilla Collection [/url]
+
+
+
+
 [h1]Our Side-Patches (combinable):[/h1]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1558147115] Sidepatch WW2 [/url]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2555935114] Sidepatch IFA3 [/url]
@@ -71,14 +95,6 @@ Want to know more about the mission, find servers running the mission or find ot
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588040319] Sidepatch FoW [/url]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723493856] Sidepatch NF [/url]
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2588046710] Sidepatch AIO [/url]
-
-[h1]usefull links:[/h1]
-[url=https://steamcommunity.com/groups/vio-community] Steam-Community [/url]
-[url=https://steamcommunity.com/groups/vio-community/discussions/0/3190239190930251887/] WW2 BECTI Info [/url]
-[url=https://docs.google.com/spreadsheets/d/1HN6bopGMsHu7rxPnNN9V3aLaOEFsaQNu4yYJAimcTs0/edit?usp=sharing] Techtree [/url]
-[url=https://discord.gg/sJw2Nynh7s] Discord [/url]
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2564772956] VIO-BECTI WorldWar2 Collection [/url]
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2484775180] VIO-BECTI Vanilla Collection [/url]
 
 
 
@@ -91,7 +107,6 @@ Want to know more about the mission, find servers running the mission or find ot
 [h1]Unser Projekt: [/h1] 
 Unser Ziel ist es auf der Basis von Bennys Arbeit (die eine frühe Portierung der Arma2 Version ist), diese CTI zu vervollständigen und in einigen 
 Teilen weiter zu entwickeln. Jedoch ohne den Grundgedanken der kombinierten Kriegsführung all zu sehr außer Acht zu lassen.
-[WW2]
 Diese Mission benötigt grundlegend nur einen der Haupt-WW2-Mods (IFA3/Faces of War/CSA38/Northern Fronts) um zu funktionieren. Switchen der Nationen auf andere Seiten funktioniert auch ohne Side-Patch, kann 
 aber zu Anzeigefehlern und anderem Fehlverhalten führen. Wir raten jedem, die jeweils passenden Side-Patches zusammen mit der Mission zu nutzen.
 
@@ -126,6 +141,21 @@ aber zu Anzeigefehlern und anderem Fehlverhalten führen. Wir raten jedem, die j
     [*]Einstellbarer Cool-Down für CTI-Artillerieschläge.
     [*]HQ gibt Artillerie-Warnung mit grober Richtung an (ballance).
 [/list]
+
+[h1]Mod Übersicht: [/h1] 
+[list]
+    [*]IFA3_____________: Hauptmod und dient wenn geladen als Absicherung
+    [*]CSA38____________: Funktioniert alleine
+    [*]Northern Fronts__: Funktioniert alleine mit Einschränkung, da keine Logistictruppen
+    [*]Faces of War_____: Funktioniert alleine
+    [*]
+    [*]Bystrokhodny BT7_: Einheiten werden automatisch hinzugefügt
+    [*]Flying Legends___: Einheiten werden automatisch hinzugefügt
+    [*]Naval Legends____: Einheiten werden automatisch hinzugefügt
+    [*]SAB sec. weap.___: Einheiten werden automatisch hinzugefügt mod soll aber ggf. gelöscht werden.
+[/list]
+Alle Mods können miteinander kombiniert werden. CSA, Northern Fronts und Faces of War können explizit IFA3 als Haupt-mod ersetzen, was den spawn der Grundeinheiten verändert. 
+Die kleineren automatischen Mods fügen ihre Einheiten den jeweils aktivierten Nationen hinzu ohne explizit gesetzt werden zu müssen.
 
 [h1]CTI Beschreibung: [/h1] 
 CTI (Conquer The Island) ist eine Mission, die es bereits in ArmA2 unter dem Namen Warfare gegeben hat. Dabei stehen sich 2 Fraktionen gegenüber und 
@@ -180,6 +210,15 @@ hierfür eine gute Adresse.
 
 -------------------------------------------------------------------------------
 
+This is our WW2 collection, here you can find all supported mods and also the missions for them.
+
+More infos:
+[url=https://steamcommunity.com/groups/vio-community] Steam-Community [/url]
+[url=https://steamcommunity.com/groups/vio-community/discussions/0/3190239190930251887/] WW2 BECTI Info [/url]
+[url=https://discord.gg/sJw2Nynh7s] Discord [/url]
+
+
+
 
 List of all supported mods:
 https://steamcommunity.com/groups/vio-community/discussions/0/1740012252800579933/
@@ -190,7 +229,7 @@ https://steamcommunity.com/groups/vio-community/discussions/0/174001225280057993
 
 
 -------------------MAPS----------------------------
-Altis
+Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829
 Baranow
 Baranow Winter
 Henderson Airfield (FoW)
@@ -200,16 +239,16 @@ Merderet V2
 Merderet V3
 Merderet Winter
 Tobruk
-Malden
+Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063
 Marenice (CSA)
 Neaville
 Neaville Winter
 Staszow
 Staszow Winter
-Stratis
+Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946
 El Alamein
 Kokoda (FoW)
-Tanoa
+Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194
 Rosche Germany
 Svartmarka
 Svartmarka Winter
