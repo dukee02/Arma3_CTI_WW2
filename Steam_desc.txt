@@ -230,23 +230,23 @@ https://steamcommunity.com/groups/vio-community/discussions/0/174001225280057993
 
 -------------------MAPS----------------------------
 Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829
-Baranow
-Baranow Winter
+Baranow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763574128
+Baranow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763576184
 Henderson Airfield (FoW)
-Merderet
-Merderet koth
-Merderet V2
-Merderet V3
-Merderet Winter
-Tobruk
+Merderet							https://steamcommunity.com/sharedfiles/filedetails/?id=2761787393
+Merderet koth						https://steamcommunity.com/sharedfiles/filedetails/?id=2761789779
+Merderet V2							https://steamcommunity.com/sharedfiles/filedetails/?id=2761791065
+Merderet V3							https://steamcommunity.com/sharedfiles/filedetails/?id=2761792525
+Merderet Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2761793897
+Tobruk								https://steamcommunity.com/sharedfiles/filedetails/?id=2763571066
 Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063
 Marenice (CSA)
-Neaville
-Neaville Winter
-Staszow
-Staszow Winter
+Neaville							https://steamcommunity.com/sharedfiles/filedetails/?id=2763562933
+Neaville Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763564340
+Staszow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763567387
+Staszow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763568939
 Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946
-El Alamein
+El Alamein							https://steamcommunity.com/sharedfiles/filedetails/?id=2763572663
 Kokoda (FoW)
 Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194
 Rosche Germany

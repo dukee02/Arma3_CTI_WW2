@@ -231,7 +231,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -254,7 +254,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -277,7 +277,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -300,7 +300,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -323,7 +323,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -346,7 +346,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -369,7 +369,7 @@ _tech_matrix =
 			[false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false],
 			//BT
 			[false,false,false,false,false],
@@ -395,7 +395,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -418,7 +418,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,true,false,false,false,false,false,false],
@@ -441,7 +441,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -464,7 +464,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -487,7 +487,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -510,7 +510,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -533,7 +533,7 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false,false,false],
-			//SABFL
+			//SAB
 			[false,false,false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false,false,false],
@@ -1036,7 +1036,7 @@ _tech_matrix =
 	]
 ];
 
-_tech = _tech_matrix select _factory select 0 select 0;
+_tech = [];
 if(_mod >= 0) then {
 	_tech = _tech_matrix select _factory select _nation select _mod;
 } else {
@@ -1070,36 +1070,52 @@ if(_mod >= 0) then {
 		if(CTI_BT_ADDON > 0) then {
 			_tech = [_tech, _tech_matrix select _factory select _nation select CTI_BT_ID] call CTI_CO_FNC_MergeMatrixArray;
 		};
+		if(CTI_SABRL_ADDON > 0) then {
+			_tech = [_tech, _tech_matrix select _factory select _nation select CTI_SABRL_ID] call CTI_CO_FNC_MergeMatrixArray;
+		};
 	} else {
 		//combine the tech tree
 		{
 			if(_side == (_x) call CTI_CO_FNC_GetSideFromID) then {
 				if(CTI_IFA3_NEW >= 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_IFA_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_IFA3: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_IFA3_NEW >= 1) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_IFA_NEW_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_IFA3_NEW: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_FOW_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_FOW_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_FOW_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_CSA_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_CSA_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_CSA_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_NF_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_NF_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_NF_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_SABFL_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_SABFL_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_SABFL_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_SABNL_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_SABNL_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_SABNL_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_SAB_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_SAB_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_SAB_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_BT_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_BT_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_BT_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
+				};
+				if(CTI_SABRL_ADDON > 0) then {
+					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_SABRL_ID] call CTI_CO_FNC_MergeMatrixArray;
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_SABRL_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 			};	
 		} forEach [CTI_GER_SIDE, CTI_SOV_SIDE, CTI_UK_SIDE, CTI_US_SIDE, CTI_JPN_SIDE, CTI_CZ_SIDE, CTI_FIN_SIDE];
