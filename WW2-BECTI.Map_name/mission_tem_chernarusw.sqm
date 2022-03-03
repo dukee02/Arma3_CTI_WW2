@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2981;
+		nextID=3031;
 	};
 	class Camera
 	{
-		pos[]={369.6488,392.10861,14229.178};
-		dir[]={0.035707645,-0.41569707,0.90880442};
-		up[]={0.016320487,0.90950209,0.41537663};
-		aside[]={0.99923068,9.1749826e-009,-0.039260741};
+		pos[]={10447.205,95.777,2363.8718};
+		dir[]={-0.48428458,-0.55021185,0.680251};
+		up[]={-0.31910405,0.83502221,0.44822946};
+		aside[]={0.81464618,2.6542693e-008,0.57996255};
 	};
 };
 binarizationWanted=0;
@@ -721,6 +721,7 @@ class Mission
 					};
 					id=1176;
 					type="O_Protagonist_VR_F";
+					atlOffset=-1.9073486e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -769,6 +770,7 @@ class Mission
 			{
 			};
 			id=239;
+			atlOffset=-1.9073486e-005;
 		};
 		class Item8
 		{
@@ -1246,6 +1248,7 @@ class Mission
 					};
 					id=1160;
 					type="B_Protagonist_VR_F";
+					atlOffset=-0.00018310547;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1294,6 +1297,7 @@ class Mission
 			{
 			};
 			id=269;
+			atlOffset=-0.00018310547;
 		};
 		class Item15
 		{
@@ -4995,12 +4999,11 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={10195.811,36.440029,1800.679};
-								angles[]={0,1.6095949,0};
+								position[]={10175.53,36.490002,1828.7892};
+								angles[]={-0,1.6095949,0};
 							};
 							id=2003;
 							type="LocationCamp_F";
-							atlOffset=-3.8146973e-006;
 						};
 						class Item2
 						{
@@ -5089,7 +5092,7 @@ class Mission
 						};
 					};
 					id=2115;
-					atlOffset=0.048248291;
+					atlOffset=0.048439026;
 				};
 				class Item29
 				{
@@ -5199,8 +5202,8 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={10473.459,36.48,2459.5471};
-								angles[]={0,4.7742085,0};
+								position[]={10476.892,36.481621,2474.834};
+								angles[]={0,4.7742085,6.2805324};
 							};
 							name="town28";
 							init="call{nullReturn = [this, ""Rafsbotn"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
@@ -5209,7 +5212,7 @@ class Mission
 						};
 					};
 					id=2116;
-					atlOffset=-6.2158165;
+					atlOffset=-8.6677513;
 				};
 				class Item30
 				{
@@ -8291,6 +8294,7 @@ class Mission
 					};
 					id=1184;
 					type="O_Protagonist_VR_F";
+					atlOffset=-1.9073486e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8339,6 +8343,7 @@ class Mission
 			{
 			};
 			id=587;
+			atlOffset=-1.9073486e-005;
 		};
 		class Item34
 		{
@@ -8366,6 +8371,7 @@ class Mission
 					};
 					id=1185;
 					type="O_Protagonist_VR_F";
+					atlOffset=-3.8146973e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -8414,6 +8420,7 @@ class Mission
 			{
 			};
 			id=589;
+			atlOffset=-3.8146973e-005;
 		};
 		class Item35
 		{

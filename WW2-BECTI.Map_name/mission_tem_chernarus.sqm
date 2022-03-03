@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2931;
+		nextID=2981;
 	};
 	class Camera
 	{
-		pos[]={54.924377,189.2289,2638.4834};
-		dir[]={-0.09131252,-0.20452793,0.97459316};
-		up[]={-0.019079342,0.97886145,0.2036369};
-		aside[]={0.99564058,5.2968971e-009,0.093284428};
+		pos[]={10475.288,16.439957,2444.5005};
+		dir[]={0.16726881,-0.4942959,0.85305291};
+		up[]={0.09511248,0.86929303,0.48506203};
+		aside[]={0.98131764,-3.3105607e-010,-0.19241954};
 	};
 };
 binarizationWanted=0;
@@ -1185,6 +1185,7 @@ class Mission
 					};
 					id=1159;
 					type="B_Protagonist_VR_F";
+					atlOffset=9.1552734e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1233,6 +1234,7 @@ class Mission
 			{
 			};
 			id=267;
+			atlOffset=9.1552734e-005;
 		};
 		class Item14
 		{
@@ -5083,12 +5085,11 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={10195.811,5.9513059,1800.6791};
-								angles[]={0,1.6095961,0};
+								position[]={10174.756,6,1828.963};
+								angles[]={-0,1.6095961,0};
 							};
 							id=2003;
 							type="LocationCamp_F";
-							atlOffset=-4.7683716e-007;
 						};
 						class Item2
 						{
@@ -5180,7 +5181,7 @@ class Mission
 						};
 					};
 					id=2115;
-					atlOffset=0.048138142;
+					atlOffset=0.0483284;
 				};
 				class Item29
 				{
@@ -5292,8 +5293,8 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={10473.459,5.9899998,2459.5471};
-								angles[]={0,4.7742085,0};
+								position[]={10476.892,5.991621,2474.834};
+								angles[]={-0,4.7742085,6.2805333};
 							};
 							name="town28";
 							init="call{nullReturn = [this, ""Rafsbotn"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
@@ -5302,7 +5303,7 @@ class Mission
 						};
 					};
 					id=2116;
-					atlOffset=-6.2112055;
+					atlOffset=-8.6637335;
 				};
 				class Item30
 				{
