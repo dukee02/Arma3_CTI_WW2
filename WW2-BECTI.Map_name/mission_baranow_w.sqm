@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1216.7949,40.981796,1643.2452};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		pos[]={5442.7578,37.337639,5830.7939};
+		dir[]={-0.58953893,-0.32672772,0.73871237};
+		up[]={-0.203804,0.94511831,0.25537318};
+		aside[]={0.78160858,1.2267265e-008,0.62377304};
 	};
 };
 binarizationWanted=0;
@@ -1001,7 +1001,6 @@ class Mission
 							};
 							id=764;
 							type="LocationCamp_F";
-							atlOffset=-0.0018806458;
 						};
 						class Item3
 						{
@@ -1014,7 +1013,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1244;
 							type="Logic";
-							atlOffset=-0.00046730042;
+							atlOffset=1.9073486e-006;
 						};
 						class Item4
 						{
@@ -1040,7 +1039,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1301;
 							type="Logic";
-							atlOffset=-0.00046920776;
 						};
 					};
 					id=309;
@@ -1307,7 +1305,7 @@ class Mission
 						};
 					};
 					id=321;
-					atlOffset=1.8163062;
+					atlOffset=11.134221;
 				};
 				class Item4
 				{
@@ -1374,7 +1372,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1229;
 							type="Logic";
-							atlOffset=-1.1444092e-005;
+							atlOffset=-3.8146973e-006;
 						};
 						class Item5
 						{
@@ -1565,7 +1563,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1201;
 							type="Logic";
-							atlOffset=0.0040073395;
 						};
 						class Item6
 						{
@@ -1976,7 +1973,7 @@ class Mission
 						};
 					};
 					id=351;
-					atlOffset=-0.37683105;
+					atlOffset=-0.3771019;
 				};
 				class Item11
 				{
@@ -1997,7 +1994,6 @@ class Mission
 							init="call{nullReturn = [this, ""Sector F4"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=356;
 							type="LocationArea_F";
-							atlOffset=-0.00025939941;
 						};
 						class Item1
 						{
@@ -2033,7 +2029,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1224;
 							type="Logic";
-							atlOffset=0.0015125275;
 						};
 						class Item4
 						{
@@ -2046,7 +2041,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1284;
 							type="Logic";
-							atlOffset=0.00061035156;
+							atlOffset=1.9073486e-006;
 						};
 						class Item5
 						{
@@ -2690,7 +2685,7 @@ class Mission
 						};
 					};
 					id=389;
-					atlOffset=8.0736523;
+					atlOffset=8.071722;
 				};
 				class Item19
 				{
@@ -2887,7 +2882,7 @@ class Mission
 							init="call{nullReturn = [this, ""Sector C3"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=403;
 							type="LocationArea_F";
-							atlOffset=0.0012388229;
+							atlOffset=2.3841858e-007;
 						};
 						class Item1
 						{
@@ -2936,7 +2931,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1251;
 							type="Logic";
-							atlOffset=0.0014090538;
 						};
 						class Item5
 						{
@@ -2949,7 +2943,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1304;
 							type="Logic";
-							atlOffset=-0.00018501282;
+							atlOffset=-4.7683716e-007;
 						};
 						class Item6
 						{
@@ -2965,7 +2959,7 @@ class Mission
 						};
 					};
 					id=402;
-					atlOffset=6.6573415;
+					atlOffset=6.3819714;
 				};
 				class Item22
 				{
@@ -3546,7 +3540,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1204;
 							type="Logic";
-							atlOffset=-0.0014915466;
 						};
 						class Item6
 						{
@@ -3586,7 +3579,7 @@ class Mission
 						};
 					};
 					id=603;
-					atlOffset=2.6447849;
+					atlOffset=2.6938848;
 				};
 				class Item29
 				{
@@ -3605,21 +3598,19 @@ class Mission
 							};
 							id=612;
 							type="LocationCamp_F";
-							atlOffset=0.0016908646;
 						};
 						class Item1
 						{
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={7509.3008,12.911478,2612.863};
+								position[]={7509.3008,12.493478,2612.863};
 								angles[]={0,1.9100535,0};
 							};
 							name="Town34";
 							init="call{nullReturn = [this, ""Sector F8"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=611;
 							type="LocationArea_F";
-							atlOffset=0.41800022;
 						};
 						class Item2
 						{
@@ -3670,7 +3661,7 @@ class Mission
 						};
 					};
 					id=604;
-					atlOffset=0.51788139;
+					atlOffset=0.50481892;
 				};
 				class Item30
 				{
@@ -3906,7 +3897,6 @@ class Mission
 							};
 							id=649;
 							type="LocationCamp_F";
-							atlOffset=-0.0013065338;
 						};
 						class Item1
 						{
@@ -3933,7 +3923,6 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1246;
 							type="Logic";
-							atlOffset=-0.00061988831;
 						};
 						class Item3
 						{
@@ -3958,11 +3947,10 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1302;
 							type="Logic";
-							atlOffset=-0.002494812;
 						};
 					};
 					id=626;
-					atlOffset=2.2850571;
+					atlOffset=2.2833672;
 				};
 				class Item34
 				{
@@ -4487,12 +4475,12 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={5391.895,14.632756,5893.2837};
-								angles[]={0,4.6141987,0};
+								position[]={5391.895,15.667117,5893.2842};
+								angles[]={0,4.6141968,0};
 							};
 							id=635;
 							type="LocationCamp_F";
-							atlOffset=-1.034318;
+							atlOffset=9.5367432e-007;
 						};
 						class Item1
 						{
@@ -4569,7 +4557,7 @@ class Mission
 						};
 					};
 					id=633;
-					atlOffset=1.1125164;
+					atlOffset=1.1286774;
 				};
 				class Item41
 				{
@@ -4643,7 +4631,7 @@ class Mission
 				};
 			};
 			id=308;
-			atlOffset=4.6123314;
+			atlOffset=4.6163702;
 		};
 		class Item10
 		{

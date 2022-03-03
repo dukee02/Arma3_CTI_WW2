@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=4489;
+		nextID=4709;
 	};
 	class Camera
 	{
-		pos[]={1216.7949,40.981796,1643.2452};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		pos[]={5442.7578,37.337639,5830.7939};
+		dir[]={-0.58953893,-0.32672772,0.73871237};
+		up[]={-0.203804,0.94511831,0.25537318};
+		aside[]={0.78160858,1.2267265e-008,0.62377304};
 	};
 };
 binarizationWanted=0;
@@ -3579,7 +3579,7 @@ class Mission
 						};
 					};
 					id=603;
-					atlOffset=2.6761265;
+					atlOffset=2.6938848;
 				};
 				class Item29
 				{
@@ -3604,14 +3604,13 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={7509.3008,12.911478,2612.863};
+								position[]={7509.3008,12.493478,2612.863};
 								angles[]={0,1.9100535,0};
 							};
 							name="Town34";
 							init="call{nullReturn = [this, ""Sector F8"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=611;
 							type="LocationArea_F";
-							atlOffset=0.41800022;
 						};
 						class Item2
 						{
@@ -3662,7 +3661,7 @@ class Mission
 						};
 					};
 					id=604;
-					atlOffset=0.51788139;
+					atlOffset=0.50481892;
 				};
 				class Item30
 				{
@@ -4476,12 +4475,12 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={5391.895,14.632756,5893.2837};
-								angles[]={0,4.6141987,0};
+								position[]={5391.895,15.667117,5893.2842};
+								angles[]={0,4.6141968,0};
 							};
 							id=635;
 							type="LocationCamp_F";
-							atlOffset=-1.034318;
+							atlOffset=9.5367432e-007;
 						};
 						class Item1
 						{
@@ -4558,7 +4557,7 @@ class Mission
 						};
 					};
 					id=633;
-					atlOffset=1.1125164;
+					atlOffset=1.1286774;
 				};
 				class Item41
 				{
@@ -4632,7 +4631,7 @@ class Mission
 				};
 			};
 			id=308;
-			atlOffset=4.6123314;
+			atlOffset=4.6163702;
 		};
 		class Item10
 		{
