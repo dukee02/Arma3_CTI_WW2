@@ -208,6 +208,8 @@ if (_model isKindOf "Man") then {
 
 //--- Notify the current client
 _picture = if ((_var_classname select CTI_UNIT_PICTURE) != "") then {format["<img image='%1' size='2.5'/><br /><br />", _var_classname select CTI_UNIT_PICTURE]} else {""};
+//workaround because with Naval lagends _var is not the same anymore ^^
+_var = missionNamespace getVariable format ["CTI_%1_%2", CTI_P_SideJoined, _factory getVariable "cti_structure_type"];
 hint parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br />%4<t>Your <t color='#ccffaf'>%1</t> has arrived from the <t color='#fcffaf'>%2</t> at grid <t color='#beafff'>%3</t></t>", _var_classname select CTI_UNIT_LABEL, (_var select 0) select 1, mapGridPosition _position, _picture];
 
 //--- send a notice to the server that our order is now complete
