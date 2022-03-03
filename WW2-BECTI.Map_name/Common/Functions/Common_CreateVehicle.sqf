@@ -70,10 +70,17 @@ if (_special != "FLY") then {
 	if(_type isKindOf "ship") then {
 		//get the distance set mainly for ships
 		_var = missionNamespace getVariable _type;
-		_distance_to_factory = _var select CTI_UNIT_DISTANCE;
-		//placeing onto the water but near the shore
-		_save_pos = [_position, 0, _distance_to_factory, 1, 2, 0.7, 0, [], [_position, _position]] call BIS_fnc_findSafePos;
-		_vehicle setPos [_save_pos select 0, _save_pos select 1, 1];//--- Make the vehicle spawn above the ground level to prevent any bisteries
+		_distance_to_factory = _var select CTI_UNIT_DISTANCE;		
+		//[center, minDist, maxDist, objDist, waterMode, maxGrad, shoreMode, blacklistPos, defaultPos] call BIS_fnc_findSafePos
+		if(_distance_to_factory > 50) then {
+			//placeing onto the water
+			_save_pos = [_position, 0, _distance_to_factory, 10, 2, 0, 0, [], [_position, _position]] call BIS_fnc_findSafePos;
+		} else {
+			//placeing onto the water but near the shore
+			_save_pos = [_position, 0, _distance_to_factory, 5, 2, 0, 1, [], [_position, _position]] call BIS_fnc_findSafePos;
+		};
+		
+		_vehicle setPos [_save_pos select 0, _save_pos select 1, 0];//--- Make the vehicle spawn above the ground level to prevent any bisteries
 	} else {
 		//place on a save Pos on the ground
 		_save_pos = [_position, 0, 10, 1, 0, 0.7, 0, [], [_position, _position]] call BIS_fnc_findSafePos;

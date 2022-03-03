@@ -12,3 +12,4 @@ Fixed: Arti timeout when Arty cant shoot (CTI-error)
 Fixed: techtree combi bug with some mods
 Fixed: Baranow bunker at F8 lowered
 Fixed: Svartmarka bunkerpos on Rafsbotn main and Rafsbotn harbor
+Fixed: Error with Naval Legends ships on spawn
