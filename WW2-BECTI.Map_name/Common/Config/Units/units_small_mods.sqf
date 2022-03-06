@@ -834,23 +834,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SABFL_ADDON > 0) then {
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
-		
-		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-		if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-		if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
-			_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-			_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
-			_c pushBack format["%1sab_sw_i16", _sid];
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-			_t pushBack _building_time;
-			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-			_f pushBack CTI_FACTORY_AIR;
-			_s pushBack "";
-			_d pushBack 0;
-		};
-		
+				
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
@@ -870,6 +854,22 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_SABRL_ADDON > 0) then {
 			_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 			_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SABRL_ID] call CTI_CO_FNC_GetTechmatrix;
+			
+			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+			if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+			if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
+				_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
+				_building_time = switch(true) do {case (_time<10): {10}; case (_time>300): {300}; default {_time}};
+				_c pushBack format["%1sab_sw_i16", _sid];
+				_p pushBack '';
+				_n pushBack '';
+				_o pushBack (CTI_ECONOMY_PRIZE_AIR*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+				_t pushBack _building_time;
+				_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
+				_f pushBack CTI_FACTORY_AIR;
+				_s pushBack "";
+				_d pushBack 0;
+			};
 			
 			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};

@@ -229,26 +229,26 @@ https://steamcommunity.com/groups/vio-community/discussions/0/174001225280057993
 
 
 -------------------MAPS----------------------------
-Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829
-Baranow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763574128
-Baranow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763576184
+Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829			V2.0_220303
+Baranow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763574128			V2.0_220303
+Baranow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763576184			V2.0_220303
 Henderson Airfield (FoW)
-Merderet							https://steamcommunity.com/sharedfiles/filedetails/?id=2761787393
-Merderet koth						https://steamcommunity.com/sharedfiles/filedetails/?id=2761789779
-Merderet V2							https://steamcommunity.com/sharedfiles/filedetails/?id=2761791065
-Merderet V3							https://steamcommunity.com/sharedfiles/filedetails/?id=2761792525
-Merderet Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2761793897
-Tobruk								https://steamcommunity.com/sharedfiles/filedetails/?id=2763571066
-Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063
+Merderet							https://steamcommunity.com/sharedfiles/filedetails/?id=2761787393			V2.0_220303
+Merderet koth						https://steamcommunity.com/sharedfiles/filedetails/?id=2761789779			V2.0_220303
+Merderet V2							https://steamcommunity.com/sharedfiles/filedetails/?id=2761791065			V2.0_220303
+Merderet V3							https://steamcommunity.com/sharedfiles/filedetails/?id=2761792525			V2.0_220303
+Merderet Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2761793897			V2.0_220303
+Tobruk								https://steamcommunity.com/sharedfiles/filedetails/?id=2763571066			V2.0_220303
+Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063			V2.0_220303
 Marenice (CSA)
-Neaville							https://steamcommunity.com/sharedfiles/filedetails/?id=2763562933
-Neaville Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763564340
-Staszow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763567387
-Staszow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763568939
-Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946
-El Alamein							https://steamcommunity.com/sharedfiles/filedetails/?id=2763572663
+Neaville							https://steamcommunity.com/sharedfiles/filedetails/?id=2763562933			V2.0_220303
+Neaville Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763564340			V2.0_220303
+Staszow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763567387			V2.0_220303
+Staszow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763568939			V2.0_220303
+Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946			V2.0_220303
+El Alamein							https://steamcommunity.com/sharedfiles/filedetails/?id=2763572663			V2.0_220303
 Kokoda (FoW)
-Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194
+Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194			V2.0_220303
 Rosche Germany
 Svartmarka
 Svartmarka Winter

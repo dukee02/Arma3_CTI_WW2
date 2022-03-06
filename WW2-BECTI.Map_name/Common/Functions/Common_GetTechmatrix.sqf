@@ -602,7 +602,7 @@ _tech_matrix =
 			//NF
 			[false,false,false,false,false,false],
 			//SABFL
-			[true,false,true,true,true,false],
+			[false,true,true,true,true,false],
 			//SABNL
 			[false,false,false,false,false,false],
 			//SAB
