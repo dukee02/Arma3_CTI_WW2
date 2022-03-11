@@ -393,7 +393,7 @@ class Params {
 		title = "WEATHER: Simple presets";
 		values[] = {0,1,2,3};
 		texts[] = {"Sunny start, random normal weather", "Sunny", "normal light weather", "complete random"};
-		default = 0;
+		default = 1;
 	};
 	class SEPERATOR_GAMEPLAY {
 		title = "============ Gameplay ============";
