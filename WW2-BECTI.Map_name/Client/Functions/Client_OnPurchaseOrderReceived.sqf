@@ -147,8 +147,12 @@ if (_model isKindOf "Man") then {
 	_vehicle = [_model, group player, _position, CTI_P_SideID, _net] call CTI_CO_FNC_CreateUnit;
 	_units pushBack _vehicle;
 } else {
-	_vehicle = [_model, _position, _direction + getDir _factory, CTI_P_SideID, (_veh_infos select 5), true, true] call CTI_CO_FNC_CreateVehicle;
-	
+	if(_model isKindOf "Air" && _veh_infos select 0 == true) then {
+		//unit is a plane with a pilot -> units will spawn in the air!
+		_vehicle = [_model, _position, _direction + getDir _factory, CTI_P_SideID, (_veh_infos select 5), true, true, "FLY"] call CTI_CO_FNC_CreateVehicle;
+	} else {
+		_vehicle = [_model, _position, _direction + getDir _factory, CTI_P_SideID, (_veh_infos select 5), true, true] call CTI_CO_FNC_CreateVehicle;
+	};
 	if (_veh_infos select 0 || _veh_infos select 1 || _veh_infos select 2 || _veh_infos select 3) then { //--- Not empty.
 		_crew = switch (true) do { case (_model isKindOf "Tank"): {"Crew"}; case (_model isKindOf "Air"): {"Pilot"}; default {"Soldier"}};
 		_crew = missionNamespace getVariable format["CTI_%1_%2", CTI_P_SideJoined, _crew];
