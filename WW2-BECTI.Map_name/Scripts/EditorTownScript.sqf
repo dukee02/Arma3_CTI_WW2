@@ -220,3 +220,16 @@ collect3DENHistory {
 
 
 
+//------------------------------------------------------------------------------------------------
+//search for triggers and replace them with LocationRespawnPoint_F (the new spawn points for AI)
+
+collect3DENHistory {
+    {
+		_newPos = _x get3DENAttribute "position" select 0;
+		_newEntity = create3DENEntity ["Logic", "LocationRespawnPoint_F", _newPos, true];
+		_newRot = _x get3DENAttribute "rotation" select 0;
+		_newEntity set3DENAttribute ["rotation", _newRot];
+    }
+    forEach (all3DENEntities select 2);
+};
+
