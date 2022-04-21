@@ -362,7 +362,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 				_c pushBack format["%1sab_sw_i16", _sid];
 			};
 		
-			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 				_c pushBack format["%1sab_sw_il2", _sid];

@@ -871,7 +871,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 				_d pushBack 0;
 			};
 			
-			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 				_time = (10*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
