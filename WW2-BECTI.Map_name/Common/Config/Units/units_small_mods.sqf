@@ -1699,7 +1699,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_t pushBack _building_time;
 			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 			_f pushBack CTI_FACTORY_NAVAL;
-			_s pushBack "";
+			_s pushBack [format["%1sab_nl_arkroyal", _sid],"service-multi"];
 			_d pushBack 400;
 			_c pushBack format["%1sab_nl_hood", _sid];
 			_p pushBack '';
@@ -1928,7 +1928,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_t pushBack _building_time;
 			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 			_f pushBack CTI_FACTORY_NAVAL;
-			_s pushBack "";
+			_s pushBack [format["%1sab_nl_enterprise", _sid],"service-multi"];
 			_d pushBack 400;
 		};
 		
@@ -2466,7 +2466,7 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_t pushBack _building_time;
 			_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
 			_f pushBack CTI_FACTORY_NAVAL;
-			_s pushBack "";
+			_s pushBack [format["%1sab_nl_akagi", _sid],"service-multi"];
 			_d pushBack 400;
 		};
 		
