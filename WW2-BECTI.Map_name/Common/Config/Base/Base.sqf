@@ -356,7 +356,7 @@ if (isClass(configFile >> "CfgVehicles" >> "INS_WarfareBFieldhHospital")) then {
 } else {
 	_classes pushBack 			"Land_Medevac_house_V1_F";										//Altis Military Buildings
 };
-_prices pushBack 			5000;
+_prices pushBack 			([CTI_ECONOMY_PRIZE_WHEELED,1,true,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 _placements pushBack 		[180, 15];
 _categories pushBack 		"Fortification";
 

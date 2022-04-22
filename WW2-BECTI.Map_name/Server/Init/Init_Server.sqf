@@ -310,12 +310,32 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 	missionNamespace setVariable ["CTI_Server_Loaded", true, true];
 	0 spawn {
 		while {!CTi_GameOver} do {
-			sleep CTI_SAVE_PERIODE;
+			sleep (CTI_SAVE_PERIODE-60);
 			["towns"] call CTI_SE_FNC_SAVE;
 			["hq"] call CTI_SE_FNC_SAVE;
 			["upgrades"] call CTI_SE_FNC_SAVE;
 			["buildings"] call CTI_SE_FNC_SAVE;
 			["funds"] call CTI_SE_FNC_SAVE;
+			
+			if(CTI_LOG_INFO == 1) then {
+				//count groups
+				_blue_g = west countSide allGroups;
+				sleep 10;
+				_red_g = east countSide allGroups;
+				sleep 10;
+				_green_g = independent countSide allGroups;
+				sleep 10;
+
+				//count units
+				_blue = west countSide allUnits;
+				sleep 10;
+				_red = east countSide allUnits;
+				sleep 10;
+				_green = independent countSide allUnits;
+				sleep 10;
+				
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic test <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
+			};
 		};
 	};
 } else {
