@@ -34,8 +34,6 @@ switch (_action) do {
 		_player_support_ammo = _player_support_ammo + _player_support_multi;
 		_player_support_fuel = _player_support_fuel + _player_support_multi;
 		
-		["VIOC_TEEEST", "FILE: Client\Events\Events_UI_ServiceMenu.sqf", format["support units: [m=%1|r=%2|a=%3|f=%4] ", count _player_support_multi, count _player_support_repair, count _player_support_ammo, count _player_support_fuel]] call CTI_CO_FNC_Log;
-		
 		_player_support_medical = (CTI_SPECIAL_MEDICALVEHICLE) call CTI_UI_Service_GetGroupMobileSupports;
 		_available_repair_depots = [vehicle player, _repair_depots, CTI_SERVICE_REPAIR_DEPOT_RANGE] call CTI_UI_Service_GetBaseDepots;
 		_available_ammo_depots = [vehicle player, _ammo_depots, CTI_SERVICE_AMMO_DEPOT_RANGE] call CTI_UI_Service_GetBaseDepots;
@@ -83,13 +81,11 @@ switch (_action) do {
 				_available_medical_vehicles = [_x, CTI_SPECIAL_MEDICALVEHICLE, CTI_SERVICE_REPAIR_TRUCK_RANGE] call CTI_CO_FNC_GetNearestSpecialVehicles;
 				_available_town_depots = [_x, _town_depots, CTI_TOWNS_CAPTURE_RANGE] call CTI_UI_Service_GetBaseDepots;
 				//add the multipurpose vehicle to the basic supports
-				_available_multi_trucks = [_vehicle, CTI_SPECIAL_ALLPURPOSETRUCK, CTI_SERVICE_REPAIR_TRUCK_RANGE] call CTI_CO_FNC_GetNearestSpecialVehicles;
+				_available_multi_trucks = [_vehicle, CTI_SPECIAL_ALLPURPOSETRUCK, CTI_SPECIAL_ALLPURPOSE_RANGE] call CTI_CO_FNC_GetNearestSpecialVehicles;
 				_available_repair_trucks = _available_repair_trucks + _available_multi_trucks;
 				_available_ammo_trucks = _available_ammo_trucks + _available_multi_trucks;
 				_available_fuel_trucks = _available_fuel_trucks + _available_multi_trucks;
 				
-				["VIOC_TEEEST", "FILE: Client\Events\Events_UI_ServiceMenu.sqf", format["support units: [m=%1|r=%2|a=%3|f=%4] ", count _available_multi_trucks, count _available_repair_trucks, count _available_ammo_trucks, count _available_fuel_trucks]] call CTI_CO_FNC_Log;
-		
 				if (count _available_repair_depots > 0) then {
 					_load_content = true;
 					_content set [0, [["Base", _available_repair_depots]]];
