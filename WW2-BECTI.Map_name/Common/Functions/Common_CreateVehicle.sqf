@@ -80,6 +80,8 @@ if (_special == "FLY") then {
 	//planes with a pilot gets movet to the air
 	_vehicle setPos [getPos _vehicle select 0, getPos _vehicle select 1, 500]; //--- Make the vehicle spawn in the sky
 	_vehicle setVelocity [50 * (sin _direction), 50 * (cos _direction), 0];
+} else {
+	_vehicle setVelocity [0,0,0.25];
 };
 //if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_CreateVehicle.sqf", format ["type: <%1> special: <%2>",  _type, _special]] call CTI_CO_FNC_Log;};
 /*if (_special != "FLY") then {
