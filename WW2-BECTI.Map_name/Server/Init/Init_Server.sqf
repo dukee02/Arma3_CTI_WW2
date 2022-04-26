@@ -58,15 +58,29 @@ execVM "Server\Init\Init_Prison.sqf";
 //--- Get the starting locations.
 _startup_locations_west = [];
 for '_i' from 0 to 30 step +2 do {
-	_location = getMarkerPos format ["cti-spawn%1", _i];
+	_location = getMarkerPos format ["cti-spawn-west%1", _i];
 	if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
 	_startup_locations_west pushBack _location;
 };
+if(count _startup_locations_west < 1) then {
+	for '_i' from 0 to 30 step +2 do {
+		_location = getMarkerPos format ["cti-spawn%1", _i];
+		if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
+		_startup_locations_west pushBack _location;
+	};	
+};
 _startup_locations_east = [];
-for '_i' from 1 to 30 step +2 do {
-	_location = getMarkerPos format ["cti-spawn%1", _i];
+for '_i' from 0 to 30 step +2 do {
+	_location = getMarkerPos format ["cti-spawn-east%1", _i];
 	if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
 	_startup_locations_east pushBack _location;
+};
+if(count _startup_locations_east < 1) then {
+	for '_i' from 1 to 30 step +2 do {
+		_location = getMarkerPos format ["cti-spawn%1", _i];
+		if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
+		_startup_locations_east pushBack _location;
+	};
 };
 
 //--- Place both sides.
