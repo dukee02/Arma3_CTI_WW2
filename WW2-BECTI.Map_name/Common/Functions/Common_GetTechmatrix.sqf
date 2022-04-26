@@ -710,7 +710,7 @@ _tech_matrix =
 		//GER
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[false,false,false,false],
 			//FOW
@@ -733,7 +733,7 @@ _tech_matrix =
 		//SOV
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[false,false,false,false],
 			//FOW
@@ -756,7 +756,7 @@ _tech_matrix =
 		//UK
 		[
 			//IFA
-			[true,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[true,false,false,false],
 			//FOW
