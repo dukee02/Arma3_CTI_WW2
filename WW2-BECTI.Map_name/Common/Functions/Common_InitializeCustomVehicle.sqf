@@ -45,7 +45,8 @@ switch (_script) do {
 	case "service-ammotruck": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_AMMOTRUCK, true]};
 	case "service-fueltruck": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_FUELTRUCK, true]};
 	case "service-medic": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_MEDICALVEHICLE, true]; if ((missionNamespace getVariable "CTI_RESPAWN_MOBILE") > 0) then {_vehicle setVariable ["cti_spec", CTI_SPECIAL_MEDICALVEHICLE, true]}};
-	case "service-multi": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_ALLPURPOSETRUCK, true]; if (CTI_IsServer) then {[_vehicle, _side] execFSM "Server\FSM\update_repairtruck.fsm"} else {["SERVER", "Request_HandleAction", ["repair", [_vehicle, _side]]] call CTI_CO_FNC_NetSend}};
+	//case "service-multi": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_ALLPURPOSETRUCK, true]; if (CTI_IsServer) then {[_vehicle, _side] execFSM "Server\FSM\update_repairtruck.fsm"} else {["SERVER", "Request_HandleAction", ["repair", [_vehicle, _side]]] call CTI_CO_FNC_NetSend}};
+	case "service-multi": {_vehicle setVariable ["cti_spec", CTI_SPECIAL_ALLPURPOSETRUCK, true]; if (CTI_IsServer) then {(_vehicle) execFSM "Server\FSM\update_salvager.fsm"} else {["SERVER", "Request_HandleAction", ["salvager", _vehicle]] call CTI_CO_FNC_NetSend}};
 };
 
 if (_texture != "") then {

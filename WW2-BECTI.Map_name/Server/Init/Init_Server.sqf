@@ -317,15 +317,7 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 			["buildings"] call CTI_SE_FNC_SAVE;
 			["funds"] call CTI_SE_FNC_SAVE;
 			
-			if(CTI_LOG_INFO == 1) then {
-				//count groups
-				_blue_g = west countSide allGroups;
-				sleep 10;
-				_red_g = east countSide allGroups;
-				sleep 10;
-				_green_g = independent countSide allGroups;
-				sleep 10;
-
+			if(CTI_LOG_INFO > 0) then {
 				//count units
 				_blue = west countSide allUnits;
 				sleep 10;
@@ -333,6 +325,18 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 				sleep 10;
 				_green = independent countSide allUnits;
 				sleep 10;
+				_blue_g = -1;
+				_red_g = -1;
+				_green_g = -1;
+				if(CTI_LOG_INFO > 1) then {
+					//count groups
+					_blue_g = west countSide allGroups;
+					sleep 10;
+					_red_g = east countSide allGroups;
+					sleep 10;
+					_green_g = independent countSide allGroups;
+					sleep 10;
+				};
 				
 				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic test <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
 			};

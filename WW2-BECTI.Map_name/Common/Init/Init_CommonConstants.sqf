@@ -722,7 +722,7 @@ CTI_SERVICE_FUEL_TRUCK_RANGE = 35;
 CTI_SERVICE_FUEL_TRUCK_Time = 60;
 CTI_SERVICE_MEDICAL_VEHICLE_RANGE = 35;
 CTI_SERVICE_MEDICAL_VEHICLE_TIME = 60;
-CTI_SPECIAL_ALLPURPOSE_RANGE = 300;
+CTI_SPECIAL_ALLPURPOSE_RANGE = 400;
 
 CTI_SCORE_BUILD_VALUE_PERPOINT = 1500; //--- Structure value / x
 CTI_SCORE_SALVAGE_VALUE_PERPOINT = 2000; //--- Unit value / x
@@ -731,7 +731,7 @@ CTI_SCORE_CAMP_VALUE = 2; //--- Camp value
 
 
 with missionNamespace do {
-	if (isNil 'CTI_LOG_INFO') then {CTI_LOG_INFO = 1};
+	if (isNil 'CTI_LOG_INFO') then {CTI_LOG_INFO = 0};
 	if (isNil 'CTI_PERSISTANT') then {CTI_PERSISTANT = 0};
 	if (isNil 'CTI_SAVE_PERIODE') then {CTI_SAVE_PERIODE = 900};		//900
 	
@@ -919,6 +919,10 @@ with missionNamespace do {
 	};
 	
 	if (isNil 'CTI_STREAM_BLOCK') then {CTI_STREAM_BLOCK = 0};
+	
+	//We can balance the water units only if we activate them for both sides
+	CTI_WATER_BALANCED_EAST = false;
+	CTI_WATER_BALANCED_WEST = false;
 	
 	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};
