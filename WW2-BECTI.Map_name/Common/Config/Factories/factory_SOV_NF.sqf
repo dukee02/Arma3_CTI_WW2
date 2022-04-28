@@ -331,6 +331,20 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_SdKfz_7", _sid])) then 
 	_c pushBack format["%1LIB_SdKfz_7", _sid];
 };
 
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {}
+	else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_SOV_W_39_BA10", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];
+			};
+		};
+	};
+};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -354,12 +368,20 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_SOV_W_41_T26_M33_OT", _sid];	
-			_c pushBack format["%1NORTH_SOV_W_41_T26_M31", _sid];	
+			_c pushBack format["%1NORTH_SOV_W_39_T20", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_T38", _sid];
+			_c pushBack format["%1NORTH_SOV_W_41_T26_M33_OT", _sid];
+			_c pushBack format["%1NORTH_SOV_W_41_T26_M31", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_BT5", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_BT5Com", _sid];
 		};
 		default {
+			_c pushBack format["%1NORTH_SOV_41_T20", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T38", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T26_M33_OT", _sid];	
 			_c pushBack format["%1NORTH_SOV_41_T26_M31", _sid];	
+			_c pushBack format["%1NORTH_SOV_41_BT5", _sid];
+			_c pushBack format["%1NORTH_SOV_41_BT5Com", _sid];
 		};
 	};
 };
@@ -371,10 +393,18 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		case 1: {//Winter camo active
 			_c pushBack format["%1NORTH_SOV_W_41_T26_M33", _sid];	
 			_c pushBack format["%1NORTH_SOV_W_41_T26_M33com", _sid];	
+			_c pushBack format["%1NORTH_SOV_W_39_BT7_M35", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_BT7A", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_BT7", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_BT7Com_M35", _sid];
 		};
 		default {
 			_c pushBack format["%1NORTH_SOV_41_T26_M33", _sid];	
-			_c pushBack format["%1NORTH_SOV_41_T26_M33com", _sid];	
+			_c pushBack format["%1NORTH_SOV_41_T26_M33com", _sid];
+			_c pushBack format["%1NORTH_SOV_41_BT7_M35", _sid];
+			_c pushBack format["%1NORTH_SOV_41_BT7", _sid];
+			_c pushBack format["%1NORTH_SOV_41_BT7A", _sid];
+			_c pushBack format["%1NORTH_SOV_41_BT7Com_M35", _sid];	
 		};
 	};
 };
@@ -385,13 +415,21 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active	
 			_c pushBack format["%1NORTH_SOV_W_41_T26_M38", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_T26_M39", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_T26_M39_OT", _sid];
 			_c pushBack format["%1NORTH_SOV_W_41_T28", _sid];	
 			_c pushBack format["%1NORTH_SOV_W_41_T28_com", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_T28_M34", _sid];
+			_c pushBack format["%1NORTH_SOV_W_39_T28_M34_com", _sid];
 		};
 		default {
 			_c pushBack format["%1NORTH_SOV_41_T26_M38", _sid];	
+			_c pushBack format["%1NORTH_SOV_41_T26_M39", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T26_M39_OT", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T28", _sid];	
 			_c pushBack format["%1NORTH_SOV_41_T28_com", _sid];	
+			_c pushBack format["%1NORTH_SOV_41_T28_M34", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T28_M34_com", _sid];
 		};
 	};
 };
@@ -402,9 +440,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active	
 			_c pushBack format["%1NORTH_SOV_W_41_T28e", _sid];	
+			_c pushBack format["%1NORTH_SOV_W_41_T34_76_1941", _sid];
 		};
 		default {
-			_c pushBack format["%1NORTH_SOV_41_T28e", _sid];	
+			_c pushBack format["%1NORTH_SOV_41_T28e", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T34_76_1941", _sid];	
 		};
 	};
 };

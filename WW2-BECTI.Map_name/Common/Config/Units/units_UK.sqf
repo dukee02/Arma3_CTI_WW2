@@ -747,8 +747,8 @@ _matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_UK_ID, CTI_IFA_ID] call CTI_CO_F
 if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _level) then {
+	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
 		_c pushBack format["%1LIB_UK_LCA", _sid];
@@ -772,8 +772,8 @@ if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	};
 	
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _level) then {
+	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
 		_c pushBack format["%1LIB_UK_LCA", _sid];
@@ -800,8 +800,8 @@ if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 if(_side == east && CTI_WATER_BALANCED_EAST == false) then {
 	
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _level) then {
+	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
 		_c pushBack format["%1LIB_LCA", _sid];
@@ -825,8 +825,8 @@ if(_side == east && CTI_WATER_BALANCED_EAST == false) then {
 	};
 	
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _level) then {
+	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
 		_c pushBack format["%1LIB_LCI", _sid];
