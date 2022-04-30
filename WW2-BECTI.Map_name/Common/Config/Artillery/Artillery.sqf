@@ -214,6 +214,69 @@ if(CTI_VIO_ADDON == 0) then {
 		_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
 		_b pushBack [1, 2, 4, 8, 10];
 		_r pushBack [[56,229], [56,229], [56,229], [177,720]];
+		
+		//76mm1902 Arty (w)
+		_c pushBack format["%1NORTH_SOV_W_39_76mm1902art", _x];//76mm1902 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k02art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1281], [0,3194], [0,8178], [0,8178]];
+		
+		_c pushBack format["%1NORTH_SOV_76mm1902art", _x];//76mm1902 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k02art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1281], [0,3194], [0,8178], [0,8178]];
+		
+		_c pushBack format["%1NORTH_FIN_W_76k02art", _x];//76mm1902 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k02art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1281], [0,3194], [0,8178], [0,8178]];
+		
+		_c pushBack format["%1NORTH_FIN_41_S_76k02art", _x];//76mm1902 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k02art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1281], [0,3194], [0,8178], [0,8178]];
+		
+		//76mm1936 Arty (w)
+		_c pushBack format["%1NORTH_SOV_W_39_76mm1936art", _x];//76mm1936 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k36art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1803], [0,4496], [0,11512], [0,11512]];
+		
+		_c pushBack format["%1NORTH_SOV_76mm1936art", _x];//76mm1936 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k36art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1803], [0,4496], [0,11512], [0,11512]];
+		
+		_c pushBack format["%1NORTH_FIN_W_76k36art", _x];//76mm1936 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k36art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1803], [0,4496], [0,11512], [0,11512]];
+		
+		_c pushBack format["%1NORTH_FIN_S_41_76k36art", _x];//76mm1936 Arty (w)
+		_m pushBack ["NORTH_10Shell_76mmHE_76k36art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,1803], [0,4496], [0,11512], [0,11512]];
+		
+		//76mm1927 light Arty (w)
+		_c pushBack format["%1NORTH_SOV_W_39_76mm1927art", _x];//76mm1927 light Arty (w)
+		_m pushBack ["NORTH_20Shell_76mmHE_76rk27art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,920], [0,2294], [0,5873], [0,5873]];
+		
+		_c pushBack format["%1NORTH_SOV_76mm1927art", _x];//76mm1927 light Arty (w)
+		_m pushBack ["NORTH_20Shell_76mmHE_76rk27art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,920], [0,2294], [0,5873], [0,5873]];
+		
+		_c pushBack format["%1NORTH_FIN_W_76RK27art", _x];//76mm1927 light Arty (w)
+		_m pushBack ["NORTH_20Shell_76mmHE_76rk27art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,920], [0,2294], [0,5873], [0,5873]];
+		
+		_c pushBack format["%1NORTH_FIN_S_41_76RK27art", _x];//76mm1927 light Arty (w)
+		_m pushBack ["NORTH_20Shell_76mmHE_76rk27art"];
+		_b pushBack [1, 2, 4, 8, 10];
+		_r pushBack [[0,920], [0,2294], [0,5873], [0,5873]];
 	};
 } forEach _sid;
 
