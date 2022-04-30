@@ -1,5 +1,5 @@
 //if true then show debug globalChat (TODO add more hints)
-IL_DevMod = true;
+IL_DevMod = false;
 
 //waitUntil { !(isNull player) };
 waitUntil { time > 0 };
@@ -271,7 +271,6 @@ if (isnil "IL_Variables") then
 		IL_Supported_Vehicles_C47 pushBack format["%1LIB_C47_RAF_bob", _x];
 		IL_Supported_Vehicles_C47 pushBack format["%1LIB_C47_RAF_snafu", _x];
 		IL_Supported_Vehicles_C47 pushBack format["%1LIB_Li2", _x];
-		
 		
 		IL_Supported_Vehicles_Cargo_Ship pushBack format["%1sab_nl_liberty", _x];
 		
@@ -1327,7 +1326,7 @@ if (isnil "IL_Variables") then
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_DAK_PzKpfwIV_H", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_PzKpfwIV_H", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_FlakPanzerIV_Wirbelwind_w", _x];
-		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_DAK_FlakPanzerIV_Wirbelwind", 
+		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_DAK_FlakPanzerIV_Wirbelwind", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_Sherman_I_w", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_Sherman_IB_w", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_UK_DR_M4A3_75", _x];
@@ -1342,7 +1341,7 @@ if (isnil "IL_Variables") then
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_M4E5", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_M4A3_76", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_M4T34_Calliope", _x];
-		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_M4A3_76_HVSS", _x];_x];
+		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_M4A3_76_HVSS", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_FlakPanzerIV_Wirbelwind", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_T34_76_w", _x];
 		IL_Supported_Medium_Tank_Cargo pushBack format["%1LIB_T34_76", _x];
