@@ -248,7 +248,7 @@ if (isnil "IL_Variables") then
 		IL_Supported_Vehicles_US6 pushBack format["%1LIB_US6_Open_Cargo", _x];
 		IL_Supported_Vehicles_US6 pushBack format["%1LIB_US6_Tent_Cargo", _x];
 		IL_Supported_Vehicles_US6 pushBack format["%1LIB_US6_Tent", _x];
-		
+				
 		IL_Supported_Vehicles_GMC pushBack format["%1LIB_US_GMC_Tent", _x];
 		IL_Supported_Vehicles_GMC pushBack format["%1LIB_US_GMC_Open", _x];
 		IL_Supported_Vehicles_GMC pushBack format["%1LIB_US_GMC_Tent_w", _x];
@@ -1040,15 +1040,26 @@ if (isnil "IL_Variables") then
 		
 		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_w", _x];
 		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis6_parm_w", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis6_Parm", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_fuel_w", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_Fuel", _x];
 		
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open_Cargo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Tent_Cargo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Tent", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Ammo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Tent_w", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Open_w", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Tent", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Open", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Parm_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Parm", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Ammo_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Fuel_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Ammo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Fuel", _x];	
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_Y_Camo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Tent_Y_Camo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Open", _x];
@@ -1056,6 +1067,18 @@ if (isnil "IL_Variables") then
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_G_Camo_w", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_Y_Camo_w", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Tent_Y_Camo_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Parm_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Parm", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Parm", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Ammo_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Fuel_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Ammo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Fuel", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Ammo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Fuel", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_SdKfz_7_Ammo", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_SdKfz_7_w", _x];
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_SdKfz_7", _x];	
 		
 		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_w", _x];
 		IL_Supported_Car_Cargo pushBack format["%1LIB_US_Willys_MB_Hood_w", _x];
