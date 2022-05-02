@@ -144,7 +144,9 @@ if(_savemode > 0) then {
 					_groupnamecut = _groupnamefull splitString " ";
 					_groupname = _groupnamecut select 1;
 					profileNamespace setVariable [Format ["SAVE_%1_%2_FUNDS_%3", _savename, _side_funds, _groupname], (_x) call CTI_CO_FNC_GetFundsTeam];
-					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SaveToProfile.sqf", format["Team funds saved to profile:<SAVE_%1_FUNDS_%2> Funds: <%3>", _savename, _groupname, (_x) call CTI_CO_FNC_GetFundsTeam]] call CTI_CO_FNC_Log;};
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {
+						["VIOC_DEBUG", "FILE: Server\Functions\Server_SaveToProfile.sqf", format["Team funds saved to profile:<SAVE_%1_FUNDS_%2> Funds: <%3>", _savename, _groupname, (_x) call CTI_CO_FNC_GetFundsTeam]] call CTI_CO_FNC_Log;
+					//};
 				} forEach (_groups);
 			} forEach [east,west];
 		};
@@ -153,6 +155,9 @@ if(_savemode > 0) then {
 			_groupnamecut = _groupnamefull splitString " ";
 			_groupname = _groupnamecut select 1;
 			profileNamespace setVariable [Format ["SAVE_%1_%2_FUNDS_%3", _savename, _side, _groupname], (_group) call CTI_CO_FNC_GetFundsTeam, true];
+			//if (CTI_Log_Level >= CTI_Log_Debug) then {
+				["VIOC_DEBUG", "FILE: Server\Functions\Server_SaveToProfile.sqf", format["Team funds saved to profile:<SAVE_%1_FUNDS_%2> Funds: <%3>", _savename, _groupname, (_group) call CTI_CO_FNC_GetFundsTeam]] call CTI_CO_FNC_Log;
+			//};
 		};
 		case "delete": {
 			profileNamespace setVariable [Format ["SAVE_%1_TOWNS", _savename], nil, true];

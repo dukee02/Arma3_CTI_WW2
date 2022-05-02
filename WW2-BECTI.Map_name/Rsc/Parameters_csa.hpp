@@ -715,6 +715,12 @@ class Params {
 		texts[] = {"2","4","6","8","10","12","14","16","18","20","22","24","26","28","30","35","40","45","50","60","70","80","90","100"};
 		default = 10;
 	};
+	class CTI_AI_VEHICLE_LOCK {
+		title = "Are AI Vehicles locked?";
+		values[] = {0,1};
+		texts[] = {"Disabled - needed if you want to transport AI Teams","Enabled (default)"};
+		default = 1;
+	};
 	class CTI_Log_Level {
 		title = "LOG: Set level of Logging";
 		values[] = {0,1,2,3};

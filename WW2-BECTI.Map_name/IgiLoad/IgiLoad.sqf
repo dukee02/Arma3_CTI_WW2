@@ -1044,6 +1044,9 @@ if (isnil "IL_Variables") then
 		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis6_Parm", _x];
 		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_fuel_w", _x];
 		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_Fuel", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_med_w", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_Med", _x];
+		IL_Supported_Gaz_Zis5_Cargo pushBack format["%1LIB_Zis5v_61K", _x];
 		
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US6_Open_Cargo", _x];
@@ -1060,6 +1063,10 @@ if (isnil "IL_Variables") then
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Fuel_w", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Ammo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Fuel", _x];	
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_US_GMC_Ambulance", _x];	
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Ambulance_w", _x];	
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Ambulance", _x];	
+		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Ambulance", _x];	
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Open_Y_Camo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_OpelBlitz_Tent_Y_Camo", _x];
 		IL_Supported_Truck_Cargo pushBack format["%1LIB_DAK_OpelBlitz_Open", _x];
@@ -1114,6 +1121,18 @@ if (isnil "IL_Variables") then
 		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB", _x];
 		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Hood", _x];
 		IL_Supported_Car_Cargo pushBack format["%1LIB_Willys_MB_Ambulance", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_Hood_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_DR_Willys_MB", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_DR_Willys_MB_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_Hood", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_M1919_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_DR_Willys_MB_M1919", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_M1919", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_Ambulance_w", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_DR_Willys_MB_Ambulance", _x];
+		IL_Supported_Car_Cargo pushBack format["%1LIB_UK_Willys_MB_Ambulance", _x];
 		
 		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_m3_w", _x];
 		IL_Supported_Armoured_Cargo pushBack format["%1LIB_US_Scout_M3_FFV_w", _x];
@@ -1935,6 +1954,16 @@ if (isnil "IL_Procedures") then
 			_obj setVariable["slots", 4, true];
 			_obj setVariable["cargo_offset", 2, true];
 		};
+		if (_obj_type in IL_Supported_Medium_Tank_Cargo) then
+		{
+			_obj setVariable["slots", 4, true];
+			_obj setVariable["cargo_offset", 2, true];
+		};
+		if (_obj_type in IL_Supported_Large_Tank_Cargo) then
+		{
+			_obj setVariable["slots", 6, true];
+			_obj setVariable["cargo_offset", 2, true];
+		};		
 		if (_obj_type in IL_Supported_Mini_Static_Cargo) then
 		{
 			_obj setVariable["slots", 1, true];

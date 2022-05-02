@@ -131,7 +131,7 @@ if (_model isKindOf "Man") then {
 	//lets start a AI purchased planes, planes of AI-Squads starts in the air
 	_form_air = "FORM";
 	if (_model isKindOf "Air") then {_form_air ="FLY"};
-	_vehicle = [_model, _position, _direction + getDir _factory, _sideID, true, true, true, _form_air] call CTI_CO_FNC_CreateVehicle;
+	_vehicle = [_model, _position, _direction + getDir _factory, _sideID, CTI_AI_VEHICLE_LOCKED, true, true, _form_air] call CTI_CO_FNC_CreateVehicle;
 	//{player reveal _vehicle} forEach allUnits; // unit sometimes a long time unrecognised -> force revealing units with reveal command usually solves the problem
 	
 	_crew = switch (true) do { case (_model isKindOf "Tank"): {"Crew"}; case (_model isKindOf "Air"): {"Pilot"}; default {"Soldier"}};
