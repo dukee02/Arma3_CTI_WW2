@@ -3916,7 +3916,7 @@ if (_obj_main_type in IL_Supported_Vehicles_LCM3) then
 // Liberty Ship
 if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 {
-	IL_SDistL_boat = 50; //IL_SDistL
+	IL_SDistL_boat = 70; //IL_SDistL
 	if (IL_DevMod) then
 	{
 		Player globalChat Format["IgiLoad ""%1"" Vehicle is in IL_Supported_Vehicles_Cargo_Ship.", IL_Script_Inst];
