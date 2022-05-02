@@ -744,7 +744,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 _matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_UK_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-
 if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -777,7 +776,7 @@ if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
-		_c pushBack format["%1LIB_UK_LCA", _sid];
+		_c pushBack format["%1LIB_UK_LCI", _sid];
 		_p pushBack '';
 		_n pushBack '';
 		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);

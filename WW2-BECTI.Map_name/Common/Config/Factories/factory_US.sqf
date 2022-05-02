@@ -524,7 +524,7 @@ if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 	if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 	if(CTI_ECONOMY_LEVEL_NAVAL >= _level) then {
-		_c pushBack format["%1LIB_UK_LCA", _sid];
+		_c pushBack format["%1LIB_UK_LCI", _sid];
 		_c pushBack format["%1LIB_LCM3_Armed", _sid];
 	};
 	CTI_WATER_BALANCED_WEST = true;

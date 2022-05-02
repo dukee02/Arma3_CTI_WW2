@@ -1040,7 +1040,7 @@ if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
 	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
 		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
-		_c pushBack format["%1LIB_UK_LCA", _sid];
+		_c pushBack format["%1LIB_UK_LCI", _sid];
 		_p pushBack '';
 		_n pushBack '';
 		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
