@@ -3279,6 +3279,25 @@ _prices pushBack 		4000;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Concretewall";
 
+_headers pushBack 		"Pier Concrete";
+_classes pushBack 		"Land_Pier_F";
+_prices pushBack 		4000;
+_placements pushBack 	[90, 7];
+_categories pushBack 	"Harbor";
+
+_headers pushBack 		"Pier Metal";
+_classes pushBack 		"Land_nav_pier_m_F";
+_prices pushBack 		4000;
+_placements pushBack 	[90, 7];
+_categories pushBack 	"Harbor";
+
+_headers pushBack 		"Pier Platform";
+_classes pushBack 		"Land_Pier_Addon";
+_prices pushBack 		2000;
+_placements pushBack 	[90, 7];
+_categories pushBack 	"Harbor";
+
+
 if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 		_headers pushBack 		"Concretewall (Winter)";
