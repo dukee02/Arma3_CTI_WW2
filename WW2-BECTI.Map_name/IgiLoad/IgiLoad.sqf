@@ -94,8 +94,8 @@ if (isnil "IL_Variables") then
 	IL_Para_Light_Veh = "Chemlight_blue";
 
 	//This allows for loading or unloading, if a player is in the area of loading or copilot
-	IL_Can_Inside = false;
-	IL_Can_CoPilot = false;
+	IL_Can_Inside = true;		//false
+	IL_Can_CoPilot = true;		//false
 	IL_Can_Outside = true;
 
 	//
@@ -319,343 +319,6 @@ if (isnil "IL_Variables") then
 			"Box_NATO_Support_F"  // support [NATO]
 		];
 
-	IL_Supported_HEMTT = 
-		[
-			"B_Truck_01_covered_F",
-			"B_Truck_01_transport_F",
-			"B_Truck_01_box_F",
-			"B_Truck_01_mover_F",
-			"B_Truck_01_ammo_F",
-			"B_Truck_01_fuel_F",
-			"B_Truck_01_medical_F",
-			"B_Truck_01_Repair_F",
-			"Exile_Car_HEMMT"
-		];
-
-	// Zamak
-	IL_Supported_Zamak = 
-		[
-			"C_IDAP_Truck_02_F",
-			"C_IDAP_Truck_02_transport_F",
-			"C_IDAP_Truck_02_water_F",
-			"C_Truck_02_box_F",
-			"C_Truck_02_covered_F",
-			"C_Truck_02_fuel_F",
-			"C_Truck_02_transport_F",
-			"Exile_Car_Zamak",
-			"I_Truck_02_ammo_F",
-			"I_Truck_02_box_F",
-			"I_Truck_02_covered_F",
-			"I_Truck_02_fuel_F",
-			"I_Truck_02_medical_F",
-			"I_Truck_02_transport_F",
-			"O_Truck_02_Ammo_F",
-			"O_Truck_02_box_F",
-			"O_Truck_02_covered_F",
-			"O_Truck_02_fuel_F",
-			"O_Truck_02_medical_F",
-			"O_Truck_02_transport_F"
-		];
-
-	IL_Supported_TEMPEST = 
-		[
-			"O_Truck_03_transport_F",
-			"O_Truck_03_covered_F",
-			"Exile_Car_Tempest",
-			"O_T_Truck_03_transport_ghex_F",
-			"O_T_Truck_03_covered_ghex_F",
-			"O_Truck_03_device_F",
-			"O_T_Truck_03_device_ghex_F",
-			"O_Truck_03_ammo_F",
-			"O_T_Truck_03_ammo_ghex_F",
-			"O_Truck_03_fuel_F",
-			"O_T_Truck_03_fuel_ghex_F",
-			"O_Truck_03_medical_F",
-			"O_T_Truck_03_medical_ghex_F",
-			"O_Truck_03_repair_F",
-			"O_T_Truck_03_repair_ghex_F"
-		];
-
-	IL_Supported_Strider = 
-		[
-			"I_MRAP_03_F",
-			"I_MRAP_03_gmg_F",
-			"I_MRAP_03_hmg_F",
-			"Exile_Car_Strider",
-			"O_LSV_02_unarmed_F",
-			"O_T_LSV_02_unarmed_F",
-			"O_LSV_02_armed_F",
-			"O_T_LSV_02_armed_F",
-			"B_CTRG_LSV_01_light_F",
-			"B_LSV_01_unarmed_F",
-			"B_T_LSV_01_unarmed_F",
-			"B_LSV_01_armed_F",
-			"B_T_LSV_01_armed_F"
-		];
-
-	IL_Supported_Hunter = 
-		[
-			"B_MRAP_01_F",
-			"B_MRAP_01_gmg_F",
-			"B_MRAP_01_hmg_F",
-			"Exile_Car_Hunter"
-		];
-
-	IL_Supported_Ifrit = 
-		[
-			"O_MRAP_02_F",
-			"O_MRAP_02_gmg_F",
-			"O_MRAP_02_hmg_F",
-			"Exile_Car_Ifrit",
-			"O_T_MRAP_02_ghex_F",
-			"O_T_MRAP_02_gmg_ghex_F",
-			"O_T_MRAP_02_hmg_ghex_F"
-		];
-
-	IL_Supported_UGV = 
-		[
-			"B_UGV_01_rcws_F",
-			"B_UGV_01_F",
-			"O_UGV_01_rcws_F",
-			"O_UGV_01_F",
-			"I_UGV_01_rcws_F",
-			"I_UGV_01_F",
-			"Exile_Car_TowTractor_White"
-		];
-
-	IL_Supported_VAN = 
-		[
-			"C_Van_01_box_F",
-			"B_G_Van_01_transport_F",
-			"C_Van_01_transport_F",
-			"Exile_Car_Van_Black",
-			"Exile_Car_Van_White",
-			"Exile_Car_Van_Red",
-			"Exile_Car_Van_Guerilla01",
-			"Exile_Car_Van_Guerilla02",
-			"Exile_Car_Van_Guerilla03",
-			"Exile_Car_Van_Guerilla04",
-			"Exile_Car_Van_Guerilla05",
-			"Exile_Car_Van_Guerilla06",
-			"Exile_Car_Van_Guerilla07",
-			"Exile_Car_Van_Guerilla08",
-			"I_C_Van_01_transport_F",
-			"Exile_Car_Van_Box_Black",
-			"Exile_Car_Van_Box_White",
-			"Exile_Car_Van_Box_Red",
-			"Exile_Car_Van_Box_Guerilla01",
-			"Exile_Car_Van_Box_Guerilla02",
-			"Exile_Car_Van_Box_Guerilla03",
-			"Exile_Car_Van_Box_Guerilla04",
-			"Exile_Car_Van_Box_Guerilla05",
-			"Exile_Car_Van_Box_Guerilla06",
-			"Exile_Car_Van_Box_Guerilla07",
-			"Exile_Car_Van_Box_Guerilla08",
-			"Exile_Car_Van_Fuel_Black",
-			"Exile_Car_Van_Fuel_White",
-			"Exile_Car_Van_Fuel_Red",
-			"Exile_Car_Van_Fuel_Guerilla01",
-			"Exile_Car_Van_Fuel_Guerilla02",
-			"Exile_Car_Van_Fuel_Guerilla03",
-			"Exile_Car_Tractor_Red",
-			"Exile_Car_OldTractor_Red"
-		];
-
-	IL_Supported_OFFROAD = 
-		[
-			"C_Offroad_01_F",
-			"B_G_Offroad_01_F",
-			"B_G_Offroad_01_armed_F",
-			"Exile_Car_Offroad_Red",
-			"Exile_Car_Offroad_Beige",
-			"Exile_Car_Offroad_White",
-			"Exile_Car_Offroad_Blue",
-			"Exile_Car_Offroad_DarkRed",
-			"Exile_Car_Offroad_BlueCustom",
-			"Exile_Car_Offroad_Guerilla01",
-			"Exile_Car_Offroad_Guerilla02",
-			"Exile_Car_Offroad_Guerilla03",
-			"Exile_Car_Offroad_Guerilla04",
-			"Exile_Car_Offroad_Guerilla05",
-			"Exile_Car_Offroad_Guerilla06",
-			"Exile_Car_Offroad_Guerilla07",
-			"Exile_Car_Offroad_Guerilla08",
-			"Exile_Car_Offroad_Guerilla09",
-			"Exile_Car_Offroad_Guerilla10",
-			"Exile_Car_Offroad_Guerilla11",
-			"Exile_Car_Offroad_Guerilla12",
-			"Exile_Car_Offroad_Rusty1",
-			"Exile_Car_Offroad_Rusty2",
-			"Exile_Car_Offroad_Rusty3",
-			"B_GEN_Offroad_01_gen_F",
-			"Exile_Car_Offroad_Armed_Guerilla01",
-			"Exile_Car_Offroad_Armed_Guerilla02",
-			"Exile_Car_Offroad_Armed_Guerilla03",
-			"Exile_Car_Offroad_Armed_Guerilla04",
-			"Exile_Car_Offroad_Armed_Guerilla05",
-			"Exile_Car_Offroad_Armed_Guerilla06",
-			"Exile_Car_Offroad_Armed_Guerilla07",
-			"Exile_Car_Offroad_Armed_Guerilla08",
-			"Exile_Car_Offroad_Armed_Guerilla09",
-			"Exile_Car_Offroad_Armed_Guerilla10",
-			"Exile_Car_Offroad_Armed_Guerilla11",
-			"Exile_Car_Offroad_Armed_Guerilla12",
-			"Exile_Car_Offroad_Repair_Civillian",
-			"Exile_Car_Offroad_Repair_Red",
-			"Exile_Car_Offroad_Repair_Beige",
-			"Exile_Car_Offroad_Repair_White",
-			"Exile_Car_Offroad_Repair_Blue",
-			"Exile_Car_Offroad_Repair_DarkRed",
-			"Exile_Car_Offroad_Repair_BlueCustom",
-			"Exile_Car_Offroad_Repair_Guerilla01",
-			"Exile_Car_Offroad_Repair_Guerilla02",
-			"Exile_Car_Offroad_Repair_Guerilla03",
-			"Exile_Car_Offroad_Repair_Guerilla04",
-			"Exile_Car_Offroad_Repair_Guerilla05",
-			"Exile_Car_Offroad_Repair_Guerilla06",
-			"Exile_Car_Offroad_Repair_Guerilla07",
-			"Exile_Car_Offroad_Repair_Guerilla08",
-			"Exile_Car_Offroad_Repair_Guerilla09",
-			"Exile_Car_Offroad_Repair_Guerilla10",
-			"Exile_Car_Offroad_Repair_Guerilla11",
-			"Exile_Car_Offroad_Repair_Guerilla12"
-		];
-
-	IL_Supported_SUV = 
-		[
-			"C_SUV_01_F",
-			"Exile_Car_SUV_Red",
-			"Exile_Car_SUV_Black",
-			"Exile_Car_SUV_Grey",
-			"Exile_Car_SUV_Orange",
-			"Exile_Car_SUV_Rusty1",
-			"Exile_Car_SUV_Rusty2",
-			"Exile_Car_SUV_Rusty3",
-			"Exile_Car_SUVXL_Black"
-		];
-
-	IL_Supported_Hatchback = 
-		[
-			"C_Hatchback_01_F",
-			"C_Hatchback_01_sport_F",
-			"Exile_Car_Octavius_White",
-			"Exile_Car_Octavius_Black",
-			"Exile_Car_Lada_Green",
-			"Exile_Car_Lada_Taxi",
-			"Exile_Car_Lada_Red",
-			"Exile_Car_Lada_White",
-			"Exile_Car_Lada_Hipster",
-			"Exile_Car_Volha_Blue",
-			"Exile_Car_Volha_White",
-			"Exile_Car_Volha_Black"
-		];
-
-	IL_Supported_HMMWV = 
-		[
-			"CUP_B_HMMWV_Ambulance_ACR",  // HMMWV Ambulance
-			"CUP_B_HMMWV_AGS_GPK_ACR",  // HMMWV M1114 AGS
-			"CUP_B_HMMWV_DSHKM_GPK_ACR",  // HMMWV M1114 DSHKM
-			"CUP_B_HMMWV_M2_GPK_ACR",  // HMMWV M1151 M2
-			"CUP_B_HMMWV_UNARMED_NATO_T",  // HMMWV (Unarmed)
-			"CUP_B_HMMWV_Ambulance_NATO_T",  // HMMWV Ambulance
-			"CUP_B_HMMWV_Crows_M2_NATO_T",  // HMMWV CROWS M2
-			"CUP_B_HMMWV_Crows_MK19_NATO_T",  // HMMWV CROWS MK19
-			"CUP_B_HMMWV_M2_GPK_NATO_T",  // HMMWV M115 M2
-			"CUP_B_HMMWV_M2_NATO_T",  // HMMWV M2
-			"CUP_B_HMMWV_MK19_NATO_T",  // HMMWV MK19
-			"CUP_B_HMMWV_SOV_M2_NATO_T",  // HMMWV SOV (M2)
-			"CUP_B_HMMWV_SOV_NATO_T",  // HMMWV SOV (Mk19)
-			"CUP_B_HMMWV_TOW_NATO_T",  // HMMWV TOW
-			"CUP_B_HMMWV_Transport_NATO_T",  // HMMWV Transport
-			"CUP_B_HMMWV_Terminal_NATO_T",  // HMMWV UAV Terminal
-			"CUP_B_M1151_M2_NATO_T",  // M1151 (M2)
-			"CUP_B_M1151_Deploy_NATO_T",  // M1151 (M2) Deployment
-			"CUP_B_M1151_Mk19_NATO_T",  // M1151 (Mk19)
-			"CUP_B_M1151_NATO_T",  // M1151 (Unarmed)
-			"CUP_B_M1152_NATO_T",  // M1152 EVC
-			"CUP_B_M1165_GMV_NATO_T",  // M1165 GMV (M134)
-			"CUP_B_M1167_NATO_T",  // M1167 (TOW-2)
-			"CUP_B_HMMWV_UNARMED_USA",  // HMMWV (Unarmed)
-			"CUP_B_HMMWV_Ambulance_USA",  // HMMWV Ambulance
-			"CUP_B_HMMWV_Crows_M2_USA",  // HMMWV CROWS M2
-			"CUP_B_HMMWV_Crows_MK19_USA",  // HMMWV CROWS MK19
-			"CUP_B_HMMWV_M2_GPK_USA",  // HMMWV M115 M2
-			"CUP_B_HMMWV_M2_USA",  // HMMWV M2
-			"CUP_B_HMMWV_MK19_USA",  // HMMWV MK19
-			"CUP_B_HMMWV_SOV_M2_USA",  // HMMWV SOV (M2)
-			"CUP_B_HMMWV_SOV_USA",  // HMMWV SOV (Mk19)
-			"CUP_B_HMMWV_TOW_USA",  // HMMWV TOW
-			"CUP_B_HMMWV_Transport_USA",  // HMMWV Transport
-			"CUP_B_HMMWV_Terminal_USA",  // HMMWV UAV Terminal
-			"CUP_B_M1151_M2_USA",  // M1151 (M2)
-			"CUP_B_M1151_Deploy_USA",  // M1151 (M2) Deployment
-			"CUP_B_M1151_Mk19_USA",  // M1151 (Mk19)
-			"CUP_B_M1151_USA",  // M1151 (Unarmed)
-			"CUP_B_M1152_USA",  // M1152 EVC
-			"CUP_B_M1165_GMV_USA",  // M1165 GMV (M134)
-			"CUP_B_M1167_USA",  // M1167 (TOW-2)
-			"CUP_B_HMMWV_UNARMED_USMC",  // HMMWV (Unarmed)
-			"CUP_B_HMMWV_Ambulance_USMC",  // HMMWV Ambulance
-			"CUP_B_HMMWV_M2_USMC",  // HMMWV M2
-			"CUP_B_HMMWV_M1114_USMC",  // HMMWV M240
-			"CUP_B_HMMWV_MK19_USMC",  // HMMWV MK19
-			"CUP_B_HMMWV_TOW_USMC",  // HMMWV TOW
-			"CUP_B_M1151_M2_USMC",  // M1151 (M2)
-			"CUP_B_M1151_Deploy_USMC",  // M1151 (M2) Deployment
-			"CUP_B_M1151_Mk19_USMC",  // M1151 (Mk19)
-			"CUP_B_M1151_USMC",  // M1151 (Unarmed)
-			"CUP_B_M1152_USMC",  // M1152 EVC
-			"CUP_B_M1165_GMV_USMC",  // M1165 GMV (M134)
-			"CUP_B_M1167_USMC",  // M1167 (TOW-2)
-			"Exile_car_HMMWV_M134_Green",  // HMMWV (M134)
-			"Exile_car_HMMWV_M134_Desert",  // HMMWV (M134)
-			"Exile_car_HMMWV_M2_Desert",  // HMMWV (M2)
-			"Exile_car_HMMWV_M2_Green",  // HMMWV (M2)
-			"Exile_car_HMMWV_MEV_Desert",  // HMMWV (MEV)
-			"Exile_car_HMMWV_MEV_Green",  // HMMWV (MEV)
-			"Exile_car_HMMWV_UNA_Desert",  // HMMWV (Unarmed)
-			"Exile_car_HMMWV_UNA_Green",  // HMMWV (Unarmed)
-			"HMMWV_UNA",  // HMMWV (Unarmed)
-			"HMMWV_UNA_des",  // HMMWV (Unarmed)
-			"HMMWV_M2_GPK_Base",  // HMMWV M1151 M2 Forest
-			"HMMWV_M2_GPK_1",  // HMMWV M1151 M2 Sand
-			"HMMWV_M134_des",  // HMMWV-M134
-			"HMMWV_M134",  // HMMWV-M134
-			"HMMWV_M2_des",  // HMMWV-M2
-			"HMMWV_M2",  // HMMWV-M2
-			"HMMWV_MEV_des",  // HMMWV-MEV
-			"HMMWV_MEV"  // HMMWV-MEV
-		];
-
-	IL_Supported_Quadbike = 
-		[				
-			"Exile_Bike_QuadBike_Black",
-			"Exile_Bike_QuadBike_Blue",
-			"Exile_Bike_QuadBike_Red",
-			"Exile_Bike_QuadBike_White",
-			"Exile_Bike_QuadBike_Nato",
-			"Exile_Bike_QuadBike_Csat",
-			"Exile_Bike_QuadBike_Fia",
-			"Exile_Bike_QuadBike_Guerilla01",
-			"Exile_Bike_QuadBike_Guerilla02",
-			"B_G_Quadbike_01_F",
-			"O_T_Quadbike_01_ghex_F",
-			"Exile_Car_Kart_BluKing",
-			"Exile_Car_Kart_RedStone",
-			"Exile_Car_Kart_Vrana",
-			"Exile_Car_Kart_Green",
-			"Exile_Car_Kart_Blue",
-			"Exile_Car_Kart_Orange",
-			"Exile_Car_Kart_White",
-			"Exile_Car_Kart_Yellow",
-			"Exile_Car_Kart_Black",
-			"C_Kart_01_Fuel_F",
-			"I_Quadbike_01_F",
-			"C_Quadbike_01_F",
-			"O_Quadbike_01_F",
-			"B_Quadbike_01_F"
-		];
-
 	IL_Supported_Supply_Crate = 
 		[
 			"B_CargoNet_01_ammo_F",  // cargo net [NATO]
@@ -786,19 +449,7 @@ if (isnil "IL_Variables") then
 	//*****************************************************************************************************************
 	//*										VIOC Units declaration
 	//*****************************************************************************************************************	
-	
-	IL_Supported_Motorcicle_Cargo = 
-		[
-			"R71USA",
-			"R71GerPre43",
-			"R71Ger44",
-			"R71Ger44Camo",
-			"R71RusOlive",
-			"R71RusGreenCamo",
-			"R71RusDark",
-			"R71RusGreen"
-		];
-	
+		
 	IL_Supported_Small_Crates = [];
 	IL_Supported_Medium_Crates =  [];
 	IL_Supported_Large_Crates =  [];
@@ -822,6 +473,8 @@ if (isnil "IL_Variables") then
 	IL_Supported_Small_Tank_Cargo = [];
 	IL_Supported_Medium_Tank_Cargo = [];
 	IL_Supported_Large_Tank_Cargo = [];
+	IL_Supported_Landing_Ship_Cargo = [];
+	IL_Supported_L_Landing_Ship_Cargo = [];
 	
 	
 	
@@ -1617,7 +1270,14 @@ if (isnil "IL_Variables") then
 		IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T34_76_1941", _x];
 		IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T34_76_1941", _x];
 		IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_T34_76_1941", _x];
-				
+		
+		
+		IL_Supported_Landing_Ship_Cargo pushBack format["%1LIB_UK_LCA", _x];
+		IL_Supported_Landing_Ship_Cargo pushBack format["%1LIB_LCVP", _x];
+		IL_Supported_Landing_Ship_Cargo pushBack format["%1LIB_LCA", _x];
+		
+		IL_Supported_L_Landing_Ship_Cargo pushBack format["%1LIB_LCM3_Armed", _x];
+		
 	} forEach _sid;
 		
 	/*
@@ -1680,9 +1340,11 @@ if (isnil "IL_Variables") then
 	IL_Supported_Cargo_NonVeh_C47 = IL_Supported_Cargo_NonVeh_Gaz + IL_Supported_Stacket_Crates + IL_Supported_Barrel + IL_Supported_Tank;
 	IL_Supported_Cargo_C47 = IL_Supported_Cargo_Veh_C47 + IL_Supported_Cargo_NonVeh_C47;
 	
-	IL_Supported_Cargo_Veh_Liberty = IL_Supported_Cargo_Veh_LCM3 + IL_Supported_Medium_Tank_Cargo + IL_Supported_Large_Tank_Cargo;
+	IL_Supported_Cargo_Ship_Liberty = IL_Supported_Landing_Ship_Cargo + IL_Supported_L_Landing_Ship_Cargo;
+	IL_Supported_Cargo_Veh_Liberty = IL_Supported_Cargo_Ship_Liberty + IL_Supported_Cargo_Veh_LCM3 + IL_Supported_Medium_Tank_Cargo + IL_Supported_Large_Tank_Cargo;
 	IL_Supported_Cargo_NonVeh_Liberty = IL_Supported_Cargo_NonVeh_LCM3;
 	IL_Supported_Cargo_Liberty = IL_Supported_Cargo_Veh_Liberty + IL_Supported_Cargo_NonVeh_Liberty;
+	
 };
 
 //	PROCEDURES AND FUNCTIONS
@@ -1987,6 +1649,16 @@ if (isnil "IL_Procedures") then
 		if (_obj_type in IL_Supported_XLarge_Static_Cargo) then
 		{
 			_obj setVariable["slots", 4, true];
+			_obj setVariable["cargo_offset", 2, true];
+		};
+		if (_obj_type in IL_Supported_Landing_Ship_Cargo) then
+		{
+			_obj setVariable["slots", 6, true];
+			_obj setVariable["cargo_offset", 2, true];
+		};
+		if (_obj_type in IL_Supported_L_Landing_Ship_Cargo) then
+		{
+			_obj setVariable["slots", 8, true];
 			_obj setVariable["cargo_offset", 2, true];
 		};
 	};
@@ -2691,17 +2363,18 @@ if (isnil "IL_Procedures") then
 						_zload = (_v getVariable "zload") + (_x getVariable "zload_cargo");
 						_zload_offset = (_v getVariable "zload_offset");
 						_cargo_offset = (_v getVariable "load_offset") + (_x getVariable "cargo_offset");
-						if ((typeOf _x) in IL_Supported_UGV) then
+						/*if ((typeOf _x) in IL_Supported_UGV) then
 						{
 							_x_cargo_offset = -0.4;
 						}
 						else
 						{
 							_x_cargo_offset = 0;
-						};
+						};*/
+						_x_cargo_offset = 0;
 						_damage = getDammage _x;
 						
-						if ((typeOf _x) in IL_Supported_SDV) then
+						/*if ((typeOf _x) in IL_Supported_SDV) then
 						{
 							_x animate ["periscope", 3]; 
 							_x animate ["Antenna", 3]; 
@@ -2713,7 +2386,7 @@ if (isnil "IL_Procedures") then
 							{
 								sleep 1;
 							};
-						};
+						};*/
 
 						/*
 						if ((_obj_type in IL_Supported_Vehicles_C17)  && (_doors == "B")) then
@@ -2794,9 +2467,6 @@ if (isnil "IL_Procedures") then
 						// Liberty Ship
 						if ((_obj_type in IL_Supported_Vehicles_Cargo_Ship) && (_doors == "B")) then
 						{
-							//[_v, _x, [_x_cargo_offset,-6 - _cargo_offset,_zload], [_x_cargo_offset,_counter + 0.25 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
-							//[_v, _x, [_x_cargo_offset,10,_zload], [_x_cargo_offset,_counter + 0.25 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
-							//[_v, _x, [_x_cargo_offset,_cargo_offset,_zload], [_x_cargo_offset,_counter + 0.25 + 50,_zload], 1, _turn] call IL_Move_Attach;
 							[_v, _x, [_x_cargo_offset,_cargo_offset,_zload], [_x_cargo_offset,_counter + 0.25 + 50,_zload_offset], 1, _turn] call IL_Move_Attach;
 						};
 						//C47
@@ -2874,10 +2544,8 @@ if (isnil "IL_Procedures") then
 		}
 		else
 		{
-			_msgErr = format["Vehicles found: %1", _obj_lst];
-			//_msgErr = format["Vehicles found: %1", _supported_cargo];
-			[_v, _msgErr] call IL_Vehicle_Chat;
-			//[_v, _NoBoxHint] call IL_Vehicle_Chat; _supported_cargo
+			//_msgErr = format["Vehicles found: %1", _obj_lst];
+			[_v, "No supported Cargo in range!"] call IL_Vehicle_Chat;
 		};
 		_v setVariable["can_load", true, true];
 	};
@@ -2952,15 +2620,15 @@ if (isnil "IL_Procedures") then
 						_zload_offset = (_v getVariable "zload_offset");
 						_cargo_offset = (_v getVariable "load_offset") + (_x getVariable "cargo_offset");
 						_damage = getDammage _x;
-						if ((typeOf _x) in IL_Supported_UGV) then
+						/*if ((typeOf _x) in IL_Supported_UGV) then
 						{
 							_x_cargo_offset = -0.4;
 						}
 						else
 						{
 							_x_cargo_offset = 0;
-						};
-
+						};*/
+						_x_cargo_offset = 0;
 						_obj_type = (typeOf _v);
 
 						/*
@@ -3978,7 +3646,6 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	{
 		[_this select 0, IL_Supported_Cargo_NonVeh_Liberty] call IL_Do_Load;
 	},[],IL_Action_LU_Priority,true,true,"",
-	//"(count(nearestObjects[ _target modelToWorld [0,6 - (_target getVariable 'load_offset'),0], IL_Supported_Cargo_NonVeh_Liberty, IL_SDistL]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,6 - (_target getVariable 'load_offset'),0], [], IL_SDistL + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_NonVeh_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
 	
@@ -3987,7 +3654,6 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	{
 		[_this select 0, IL_Supported_Cargo_Veh_Liberty] call IL_Do_Load;
 	},[],IL_Action_LU_Priority,true,true,"",
-	//"(count(nearestObjects[ _target modelToWorld [0,6 - (_target getVariable 'load_offset'),0], IL_Supported_Cargo_Veh_Liberty, IL_SDistL]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,6 - (_target getVariable 'load_offset'),0], [], IL_SDistL + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Veh_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
 	
@@ -3996,8 +3662,15 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	{
 		[_this select 0] call IL_Do_Unload;
 	},[],IL_Action_LU_Priority,false,true,"",
-	//"(_target getVariable 'box_num' < 0) && ((IL_Can_Inside && (driver _target == _this)) || (((_this in (nearestObjects[ _target modelToWorld [0,-6 - (_target getVariable 'load_offset'),0], [], IL_SDistL + IL_SDistL_Heli_offset])) && (_target getVariable 'can_outside')))) && (_target getVariable 'can_load') && (abs(speed _target) <= IL_LU_Speed)"
 	"(_target getVariable 'box_num' < 0) && ((IL_Can_Inside && (driver _target == _this)) || (((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset])) && (_target getVariable 'can_outside')))) && (_target getVariable 'can_load') && (abs(speed _target) <= IL_LU_Speed)"
+	];
+	
+	_obj_main addAction [
+	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load Boat on Cargo Ship</t>",
+	{
+		[_this select 0, IL_Supported_Cargo_Ship_Liberty] call IL_Do_Load;
+	},[],IL_Action_LU_Priority,true,true,"",
+	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Ship_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
 	
 	_obj_main addAction [
