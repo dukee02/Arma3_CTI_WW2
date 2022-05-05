@@ -257,6 +257,7 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 	} forEach (synchronizedObjects _logic);
 	
 	_logic setVariable ["cti_teams", _teams, true];
+	["VIOC_DEBUG", "FILE: Server\Init\Init_Server.sqf", format["Teams: <%1>", _teams]] call CTI_CO_FNC_Log;
 	
 } forEach [[west, CTI_WEST, _westLocation], [east, CTI_EAST, _eastLocation]];
 
@@ -319,7 +320,10 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 		sleep 10; // prenvent loading without all town FSM stable
 		["upgrades"] call CTI_SE_FNC_LOAD;
 		["buildings"] call CTI_SE_FNC_LOAD;
-		["funds"] call CTI_SE_FNC_LOAD;
+		0 spawn {
+			waitUntil {!isNil 'CTI_Teams_Loaded'};
+			["funds"] call CTI_SE_FNC_LOAD;
+		};
 	};
 	missionNamespace setVariable ["CTI_Server_Loaded", true, true];
 	0 spawn {
