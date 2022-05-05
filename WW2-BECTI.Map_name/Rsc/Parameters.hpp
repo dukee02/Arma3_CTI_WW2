@@ -527,9 +527,9 @@ class Params {
 	};
 	class CTI_TOWNS_AMOUNT {
 		title = "TOWNS: Amount";
-		values[] = {0,1,2,3,6}; //values[] = {0,1,2,3,4,5,6};
-		texts[] = {"Extra Small","Small","Medium","Large","Full"}; //texts[] = {"Extra Small","Small","Medium","Large","West","East","Full"};
-		default = 6;
+		values[] = {0,1,2,3,4,5,6,7,8,9};
+		texts[] = {"Extra Small","Small","Medium","Large","SpecialMode 1 (Full if no setup defined)","SpecialMode 2 (Full if no setup defined)","SpecialMode 3 (Full if no setup defined)","SpecialMode 4 (Full if no setup defined)","Parameter (Full if no param set)","Full"}; //texts[] = {"Extra Small","Small","Medium","Large","West","East","Full"};
+		default = 9;
 	};
 	class CTI_TOWNS_CAMPS_CREATE {
 		title = "TOWNS: Camps";
@@ -581,10 +581,8 @@ class Params {
 	};
 	class CTI_TOWNS_STARTING_MODE {
 		title = "TOWNS: Starting Mode";
-		//values[] = {-1,0,1,2,3,4,5};
-		//texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
-		values[] = {0,1,2,3,4,5};
-		texts[] = {"Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
+		values[] = {-1,0,1,2,3,4,5};
+		texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
 		default = 0;
 	};
 	class CTI_TOWNS_VEHICLES_LOCK {

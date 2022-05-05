@@ -16,14 +16,13 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3624;
+		nextID=3756;
 	};
 	class Camera
 	{
-		pos[]={19712.439,510.20999,6751.2061};
-		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
-		up[]={-1.2363449e-007,0.70710671,0.70710683};
-		aside[]={1,0,1.7484557e-007};
+		pos[]={19709.244,530.62317,6741.4639};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710671,0.70710683};
 	};
 };
 binarizationWanted=0;
@@ -31,7 +30,11 @@ sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
+	"IFA3_Side_Patch",
+	"VIO_Side_Patch_WW2",
 	"A3_Ui_F",
+	"csa38ii_data",
+	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F",
 	"A3_Modules_F_Curator_Curator"
 };
@@ -39,7 +42,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -49,19 +52,43 @@ class AddonsMetaData
 		};
 		class Item1
 		{
+			className="IFA3_Side_Patch";
+			name="IFA3_Side_Patch";
+		};
+		class Item2
+		{
+			className="VIO_Side_Patch_WW2";
+			name="VIO Side Patch WW2";
+			author="dukee";
+			url="https://discord.gg/sJw2Nynh7s";
+		};
+		class Item3
+		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item4
+		{
+			className="csa38ii_data";
+			name="csa38ii_data";
+			author="CSA38 Team";
+			url="http://www.moddb.com/mods/csa38-czechoslovak-army-1938";
+		};
+		class Item5
+		{
+			className="WW2_Core_c_IF_Gui_c";
+			name="WW2_Core_c_IF_Gui_c";
+		};
+		class Item6
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item7
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
@@ -1488,7 +1515,7 @@ class Mission
 						position[]={55.821999,6.1336861,16.455};
 					};
 					name="CTI_Logic";
-					init="call{ " \n "this setVariable [""totalTowns"",60];  " \n "this setVariable [""Towns_RemovedXSmall"",[]];  " \n "this setVariable [""Towns_RemovedSmall"",[]];  " \n "this setVariable [""Towns_RemovedMedium"",[]];  " \n "this setVariable [""Towns_RemovedLarge"",[]];  " \n "this setVariable [""Towns_RemovedWest"",[]];  " \n "this setVariable [""Towns_RemovedEast"",[]];  " \n "nullReturn = [this] ExecVM ""Common\Init\Init_LocationMode.sqf"";}";
+					init="call{  " \n "this setVariable [""totalTowns"",60];   " \n "this setVariable [""Towns_RemovedXSmall"",[""Malden Airport"",""Airforce Barracks"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Military Hospital"",""Northern Island"",""Middle Island"",""Everon Airport"",""Saint Phillippe"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain"",""Malden Military Training"",""Malden Island Airfield"",""La Riviere"",""La Port"",""Sarugao Military Airport"",""Sarugao Military"",""Sarugao Barracks"",""Lebija"",""Voskovo"",""Kolgujev Barrack"",""Hotzenplotz Barracks"",""Gabnavolok"",""Saint Pierre"",""Regina"",""Levie Military"",""Goisse"",""Arudy"",""Sant Renoir"",""San Alto"",""Oshta Military"",""Morton"",""Meaux""]];   " \n "this setVariable [""Towns_RemovedSmall"",[""Malden Airport"",""Airforce Barracks"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Military Hospital"",""Northern Island"",""Middle Island"",""Everon Airport"",""Saint Phillippe"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain"",""Malden Military Training"",""Malden Island Airfield"",""La Riviere"",""La Port"",""Sarugao Military Airport"",""Sarugao Military"",""Sarugao Barracks"",""Lebija"",""Voskovo"",""Kolgujev Barrack"",""Hotzenplotz Barracks"",""Gabnavolok"",""Saint Pierre"",""Regina"",""Levie Military""]];   " \n "this setVariable [""Towns_RemovedMedium"",[""Malden Airport"",""Airforce Barracks"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Military Hospital"",""Northern Island"",""Middle Island"",""Everon Airport"",""Saint Phillippe"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain""]];   " \n "this setVariable [""Towns_RemovedLarge"",[""Malden Airport"",""Airforce Barracks"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Military Hospital"",""Northern Island"",""Middle Island"",""Everon Airport"",""Saint Phillippe""]];   " \n "this setVariable [""Towns_RemovedWest"",[""Military Hospital"",""Northern Island"",""Middle Island"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Voskovo"",""Kolgujev Barrack"",""Hotzenplotz Barracks"",""Gabnavolok"",""Oshta Military"",""Silola Barrack"",""Velikaya"",""Everon Airport"",""Saint Phillippe"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain"",""Saint Pierre"",""Regina"",""Levie Military"",""Morton"",""Meaux"",""Moule"",""Montignac"",""Malden Airport"",""Airforce Barracks"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora""]];   " \n "this setVariable [""Towns_RemovedEast"",[""Military Hospital"",""Northern Island"",""Middle Island"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Voskovo"",""Kolgujev Barrack"",""Hotzenplotz Barracks"",""Gabnavolok"",""Oshta Military"",""Silola Barrack"",""Velikaya"",""Everon Airport"",""Saint Phillippe"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain"",""Saint Pierre"",""Regina"",""Levie Military"",""Morton"",""Meaux"",""Moule"",""Montignac""]];   " \n "this setVariable [""Towns_RemovedSouth"",[""Malden Airport"",""Airforce Barracks"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Malden Military Training"",""Malden Island Airfield"",""La Riviere"",""La Port"",""Goisse"",""Arudy"",""Lolisse"",""La Trinite"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora"",""Sarugao Military Airport"",""Sarugao Military"",""Sarugao Barracks"",""Lebija"",""Sant Renoir"",""San Alto"",""Saint Bieuc"",""Belnuevo"",""Military Hospital"",""Northern Island"",""Middle Island"",""Velikaya Military"",""Oshta"",""Silola"",""Kulmuska"",""Everon Airport"",""Saint Phillippe"",""Everon South Island"",""Durras"",""Gravette"",""Lamentin"",""Chotain""]];   " \n "this setVariable [""Towns_RemovedNorth"",[""Malden Airport"",""Airforce Barracks"",""Malden Military Outpost"",""Larche"",""La Passangne"",""Houdan"",""Chapoi"",""Malden Military Training"",""Malden Island Airfield"",""La Riviere"",""La Port"",""Goisse"",""Arudy"",""Lolisse"",""La Trinite"",""Sarugao Airport"",""Sarugao Western Island"",""Woronesh"",""Sarugao North Harbor"",""Meridan"",""Le Frimme"",""Tormes"",""Sarugao Energy Park"",""Vadora"",""Sarugao Military Airport"",""Sarugao Military"",""Sarugao Barracks"",""Lebija"",""Sant Renoir"",""San Alto"",""Saint Bieuc"",""Belnuevo""]];   " \n "nullReturn = [this] ExecVM ""Common\Init\Init_LocationMode.sqf"";}";
 					id=305;
 					type="Logic";
 					atlOffset=55.194;
@@ -6534,7 +6561,7 @@ class Mission
 										angles[]={0.0031939524,4.7429671,6.251193};
 									};
 									name="Town59";
-									init="call{nullReturn = [this, ""Woronesh"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Woronesh"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2808;
 									type="LocationArea_F";
 								};
@@ -6545,7 +6572,7 @@ class Mission
 						class Item1
 						{
 							dataType="Layer";
-							name="Vadore";
+							name="Vadora";
 							class Entities
 							{
 								items=11;
@@ -6662,7 +6689,7 @@ class Mission
 										angles[]={6.2623811,1.0375633,0.019198623};
 									};
 									name="Town58";
-									init="call{nullReturn = [this, ""Vadore"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Vadora"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2802;
 									type="LocationArea_F";
 									atlOffset=7.6293945e-006;
@@ -6804,7 +6831,7 @@ class Mission
 										angles[]={6.2815971,3.1206138,6.2751913};
 									};
 									name="Town57";
-									init="call{nullReturn = [this, ""Tormes"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Tormes"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2801;
 									type="LocationArea_F";
 								};
@@ -6944,7 +6971,7 @@ class Mission
 										angles[]={0.075066611,0,6.2783856};
 									};
 									name="Town56";
-									init="call{nullReturn = [this, ""Sarugao Western Island"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Western Island"", east, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2813;
 									type="LocationArea_F";
 								};
@@ -7129,7 +7156,7 @@ class Mission
 										angles[]={6.2815971,6.2694321,0.0015882496};
 									};
 									name="Town55";
-									init="call{nullReturn = [this, ""Sarugao North Harbor"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao North Harbor"", east, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2807;
 									type="LocationArea_F";
 								};
@@ -7282,7 +7309,7 @@ class Mission
 										angles[]={6.2639866,3.0815532,0.012793263};
 									};
 									name="Town54";
-									init="call{nullReturn = [this, ""Sarugao Barracks"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Barracks"", east, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2806;
 									type="LocationArea_F";
 								};
@@ -7476,7 +7503,7 @@ class Mission
 										angles[]={6.2719803,1.616524,0.023998277};
 									};
 									name="Town53";
-									init="call{nullReturn = [this, ""Sarugao Military Airport"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Military Airport"", east, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2809;
 									type="LocationArea_F";
 								};
@@ -7614,7 +7641,7 @@ class Mission
 										angles[]={0.017592918,0,0};
 									};
 									name="Town52";
-									init="call{nullReturn = [this, ""Sarugao Military"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Military"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2804;
 									type="LocationArea_F";
 									atlOffset=-1.9073486e-006;
@@ -7754,7 +7781,7 @@ class Mission
 										angles[]={0,0.68005008,0};
 									};
 									name="Town51";
-									init="call{nullReturn = [this, ""Sarugao Energy Park"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Energy Park"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2805;
 									type="LocationArea_F";
 								};
@@ -7904,7 +7931,7 @@ class Mission
 										angles[]={0.0063879048,1.5516326,0.0095993113};
 									};
 									name="Town50";
-									init="call{nullReturn = [this, ""Sarugao Airport"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sarugao Airport"", east, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2797;
 									type="LocationArea_F";
 									atlOffset=0.044998169;
@@ -7929,7 +7956,7 @@ class Mission
 										angles[]={0,2.4783676,0};
 									};
 									name="Town49";
-									init="call{nullReturn = [this, ""Sant Renoir"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Sant Renoir"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2796;
 									type="LocationArea_F";
 								};
@@ -8280,7 +8307,7 @@ class Mission
 										angles[]={6.2607927,3.0437493,0.027192229};
 									};
 									name="Town48";
-									init="call{nullReturn = [this, ""San Alto"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""San Alto"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2799;
 									type="LocationArea_F";
 								};
@@ -8304,7 +8331,7 @@ class Mission
 										angles[]={0,4.8174753,0};
 									};
 									name="Town47";
-									init="call{nullReturn = [this, ""Saint Bieuc"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Saint Bieuc"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2800;
 									type="LocationArea_F";
 								};
@@ -8686,7 +8713,7 @@ class Mission
 										angles[]={0.0063879048,1.818668,6.2735863};
 									};
 									name="Town46";
-									init="call{nullReturn = [this, ""Meridan"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Meridan"", east, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2795;
 									type="LocationArea_F";
 								};
@@ -8816,7 +8843,7 @@ class Mission
 										angles[]={0.023998277,3.7676249,0.0031939524};
 									};
 									name="Town45";
-									init="call{nullReturn = [this, ""Lebija"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Lebija"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2794;
 									type="LocationArea_F";
 								};
@@ -8946,7 +8973,7 @@ class Mission
 										angles[]={0,4.4641857,0};
 									};
 									name="Town44";
-									init="call{nullReturn = [this, ""Le Frimme"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Le Frimme"", east, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2803;
 									type="LocationArea_F";
 									atlOffset=0.00023651123;
@@ -9232,7 +9259,7 @@ class Mission
 										angles[]={0,2.4514894,0};
 									};
 									name="Town43";
-									init="call{nullReturn = [this, ""Belnuevo"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Belnuevo"", east, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2798;
 									type="LocationArea_F";
 								};
@@ -9419,7 +9446,7 @@ class Mission
 										angles[]={0,0.0029321532,0};
 									};
 									name="Town42";
-									init="call{nullReturn = [this, ""Malden Military Training"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Malden Military Training"", west, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2815;
 									type="LocationArea_F";
 								};
@@ -9549,7 +9576,7 @@ class Mission
 										angles[]={0.0095993113,3.0942242,6.2735863};
 									};
 									name="Town41";
-									init="call{nullReturn = [this, ""Malden Military Outpost"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Malden Military Outpost"", west, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2814;
 									type="LocationArea_F";
 								};
@@ -9713,7 +9740,7 @@ class Mission
 										angles[]={0,4.7542419,6.2703919};
 									};
 									name="Town39";
-									init="call{nullReturn = [this, ""Malden Airport"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Malden Airport"", west, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2827;
 									type="LocationArea_F";
 								};
@@ -9857,7 +9884,7 @@ class Mission
 										angles[]={0.012793263,1.6376076,6.2703919};
 									};
 									name="Town38";
-									init="call{nullReturn = [this, ""Lolisse"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Lolisse"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2825;
 									type="LocationArea_F";
 								};
@@ -10027,7 +10054,7 @@ class Mission
 										angles[]={0,5.8367472,0};
 									};
 									name="Town37";
-									init="call{nullReturn = [this, ""Larche"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Larche"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2823;
 									type="LocationArea_F";
 								};
@@ -10192,7 +10219,7 @@ class Mission
 										angles[]={6.2719803,4.7295632,0.031991884};
 									};
 									name="Town36";
-									init="call{nullReturn = [this, ""La Trinite"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""La Trinite"", west, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2822;
 									type="LocationArea_F";
 								};
@@ -10347,7 +10374,7 @@ class Mission
 										angles[]={0.041573741,1.5576017,0.0047996556};
 									};
 									name="Town35";
-									init="call{nullReturn = [this, ""La Riviere"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""La Riviere"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2818;
 									type="LocationArea_F";
 								};
@@ -10476,7 +10503,7 @@ class Mission
 										angles[]={6.2783856,3.3167713,6.2671809};
 									};
 									name="Town34";
-									init="call{nullReturn = [this, ""La Port"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""La Port"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2816;
 									type="LocationArea_F";
 								};
@@ -10655,7 +10682,7 @@ class Mission
 										angles[]={6.2767973,4.9114437,0};
 									};
 									name="Town33";
-									init="call{nullReturn = [this, ""La Passangne"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""La Passangne"", west, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2819;
 									type="LocationArea_F";
 								};
@@ -10820,7 +10847,7 @@ class Mission
 										angles[]={0,1.5065682,0};
 									};
 									name="Town32";
-									init="call{nullReturn = [this, ""Houdan"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Houdan"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2820;
 									type="LocationArea_F";
 								};
@@ -10962,7 +10989,7 @@ class Mission
 										angles[]={0.019198623,0.91149819,0.030386183};
 									};
 									name="Town31";
-									init="call{nullReturn = [this, ""Goisse"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Goisse"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2824;
 									type="LocationArea_F";
 								};
@@ -11105,7 +11132,7 @@ class Mission
 										angles[]={0,0.00022689281,0};
 									};
 									name="Town30";
-									init="call{nullReturn = [this, ""Chapoi"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Chapoi"", west, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2817;
 									type="LocationArea_F";
 								};
@@ -11240,7 +11267,7 @@ class Mission
 										angles[]={0.0095993113,2.9419794,6.2671809};
 									};
 									name="Town29";
-									init="call{nullReturn = [this, ""Arudy"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Arudy"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2821;
 									type="LocationArea_F";
 								};
@@ -11383,7 +11410,7 @@ class Mission
 										angles[]={0.0063879048,1.5877435,6.2703919};
 									};
 									name="Town28";
-									init="call{nullReturn = [this, ""Airforce Barracks"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Airforce Barracks"", west, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2826;
 									type="LocationArea_F";
 								};
@@ -11506,7 +11533,7 @@ class Mission
 										angles[]={0.0031939524,0,0};
 									};
 									name="Town40";
-									init="call{nullReturn = [this, ""Malden Island Airfield"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
+									init="call{nullReturn = [this, ""Malden Island Airfield"", west, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 									id=2828;
 									type="LocationArea_F";
 									atlOffset=-1.9073486e-006;
