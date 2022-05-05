@@ -508,8 +508,8 @@ if (isnil "IL_Variables") then
 		IL_Supported_Stacket_Crates pushBack format["%1LIB_WeaponsBox_Big_GER", _x];
 		IL_Supported_Stacket_Crates pushBack format["%1LIB_WeaponsBox_Big_SU", _x];
 		
-		IL_Supported_Bike_Cargo pushBack format["%1Exile_Bike_OldBike", _x];
-		IL_Supported_Bike_Cargo pushBack format["%1Exile_Bike_MountainBike", _x];
+		//IL_Supported_Bike_Cargo pushBack format["%1Exile_Bike_OldBike", _x];
+		//IL_Supported_Bike_Cargo pushBack format["%1Exile_Bike_MountainBike", _x];
 		
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_GER_SearchLight", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_SU_SearchLight", _x];
@@ -517,9 +517,7 @@ if (isnil "IL_Variables") then
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_MG34_Lafette_low_Deployed", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_MG42_Lafette_Deployed", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_MG42_Lafette_low_Deployed", _x];
-		IL_Supported_Mini_Static_Cargo pushBack format["%1IFA3_DSHkM_Mini_TriPod", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_M1919_M2", _x];
-		IL_Supported_Mini_Static_Cargo pushBack format["%1ifa3_M2StaticMG_base", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_Maxim_M30_base", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_Maxim_M30_Trench", _x];
 		IL_Supported_Mini_Static_Cargo pushBack format["%1LIB_Vickers_MMG", _x];
@@ -615,10 +613,6 @@ if (isnil "IL_Variables") then
 		IL_Supported_Small_Static_Cargo pushBack format["%1NORTH_SOV_W_Maxim_Quad", _x];
 		IL_Supported_Small_Static_Cargo pushBack format["%1NORTH_SOV_Maxim_Quad", _x];
 		
-		IL_Supported_Medium_Static_Cargo pushBack format["%1Ifa3_p27G", _x];
-		IL_Supported_Medium_Static_Cargo pushBack format["%1Ifa3_p27", _x];
-		IL_Supported_Medium_Static_Cargo pushBack format["%1IFA3_Pak38", _x];
-		IL_Supported_Medium_Static_Cargo pushBack format["%1IFA3_53K", _x];
 		IL_Supported_Medium_Static_Cargo pushBack format["%1LIB_57mm_M1", _x];
 		IL_Supported_Medium_Static_Cargo pushBack format["%1LIB_QF6_pdr", _x];
 		IL_Supported_Medium_Static_Cargo pushBack format["%1LIB_Flakvierling_38_w", _x];
@@ -1341,17 +1335,29 @@ if (isnil "IL_Variables") then
 	IL_Supported_Cargo_C47 = IL_Supported_Cargo_Veh_C47 + IL_Supported_Cargo_NonVeh_C47;
 	
 	IL_Supported_Cargo_Ship_Liberty = IL_Supported_Landing_Ship_Cargo + IL_Supported_L_Landing_Ship_Cargo;
-	IL_Supported_Cargo_Veh_Liberty = IL_Supported_Cargo_Ship_Liberty + IL_Supported_Cargo_Veh_LCM3 + IL_Supported_Medium_Tank_Cargo + IL_Supported_Large_Tank_Cargo;
+	IL_Supported_Cargo_Light_Liberty =IL_Supported_Cargo_Veh_LCM3;
+	IL_Supported_Cargo_Heavy_Liberty = IL_Supported_Medium_Tank_Cargo + IL_Supported_Large_Tank_Cargo;
 	IL_Supported_Cargo_NonVeh_Liberty = IL_Supported_Cargo_NonVeh_LCM3;
-	IL_Supported_Cargo_Liberty = IL_Supported_Cargo_Veh_Liberty + IL_Supported_Cargo_NonVeh_Liberty;
+	//IL_Supported_Cargo_Liberty = IL_Supported_Cargo_Light_Liberty + IL_Supported_Cargo_NonVeh_Liberty;
 	
 };
+
+//https://community.bistudio.com/wiki/in
 
 //	PROCEDURES AND FUNCTIONS
 if (isnil "IL_Procedures") then
 {
 	IL_Procedures = true;
 
+	/*VIOC_Part_In_Array = {
+		private["_part", "_array"];
+		_part = _this select 0;
+		_array = _this select 1;
+		
+		//[_this select 0, IL_Supported_Cargo_NonVeh_Liberty] call IL_Do_Load;
+		
+	};*/
+	
 	IL_Init_Veh =
 	{
 		if (IL_DevMod) then
@@ -3650,19 +3656,19 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	];
 	
 	_obj_main addAction [
-	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load vehicle on Cargo Ship</t>",
+	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load light vehicle on Cargo Ship</t>",
 	{
-		[_this select 0, IL_Supported_Cargo_Veh_Liberty] call IL_Do_Load;
+		[_this select 0, IL_Supported_Cargo_Light_Liberty] call IL_Do_Load;
 	},[],IL_Action_LU_Priority,true,true,"",
-	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Veh_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
+	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Light_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
 	
 	_obj_main addAction [
-	"<img image='IgiLoad\images\unload.paa' /><t color=""#ff0000"">  Unload cargo from Cargo Ship</t>",
+	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load heavy vehicle on Cargo Ship</t>",
 	{
-		[_this select 0] call IL_Do_Unload;
-	},[],IL_Action_LU_Priority,false,true,"",
-	"(_target getVariable 'box_num' < 0) && ((IL_Can_Inside && (driver _target == _this)) || (((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset])) && (_target getVariable 'can_outside')))) && (_target getVariable 'can_load') && (abs(speed _target) <= IL_LU_Speed)"
+		[_this select 0, IL_Supported_Cargo_Heavy_Liberty] call IL_Do_Load;
+	},[],IL_Action_LU_Priority,true,true,"",
+	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Heavy_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
 	
 	_obj_main addAction [
@@ -3672,6 +3678,14 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	},[],IL_Action_LU_Priority,true,true,"",
 	"(count(nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], IL_Supported_Cargo_Ship_Liberty, IL_SDistL_boat]) > 0) && (abs(speed _target) <= IL_LU_Speed) && ((IL_Can_Inside && (driver _target == _this)) || ((((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset]))) && (_target getVariable 'can_outside')))) && (_target getVariable 'box_num' > _target getVariable 'slots_num') && (_target getVariable 'can_load')"
 	];
+	
+	_obj_main addAction [
+	"<img image='IgiLoad\images\unload.paa' /><t color=""#ff0000"">  Unload cargo from Cargo Ship</t>",
+	{
+		[_this select 0] call IL_Do_Unload;
+	},[],IL_Action_LU_Priority,false,true,"",
+	"(_target getVariable 'box_num' < 0) && ((IL_Can_Inside && (driver _target == _this)) || (((_this in (nearestObjects[ _target modelToWorld [0,(_target getVariable 'load_offset'),0], [], IL_SDistL_boat + IL_SDistL_Heli_offset])) && (_target getVariable 'can_outside')))) && (_target getVariable 'can_load') && (abs(speed _target) <= IL_LU_Speed)"
+	];	
 	
 	_obj_main addAction [
 	"<t color=""#0000ff"">Enable loading from outside</t>",
