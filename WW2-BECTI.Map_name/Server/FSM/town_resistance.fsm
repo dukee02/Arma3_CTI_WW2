@@ -53,7 +53,7 @@ link25[] = {20,18};
 link26[] = {21,8};
 link27[] = {22,1};
 globals[] = {0.000000,0,0,0,0,640,480,1,160,6316128,1,-532.068176,527.441589,566.059692,-456.436584,916,884,1};
-window[] = {2,-1,-1,-1,-1,885,104,1359,104,3,934};
+window[] = {2,-1,-1,-1,-1,963,182,1437,182,3,934};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -282,7 +282,7 @@ class FSM
                          "" \n
                          "//--- destroyed objects" \n
                          "{" \n
-                         "	if (damage _x ==1) then {_x hideObjectGlobal true;};" \n
+                         "	if (damage _x ==1) then {[_x, true] remoteExec [""hideObjectGlobal"", 2];};" \n
                          "} foreach (nearestTerrainObjects [_town,CTI_GC_TOWN_OBJECTS,CTI_GC_RANGE_TOWN]);" \n
                          "if (CTI_Log_Level >= CTI_Log_Information) then {" \n
                          "	[""INFORMATION"", ""FILE: \Server\FSM\town_resistance.fsm"", format[""Cleanup Town %1 done: <%2|%3>"", _town,CTI_GC_TOWN_OBJECTS,CTI_GC_RANGE_TOWN]] call CTI_CO_FNC_Log;" \n
