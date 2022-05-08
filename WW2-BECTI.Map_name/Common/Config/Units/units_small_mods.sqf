@@ -1861,7 +1861,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_c pushBack format["%1sab_nl_ptboat", _sid];
 			_p pushBack '';
 			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level,true,0.5] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level,true,1.5] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 			_t pushBack _building_time;
 			_u pushBack _tech_level;
 			_f pushBack CTI_FACTORY_NAVAL;
