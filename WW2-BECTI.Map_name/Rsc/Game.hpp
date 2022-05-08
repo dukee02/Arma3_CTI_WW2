@@ -6,7 +6,7 @@ respawnDialog = false;
 //--- Require briefing.html to show up.
 onLoadName = "VIO-BECTI-WW2 V2.0";
 onLoadMissionTime = false;
-onLoadMission = "VIO-BECTI-WW2 V2.0_210502";
+onLoadMission = "VIO-BECTI-WW2 V2.0_220508";
 
 briefingName = "VIO-BECTI-WW2 V2.0";
 
