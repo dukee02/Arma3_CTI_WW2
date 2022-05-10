@@ -257,7 +257,6 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 	} forEach (synchronizedObjects _logic);
 	
 	_logic setVariable ["cti_teams", _teams, true];
-	["VIOC_DEBUG", "FILE: Server\Init\Init_Server.sqf", format["Teams: <%1>", _teams]] call CTI_CO_FNC_Log;
 	
 } forEach [[west, CTI_WEST, _westLocation], [east, CTI_EAST, _eastLocation]];
 
