@@ -3440,61 +3440,61 @@ if(CTI_IFA3_NEW >= 0) then {
 		_classes pushBack 		"LIB_shumine_42_MINE";
 		_prices pushBack 		round 150*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AP Mine SMI 35";
 		_classes pushBack 		"LIB_SMI_35_MINE";
 		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AP Mine SMI 35 1";
 		_classes pushBack 		"LIB_SMI_35_1_MINE";
 		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AP Mine STMI";
 		_classes pushBack 		"LIB_STMI_MINE";
 		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AT Mine TMI 42";
 		_classes pushBack 		"LIB_TMI_42_MINE";
 		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AT Mine TM44";
 		_classes pushBack 		"LIB_TM44_MINE";
 		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 	} else {
 		_headers pushBack 		"AP Mine PMD6";
 		_classes pushBack 		"LIB_PMD6_MINE";
 		_prices pushBack 		round 150*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AP Mine M3";
 		_classes pushBack 		"LIB_M3_MINE";
 		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AP Mine US M3";
 		_classes pushBack 		"LIB_US_M3_MINE";
 		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 		
 		_headers pushBack 		"AT Mine US M1A1";
 		_classes pushBack 		"LIB_US_M1A1_ATMINE";
 		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Mines";
+		_categories pushBack 	"Mine";
 	};
 };
 
