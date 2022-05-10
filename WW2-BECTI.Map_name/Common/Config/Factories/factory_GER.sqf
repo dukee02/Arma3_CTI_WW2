@@ -486,9 +486,9 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1LIB_DAK_Ju87_2", _sid];
-		_c pushBack format["%1LIB_DAK_Ju87", _sid];
-		_c pushBack format["%1LIB_Ju87_Italy2", _sid];
-		_c pushBack format["%1LIB_Ju87_Italy", _sid];
+		//_c pushBack format["%1LIB_DAK_Ju87", _sid];
+		//_c pushBack format["%1LIB_Ju87_Italy2", _sid];
+		//_c pushBack format["%1LIB_Ju87_Italy", _sid];
 	};
 	_c pushBack format["%1LIB_Ju87", _sid];
 };

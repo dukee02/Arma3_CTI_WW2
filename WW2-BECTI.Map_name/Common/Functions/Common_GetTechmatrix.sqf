@@ -546,9 +546,9 @@ _tech_matrix =
 		//GER
 		[
 			//IFA
-			[false,true,true,true,false,false],
+			[false,false,true,true,false,false],
 			//IFA_NEW
-			[false,true,true,true,false,false],
+			[false,false,true,true,false,false],
 			//FOW
 			[false,false,false,false,false,false],
 			//CSA
