@@ -368,4 +368,12 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 //--- Waiting until that the game is launched.
 waitUntil {time > 0};
 
+//--- start the Air detection script, because AA gets build very soon.
+0 spawn {
+	while {!CTi_GameOver} do {
+		sleep CTI_BASE_DEFENSES_AIR_DETECTION_TIME;
+		call CTI_CO_FNC_ScanSkyForPlanes;
+	};
+};
+
 {_x Spawn CTI_SE_FNC_VoteForCommander} forEach [west, east];

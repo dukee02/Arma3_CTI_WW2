@@ -485,6 +485,9 @@ CTI_BASE_CONSTRUCTION_RATIO_ON_DEATH = 0.25; //--- The completion ratio is multi
 CTI_BASE_DEFENSES_AUTO_DELAY = 20; //--- Delay after which a new unit will replace a dead one for a defense
 CTI_BASE_DEFENSES_AUTO_REARM_RANGE = 500; //--- Range needed for a defense to be able to rearm at a service point
 CTI_BASE_DEFENSES_EMPTY_TIMEOUT = 1200; //--- Delay after which an empty defense is considered empty
+CTI_BASE_DEFENSES_AIR_DETECTION_RANGE = 2000; //--- Range in meters, air units gets detected and revealed
+CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT = 50; //--- Height in meters, air units gets detected and revealed
+CTI_BASE_DEFENSES_AIR_DETECTION_TIME = 10; //--- Time in seconds, the detection script runns
 
 //--- Base: HQ
  
