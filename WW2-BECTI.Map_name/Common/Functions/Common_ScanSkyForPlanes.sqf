@@ -22,7 +22,7 @@
   # EXAMPLE #
 	Call CTI_CO_FNC_ScanSkyForPlanes
 */
-Private ["_side","_logic","_defenses","_defense","_objects","_object","_height","_defense_cnt","_object_cnt"];
+Private ["_side","_logic","_defenses","_defense","_objects","_object","_height","_defense_data","_object_cnt"];
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_ScanSkyForPlanes.sqf", "Start scanning the Area"] call CTI_CO_FNC_Log;};
 
@@ -30,17 +30,18 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions
 	//get the defenses of the side
 	_side = _x;		//for a better reading
 	_logic= (_side) call CTI_CO_FNC_GetSideLogic;
-	_defenses = _logic getVariable "cti_defences";
-	_defense_cnt = count _defenses;
-	if(_defense_cnt > 0) then {
+	_defenses = _logic getVariable ["cti_defences",[]];
+	if(count _defenses > 0) then {
 		{
-			//get the planes in range
 			_defense = _x select 0;		//for a better reading
+			//data of the defense, needed to check if it is a AA or not
+			_defense_data = missionNamespace getVariable [format["CTI_%1_%2",_side,(typeOf _defense)],["","","",""]];
+			//get the planes in range
 			//_objects nearTargets 2000	//??? maybe faster ???
 			_objects = nearestObjects [_defense, ["Air"], CTI_BASE_DEFENSES_AIR_DETECTION_RANGE];
 			//_objects = _defense nearObjects ["Air", CTI_BASE_DEFENSES_AIR_DETECTION_RANGE];
 			_object_cnt = count _objects;
-			if(_object_cnt > 0) then {
+			if(_object_cnt > 0 && _defense_data select 3 == "AA") then {
 				{
 					_object = _x;		//for a better reading
 					//speed _object
@@ -55,4 +56,4 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions
 	};
 } forEach [east,west];
 
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_ScanSkyForPlanes.sqf", format["End scanning the Area <%1> <%2>", _object_cnt, _defense_cnt]] call CTI_CO_FNC_Log;};
+if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_ScanSkyForPlanes.sqf", format["End scanning the Area <%1> <%2>", _object_cnt, count _defenses]] call CTI_CO_FNC_Log;};
