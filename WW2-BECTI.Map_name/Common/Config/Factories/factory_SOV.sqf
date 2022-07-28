@@ -424,6 +424,11 @@ if (isNil "_priorUnits") then {
 	_c append _priorUnits; 
 };
 
+//add the paradroping units
+_priorUnits = missionNamespace getVariable "CTI_VEHICLES_PARADROPERS";
+_priorUnits pushBack format["%1LIB_Li2", _sid];
+missionNamespace setVariable ["CTI_VEHICLES_PARADROPERS", _priorUnits];
+
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_SOV.sqf", format["units in factory %1: [%2] ", CTI_AIR, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 
