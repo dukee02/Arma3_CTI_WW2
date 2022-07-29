@@ -490,6 +490,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
 		//_c pushBack format["%1LIB_Ju87_Italy2", _sid];
 		//_c pushBack format["%1LIB_Ju87_Italy", _sid];
 	};
+	_c pushBack format["%1LIB_C47_RAF", _sid];			//for paradropers needed
 	_c pushBack format["%1LIB_Ju87", _sid];
 };
 
@@ -528,6 +529,11 @@ if (isNil "_priorUnits") then {
 } else {
 	_c append _priorUnits; 
 };
+
+//add the paradroping units
+_priorUnits = missionNamespace getVariable "CTI_VEHICLES_PARADROPERS";
+_priorUnits pushBack format["%1LIB_C47_RAF", _sid];
+missionNamespace setVariable ["CTI_VEHICLES_PARADROPERS", _priorUnits];
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER.sqf", format["units in factory %1: [%2] ", CTI_AIR, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
