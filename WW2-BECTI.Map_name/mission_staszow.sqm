@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=2035;
+		nextID=2037;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2870;
+		nextID=2936;
 	};
 	class Camera
 	{
-		pos[]={7547.0176,144.98825,11954.465};
-		dir[]={-0.92103016,-0.33878765,0.19216223};
-		up[]={-0.33164626,0.94086283,0.069194131};
-		aside[]={0.20424043,0,0.9789207};
+		pos[]={7635.3203,221.61458,11937.415};
+		dir[]={-0.92253792,-0.38581377,0.008685492};
+		up[]={-0.38579744,0.92257619,0.0036322461};
+		aside[]={0.0094144475,1.6042804e-008,0.9999575};
 	};
 };
 binarizationWanted=0;
@@ -189,7 +189,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=62;
 		class Item0
 		{
 			dataType="Group";
@@ -216,6 +216,7 @@ class Mission
 					};
 					id=1382;
 					type="O_Protagonist_VR_F";
+					atlOffset=-7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -264,6 +265,7 @@ class Mission
 			{
 			};
 			id=227;
+			atlOffset=-7.6293945e-006;
 		};
 		class Item1
 		{
@@ -8943,11 +8945,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={50.416759,8.0230408,157.26898};
+				position[]={50.417,8.0233631,157.269};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
-			atlOffset=-29.873337;
+			atlOffset=-29.872999;
 		};
 		class Item11
 		{
@@ -9052,6 +9056,7 @@ class Mission
 					};
 					id=1391;
 					type="O_Protagonist_VR_F";
+					atlOffset=7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9100,6 +9105,7 @@ class Mission
 			{
 			};
 			id=577;
+			atlOffset=7.6293945e-006;
 		};
 		class Item13
 		{
@@ -9204,6 +9210,7 @@ class Mission
 					};
 					id=1393;
 					type="O_Protagonist_VR_F";
+					atlOffset=-7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9252,6 +9259,7 @@ class Mission
 			{
 			};
 			id=581;
+			atlOffset=-7.6293945e-006;
 		};
 		class Item15
 		{
@@ -9508,6 +9516,7 @@ class Mission
 					};
 					id=1397;
 					type="O_Protagonist_VR_F";
+					atlOffset=-7.6293945e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9556,6 +9565,7 @@ class Mission
 			{
 			};
 			id=589;
+			atlOffset=-7.6293945e-006;
 		};
 		class Item19
 		{
@@ -11255,6 +11265,32 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={50.148357,8.5236607,149.88965};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=2035;
+			type="HeadlessClient_F";
+			atlOffset=-29.872999;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={50.911793,8.8499622,141.49121};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=2036;
+			type="HeadlessClient_F";
+			atlOffset=-29.872999;
 		};
 	};
 	class Connections

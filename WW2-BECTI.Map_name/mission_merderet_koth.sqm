@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=706;
+		nextID=708;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1530;
+		nextID=1542;
 	};
 	class Camera
 	{
@@ -189,7 +189,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=48;
+		items=50;
 		class Item0
 		{
 			dataType="Group";
@@ -2078,8 +2078,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={50.416759,8.0230408,157.26898};
+				position[]={50.417,8.0230408,157.269};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
 		};
@@ -3571,6 +3573,30 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={50.129009,8.0230408,147.21588};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=706;
+			type="HeadlessClient_F";
+		};
+		class Item49
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={48.611176,8.0230408,138.10944};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=707;
+			type="HeadlessClient_F";
 		};
 	};
 	class Connections

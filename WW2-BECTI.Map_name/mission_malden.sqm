@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1520;
+		nextID=1522;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3209;
+		nextID=3231;
 	};
 	class Camera
 	{
@@ -33,13 +33,14 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Ui_F",
 	"A3_Modules_F",
+	"A3_Structures_F_Mil_Fortification",
 	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -62,6 +63,13 @@ class AddonsMetaData
 			url="https://www.arma3.com";
 		};
 		class Item3
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
@@ -170,7 +178,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=36;
+		items=38;
 		class Item0
 		{
 			dataType="Group";
@@ -3278,11 +3286,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={19.411751,6.2155032,17.75589};
+				position[]={19.412001,6.2153931,17.756001};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
-			atlOffset=102.69611;
+			atlOffset=102.696;
 		};
 		class Item19
 		{
@@ -4595,6 +4605,32 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19.564461,6.1917953,15.322876};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=1520;
+			type="HeadlessClient_F";
+			atlOffset=102.696;
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19.678644,6.1718826,13.267517};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=1521;
+			type="HeadlessClient_F";
+			atlOffset=102.696;
 		};
 	};
 	class Connections

@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1560;
+		nextID=1562;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2817;
+		nextID=2833;
 	};
 	class Camera
 	{
@@ -32,7 +32,6 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Ui_F",
-	"csa38ii_data",
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Fortification",
 	"A3_Modules_F_Curator_Curator"
@@ -41,7 +40,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -58,26 +57,19 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="csa38ii_data";
-			name="csa38ii_data";
-			author="CSA38 Team";
-			url="http://www.moddb.com/mods/csa38-czechoslovak-army-1938";
-		};
-		class Item3
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
@@ -185,7 +177,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=62;
 		class Item0
 		{
 			dataType="Group";
@@ -3051,11 +3043,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={92.375031,6.02,19.506531};
+				position[]={92.375,6.0202637,19.507};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
-			atlOffset=-386.91626;
+			atlOffset=-386.91602;
 		};
 		class Item19
 		{
@@ -4765,6 +4759,32 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={92.527222,5.7351074,13.058777};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=1560;
+			type="HeadlessClient_F";
+			atlOffset=-386.91602;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={91.67083,5.446167,6.4929199};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=1561;
+			type="HeadlessClient_F";
+			atlOffset=-386.91602;
 		};
 	};
 	class Connections

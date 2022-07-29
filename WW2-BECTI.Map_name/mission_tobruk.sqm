@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1295;
+		nextID=1297;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3145;
+		nextID=3171;
 	};
 	class Camera
 	{
@@ -184,7 +184,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=62;
 		class Item0
 		{
 			dataType="Group";
@@ -3664,11 +3664,14 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={60.392815,237.32599,49.624634};
-				angles[]={5.9376321,0,0.22796793};
+				position[]={60.393002,237.32616,49.625};
+				angles[]={5.9376273,0,0.22797491};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
+			atlOffset=-1.5258789e-005;
 		};
 		class Item19
 		{
@@ -5373,6 +5376,34 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={60.26606,235.65517,45.012817};
+				angles[]={5.9376273,0,0.22797491};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=1295;
+			type="HeadlessClient_F";
+			atlOffset=-1.5258789e-005;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={59.728073,233.71658,39.633179};
+				angles[]={5.9376273,0,0.22797491};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=1296;
+			type="HeadlessClient_F";
+			atlOffset=-1.5258789e-005;
 		};
 	};
 	class Connections

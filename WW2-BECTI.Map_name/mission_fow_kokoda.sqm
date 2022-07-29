@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1402;
+		nextID=1404;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2884;
+		nextID=2900;
 	};
 	class Camera
 	{
@@ -33,7 +33,6 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Ui_F",
 	"A3_Modules_F",
-	"fow_structures_p_c",
 	"A3_Structures_F_Mil_Fortification",
 	"A3_Modules_F_Curator_Curator"
 };
@@ -41,7 +40,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -65,17 +64,12 @@ class AddonsMetaData
 		};
 		class Item3
 		{
-			className="fow_structures_p_c";
-			name="fow_structures_p_c";
-		};
-		class Item4
-		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
@@ -259,7 +253,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=60;
+		items=62;
 		class Item0
 		{
 			dataType="Group";
@@ -2650,11 +2644,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={92.375031,6.02,19.506531};
+				position[]={92.375,6.0202637,19.507};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
-			atlOffset=-155.88089;
+			atlOffset=-155.881;
 		};
 		class Item19
 		{
@@ -4361,6 +4357,32 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={92.397369,3.6865692,16.723145};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=1402;
+			type="HeadlessClient_F";
+			atlOffset=-155.881;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={92.397369,0.97497559,13.827881};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=1403;
+			type="HeadlessClient_F";
+			atlOffset=-155.881;
 		};
 	};
 	class Connections
