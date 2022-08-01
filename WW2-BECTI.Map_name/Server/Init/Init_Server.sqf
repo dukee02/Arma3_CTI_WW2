@@ -371,7 +371,7 @@ waitUntil {time > 0};
 //--- start the Air detection script, because AA gets build very soon.
 0 spawn {
 	while {!CTi_GameOver} do {
-		sleep CTI_BASE_DEFENSES_AIR_DETECTION_TIME;
+		sleep (((60-diag_fps)/10)*CTI_BASE_DEFENSES_AIR_DETECTION_TIME);
 		call CTI_CO_FNC_ScanSkyForPlanes;
 	};
 };
