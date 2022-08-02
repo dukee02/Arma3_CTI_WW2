@@ -41,7 +41,6 @@ while {true} do
 			//"Unit is in a vehicle"
 			if(_vehicle isKindOf "Air" && alive _vehicle) then {
 				if((typeOf _vehicle) in CTI_VEHICLES_PARADROPERS) then {
-					diag_log format["Vehicle: <%1><%2>", typeOf _vehicle, _vehicle];
 					_paraVehicle = _vehicle;
 					_actionAdd = true;
 				};
@@ -55,16 +54,12 @@ while {true} do
 			//_playerVehicle addAction [title, script, arguments, priority, showWindow, hideOnUse, shortcut, condition, radius, unconscious, selection, memoryPoint];
 			_actionID = player addAction ["<img image='\A3\ui_f\data\map\markers\nato\respawn_para_ca.paa' /><t color=""#007f0e""> Drop Paratroopers</t>",{call CTI_CO_FNC_DropParatroopers},nil,1.5,true,true,"","true", /* _target, _this, _originalTarget */50,false,"",""];
 			player setVariable ["canParadrop", _actionID];
-			diag_log format["Add Entry: <%1><%2><%3>", _canParadrop, _actionID,  _paraVehicle];
-		} else {
-			diag_log format["Entry already added: <%1><%2><%3>", _canParadrop, _actionID,  _paraVehicle];
 		};
 	} else {
 		_canParadrop = player getVariable ["canParadrop", -1];
 		if(_canParadrop >= 0) then {
 			player removeAction _canParadrop;
 		};
-		diag_log format["delete entry: <%1>", _canParadrop];
 	};
 	
 	sleep (30);

@@ -56,7 +56,7 @@ switch (_action) do {
 	case "onGroupLBSelChanged": {
 		_changedTo = _this select 1;
 		//if (CTI_Log_Level >= CTI_Log_Debug) then {
-			["VIOC_DEBUG", "FILE: Client\Events\Events_UI_PurchaseMenu.sqf", format["onGroupLBSelChanged changedTo: %1", _changedTo]] call CTI_CO_FNC_Log;
+			["VIOC_DEBUG", "FILE: Client\Events\Events_UI_PurchaseMenu.sqf", format["onGroupLBSelChanged changedTo: %1 - %2", _changedTo, (count (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams"))]] call CTI_CO_FNC_Log;
 		//};
 		uiNamespace setVariable ["cti_dialog_ui_purchasemenu_team", (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams") select _changedTo];
 	};

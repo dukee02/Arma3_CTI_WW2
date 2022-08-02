@@ -487,7 +487,8 @@ CTI_BASE_DEFENSES_AUTO_REARM_RANGE = 500; //--- Range needed for a defense to be
 CTI_BASE_DEFENSES_EMPTY_TIMEOUT = 1200; //--- Delay after which an empty defense is considered empty
 CTI_BASE_DEFENSES_AIR_DETECTION_RANGE = 2000; //--- Range in meters, air units gets detected and revealed
 CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT = 50; //--- Height in meters, air units gets detected and revealed
-CTI_BASE_DEFENSES_AIR_DETECTION_TIME = 10; //--- Time in seconds, the detection script runns
+CTI_BASE_DEFENSES_AIR_DETECTION_TIME = 20; //--- Time in seconds, the detection script runns
+CTI_BASE_DEFENSES_AIR_DETECTION_MODE = 1;
 
 //--- Base: HQ
  
