@@ -152,7 +152,7 @@ if(_savemode > 0) then {
 			_groupnamefull = format ["%1", _group];
 			_groupnamecut = _groupnamefull splitString " ";
 			_groupname = _groupnamecut select 1;
-			profileNamespace setVariable [Format ["SAVE_%1_%2_FUNDS_%3", _savename, _side, _groupname], (_group) call CTI_CO_FNC_GetFundsTeam, true];
+			profileNamespace setVariable [Format ["SAVE_%1_%2_FUNDS_%3", _savename, _side, _groupname], (_group) call CTI_CO_FNC_GetFundsTeam];
 			if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_SaveToProfile.sqf", format["Team funds saved to profile:<SAVE_%1_FUNDS_%2> Funds: <%3>", _savename, _groupname, (_group) call CTI_CO_FNC_GetFundsTeam]] call CTI_CO_FNC_Log;};
 		};
 		case "delete": {
