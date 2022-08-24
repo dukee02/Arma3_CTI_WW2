@@ -33,6 +33,7 @@ if(CTI_BASE_DEFENSES_AIR_DETECTION_MODE > 0) then {
 		_side = _x;		//for a better reading
 		_logic= (_side) call CTI_CO_FNC_GetSideLogic;
 		_defenses = [];
+		_object_cnt = -1;
 
 		if(CTI_BASE_DEFENSES_AIR_DETECTION_MODE == 1) then {
 			_defenses = _logic getVariable ["cti_defences",[]];
@@ -59,23 +60,25 @@ if(CTI_BASE_DEFENSES_AIR_DETECTION_MODE > 0) then {
 				_defense_data = missionNamespace getVariable [format["CTI_%1_%2",_side,(typeOf _defense)],["","","",""]];
 				//get the planes in range
 				//_objects nearTargets 2000	//??? maybe faster ???
-				_objects = nearestObjects [_defense, ["Air"], CTI_BASE_DEFENSES_AIR_DETECTION_RANGE];
+				//_objects = nearestObjects [_defense, ["Air"], CTI_BASE_DEFENSES_AIR_DETECTION_RANGE];
+				_objects = (nearestObjects [_defense, ["Air"], CTI_BASE_DEFENSES_AIR_DETECTION_RANGE]) unitsBelowHeight CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT;
+				//_objects = (_location nearEntities[["Man","Car","Motorcycle","Tank","Air","Ship"], _town_capture_range]) unitsBelowHeight 40;
 				//_objects = _defense nearObjects ["Air", CTI_BASE_DEFENSES_AIR_DETECTION_RANGE];
 				_object_cnt = count _objects;
 				if(_object_cnt > 0 && _defense_data select 3 == "AA") then {
 					{
-						_object = _x;		//for a better reading
+						//_object = _x;		//for a better reading
+						_defense reveal _x;
 						//speed _object
 						//velocity _object
-						_height = (getPos _object) select 2;
-						if(_height > CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT) then {
-							_defense reveal _object;
-						};
+						//_height = (getPos _object) select 2;
+						//if(_height > CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT) then {
+						//	_defense reveal _object;
+						//};
 					} forEach _objects;
 				};
 			} forEach _defenses;
 		};
+		if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_ScanSkyForPlanes.sqf", format["End scanning the Area <%1> <%2>", _object_cnt, count _defenses]] call CTI_CO_FNC_Log;};
 	} forEach [east,west];
-
-	if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Common\Functions\Common_ScanSkyForPlanes.sqf", format["End scanning the Area <%1> <%2>", _object_cnt, count _defenses]] call CTI_CO_FNC_Log;};
 };
