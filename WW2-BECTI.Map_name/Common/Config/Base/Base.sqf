@@ -95,13 +95,13 @@ if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: Common\Config\B
 missionNamespace setVariable [format["CTI_%1_Factories", _side], ["Barracks","Light","Heavy","Air"]];
 
 missionNamespace setVariable [format["CTI_%1_Base_Template", _side], [
-	[CTI_BARRACKS, 180, [-23,33]],
-	[CTI_LIGHT, 180, [23,33]],
-	[CTI_CONTROLCENTER, 0, [30,-40]],
-	[CTI_HEAVY, 0, [-30,-40]],
-	[CTI_AIR, 180, [-60,37]],
-	[CTI_REPAIR, 180, [60,37]],
-	[CTI_AMMO, 180, [80,37]]
+	[CTI_BARRACKS, 0, [-23,33]],
+	[CTI_LIGHT, 0, [23,33]],
+	[CTI_CONTROLCENTER, 180, [30,-40]],
+	[CTI_HEAVY, 180, [-30,-40]],
+	[CTI_AIR, 0, [-60,37]],
+	[CTI_REPAIR, 0, [60,37]],
+	[CTI_AMMO, 0, [80,37]]
 ]];
 
 //--- Commander course of action ["Action", Parameter(s), Condition]
@@ -243,7 +243,7 @@ if (isClass(configFile >> "CfgVehicles" >> "CDF_WarfareBBarracks")) then {
 };
 _prices pushBack		2000;
 _times pushBack			60;
-_placements pushBack 	[270, 35];
+_placements pushBack 	[90, 35];
 _helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 _specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]];
 
@@ -256,7 +256,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	};
 	_prices pushBack 		4000;
 	_times pushBack 		80;
-	_placements pushBack 	[180, 30];
+	_placements pushBack 	[90, 30];
 	_helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 	_specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]];
 };
@@ -297,7 +297,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= 0) then {
 	};
 	_prices pushBack 		8000;
 	_times pushBack 		140;
-	_placements pushBack 	[180, 40];
+	_placements pushBack 	[90, 40];
 	_helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 	_specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]]; 
 };
@@ -310,7 +310,7 @@ if (isClass(configFile >> "CfgVehicles" >> "RU_WarfareBVehicleServicePoint")) th
 };
 _prices pushBack 		2000;
 _times pushBack 		90;
-_placements pushBack 	[90, 25];
+_placements pushBack 	[0, 25];
 _helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 _specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]];
 
@@ -322,7 +322,7 @@ if (isClass(configFile >> "CfgVehicles" >> "TK_GUE_WarfareBContructionSite_Base_
 };
 _prices pushBack 		4000;
 _times pushBack 		90;
-_placements pushBack 	[90, 25];
+_placements pushBack 	[0, 25];
 _helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 _specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]];
 
@@ -331,7 +331,7 @@ if(CTI_ECONOMY_LEVEL_NAVAL >= 0) then {
 	_classes pushBack 		["Land_Cargo_House_V2_F", "Land_Cargo_House_V2_ruins_F"];			//Altis Military Buildings
 	_prices pushBack 		3000;
 	_times pushBack 		80;
-	_placements pushBack 	[180, 60];
+	_placements pushBack 	[0, 60];
 	_helper pushBack		["Sign_Arrow_Large_Blue_F", 0];
 	_specials pushBack 		[["DMG_Reduce", CTI_BASE_BUILDING_DMG_REDUCE]];
 };
@@ -1522,11 +1522,13 @@ if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo a
 	_placements pushBack 	[180, 5];
 	_categories pushBack 	"AA";
 };
-_headers pushBack 		"Flak 38 Vierling";
-_classes pushBack 		format["%1LIB_Flakvierling_38", _sid];
-_prices pushBack 		5000;
-_placements pushBack 	[180, 5];
-_categories pushBack 	"AA";
+if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {
+	_headers pushBack 		"Flak 38 Vierling";
+	_classes pushBack 		format["%1LIB_Flakvierling_38", _sid];
+	_prices pushBack 		5000;
+	_placements pushBack 	[180, 5];
+	_categories pushBack 	"AA";
+};
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
