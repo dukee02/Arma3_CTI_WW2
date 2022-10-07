@@ -239,12 +239,6 @@ class Params {
 		texts[] = {"0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
 		default = 0;
 	};
-	class CTI_BASE_STRUCTURE_RESELL_RATIO {
-		title = "BASE: Structure resell ratio";
-		values[] = {0,10,20,30,40,50,60,70,80,90,100};
-		texts[] = {"0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
-		default = 0;
-	};
 	class CTI_BASE_BUILDING_DAMAGE_SYSTEM {
 		title = "BASE: Handle Building destruction";
 		values[] = {0,1,2,3};
@@ -566,6 +560,12 @@ class Params {
 		values[] = {0,50,100,150,200,250,300,350,400,450,500};
 		texts[] = {"0m","50m","100m","150m","200m","250m","300m","350m","400m","450m","500m"};
 		default = 0;
+	};
+	class CTI_TOWNS_ACTIVE_TIME {
+		title = "TOWNS: Max Time before town units despawn";
+		values[] = {300,600,900,1200,1500,1800};
+		texts[] = {"5min","10min","15min","20min","25min","30min"};
+		default = 300;
 	};
 	class CTI_TOWNS_OCCUPATION {
 		title = "TOWNS: Occupation";

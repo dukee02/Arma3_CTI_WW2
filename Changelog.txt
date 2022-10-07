@@ -1,8 +1,9 @@
-V2.0_220804
-Added: Base static AAs now has a scan script to spot planes earlier
-Added: Paradrop script (mousewheel option)
-Added: UK cargo plane to Luftwaffe
-Changed: HCs now visible in lobby but fixed to 3
-Changed: AI crew for planes now normal soldiers and 1 pilot
-Fixed: Error on saving team funds
-Fixed: AT Planes too strong against buildings
+V2.0_220831
+Added: Param for Structure resell ratio
+Added: Fieldrepair Param
+Changed: AI Base placement a bit
+Fixed: sometimes some vanilla vehicle cargo
+Fixed: can't build FOB with active AI commander
+Fixed: breaks loading after map change, when only 1 save active
+Fixed: salvager spawns at 0,0 some times
+Fixed: magazine of secondary weapon empty when buyed
