@@ -249,7 +249,7 @@ _tech_matrix =
 			//CSA
 			[false,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,true,false,false,false],
 			//SABFL
 			[false,false,false,false,false],
 			//SABNL
@@ -364,7 +364,7 @@ _tech_matrix =
 			//CSA
 			[false,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,true,false,false,false],
 			//SABFL
 			[false,false,false,false,false],
 			//SABNL
@@ -546,9 +546,9 @@ _tech_matrix =
 		//GER
 		[
 			//IFA
-			[false,true,true,true,false,false],
+			[false,false,true,true,false,false],
 			//IFA_NEW
-			[false,true,true,true,false,false],
+			[false,false,true,true,false,false],
 			//FOW
 			[false,false,false,false,false,false],
 			//CSA
@@ -710,7 +710,7 @@ _tech_matrix =
 		//GER
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[false,false,false,false],
 			//FOW
@@ -733,7 +733,7 @@ _tech_matrix =
 		//SOV
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[false,false,false,false],
 			//FOW
@@ -756,7 +756,7 @@ _tech_matrix =
 		//UK
 		[
 			//IFA
-			[true,false,false,false],
+			[true,true,false,false],
 			//IFA_NEW
 			[true,false,false,false],
 			//FOW

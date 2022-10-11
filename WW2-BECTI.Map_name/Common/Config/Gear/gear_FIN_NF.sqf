@@ -17,10 +17,6 @@ else {
 	};
 };
 
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
-
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
 	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
@@ -30,62 +26,48 @@ _i = [];
 _u = [];
 _p = [];
 
-//(CTI_ECONOMY_PRIZE_WEAPONS*_level_start)
-//100*1 -> $100 weapon
-//((rnds*caliber)/1000)*((CTI_ECONOMY_PRIZE_WEAPONS*_level_start)/100)
-//((30*545)/1000)*(100*1/100) = $16,35 -> ammo
-/*
-_i pushBack "";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-
-_i pushBack "";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((rnds*caliber)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
-*/
-
 //---------------------------Grenades and mines-----------------------------------------
 _tech_level=0;
 _i pushBack "NORTH_molotov_sokaisupullo";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_molotov";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_M43Grenade_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_M32Grenade_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 
 _i pushBack "NORTH_KasapanosImpr3kg_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_KasapanosImpr6kg_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_M32MortarNade_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 25*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,25] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_Kasapanos2kg_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 50*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_Kasapanos3kg_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 100*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,100] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_Kasapanos4kg_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 150*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,150] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -96,21 +78,21 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 _tech_level = 0;
 
 _i pushBack "NORTH_M43SmokeGrenade_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 20*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "NORTH_valopistoolim43";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_1Rnd_flare_white_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 5*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_1Rnd_flare_red_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 5*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_1Rnd_flare_green_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round 5*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -121,11 +103,11 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 _tech_level = 0;
 
 _i pushBack "NORTH_l35";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_8Rnd_l35_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((8*900*19)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,8,(900*19)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -135,51 +117,51 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------Rifles----------------------------------------------
 _tech_level = 0;
 _i pushBack "NORTH_fin_M27";	//mosin
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_m27rv";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_M28";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_M28_30";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_M9130";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_m39";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_m91";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_m24";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_91_vkt";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_5Rnd_m39_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((5*762*53)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*53)] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_5Rnd_m39_tracer_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((5*762*53)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*53)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 1;
 _i pushBack "NORTH_fin_m27_optics";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_m39_optics";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 2;
 _i pushBack "NORTH_fin_m39_PEM";//sniper
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -189,28 +171,28 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------Lmg------------------------------------------------------
 _tech_level = 1;
 _i pushBack "NORTH_kp31";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_kp31_sjr";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_20rnd_kp31_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((20*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_50rnd_kp31_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((50*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_71rnd_kp31_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((71*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 2;
 _i pushBack "NORTH_SIG_M1920";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_50rnd_SIG_M1920_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((50*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,50,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -220,14 +202,14 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------Hmg------------------------------------------------------
 _tech_level = 2;
 _i pushBack "NORTH_ls26";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_20Rnd_ls26_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((20*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_20Rnd_ls26_mag_Tracer";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((20*792*57)/100000)*((CTI_ECONOMY_PRIZE_WEAPONS*(_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/10000);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -237,25 +219,25 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------AT------------------------------------------------------
 _tech_level = 0;
 _i pushBack "NORTH_fin_panzerfaustKlein";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_panzerfaust30";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 2;
 _i pushBack "NORTH_fin_panzerschreck";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_panzerschreck_camo";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_panzerschreck_green";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_panzerschreck_mag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.5] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -318,8 +300,8 @@ _i pushBack "U_NORTH_FIN_M36_Greatcoat_SSGT";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //brown
@@ -879,8 +861,8 @@ _i pushBack "U_NORTH_FIN_M36_Leather_SSGT";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 _tech_level = 1;
@@ -902,8 +884,8 @@ _i pushBack "U_NORTH_FIN_M27_Snowsuit_Half_6";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 _tech_level = 2;
@@ -925,8 +907,8 @@ _i pushBack "U_NORTH_FIN_M27_Snowsuit_6";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //Update the calculatetd max upgrade level
@@ -990,8 +972,8 @@ _i pushBack "V_NORTH_FIN_Assault_7";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*3);
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //Update the calculatetd max upgrade level
@@ -1002,39 +984,39 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------------Backpacks----------------------------------------------------------
 _tech_level = 0;
 _i pushBack "NORTH_fin_MolotovBag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_MapBag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_Kyynel";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 1;
 _i pushBack "NORTH_fin_BreadBag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_BreadBag2";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_BreadBag3";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 //_i pushBack "NORTH_fin_GasmaskBag";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+//_u pushBack _tech_level;
+//_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_GasmaskBag_kasapanos";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 2;
 _i pushBack "NORTH_fin_Panzerschreck_frame";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_fin_Sipuli";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)*2);
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -1044,31 +1026,31 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 _tech_level = 0;
 //mortar
 _i pushBack "NORTH_81krh32_Tripod_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_81krh32_Gun_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 //AT gun
 _i pushBack "NORTH_Lahti_L39_Gun_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_Lahti_L39_Tripod_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 //static MG
 _i pushBack "NORTH_Maxim_Gun_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_Maxim_Tripod_Bag_High";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_Maxim_Tripod_Bag_Medium";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "NORTH_Maxim_Tripod_Bag";
-_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -1259,8 +1241,8 @@ _i pushBack "H_NORTH_FIN_Tankerhelmet_open";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 _tech_level = 1;
@@ -1323,8 +1305,8 @@ _i pushBack "H_NORTH_FIN_M40_Helmet";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 _tech_level = 2;
@@ -1392,8 +1374,8 @@ _i pushBack "H_NORTH_FIN_M40_Helmet_Mossycamo";
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round (CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //Update the calculatetd max upgrade level
@@ -1444,15 +1426,11 @@ if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
 _cntstart = count _i;
 _cntend = count _p;
 for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
-	_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-	_p pushBack round ((CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/4);
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //-----------------------------------------Attachments------------------------------------------------
-//_tech_level = 0;
-//_i pushBack "LIB_ACC_M1891_Bayo";
-//_u pushBack (_tech_level*_tech_level_no_upgrade_inv);
-//_p pushBack round ((CTI_ECONOMY_PRIZE_WEAPONS*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100)));
 
 //------------------------------------------Items-------------------------------------------------
 _tech_level = 0;

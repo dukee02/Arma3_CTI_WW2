@@ -139,7 +139,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		fow_w_flak36_green_ger_heer
 		fow_w_flak36_tan_ger_heer*/
 	};
-	if(CTI_FOW_ADDON > 0) then {
+	if(CTI_CSA_ADDON > 0) then {
 		_classes_town pushBack 		format["%1CSA38_MG34t", _sid];
 		_categories_town pushBack 	"MG";
 		
@@ -222,6 +222,9 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		
 		_classes_town pushBack 		format["%1NORTH_SOV_50rm38", _sid];
 		_categories_town pushBack 	"Mortar";
+		
+		_classes_town pushBack 		format["%1NORTH_SOV_Maxim_Quad", _sid];
+		_categories_town pushBack 	"AA";
 	};
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
@@ -363,7 +366,7 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories_town pushBack 	"MG";
 		
 		_classes_town pushBack 		format["%1NORTH_FIN_S_Maxim_41", _sid];
-		_categories_town pushBack 	"AA";
+		_categories_town pushBack 	"MG";
 		
 		_classes_town pushBack 		format["%1NORTH_FIN_S_41_37PSTK36", _sid];
 		_categories_town pushBack 	"AT";
@@ -376,6 +379,12 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		
 		_classes_town pushBack 		format["%1NORTH_FIN_S_41_152H38", _sid];
 		_categories_town pushBack 	"Artillery";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_Lahti_L39AA", _sid];
+		_categories_town pushBack 	"AA";
+		
+		_classes_town pushBack 		format["%1NORTH_FIN_Maxim_Quad", _sid];
+		_categories_town pushBack 	"AA";
 	};
 };
 

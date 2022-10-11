@@ -25,6 +25,7 @@ switch (_action) do {
 				_u = _u + 1;
 			};
 		};
+		["VIOC_TEST_DEBUG", "FILE: Client\Events\Events_UI_VoteMenu.sqf", format["Vote Window: <%1><%2>", _teams_count, _teams]] call CTI_CO_FNC_Log;
 	
 		execVM "Client\GUI\GUI_VoteMenu.sqf";
 	};
@@ -33,6 +34,7 @@ switch (_action) do {
 		//--- The client has voted for X
 		_index = lnbValue [500100,[lnbCurSelRow 500100, 0]];
 		if ((group player getVariable "cti_vote") != _index) then {group Player setVariable ["cti_vote", _index, true]};
+		["VIOC_TEST_DEBUG", "FILE: Client\Events\Events_UI_VoteMenu.sqf", format["Voted for Index: <%1>", _index]] call CTI_CO_FNC_Log;
 	};
 
 	case "onUnload": {

@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=2135;
+		nextID=2138;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2981;
+		nextID=3331;
 	};
 	class Camera
 	{
-		pos[]={10475.288,16.439957,2444.5005};
-		dir[]={0.16726881,-0.4942959,0.85305291};
-		up[]={0.09511248,0.86929303,0.48506203};
-		aside[]={0.98131764,-3.3105607e-010,-0.19241954};
+		pos[]={10201.955,127.08305,2226.3665};
+		dir[]={-0.67716491,-0.40916625,-0.61159235};
+		up[]={-0.30365512,0.9124577,-0.27425057};
+		aside[]={-0.67026711,7.4971467e-008,0.74213094};
 	};
 };
 binarizationWanted=0;
@@ -32,14 +32,16 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Ui_F",
+	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F",
-	"A3_Structures_F_Mil_Fortification"
+	"A3_Structures_F_Mil_Fortification",
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -56,15 +58,27 @@ class AddonsMetaData
 		};
 		class Item2
 		{
+			className="WW2_Core_c_IF_Gui_c";
+			name="WW2_Core_c_IF_Gui_c";
+		};
+		class Item3
+		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -169,7 +183,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=59;
+		items=62;
 		class Item0
 		{
 			dataType="Group";
@@ -191,6 +205,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="CAPTAIN";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Alpha, Team Leader";
 						isPlayer=1;
 						isPlayable=1;
@@ -266,6 +281,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Alpha, Team Leader";
 						isPlayable=1;
 					};
@@ -341,6 +357,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Bravo, Team Leader";
 						isPlayable=1;
 					};
@@ -416,6 +433,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Charlie, Team Leader";
 						isPlayable=1;
 					};
@@ -493,6 +511,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Delta, Team Leader";
 						isPlayable=1;
 					};
@@ -568,6 +587,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Echo, Team Leader";
 						isPlayable=1;
 					};
@@ -643,6 +663,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Foxtrot, Team Leader";
 						isPlayable=1;
 					};
@@ -718,6 +739,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Golf, Team Leader";
 						isPlayable=1;
 					};
@@ -795,6 +817,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Hotel, Team Leader";
 						isPlayable=1;
 					};
@@ -872,6 +895,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Bravo, Team Leader";
 						isPlayable=1;
 					};
@@ -949,6 +973,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Charlie, Team Leader";
 						isPlayable=1;
 					};
@@ -1026,6 +1051,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Delta, Team Leader";
 						isPlayable=1;
 					};
@@ -1103,6 +1129,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Echo, Team Leader";
 						isPlayable=1;
 					};
@@ -1180,6 +1207,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Foxtrot, Team Leader";
 						isPlayable=1;
 					};
@@ -1257,6 +1285,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Golf, Team Leader";
 						isPlayable=1;
 					};
@@ -1332,6 +1361,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Hotel, Team Leader";
 						isPlayable=1;
 					};
@@ -1436,7 +1466,7 @@ class Mission
 					name="cti-spawn3";
 					type="Empty";
 					id=294;
-					atlOffset=147.91512;
+					atlOffset=147.91724;
 				};
 				class Item5
 				{
@@ -1463,7 +1493,7 @@ class Mission
 					name="cti-spawn6";
 					type="Empty";
 					id=297;
-					atlOffset=49.527351;
+					atlOffset=49.525963;
 				};
 				class Item8
 				{
@@ -1481,7 +1511,7 @@ class Mission
 					name="cti-spawn8";
 					type="Empty";
 					id=299;
-					atlOffset=-77.075836;
+					atlOffset=-77.077148;
 				};
 				class Item10
 				{
@@ -1597,7 +1627,7 @@ class Mission
 					name="cti-spawn14";
 					type="Empty";
 					id=2078;
-					atlOffset=74.265198;
+					atlOffset=73.663422;
 				};
 				class Item21
 				{
@@ -1651,7 +1681,7 @@ class Mission
 					name="cti-spawn20";
 					type="Empty";
 					id=2084;
-					atlOffset=74.227783;
+					atlOffset=74.227936;
 				};
 				class Item27
 				{
@@ -1678,7 +1708,7 @@ class Mission
 					name="cti-spawn23";
 					type="Empty";
 					id=2087;
-					atlOffset=74.265549;
+					atlOffset=74.263733;
 				};
 			};
 			id=289;
@@ -1720,6 +1750,7 @@ class Mission
 							};
 							id=1963;
 							type="LocationCamp_F";
+							atlOffset=-0.002122879;
 						};
 						class Item2
 						{
@@ -1796,11 +1827,11 @@ class Mission
 							init="call{nullReturn = [this, ""Bjoneroa"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2029;
 							type="LocationArea_F";
-							atlOffset=-4.7683716e-007;
+							atlOffset=-0.0021944046;
 						};
 					};
 					id=895;
-					atlOffset=0.35904503;
+					atlOffset=0.3589673;
 				};
 				class Item1
 				{
@@ -1831,6 +1862,7 @@ class Mission
 							};
 							id=1961;
 							type="LocationCamp_F";
+							atlOffset=0.0013689995;
 						};
 						class Item2
 						{
@@ -1842,6 +1874,7 @@ class Mission
 							};
 							id=1962;
 							type="LocationCamp_F";
+							atlOffset=-0.0026278496;
 						};
 						class Item3
 						{
@@ -1918,7 +1951,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1881;
 							type="Logic";
-							atlOffset=-2.6702881e-005;
+							atlOffset=-0.0025629997;
 						};
 						class Item9
 						{
@@ -1932,10 +1965,11 @@ class Mission
 							init="call{nullReturn = [this, ""Gulsvik"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2028;
 							type="LocationArea_F";
+							atlOffset=-0.0012116432;
 						};
 					};
 					id=2088;
-					atlOffset=0.68063641;
+					atlOffset=0.65122366;
 				};
 				class Item2
 				{
@@ -2014,7 +2048,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1758;
 							type="Logic";
-							atlOffset=-1.5258789e-005;
+							atlOffset=-0.043411255;
 						};
 						class Item6
 						{
@@ -2126,6 +2160,7 @@ class Mission
 							init="call{nullReturn = [this, ""Kautokeino"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2031;
 							type="LocationArea_F";
+							atlOffset=-0.0020294189;
 						};
 					};
 					id=2090;
@@ -2224,7 +2259,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1883;
 							type="Logic";
-							atlOffset=-0.00087547302;
+							atlOffset=-0.0026254654;
 						};
 						class Item7
 						{
@@ -2238,7 +2273,7 @@ class Mission
 							init="call{nullReturn = [this, ""Bilitt"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2030;
 							type="LocationArea_F";
-							atlOffset=-9.5367432e-007;
+							atlOffset=9.5367432e-007;
 						};
 					};
 					id=2091;
@@ -2339,7 +2374,7 @@ class Mission
 						};
 					};
 					id=2092;
-					atlOffset=1.2616882;
+					atlOffset=1.2843628;
 				};
 				class Item6
 				{
@@ -2490,7 +2525,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1708;
 							type="Logic";
-							atlOffset=-0.013824463;
+							atlOffset=-0.013809204;
 						};
 						class Item4
 						{
@@ -2541,7 +2576,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1844;
 							type="Logic";
-							atlOffset=-0.0038146973;
+							atlOffset=-0.0078277588;
 						};
 						class Item8
 						{
@@ -2554,7 +2589,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1885;
 							type="Logic";
-							atlOffset=-1.5258789e-005;
+							atlOffset=0.0017852783;
 						};
 						class Item9
 						{
@@ -2613,7 +2648,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1712;
 							type="Logic";
-							atlOffset=-0.0020141602;
+							atlOffset=-0.0031433105;
 						};
 						class Item3
 						{
@@ -2700,7 +2735,7 @@ class Mission
 							};
 							id=1926;
 							type="LocationCamp_F";
-							atlOffset=3.0517578e-005;
+							atlOffset=0.0021972656;
 						};
 						class Item1
 						{
@@ -2740,10 +2775,11 @@ class Mission
 							init="call{nullReturn = [this, ""Solumsmoen"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2038;
 							type="LocationArea_F";
+							atlOffset=0.05708313;
 						};
 					};
 					id=2096;
-					atlOffset=2.8708801;
+					atlOffset=2.8673706;
 				};
 				class Item10
 				{
@@ -2832,7 +2868,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1772;
 							type="Logic";
-							atlOffset=-0.0062866211;
+							atlOffset=-0.0048828125;
 						};
 						class Item7
 						{
@@ -2896,7 +2932,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1888;
 							type="Logic";
-							atlOffset=-3.0517578e-005;
+							atlOffset=-0.51593018;
 						};
 						class Item12
 						{
@@ -3031,7 +3067,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1890;
 							type="Logic";
-							atlOffset=-3.0517578e-005;
+							atlOffset=-0.00051879883;
 						};
 						class Item9
 						{
@@ -3048,7 +3084,7 @@ class Mission
 						};
 					};
 					id=2098;
-					atlOffset=-0.35952759;
+					atlOffset=-0.36157227;
 				};
 				class Item12
 				{
@@ -3080,6 +3116,7 @@ class Mission
 							};
 							id=1933;
 							type="LocationCamp_F";
+							atlOffset=0.00064086914;
 						};
 						class Item2
 						{
@@ -3178,6 +3215,7 @@ class Mission
 							};
 							id=1932;
 							type="LocationCamp_F";
+							atlOffset=0.002532959;
 						};
 						class Item1
 						{
@@ -3213,7 +3251,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1719;
 							type="Logic";
-							atlOffset=-0.0067138672;
+							atlOffset=-0.0072937012;
 						};
 						class Item4
 						{
@@ -3265,6 +3303,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1893;
 							type="Logic";
+							atlOffset=0.00048828125;
 						};
 						class Item8
 						{
@@ -3409,7 +3448,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1794;
 							type="Logic";
-							atlOffset=-0.0095214844;
+							atlOffset=-0.0092773438;
 						};
 						class Item9
 						{
@@ -3474,6 +3513,7 @@ class Mission
 							init="call{nullReturn = [this, ""Siebe"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2041;
 							type="LocationArea_F";
+							atlOffset=0.00067138672;
 						};
 					};
 					id=2101;
@@ -3639,7 +3679,7 @@ class Mission
 							};
 							id=1991;
 							type="LocationCamp_F";
-							atlOffset=3.0517578e-005;
+							atlOffset=0.0014038086;
 						};
 						class Item3
 						{
@@ -3651,6 +3691,7 @@ class Mission
 							};
 							id=1992;
 							type="LocationCamp_F";
+							atlOffset=-0.00064086914;
 						};
 						class Item4
 						{
@@ -3676,7 +3717,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1795;
 							type="Logic";
-							atlOffset=-0.00064086914;
+							atlOffset=-0.003326416;
 						};
 						class Item6
 						{
@@ -3689,7 +3730,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1796;
 							type="Logic";
-							atlOffset=-0.0072937012;
+							atlOffset=-0.0089111328;
 						};
 						class Item7
 						{
@@ -3714,7 +3755,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1898;
 							type="Logic";
-							atlOffset=-3.0517578e-005;
+							atlOffset=-0.0015869141;
 						};
 						class Item9
 						{
@@ -3784,6 +3825,7 @@ class Mission
 							};
 							id=1985;
 							type="LocationCamp_F";
+							atlOffset=0.0020446777;
 						};
 						class Item4
 						{
@@ -3848,7 +3890,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1870;
 							type="Logic";
-							atlOffset=-0.0012207031;
+							atlOffset=-0.0019226074;
 						};
 						class Item9
 						{
@@ -3875,6 +3917,7 @@ class Mission
 							flags=1;
 							id=1565;
 							type="ModuleHideTerrainObjects_F";
+							atlOffset=0.0020751953;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -4011,7 +4054,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1784;
 							type="Logic";
-							atlOffset=-0.021697998;
+							atlOffset=-0.022735596;
 						};
 						class Item6
 						{
@@ -4024,7 +4067,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1869;
 							type="Logic";
-							atlOffset=-0.00036621094;
+							atlOffset=-0.0027770996;
 						};
 						class Item7
 						{
@@ -4227,7 +4270,7 @@ class Mission
 							};
 							id=1979;
 							type="LocationCamp_F";
-							atlOffset=-1.5258789e-005;
+							atlOffset=-0.0010223389;
 						};
 						class Item3
 						{
@@ -4266,11 +4309,11 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1780;
 							type="Logic";
-							atlOffset=-0.0025939941;
+							atlOffset=-0.0048522949;
 						};
 					};
 					id=2107;
-					atlOffset=-1.0986023;
+					atlOffset=-1.1016693;
 				};
 				class Item21
 				{
@@ -4339,6 +4382,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1800;
 							type="Logic";
+							atlOffset=0.0024414063;
 						};
 						class Item5
 						{
@@ -4364,6 +4408,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1901;
 							type="Logic";
+							atlOffset=-6.1035156e-005;
 						};
 						class Item7
 						{
@@ -4377,10 +4422,11 @@ class Mission
 							init="call{nullReturn = [this, ""Gravset"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2063;
 							type="LocationArea_F";
+							atlOffset=0.0014343262;
 						};
 					};
 					id=2108;
-					atlOffset=1.1885986;
+					atlOffset=1.187561;
 				};
 				class Item22
 				{
@@ -4410,6 +4456,7 @@ class Mission
 							};
 							id=2010;
 							type="LocationCamp_F";
+							atlOffset=0.0032958984;
 						};
 						class Item2
 						{
@@ -4472,7 +4519,7 @@ class Mission
 							flags=1;
 							id=1652;
 							type="ModuleHideTerrainObjects_F";
-							atlOffset=0.18060303;
+							atlOffset=0.1100769;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -4550,7 +4597,7 @@ class Mission
 							};
 							id=1952;
 							type="LocationCamp_F";
-							atlOffset=-1.5258789e-005;
+							atlOffset=-0.0014038086;
 						};
 						class Item1
 						{
@@ -4630,7 +4677,7 @@ class Mission
 						};
 					};
 					id=2110;
-					atlOffset=2.8512726;
+					atlOffset=2.8506012;
 				};
 				class Item24
 				{
@@ -4662,7 +4709,7 @@ class Mission
 							};
 							id=1955;
 							type="LocationCamp_F";
-							atlOffset=-4.7683716e-007;
+							atlOffset=-0.00066280365;
 						};
 						class Item2
 						{
@@ -4674,7 +4721,7 @@ class Mission
 							};
 							id=1997;
 							type="LocationCamp_F";
-							atlOffset=-4.7683716e-007;
+							atlOffset=0.00047492981;
 						};
 						class Item3
 						{
@@ -4895,6 +4942,7 @@ class Mission
 							};
 							id=2001;
 							type="LocationCamp_F";
+							atlOffset=0.0038852692;
 						};
 						class Item2
 						{
@@ -4932,7 +4980,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1808;
 							type="Logic";
-							atlOffset=-0.01722908;
+							atlOffset=-0.01540184;
 						};
 						class Item5
 						{
@@ -5042,6 +5090,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1814;
 							type="Logic";
+							atlOffset=0.00079345703;
 						};
 						class Item3
 						{
@@ -5055,7 +5104,7 @@ class Mission
 							init="call{nullReturn = [this, ""Gargia"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2065;
 							type="LocationArea_F";
-							atlOffset=-1.5258789e-005;
+							atlOffset=0.0025787354;
 						};
 					};
 					id=2114;
@@ -5086,10 +5135,11 @@ class Mission
 							class PositionInfo
 							{
 								position[]={10174.756,6,1828.963};
-								angles[]={-0,1.6095961,0};
+								angles[]={0,1.6095961,0};
 							};
 							id=2003;
 							type="LocationCamp_F";
+							atlOffset=-0.018099308;
 						};
 						class Item2
 						{
@@ -5125,7 +5175,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1810;
 							type="Logic";
-							atlOffset=-0.0071220398;
+							atlOffset=-0.0038352013;
 						};
 						class Item5
 						{
@@ -5178,6 +5228,7 @@ class Mission
 							init="call{nullReturn = [this, ""Rafsbotn Harbor"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2067;
 							type="LocationArea_F";
+							atlOffset=0.31172848;
 						};
 					};
 					id=2115;
@@ -5200,6 +5251,7 @@ class Mission
 							};
 							id=1957;
 							type="LocationCamp_F";
+							atlOffset=-0.0032320023;
 						};
 						class Item1
 						{
@@ -5211,7 +5263,7 @@ class Mission
 							};
 							id=2005;
 							type="LocationCamp_F";
-							atlOffset=-9.5367432e-007;
+							atlOffset=-0.00073051453;
 						};
 						class Item2
 						{
@@ -5223,6 +5275,7 @@ class Mission
 							};
 							id=2006;
 							type="LocationCamp_F";
+							atlOffset=-0.0023446083;
 						};
 						class Item3
 						{
@@ -5235,7 +5288,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1744;
 							type="Logic";
-							atlOffset=-0.00067615509;
+							atlOffset=-0.0017805099;
 						};
 						class Item4
 						{
@@ -5248,7 +5301,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1812;
 							type="Logic";
-							atlOffset=-0.0064401627;
+							atlOffset=-0.0045013428;
 						};
 						class Item5
 						{
@@ -5261,7 +5314,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1813;
 							type="Logic";
-							atlOffset=0.10462761;
+							atlOffset=2.6226044e-005;
 						};
 						class Item6
 						{
@@ -5294,7 +5347,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={10476.892,5.991621,2474.834};
-								angles[]={-0,4.7742085,6.2805333};
+								angles[]={0,4.7742085,6.2805333};
 							};
 							name="town28";
 							init="call{nullReturn = [this, ""Rafsbotn"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
@@ -5303,7 +5356,7 @@ class Mission
 						};
 					};
 					id=2116;
-					atlOffset=-8.6637335;
+					atlOffset=-8.6613674;
 				};
 				class Item30
 				{
@@ -5358,7 +5411,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1815;
 							type="Logic";
-							atlOffset=9.5367432e-007;
+							atlOffset=-0.00058555603;
 						};
 						class Item4
 						{
@@ -5410,10 +5463,11 @@ class Mission
 							init="call{nullReturn = [this, ""Stengelsen"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2069;
 							type="LocationArea_F";
+							atlOffset=-0.0041236877;
 						};
 					};
 					id=2117;
-					atlOffset=0.24223852;
+					atlOffset=0.23917389;
 				};
 				class Item31
 				{
@@ -5446,6 +5500,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1817;
 							type="Logic";
+							atlOffset=-0.00012207031;
 						};
 						class Item2
 						{
@@ -5459,11 +5514,11 @@ class Mission
 							init="call{nullReturn = [this, ""Russertoppen"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2070;
 							type="LocationArea_F";
-							atlOffset=1.5258789e-005;
+							atlOffset=-0.0038146973;
 						};
 					};
 					id=2118;
-					atlOffset=3.4672394;
+					atlOffset=3.4683075;
 				};
 				class Item32
 				{
@@ -5520,7 +5575,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1878;
 							type="Logic";
-							atlOffset=-0.014373779;
+							atlOffset=-0.01373291;
 						};
 						class Item4
 						{
@@ -5659,7 +5714,7 @@ class Mission
 						};
 					};
 					id=2120;
-					atlOffset=-1.893219;
+					atlOffset=-1.8903198;
 				};
 				class Item34
 				{
@@ -5726,6 +5781,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1865;
 							type="Logic";
+							atlOffset=0.001083374;
 						};
 						class Item5
 						{
@@ -5739,10 +5795,11 @@ class Mission
 							init="call{nullReturn = [this, ""Skaidi"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2057;
 							type="LocationArea_F";
+							atlOffset=0.0020446777;
 						};
 					};
 					id=2121;
-					atlOffset=5.5585022;
+					atlOffset=5.5584412;
 				};
 				class Item35
 				{
@@ -5761,6 +5818,7 @@ class Mission
 							};
 							id=1944;
 							type="LocationCamp_F";
+							atlOffset=-0.0012588501;
 						};
 						class Item1
 						{
@@ -5784,7 +5842,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1731;
 							type="Logic";
-							atlOffset=-7.6293945e-006;
+							atlOffset=0.0010070801;
 						};
 						class Item3
 						{
@@ -5822,7 +5880,7 @@ class Mission
 							flags=1;
 							id=1658;
 							type="ModuleHideTerrainObjects_F";
-							atlOffset=0.17559052;
+							atlOffset=0.17294312;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -5878,11 +5936,11 @@ class Mission
 							init="call{nullReturn = [this, ""Skoganvarre"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2056;
 							type="LocationArea_F";
-							atlOffset=7.6293945e-006;
+							atlOffset=-0.0025100708;
 						};
 					};
 					id=2122;
-					atlOffset=0.53959656;
+					atlOffset=0.54119873;
 				};
 				class Item36
 				{
@@ -5986,6 +6044,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1912;
 							type="Logic";
+							atlOffset=0.00029611588;
 						};
 						class Item8
 						{
@@ -6002,7 +6061,7 @@ class Mission
 						};
 					};
 					id=2123;
-					atlOffset=0.17321253;
+					atlOffset=0.17274332;
 				};
 				class Item37
 				{
@@ -6083,10 +6142,11 @@ class Mission
 							init="call{nullReturn = [this, ""Iskuras"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2053;
 							type="LocationArea_F";
+							atlOffset=0.00051879883;
 						};
 					};
 					id=2124;
-					atlOffset=-1.1420288;
+					atlOffset=-1.1418915;
 				};
 				class Item38
 				{
@@ -6107,6 +6167,7 @@ class Mission
 							init="call{nullReturn = [this, ""Utne"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2052;
 							type="LocationArea_F";
+							atlOffset=1.335144e-005;
 						};
 						class Item1
 						{
@@ -6118,6 +6179,7 @@ class Mission
 							};
 							id=1940;
 							type="LocationCamp_F";
+							atlOffset=-2.0503998e-005;
 						};
 						class Item2
 						{
@@ -6153,6 +6215,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1727;
 							type="Logic";
+							atlOffset=-3.862381e-005;
 						};
 						class Item5
 						{
@@ -6165,7 +6228,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1827;
 							type="Logic";
-							atlOffset=9.5367432e-007;
+							atlOffset=-0.00096893311;
 						};
 						class Item6
 						{
@@ -6178,6 +6241,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1828;
 							type="Logic";
+							atlOffset=-0.00016212463;
 						};
 						class Item7
 						{
@@ -6215,7 +6279,7 @@ class Mission
 							flags=1;
 							id=1668;
 							type="ModuleHideTerrainObjects_F";
-							atlOffset=0.15608215;
+							atlOffset=0.15607548;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -6304,6 +6368,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1730;
 							type="Logic";
+							atlOffset=0.0010375977;
 						};
 						class Item3
 						{
@@ -6354,7 +6419,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1914;
 							type="Logic";
-							atlOffset=-1.5258789e-005;
+							atlOffset=-0.0018615723;
 						};
 						class Item7
 						{
@@ -6390,6 +6455,7 @@ class Mission
 							};
 							id=1947;
 							type="LocationCamp_F";
+							atlOffset=-0.002166748;
 						};
 						class Item1
 						{
@@ -6425,6 +6491,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1831;
 							type="Logic";
+							atlOffset=0.0040283203;
 						};
 						class Item4
 						{
@@ -6521,7 +6588,7 @@ class Mission
 						};
 					};
 					id=2127;
-					atlOffset=2.6836548;
+					atlOffset=3.2691345;
 				};
 				class Item41
 				{
@@ -6542,7 +6609,7 @@ class Mission
 							init="call{nullReturn = [this, ""Ryfoss"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2060;
 							type="LocationArea_F";
-							atlOffset=7.6293945e-006;
+							atlOffset=0.0013046265;
 						};
 						class Item1
 						{
@@ -6576,6 +6643,7 @@ class Mission
 							};
 							id=2021;
 							type="LocationCamp_F";
+							atlOffset=0.0014343262;
 						};
 						class Item4
 						{
@@ -6613,6 +6681,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1833;
 							type="Logic";
+							atlOffset=-0.0038146973;
 						};
 						class Item7
 						{
@@ -6639,6 +6708,7 @@ class Mission
 							flags=1;
 							id=1683;
 							type="ModuleHideTerrainObjects_F";
+							atlOffset=0.00094604492;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -6788,7 +6858,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1916;
 							type="Logic";
-							atlOffset=8.392334e-005;
+							atlOffset=-4.196167e-005;
 						};
 						class Item8
 						{
@@ -6901,6 +6971,7 @@ class Mission
 							};
 							id=2025;
 							type="LocationCamp_F";
+							atlOffset=-0.00044727325;
 						};
 						class Item3
 						{
@@ -7008,6 +7079,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['AT']];}";
 							id=1857;
 							type="Logic";
+							atlOffset=0.0008392334;
 						};
 						class Item3
 						{
@@ -7021,7 +7093,7 @@ class Mission
 							flags=1;
 							id=1698;
 							type="ModuleHideTerrainObjects_F";
-							atlOffset=0.17753601;
+							atlOffset=0.17698669;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -7077,10 +7149,11 @@ class Mission
 							init="call{nullReturn = [this, ""Nystuen"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2049;
 							type="LocationArea_F";
+							atlOffset=-0.0027084351;
 						};
 					};
 					id=2131;
-					atlOffset=0.15128326;
+					atlOffset=0.15374756;
 				};
 				class Item45
 				{
@@ -7101,6 +7174,7 @@ class Mission
 							init="call{nullReturn = [this, ""Skogbygda"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2048;
 							type="LocationArea_F";
+							atlOffset=0.00082397461;
 						};
 						class Item1
 						{
@@ -7149,6 +7223,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1838;
 							type="Logic";
+							atlOffset=-0.00019836426;
 						};
 						class Item5
 						{
@@ -7164,7 +7239,7 @@ class Mission
 						};
 					};
 					id=2132;
-					atlOffset=2.0887604;
+					atlOffset=1.4691772;
 				};
 				class Item46
 				{
@@ -7194,6 +7269,7 @@ class Mission
 							};
 							id=2027;
 							type="LocationCamp_F";
+							atlOffset=0.0011291504;
 						};
 						class Item2
 						{
@@ -7244,6 +7320,7 @@ class Mission
 							init="call{nullReturn = [this, ""Randsverk"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2047;
 							type="LocationArea_F";
+							atlOffset=-0.0016326904;
 						};
 					};
 					id=2133;
@@ -7266,6 +7343,7 @@ class Mission
 							};
 							id=1934;
 							type="LocationCamp_F";
+							atlOffset=7.6293945e-005;
 						};
 						class Item1
 						{
@@ -7278,7 +7356,7 @@ class Mission
 							init="call{this setVariable ['cti_defense_kind', ['MG']];}";
 							id=1721;
 							type="Logic";
-							atlOffset=-0.035598755;
+							atlOffset=-0.036590576;
 						};
 						class Item2
 						{
@@ -7305,10 +7383,11 @@ class Mission
 							init="call{nullReturn = [this, ""Heidal"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
 							id=2046;
 							type="LocationArea_F";
+							atlOffset=-0.0028076172;
 						};
 					};
 					id=2134;
-					atlOffset=4.2593536;
+					atlOffset=4.2610474;
 				};
 			};
 			id=308;
@@ -7319,11 +7398,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={92.375031,6.02,19.506531};
+				position[]={92.375,6.0201683,19.507};
 			};
+			name="HC_1";
+			isPlayable=1;
 			id=409;
 			type="HeadlessClient_F";
-			atlOffset=58.319843;
+			atlOffset=58.32;
 		};
 		class Item19
 		{
@@ -7346,6 +7427,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="India, Team Leader";
 						isPlayable=1;
 					};
@@ -7421,6 +7503,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Juilett, Team Leader";
 						isPlayable=1;
 					};
@@ -7496,6 +7579,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Kilo, Team Leader";
 						isPlayable=1;
 					};
@@ -7573,6 +7657,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Lima, Team Leader";
 						isPlayable=1;
 					};
@@ -7650,6 +7735,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Mike, Team Leader";
 						isPlayable=1;
 					};
@@ -7727,6 +7813,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="November, Team Leader";
 						isPlayable=1;
 					};
@@ -7802,6 +7889,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Oscar, Team Leader";
 						isPlayable=1;
 					};
@@ -7877,6 +7965,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Papa, Team Leader";
 						isPlayable=1;
 					};
@@ -7952,6 +8041,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="India, Team Leader";
 						isPlayable=1;
 					};
@@ -8027,6 +8117,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Juliett, Team Leader";
 						isPlayable=1;
 					};
@@ -8102,6 +8193,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Kilo, Team Leader";
 						isPlayable=1;
 					};
@@ -8179,6 +8271,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Lima, Team Leader";
 						isPlayable=1;
 					};
@@ -8254,6 +8347,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Mike, Team Leader";
 						isPlayable=1;
 					};
@@ -8329,6 +8423,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="November, Team Leader";
 						isPlayable=1;
 					};
@@ -8404,6 +8499,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Oscar, Team Leader";
 						isPlayable=1;
 					};
@@ -8479,6 +8575,7 @@ class Mission
 					{
 						skill=0.60000002;
 						rank="LIEUTENANT";
+						init="VIOC_ZEUS addCuratorEditableObjects [[this], false];";
 						description="Papa, Team Leader";
 						isPlayable=1;
 					};
@@ -8926,6 +9023,124 @@ class Mission
 			};
 			id=1028;
 			type="Land_HBarrierWall6_F";
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-186.815,-0.00042724609,106.48};
+			};
+			name="VIOC_ZEUS";
+			id=2135;
+			type="ModuleCurator_F";
+			atlOffset=49.397999;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="#adminlogged";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={92.668159,5.9163628,14.960632};
+			};
+			name="HC_2";
+			isPlayable=1;
+			id=2136;
+			type="HeadlessClient_F";
+			atlOffset=58.32;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={92.410225,5.8170395,10.575256};
+			};
+			name="HC_3";
+			isPlayable=1;
+			id=2137;
+			type="HeadlessClient_F";
+			atlOffset=58.32;
 		};
 	};
 	class Connections

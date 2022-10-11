@@ -1,4 +1,22 @@
 class Params {
+	class SEPARATOR_PERSISTENCE {
+		title = "=========================== Persistence ============================";
+		values[] = {1};
+		texts[] = {""};
+		default = 1;
+	};
+	class CTI_PERSISTANT {
+		title = "PERSIST: Mode";
+		values[] = {-3,-2,-1,0,1,2,3};
+		texts[] = {"Reset (1 Save for each mission)","Reset (1 Save for each era VIO-BECTI-WW2)","Reset (1 Save for all VIO-BECTIs)","Disabled","Enabled (1 Save for all VIO-BECTIs)","Enabled (1 Save for each era VIO-BECTI-WW2)","Enabled (1 Save for each mission)"};
+		default = 0;
+	};
+	class CTI_SAVE_PERIODE {
+		title = "PERSIST: Save periode in seconds";
+		values[] = {300,600,900,1200,1500,1800,2700,3600};
+		texts[] = {"5min","10 min","15 min","20 min","25 min","30 min","45 min","60 min"};
+		default = 900;
+	};
 		class SEPARATOR_STARTUP {
 		title = "========================== STARTUP ============================";
 		values[] = {1};
@@ -214,6 +232,12 @@ class Params {
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 1;
+	};
+	class CTI_BASE_STRUCTURE_RESELL_RATIO {
+		title = "BASE: Structure resell ratio";
+		values[] = {0,10,20,30,40,50,60,70,80,90,100};
+		texts[] = {"0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
+		default = 0;
 	};
 	class CTI_BASE_BUILDING_DAMAGE_SYSTEM {
 		title = "BASE: Handle Building destruction";
@@ -509,9 +533,9 @@ class Params {
 	};
 	class CTI_TOWNS_AMOUNT {
 		title = "TOWNS: Amount";
-		values[] = {0,1,2,3,6}; //values[] = {0,1,2,3,4,5,6};
-		texts[] = {"Extra Small","Small","Medium","Large","Full"}; //texts[] = {"Extra Small","Small","Medium","Large","West","East","Full"};
-		default = 6;
+		values[] = {0,1,2,3,4,5,6,7,8,9};
+		texts[] = {"Extra Small","Small","Medium","Large","SpecialMode 1 (Full if no setup defined)","SpecialMode 2 (Full if no setup defined)","SpecialMode 3 (Full if no setup defined)","SpecialMode 4 (Full if no setup defined)","Parameter (Full if no param set)","Full"};
+		default = 9;
 	};
 	class CTI_TOWNS_CAMPS_CREATE {
 		title = "TOWNS: Camps";
@@ -537,6 +561,12 @@ class Params {
 		texts[] = {"0m","50m","100m","150m","200m","250m","300m","350m","400m","450m","500m"};
 		default = 0;
 	};
+	class CTI_TOWNS_ACTIVE_TIME {
+		title = "TOWNS: Max Time before town units despawn";
+		values[] = {300,600,900,1200,1500,1800};
+		texts[] = {"5min","10min","15min","20min","25min","30min"};
+		default = 300;
+	};
 	class CTI_TOWNS_OCCUPATION {
 		title = "TOWNS: Occupation";
 		values[] = {0,1,2,3,4};
@@ -556,17 +586,15 @@ class Params {
 		default = 0;
 	};
 	class CTI_TOWNS_CAPTURED_DISTANCE {
-		title = "TOWNS: Distance of precaptured Towns";
+		title = "TOWNS: Distance of precaptured Towns (applies on Startingmodes with [Border] tag)";
 		values[] = {0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,12000,15000};
-		texts[] = {"only the next town","1000","2000","3000","4000","5000","6000","7000","8000","9000","10000","12000","15000"};
+		texts[] = {"0 or if needed, the next town","1000","2000","3000","4000","5000","6000","7000","8000","9000","10000","12000","15000"};
 		default = 2000;
 	};
 	class CTI_TOWNS_STARTING_MODE {
 		title = "TOWNS: Starting Mode";
-		//values[] = {-1,0,1,2,3,4,5};
-		//texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
-		values[] = {0,1,2,3,4,5};
-		texts[] = {"Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side, 'Distance' affects starting border","Coop at West side, 'Distance' affects starting border"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9};
+		texts[] = {"pre defined","Resistance","50% East, 50% West", "Nearby Towns", "Random Towns (25% East, 25% West, 50% Res)","Coop at East side [Border]","Coop at East side, rest 50:50 [Border]","Coop at East side, rest 50:50 shuffled [Border]","Coop at West side [Border]","Coop at West side, rest 50:50 [Border]","Coop at West side, rest 50:50 shuffled [Border]"};
 		default = 0;
 	};
 	class CTI_TOWNS_VEHICLES_LOCK {
@@ -696,6 +724,12 @@ class Params {
 		values[] = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,35,40,45,50,60,70,80,90,100};
 		texts[] = {"2","4","6","8","10","12","14","16","18","20","22","24","26","28","30","35","40","45","50","60","70","80","90","100"};
 		default = 10;
+	};
+	class CTI_AI_VEHICLE_LOCK {
+		title = "AI Vehicles locked?";
+		values[] = {0,1};
+		texts[] = {"Disabled - needed if you want to transport AI Teams","Enabled (default)"};
+		default = 1;
 	};
 	class CTI_Log_Level {
 		title = "LOG: Set level of Logging";

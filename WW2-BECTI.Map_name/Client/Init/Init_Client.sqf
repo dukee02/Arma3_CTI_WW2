@@ -34,6 +34,7 @@ CTI_CL_FNC_OnFriendlyStructureDestroyed = compileFinal preprocessFile "Client\Fu
 
 CTI_CL_FNC_OnArtilleryShotDetected = compileFinal preprocessFile "Client\Functions\Client_OnArtilleryShotDetected.sqf";
 CTI_CL_FNC_OnEnemyStructureDestroyed = compileFinal preprocessFile "Client\Functions\Client_OnEnemyStructureDestroyed.sqf";
+CTI_CL_FNC_GetCompatibleItems = compileFinal preprocessFile "Client\Functions\Client_GetCompatibleItems.sqf";
 
 CTI_CL_FNC_OnJailed = compileFinal preprocessFile "Client\Functions\Client_OnJailed.sqf";
 CTI_CL_FNC_OnMissionEnding = compileFinal preprocessFile "Client\Functions\Client_OnMissionEnding.sqf";
@@ -384,6 +385,8 @@ if (CTI_DEBUG) then {
 call compile preProcessFileLineNumbers "Client\Functions\Externals\cmEarplugs\config.sqf";
 //--- Earplugs
 0 spawn { call CTI_CL_FNC_EarPlugsSpawn; };
+
+_paraCheck = execVM "Common\Init\Init_ParadropCheck.sqf";
 
 CTI_Init_Client = true;
 

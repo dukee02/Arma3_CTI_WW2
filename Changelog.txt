@@ -1,11 +1,15 @@
-Added: SABs new aircraft (f4f,f4u,sbd,he162,tbf,p40,i16,he177,ar234) 
-Added: SdKfz 7 for tank transport  to SOV+FIN if NF active and CZ if CSA active 
-Changed: Shipjard now checks a wider area for spawns
-Fixed: Arti timeout when Arty cant shoot (CTI-error)
-Fixed: techtree combi bug with some mods
-Fixed: Baranow bunker at F8 lowered
-Fixed: Svartmarka bunkerpos on Rafsbotn main and Rafsbotn harbor
-Fixed: Error with Naval Legends ships on spawn
+V2.0_221011
+Added: Param for Structure resell ratio
+Added: Fieldrepair Param
+Added: param for 'Time before town units despawn'
+Changed: AI Base placement a bit
+Fixed: sometimes some vanilla vehicle cargo
+Fixed: can't build FOB with active AI commander
+Fixed: breaks loading after map change, when only 1 save active
+Fixed: salvager spawns at 0,0 some times
+Fixed: magazine of secondary weapon empty when buyed
+
+
 
 
 

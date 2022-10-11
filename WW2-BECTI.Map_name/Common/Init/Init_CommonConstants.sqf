@@ -77,7 +77,7 @@ CTI_SPECIAL_REPAIRTRUCK = 0;
 CTI_SPECIAL_AMMOTRUCK = 1;
 CTI_SPECIAL_MEDICALVEHICLE = 2;
 CTI_SPECIAL_FUELTRUCK = 3;
-// CTI_SPECIAL_ALLPURPOSETRUCK = 3;
+CTI_SPECIAL_ALLPURPOSETRUCK = 4;
 
 CTI_AI_COMMANDER_BUYTO_INFANTRY = 20;
 CTI_AI_COMMANDER_BUYTO_LIGHT = 13;
@@ -138,6 +138,7 @@ with missionNamespace do {
 	if (isNil 'CTI_AI_TEAMS_JIP_PRESERVE') then {CTI_AI_TEAMS_JIP_PRESERVE = 0}; //--- Keep the AI Teams units on JIP
 	if (isNil 'CTI_AI_TEAMS_ENABLED') then {CTI_AI_TEAMS_ENABLED = 0}; //--- Determine whether AI Teams are enabled or not
 	if (isNil 'CTI_AI_COMMANDER_ENABLED') then {CTI_AI_COMMANDER_ENABLED = 1}; //--- Determine whether AI Commander is enabled or not
+	if (isNil 'CTI_AI_VEHICLE_LOCK') then {CTI_AI_VEHICLE_LOCKED = true;} else {if(CTI_AI_VEHICLE_LOCK == 1) then {CTI_AI_VEHICLE_LOCKED = true}else{CTI_AI_VEHICLE_LOCKED = false};}; //--- AI Teams lock the vehicles
 	if (isNil 'CTI_AI_SKILL_BASE') then {
 		/*Novice < 0.25
 		Rookie >= 0.25 and <= 0.45
@@ -423,6 +424,7 @@ CTI_TOWNS_MORTARS_RANGE_MIN = 125; //--- AI Mortars may not fire at targets with
 
 //--- Towns: Parameters
 with missionNamespace do {
+	if (isNil "CTI_TOWNS_REMOVEDPARAM") then {Towns_RemovedParam = []}; //--- Array with towns the should get removed
 	if (isNil "CTI_TOWNS_AMOUNT") then {CTI_TOWNS_AMOUNT = 6}; //--- Amount of towns (0: Very small, 1: Small, 2: Medium, 3: Large, 4: West, 5: East, 6: Full).
 	if (isNil "CTI_TOWNS_BUILD_PROTECTION_RANGE") then {CTI_TOWNS_BUILD_PROTECTION_RANGE = 300};	
 	if (isNil "CTI_TOWNS_CAMPS_CREATE") then {CTI_TOWNS_CAMPS_CREATE = 1}; //--- Create the camp models.
@@ -438,6 +440,10 @@ with missionNamespace do {
 	if (isNil 'CTI_GUER_TOWNS') then {CTI_GUER_TOWNS = 1};	//--- "FFI (Infantry with unarmed cars - difficulty very easy)","Polish Units (Infantry with armed trucks - difficulty easy)","3rd Party (needs one Side on GUER - difficulty normal)"
 	if (isNil 'CTI_WEST_TOWNS') then {CTI_WEST_TOWNS = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_EAST_TOWNS') then {CTI_EAST_TOWNS = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
+	if !(isNil 'CTI_TOWNS_ACTIVE_TIME') then {
+		CTI_TOWNS_OCCUPATION_INACTIVE_MAX = CTI_TOWNS_ACTIVE_TIME;
+		CTI_TOWNS_RESISTANCE_INACTIVE_MAX = CTI_TOWNS_ACTIVE_TIME;
+	};
 };
 
 //--- Towns: Misc.
@@ -483,6 +489,10 @@ CTI_BASE_CONSTRUCTION_RATIO_ON_DEATH = 0.25; //--- The completion ratio is multi
 CTI_BASE_DEFENSES_AUTO_DELAY = 20; //--- Delay after which a new unit will replace a dead one for a defense
 CTI_BASE_DEFENSES_AUTO_REARM_RANGE = 500; //--- Range needed for a defense to be able to rearm at a service point
 CTI_BASE_DEFENSES_EMPTY_TIMEOUT = 1200; //--- Delay after which an empty defense is considered empty
+CTI_BASE_DEFENSES_AIR_DETECTION_RANGE = 2000; //--- Range in meters, air units gets detected and revealed
+CTI_BASE_DEFENSES_AIR_DETECTION_HEIGHT = 50; //--- Height in meters, air units gets detected and revealed
+CTI_BASE_DEFENSES_AIR_DETECTION_TIME = 20; //--- Time in seconds, the detection script runns
+CTI_BASE_DEFENSES_AIR_DETECTION_MODE = 1;
 
 //--- Base: HQ
  
@@ -493,7 +503,6 @@ CTI_BASE_HQ_REPAIR_TIME = 15; //--- The time needed to repair the HQ
 
 //--- Base: Misc
 CTI_BASE_NOOBPROTECTION = 1; //--- Make structures invulnerable to friendly fire
-CTI_BASE_STRUCTURE_RESELL_RATIO = 0.85; //--- Ratio of building cost to be refunded when sold
 
 //--- Base: Purchase range
 CTI_BASE_GEAR_FOB_RANGE = 4; //--- Determine how far a player has to be from a FOB to access the Gear Menu
@@ -526,6 +535,8 @@ with missionNamespace do {
 	//if (isNil 'CTI_BASE_START_TOWN') then {CTI_BASE_START_TOWN = 1}; //--- Remove the spawn locations which are too far away from the towns.
 	if (isNil 'CTI_BASE_STARTUP_PLACEMENT') then {CTI_BASE_STARTUP_PLACEMENT = 4000}; //--- Each side need to be further than x meters
 	if (isNil 'CTI_BASE_WORKERS_LIMIT') then {CTI_BASE_WORKERS_LIMIT = 10}; //--- Maximum amount of workers which may be purchased by a side
+	if (isNil 'CTI_BASE_STRUCTURE_RESELL_RATIO') then {CTI_BASE_STRUCTURE_RESELL_RATIO = 0};	//--- Ratio of building cost to be refunded when sold
+	if (isNil 'CTI_FIELDREPAIR_ENABLED') then {CTI_FIELDREPAIR_ENABLED = 0};
 };
 //-----------------------------------------------------------------------------------------------------------------------//
 
@@ -567,6 +578,7 @@ CTI_VEHICLES_HANDLER_EMPTY = 0; //--- Determine how an empty vehicle is handled 
 
 //--- Vehicles which may lift things (not actual hookers btw)
 CTI_VEHICLES_HOOKERS = ["CUP_O_Mi17_TK", "CUP_O_MI6A_RU", "CUP_O_Mi8_RU", "O_T_VTOL_02_infantry_F", "CUP_B_Merlin_HC3_Armed_GB", "CUP_B_MV22_USMC_RAMPGUN", "CUP_B_CH53E_USMC", "CUP_B_CH47F_USA", "B_T_VTOL_01_armed_F"]; //--- Heavy Lifters
+CTI_VEHICLES_PARADROPERS = ["LIB_C47_RAF","LIB_C47_Skytrain"];
 
 //--- Types of liftable Vehicles. Format is ["type", [Co-ordinates for rope attach points], mass]. Entire parents or single classes can be added in any order, eg "Car" and "B_MRAP_01_F" will both work
 CTI_VEHICLES_HOOKABLE = [
@@ -722,6 +734,7 @@ CTI_SERVICE_FUEL_TRUCK_RANGE = 35;
 CTI_SERVICE_FUEL_TRUCK_Time = 60;
 CTI_SERVICE_MEDICAL_VEHICLE_RANGE = 35;
 CTI_SERVICE_MEDICAL_VEHICLE_TIME = 60;
+CTI_SPECIAL_ALLPURPOSE_RANGE = 400;
 
 CTI_SCORE_BUILD_VALUE_PERPOINT = 1500; //--- Structure value / x
 CTI_SCORE_SALVAGE_VALUE_PERPOINT = 2000; //--- Unit value / x
@@ -730,6 +743,10 @@ CTI_SCORE_CAMP_VALUE = 2; //--- Camp value
 
 
 with missionNamespace do {
+	if (isNil 'CTI_LOG_INFO') then {CTI_LOG_INFO = 0};
+	if (isNil 'CTI_PERSISTANT') then {CTI_PERSISTANT = 0};
+	if (isNil 'CTI_SAVE_PERIODE') then {CTI_SAVE_PERIODE = 900};		//900
+	
 	if (isNil 'CTI_GER_SIDE') then {CTI_GER_SIDE = 0};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_SOV_SIDE') then {CTI_SOV_SIDE = 1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
 	if (isNil 'CTI_US_SIDE') then {CTI_US_SIDE = -1};	//--- "deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"
@@ -804,7 +821,7 @@ with missionNamespace do {
 	
 	if (isNil 'CTI_UNITS_FATIGUE') then {CTI_UNITS_FATIGUE = 0};
 	
-	if (isNil 'CTI_IFA3_NEW') then {CTI_IFA3_NEW = -1};
+	if (isNil 'CTI_IFA3_NEW') then {CTI_IFA3_NEW = 0};
 	if(CTI_IFA3_NEW >= 0) then {
 		//if they want to play with ifa3 chack the modversion
 		if (!isClass(configFile >> "CfgVehicles" >> "LIB_M4T34_Calliope")) then {
@@ -914,6 +931,10 @@ with missionNamespace do {
 	};
 	
 	if (isNil 'CTI_STREAM_BLOCK') then {CTI_STREAM_BLOCK = 0};
+	
+	//We can balance the water units only if we activate them for both sides
+	CTI_WATER_BALANCED_EAST = false;
+	CTI_WATER_BALANCED_WEST = false;
 	
 	//if (isNil 'CTI_BUILDING_FALLBACK') then {CTI_BUILDING_FALLBACK = 2};	//--- Fallback Buildings. (0: Altis Housing, 1: Altis Military Buildings, 2: Best Mixed).
 	if (isNil 'CTI_NO_UPGRADE_MODE') then {CTI_NO_UPGRADE_MODE = 0};
