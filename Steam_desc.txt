@@ -229,30 +229,30 @@ https://steamcommunity.com/groups/vio-community/discussions/0/174001225280057993
 
 
 -------------------MAPS----------------------------
-Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829			V2.0_220804
-Baranow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763574128			V2.0_220804
-Baranow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763576184			V2.0_220804
+Altis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760869829			V2.0_221011
+Baranow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763574128			V2.0_221011
+Baranow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763576184			V2.0_221011
 Henderson Airfield (FoW)
-Merderet							https://steamcommunity.com/sharedfiles/filedetails/?id=2761787393			V2.0_220804
-Merderet koth						https://steamcommunity.com/sharedfiles/filedetails/?id=2761789779			V2.0_220804
-Merderet V2							https://steamcommunity.com/sharedfiles/filedetails/?id=2761791065			V2.0_220804
-Merderet V3							https://steamcommunity.com/sharedfiles/filedetails/?id=2761792525			V2.0_220804
-Merderet Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2761793897			V2.0_220804
-Tobruk								https://steamcommunity.com/sharedfiles/filedetails/?id=2763571066			V2.0_220804
-Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063			V2.0_220804
-Marenice (CSA)						https://steamcommunity.com/sharedfiles/filedetails/?id=2844905891			V2.0_220804
-Neaville							https://steamcommunity.com/sharedfiles/filedetails/?id=2763562933			V2.0_220804
-Neaville Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763564340			V2.0_220804
-Staszow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763567387			V2.0_220804
-Staszow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763568939			V2.0_220804
-Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946			V2.0_220804
-El Alamein							https://steamcommunity.com/sharedfiles/filedetails/?id=2763572663			V2.0_220804
+Merderet							https://steamcommunity.com/sharedfiles/filedetails/?id=2761787393			V2.0_221011
+Merderet koth						https://steamcommunity.com/sharedfiles/filedetails/?id=2761789779			V2.0_221011
+Merderet V2							https://steamcommunity.com/sharedfiles/filedetails/?id=2761791065			V2.0_221011
+Merderet V3							https://steamcommunity.com/sharedfiles/filedetails/?id=2761792525			V2.0_221011
+Merderet Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2761793897			V2.0_221011
+Tobruk								https://steamcommunity.com/sharedfiles/filedetails/?id=2763571066			V2.0_221011
+Malden								https://steamcommunity.com/sharedfiles/filedetails/?id=2760873063			V2.0_221011
+Marenice (CSA)						https://steamcommunity.com/sharedfiles/filedetails/?id=2844905891			V2.0_221011
+Neaville							https://steamcommunity.com/sharedfiles/filedetails/?id=2763562933			V2.0_221011
+Neaville Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763564340			V2.0_221011
+Staszow								https://steamcommunity.com/sharedfiles/filedetails/?id=2763567387			V2.0_221011
+Staszow Winter						https://steamcommunity.com/sharedfiles/filedetails/?id=2763568939			V2.0_221011
+Stratis								https://steamcommunity.com/sharedfiles/filedetails/?id=2760866946			V2.0_221011
+El Alamein							https://steamcommunity.com/sharedfiles/filedetails/?id=2763572663			V2.0_221011
 Kokoda (FoW)
-Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194			V2.0_220804
+Tanoa								https://steamcommunity.com/sharedfiles/filedetails/?id=2760871194			V2.0_221011
 Rosche Germany						
-Svartmarka (NF)						https://steamcommunity.com/sharedfiles/filedetails/?id=2844909499			V2.0_220804
-Svartmarka Winter (NF)				https://steamcommunity.com/sharedfiles/filedetails/?id=2844910284			V2.0_220804
-Svartmarka Post War (NF)			https://steamcommunity.com/sharedfiles/filedetails/?id=2844909908			V2.0_220804
+Svartmarka (NF)						https://steamcommunity.com/sharedfiles/filedetails/?id=2844909499			V2.0_221011
+Svartmarka Winter (NF)				https://steamcommunity.com/sharedfiles/filedetails/?id=2844910284			V2.0_221011
+Svartmarka Post War (NF)			https://steamcommunity.com/sharedfiles/filedetails/?id=2844909908			V2.0_221011
 
 
 --------------------------------------------------
