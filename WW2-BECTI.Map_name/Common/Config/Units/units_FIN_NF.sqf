@@ -1,10 +1,9 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_stream"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 
 _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
-_tech_level_no_upgrade_inv = 1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -20,14 +19,10 @@ if(_side == west) then {
 };
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
-
 //We get the upgrade setup at this point, if this is null, something went wrong and we set it to the default.
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [0,0,0,0,0,1,1,1,1,1,3,4,0]; 
+	_upgrade_levels = [0,0,0,0,0,1,-1,-1,-1,1,3,4,0,-1]; 
 };
 
 _c = []; //--- Classname
@@ -396,21 +391,80 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_SdKfz_7", _sid])) then 
 		_d pushBack 0;	
 	};
 };
-
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	if(CTI_STREAM_BLOCK > 0) then {}
+	else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_R75", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_R75", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_R75", _sid];
+			};
+		};
+	};
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_LIGHT;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+};
+
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
 	if(CTI_STREAM_BLOCK > 0) then {}
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
+
 				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_BA6", _sid];
 			};
 			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
+
 				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_41_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_41_BA6", _sid];
 			};
 			default {
+				_c pushBack format["%1NORTH_FIN_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
+
 				_c pushBack format["%1NORTH_FIN_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_BA6", _sid];
 			};
 		};
 	};
@@ -703,6 +757,107 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	};
 };
 
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_W_STUG_3_G", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_S_STUG_3_G", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_STUG_3_G", _sid];
+			};
+		};
+	};
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	//if(_cntstart > _cntend) then {_tech_level = _tech_level + 1};
+	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+	
+	if(CTI_STREAM_BLOCK > 0) then {
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_KV1_1942", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_KV1_1942", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_KV1_1942", _sid];
+			};
+		};
+	};
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;	
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_W_KV1E_1940", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_S_KV1E_1940", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_KV1E_1940", _sid];
+			};
+		};
+	};
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;	
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 0;	
+	};
+};
+
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_HEAVY) then {
 	_upgrade_levels set [CTI_UPGRADE_HEAVY, _tech_level];
@@ -748,9 +903,9 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 _tech_level = 0;
 _building_time = [CTI_FACTORY_REPAIR,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_OpelBlitz_Parm_w", _sid];							//repairtruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];				//repairtruck
 		_p pushBack '';
 		_n pushBack 'Repair Truck';
 		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
@@ -759,26 +914,89 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid
 		_f pushBack CTI_FACTORY_REPAIR;
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
+
+		_c pushBack format["CTI_Salvager_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager"];
+		_d pushBack 0;
+			
+		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager-independent"];
+		_d pushBack 0;
 	};
-	_c pushBack format["CTI_Salvager_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack _building_time;
-	_u pushBack _tech_level;
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager"];
-	_d pushBack 0;
-		
-	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-	_p pushBack '';
-	_n pushBack 'Salvager Truck';
-	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-	_t pushBack _building_time;
-	_u pushBack _tech_level;
-	_f pushBack CTI_FACTORY_REPAIR;
-	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager-independent"];
-	_d pushBack 0;
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];				//repairtruck
+		_p pushBack '';
+		_n pushBack 'Repair Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack "service-repairtruck";
+		_d pushBack 0;
+
+		_c pushBack format["CTI_Salvager_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager"];
+		_d pushBack 0;
+			
+		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager-independent"];
+		_d pushBack 0;
+	};
+	default {
+		_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];					//repairtruck
+		_p pushBack '';
+		_n pushBack 'Repair Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack "service-repairtruck";
+		_d pushBack 0;
+
+		_c pushBack format["CTI_Salvager_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager"];
+		_d pushBack 0;
+			
+		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+		_p pushBack '';
+		_n pushBack 'Salvager Truck';
+		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_REPAIR;
+		_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager-independent"];
+		_d pushBack 0;
+	};
 };
 
 //***************************************************************************************************************************************
@@ -786,9 +1004,9 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _tech_level = 0;
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Ammo_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_OpelBlitz_Ammo_w", _sid];					//ammotruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];			//ammotruck
 		_p pushBack '';
 		_n pushBack 'Ammo Truck';
 		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
@@ -796,9 +1014,9 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Ammo_w", _sid
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_AMMO;
 		_s pushBack "service-ammotruck";
-		_d pushBack 0;	
+		_d pushBack 0;
 
-		_c pushBack format["%1LIB_OpelBlitz_Fuel_w", _sid];					//fueltruck
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];			//fueltruck
 		_p pushBack '';
 		_n pushBack 'Fuel Truck';
 		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
@@ -807,7 +1025,48 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Ammo_w", _sid
 		_f pushBack CTI_FACTORY_AMMO;
 		_s pushBack "service-fueltruck";
 		_d pushBack 0;	
+	};
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];			//ammotruck
+		_p pushBack '';
+		_n pushBack 'Ammo Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_AMMO;
+		_s pushBack "service-ammotruck";
+		_d pushBack 0;
 
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];			//fueltruck
+		_p pushBack '';
+		_n pushBack 'Fuel Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_AMMO;
+		_s pushBack "service-fueltruck";
+		_d pushBack 0;	
+	};
+	default {
+		_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];				//ammotruck
+		_p pushBack '';
+		_n pushBack 'Ammo Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_AMMO;
+		_s pushBack "service-ammotruck";
+		_d pushBack 0;
+		
+		_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];				//fueltruck
+		_p pushBack '';
+		_n pushBack 'Fuel Truck';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_AMMO;
+		_s pushBack "service-fueltruck";
+		_d pushBack 0;	
 	};
 };
 

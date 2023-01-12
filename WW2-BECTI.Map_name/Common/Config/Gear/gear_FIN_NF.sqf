@@ -19,7 +19,7 @@ else {
 
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
+	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,-1,-1,-1,1,3,4,CTI_ECONOMY_LEVEL_GEAR,-1]; 
 };
 
 _i = [];
@@ -251,7 +251,6 @@ _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_CPL";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_CPT";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_fur_CPT";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_SGT";
-_i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_Private1CL";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_1stLT";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_fur_1stLT";
 _i pushBack "U_NORTH_FIN_M22_36_W_Greatcoat_Private";
@@ -277,7 +276,6 @@ _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_COL";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_LTCOL";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_CPT";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_SGT";
-_i pushBack "U_NORTH_FIN_M22_36_Greatcoat_Private1CL";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_1stLT";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_MAJ";
 _i pushBack "U_NORTH_FIN_M22_36_Greatcoat_Private";
@@ -289,7 +287,6 @@ _i pushBack "U_NORTH_FIN_M36_Greatcoat_COL";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_LTCOL";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_CPT";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_SGT";
-_i pushBack "U_NORTH_FIN_M36_Greatcoat_PrivateCL";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_1stLT";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_MAJ";
 _i pushBack "U_NORTH_FIN_M36_Greatcoat_Private";
@@ -841,7 +838,6 @@ _i pushBack "U_NORTH_FIN_M36_Summertunic_AD_JGR_SSGT";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_CPL";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_CPT";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_SGT";
-_i pushBack "U_NORTH_FIN_M36_Leather_Full_Private1CL";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_1stLT";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_Private";
 _i pushBack "U_NORTH_FIN_M36_Leather_Full_SGTMAJ";
@@ -850,7 +846,6 @@ _i pushBack "U_NORTH_FIN_M36_Leather_Full_SSGT";
 _i pushBack "U_NORTH_FIN_M36_Leather_CPL";
 _i pushBack "U_NORTH_FIN_M36_Leather_CPT";
 _i pushBack "U_NORTH_FIN_M36_Leather_SGT";
-_i pushBack "U_NORTH_FIN_M36_Leather_Private1CL";
 _i pushBack "U_NORTH_FIN_M36_Leather_1stLT";
 _i pushBack "U_NORTH_FIN_M36_Leather_Private";
 _i pushBack "U_NORTH_FIN_M36_Leather_SGTMAJ";

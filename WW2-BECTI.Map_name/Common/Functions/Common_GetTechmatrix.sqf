@@ -249,7 +249,7 @@ _tech_matrix =
 			//CSA
 			[false,false,false,false,false],
 			//NF
-			[false,true,false,false,false],
+			[true,true,false,false,false],
 			//SABFL
 			[false,false,false,false,false],
 			//SABNL
@@ -364,7 +364,7 @@ _tech_matrix =
 			//CSA
 			[false,false,false,false,false],
 			//NF
-			[false,true,false,false,false],
+			[true,true,false,false,false],
 			//SABFL
 			[false,false,false,false,false],
 			//SABNL
@@ -413,7 +413,7 @@ _tech_matrix =
 			//CSA
 			[false,true,false,true,true,false,true,false],
 			//NF
-			[true,true,true,true,false,false,false,false],
+			[true,true,true,true,true,true,false,false],
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//SABNL
@@ -528,7 +528,7 @@ _tech_matrix =
 			//CSA
 			[false,false,false,false,false,false,false,false],
 			//NF
-			[true,true,true,true,false,false,false,false],
+			[true,true,true,true,true,true,false,false],
 			//SABFL
 			[false,false,false,false,false,false,false,false],
 			//SABNL

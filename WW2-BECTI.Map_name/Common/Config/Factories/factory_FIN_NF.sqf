@@ -416,19 +416,67 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_SdKfz_7", _sid])) then 
 	};
 	_c pushBack format["%1LIB_SdKfz_7", _sid];
 };
-
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_STREAM_BLOCK > 0) then {}
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
-				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_R75", _sid];
 			};
 			case 2: {//Summer camo active
-				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_R75", _sid];
 			};
 			default {
+				_c pushBack format["%1NORTH_FIN_R75", _sid];
+			};
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {}
+	else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
+
+				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_BA6", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
+
+				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_41_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_41_BA6", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
+
 				_c pushBack format["%1NORTH_FIN_BA10", _sid];
+				_c pushBack format["%1NORTH_FIN_BA3", _sid];
+				_c pushBack format["%1NORTH_FIN_BA6", _sid];
 			};
 		};
 	};
@@ -456,35 +504,35 @@ _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_STREAM_BLOCK > 0) then {
-		_c pushBack format["%1NORTH_FIN_W_39_T26_M31", _sid];
 		_c pushBack format["%1NORTH_FIN_W_39_T26_M33_OT", _sid];
 		_c pushBack format["%1NORTH_FIN_W_39_T20", _sid];
-		_c pushBack format["%1NORTH_FIN_W_39_BT5", _sid];
 		_c pushBack format["%1NORTH_FIN_W_39_T38", _sid];
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M31", _sid];
+		_c pushBack format["%1NORTH_FIN_W_39_BT5", _sid];
 	} else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
-				_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T20", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T38", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_W_BT42", _sid];
 			};
 			case 2: {//Summer camo active
-				_c pushBack format["%1NORTH_FIN_S_41_T26_M31", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M33_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T20", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T38", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_BT42", _sid];
 			};
 			default {
-				_c pushBack format["%1NORTH_FIN_41_T26_M31", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T26_M33_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_T20", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_T38", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T26_M31", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_BT5", _sid];
 				_c pushBack format["%1NORTH_FIN_BT42", _sid];
 			};
 		};
@@ -527,28 +575,28 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_STREAM_BLOCK > 0) then {
+		_c pushBack format["%1NORTH_FIN_W_39_T26_M39_OT", _sid];
 		_c pushBack format["%1NORTH_FIN_W_39_T26_M38", _sid];
 		_c pushBack format["%1NORTH_FIN_W_39_T26_M39", _sid];
-		_c pushBack format["%1NORTH_FIN_W_39_T26_M39_OT", _sid];
 	} else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M39_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M39", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_T26_M39_OT", _sid];
 			};
 			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 			};
 			default {
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_T26_M39", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 			};
 		};
 	};
@@ -572,6 +620,53 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			default {
 				_c pushBack format["%1NORTH_FIN_41_T28e", _sid];
 				_c pushBack format["%1NORTH_FIN_T34_76_1941", _sid];
+			};
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_KV1_1942", _sid];
+				_c pushBack format["%1NORTH_FIN_W_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_W_STUG_3_G", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_KV1_1942", _sid];
+				_c pushBack format["%1NORTH_FIN_S_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_S_STUG_3_G", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_KV1_1942", _sid];
+				_c pushBack format["%1NORTH_FIN_STU40G", _sid];
+				_c pushBack format["%1NORTH_FIN_STUG_3_G", _sid];
+			};
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {
+	} else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_W_KV1E_1940", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_S_KV1E_1940", _sid];
+			};
+			default {
+				_c pushBack format["%1NORTH_FIN_T34_85", _sid];
+				_c pushBack format["%1NORTH_FIN_KV1E_1940", _sid];
 			};
 		};
 	};
@@ -617,14 +712,20 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Repair Factory.
 _c = [];
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_OpelBlitz_Parm_w", _sid];							//repairtruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];				//repairtruck
 	};
-	if(CTI_IFA3_NEW >= 0) then {
-		_c pushBack format["CTI_Salvager_%1", _side];
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];				//repairtruck
+	};
+	default {
+		_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];					//repairtruck
 	};
 };
+
+_c pushBack format["CTI_Salvager_%1", _side];
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -640,10 +741,18 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _c = [];
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Ammo_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_OpelBlitz_Ammo_w", _sid];				//ammotruck
-		_c pushBack format["%1LIB_OpelBlitz_Fuel_w", _sid];						//fueltruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];			//ammotruck
+		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];			//fueltruck
+	};
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];			//ammotruck
+		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];			//fueltruck
+	};
+	default {
+		_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];				//ammotruck
+		_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];				//fueltruck
 	};
 };
 
@@ -656,7 +765,6 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["units in factory %1: [%2] ", CTI_AMMO, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AMMO], _c];
-
 
 //***************************************************************************************************************************************
 //														Town Depot																		*

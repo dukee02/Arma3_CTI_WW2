@@ -97,7 +97,6 @@ CTI_CO_FNC_GetCalculatedItemPrize = compileFinal preprocessFileLineNumbers "Comm
 CTI_CO_FNC_ScanSkyForPlanes = compileFinal preprocessFileLineNumbers "Common\Functions\Common_ScanSkyForPlanes.sqf";
 CTI_CO_FNC_DropParatroopers = compileFinal preprocessFileLineNumbers "Common\Functions\Common_DropParatroopers.sqf";
 WW2_PARADROP = compile preprocessFileLineNumbers "WW2\Core_f\WW2_System_Curator_F\waypoints\fn_wpParadrop.sqf";
-CTI_CO_FNC_SetFOBheader = compileFinal preprocessFileLineNumbers "Common\Functions\Common_SetFOBheader.sqf";
 
 CTI_CO_CustomIterator = 0;
 
@@ -406,6 +405,8 @@ switch(CTI_GUER_TOWNS) do {
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_small_mods.sqf";
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_small_mods.sqf";
 } forEach [west,east,resistance];
+
+call compile preprocessFileLineNumbers "Common\Config\Pylons\pylons.sqf";
 
 (west) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";
 (east) call compile preprocessFileLineNumbers "Common\Config\Upgrades\Upgrades.sqf";

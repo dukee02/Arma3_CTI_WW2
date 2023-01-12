@@ -22,37 +22,36 @@ _f = [];
 _m = [];
 _c = [];
 _s = [];
-/*
+
 //--- Commander will assign those orders based on the force and the probability [type, strenght, {probability}, {Max per side}]
-missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_INFANTRY", _side], [["Infantry", 2, 40]]];
+/*missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_INFANTRY", _side], [["Infantry", 2, 40]]];
 missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_LIGHT", _side], [["Motorized", 2, 60]]];
-missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_HEAVY", _side], [["AntiAir", 1, 20], ["ArmoredMBT", 2, 80]]];
+missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_HEAVY", _side], [["AntiAir", 1, 20], ["Armored", 2, 80]]];
 missionNamespace setVariable [format["CTI_SQUADS_%1_CATEGORY_AIR", _side], [["Air", 1, 40]]];
 
-missionNamespace setVariable [format["CTI_SQUADS_%1_TOWN_DEFENSE", _side], ["Infantry", "Motorized"]];
+missionNamespace setVariable [format["CTI_SQUADS_%1_TOWN_DEFENSE", _side], ["Infantry", "Motorized"]];*/
 
-//--- Those are used by the commander to determine the kind of unit an AI team has
-missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_INFANTRY", _side], ["Infantry"]];
-missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_LIGHT", _side], ["Motorized"]];
-missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_HEAVY", _side], ["AntiAir", "ArmoredMBT"]];
-missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], ["Air"]]; 
-*/
+//***************************************************************************************************************************************
+//														Infantry Troops																	*
+//***************************************************************************************************************************************
 //Infantry setup for the AI groups
 /*units_infantry = [];
-units_to_add = [];
+inf_to_add = [];
+infantry_auto = [];
+kind_infantry = [];
 
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
-	units_to_add = [format["%1LIB_UK_Rifleman", _sid], 1, 60];
-	units_to_add pushBack [format["%1LIB_UK_Medic", _sid], 1, 20];
+	inf_to_add = [format["%1LIB_UK_Rifleman", _sid], 1, 60];
+	inf_to_add pushBack [format["%1LIB_UK_Medic", _sid], 1, 20];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		units_to_add = [format["%1LIB_UK_Rifleman_w", _sid], 1, 60];	
-		units_to_add pushBack [format["%1LIB_UK_Medic_w", _sid], 1, 20];
+		inf_to_add = [format["%1LIB_UK_Rifleman_w", _sid], 1, 60];	
+		inf_to_add pushBack [format["%1LIB_UK_Medic_w", _sid], 1, 20];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [format["%1LIB_UK_DR_Rifleman", _sid], 1, 60];	
-		units_to_add pushBack [format["%1LIB_UK_DR_Medic", _sid], 1, 20];
+		inf_to_add = [format["%1LIB_UK_DR_Rifleman", _sid], 1, 60];	
+		inf_to_add pushBack [format["%1LIB_UK_DR_Medic", _sid], 1, 20];
 	};
-	units_infantry pushBack units_to_add;
+	units_infantry pushBack inf_to_add;
 };
 
 _v pushBack "Infantry";
@@ -68,23 +67,25 @@ _s pushBack [];
 //														Motorized																		*
 //***************************************************************************************************************************************
 //Wheeled setup for the AI groups
-/*units_wheeled = [];
-units_to_add = [];
+/*
+units_wheeled = [];
+mot_to_add = [];
+wheeled_auto = [];
+kind_wheeled = [];
 
 if(CTI_ECONOMY_LEVEL_WHEELED < 0) then {
 	units_wheeled = units_infantry;
 };
 if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	units_to_add = [format["%1LIB_UK_Willys_MB_Hood", _sid], 1, 20];
+	mot_to_add = [format["%1LIB_UK_Willys_MB_Hood", _sid], 1, 20];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		units_to_add = [format["%1LIB_UK_Willys_MB_Hood_w", _sid], 1, 20];				
+		mot_to_add = [format["%1LIB_UK_Willys_MB_Hood_w", _sid], 1, 20];				
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		units_to_add = [format["%1LIB_UK_DR_Willys_MB_Hood", _sid], 1, 20];		
+		mot_to_add = [format["%1LIB_UK_DR_Willys_MB_Hood", _sid], 1, 20];		
 	};
-	units_wheeled pushBack units_to_add;
+	units_wheeled pushBack mot_to_add;
 };
-
 
 _v pushBack "Motorized";
 _t pushBack "Motorized";
@@ -99,7 +100,9 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Tracked setup for the AI groups
 units_tracked = [];
-units_to_add = [];
+arm_to_add = [];
+tracked_auto = [];
+kind_tracked = [];
 
 //if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
@@ -113,26 +116,44 @@ if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-			units_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
-			units_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
-			units_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
+			arm_to_add = [[format["%1SOV_BT_BT7A", _sid], 1, 40]];
+			arm_to_add pushBack [format["%1SOV_BT_BT7_M1937", _sid], 1, 40];
+			arm_to_add pushBack [format["%1SOV_BT_BT7TU_M1937", _sid], 1, 40];
 			
-			units_tracked pushBack units_to_add;
+			units_tracked pushBack arm_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {tracked_auto append arm_to_add;};
 		};
+
+		_v pushBack format["ArmoredT%1", _level];
+		_t pushBack "BT7";
+		_p pushBack arm_to_add;
+		_f pushBack CTI_HEAVY;
+		_m pushBack 500;
+		_c pushBack "Armored";
+		_s pushBack [];
+		kind_tracked pushBack format["ArmoredT%1", _level];
+
+		_v pushBack "Armored";
+		_t pushBack "Tanks (Auto)";
+		_p pushBack tracked_auto;
+		_f pushBack CTI_HEAVY;
+		_m pushBack 500;
+		_c pushBack "Armored";
+		_s pushBack [];
+		kind_tracked pushBack "Armored";
+
+		_v pushBack "ArmoredAll";
+		_t pushBack "Tanks T0-Max";
+		_p pushBack units_tracked;
+		_f pushBack CTI_HEAVY;
+		_m pushBack 500;
+		_c pushBack "Armored";
+		_s pushBack [];
+		kind_tracked pushBack "ArmoredAll";
 	};
 };
 //if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 //};
-
-if(count units_tracked > 0) then {
-	_v pushBack "ArmoredMBT";
-	_t pushBack "Tanks";
-	_p pushBack units_tracked;
-	_f pushBack CTI_HEAVY;
-	_m pushBack 500;
-	_c pushBack "Armored";
-	_s pushBack [];
-};
 
 //***************************************************************************************************************************************
 //														AntiAir																			*
@@ -172,7 +193,9 @@ _s pushBack [];
 //***************************************************************************************************************************************
 //Air setup for the AI groups
 units_air = [];
-units_to_add = [];
+air_to_add = [];
+air_auto = [];
+kind_air = [];
 
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
@@ -182,25 +205,73 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add = [[format["%1sab_gladiator", _sid], 1, 40]];
+			air_to_add = [[format["%1sab_gladiator", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Gladiator [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_ca12bo", _sid], 1, 40];
+			air_to_add = [[format["%1sab_ca12bo", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Ca12bo [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_mb5", _sid], 1, 40];
+			air_to_add = [[format["%1sab_mb5", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "MB5 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_meteor", _sid], 1, 40];
+			air_to_add = [[format["%1sab_meteor", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Meteor [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
@@ -210,25 +281,73 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_hurricane", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_hurricane", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Hurricane [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_hurricane_trop", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_hurricane_trop", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Hurricane trop [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_hurricane_2", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_hurricane_2", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Hurricane 2 [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_dh98", _sid], 1, 20];
+			air_to_add = [[format["%1sab_fl_dh98", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "DH98 [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
@@ -238,11 +357,22 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_halifax", _sid], 1, 20];
+			air_to_add = [[format["%1sab_sw_halifax", _sid], 1, 40]];
+
+				units_air append air_to_add;
+				air_auto append air_to_add;
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "Halifax [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 		};
 	};
-	units_air append units_to_add;
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
@@ -252,47 +382,119 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add = [[format["%1sab_p26", _sid], 1, 30]];
-			units_to_add pushBack [format["%1sab_ryanpt", _sid], 1, 30];
+			air_to_add = [[format["%1sab_p26", _sid], 1, 30]];
+			air_to_add pushBack [format["%1sab_ryanpt", _sid], 1, 30];
+
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P26 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_texan", _sid], 1, 30];
-			units_to_add pushBack [format["%1sab_dauntless", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_avenger", _sid], 1, 30];
+			air_to_add = [[format["%1sab_texan", _sid], 1, 30]];
+			air_to_add pushBack [format["%1sab_dauntless", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_avenger", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Dauntless [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_p38", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_corsair", _sid], 1, 40];
+			air_to_add = [[format["%1sab_p38", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_corsair", _sid], 1, 40];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P38 + F4U [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_mustang", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_p51b", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_a26", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_b25", _sid], 1, 20];
+			air_to_add = [[format["%1sab_mustang", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_p51b", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_a26", _sid], 1, 20];
+			air_to_add pushBack [format["%1sab_b25", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P51b [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_tigercat", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_f6f", _sid], 1, 30];
-			units_to_add pushBack [format["%1sab_b24", _sid], 1, 20];
+			air_to_add = [[format["%1sab_tigercat", _sid], 1, 20]];
+			air_to_add pushBack [format["%1sab_f6f", _sid], 1, 30];
+			air_to_add pushBack [format["%1sab_b24", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "F6F [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_p61", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_b17", _sid], 1, 20];
+			air_to_add = [[format["%1sab_p61", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_b17", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P61 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
@@ -302,20 +504,56 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_f4f", _sid], 1, 30];
-			units_to_add pushBack [format["%1sab_fl_sbd", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_f4f", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_fl_sbd", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "SBD [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_f4u", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_f4u", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "F4U [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_p51d", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_p51d", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P51d [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
@@ -325,30 +563,77 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_tbf", _sid], 1, 30];
+				air_to_add = [[format["%1sab_sw_tbf", _sid], 1, 30]];
+				
+				units_air append air_to_add;
+				air_auto append air_to_add;
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "TBF [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_p40", _sid], 1, 30];
-				units_to_add pushBack [format["%1sab_sw_p38", _sid], 1, 30];
+				air_to_add = [[format["%1sab_sw_p40", _sid], 1, 30]];
+				air_to_add pushBack [format["%1sab_sw_p38", _sid], 1, 30];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "P38 + P40 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_a26", _sid], 1, 20];
+				air_to_add = [[format["%1sab_sw_a26", _sid], 1, 20]];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "A26 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_b17", _sid], 1, 10];
+				air_to_add = [[format["%1sab_sw_b17", _sid], 1, 10]];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "B17 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 		};
 	};
-	units_air append units_to_add;
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
@@ -358,32 +643,92 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add = [[format["%1sab_i16", _sid], 1, 30]];
+			air_to_add = [[format["%1sab_i16", _sid], 1, 30]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "I16 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_la5", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_la5_2", _sid], 1, 40];
+			air_to_add = [[format["%1sab_la5", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_la5_2", _sid], 1, 40];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "La5 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_p39", _sid], 1, 40];
+			air_to_add = [[format["%1sab_p39", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "P39 (Sov) [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_tusb2", _sid], 1, 20];
+			air_to_add = [[format["%1sab_tusb2", _sid], 1, 20]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Tusb2 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_il2", _sid], 1, 30];
+			air_to_add = [[format["%1sab_il2", _sid], 1, 30]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "IL2 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
@@ -393,7 +738,19 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_yak3", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_yak3", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Yak3 [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
@@ -403,18 +760,41 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_i16", _sid], 1, 40];
+				air_to_add = [[format["%1sab_sw_i16", _sid], 1, 40]];
+				
+				units_air append air_to_add;
+				air_auto append air_to_add;
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "I16 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 		
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_il2", _sid], 1, 30];
-				units_to_add pushBack [format["%1sab_sw_il2_2", _sid], 1, 30];
+				air_to_add = [[format["%1sab_sw_il2", _sid], 1, 30]];
+				air_to_add pushBack [format["%1sab_sw_il2_2", _sid], 1, 30];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "IL2 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 		};
 	};
-	units_air append units_to_add;
 };
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
@@ -424,52 +804,124 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add = [[format["%1sab_avia", _sid], 1, 40]];
-			units_to_add pushBack [format["%1sab_bu131", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_avia_2", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_w34", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_w34f", _sid], 1, 20];
+			air_to_add = [[format["%1sab_avia", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_bu131", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_avia_2", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_w34", _sid], 1, 20];
+			air_to_add pushBack [format["%1sab_w34f", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Avia [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_bf109", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_ju87", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_bf110", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_bf110_2", _sid], 1, 40];
+			air_to_add = [[format["%1sab_bf109", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_ju87", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_bf110", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_bf110_2", _sid], 1, 40];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Bf 109 + Bf 110 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_ju88", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_ju88_2", _sid], 1, 20];
+			air_to_add = [[format["%1sab_ju88", _sid], 1, 20]];
+			air_to_add pushBack [format["%1sab_ju88_2", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Ju88 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fw190", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_fw190_2", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_he111", _sid], 1, 20];
+			air_to_add = [[format["%1sab_fw190", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_fw190_2", _sid], 1, 40];
+			air_to_add pushBack [format["%1sab_he111", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Fw 190 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_bv141", _sid], 1, 10];
-			units_to_add pushBack [format["%1sab_do335", _sid], 1, 10];
-			units_to_add pushBack [format["%1sab_ta152c", _sid], 1, 10];
+			air_to_add = [[format["%1sab_bv141", _sid], 1, 10]];
+			air_to_add pushBack [format["%1sab_do335", _sid], 1, 10];
+			air_to_add pushBack [format["%1sab_ta152c", _sid], 1, 10];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Do 335 + Ta 152 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_he162", _sid], 1, 10];
-			units_to_add pushBack [format["%1sab_hix", _sid], 1, 10];
-			units_to_add pushBack [format["%1sab_me262", _sid], 1, 20];
-			units_to_add pushBack [format["%1sab_me262_2", _sid], 1, 20];
+			air_to_add = [[format["%1sab_he162", _sid], 1, 10]];
+			air_to_add pushBack [format["%1sab_hix", _sid], 1, 10];
+			air_to_add pushBack [format["%1sab_me262", _sid], 1, 20];
+			air_to_add pushBack [format["%1sab_me262_2", _sid], 1, 20];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Me 262 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
@@ -479,33 +931,93 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_bf109e", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_bf109e", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Bf 109e [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_bf109f", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_fl_ju88a", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_bf109f", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_fl_ju88a", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Bf 109f [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_bf109g", _sid], 1, 40];
+			air_to_add = [[format["%1sab_fl_bf109g", _sid], 1, 40]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Bf 109g [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_bf109k", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_fl_fw190a", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_bf109k", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_fl_fw190a", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Bf 109k + Fw 190 [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_he162", _sid], 1, 30];
+			air_to_add = [[format["%1sab_fl_he162", _sid], 1, 30]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "He 162 [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
@@ -515,32 +1027,79 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_bf110", _sid], 1, 20];
-				units_to_add pushBack [format["%1sab_sw_bf110_2", _sid], 1, 20];
-				units_to_add pushBack [format["%1sab_sw_ju87", _sid], 1, 20];
+				air_to_add = [[format["%1sab_sw_bf110", _sid], 1, 20]];
+				air_to_add pushBack [format["%1sab_sw_bf110_2", _sid], 1, 20];
+				air_to_add pushBack [format["%1sab_sw_ju87", _sid], 1, 20];
+				
+				units_air append air_to_add;
+				air_auto append air_to_add;
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "Bf 110 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_ju87_2", _sid], 1, 20];
+				air_to_add = [[format["%1sab_sw_ju87_2", _sid], 1, 20]];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "Ju 87 AT [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_do335", _sid], 1, 10];
-				units_to_add pushBack [format["%1sab_sw_he177", _sid], 1, 10];
+				air_to_add = [[format["%1sab_sw_do335", _sid], 1, 10]];
+				air_to_add pushBack [format["%1sab_sw_he177", _sid], 1, 10];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "Do 335 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 			
 			_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 			if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 			if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-				units_to_add pushBack [format["%1sab_sw_ar234", _sid], 1, 10];
+				air_to_add = [[format["%1sab_sw_ar234", _sid], 1, 10]];
+				
+				units_air append air_to_add;
+				if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+				_v pushBack format["AirT%1", _level];
+				_t pushBack "AR 234 [SAB rl]";
+				_p pushBack air_to_add;
+				_f pushBack CTI_AIR;
+				_m pushBack 1000;
+				_c pushBack "Air";
+				_s pushBack [];
+				kind_air pushBack format["AirT%1", _level];
 			};
 		};
 	};
-	units_air append units_to_add;
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
@@ -550,34 +1109,94 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add = [[format["%1sab_m6a", _sid], 1, 30]];
-			units_to_add pushBack [format["%1sab_m6av2", _sid], 1, 30];
+			air_to_add = [[format["%1sab_m6a", _sid], 1, 30]];
+			air_to_add pushBack [format["%1sab_m6av2", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "M6a [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_a5m", _sid], 1, 30];
+			air_to_add = [[format["%1sab_a5m", _sid], 1, 30]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "A5M [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_aichival", _sid], 1, 30];
-			units_to_add pushBack [format["%1sab_kate", _sid], 1, 30];
+			air_to_add = [[format["%1sab_aichival", _sid], 1, 30]];
+			air_to_add pushBack [format["%1sab_kate", _sid], 1, 30];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Aichval + Kate [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_ki61", _sid], 1, 40];
-			units_to_add pushBack [format["%1sab_zero", _sid], 1, 60];
+			air_to_add = [[format["%1sab_ki61", _sid], 1, 40]];
+			air_to_add pushBack [format["%1sab_zero", _sid], 1, 60];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET == _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Ki 61 + Zero [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 		
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_ki100", _sid], 1, 20];
+			air_to_add = [[format["%1sab_ki100", _sid], 1, 20]];
+			
+			units_air append air_to_add;
+			if(CTI_FACTORY_LEVEL_PRESET >= _level) then {air_auto append air_to_add;};
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "Ki100 [SAB]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
@@ -587,23 +1206,86 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 		if(CTI_ECONOMY_LEVEL_AIR >= _level) then {
-			units_to_add pushBack [format["%1sab_fl_a6m", _sid], 1, 60];
+			air_to_add = [[format["%1sab_fl_a6m", _sid], 1, 60]];
+			
+			units_air append air_to_add;
+			air_auto append air_to_add;
+
+			_v pushBack format["AirT%1", _level];
+			_t pushBack "A6M [SAB fl]";
+			_p pushBack air_to_add;
+			_f pushBack CTI_AIR;
+			_m pushBack 1000;
+			_c pushBack "Air";
+			_s pushBack [];
+			kind_air pushBack format["AirT%1", _level];
 		};
 	};
-	units_air append units_to_add;
 };
 
-if(count units_air > 0) then {
+if(count air_auto > 0) then {
 	_v pushBack "Air";
-	_t pushBack "Air";
+	_t pushBack "Air (Auto)";
+	_p pushBack air_auto;
+	_f pushBack CTI_AIR;
+	_m pushBack 1000;
+	_c pushBack "Air";
+	_s pushBack [];
+	kind_air pushBack "Air";
+};
+if(count units_air > 0) then {
+	_v pushBack "AirAll";
+	_t pushBack "Air T0-Max";
 	_p pushBack units_air;
 	_f pushBack CTI_AIR;
 	_m pushBack 1000;
 	_c pushBack "Air";
 	_s pushBack [];
+	kind_air pushBack "AirAll";
 };
 
-
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\squads\squad_small_mods.sqf", format["generated squads: [%1] ", count _v]] call CTI_CO_FNC_Log};
+
+//--- Those are used by the commander to determine the kind of unit an AI team has
+/*if(count kind_infantry > 0) then {
+	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_INFANTRY", _side]}) then {
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_INFANTRY", _side], kind_infantry];
+	} else {
+		{
+			kind_infantry pushBackUnique _x;
+		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_INFANTRY", _side]);
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_INFANTRY", _side], kind_infantry];
+	};
+};
+if(count kind_wheeled > 0) then {
+	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_LIGHT", _side]}) then {
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_LIGHT", _side], kind_wheeled];
+	} else {
+		{
+			kind_wheeled pushBackUnique _x;
+		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_LIGHT", _side]);
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_LIGHT", _side], kind_wheeled];
+	};
+};*/
+if(count kind_tracked > 0) then {
+	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_HEAVY", _side]}) then {
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_HEAVY", _side], kind_tracked];
+	} else {
+		{
+			kind_tracked pushBackUnique _x;
+		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_HEAVY", _side]);
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_HEAVY", _side], kind_tracked];
+	};
+};
+if(count kind_air > 0) then {
+	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_AIR", _side]}) then {
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], kind_air];
+	} else {
+		{
+			kind_air pushBackUnique _x;
+		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_AIR", _side]);
+		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_AIR", _side], kind_air];
+	};
+};
 
 [_side, _v, _t, _p, _f, _m, _c, _s] call compile preprocessFileLineNumbers "Common\Config\Squads\Squads_Set.sqf";

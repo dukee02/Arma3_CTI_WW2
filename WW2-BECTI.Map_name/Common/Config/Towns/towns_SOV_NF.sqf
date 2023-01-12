@@ -150,11 +150,29 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
-				WHEELED_LIGHT = [[format["%1NORTH_SOV_W_39_BA10", _sid],1]];
+				WHEELED_LIGHT = [[format["%NORTH_SOV_W_R75", _sid],1]];
+				WHEELED_HEAVY = [[format["%NORTH_SOV_W_R75", _sid],1]];
+			};
+			default {
+				WHEELED_LIGHT = [[format["%NORTH_SOV_R75", _sid],1]];
+				WHEELED_HEAVY = [[format["%NORTH_SOV_R75", _sid],1]];
+			};
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {}
+	else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				WHEELED_LIGHT = [[format["%1NORTH_SOV_W_39_BA3", _sid],1],[format["%1NORTH_SOV_W_39_BA6", _sid],1]];
 				WHEELED_HEAVY = [[format["%1NORTH_SOV_W_39_BA10", _sid],1]];
 			};
 			default {
-				WHEELED_LIGHT = [[format["%1NORTH_SOV_41_BA10", _sid],1]];
+				WHEELED_LIGHT = [[format["%1NORTH_SOV_41_BA3", _sid],1],[format["%1NORTH_SOV_41_BA6", _sid],1]];
 				WHEELED_HEAVY = [[format["%1NORTH_SOV_41_BA10", _sid],1]];
 			};
 		};
@@ -242,10 +260,42 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
-				TRACKED_HEAVY append [[format["%1NORTH_SOV_W_41_T28e", _sid],1],[format["%1NORTH_SOV_W_41_T34_76_1941", _sid],1]];
+			TRACKED_LIGHT append [[format["%1NORTH_SOV_W_T60", _sid],1],[format["%1NORTH_SOV_W_T70", _sid],1]];
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_W_41_T28e", _sid],1],[format["%1NORTH_SOV_W_41_T34_76_1941", _sid],1]];
 		};
 		default {
-				TRACKED_HEAVY append [[format["%1NORTH_SOV_41_T28e", _sid],1],[format["%1NORTH_SOV_41_T34_76_1941", _sid],1]];
+			TRACKED_LIGHT append [[format["%1NORTH_SOV_T60", _sid],1],[format["%1NORTH_SOV_T70", _sid],1]];
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_41_T28e", _sid],1],[format["%1NORTH_SOV_41_T34_76_1941", _sid],1]];
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_MEDIUM = TRACKED_HEAVY;
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_KV1_1940", _sid],1],[format["%1NORTH_SOV_KV1_1942", _sid],1]];
+		};
+		default {
+			TRACKED_MEDIUM = TRACKED_HEAVY;
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_W_KV1_1940", _sid],1],[format["%1NORTH_SOV_W_KV1_1942", _sid],1]];
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			TRACKED_MEDIUM append [[format["%1NORTH_SOV_W_T34_85", _sid],1]];
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_KV1E_1940", _sid],1]];
+		};
+		default {
+			TRACKED_MEDIUM append [[format["%1NORTH_SOV_T34_85", _sid],1]];
+			TRACKED_HEAVY append [[format["%1NORTH_SOV_W_KV1E_1940", _sid],1]];
 		};
 	};
 };

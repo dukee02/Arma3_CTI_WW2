@@ -1,10 +1,9 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 
 _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
-_tech_level_no_upgrade_inv = 1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -20,14 +19,10 @@ if(_side == west) then {
 };
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
-
 //We get the upgrade setup at this point, if this is null, something went wrong and we set it to the default.
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [0,0,0,0,0,1,1,1,1,1,3,4,0];  
+	_upgrade_levels = [0,0,0,0,0,1,-1,-1,-1,1,3,4,0,-1];  
 };
 
 _c = []; //--- Classname
@@ -660,7 +655,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_d pushBack 0;
 };
 
-if(CTI_IFA3_NEW >= 0) then {
+//if(CTI_IFA3_NEW >= 0) then {
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvager Truck';
@@ -680,7 +675,7 @@ if(CTI_IFA3_NEW >= 0) then {
 	_f pushBack CTI_FACTORY_REPAIR;
 	_s pushBack [format["%1LIB_US_GMC_Open", _sid],"salvager-independent"];
 	_d pushBack 0;
-};
+//};
 
 //***************************************************************************************************************************************
 //														Ammo Factory																	*

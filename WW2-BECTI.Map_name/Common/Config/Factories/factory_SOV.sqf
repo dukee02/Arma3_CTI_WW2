@@ -23,8 +23,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\fa
 
 //check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
 _priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-//if (isNil "_priorUnits" || _ai == 1) then { 
-if ((CTI_IFA3_NEW >= 0 && CTI_CSA_ADDON < 2 && CTI_FOW_ADDON < 2) || _ai == 1) then {
+if (isNil "_priorUnits" || _ai == 1) then {
 	//We setup the standard units before the camo check to get secure
 	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1LIB_SOV_captain_summer", _sid]];
 	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1LIB_SOV_unequip", _sid]];
@@ -255,12 +254,10 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1LIB_SOV_M3_Halftrack_w", _sid];
 		_c pushBack format["%1LIB_Scout_M3_FFV_w", _sid];
 		_c pushBack format["%1LIB_Scout_m3_w", _sid];
 		_c pushBack format["%1LIB_Willys_MB_Ambulance_w", _sid];	//medic
 	};
-	_c pushBack format["%1LIB_SOV_M3_Halftrack", _sid];
 	_c pushBack format["%1LIB_Scout_M3", _sid];
 	_c pushBack format["%1LIB_Scout_M3_FFV", _sid];
 	_c pushBack format["%1LIB_Willys_MB_Ambulance", _sid];			//medic
@@ -272,9 +269,11 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_SdKfz251_captured_w", _sid];
 		_c pushBack format["%1LIB_SdKfz251_captured_FFV_w", _sid];
+		_c pushBack format["%1LIB_SOV_M3_Halftrack_w", _sid];
 	};
 	_c pushBack format["%1LIB_SdKfz251_captured", _sid];
 	_c pushBack format["%1LIB_SdKfz251_captured_FFV", _sid];
+	_c pushBack format["%1LIB_SOV_M3_Halftrack", _sid];
 	//_c pushBack format["%1LIB_US6_Tent", _sid];
 	//_c pushBack format["%1LIB_US6_Tent_Cargo", _sid];
 	//_c pushBack format["%1LIB_US6_Open_Cargo", _sid];
@@ -443,9 +442,9 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	};
 	_c pushBack format["%1LIB_Zis6_Parm", _sid];						//repairtruck
 };
-if(CTI_IFA3_NEW >= 0) then {
+//if(CTI_IFA3_NEW >= 0) then {
 	_c pushBack format["CTI_Salvager_%1", _side];
-};
+//};
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 

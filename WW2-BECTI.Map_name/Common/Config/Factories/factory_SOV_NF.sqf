@@ -316,11 +316,11 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 _c = [];
-//_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
-//_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
+_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_NF_ID] call CTI_CO_FNC_GetTechmatrix;
 
-//_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-//if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_SdKfz_7", _sid])) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_SdKfz_7_w", _sid];						
@@ -330,15 +330,34 @@ if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_SdKfz_7", _sid])) then 
 	};
 	_c pushBack format["%1LIB_SdKfz_7", _sid];
 };
-
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_STREAM_BLOCK > 0) then {}
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
+				_c pushBack format["%NORTH_SOV_W_R75", _sid];
+			};
+			default {
+				_c pushBack format["%NORTH_SOV_R75", _sid];
+			};
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+	if(CTI_STREAM_BLOCK > 0) then {}
+	else {
+		switch(CTI_CAMO_ACTIVATION) do {
+			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_SOV_W_39_BA3", _sid];
+				_c pushBack format["%1NORTH_SOV_W_39_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_W_39_BA10", _sid];
 			};
 			default {
+				_c pushBack format["%1NORTH_SOV_41_BA3", _sid];
+				_c pushBack format["%1NORTH_SOV_41_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];
 			};
 		};
@@ -438,13 +457,52 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
-		case 1: {//Winter camo active	
+		case 1: {//Winter camo active
+			_c pushBack format["%1NORTH_SOV_W_T60", _sid];
+			_c pushBack format["%1NORTH_SOV_W_T70", _sid];
 			_c pushBack format["%1NORTH_SOV_W_41_T28e", _sid];	
 			_c pushBack format["%1NORTH_SOV_W_41_T34_76_1941", _sid];
 		};
 		default {
+			_c pushBack format["%1NORTH_SOV_T60", _sid];
+			_c pushBack format["%1NORTH_SOV_T70", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T28e", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T34_76_1941", _sid];	
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			_c pushBack format["%1NORTH_SOV_KV1_1940", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1_1941", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1_1942", _sid];
+		};
+		default {
+			_c pushBack format["%1NORTH_SOV_W_KV1_1940", _sid];
+			_c pushBack format["%1NORTH_SOV_W_KV1_1941", _sid];
+			_c pushBack format["%1NORTH_SOV_W_KV1_1942", _sid];
+		};
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	switch(CTI_CAMO_ACTIVATION) do {
+		case 1: {//Winter camo active
+			_c pushBack format["%1NORTH_SOV_W_T34_85", _sid];
+			_c pushBack format["%1NORTH_SOV_W_T34_85_45", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1E_1940", _sid];
+		};
+		default {
+			_c pushBack format["%1NORTH_SOV_T34_85", _sid];
+			_c pushBack format["%1NORTH_SOV_T34_85_45", _sid];	
+			_c pushBack format["%1NORTH_SOV_T34_85_45_Berlin", _sid];
+			_c pushBack format["%1NORTH_SOV_W_KV1E_1940", _sid];
 		};
 	};
 };
