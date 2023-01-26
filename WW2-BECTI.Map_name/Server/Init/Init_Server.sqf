@@ -49,6 +49,7 @@ CTI_SE_FNC_LOAD = compileFinal preprocessFileLineNumbers "Server\Functions\Serve
 CTI_SE_FNC_HandleSalvagerSpecial = compileFinal preprocessFileLineNumbers "Server\Functions\Server_HandleSalvagerSpecial.sqf";
 CTI_SE_FNC_PresetUpgrades = compileFinal preprocessFileLineNumbers "Server\Functions\Server_PresetUpgrades.sqf";
 CTI_SE_FNC_UpgradeSquads = compileFinal preprocessFileLineNumbers "Server\Functions\Server_UpgradeSquads.sqf";
+CTI_SE_FNC_DisbandTeam = compileFinal preprocessFileLineNumbers "Server\Functions\Server_DisbandTeam.sqf";
 
 call compile preprocessFileLineNumbers "Server\Init\Init_PublicVariables.sqf";
 call compile preprocessFileLineNumbers "Server\Functions\FSM\Functions_FSM_RepairTruck.sqf";
@@ -199,15 +200,16 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 	
 	//--- Handle the Team
 	_teams = [];
-	_totalTeams = count synchronizedObjects _logic;
+	//_totalTeams = count synchronizedObjects _logic;
+	_totalTeams = missionNamespace getVariable "CTI_AI_TEAMS_ENABLED";
 	_processed = 0;
 		
-	switch (missionNamespace getVariable "CTI_AI_TEAMS_ENABLED") do {
+	/*switch (missionNamespace getVariable "CTI_AI_TEAMS_ENABLED") do {
 		case 1: {_totalTeams = round(_totalTeams * 0.25)};
 		case 2: {_totalTeams = round(_totalTeams * 0.5)};
 		case 3: {_totalTeams = round(_totalTeams * 0.75)};
 		default {};
-	};
+	};*/
 
 	{
 		if !(isNil '_x') then {
@@ -220,18 +222,19 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 				
 				[leader _group, missionNamespace getVariable format ["CTI_AI_%1_DEFAULT_GEAR", _side]] call CTI_CO_FNC_EquipUnit;
 				
-				//if coop is enabled, th AI only for enemy side!
-				_ai_teams_enabled = true;
-				if((CTI_TOWNS_STARTING_MODE >= 4 && CTI_TOWNS_STARTING_MODE <= 6) && _side == east) then {
-					_ai_teams_enabled = false;
-				};
-				if((CTI_TOWNS_STARTING_MODE >= 7 && CTI_TOWNS_STARTING_MODE <= 9) && _side == west) then {
-					_ai_teams_enabled = false;
-				};
-				
-				if (!isPlayer leader _group && _processed < _totalTeams && _ai_teams_enabled == true) then {
-					_processed = _processed + 1;
-					if (missionNamespace getVariable "CTI_AI_TEAMS_ENABLED" > 0) then { //--- Wait for the player to be "ready"
+				if (missionNamespace getVariable "CTI_AI_TEAMS_ENABLED" > 0) then { //--- Wait for the player to be "ready"
+					//if coop is enabled, the AI only for enemy side!
+					_ai_teams_enabled = true;
+					if((CTI_TOWNS_STARTING_MODE >= 4 && CTI_TOWNS_STARTING_MODE <= 6) && _side == east) then {
+						_ai_teams_enabled = false;
+					};
+					if((CTI_TOWNS_STARTING_MODE >= 7 && CTI_TOWNS_STARTING_MODE <= 9) && _side == west) then {
+						_ai_teams_enabled = false;
+					};
+					
+					if (!isPlayer leader _group && _processed < _totalTeams && _ai_teams_enabled == true) then {
+						_processed = _processed + 1;
+						//if (missionNamespace getVariable "CTI_AI_TEAMS_ENABLED" > 0) then { //--- Wait for the player to be "ready"
 						_group setVariable ["cti_ai_active", true, true];
 						(leader _group) setPos ([_startPos, 8, 30] call CTI_CO_FNC_GetRandomPosition);
 						leader _group addEventHandler ["killed", format["[_this select 0, _this select 1, %1] spawn CTI_CO_FNC_OnUnitKilled", _sideID]]; //--- Called on destruction
@@ -250,6 +253,7 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 								[_group, _side] execFSM "Server\FSM\update_ai.fsm";
 							};
 						};
+						//};
 					};
 				};
 			};
@@ -339,35 +343,36 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 	missionNamespace setVariable ["CTI_Server_Loaded", true, true];
 	0 spawn {
 		while {!CTi_GameOver} do {
-			sleep (CTI_SAVE_PERIODE-60);
+			sleep CTI_SAVE_PERIODE;
 			["towns"] call CTI_SE_FNC_SAVE;
 			["hq"] call CTI_SE_FNC_SAVE;
 			["upgrades"] call CTI_SE_FNC_SAVE;
 			["buildings"] call CTI_SE_FNC_SAVE;
 			["funds"] call CTI_SE_FNC_SAVE;
-			
+
+			//Check if the server runs smooth, if FPS drops we disband all AI automatically
+			if(diag_fps < 15) then {
+				if(CTI_Log_Level >= CTI_Log_Error) then {["Error", "FILE: Server\Init\Init_Server.sqf", Format ["Server fps low after [%1] - AI teams disbanded", time]] Call CTI_CO_FNC_Log};
+				[grpNull, 2] call CTI_SE_FNC_DisbandTeam;
+				if(CTI_LOG_INFO == 0) then {CTI_LOG_INFO = 1};
+			};
+		
 			if(CTI_LOG_INFO > 0) then {
 				//count units
 				_blue = west countSide allUnits;
-				sleep 10;
 				_red = east countSide allUnits;
-				sleep 10;
 				_green = independent countSide allUnits;
-				sleep 10;
 				_blue_g = -1;
 				_red_g = -1;
 				_green_g = -1;
 				if(CTI_LOG_INFO > 1) then {
 					//count groups
 					_blue_g = west countSide allGroups;
-					sleep 10;
 					_red_g = east countSide allGroups;
-					sleep 10;
 					_green_g = independent countSide allGroups;
-					sleep 10;
 				};
 				
-				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic test <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
 			};
 		};
 	};
