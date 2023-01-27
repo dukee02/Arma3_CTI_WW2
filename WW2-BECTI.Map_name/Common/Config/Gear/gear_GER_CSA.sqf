@@ -138,13 +138,6 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 
 //-------------Rifles----------------------------------------------
 _tech_level = 0;
-_i pushBack "CSA38_M1895k";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-_i pushBack "csa38_8_00_5xMannlicher";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(792*57)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "CSA38_kar98k";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);

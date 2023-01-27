@@ -22,9 +22,8 @@ if(CTI_VIO_ADDON == 0) then {_sid = "";};
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_UK.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
 //check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-//if (isNil "_priorUnits" || _ai == 3) then {
-if ((CTI_IFA3_NEW >= 0 && CTI_CSA_ADDON < 2 && CTI_FOW_ADDON < 2) || _ai == 3) then {
+_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side];
+if (isNil "_priorUnits" || (CTI_IFA3_NEW >= 0 && CTI_CSA_ADDON < 2 && CTI_FOW_ADDON < 2) || _ai == 3) then {
 	//We setup the standard units before the camo check to get secure
 	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1LIB_UK_Officer", _sid]];
 	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1LIB_UK_Rifleman_Jerkins", _sid]];

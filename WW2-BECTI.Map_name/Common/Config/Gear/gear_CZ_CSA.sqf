@@ -166,6 +166,9 @@ _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculat
 _i pushBack "CSA38_M1895H";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_M1895k";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "csa38_8_00_5xMannlicher";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(800*50)] call CTI_CO_FNC_GetCalculatedItemPrize);

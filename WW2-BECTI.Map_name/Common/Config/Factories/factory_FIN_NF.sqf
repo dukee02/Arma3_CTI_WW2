@@ -22,10 +22,8 @@ if(CTI_VIO_ADDON == 0) then {_sid = "";};
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
 //check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-//if (isNil "_priorUnits" || _ai == 1) then { 
-//if ((CTI_IFA3_NEW > 0 && CTI_CSA_ADDON < 2 && CTI_FOW_ADDON < 2) || _ai == 1) then {
-if (CTI_NF_ADDON > 1 || _ai == 11) then {
+_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side];
+if (isNil "_priorUnits" || CTI_NF_ADDON > 1 || _ai == 11) then {
 	//Setup the default units depending on the selected camo
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
