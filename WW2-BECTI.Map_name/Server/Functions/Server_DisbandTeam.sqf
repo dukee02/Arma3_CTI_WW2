@@ -36,7 +36,7 @@ switch (_mode) do {
 	case "2": {		//disband all teams
 		{
 			//_groups_ai = (CTI_P_SideJoined) call CTI_CO_FNC_GetSideGroups;
-			_groups_player = (CTI_P_SideJoined) call CTI_CO_FNC_GetSidePlayerGroups
+			_groups_player = (CTI_P_SideJoined) call CTI_CO_FNC_GetSidePlayerGroups;
 			_commander = (CTI_P_SideJoined) call CTI_CO_FNC_GetSideCommander;
 			_groups = _groups - [_commander];
 			_groups = _groups - _groups_player;
