@@ -141,8 +141,7 @@ for '_i' from 0 to count(_items)-1 do {
 	};
 };
 
-if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: Common\Config\Gear\Gear_Config_Set.sqf", format ["Initialized Gear [%1], set [%2/%3]", _faction, _cpt, count _items]] call CTI_CO_FNC_Log };
-
+["INFORMATION", "FILE: Common\Config\Gear\Gear_Config_Set.sqf", format ["Initialized Gear [%1], set [%2/%3]", _faction, _cpt, count _items]] call CTI_CO_FNC_Log;
 //--- Append to the existing items
 {
 	missionNamespace setVariable [_x select 0, if (isNil {missionNamespace getVariable (_x select 0)}) then {_x select 1} else {(missionNamespace getVariable (_x select 0)) + (_x select 1)}]

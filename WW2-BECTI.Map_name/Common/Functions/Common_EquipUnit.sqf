@@ -93,6 +93,7 @@ if (primaryWeapon _unit != "") then {_unit removeWeapon (primaryWeapon _unit)};
 
 //--- Secondary - no removeSecondaryItem :(
 _new = (_gear select 0) select 1;
+["VIOC_DEBUG", "FILE: Common\Functions\Common_EquipUnit.sqf", format ["find error on EquipUnit <%1>", ((_gear select 0))]] call CTI_CO_FNC_Log;
 _item = _new select 0;
 _accessories = (_new select 1) call CTI_CO_FNC_ArrayToLower;
 _magazine = (_new select 2) call CTI_CO_FNC_ArrayToLower;

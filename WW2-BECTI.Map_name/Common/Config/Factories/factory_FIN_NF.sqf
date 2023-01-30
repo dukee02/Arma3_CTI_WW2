@@ -145,7 +145,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_W_41_Rifleman_AT_L39", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_41_Rifleman_AT_L39_Asst", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Rifleman_CPL", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_ART_W_41_Rifleman_CPL", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Radioman", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Rifleman_SGT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_41_SGTMAJ", _sid];
@@ -173,7 +173,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_CPL", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_SGT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_SGTMAJ", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_SSGT", _sid];*/
 		};
 		case 2: {//Summer camo active
 			//----------FIN Army Summer 1941------------
@@ -192,7 +192,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_Rifleman_AT_L39_Asst", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Radioman", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_ART_S_41_Radioman", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Unequip", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Rifleman", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Rifleman_1CL", _sid];
@@ -219,7 +219,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_CPL", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_SGT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_SGTMAJ", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_SSGT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_S_41_Crewman_SSGT", _sid];*/
 		};
 		default {
 			//----------FIN Army 1941------------
@@ -238,7 +238,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT_L39", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_Rifleman_AT_L39_Asst", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_41_Unequip", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_ART_41_Unequip", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_41_Radioman", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_41_Rifleman", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_41_41_Rifleman_1CL", _sid];
@@ -265,7 +265,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SGT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SGTMAJ", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_SSGT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_SgtMaj", _sid];
+			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_SgtMaj", _sid];*/
 		};
 	};
 };
@@ -288,11 +288,11 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_W_41_Officer_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_41_Officer_2ndLt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Officer_1stLt", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_ART_W_41_Officer_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Officer_2ndLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_SgtMaj", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_1stLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_2ndLt", _sid];*/
 		};
 		case 2: {//Summer camo active
 			//----------FIN Army Summer 1941------------
@@ -307,11 +307,11 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_S_41_Officer_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_Officer_2ndLt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_SgtMaj", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_SgtMaj", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_2ndLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_1stLt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_2ndLt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_2ndLt", _sid];*/
 		};
 		default {
 			//----------FIN Army 1941------------
@@ -324,14 +324,14 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_41_Officer_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_Officer_2ndLt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_1stLt", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_2ndLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_1stLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_2ndLt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_Patrolman_NCO", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_Patrolman_Officer", _sid];
 			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_1STLT", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_2NDLT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_2NDLT", _sid];*/
 		};
 	};
 };
@@ -349,9 +349,9 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_W_41_Sniper", _sid];
 			_c pushBack format["%1I_NORTH_FIN_W_41_Officer_Cpt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_Cpt", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_W_41_AIR_Pilot_Cpt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_W_41_Officer_Cpt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_CPT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_W_41_Crewman_CPT", _sid];*/
 		};
 		case 2: {//Summer camo active
 			//----------FIN Army Summer 1941------------
@@ -363,9 +363,9 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_S_41_Sniper", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_Officer_Cpt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_Cpt", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_S_41_AIR_Pilot_Cpt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_S_41_Patrolman_Officer", _sid];
-			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_Cpt", _sid];
+			_c pushBack format["%1I_NORTH_FIN_ART_S_41_Officer_Cpt", _sid];*/
 		};
 		default {
 			//----------FIN Army 1941------------
@@ -376,10 +376,10 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 			_c pushBack format["%1I_NORTH_FIN_41_Sniper", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_Officer_Cpt", _sid];
 			//special
-			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];
+			/*_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];
 			_c pushBack format["%1I_NORTH_FIN_ART_41_Officer_Cpt", _sid];
 			_c pushBack format["%1I_NORTH_FIN_41_AIR_Pilot_Cpt", _sid];
-			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];
+			_c pushBack format["%1I_NORTH_FIN_T_41_Crewman_CPT", _sid];*/
 		};
 	};
 };

@@ -26,4 +26,5 @@ for '_i' from 0 to count(_c)-1 do {
 	};
 };
 
+["INFORMATION", "FILE: Common\Config\Artillery\Set_Artillery.sqf", format ["Artillery [%1/%2] units were defined", count _artillery, count _c]] call CTI_CO_FNC_Log;
 missionNamespace setVariable ["CTI_ARTILLERY", _artillery];

@@ -61,4 +61,4 @@ for '_i' from 0 to (count _c)-1 do {
 	};
 };
 
-if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: Common\Config\Units\Set_Units.sqf", format ["[%1] [%2/%3] units were defined", _side, _cpt, count _c]] call CTI_CO_FNC_Log };
+["INFORMATION", "FILE: Common\Config\Units\Set_Units.sqf", format ["[%1] [%2/%3] units were defined", _side, _cpt, count _c]] call CTI_CO_FNC_Log;

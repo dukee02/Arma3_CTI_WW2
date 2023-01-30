@@ -432,9 +432,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_BA3", _sid];
@@ -445,9 +442,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_41_BA3", _sid];
@@ -458,9 +452,6 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_BA3", _sid];

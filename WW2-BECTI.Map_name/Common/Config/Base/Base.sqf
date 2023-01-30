@@ -900,28 +900,28 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
-			_headers pushBack 		"Maxim";
+			_headers pushBack 		"Maxim camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"Maxim Medium";
+			_headers pushBack 		"Maxim Medium camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV_Medium", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"Maxim High";
+			_headers pushBack 		"Maxim High camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV_High", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"Maxim Maxim Quad (AA)";
+			_headers pushBack 		"Maxim Maxim Quad (AA) camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_Quad", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
@@ -1074,7 +1074,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_tiers pushBack 		_tech_level;
 	};
 };
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {	
+if(CTI_GER_SIDE != (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"61k (AA)";
 		_classes pushBack 		format["%1LIB_61k", _sid];
@@ -1082,31 +1082,23 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"AA";
 		_tiers pushBack 		_tech_level;
-	};
-};
-if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	
-	if(CTI_IFA3_NEW == 0) then {
-		_headers pushBack 		"61k (AA)";
-		_classes pushBack 		format["%1LIB_61k", _sid];
+		
+		//for balance the atatics
+		_headers pushBack 		"leFH18";
+		_classes pushBack 		format["%1LIB_leFH18", _sid];
 		_prices pushBack 		2000;
 		_placements pushBack 	[180, 5];
-		_categories pushBack 	"AA";
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"leFH18 AT";
+		_classes pushBack 		format["%1LIB_leFH18_AT", _sid];
+		_prices pushBack 		2000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 	};
 };
-if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	
-	if(CTI_IFA3_NEW == 0) then {
-		_headers pushBack 		"61k (AA)";
-		_classes pushBack 		format["%1LIB_61k", _sid];
-		_prices pushBack 		2000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"AA";
-		_tiers pushBack 		_tech_level;
-	};
-};
-
 if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_NF_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
@@ -1181,7 +1173,7 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"76mm1927 light Arty (w)";
+			_headers pushBack 		"76mm1927 light Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76RK27art", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
@@ -1517,7 +1509,7 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"Lahti L39 (AA)";
+			_headers pushBack 		"Lahti L39 (AA) camo";
 			_classes pushBack 		format["%1NORTH_FIN_Lahti_L39AA", _sid];
 			_prices pushBack 		1000;
 			_placements pushBack 	[180, 5];
@@ -1531,14 +1523,14 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"76mm1902 Arty (w)";
+			_headers pushBack 		"76mm1902 Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k02art", _sid];
 			_prices pushBack 		2000;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"76mm1936 Arty (w)";
+			_headers pushBack 		"76mm1936 Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k36art", _sid];
 			_prices pushBack 		5000;
 			_placements pushBack 	[180, 5];
