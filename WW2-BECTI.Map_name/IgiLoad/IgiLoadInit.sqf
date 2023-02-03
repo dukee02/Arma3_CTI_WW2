@@ -32,6 +32,7 @@ while {true} do
 {
 	sleep (IL_Check_Veh_Min + (random (IL_Check_Veh_Max - IL_Check_Veh_Min)));
 	
+	//https://community.bistudio.com/wiki/vehicles
 	//Delete vehicles from "IL_Veh_Array" if not in "vehicles"
 	{
 		if !(_x in vehicles) then

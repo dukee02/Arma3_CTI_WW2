@@ -396,6 +396,8 @@ call compile preProcessFileLineNumbers "Client\Functions\Externals\cmEarplugs\co
 
 _paraCheck = execVM "Common\Init\Init_ParadropCheck.sqf";
 
+_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
+
 CTI_Init_Client = true;
 
 if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "File: Client\Init\Init_client.sqf", format["Client initialization ended at [%1]", time]] call CTI_CO_FNC_Log };
