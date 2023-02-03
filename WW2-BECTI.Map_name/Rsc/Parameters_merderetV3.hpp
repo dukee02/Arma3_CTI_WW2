@@ -691,13 +691,13 @@ class Params {
 		title = "VISUAL: Terrain Grid";
 		values[] = {10,20,30,50};
 		texts[] = {"Far","Medium","Short","Free"};
-		default = 50;
+		default = 20;
 	};
 	class CTI_GRAPHICS_VD_MAX {
 		title = "VISUAL: View Distance";
 		values[] = {1000,1500,2000,2500,3000,3500,4000,4500,5000};
 		texts[] = {"1 KM","1.5 KM","2 KM","2.5 KM","3 KM","3.5 KM","4 KM","4.5 KM","5 KM"};
-		default = 5000;
+		default = 2500;
 	};
 	class SEPARATOR_ADDONS {
 		title = "=========================== ADDONS ============================";
