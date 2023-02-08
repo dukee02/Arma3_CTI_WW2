@@ -84,69 +84,35 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //----------------------Flares and Smokes------------------------------
 _tech_level = 0;
 _i pushBack "lib_1Rnd_flare_white";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "lib_1Rnd_flare_red";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "lib_1Rnd_flare_green";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "lib_1Rnd_flare_yellow";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "lib_f1";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 _i pushBack "SmokeShell";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellRed";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellGreen";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellYellow";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellPurple";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellBlue";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "SmokeShellOrange";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "FlareWhite_F";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "FlareGreen_F";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "FlareRed_F";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "FlareYellow_F";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,2] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -156,24 +122,17 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------Ammo----------------------------------------------
 _tech_level = 0;
 _i pushBack "LIB_5Rnd_762x54";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_5Rnd_762x54_t46";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_5Rnd_762x54_t30";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_5Rnd_762x54_D";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_5Rnd_762x54_b30";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*54)] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 _i pushBack "lib_47Rnd_762x54";
 _u pushBack _tech_level;
@@ -195,37 +154,30 @@ _i pushBack "lib_8Rnd_762x25";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,8,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
+
 _i pushBack "LIB_35Rnd_762x25";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,35,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_35Rnd_762x25_t";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,35,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_35Rnd_762x25_t2";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,35,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_35Rnd_762x25_ap";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,35,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,35,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 _i pushBack "LIB_71Rnd_762x25";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_71Rnd_762x25_t";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_71Rnd_762x25_t2";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_71Rnd_762x25_ap";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,71,(762*25)] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Level 1
 _tech_level = _tech_level + 1;
@@ -251,68 +203,49 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------Weapons------------------------------------------------------
 _tech_level = 0;
 _i pushBack "LIB_M9130";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_M38";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_M1895";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_TT33";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_M1908";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_FLARE_PISTOL";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_PTRD";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Level 1
 _tech_level = _tech_level + 1;
+
 _i pushBack "LIB_M44";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_PPSh41_d";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_PPSh41_m";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_M1A1_Bazooka";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Level 2
 _tech_level = _tech_level + 1;
+
 _i pushBack "lib_dp28";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_M9130PU";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_SVT_40";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_RPzB";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -321,136 +254,70 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 
 //------------------------------------Uniforms------------------------------------
 _tech_level = 0;
-_i pushBack "U_LIB_SOV_Strelokart";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
-_i pushBack "U_LIB_SOV_Razvedchik_am";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Razvedchik_lis";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Razvedchik_mix";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Leutenant_inset_pocket";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Sergeant_inset_pocket";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Tank_ryadovoi";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Tank_private_field";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Pilot";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Efreitor";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "U_LIB_SOV_Strelok";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-//Winter
-if(CTI_IFA3_NEW == 0) then {
+if(CTI_CAMO_ACTIVATION == 0 || CTI_IFA3_NEW > 0) then {		//Basic camo
+	_i pushBack "U_LIB_SOV_Strelokart";
+	_i pushBack "U_LIB_SOV_Razvedchik_am";
+	_i pushBack "U_LIB_SOV_Razvedchik_lis";
+	_i pushBack "U_LIB_SOV_Razvedchik_mix";
+	_i pushBack "U_LIB_SOV_Leutenant_inset_pocket";
+	_i pushBack "U_LIB_SOV_Sergeant_inset_pocket";
+	_i pushBack "U_LIB_SOV_Efreitor";
+	_i pushBack "U_LIB_SOV_Strelok";
+};
+if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 	_i pushBack "U_LIB_SOV_Strelok_w";
-	_u pushBack _tech_level;
-	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 	_i pushBack "U_LIB_SOV_Strelok_2_w";
-	_u pushBack _tech_level;
-	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 	_i pushBack "U_LIB_SOV_Sniper_w";
+};
+_i pushBack "U_LIB_SOV_Tank_ryadovoi";
+_i pushBack "U_LIB_SOV_Tank_private_field";
+_i pushBack "U_LIB_SOV_Pilot";
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
 	_u pushBack _tech_level;
 	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
 //Level 1
 _tech_level = _tech_level + 1;
+
 _i pushBack "U_LIB_SOV_Tank_Sergeant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Stleutenant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Starshina";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Stsergeant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Leutenant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Artleutenant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Tank_Leutenant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Razvedchik_autumn";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Efreitor_summer";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Strelok_summer";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Sergeant";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Level 1
 _tech_level = _tech_level + 1;
 _i pushBack "U_LIB_SOV_Tank_Kapitan";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Kapitan";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Kapitan_summer";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Sniper";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Sniper_autumn";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "U_LIB_SOV_Sniper_spring";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -460,57 +327,34 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-----------------------------------------Vests----------------------------------------------------
 _tech_level = 0;
 _i pushBack "V_LIB_SOV_RA_OfficerVest";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RAZV_OfficerVest";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RA_MosinBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RA_TankOfficerSet";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RA_MGBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RAZV_MGBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RA_PPShBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RA_SVTBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RAZV_PPShBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_RAZV_SVTBelt";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 _tech_level = 2;
 _i pushBack "V_LIB_SOV_IShBrVestPPShDisc";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_IShBrVestPPShMAg";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "V_LIB_SOV_IShBrVestMG";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,3.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -519,57 +363,27 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 
 //-------------------------------------------Backpacks----------------------------------------------------------
 _tech_level = 0;
+
 _i pushBack "B_LIB_SOV_RA_Rucksack";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Rucksack_green";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Rucksack2";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Rucksack2_green";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_MGAmmoBag_Empty";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_GasBag";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_MedicalBag_Empty";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_Parachute";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_Maxim_Bag";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "LIB_Maxim_Bar";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Radio";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Shinel";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 _i pushBack "B_LIB_SOV_RA_Paradrop";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -578,37 +392,24 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 
 //--------------------------------------------Helms-------------------------------------------
 _tech_level = 0;
-_i pushBack "H_LIB_SOV_RA_Helmet";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
-_i pushBack "H_LIB_SOV_RA_PrivateCap";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "H_LIB_SOV_TankHelmet";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "H_LIB_SOV_RA_OfficerCap";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-_i pushBack "H_LIB_SOV_PilotHelmet";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
-//Winter
-if(CTI_IFA3_NEW == 0) then {
+if(CTI_CAMO_ACTIVATION == 0 || CTI_IFA3_NEW > 0) then {		//Basic camo
+	_i pushBack "H_LIB_SOV_RA_Helmet";
+	_i pushBack "H_LIB_SOV_RA_PrivateCap";
+};
+if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 	_i pushBack "H_LIB_SOV_RA_Helmet_w";
-	_u pushBack _tech_level;
-	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 	_i pushBack "H_LIB_SOV_Ushanka";
-	_u pushBack _tech_level;
-	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-
 	_i pushBack "H_LIB_SOV_Ushanka2";
+};
+_i pushBack "H_LIB_SOV_TankHelmet";
+_i pushBack "H_LIB_SOV_RA_OfficerCap";
+_i pushBack "H_LIB_SOV_PilotHelmet";
+
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
 	_u pushBack _tech_level;
 	_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 };

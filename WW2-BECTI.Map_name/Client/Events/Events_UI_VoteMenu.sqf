@@ -22,10 +22,10 @@ switch (_action) do {
 			if (isPlayer leader (_teams select _i)) then {
 				lnbAddRow[500100, [name leader (_teams select _i), "0"]];
 				lnbSetValue[500100, [_u, 0], _i];
+				["VIOC_TEST_DEBUG", "FILE: Client\Events\Events_UI_VoteMenu.sqf", format["Vote Window: <%1><%2>", _i, (name leader (_teams select _i))]] call CTI_CO_FNC_Log;
 				_u = _u + 1;
 			};
 		};
-		["VIOC_TEST_DEBUG", "FILE: Client\Events\Events_UI_VoteMenu.sqf", format["Vote Window: <%1><%2>", _teams_count, _teams]] call CTI_CO_FNC_Log;
 	
 		execVM "Client\GUI\GUI_VoteMenu.sqf";
 	};

@@ -3,10 +3,7 @@ if (isClass(configFile >> "CfgPatches" >> "task_force_radio")) then
 	//TFAR mod is enabled
 	TFAR_givePersonalRadioToRegularSoldier = true;
 	TFAR_giveLongRangeRadioToGroupLeaders = true;
-	TFAR_giveMicroDagrToSoldier = false;
 }; 
-
-//[]spawn compileFinal(preprocessFile"AFAR\init.sqf");
 
 //--- Initial View Distance and Object View Distance for both clients and server
 setViewDistance 3000;

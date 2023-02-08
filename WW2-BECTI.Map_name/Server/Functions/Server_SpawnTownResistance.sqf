@@ -157,6 +157,7 @@ for '_i' from 1 to _totalGroups do {
 		//if(isNil _unit) then { _can_use = false };
 		
 		if (_can_use) then {
+			if (typeName _unit == "ARRAY") then { _unit = _unit select floor(random count _unit) };
 			_units pushBack _unit;
 			_pool_group_size_current = _pool_group_size_current - 1;
 		};
