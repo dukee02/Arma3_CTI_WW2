@@ -14,6 +14,7 @@ if (isNull _group) then {_group = createGroup _side};
 _created_units = [];
 _created_vehicles = [];
 _crews = [];
+_crew_max = 7;
 
 {
 	if (isNil "_x") then { 
@@ -22,8 +23,11 @@ _crews = [];
 		if (CTI_Log_Level >= CTI_Log_Error) then {["ERROR", "FILE: Common\Functions\Common_CreateTeam.sqf", format ["Unit is NULL changed to: <%1>",  _x]] call CTI_CO_FNC_Log;};
 	};
 	if (_x isKindOf "Man") then {
-		_unit = [_x, _group, [_position, 2, 15] call CTI_CO_FNC_GetRandomPosition, _sideID] call CTI_CO_FNC_CreateUnit;
-		_created_units pushBack _unit;
+		if(_crew_max > 0) then {
+			_unit = [_x, _group, [_position, 2, 15] call CTI_CO_FNC_GetRandomPosition, _sideID] call CTI_CO_FNC_CreateUnit;
+			_created_units pushBack _unit;
+			_crew_max = _crew_max -1;
+		};
 	} else {
 		_crew = switch (true) do {
 			//case (_x isKindOf "Tank"): { missionNamespace getVariable format["%1_SOLDIER_CREW", _side] };
