@@ -152,6 +152,7 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\In
 	//Set the loaded HQ positions if loading is active
 	if (missionNamespace getvariable "CTI_PERSISTANT" > 0) then {
 		["hq", _side] call CTI_SE_FNC_LOAD;
+		["funds", _side] call CTI_SE_FNC_LOAD;
 		_startPos = (getposATL ((_side) call CTI_CO_FNC_GetSideHQ));
 	};
 	
@@ -369,6 +370,15 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
 			};
 			
+			//Save the mission
+			if(_nextLoopIn >= 60) then {
+				["towns"] call CTI_SE_FNC_SAVE;
+				["hq"] call CTI_SE_FNC_SAVE;
+				["upgrades"] call CTI_SE_FNC_SAVE;
+				["buildings"] call CTI_SE_FNC_SAVE;
+				["funds"] call CTI_SE_FNC_SAVE;
+			};
+			
 			_missionPath = "\CTI\AutoRestartConfig.hpp";
 			if (fileExists _missionPath) then {
 				_myPass = call compile preprocessFileLineNumbers _missionPath;
@@ -379,27 +389,23 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 							if(_nextLoopIn > _restart_in) then {_nextLoopIn = CTI_SAVE_PERIODE-900;};
 							_restart_in = round(_restart_in/60);
 							["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server restart in: %1 minutes (900+CTI_SAVE_PERIODE)", _restart_in]] Call CTI_CO_FNC_Log;
-							//(Format ["Server will restart soon! It restarts in: %1 minutes", _restart_in]) remoteExec ["hint", 0];
 							(parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t>Restart is near!<br />It restarts in: %1 minutes</t>", _restart_in]) remoteExec ["hint", 0];
 						};
 						case (_restart_in > 300 &&_restart_in <= 900): {
 							if(_nextLoopIn > _restart_in) then {_nextLoopIn = _restart_in;};
 							_restart_in = round(_restart_in/60);
 							["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server restart in: %1 minutes (900)", _restart_in]] Call CTI_CO_FNC_Log;
-							//(Format ["Server will restart soon! It restarts in: %1 minutes", _restart_in]) remoteExec ["hint", 0];
 							(parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t>Server will restart soon!<br />It restarts in: %1 minutes</t>", _restart_in]) remoteExec ["hint", 0];
 						};
 						case (_restart_in > 60 && _restart_in <= 300): {
 							if(_nextLoopIn > _restart_in) then {_nextLoopIn = _restart_in;};
 							_restart_in = round(_restart_in/60);
 							["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server restart in: %1 minutes (300)", _restart_in]] Call CTI_CO_FNC_Log;
-							//(Format ["Server will restart very soon !!! It restarts in: %1 minutes", _restart_in]) remoteExec ["hint", 0];
 							(parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t>Server will restart very soon!<br />It restarts in: %1 minutes</t>", _restart_in]) remoteExec ["hint", 0];
 						};
 						case (_restart_in > 0 && _restart_in <= 60): {
 							if(_nextLoopIn > _restart_in) then {_nextLoopIn = _restart_in;};
 							["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server restart in: %1 seconds (60)", _restart_in]] Call CTI_CO_FNC_Log;
-							//(Format ["Restart is near! Server restarts in: %1 seconds", _restart_in]) remoteExec ["hint", 0];
 							(parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t>Restart is close!<br />It restarts in: %1 seconds</t>", _restart_in]) remoteExec ["hint", 0];
 						};
 						case (_restart_in <= 0): {
@@ -410,7 +416,6 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 						default {
 							_restart_in = round(_restart_in/60);
 							["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server restart in: %1 minutes", _restart_in]] Call CTI_CO_FNC_Log;
-							//(Format ["Server restarts in: %1 minutes", _restart_in]) remoteExec ["hint", 0];
 							(parseText format ["<t size='1.3' color='#2394ef'>Information</t><br /><br /><t>Server restart activatet!<br />It restarts in: %1 minutes</t>", _restart_in]) remoteExec ["hint", 0];
 						};
 					};
@@ -418,17 +423,6 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 			};
 
 			["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Next save in: %1 seconds", _nextLoopIn]] Call CTI_CO_FNC_Log;
-			//Save the mission
-			if(_nextLoopIn >= 60) then {
-				["towns"] call CTI_SE_FNC_SAVE;
-				["hq"] call CTI_SE_FNC_SAVE;
-				["upgrades"] call CTI_SE_FNC_SAVE;
-				["buildings"] call CTI_SE_FNC_SAVE;
-				["funds"] call CTI_SE_FNC_SAVE;
-			}/* else {
-				_nextLoopIn = CTI_SAVE_PERIODE;
-				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Next save in: %1 seconds", _nextLoopIn]] Call CTI_CO_FNC_Log;
-			}*/;
 			sleep _nextLoopIn;
 		};
 	};
