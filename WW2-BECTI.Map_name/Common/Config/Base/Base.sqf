@@ -1248,28 +1248,7 @@ _tech_level = 2;
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_headers pushBack 		"FlaK 36 (winter)";
-			_classes pushBack 		format["%1LIB_FlaK_36_w", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"AA";
-			_tiers pushBack 		_tech_level;
-			
-			_headers pushBack 		"FlaK 36 AA (winter)";
-			_classes pushBack 		format["%1LIB_FlaK_36_AA_w", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"AA";
-			_tiers pushBack 		_tech_level;
-			
-			_headers pushBack 		"FlaK 36 ARTY (winter)";
-			_classes pushBack 		format["%1LIB_FlaK_36_ARTY_w", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"Defense";
-			_tiers pushBack 		_tech_level;
-			
+		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active			
 			_headers pushBack 		"FlaK 38 (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_38_w", _sid];
 			_prices pushBack 		3000;
@@ -1277,28 +1256,28 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 		};
-		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-			_headers pushBack 		"FlaK 36 (Desert)";
-			_classes pushBack 		format["%1LIB_DAK_FlaK_36", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"Defense";
-			_tiers pushBack 		_tech_level;
+
+		_headers pushBack 		"Nebelwerfer 41";
+		_classes pushBack 		format["%1LIB_Nebelwerfer41", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
 			
-			_headers pushBack 		"FlaK 36 AA (Desert)";
-			_classes pushBack 		format["%1LIB_DAK_FlaK_36_AA", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"AA";
-			_tiers pushBack 		_tech_level;
-			
-			_headers pushBack 		"FlaK 36 ARTY (Desert)";
-			_classes pushBack 		format["%1LIB_DAK_FlaK_36_ARTY", _sid];
-			_prices pushBack 		4000;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"Defense";
-			_tiers pushBack 		_tech_level;
-		};
+		_headers pushBack 		"Nebelwerfer 41 Camo";
+		_classes pushBack 		format["%1LIB_Nebelwerfer41_Camo", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"Nebelwerfer 41 bg";
+		_classes pushBack 		format["%1LIB_Nebelwerfer41_Gelbbraun", _sid];
+		_prices pushBack 		5000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+
 		_headers pushBack 		"MG42";
 		_classes pushBack 		format["%1LIB_MG42_Lafette_Deployed", _sid];
 		_prices pushBack 		2000;
@@ -1309,27 +1288,6 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_headers pushBack 		"MG42 low";
 		_classes pushBack 		format["%1LIB_MG42_Lafette_low_Deployed", _sid];
 		_prices pushBack 		2000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36";
-		_classes pushBack 		format["%1LIB_FlaK_36", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36 AA";
-		_classes pushBack 		format["%1LIB_FlaK_36_AA", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"AA";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36 ARTY";
-		_classes pushBack 		format["%1LIB_FlaK_36_ARTY", _sid];
-		_prices pushBack 		4000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1609,6 +1567,27 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
+
+			_headers pushBack 		"FlaK 36 (winter)";
+			_classes pushBack 		format["%1LIB_FlaK_36_w", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"AA";
+			_tiers pushBack 		_tech_level;
+			
+			_headers pushBack 		"FlaK 36 AA (winter)";
+			_classes pushBack 		format["%1LIB_FlaK_36_AA_w", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"AA";
+			_tiers pushBack 		_tech_level;
+			
+			_headers pushBack 		"FlaK 36 ARTY (winter)";
+			_classes pushBack 		format["%1LIB_FlaK_36_ARTY_w", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"Defense";
+			_tiers pushBack 		_tech_level;
 		};
 		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 			_headers pushBack 		"Pak 40 (Desert)";
@@ -1617,24 +1596,46 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
-		};
-		_headers pushBack 		"Nebelwerfer 41";
-		_classes pushBack 		format["%1LIB_Nebelwerfer41", _sid];
-		_prices pushBack 		5000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
+
+			_headers pushBack 		"FlaK 36 (Desert)";
+			_classes pushBack 		format["%1LIB_DAK_FlaK_36", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"Defense";
+			_tiers pushBack 		_tech_level;
 			
-		_headers pushBack 		"Nebelwerfer 41 Camo";
-		_classes pushBack 		format["%1LIB_Nebelwerfer41_Camo", _sid];
-		_prices pushBack 		5000;
+			_headers pushBack 		"FlaK 36 AA (Desert)";
+			_classes pushBack 		format["%1LIB_DAK_FlaK_36_AA", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"AA";
+			_tiers pushBack 		_tech_level;
+			
+			_headers pushBack 		"FlaK 36 ARTY (Desert)";
+			_classes pushBack 		format["%1LIB_DAK_FlaK_36_ARTY", _sid];
+			_prices pushBack 		4000;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"Defense";
+			_tiers pushBack 		_tech_level;
+		};
+				
+		_headers pushBack 		"FlaK 36";
+		_classes pushBack 		format["%1LIB_FlaK_36", _sid];
+		_prices pushBack 		4000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
-		_headers pushBack 		"Nebelwerfer 41 bg";
-		_classes pushBack 		format["%1LIB_Nebelwerfer41_Gelbbraun", _sid];
-		_prices pushBack 		5000;
+		_headers pushBack 		"FlaK 36 AA";
+		_classes pushBack 		format["%1LIB_FlaK_36_AA", _sid];
+		_prices pushBack 		4000;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"AA";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"FlaK 36 ARTY";
+		_classes pushBack 		format["%1LIB_FlaK_36_ARTY", _sid];
+		_prices pushBack 		4000;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
