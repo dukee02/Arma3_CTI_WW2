@@ -200,7 +200,7 @@ _links = [];
 for [{private _i = 0}, {_i < (_upgrade_levels select CTI_UPGRADE_DEFENSE)}, {_i = _i + 1}] do {
 	switch (_i) do {
 		case 1: {_links pushBack [CTI_UPGRADE_SUPPLY,1];};
-		case 2: {_links pushBack [CTI_UPGRADE_AIR, (_upgrade_levels select CTI_UPGRADE_AIR)];};
+		case 2: {_links pushBack [CTI_UPGRADE_BARRACKS, (_upgrade_levels select CTI_UPGRADE_BARRACKS)];};
 		default {_links pushBack [];};
 	};
 }; 
