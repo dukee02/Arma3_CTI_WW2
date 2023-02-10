@@ -296,40 +296,46 @@ if (isNil "_upgrade_levels_east") then {
 // ****************************** BASE GUN DEFENSE 0 ******************************
 _tech_level = 0;
 
+_priceBase = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+
 //Defense Guns
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {	
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"SearchLight";
 		_classes pushBack 		format["%1LIB_GER_SearchLight", _sid];
-		_prices pushBack 		200;
+		_prices pushBack 		_priceBase;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"MG34";
 		_classes pushBack 		format["%1LIB_MG34_Lafette_Deployed", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"MG34 low";
 		_classes pushBack 		format["%1LIB_MG34_Lafette_low_Deployed", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"GrWr34";
 		_classes pushBack 		format["%1LIB_GrWr34", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"GrWr34";
 		_classes pushBack 		format["%1LIB_GrWr34_g", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -338,28 +344,28 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"MG43 high";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_high_ger_heer", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG42";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_ger_heer", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG42 s";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_s_ger_heer", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG42 middle";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_middle_ger_heer", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -369,42 +375,42 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			
 		_headers pushBack 		"MG34 tripod";
 		_classes pushBack 		format["%1CSA38_MG34t", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"MG34 1";
 		_classes pushBack 		format["%1CSA38_MG34t4", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"MG34 2";
 		_classes pushBack 		format["%1CSA38_MG34t3", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"MG34 3";
 		_classes pushBack 		format["%1CSA38_MG34t2", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"ZB30 tripod";
 		_classes pushBack 		format["%1CSA38_zb30jt", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"GrWr34";
 		_classes pushBack 		format["%1csa38_GrW34", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -418,14 +424,14 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW == 1) then {
 		_headers pushBack 		"Maxim M30 low";
 		_classes pushBack 		format["%1LIB_Maxim_M30_Deployed", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Maxim M30 low";
 		_classes pushBack 		format["%1LIB_Maxim_M30_Trench_Deployed", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -433,28 +439,28 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_IFA3_NEW >= 0) then {
 			_headers pushBack 		"SearchLight";
 			_classes pushBack 		format["%1LIB_SU_SearchLight", _sid];
-			_prices pushBack 		200;
-			_placements pushBack 	[180, 5];
-			_categories pushBack 	"Defense";
-			_tiers pushBack 		_tech_level;
-			
-			_headers pushBack 		"BM37";
-			_classes pushBack 		format["%1LIB_BM37", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceBase;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim base";
 			_classes pushBack 		format["%1LIB_Maxim_M30_base", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Trench";
 			_classes pushBack 		format["%1LIB_Maxim_M30_Trench", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
+			_placements pushBack 	[180, 5];
+			_categories pushBack 	"Defense";
+			_tiers pushBack 		_tech_level;
+			
+			_headers pushBack 		"BM37";
+			_classes pushBack 		format["%1LIB_BM37", _sid];
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -468,49 +474,49 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"Type 92 MG";
 		_classes pushBack 		format["%1fow_w_type92_tripod_ija", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 92 MG high";
 		_classes pushBack 		format["%1fow_w_type92_tripod_high_ija", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 92 MG low s";
 		_classes pushBack 		format["%1fow_w_type92_tripod_low_s_ija", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 92 MG low";
 		_classes pushBack 		format["%1fow_w_type92_tripod_low_ija", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 92 MG middle";
 		_classes pushBack 		format["%1fow_w_type92_tripod_middle_ija", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 97 (Mortar)";
 		_classes pushBack 		format["%1fow_w_type97_mortar_ija", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Type 97 (Mortar) adv";
 		_classes pushBack 		format["%1fow_w_type97_mortar_adv_ija", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -521,14 +527,14 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"M1919 M2 MG";
 		_classes pushBack 		format["%1LIB_M1919_M2", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M2 60 (Mortar)";
 		_classes pushBack 		format["%1LIB_M2_60", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -536,63 +542,63 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"M1919 MG tripod m37";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m37", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG tripod m41";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m41", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG high m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_high_usa_m41", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG high m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_high_usa_m37", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_usa_m37", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_usa_m41", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG middle m37";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_middle_usa_m37", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M1919 MG middle m41";
 		_classes pushBack 		format["%1fow_w_m1919a6_deployed_middle_usa_m41", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"M2 (Mortar)";
 		_classes pushBack 		format["%1fow_w_m2_mortar_usa", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -627,7 +633,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW == 1) then {
 		_headers pushBack 		"Vickers MMG";
 		_classes pushBack 		format["%1LIB_Vickers_MMG", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -635,7 +641,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_IFA3_NEW >= 0) then {
 			_headers pushBack 		"M2 60 (Mortar)";
 			_classes pushBack 		format["%1LIB_M2_60", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -644,7 +650,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"Vickers MG";
 		_classes pushBack 		format["%1fow_w_vickers_uk", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -654,21 +660,21 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			
 		_headers pushBack 		"Bren MK2 1 tripod";
 		_classes pushBack 		format["%1CSA38_brenmkiit", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"Bren MK2 2 tripod";
 		_classes pushBack 		format["%1CSA38_brenmkiit2", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"2inch (Mortar)";
 		_classes pushBack 		format["%1CSA38_2inch_vehicle", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -679,63 +685,63 @@ if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 0) then {
 		_headers pushBack 		"VZ 24 tripod";
 		_classes pushBack 		format["%1CSA38_TKVZ24mg", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VZ 37 tripod";
 		_classes pushBack 		format["%1CSA38_TKVZ37MG", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VZ 37 high";
 		_classes pushBack 		format["%1CSA38_tkvz37mg3", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VZ 27 high";
 		_classes pushBack 		format["%1CSA38_tkvz24mg2", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VZ 27 2 high";
 		_classes pushBack 		format["%1CSA38_tkvz24mg3", _sid];
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VZ 26 high";
 		_classes pushBack 		format["%1CSA38_zb26t", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"VB 26 high";
 		_classes pushBack 		format["%1CSA38_zb26t2", _sid];
-		_prices pushBack 		500;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"mvz17 (Mortar)";
 		_classes pushBack 		format["%1CSA38_mvz17", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"mvz36 (Mortar)";
 		_classes pushBack 		format["%1CSA38_mvz36", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -754,126 +760,126 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"Maxim MG (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG medium (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_Medium", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG high (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_High", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"Maxim (SOV)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_SOV", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Medium (SOV)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_SOV_Medium", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim High (SOV)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_SOV_High", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"50krh38 light mortar (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_50krh38", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76k02 light cannon (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76k02", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Maxim Quad (AA)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim_Quad", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"Maxim MG";
 			_classes pushBack 		format["%1NORTH_FIN_S_Maxim_41", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG medium";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_Medium", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG high";
 			_classes pushBack 		format["%1NORTH_FIN_S_Maxim_High_41", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"Maxim";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_SOV", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Medium";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_SOV_Medium", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim High";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_SOV_High", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Maxim Quad (AA)";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Maxim_Quad", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"50krh38 light mortar";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_50krh38", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76k02 light cannon";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_76RK27", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -881,63 +887,63 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			//camo
 			_headers pushBack 		"Maxim MG camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG medium camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_Medium", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim MG high camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_High", _sid];
-			_prices pushBack 		500;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"Maxim camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Medium camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV_Medium", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim High camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_SOV_High", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Maxim Quad (AA) camo";
 			_classes pushBack 		format["%1NORTH_FIN_Maxim_Quad", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"50krh38 light mortar camo";
 			_classes pushBack 		format["%1NORTH_FIN_50krh38", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76k02 light cannon camo";
 			_classes pushBack 		format["%1NORTH_FIN_76RK27", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -951,77 +957,77 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side)
 
 			_headers pushBack 		"Maxim";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_Maxim", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim High";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_Maxim_High", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Medium";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_Maxim_Medium", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Maxim Quad (AA)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_Maxim_Quad", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"50rm38 light mortar (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_50rm38", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1927 light cannon (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1927", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"Maxim";
 			_classes pushBack 		format["%1NORTH_SOV_Maxim", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim High";
 			_classes pushBack 		format["%1NORTH_SOV_Maxim_High", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Maxim Maxim Quad (AA)";
 			_classes pushBack 		format["%1NORTH_SOV_Maxim_Quad", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"50rm38 light mortar";
 			_classes pushBack 		format["%1NORTH_SOV_50rm38", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1927 light cannon";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1927", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1036,13 +1042,16 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************BASE GUN DEFENSE 1******************************
 _tech_level = 1;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_headers pushBack 		"FlaK 30 (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_30_w", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
@@ -1054,21 +1063,21 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		//};
 		_headers pushBack 		"FlaK 30";
 		_classes pushBack 		format["%1LIB_FlaK_30", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceAA;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"AA";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"leFH18";
 		_classes pushBack 		format["%1LIB_leFH18", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"leFH18 AT";
 		_classes pushBack 		format["%1LIB_leFH18_AT", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1078,7 +1087,7 @@ if(CTI_GER_SIDE != (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"61k (AA)";
 		_classes pushBack 		format["%1LIB_61k", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceAA;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"AA";
 		_tiers pushBack 		_tech_level;
@@ -1086,14 +1095,14 @@ if(CTI_GER_SIDE != (_side) call CTI_CO_FNC_GetSideID) then {
 		//for balance the atatics
 		_headers pushBack 		"leFH18";
 		_classes pushBack 		format["%1LIB_leFH18", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"leFH18 AT";
 		_classes pushBack 		format["%1LIB_leFH18_AT", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1104,56 +1113,56 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"81krh32 mortar (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_81krh32", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"37 PSTK 36 light AT (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_37PSTK36", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76RK27 cannon (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76RK27", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1927 light Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76RK27art", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"37 PSTK 36 light AT";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_37PSTK36", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"81krh32 mortar";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_81krh32", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76RK27 cannon";
 			_classes pushBack 		format["%1NORTH_FIN_41_S_76k02", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1927 light Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_76RK27art", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1161,28 +1170,28 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			//camo
 			_headers pushBack 		"37 PSTK 36 light AT camo";
 			_classes pushBack 		format["%1NORTH_FIN_37PSTK36", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"81krh32 mortar camo";
 			_classes pushBack 		format["%1NORTH_FIN_81krh32", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1927 light Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76RK27art", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76RK27 cannon camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k02", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1195,42 +1204,42 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side)
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"45mm1937 light AT (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_45mm1937", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"76mm1927 light Arty (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1927art", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1902 cannon (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1902", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"45mm1937 light AT";
 			_classes pushBack 		format["%1NORTH_SOV_45mm1937", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"76mm1927 light Arty";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1927art", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1902 cannon";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1902", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1245,13 +1254,17 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************BASE GUN DEFENSE 2******************************
 _tech_level = 2;
+_priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active			
 			_headers pushBack 		"FlaK 38 (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_38_w", _sid];
-			_prices pushBack 		3000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
@@ -1259,107 +1272,78 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 
 		_headers pushBack 		"Nebelwerfer 41";
 		_classes pushBack 		format["%1LIB_Nebelwerfer41", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 			
 		_headers pushBack 		"Nebelwerfer 41 Camo";
 		_classes pushBack 		format["%1LIB_Nebelwerfer41_Camo", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Nebelwerfer 41 bg";
 		_classes pushBack 		format["%1LIB_Nebelwerfer41_Gelbbraun", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 
 		_headers pushBack 		"MG42";
 		_classes pushBack 		format["%1LIB_MG42_Lafette_Deployed", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG42 low";
 		_classes pushBack 		format["%1LIB_MG42_Lafette_low_Deployed", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceMG;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"FlaK 38";
 		_classes pushBack 		format["%1LIB_FlaK_38", _sid];
-		_prices pushBack 		3000;
+		_prices pushBack 		_priceAA;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"AA";
-		_tiers pushBack 		_tech_level;
-	};
-	if(CTI_FOW_ADDON > 0) then {
-		_headers pushBack 		"FlaK 36 gray";
-		_classes pushBack 		format["%1fow_w_flak36_gray_ger_heer", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36 green";
-		_classes pushBack 		format["%1fow_w_flak36_green_ger_heer", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36 camo";
-		_classes pushBack 		format["%1fow_w_flak36_camo_ger_heer", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
-		_tiers pushBack 		_tech_level;
-		
-		_headers pushBack 		"FlaK 36 tan";
-		_classes pushBack 		format["%1fow_w_flak36_tan_ger_heer", _sid];
-		_prices pushBack 		4000;
-		_placements pushBack 	[180, 5];
-		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_CSA_ADDON > 0) then {
 		_headers pushBack 		"Pak 35";
 		_classes pushBack 		format["%1csa38_pak35", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 35 fr";
 		_classes pushBack 		format["%1csa38_pak35_FR", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 35 late";
 		_classes pushBack 		format["%1csa38_pak35_late", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 35 winter";
 		_classes pushBack 		format["%1csa38_pak35_W", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 35 desert";
 		_classes pushBack 		format["%1csa38_pak35_DE", _sid];
-		_prices pushBack 		2000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1369,7 +1353,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW == 1) then {
 		_headers pushBack 		"57 mm Gun M1";
 		_classes pushBack 		format["%1LIB_57mm_M1", _sid];
-		_prices pushBack 		3000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";	
 		_tiers pushBack 		_tech_level;
@@ -1379,7 +1363,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW == 1) then {
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1LIB_QF6_pdr", _sid];
-		_prices pushBack 		3000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1391,70 +1375,70 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"Lahti HMG (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Lahti_L39", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Lahti L39 (AA)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Lahti_L39AA", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"45 PSTK 37 medium AT (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_45PSTK37", _sid];
-			_prices pushBack 		3000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"76mm1902 Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76k02art", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1936 Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76k36art", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"Lahti HMG";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Lahti_L39", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Lahti L39 (AA)";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_Lahti_L39AA", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"45 PSTK 37 medium AT";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_45PSTK37", _sid];
-			_prices pushBack 		3000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1902 Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_41_S_76k02art", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1936 Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_76k36art", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1462,35 +1446,35 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			//camo
 			_headers pushBack 		"Lahti HMG camo";
 			_classes pushBack 		format["%1NORTH_FIN_Lahti_L39", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceMG;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"Lahti L39 (AA) camo";
 			_classes pushBack 		format["%1NORTH_FIN_Lahti_L39AA", _sid];
-			_prices pushBack 		1000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"45 PSTK 37 medium AT camo";
 			_classes pushBack 		format["%1NORTH_FIN_45PSTK37", _sid];
-			_prices pushBack 		3000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1902 Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k02art", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1936 Arty (w) camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k36art", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1503,28 +1487,28 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side)
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"76mm1902 Arty (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1902art", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1936 Arty (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1936art", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"76mm1902 Arty";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1902art", _sid];
-			_prices pushBack 		2000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"76mm1936 Arty";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1936art", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1540,11 +1524,17 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE GUN DEFENSE 3******************************
 _tech_level = 3;
 
+//_priceBase = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+
 //Flak 38 Vierling for ALL
 if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 	_headers pushBack 		"Flak 38 Vierling (Winter)";
 	_classes pushBack 		format["%1LIB_Flakvierling_38_w", _sid];
-	_prices pushBack 		5000;
+	_prices pushBack 		_priceAA;
 	_placements pushBack 	[180, 5];
 	_categories pushBack 	"AA";
 	_tiers pushBack 		_tech_level;
@@ -1552,7 +1542,7 @@ if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo a
 if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {
 	_headers pushBack 		"Flak 38 Vierling";
 	_classes pushBack 		format["%1LIB_Flakvierling_38", _sid];
-	_prices pushBack 		5000;
+	_prices pushBack 		_priceAA;
 	_placements pushBack 	[180, 5];
 	_categories pushBack 	"AA";
 	_tiers pushBack 		_tech_level;
@@ -1563,28 +1553,28 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_headers pushBack 		"Pak 40 (Winter)";
 			_classes pushBack 		format["%1LIB_Pak40_w", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"FlaK 36 (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_36_w", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"FlaK 36 AA (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_36_AA_w", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"FlaK 36 ARTY (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_36_ARTY_w", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1592,28 +1582,28 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 			_headers pushBack 		"Pak 40 (Desert)";
 			_classes pushBack 		format["%1LIB_DAK_Pak40", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 
 			_headers pushBack 		"FlaK 36 (Desert)";
 			_classes pushBack 		format["%1LIB_DAK_FlaK_36", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"FlaK 36 AA (Desert)";
 			_classes pushBack 		format["%1LIB_DAK_FlaK_36_AA", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"FlaK 36 ARTY (Desert)";
 			_classes pushBack 		format["%1LIB_DAK_FlaK_36_ARTY", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1621,57 +1611,85 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 				
 		_headers pushBack 		"FlaK 36";
 		_classes pushBack 		format["%1LIB_FlaK_36", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"FlaK 36 AA";
 		_classes pushBack 		format["%1LIB_FlaK_36_AA", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceAA;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"AA";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"FlaK 36 ARTY";
 		_classes pushBack 		format["%1LIB_FlaK_36_ARTY", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceArty;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 40";
 		_classes pushBack 		format["%1LIB_Pak40", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		_headers pushBack 		"FlaK 36 gray";
+		_classes pushBack 		format["%1fow_w_flak36_gray_ger_heer", _sid];
+		_prices pushBack 		_priceArty;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"FlaK 36 green";
+		_classes pushBack 		format["%1fow_w_flak36_green_ger_heer", _sid];
+		_prices pushBack 		_priceArty;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"FlaK 36 camo";
+		_classes pushBack 		format["%1fow_w_flak36_camo_ger_heer", _sid];
+		_prices pushBack 		_priceArty;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+		
+		_headers pushBack 		"FlaK 36 tan";
+		_classes pushBack 		format["%1fow_w_flak36_tan_ger_heer", _sid];
+		_prices pushBack 		_priceArty;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"Defense";
+		_tiers pushBack 		_tech_level;
+
 		_headers pushBack 		"Pak 40 yellow";
 		_classes pushBack 		format["%1fow_w_pak40_yellow_ger_heer", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 40 grey";
 		_classes pushBack 		format["%1fow_w_pak40_gray_ger_heer", _sid];
-		_prices pushBack 		5000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 40 camo";
 		_classes pushBack 		format["%1fow_w_pak40_camo_ger_heer", _sid];
-		_prices pushBack 		5200;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Pak 40 camo fol";
 		_classes pushBack 		format["%1fow_w_pak40_camo_foliage_ger_heer", _sid];
-		_prices pushBack 		5500;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1681,7 +1699,7 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_ija", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1692,14 +1710,14 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_headers pushBack 		"Zis3 (Winter)";
 			_classes pushBack 		format["%1LIB_Zis3_w", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		};
 		_headers pushBack 		"Zis3";
 		_classes pushBack 		format["%1LIB_Zis3", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1709,7 +1727,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"Zis3";
 		_classes pushBack 		format["%1LIB_Zis3", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1717,7 +1735,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_IFA3_NEW > 0) then {
 			_headers pushBack 		"M45 Quadmount";
 			_classes pushBack 		format["%1LIB_M45_Quadmount", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
@@ -1726,7 +1744,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_uk", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1736,7 +1754,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
 		_headers pushBack 		"Zis3";
 		_classes pushBack 		format["%1LIB_Zis3", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1744,7 +1762,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_IFA3_NEW > 0) then {
 			_headers pushBack 		"M45 Quadmount";
 			_classes pushBack 		format["%1LIB_M45_Quadmount_UK", _sid];
-			_prices pushBack 		4000;
+			_prices pushBack 		_priceAA;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"AA";
 			_tiers pushBack 		_tech_level;
@@ -1753,14 +1771,14 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_usa", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"6 Pounder USMC";
 		_classes pushBack 		format["%1fow_w_6Pounder_usmc", _sid];
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceGun;
 		_placements pushBack 	[180, 5];
 		_categories pushBack 	"Defense";
 		_tiers pushBack 		_tech_level;
@@ -1772,28 +1790,28 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"76k36 heavy AT (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_76k36", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"152H38 Arty (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_152H38", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"76k36 heavy AT";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_76k36", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"152H38 Arty";
 			_classes pushBack 		format["%1NORTH_FIN_S_41_152H38", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1801,14 +1819,14 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			//camo
 			_headers pushBack 		"76k36 heavy AT camo";
 			_classes pushBack 		format["%1NORTH_FIN_76k36", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"152H38 Arty camo";
 			_classes pushBack 		format["%1NORTH_FIN_152H38", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1821,28 +1839,28 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side)
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"76mm1936 heavy AT (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_76mm1936", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"152mm1938 Arty (w)";
 			_classes pushBack 		format["%1NORTH_SOV_W_39_152mm1938", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 		} else {
 			_headers pushBack 		"76mm1936 heavy AT";
 			_classes pushBack 		format["%1NORTH_SOV_76mm1936", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceGun;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
 			
 			_headers pushBack 		"152mm1938 Arty";
 			_classes pushBack 		format["%1NORTH_SOV_152mm1938", _sid];
-			_prices pushBack 		5000;
+			_prices pushBack 		_priceArty;
 			_placements pushBack 	[180, 5];
 			_categories pushBack 	"Defense";
 			_tiers pushBack 		_tech_level;
@@ -1857,6 +1875,12 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************Ammoboxes*******************************************************************************************************
 _tech_level = 0;
+
+/*_priceBase = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;*/
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA3_NEW >= 0) then {
@@ -2172,9 +2196,16 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 
 //******************************BASE DEFENSE 0*******************************************************************************************************
+
+_priceMisc = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceFences = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceWalls = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceGun = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceAA = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+
 _headers pushBack 		"Warning Sign- Mines";
 _classes pushBack 		"Land_Sign_Mines_F";
-_prices pushBack 		1;
+_prices pushBack 		_priceMisc;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Misc";
 _tiers pushBack 		_tech_level;
@@ -2182,49 +2213,49 @@ _tiers pushBack 		_tech_level;
 if(CTI_IFA3_NEW >= 0) then {
 	_headers pushBack 		"Barbedwire 1";
 	_classes pushBack 		"Land_I44_Buildings_Barbedwire";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Barbedwire 2";
 	_classes pushBack 		"Land_I44_Buildings_Barbedwire2";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bwire 1";
 	_classes pushBack 		"WW2_BET_Bwire_2";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bwire 2";
 	_classes pushBack 		"WW2_BET_Bwire_4";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Razorwire";
 	_classes pushBack 		"Land_Razorwire_F";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Wire_Bruno";
 	_classes pushBack 		"Land_WW2_Wire_Bruno";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Wire";
 	_classes pushBack 		"Land_WW2_Wire_2";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Barbwire";
 	_tiers pushBack 		_tech_level;
@@ -2232,42 +2263,42 @@ if(CTI_IFA3_NEW >= 0) then {
 
 _headers pushBack 		"Bagfence Bunker";
 _classes pushBack 		"Land_Fort_Bagfence_Bunker";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"BagFence Corner";
 _classes pushBack 		"Land_BagFence_Corner_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"BagFence End";
 _classes pushBack 		"Land_BagFence_End_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"BagFence Long";
 _classes pushBack 		"Land_BagFence_Long_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"BagFence Round";
 _classes pushBack 		"Land_BagFence_Round_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"BagFence Short";
 _classes pushBack 		"Land_BagFence_Short_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
@@ -2275,14 +2306,14 @@ _tiers pushBack 		_tech_level;
 if(CTI_IFA3_NEW >= 0) then {
 	_headers pushBack 		"bagfence round";
 	_classes pushBack 		"Land_WW2_BET_Sandsack_Kreis";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"bagfence long";
 	_classes pushBack 		"Land_WW2_BET_Sandsack_Lang";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
@@ -2290,28 +2321,28 @@ if(CTI_IFA3_NEW >= 0) then {
 
 _headers pushBack 		"bagfence long 2";
 _classes pushBack 		"Land_fort_bagfence_long";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"bagfence corner";
 _classes pushBack 		"Land_fort_bagfence_corner";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"bagfence round 2";
 _classes pushBack 		"Land_fort_bagfence_round";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Strelecky post";
 _classes pushBack 		"Land_strelecky_post_new";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Bagfence";
 _tiers pushBack 		_tech_level;
@@ -2319,91 +2350,91 @@ _tiers pushBack 		_tech_level;
 if(CTI_FOW_ADDON > 0) then {
 	_headers pushBack 		"Wall (Wood)";
 	_classes pushBack 		"Land_fow_wall_wood";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Wood";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 01";
 	_classes pushBack 		"Land_fielddefence_01";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 02";
 	_classes pushBack 		"Land_fielddefence_02";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 03";
 	_classes pushBack 		"Land_fielddefence_03";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 04";
 	_classes pushBack 		"Land_fielddefence_04";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 05";
 	_classes pushBack 		"Land_fielddefence_05";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 06";
 	_classes pushBack 		"Land_fielddefence_06";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Fielddefence 07";
 	_classes pushBack 		"Land_fielddefence_07s";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Service Tent";
 	_classes pushBack 		"Land_GeneralServiceTent";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"barbwire 01";
 	_classes pushBack 		"fow_p_barbwire01";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"barbwire 02";
 	_classes pushBack 		"fow_p_barbwire02";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Fence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"beachobstacle 1";
 	_classes pushBack 		"fow_p_beachobstacle_01";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Wood";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"beachobstacle 2";
 	_classes pushBack 		"fow_p_beachobstacle_02";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Wood";
 	_tiers pushBack 		_tech_level;
@@ -2412,75 +2443,75 @@ if(CTI_FOW_ADDON > 0) then {
 	_classes pushBack 		"Land_wx_bunker";
 	_prices pushBack 		400;
 	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Wood";	
+	_categories pushBack 	"Bunker";	
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"logbunker 01";
 	_classes pushBack 		"fow_p_logbunker01";
 	_prices pushBack 		400;
 	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Wood";
+	_categories pushBack 	"Bunker";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"logbunker 02";
 	_classes pushBack 		"fow_p_logbunker02";
 	_prices pushBack 		400;
 	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Wood";
+	_categories pushBack 	"Bunker";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag00";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag01";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag03_end";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag03_mid";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag04";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag05";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag1";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"BagFence";
 	_classes pushBack 		"fow_p_sandbag2";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Bagfence";
 	_tiers pushBack 		_tech_level;
@@ -2493,80 +2524,81 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************BASE DEFENSE 1******************************
 _tech_level = 1;
+_priceFences = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 _headers pushBack 		"Dirthump 1";
 _classes pushBack 		"Land_Dirthump01";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirthump 2";
 _classes pushBack 		"Land_Dirthump01_EP1";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirthump 3";
 _classes pushBack 		"Land_Dirthump02_EP1";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirthump 4";
 _classes pushBack 		"Land_Dirthump02";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirthump 5";
 _classes pushBack 		"Land_Dirthump03";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirthump 6";
 _classes pushBack 		"Land_Dirthump03_EP1";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Dirtmount";
 _classes pushBack 		"Dirtmount_EP1";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Envelope Big";
 _classes pushBack 		"Fort_EnvelopeBig";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Envelope Small";
 _classes pushBack 		"Fort_EnvelopeSmall";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Artillery Nest";
 _classes pushBack 		"Land_fort_artillery_nest";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Fort Rampart";
 _classes pushBack 		"Land_fort_rampart";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Dirt";
 _tiers pushBack 		_tech_level;
@@ -2576,12 +2608,12 @@ if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_headers pushBack 		"Fort Rampart (Winter)";
 		_classes pushBack 		"WW2_JNS_Fort_Rampart_EP1";
-		_prices pushBack 		1000;
+		_prices pushBack 		_priceFences;
 		_placements pushBack 	[0, 15];
 		_categories pushBack 	"Dirt";
 		_tiers pushBack 		_tech_level;
 	};
-
+	/*
 	_headers pushBack 		"Setka Car";
 	_classes pushBack 		"Land_Setka_Car";
 	_prices pushBack 		300;
@@ -2602,7 +2634,7 @@ if(CTI_IFA3_NEW >= 0) then {
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Camo";
 	_tiers pushBack 		_tech_level;
-	/*
+	
 	_headers pushBack 		"CamoNet Tank";
 	_classes pushBack 		"Land_WW2_CamoNet_Tank";
 	_prices pushBack 		300;
@@ -2662,7 +2694,7 @@ if(CTI_IFA3_NEW >= 0) then {
 
 	_headers pushBack 		"Posed (Winter)";
 	_classes pushBack 		"Land_WW2_Posed_w";
-	_prices pushBack 		300;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Misc";
 	_tiers pushBack 		_tech_level;
@@ -2670,28 +2702,28 @@ if(CTI_IFA3_NEW >= 0) then {
 
 _headers pushBack 		"Jump Target";
 _classes pushBack 		"Land_JumpTarget_F";
-_prices pushBack 		100;
+_prices pushBack 		_priceMisc;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Misc";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Posed";
 _classes pushBack 		"Land_Posed";
-_prices pushBack 		300;
+_prices pushBack 		_priceMisc;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Misc";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Guard Tower";
 _classes pushBack 		"Land_GuardTower_01_F";
-_prices pushBack 		300;
+_prices pushBack 		_priceFences*2;
 _placements pushBack 	[0, 15];
-_categories pushBack 	"Misc";
+_categories pushBack 	"Building";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Wooden Ramp";
 _classes pushBack 		"Land_WoodenRamp";
-_prices pushBack 		50;
+_prices pushBack 		_priceMisc;
 _placements pushBack 	[0, 15];
 _categories pushBack 	"Misc";
 _tiers pushBack 		_tech_level;
@@ -2699,112 +2731,112 @@ _tiers pushBack 		_tech_level;
 if(CTI_FOW_ADDON > 0) then {
 	_headers pushBack 		"Dirtheap 1";
 	_classes pushBack 		"fow_p_dirtheap001";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 2";
 	_classes pushBack 		"fow_p_dirtheap002";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 3";
 	_classes pushBack 		"fow_p_dirtheap003";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 4";
 	_classes pushBack 		"fow_p_dirtheap004";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 5";
 	_classes pushBack 		"fow_p_dirtheap005";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 6";
 	_classes pushBack 		"fow_p_dirtheap006";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 7";
 	_classes pushBack 		"fow_p_dirtheap007";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 8";
 	_classes pushBack 		"fow_p_dirtheap008";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 9";
 	_classes pushBack 		"fow_p_dirtheap009";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 10";
 	_classes pushBack 		"fow_p_dirtheap010";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 11";
 	_classes pushBack 		"fow_p_dirtheap011";
-	_prices pushBack 		700;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 12";
 	_classes pushBack 		"fow_p_dirtheap012";
-	_prices pushBack 		700;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 13";
 	_classes pushBack 		"fow_p_dirtheap013";
-	_prices pushBack 		700;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 14";
 	_classes pushBack 		"fow_p_dirtheap014";
-	_prices pushBack 		700;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap 15";
 	_classes pushBack 		"fow_p_dirtheap015";
-	_prices pushBack 		700;
+	_prices pushBack 		_priceFences;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Dirtheap very large";
 	_classes pushBack 		"fow_p_dirtheap016";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceFences*2;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
 	_tiers pushBack 		_tech_level;
@@ -2817,52 +2849,53 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************BASE DEFENSE 2******************************
 _tech_level = 2;
+_priceFences = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 _headers pushBack 		"NetFence 8m";
 _classes pushBack 		"Land_Net_Fence_8m_F";
-_prices pushBack 		800;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"NetFence 4m";
 _classes pushBack 		"Land_Net_Fence_4m_F";
-_prices pushBack 		400;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"NetFence Gate";
 _classes pushBack 		"Land_Net_Fence_Gate_F";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"NetFence 3m";
 _classes pushBack 		"Land_NetFence_03_m_3m_F";
-_prices pushBack 		300;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"NetFence 9m";
 _classes pushBack 		"Land_NetFence_03_m_9m_F";
-_prices pushBack 		900;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"WiredFence 5m";
 _classes pushBack 		"Land_New_WiredFence_5m_F";
-_prices pushBack 		500;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"WiredFence 10m";
 _classes pushBack 		"Land_New_WiredFence_10m_F";
-_prices pushBack 		1000;
+_prices pushBack 		_priceFences;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"NetFence";
 _tiers pushBack 		_tech_level;
@@ -2875,220 +2908,226 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE DEFENSE 3******************************
 _tech_level = 3;
 
+_priceMisc = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceTrenche = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceTrencheL = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceGun = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceAA = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+
 if(CTI_IFA3_NEW >= 0) then {
 	_headers pushBack 		"Small Infantry Trench";
 	_classes pushBack 		"Land_WW2_Small_Infantry_Trench1";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Foxhole";
 	_classes pushBack 		"Land_WW2_Foxhole";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Single";
 	_classes pushBack 		"Land_WW2_Trench_Single";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench76";
 	_classes pushBack 		"Land_WW2_Trench76";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"MG Low";
 	_classes pushBack 		"Land_WW2_Trench_MG_Low";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"MG";
 	_classes pushBack 		"Land_WW2_TrenchMG";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Mortar";
 	_classes pushBack 		"Land_WW2_Trench_Mortar";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Big Infantry Trench";
 	_classes pushBack 		"Land_WW2_Big_Infantry_Trench";
-	_prices pushBack 		20000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
-	_categories pushBack 	"Trenches";
+	_categories pushBack 	"Large Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"TrenchTank";
 	_classes pushBack 		"Land_WW2_TrenchTank";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench1";
 	_classes pushBack 		"Land_I44_Buildings_Trench1";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench2";
 	_classes pushBack 		"Land_I44_Buildings_Trench2";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Tob";
 	_classes pushBack 		"Land_I44_Tob";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Pontoon Apparel1";
 	_classes pushBack 		"Land_WW2_Ponton_Apparel1";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Pontoon Bridge";
 	_classes pushBack 		"Land_WW2_Ponton_Bridge";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bag Trench";
 	_classes pushBack 		"Land_WW2_SWU_Bag_Trench";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bag Trench Block";
 	_classes pushBack 		"Land_WW2_SWU_Bag_Trench_Block";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"GB corner_inward";
 	_classes pushBack 		"Land_WW2_LAWZ_Gold_Beach_trench_corner_inward";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"GB corner outward";
 	_classes pushBack 		"Land_WW2_LAWZ_Gold_Beach_trench_corner_outward";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"GB floor";
 	_classes pushBack 		"Land_WW2_LAWZ_Gold_Beach_trench_floor";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"GB long";
 	_classes pushBack 		"Land_WW2_LAWZ_Gold_Beach_trench_long";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"GB short";
 	_classes pushBack 		"Land_WW2_LAWZ_Gold_Beach_trench_short";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bunker FFP";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_FFP";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bunker FFP Doors";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_FFP_Doors";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Corner 90";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_90";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Corner X1";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_X1";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Corner X2";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_X2";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bunker Big";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_Big";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Bunker Big Doors";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_Big_Doors";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench Long X3";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Long_X3";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench Wall";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Wall";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 
 	_headers pushBack 		"Trench Wide";
 	_classes pushBack 		"Land_WW2_Fortification_Trench_Wide";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
@@ -3096,161 +3135,161 @@ if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 		_headers pushBack 		"Small Infantry Trench";
 		_classes pushBack 		"Land_WW2_Small_Infantry_Trench1_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench76";
 		_classes pushBack 		"Land_WW2_Trench76_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG Low";
 		_classes pushBack 		"Land_WW2_Trench_MG_Low_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"MG";
 		_classes pushBack 		"Land_WW2_TrenchMG_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Mortar";
 		_classes pushBack 		"Land_WW2_Trench_Mortar_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
-		_headers pushBack 		"Big Infantry Trench";
+		_headers pushBack 		"Big Infantry Trench (Winter)";
 		_classes pushBack 		"Land_WW2_Big_Infantry_Trench_w";
-		_prices pushBack 		20000;
+		_prices pushBack 		_priceTrencheL;
 		_placements pushBack 	[90, 7];
-		_categories pushBack 	"Trenches (Winter)";
+		_categories pushBack 	"Large Trenches";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"TrenchTank";
 		_classes pushBack 		"Land_WW2_TrenchTank_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Bunker FFP";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_FFP_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Bunker FFP Doors";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_FFP_Doors_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Corner 90";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_90_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Corner X1";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_X1_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Corner X2";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Corner_X2_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Bunker Big";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_Big_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Bunker Big Doors";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Bunker_Big_Doors_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Long X3";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Long_X3_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Wall";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Wall_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Wide";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Wide_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Bridge";
 		_classes pushBack 		"Land_WW2_Fortification_Trench_Bridge_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench1";
 		_classes pushBack 		"Land_I44_Buildings_Trench1_W";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench2";
 		_classes pushBack 		"Land_I44_Buildings_Trench2_W";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Ponton Apparel1";
 		_classes pushBack 		"Land_WW2_Ponton_Apparel1_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Ponton Bridge";
 		_classes pushBack 		"Land_WW2_Ponton_Bridge_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Winter)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"snowman";
 		_classes pushBack 		"snowman";
-		_prices pushBack 		20;
+		_prices pushBack 		_priceMisc;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Misc";
 		_tiers pushBack 		_tech_level;
@@ -3259,112 +3298,112 @@ if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 		_headers pushBack 		"Trench Corner";
 		_classes pushBack 		"Land_WW2_SWU_Trench_Corner_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench End";
 		_classes pushBack 		"Land_WW2_SWU_Trench_End_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Long";
 		_classes pushBack 		"Land_WW2_SWU_Trench_Long_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench Short";
 		_classes pushBack 		"Land_WW2_SWU_Trench_Short_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench TJunction";
 		_classes pushBack 		"Land_WW2_SWU_Trench_TJunction_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Corrugated Roof";
 		_classes pushBack 		"Land_WW2_SWU_Corrugated_Roof_Desert";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Mound Large";
 		_classes pushBack 		"Land_WW2_SWU_Desert_Mound_Large";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Bag Trench2";
 		_classes pushBack 		"Land_WW2_SWU_Bag_Trench2";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench corner";
 		_classes pushBack 		"Land_WW2_LAWZ_Tobruk_Trench_corner";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench exit";
 		_classes pushBack 		"Land_WW2_LAWZ_Tobruk_Trench_exit";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench gunposition";
 		_classes pushBack 		"Land_WW2_LAWZ_Tobruk_Trench_gunposition";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench straight";
 		_classes pushBack 		"Land_WW2_LAWZ_Tobruk_Trench_straight";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trench junction";
 		_classes pushBack 		"Land_WW2_LAWZ_Tobruk_Trench_junction";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trenches Straight";
 		_classes pushBack 		"Land_I44_Buildings_CT_Straight";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trenches Straight Side";
 		_classes pushBack 		"Land_I44_Buildings_CT_Straight_Side";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"Trenches Straight Wire";
 		_classes pushBack 		"Land_I44_Buildings_CT_Straight_Wire";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceTrenche;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Trenches (Desert)";
 		_tiers pushBack 		_tech_level;
@@ -3374,343 +3413,343 @@ if(CTI_IFA3_NEW >= 0) then {
 if(CTI_FOW_ADDON > 0) then {
 	_headers pushBack 		"Trench DefPos";
 	_classes pushBack 		"Land_defPos1";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench DefPos beach";
 	_classes pushBack 		"Land_defPos1_beach";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench DefPosgrass";
 	_classes pushBack 		"Land_defPos1_grass";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench DefPos ground";
 	_classes pushBack 		"Land_defPos1_ground";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench DefPos jungle";
 	_classes pushBack 		"Land_defPos1_jungle";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench DefPos marsh";
 	_classes pushBack 		"Land_defPos1_marsh";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x";
 	_classes pushBack 		"Land_trench06";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x beach";
 	_classes pushBack 		"Land_trench06_beach";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1xgrass";
 	_classes pushBack 		"Land_trench06_grass";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x ground";
 	_classes pushBack 		"Land_trench06_ground";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x jungle";
 	_classes pushBack 		"Land_trench06_jungle";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x marsh";
 	_classes pushBack 		"Land_trench06_marsh";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x Duo beach";
 	_classes pushBack 		"Land_trench06b_beach";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x Duo grass";
 	_classes pushBack 		"Land_trench06b_grass";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x Duo ground";
 	_classes pushBack 		"Land_trench06b_ground";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x Duo jungle";
 	_classes pushBack 		"Land_trench06b_jungle";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 1x Duo marsh";
 	_classes pushBack 		"Land_trench06b_marsh";
-	_prices pushBack 		400;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x";
 	_classes pushBack 		"Land_trench05";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x beach";
 	_classes pushBack 		"Land_trench05_beach";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x grass";
 	_classes pushBack 		"Land_trench05_grass";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x ground";
 	_classes pushBack 		"Land_trench05_ground";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x jungle";
 	_classes pushBack 		"Land_trench05_jungle";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x marsh";
 	_classes pushBack 		"Land_trench05_marsh";
-	_prices pushBack 		500;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo";
 	_classes pushBack 		"Land_trench05b";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo beach";
 	_classes pushBack 		"Land_trench05b_beach";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo grass";
 	_classes pushBack 		"Land_trench05b_grass";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo ground";
 	_classes pushBack 		"Land_trench05b_ground";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo jungle";
 	_classes pushBack 		"Land_trench05b_jungle";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 2x Duo marsh";
 	_classes pushBack 		"Land_trench05b_marsh";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x";
 	_classes pushBack 		"Land_trench04";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x beach";
 	_classes pushBack 		"Land_trench04_beach";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x grass";
 	_classes pushBack 		"Land_trench04_grass";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x ground";
 	_classes pushBack 		"Land_trench04_ground";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x jungle";
 	_classes pushBack 		"Land_trench04_jungle";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x marsh";
 	_classes pushBack 		"Land_trench04_marsh";
-	_prices pushBack 		2000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo";
 	_classes pushBack 		"Land_trench04b";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo grass";
 	_classes pushBack 		"Land_trench04b_grass";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo ground";
 	_classes pushBack 		"Land_trench04b_ground";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo jungle";
 	_classes pushBack 		"Land_trench04b_jungle";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo marsh";
 	_classes pushBack 		"Land_trench04b_marsh";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench 5x duo beach";
 	_classes pushBack 		"Land_trench04b_beach";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Hole";
 	_classes pushBack 		"Land_trench03";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Fence";
 	_classes pushBack 		"Land_trench07";
-	_prices pushBack 		100;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Post";
 	_classes pushBack 		"Land_trench08";
-	_prices pushBack 		50;
+	_prices pushBack 		_priceMisc;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Fence half";
 	_classes pushBack 		"Land_trench09";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceTrencheL;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Floor";
 	_classes pushBack 		"Land_trenchfloor01";
-	_prices pushBack 		200;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Floor large";
 	_classes pushBack 		"Land_trenchfloor01_b";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"guardtower";
 	_classes pushBack 		"land_wx_guardtower_01";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Wood";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"guardtower";
 	_classes pushBack 		"land_wx_guardtower_02";
-	_prices pushBack 		1000;
+	_prices pushBack 		_priceTrenche;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Wood";
 	_tiers pushBack 		_tech_level;
@@ -3724,44 +3763,50 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE DEFENSE 4******************************
 _tech_level = 4;
 
+_priceMisc = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,0.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceConcrete = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceBunkers = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceGun = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+//_priceAA = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+
 _headers pushBack 		"Concretewall 1";
 _classes pushBack 		"zed";
-_prices pushBack 		4000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Concretewall";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Concretewall 2";
 _classes pushBack 		"zed2";
-_prices pushBack 		4000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Concretewall";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Concretewall 3";
 _classes pushBack 		"zed3";
-_prices pushBack 		4000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Concretewall";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Pier Concrete";
 _classes pushBack 		"Land_Pier_F";
-_prices pushBack 		4000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Harbor";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Pier Metal";
 _classes pushBack 		"Land_nav_pier_m_F";
-_prices pushBack 		4000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Harbor";
 _tiers pushBack 		_tech_level;
 
 _headers pushBack 		"Pier Platform";
 _classes pushBack 		"Land_Pier_Addon";
-_prices pushBack 		2000;
+_prices pushBack 		_priceConcrete;
 _placements pushBack 	[90, 7];
 _categories pushBack 	"Harbor";
 _tiers pushBack 		_tech_level;
@@ -3771,7 +3816,7 @@ if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 		_headers pushBack 		"Concretewall (Winter)";
 		_classes pushBack 		"Land_WW2_Zed_Civil_w";
-		_prices pushBack 		4000;
+		_prices pushBack 		_priceConcrete;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Concretewall";
 		_tiers pushBack 		_tech_level;
@@ -3780,7 +3825,7 @@ if(CTI_IFA3_NEW >= 0) then {
 if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 	_headers pushBack 		"Concretewall (desert)";
 	_classes pushBack 		"zed_desert";
-	_prices pushBack 		4000;
+	_prices pushBack 		_priceConcrete;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Concretewall";
 	_tiers pushBack 		_tech_level;
@@ -3789,133 +3834,133 @@ if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
 if(CTI_FOW_ADDON > 0) then {
 	_headers pushBack 		"Trench Bunker";
 	_classes pushBack 		"fow_p_defenceposition_03";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker beach";
 	_classes pushBack 		"fow_p_defenceposition_03_beach";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker grass";
 	_classes pushBack 		"fow_p_defenceposition_03_grass";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker ground";
 	_classes pushBack 		"fow_p_defenceposition_03_ground";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker jungle";
 	_classes pushBack 		"fow_p_defenceposition_03_jungle";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker marsh";
 	_classes pushBack 		"fow_p_defenceposition_03_marsh";
-	_prices pushBack 		3000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2";
 	_classes pushBack 		"fow_p_defenceposition_05";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2 beach";
 	_classes pushBack 		"fow_p_defenceposition_05_beach";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2 grass";
 	_classes pushBack 		"fow_p_defenceposition_05_grass";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2 ground";
 	_classes pushBack 		"fow_p_defenceposition_05_ground";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2 jungle";
 	_classes pushBack 		"fow_p_defenceposition_05_jungle";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 2 marsh";
 	_classes pushBack 		"fow_p_defenceposition_05_marsh";
-	_prices pushBack 		3300;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3";
 	_classes pushBack 		"fow_p_defenceposition_04";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3 beach";
 	_classes pushBack 		"fow_p_defenceposition_04_beach";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3 grass";
 	_classes pushBack 		"fow_p_defenceposition_04_grass";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3 ground";
 	_classes pushBack 		"fow_p_defenceposition_04_ground";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3 jungle";
 	_classes pushBack 		"fow_p_defenceposition_04_jungle";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunker 3 marsh";
 	_classes pushBack 		"fow_p_defenceposition_04_marsh";
-	_prices pushBack 		3500;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
 	
 	_headers pushBack 		"Trench Bunkerhill";
 	_classes pushBack 		"fow_p_defenceposition_06";
-	_prices pushBack 		5000;
+	_prices pushBack 		_priceBunkers;
 	_placements pushBack 	[90, 7];
 	_categories pushBack 	"Trenches";
 	_tiers pushBack 		_tech_level;
@@ -3928,75 +3973,77 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //------------------------------------mines---------------------------------------------
 _tech_level = 0;
+_priceAP = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20] call CTI_CO_FNC_GetCalculatedItemPrize;
+_priceAT = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,200] call CTI_CO_FNC_GetCalculatedItemPrize;
 
 if(CTI_IFA3_NEW >= 0) then {
 	if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_headers pushBack 		"AP Mine Shumine";
 		_classes pushBack 		"LIB_shumine_42_MINE";
-		_prices pushBack 		round 150*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AP Mine SMI 35";
 		_classes pushBack 		"LIB_SMI_35_MINE";
-		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AP Mine SMI 35 1";
 		_classes pushBack 		"LIB_SMI_35_1_MINE";
-		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AP Mine STMI";
 		_classes pushBack 		"LIB_STMI_MINE";
-		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AT Mine TMI 42";
 		_classes pushBack 		"LIB_TMI_42_MINE";
-		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAT;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AT Mine TM44";
 		_classes pushBack 		"LIB_TM44_MINE";
-		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAT;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 	} else {
 		_headers pushBack 		"AP Mine PMD6";
 		_classes pushBack 		"LIB_PMD6_MINE";
-		_prices pushBack 		round 150*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AP Mine M3";
 		_classes pushBack 		"LIB_M3_MINE";
-		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AP Mine US M3";
 		_classes pushBack 		"LIB_US_M3_MINE";
-		_prices pushBack 		round 50*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAP;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
 		
 		_headers pushBack 		"AT Mine US M1A1";
 		_classes pushBack 		"LIB_US_M1A1_ATMINE";
-		_prices pushBack 		round 500*((CTI_ECONOMY_PRIZE_WEAPONS*CTI_ECONOMY_LEVEL_MULTI)/10000);
+		_prices pushBack 		_priceAT;
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
