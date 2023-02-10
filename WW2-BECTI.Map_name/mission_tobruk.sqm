@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3249;
+		nextID=3275;
 	};
 	class Camera
 	{
@@ -31,7 +31,10 @@ sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
+	"NF_Side_Patch",
+	"VIO_Side_Patch_WW2",
 	"A3_Ui_F",
+	"csa38ii_data",
 	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Fortification",
@@ -41,7 +44,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=9;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -51,31 +54,52 @@ class AddonsMetaData
 		};
 		class Item1
 		{
+			className="NF_Side_Patch";
+			name="Side Patch for Northern Fronts";
+			author="dukee";
+			url="https://discord.gg/sJw2Nynh7s";
+		};
+		class Item2
+		{
+			className="VIO_Side_Patch_WW2";
+			name="VIO Side Patch WW2";
+			author="dukee";
+			url="https://discord.gg/sJw2Nynh7s";
+		};
+		class Item3
+		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item4
+		{
+			className="csa38ii_data";
+			name="csa38ii_data";
+			author="CSA38 Team";
+			url="http://www.moddb.com/mods/csa38-czechoslovak-army-1938";
+		};
+		class Item5
 		{
 			className="WW2_Core_c_IF_Gui_c";
 			name="WW2_Core_c_IF_Gui_c";
 		};
-		class Item3
+		class Item6
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item7
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item8
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
@@ -1955,7 +1979,7 @@ class Mission
 								position[]={812.88098,57.349998,4255.4399};
 							};
 							name="Town22";
-							init="call{nullReturn = [this, ""Checkpoint George"", resistance, 30, 900, 900] execVM ""Common\Init\Init_Location.sqf""}";
+							init="call{nullReturn = [this, ""Checkpoint George"", resistance, 30, 120, 1200] execVM ""Common\Init\Init_Location.sqf""}";
 							id=997;
 							type="LocationArea_F";
 						};
@@ -2288,7 +2312,7 @@ class Mission
 								angles[]={0.11943288,0,0.091734506};
 							};
 							name="Town5";
-							init="call{nullReturn = [this, ""Bir el Maclub"", resistance, 30, 60, 600] execVM ""Common\Init\Init_Location.sqf""}";
+							init="call{nullReturn = [this, ""Bir el Maclub"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=929;
 							type="LocationArea_F";
 						};
@@ -3218,7 +3242,7 @@ class Mission
 							init="call{nullReturn = [this, ""King's Cross"", resistance, 30, 90, 900] execVM ""Common\Init\Init_Location.sqf""}";
 							id=981;
 							type="LocationArea_F";
-							atlOffset=-7.6293945e-006;
+							atlOffset=-1.5258789e-005;
 						};
 						class Item4
 						{

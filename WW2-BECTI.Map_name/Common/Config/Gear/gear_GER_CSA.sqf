@@ -688,45 +688,41 @@ _u = _u		+ [0];
 _p = _p		+ [5];*/
 
 _i pushBack "csa38_Binocular2";
-_u pushBack 0;
-_p pushBack round 100;
-
 _i pushBack "csa38_ItemMap";
-_u pushBack 0;
-_p pushBack round 20;
-
 _i pushBack "csa38_ItemRadio";
-_u pushBack 0;
-_p pushBack round 200;
 
 if(CTI_IFA3_NEW < 0 && CTI_FOW_ADDON <= 0) then {
 	_i pushBack "ItemMap";
-	_u pushBack 0;
-	_p pushBack round 20;
+	_i pushBack "ItemRadio";
+	_i pushBack "ItemCompass";
+	_i pushBack "ItemWatch";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
-	_i pushBack "itemradio";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "itemcompass";
-	_u pushBack 0;
-	_p pushBack round 20;
-
-	_i pushBack "itemwatch";
-	_u pushBack 0;
-	_p pushBack round 50;
-
+	_i pushBack "MineDetector";
 	_i pushBack "FirstAidKit";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "Toolkit";
-	_u pushBack 0;
-	_p pushBack round 3000;
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
 	_i pushBack "Medikit";
-	_u pushBack 0;
-	_p pushBack round 1500;
+	_i pushBack "ToolKit";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 };
 
 //all units are declared, we update the possible upgrades if this script

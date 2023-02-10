@@ -298,7 +298,7 @@ _tech_level = 0;
 
 _priceBase = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
-_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,15] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
@@ -1042,7 +1042,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 
 //******************************BASE GUN DEFENSE 1******************************
 _tech_level = 1;
-_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,15] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
@@ -1255,7 +1255,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE GUN DEFENSE 2******************************
 _tech_level = 2;
 _priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
-_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,15] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
@@ -1524,9 +1524,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE GUN DEFENSE 3******************************
 _tech_level = 3;
 
-//_priceBase = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,2.5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
-//_priceMG = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
-_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,20] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,15] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,8] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
