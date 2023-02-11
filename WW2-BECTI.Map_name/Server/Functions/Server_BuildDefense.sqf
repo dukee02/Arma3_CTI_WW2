@@ -42,7 +42,7 @@ _origin = _this select 4;
 _autoalign = _this select 5;
 _manned = if (count _this > 6) then {_this select 6} else {false};
 
-if (isNull _varname) exitWith {if (CTI_Log_Level >= CTI_Log_Error) then {["ERROR", "FILE: Server\Functions\Server_BuildDefense.sqf", format["Can't build defense! (skipped) side: %1 - classname: <%2> ", _side, (_this select 0)]] call CTI_CO_FNC_Log}};
+if (isNil _varname) exitWith {if (CTI_Log_Level >= CTI_Log_Error) then {["ERROR", "FILE: Server\Functions\Server_BuildDefense.sqf", format["Can't build defense! (skipped) side: %1 - classname: <%2> ", _side, (_this select 0)]] call CTI_CO_FNC_Log}};
 
 _var = missionNamespace getVariable _varname;
 _logic = (_side) call CTI_CO_FNC_GetSideLogic;

@@ -1453,6 +1453,13 @@ _tech_level = 0;
 
 _i pushBack "NORTH_Binocular_Huet";
 _i pushBack "NORTH_Binocular_Zeiss";
+// set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "ItemMap";

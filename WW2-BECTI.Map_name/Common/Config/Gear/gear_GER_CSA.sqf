@@ -690,6 +690,13 @@ _p = _p		+ [5];*/
 _i pushBack "csa38_Binocular2";
 _i pushBack "csa38_ItemMap";
 _i pushBack "csa38_ItemRadio";
+// set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+};
 
 if(CTI_IFA3_NEW < 0 && CTI_FOW_ADDON <= 0) then {
 	_i pushBack "ItemMap";

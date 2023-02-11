@@ -223,6 +223,7 @@ if(CTI_SABFL_ADDON > 0) then {
 	_tech_level = 1;
 
 	_c pushBack "sab_fl_pod_wb81_b_pylon_mag";			//POD WB81 B
+	_c pushBack "sab_fl_pod_bk37_he_pylon_mag";			//POD Cannon HE
 
 	// set all other vars in a slope
 	_cntstart = count _c;
@@ -236,21 +237,6 @@ if(CTI_SABFL_ADDON > 0) then {
 //*****************************************************LEVEL*2****************************************************************************
 if(CTI_SABFL_ADDON > 0) then {
 	_tech_level = 2;
-
-	_c pushBack "sab_fl_pod_bk37_he_pylon_mag";			//POD Cannon HE
-
-	// set all other vars in a slope
-	_cntstart = count _c;
-	_cntend = count _d;
-	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-		_d pushBack "weapon pod";
-		_m pushBack 100;
-		_u pushBack _tech_level;
-	};
-};
-//*****************************************************LEVEL*3****************************************************************************
-if(CTI_SABFL_ADDON > 0) then {
-	_tech_level = 3;
 
 	_c pushBack "sab_fl_pod_bk37_ap_pylon_mag";			//POD Cannon AT
 	_c pushBack "sab_fl_pod_s40mm_ap_pylon_mag";		//POD Cannon AT

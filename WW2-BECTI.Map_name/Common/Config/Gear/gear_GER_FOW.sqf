@@ -757,6 +757,8 @@ _u = _u		+ [0];
 _p = _p		+ [5];*/
 
 _i pushBack "fow_i_dienstglas";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 if(CTI_IFA3_NEW < 0) then {
 	_i pushBack "ItemMap";
