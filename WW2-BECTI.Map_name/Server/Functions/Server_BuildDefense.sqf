@@ -137,7 +137,7 @@ if(isNIL "_var") then {
 	//--- Make the defense stronger?
 	_stronger = -1;
 	{if (_x select 0 == "DMG_Reduce") exitWith {_stronger = _x select 1}} forEach (_var select 5);
-	if (_stronger != -1) then {_defense addEventHandler ["handleDamage", format["getDammage (_this select 0)+(_this select 2)/%1",_stronger]]};
+	if (_stronger != -1) then {_defense addEventHandler ["handleDamage", format["getDamage (_this select 0)+(_this select 2)/%1",_stronger]]};
 
 	//--- Check if the defense has a ruin model attached (we don't wana have a cemetery of wrecks)
 	_ruins = "";
