@@ -38,7 +38,7 @@ CTI_FIN_ID = 6;
 
 //--- Mod IDs
 CTI_IFA_ID = 0;
-CTI_IFA_NEW_ID = 1;
+CTI_SPE_ID = 1;
 CTI_FOW_ID = 2;
 CTI_CSA_ID = 3;
 CTI_NF_ID = 4;
@@ -535,7 +535,7 @@ with missionNamespace do {
 	if (isNil 'CTI_BASE_FOB_MAX') then {CTI_BASE_FOB_MAX = 2}; //--- Maximum amount of FOBs which a side may place
 	if (isNil 'CTI_BASE_HQ_DEPLOY_COST') then {CTI_BASE_HQ_DEPLOY_COST = 100}; //--- The cost needed to deploy the HQ
 	if (isNil 'CTI_BASE_HQ_REPAIR') then {CTI_BASE_HQ_REPAIR = 1}; //--- Determine whether the HQ can be repaired or not
-	//if (isNil 'CTI_BASE_START_TOWN') then {CTI_BASE_START_TOWN = 1}; //--- Remove the spawn locations which are too far away from the towns.
+	if (isNil 'CTI_BASE_START_TOWN') then {CTI_BASE_START_TOWN = 0}; //--- Remove the spawn locations which are too far away from the towns.
 	if (isNil 'CTI_BASE_STARTUP_PLACEMENT') then {CTI_BASE_STARTUP_PLACEMENT = 4000}; //--- Each side need to be further than x meters
 	if (isNil 'CTI_BASE_WORKERS_LIMIT') then {CTI_BASE_WORKERS_LIMIT = 10}; //--- Maximum amount of workers which may be purchased by a side
 	if (isNil 'CTI_BASE_STRUCTURE_RESELL_RATIO') then {CTI_BASE_STRUCTURE_RESELL_RATIO = 0};	//--- Ratio of building cost to be refunded when sold
@@ -775,6 +775,7 @@ with missionNamespace do {
 	if (isNil 'CTI_WEST_AI') then {CTI_WEST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_EAST_AI') then {CTI_EAST_AI = -1};	//--- "no changes","Germany","Soviet Red Army","US Army","UK Army"
 	if (isNil 'CTI_CAMO_ACTIVATION') then {CTI_CAMO_ACTIVATION = 0};	//--- "Standard", "Winter", "Desert", "All active (Main = Standard)"
+	if (isNil 'CTI_TOWN_CAMO') then {CTI_TOWN_CAMO = CTI_CAMO_ACTIVATION};
 	
 	if (isNil 'CTI_ARTILLERY_SETUP') then {CTI_ARTILLERY_SETUP = 0}; //--- Artillery status (-2: Disabled, -1: Artillery Computer, 0: Short, 1: Medium, 2: Long, 3: Far)
 	if (isNil 'CTI_ARTILLERY_TIMEOUT') then {CTI_ARTILLERY_TIMEOUT = 300}; //--- Delay between each fire mission
@@ -838,25 +839,9 @@ with missionNamespace do {
 	if (isNil 'CTI_MARKERS_INFANTRY') then {CTI_MARKERS_INFANTRY = 1}; //--- Track infantry on map
 	
 	if (isNil 'CTI_UNITS_FATIGUE') then {CTI_UNITS_FATIGUE = 0};
-	
-	if (isNil 'CTI_IFA3_NEW') then {CTI_IFA3_NEW = 0};
-	if(CTI_IFA3_NEW >= 0) then {
-		//if they want to play with ifa3 chack the modversion
-		if (!isClass(configFile >> "CfgVehicles" >> "LIB_M4T34_Calliope")) then {
-			//check if the IFA3_beta version is loaded or the stable
-			CTI_IFA3_NEW = 0;
-			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 found! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
-		} else {
-			CTI_IFA3_NEW = 1;
-			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 beta Version found! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
-		};
-		if (!isClass(configFile >> "CfgVehicles" >> "LIB_US_Willys_MB")) then {
-			//check if the IFA3 version is loaded or no IFA3 is found
-			CTI_IFA3_NEW = -1;
-			if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 configured but not loaded! <%1>", CTI_IFA3_NEW]] call CTI_CO_FNC_Log; };
-		};
-	};
-	
+		
+	if (isNil 'CTI_SPE_DLC') then {CTI_SPE_DLC = 0};
+	if (isNil 'CTI_IFA_ADDON') then {CTI_IFA_ADDON = 0};
 	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 1};
 	if (isNil 'CTI_FOW_ADDON') then {CTI_FOW_ADDON = 0};
 	if (isNil 'CTI_CSA_ADDON') then {CTI_CSA_ADDON = 0};
@@ -866,11 +851,34 @@ with missionNamespace do {
 	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
 	if (isNil 'CTI_BT_ADDON') then {CTI_BT_ADDON = 0};
 	if (isNil 'CTI_SABRL_ADDON') then {CTI_SABRL_ADDON = 0};
+	if(CTI_SPE_DLC == 0) then {
+		//if they want to play with ifa3 chack the modversion
+		if (isClass(configFile >> "CfgVehicles" >> "SPE_OpelBlitz_Open")) then {
+			CTI_SPE_DLC = 1;
+			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["Spearhead Version found! <%1>", CTI_SPE_DLC]] call CTI_CO_FNC_Log; };
+		} else {
+			CTI_SPE_DLC = 0;
+		};
+		if (isClass(configFile >> "CfgVehicles" >> "LIB_US_Willys_MB")) then {
+			//check if the IFA3 version is loaded or no IFA3 is found
+			CTI_IFA_ADDON = 1;
+			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 found! SPE? <%1>", CTI_SPE_DLC]] call CTI_CO_FNC_Log; };
+		} else {
+			CTI_IFA_ADDON = 0;
+			if(CTI_SPE_DLC == 0) then {
+				if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: common\init\Init_CommonConstants.sqf", format["No valid Mod loaded! <%1>", CTI_SPE_DLC]] call CTI_CO_FNC_Log; };
+			};
+		};
+	};
+	if (isNil 'CTI_IFA_NEW') then {
+		if(CTI_SPE_DLC >= 1) then {CTI_IFA_NEW = 2} else {CTI_IFA_NEW = 0};
+	};
+	if (isNil 'CTI_VIO_ADDON') then {CTI_VIO_ADDON = 0};
 	//Check when IFA is loaded VIO patch is loaded too?
-	if(CTI_IFA3_NEW >= 0) then {
-		if !(isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
+	if(CTI_IFA_ADDON >= 1) then {
+		if (isClass(configFile >> "CfgVehicles" >> "VIOC_O_LIB_GER_rifleman")) then {
 			//check if the VIO addon is loaded or the stable
-			CTI_VIO_ADDON = 0;
+			CTI_VIO_ADDON = 1;
 		};
 	};
 	if(CTI_FOW_ADDON > 0) then {

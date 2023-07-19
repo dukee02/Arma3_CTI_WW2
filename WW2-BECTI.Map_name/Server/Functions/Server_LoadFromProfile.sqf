@@ -32,7 +32,7 @@
 	["hq",east] call CTI_SE_FNC_LOAD
 	["funds_group",east,group player] call CTI_SE_FNC_LOAD
 */
-private ["_part", "_savemode", "_savename", "_loadingFine"];
+private ["_part", "_side", "_sideID", "_group", "_savemode", "_savename", "_loadingFine", "_world", "_hq_stored", "_hq", "_logic", "_upgrades_stored", "_side_building", "_fabrics_stored", "_areas_stored", "_fobs_stored", "_defences_stored", "_supply_stored", "_comfunds_stored", "_groups", "_sideGroup", "_teamfunds_stored", "_playerUID", "_default_funds"];
 
 _part = _this select 0;
 _side = if (count _this > 1) then {_this select 1} else {sideEmpty};
@@ -54,20 +54,22 @@ if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Fu
 _towns = profileNamespace getVariable [Format ["SAVE_%1_TOWNS", _savename],[]];
 if(count _towns <= 0) then {
 	if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", "No save found"] call CTI_CO_FNC_Log;};
-	_part = "";
-	_loadingFine = false;
-};
-
-_world = profileNamespace getVariable [Format ["SAVE_%1_WORLD", _savename],""];
-if !(_world == worldName) then {
-	if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", "World didn't match - loading skipped"] call CTI_CO_FNC_Log;};
 	_loadingFine = false;
 };
 
 if(_loadingFine) then {
-	if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", "World and Towns found, loading seems OK, load data"] call CTI_CO_FNC_Log;};
+	_world = profileNamespace getVariable [Format ["SAVE_%1_WORLD", _savename],""];
+	if !(_world == worldName) then {
+		if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", "World didn't match - loading skipped"] call CTI_CO_FNC_Log;};
+		_loadingFine = false;
+	};
+};
+
+if(_loadingFine) then {
+	if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["World and Towns found, loading seems OK, load data %1", _part]] call CTI_CO_FNC_Log;};
 	
 	switch(_part) do {
+		case "exists": {};
 		case "towns": {
 			if (count _towns != count CTI_TOWNS) exitWith {
 				if (CTI_Log_Level >= CTI_Log_Error) then {["VIOC_ERROR", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["ERROR on loading the towns, town count: <%1>", count _towns]] call CTI_CO_FNC_Log;};
@@ -135,7 +137,6 @@ if(_loadingFine) then {
 				_logic= (_side) call CTI_CO_FNC_GetSideLogic;
 				if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Load the Side <%1> from the profile", _side]] call CTI_CO_FNC_Log;};
 				
-				
 				//Load the Upgrades for the side
 				_upgrades_stored = profileNamespace getVariable [Format ["SAVE_%1_%2_UPGRADES", _savename, _side],[]];
 				if!(count _upgrades_stored > 0) then {
@@ -155,7 +156,6 @@ if(_loadingFine) then {
 				_side_building = _x;			//only for a better readability
 				_logic= (_side_building) call CTI_CO_FNC_GetSideLogic;
 				if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Load the Side <%1> from the profile", _side]] call CTI_CO_FNC_Log;};
-				
 				
 				//Load the fabrics and other main base buildings
 				_fabrics_stored = profileNamespace getVariable [Format ["SAVE_%1_%2_FABRICS", _savename, _side_building],[]];
@@ -213,10 +213,8 @@ if(_loadingFine) then {
 					if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["No FOBs found, vars: <%1>", _fobs_stored]] call CTI_CO_FNC_Log;};
 				} else {
 					{	
-						if !(isNull (_x select 0)) then {
-							[_x select 0, _side_building, [( _x select 1) select 0,( _x select 1) select 1], _x select 2, VIOC_ZEUS, false] call CTI_SE_FNC_BuildDefense;				
-							if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Defences loaded from profile:<SAVE_%1_DEFENSES> Defenses: <%2,%3,%4,%5>", _savename, _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
-						};
+						if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Defences loaded from profile:<SAVE_%1_DEFENSES> Defenses: <%2,%3,%4,%5>", _savename, _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
+						[_x select 0, _side_building, [( _x select 1) select 0,( _x select 1) select 1], _x select 2, VIOC_ZEUS, false] call CTI_SE_FNC_BuildDefense;				
 					} forEach _fobs_stored;
 				};
 				
@@ -225,16 +223,15 @@ if(_loadingFine) then {
 				if!(count _defences_stored > 0) then {
 					if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["No defences found, vars: <%1>", _defences_stored]] call CTI_CO_FNC_Log;};
 				} else {
-					{	
-						if !(isNull (_x select 0)) then {
-							[_x select 0, _side_building, [( _x select 1) select 0,( _x select 1) select 1], _x select 2, VIOC_ZEUS, false,  _x select 3] call CTI_SE_FNC_BuildDefense;				
-							if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Defences loaded from profile:<SAVE_%1_DEFENSES> Defenses: <%2,%3,%4,%5>", _savename, _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
-						};
+					{
+						if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Defences loaded from profile:<SAVE_%1_DEFENSES> Defenses: <%2,%3,%4,%5>", _savename, _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
+						[_x select 0, _side_building, [( _x select 1) select 0,( _x select 1) select 1], _x select 2, VIOC_ZEUS, false,  _x select 3] call CTI_SE_FNC_BuildDefense;
 					} forEach _defences_stored;
 				};
 			} forEach [east,west];
 		};
 		case "funds": {
+			_sides = if(_side == sideEmpty) then {[east,west]} else {[_side]};
 			{
 				waitUntil {!isNil 'CTI_Init_Server'};
 				
@@ -249,7 +246,8 @@ if(_loadingFine) then {
 					_loadingFine = false;
 				} else {
 					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Side supply loaded from profile:<SAVE_%1_FUNDSCOM> Funds Com: <%2>", _savename, _supply_stored]] call CTI_CO_FNC_Log;};
-					[_x, _supply_stored] call CTI_CO_FNC_ChangeSideSupply; 
+					_supply_now = call CTI_CO_FNC_GetSideSupply;
+					_logic setVariable ["cti_supply", _supply_stored, true];
 				};
 				
 				//Load the funds of the commander
@@ -285,7 +283,7 @@ if(_loadingFine) then {
 						};
 					} forEach (_groups);
 				};
-			} forEach [east,west];
+			} forEach _sides;
 		};
 		case "funds_com": {
 			if !(_side == sideEmpty) then {
@@ -298,6 +296,22 @@ if(_loadingFine) then {
 				} else {
 					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Commander funds loaded from profile:<SAVE_%1_FUNDSCOM> Funds Com: <%2>", _savename, _comfunds_stored]] call CTI_CO_FNC_Log;};
 					_logic setvariable ["cti_commander_funds", _comfunds_stored, true];
+				};
+			};
+		};
+		case "funds_player": {
+			if !(_side == sideEmpty) then {
+				if !(_group isEqualTo grpNull) then {
+					_playerUID = getPlayerUID leader _group;
+					_teamfunds_stored = profileNamespace getVariable [Format ["SAVE_%1_%2_FUNDS_%3", _savename, _side, _playerUID],0];
+					
+					if(_teamfunds_stored <= 0) then {
+						_default_funds = missionNamespace getVariable [Format ["CTI_ECONOMY_STARTUP_FUNDS_%1", _side],0];
+						if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["No Team funds found, set to default: <%1>", _default_funds]] call CTI_CO_FNC_Log;};
+					} else {
+						if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["Team funds loaded from profile:<SAVE_%1_FUNDS_%2> Funds: <%3>", _savename, _groupname, _teamfunds_stored]] call CTI_CO_FNC_Log;};
+						_group setVariable ["cti_funds", _teamfunds_stored, true];
+					};
 				};
 			};
 		};
@@ -318,6 +332,60 @@ if(_loadingFine) then {
 					};
 				};
 			};
+		};
+		case "empty_vehicles": {
+			_vehicles_stored = profileNamespace getVariable [Format ["SAVE_%1_EMPTYVEHICLES", _savename],[]];
+			if!(count _vehicles_stored > 0) then {
+				if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["No vehicles found, vars: <%1>", _vehicles_stored]] call CTI_CO_FNC_Log;};
+			} else {
+				{
+					_model = _x select 0;
+					_var_classname = missionNamespace getVariable _model;
+
+					if !(isNil '_var_classname') then {
+						if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["vehicle loaded from profile:<SAVE_%1_EMPTYVEHICLES> Infos: <%2><%3,%4-%5>", _savename,  _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
+					} else {
+						if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["vehicle not found:<SAVE_%1_EMPTYVEHICLES> Infos: <%2><%3,%4-%5>", _savename,  _x select 0, _x select 1, _x select 2, _x select 3]] call CTI_CO_FNC_Log;};
+					};
+
+					//--- Custom vehicle?
+					_script = _var_classname select CTI_UNIT_SCRIPTS;
+					if (CTI_Log_Level >= CTI_Log_Information) then {
+						["DEBUG", "FILE: Server\Functions\Server_LoadFromProfile.sqf", format["with script?: <%1>", _script]] call CTI_CO_FNC_Log;
+					};
+					//_customid = -1;
+					if (typeName (_var_classname select CTI_UNIT_SCRIPTS) == "ARRAY") then { 
+						_model = (_var_classname select CTI_UNIT_SCRIPTS) select 0; 
+						_script = (_var_classname select CTI_UNIT_SCRIPTS) select 1; 
+						//_customid = (_var_classname select CTI_UNIT_SCRIPTS) select 2;
+					};
+					_vehicle = [_model, (_x select 1), (_x select 2), (_x select 3), false, true, true] call CTI_CO_FNC_CreateVehicle;
+
+					_sideVeh = independent;
+					{
+						// Current result is saved in variable _x
+						_side = _x;
+						{
+							// Current result is saved in variable _x
+							if(_model in _x) then {
+								_sideVeh = _side;
+							};
+						} forEach [(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_BARRACKS]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_HEAVY]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AIR]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_DEPOT]),(missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_NAVAL])];
+					} forEach [east,west];
+					
+					if ((_script != "") && alive _vehicle) then {
+						[_vehicle, _sideVeh, _script, ""] spawn CTI_CO_FNC_InitializeCustomVehicle;
+						//if (_customid > -1) then {_vehicle setVariable ["cti_customid", _customid, true]};
+					};
+					//Set the cti_net to track the vehicles on map
+					if(_sideVeh != independent) then {
+						_vehicle setVariable ["cti_net", (_sideVeh) call CTI_CO_FNC_GetSideID, true];
+					};
+
+					sleep 0.1;
+				} forEach _vehicles_stored;
+			};
+				
 		};
 		default {};
 	};

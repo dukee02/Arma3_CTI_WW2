@@ -12,7 +12,7 @@ _cost = 1;
 //_upgrade_levels = [];
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,0,0,0,0,3,4,CTI_ECONOMY_LEVEL_GEAR,3]; 
+	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,0,1,0,0,0,3,4,CTI_ECONOMY_LEVEL_GEAR,3]; 
 } else {
 	if(_upgrade_levels select CTI_UPGRADE_BARRACKS > CTI_ECONOMY_LEVEL_INFANTRY) then {_upgrade_levels set [CTI_UPGRADE_BARRACKS, CTI_ECONOMY_LEVEL_INFANTRY]};		//--- Barracks
 	if(_upgrade_levels select CTI_UPGRADE_LIGHT > CTI_ECONOMY_LEVEL_WHEELED) then {_upgrade_levels set [CTI_UPGRADE_LIGHT, CTI_ECONOMY_LEVEL_WHEELED]};				//--- Light
@@ -200,7 +200,7 @@ _links = [];
 for [{private _i = 0}, {_i < (_upgrade_levels select CTI_UPGRADE_DEFENSE)}, {_i = _i + 1}] do {
 	switch (_i) do {
 		case 1: {_links pushBack [CTI_UPGRADE_SUPPLY,1];};
-		case 2: {_links pushBack [CTI_UPGRADE_BARRACKS, (_upgrade_levels select CTI_UPGRADE_BARRACKS)];};
+		case 2: {_links pushBack [CTI_UPGRADE_AIR, (_upgrade_levels select CTI_UPGRADE_AIR)];};
 		default {_links pushBack [];};
 	};
 }; 

@@ -15,7 +15,7 @@ _t = [];
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["DEBUG", "FILE: Common\Config\Gear\Gear_Template.sqf", format ["_side [%1] _faction [%2]. CTI_GER_SIDE %3", _side, _faction, CTI_GER_SIDE]] call CTI_CO_FNC_Log};
 
-if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then {
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA_ADDON > 0) then {
 	//German Gear active
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {						//Winter camo active 
@@ -29,7 +29,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then 
 		};
 	};
 };
-if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then {
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA_ADDON > 0) then {
 	//Soviet Gear active
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {						//Winter camo active 
@@ -43,7 +43,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then 
 		};
 	};
 };
-if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then {
+if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA_ADDON > 0) then {
 	//US Gear active
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {						//Winter camo active 
@@ -57,7 +57,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then {
 		};
 	};
 };
-if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA3_NEW >= 0) then {
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID && CTI_IFA_ADDON > 0) then {
 	//UK Gear active
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {						//Winter camo active 

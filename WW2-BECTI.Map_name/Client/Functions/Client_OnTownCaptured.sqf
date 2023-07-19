@@ -38,6 +38,7 @@ _sideID_new = _this select 1;
 _sideID_old = _this select 2;
 
 if !(CTI_P_SideID in [_sideID_new, _sideID_old]) exitWith {}; //--- Make sure that the client need an update
+
 _side_new = (_sideID_new) call CTI_CO_FNC_GetSideFromID;
 
 if (_side_new == CTI_P_SideJoined) then { //--- The player's side has captured it

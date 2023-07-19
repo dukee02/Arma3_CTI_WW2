@@ -145,9 +145,11 @@ call compile preprocessFile "Client\Functions\UI\Functions_UI_PylonMenu.sqf";
 
 
 if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER.sqf";
+	};
+	if(CTI_SPE_DLC > 0) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_SPE.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_FOW.sqf";
@@ -157,8 +159,7 @@ if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_SOV_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV.sqf";
 	};
 	if(CTI_NF_ADDON > 0) then {
@@ -166,17 +167,18 @@ if(CTI_SOV_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_US_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US.sqf";
+	};
+	if(CTI_SPE_DLC > 0) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_SPE.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_FOW.sqf";
 	};
 };
 if(CTI_UK_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON >= 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
