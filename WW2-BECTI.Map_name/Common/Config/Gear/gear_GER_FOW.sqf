@@ -677,7 +677,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------------Glasses------------------------------------------------
 _tech_level = 0;
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON < 0) then {
 	_i pushBack "g_goggles_vr";
 	_u pushBack _tech_level;
 	_p pushBack 50;
@@ -760,7 +760,7 @@ _i pushBack "fow_i_dienstglas";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON < 0) then {
 	_i pushBack "ItemMap";
 	_i pushBack "ItemRadio";
 	_i pushBack "ItemCompass";

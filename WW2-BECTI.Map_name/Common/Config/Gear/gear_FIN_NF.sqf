@@ -1431,7 +1431,7 @@ _i pushBack "G_NORTH_FIN_Gloves_3";
 _i pushBack "G_NORTH_FIN_Gloves_4";
 _i pushBack "G_NORTH_FIN_Hangospannet";*/
 
-if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
+if(CTI_IFA_ADDON < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "G_Combat";
 	_i pushBack "G_Shades_Black";
 	_i pushBack "G_Tactical_Clear";
@@ -1461,7 +1461,7 @@ for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do {
 	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
 
-if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
+if(CTI_IFA_ADDON < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "ItemMap";
 	_i pushBack "ItemRadio";
 	_i pushBack "ItemCompass";

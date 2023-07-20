@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -852,25 +852,33 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_d pushBack 0;		
 };
 
-_c pushBack format["CTI_Salvager_%1", _faction];
-_p pushBack '';
-_n pushBack 'Salvager Truck';
-_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-_t pushBack _building_time;
-_u pushBack _tech_level;
-_f pushBack CTI_FACTORY_REPAIR;
-_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager"];
-_d pushBack 0;
-		
-_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-_p pushBack '';
-_n pushBack 'Salvager Truck';
-_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-_t pushBack _building_time;
-_u pushBack _tech_level;
-_f pushBack CTI_FACTORY_REPAIR;
-_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager-independent"];
-_d pushBack 0;
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_GER_ID && (_isThisMain select 1) == CTI_IFA_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+if(_setupBaseUnits) then {
+	_c pushBack format["CTI_Salvager_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvager Truck';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager"];
+	_d pushBack 0;
+			
+	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvager Truck';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1LIB_OpelBlitz_Tent_Y_Camo", _sid],"salvager-independent"];
+	_d pushBack 0;
+};
 
 //***************************************************************************************************************************************
 //														Ammo Factory																	*

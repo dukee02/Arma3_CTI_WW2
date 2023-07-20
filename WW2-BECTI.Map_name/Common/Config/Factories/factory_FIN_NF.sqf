@@ -1,19 +1,22 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_stream"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		/*_sid = "VIOC_B_";*/_tag = "WEST_";
+		if(CTI_WEST_AI == CTI_GER_ID || CTI_WEST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
 	};
+	case east: {
+		/*_sid = "VIOC_O_";*/_tag = "EAST_";
+		if(CTI_EAST_AI == CTI_GER_ID || CTI_EAST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
+	};
+	case resistance: {
+		_sid = "";_tag = "GUER_";
+	};
+	default {_sid = "";};
 };
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
@@ -21,99 +24,18 @@ if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
-//check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side];
-if (isNil "_priorUnits" || CTI_NF_ADDON > 1 || _ai == 11) then {
-	//Setup the default units depending on the selected camo
-	switch(CTI_CAMO_ACTIVATION) do {
-		case 1: {//Winter camo active
-			missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1I_NORTH_FIN_W_41_Officer_Cpt", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1I_NORTH_FIN_W_41_Unequipped", _sid]];
-
-			missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1I_NORTH_FIN_W_41_Sentry", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1I_NORTH_FIN_W_41_Rifleman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1I_NORTH_FIN_T_W_41_Crewman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1I_NORTH_FIN_W_41_AIR_Pilot_Cpt", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1I_NORTH_FIN_ART_W_41_Rifleman", _sid]];
-			//Set starting vehicles
-			if(CTI_STREAM_BLOCK > 0) then {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []]
-				]];
-			} else {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_W_41_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_W_41_T26_M31", _sid], []]
-				]];
-			};
-		};
-		case 2: {//Summer camo active
-			missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1I_NORTH_FIN_S_41_Officer_Cpt", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1I_NORTH_FIN_S_41_Unequipped", _sid]];
-
-			missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1I_NORTH_FIN_S_41_Sentry", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1I_NORTH_FIN_S_41_Rifleman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1I_NORTH_FIN_T_S_41_Crewman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1I_NORTH_FIN_S_41_AIR_Pilot_Cpt", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1I_NORTH_FIN_ART_S_41_Rifleman", _sid]];
-			//Set starting vehicles
-			if(CTI_STREAM_BLOCK > 0) then {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []]
-				]];
-			} else {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_S_41_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_S_41_T26_M31", _sid], []]
-				]];
-			};
-		};
-		default {
-			missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1I_NORTH_FIN_41_Officer_Cpt", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1I_NORTH_FIN_41_Unequipped", _sid]];
-
-			missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1I_NORTH_FIN_41_Sentry", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1I_NORTH_FIN_ART_41_Rifleman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1I_NORTH_FIN_T_41_Crewman", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1I_NORTH_FIN_41_AIR_Pilot_SgtMaj", _sid]];
-			missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1I_NORTH_FIN_ART_41_Rifleman", _sid]];
-			//Set starting vehicles
-			if(CTI_STREAM_BLOCK > 0) then {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_W_39_T26_M31", _sid], []]
-				]];
-			} else {
-				missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-					[format["%1NORTH_FIN_41_T26_M31", _sid], []], 
-					[format["%1NORTH_FIN_41_T26_M31", _sid], []]
-				]];
-			};
-		};
-	};
-	
-	/*if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_Kfz1_Hood", _sid])) then {
-		//Set non armed starting vehicle id IFA is loaded
-		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-			[format["%1LIB_Kfz1_Hood", _sid], []], 
-			[format["%1LIB_Kfz1_Hood", _sid], []]
-		]];
-	};*/
-	
-	if (CTI_Log_Level >= CTI_Log_Debug) then {
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Commander: <%1>", missionNamespace getVariable format["CTI_%1_Commander", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Worker: <%1>", missionNamespace getVariable format["CTI_%1_Worker", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Diver: <%1>", missionNamespace getVariable format["CTI_%1_Diver", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Soldier: <%1>", missionNamespace getVariable format["CTI_%1_Soldier", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Crew: <%1>", missionNamespace getVariable format["CTI_%1_Crew", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Pilot: <%1>", missionNamespace getVariable format["CTI_%1_Pilot", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["Static: <%1>", missionNamespace getVariable format["CTI_%1_Static", _side]]] call CTI_CO_FNC_Log;
-	};
+//*********************************************************************************************************************************************
+//											Setup base units																				  *
+//*********************************************************************************************************************************************
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_FIN_ID && (_isThisMain select 1) == CTI_NF_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
 };
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_FIN_NF.sqf", format["starting vehicles for side %1 declared", _side]] call CTI_CO_FNC_Log;};
-
+if (_setupBaseUnits) then {
+	[_side,_tag,_sid] call compile preprocessFileLineNumbers "Common\Config\Units\UnitsBase\ubase_FIN_NF.sqf";
+};
 //***************************************************************************************************************************************
 //														Barracks Factory																*
 //***************************************************************************************************************************************

@@ -23,6 +23,12 @@ class Params {
 		texts[] = {"Disabled","only Information","Enabled AI disbanding"};
 		default = 1;
 	};
+	class CTI_ADD_MODULE {
+		title = "Modules: Additional Modules to activate";
+		values[] = {0,1,2,3};
+		texts[] = {"Disabled","Igiload","Vehicle Appearance Module","Igiload + VAM"};
+		default = 0;
+	};
 	class SEPARATOR_STARTUP {
 		title = "========================== STARTUP ============================";
 		values[] = {1};
@@ -299,16 +305,16 @@ class Params {
 		texts[] = {"Disabled","1","2","3","4","5","6","7","8","9","10"};
 		default = 6;
 	};
-	/*class CTI_BASE_START_TOWN {
+	class CTI_BASE_START_TOWN {
 		title = "BASE: Start Near towns";
-		values[] = {0,1};
-		texts[] = {"No","Yes"};//{"Disabled","Enabled"};
-		default = 1;
-	};*/
+		values[] = {0,1000,2000,3000,4000};
+		texts[] = {"Disabled","1 KM","2 KM","3 KM","4 KM"};
+		default = 2000;
+	};
 	class CTI_BASE_STARTUP_PLACEMENT {
 		title = "BASE: Start-up Placement";
-		values[] = {1000,2000,4000,6000,8000,10000};
-		texts[] = {"1KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
+		values[] = {100000,1000,2000,4000,6000,8000,10000};
+		texts[] = {"Use Default","1 KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
 		default = 6000;
 	};
 	class CTI_BASE_WORKERS_LIMIT {
@@ -480,10 +486,10 @@ class Params {
 		default = 0;
 	};
 	class CTI_ARTILLERY_SETUP {
-		title = "ARTILLERY: Setup";
-		values[] = {-2,-1,0,1,2,3};
-		texts[] = {"Disabled","Ballistic Computer","Short","Medium","Long","Extreme"};
-		default = 1;
+		title = "ARTILLERY: Setup (can make units unusable)";
+		values[] = {-2,-1,5000,10000,15000,20000,30000,40000,120000};
+		texts[] = {"Disabled","Ballistic Computer","max. 5000m","max. 10000m","max. 15000m","max. 20000m","max. 30000m","max. 40000m","near unlimited 120000m"};
+		default = 15000;
 	};
 	class CTI_ARTILLERY_TIMEOUT {
 		title = "ARTILLERY: Delay between each fire mission (if Arty not Disabled or with Ballistic Computer)";
@@ -705,12 +711,16 @@ class Params {
 		texts[] = {""};
 		default = 1;
 	};
-	class CTI_IFA3_NEW {
-		title = "ADDON: IFA3";
-		//values[] = {-1,0,1};
-		//texts[] = {"Disabled","Enabled","IFA3 beta"};
-		values[] = {-1,0};
-		texts[] = {"Disabled","Enabled"};
+	class CTI_IFA_ADDON {
+		title = "ADDON: IFA";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 0;
+	};
+	class CTI_SPE_DLC {
+		title = "ADDON: Spearhead cDLC (SPE)";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
 	};
 	class CTI_FOW_ADDON {
@@ -739,8 +749,8 @@ class Params {
 	};
 	class CTI_AI_TEAMS_ENABLED {
 		title = "AI: Teams (Coop disables AI on player side)";
-		values[] = {0,1,2,3,4,5,6,7,8};
-		texts[] = {"Disabled", "1 Slot", "2 Slots", "3 Slots", "4 Slots", "5 Slots", "6 Slots", "7 Slots", "8 Slots"};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"Disabled", "1 Slot", "2 Slots", "3 Slots", "4 Slots", "5 Slots", "6 Slots", "7 Slots", "8 Slots", "9 Slots", "10 Slots", "11 Slots", "12 Slots", "13 Slots", "14 Slots", "15 Slots"};
 		default = 0;
 	};
 	class CTI_AI_TEAMS_GROUPSIZE {

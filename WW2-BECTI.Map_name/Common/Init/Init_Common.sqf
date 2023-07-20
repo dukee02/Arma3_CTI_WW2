@@ -104,8 +104,7 @@ CTI_CO_FNC_HasDLC = compileFinal preprocessFileLineNumbers "Common\Functions\Com
 CTI_CO_CustomIterator = 0;
 
 //calculate the main mod depends on the given parameters
-_mainmod = CTI_IFA_ID;
-if(CTI_SPE_DLC >= 1 && [1175380] call CTI_CO_FNC_HasDLC) then {_mainmod = CTI_SPE_ID;};
+_mainmod = -1;
 _nation = -1;
 
 {
@@ -116,33 +115,85 @@ _nation = -1;
 		case (CTI_GER_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_GER_ID);
 		case (CTI_GER_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
 			_nation = CTI_GER_ID;
+			switch true do
+			{
+				case (CTI_SPE_DLC > 1 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
+				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
+				case (CTI_CSA_ADDON > 1): {_mainmod = CTI_CSA_ID};
+				case (CTI_SPE_DLC > 0 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
+				case (CTI_IFA_ADDON > 0 && CTI_CSA_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_IFA_ID};
+				case (CTI_CSA_ADDON > 0 && CTI_IFA_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_CSA_ID};
+				default {};
+			};
 		};
 		case (CTI_SOV_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_SOV_ID);
 		case (CTI_SOV_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_NF_ADDON > 0 || CTI_IFA_ADDON > 0)): {
 			_nation = CTI_SOV_ID;
+			switch true do
+			{
+				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
+				case (CTI_NF_ADDON > 1): {_mainmod = CTI_NF_ID};
+				case (CTI_IFA_ADDON > 0 && CTI_NF_ADDON < 2): {_mainmod = CTI_IFA_ID};
+				case (CTI_NF_ADDON > 0 && CTI_IFA_ADDON < 2): {_mainmod = CTI_NF_ID};
+				default {};
+			};
 		};
 		case (CTI_US_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_US_ID);
 		case (CTI_US_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0 || CTI_IFA_ADDON > 0)): {
 			_nation = CTI_US_ID;
+			switch true do
+			{
+				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
+				case (CTI_CSA_ADDON > 1): {_mainmod = CTI_CSA_ID};
+				case (CTI_IFA_ADDON > 0 && CTI_CSA_ADDON < 2): {_mainmod = CTI_IFA_ID};
+				case (CTI_CSA_ADDON > 0 && CTI_IFA_ADDON < 2): {_mainmod = CTI_CSA_ID};
+				default {};
+			};
 		};
 		case (CTI_UK_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_UK_ID);
 		case (CTI_UK_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
 			_nation = CTI_UK_ID;
+			switch true do
+			{
+				case (CTI_SPE_DLC > 1 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
+				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
+				case (CTI_FOW_ADDON > 1): {_mainmod = CTI_FOW_ID};
+				case (CTI_SPE_DLC > 0 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
+				case (CTI_IFA_ADDON > 0 && CTI_FOW_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_IFA_ID};
+				case (CTI_FOW_ADDON > 0 && CTI_IFA_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_FOW_ID};
+				default {};
+			};
 		};
 		case (CTI_JPN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_JPN_ID);
-		case (CTI_JPN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
+		case (CTI_JPN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0)): {
 			_nation = CTI_JPN_ID;
+			switch true do
+			{
+				case (CTI_FOW_ADDON > 0): {_mainmod = CTI_FOW_ID};
+				default {};
+			};
 		};
 		case (CTI_CZ_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_CZ_ID);
-		case (CTI_CZ_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
+		case (CTI_CZ_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0)): {
 			_nation = CTI_CZ_ID;
+			switch true do
+			{
+				case (CTI_CSA_ADDON > 0): {_mainmod = CTI_CSA_ID};
+				default {};
+			};
 		};
 		case (CTI_FIN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_FIN_ID);
-		case (CTI_FIN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
+		case (CTI_FIN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_NF_ADDON > 0)): {
 			_nation = CTI_FIN_ID;
+			switch true do
+			{
+				case (CTI_NF_ADDON > 0): {_mainmod = CTI_NF_ID};
+				default {};
+			};
 		};
 		default {};
 	};
+	if(_mainmod == -1 || _nation == -1) then {["ERROR", "FILE: Common\Init\Init_Common.sqf", format ["Main Nation and/or Mod config didn't match: side %1 NationID <%2> MainMod: <%3>", _x, _nation, _mainmod]] call CTI_CO_FNC_Log;};
 	//if (CTI_Log_Level >= CTI_Log_Debug) then {
 		["VIOC_DEBUG", "FILE: Common\Init\Init_Common.sqf", format ["Start gear config: side %1 NationID <%2> MainMod: <%3>", _x, _nation, _mainmod]] call CTI_CO_FNC_Log;
 	//};

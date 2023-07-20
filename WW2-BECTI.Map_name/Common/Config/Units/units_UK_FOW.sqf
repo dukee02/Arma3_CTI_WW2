@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -304,39 +304,32 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 _tech_level = 0;
 _building_time = [CTI_FACTORY_REPAIR,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 
-if(CTI_IFA3_NEW < 0) then {
-	/*if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1fow_v_universalCarrier", _sid];						//repairtruck
-		_p pushBack '';
-		_n pushBack 'Repair Vehicle';
-		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack "service-repairtruck";
-		_d pushBack 0;
-	};*/
-	if(CTI_US_SIDE != CTI_UK_SIDE) then {
-		_c pushBack format["CTI_Salvager_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvage Vehicle';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1fow_v_universalCarrier", _sid],"salvager"];
-		_d pushBack 0;
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_UK_ID && (_isThisMain select 1) == CTI_FOW_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+if(_setupBaseUnits && CTI_IFA3_NEW < 1) then {
+	_c pushBack format["CTI_Salvager_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvage Vehicle';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1fow_v_universalCarrier", _sid],"salvager"];
+	_d pushBack 0;
 			
-		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvage Vehicle';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1fow_v_universalCarrier", _sid],"salvager-independent"];
-		_d pushBack 0;
-	};
+	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvage Vehicle';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1fow_v_universalCarrier", _sid],"salvager-independent"];
+	_d pushBack 0;
 };
 
 //***************************************************************************************************************************************

@@ -1,19 +1,22 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		/*_sid = "VIOC_B_";*/_tag = "WEST_";
+		if(CTI_WEST_AI == CTI_GER_ID || CTI_WEST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
 	};
+	case east: {
+		/*_sid = "VIOC_O_";*/_tag = "EAST_";
+		if(CTI_EAST_AI == CTI_GER_ID || CTI_EAST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
+	};
+	case resistance: {
+		_sid = "";_tag = "GUER_";
+	};
+	default {_sid = "";};
 };
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
@@ -21,28 +24,18 @@ if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_FOW.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
-//check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side];
-if (isNil "_priorUnits" || CTI_FOW_ADDON > 1 || _ai == 4) then {
-	//We setup the standard units before the camo check to get secure
-	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_ger_heer_tl_stg", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1fow_s_ger_heer_tankcrew_01_shutz", _sid]];
-
-	missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1fow_s_ger_heer_tankcrew_02_shutz", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1fow_s_ger_heer_rifleman", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1fow_s_ger_heer_tankcrew_01_gefreiter", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1fow_s_ger_heer_tl_mp40", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1fow_s_ger_heer_tankcrew_01_obergefreiter", _sid]];
-
-	//Set starting vehicles
-	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-		[format["%1fow_v_kubelwagen_ger_heer", _sid], []], 
-		[format["%1fow_v_kubelwagen_ger_heer", _sid], []]
-	]];
+//*********************************************************************************************************************************************
+//											Setup base units																				  *
+//*********************************************************************************************************************************************
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_GER_ID && (_isThisMain select 1) == CTI_FOW_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
 };
-
-if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_FOW.sqf", format["starting vehicles for side %1 declared", _side]] call CTI_CO_FNC_Log; };
-
+if (_setupBaseUnits) then {
+	[_side,_tag,_sid] call compile preprocessFileLineNumbers "Common\Config\Units\UnitsBase\ubase_GER_FOW.sqf";
+};
 //***************************************************************************************************************************************
 //														Barracks Factory																*
 //***************************************************************************************************************************************
@@ -248,8 +241,10 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Repair Factory.
 _c = [];
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-	_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//Repair
+if(_setupBaseUnits && CTI_IFA_ADDON < 0) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {	
+		_c pushBack format["%1fow_v_sdkfz_250_camo_foliage_ger_heer", _sid];		//Repair
+	};
 	_c pushBack format["CTI_Salvager_%1", _side];
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];

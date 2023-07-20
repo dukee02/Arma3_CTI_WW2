@@ -950,7 +950,7 @@ _i pushBack "G_NORTH_SOV_Scarf_Gimnasterka_4";*/
 _i pushBack "G_NORTH_SOV_Guardsbadge";
 _i pushBack "G_NORTH_SOV_Guardsbadge_2";
 
-if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
+if(CTI_IFA_ADDON < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "G_Combat";
 	_i pushBack "G_Shades_Black";
 	_i pushBack "G_Tactical_Clear";
@@ -974,7 +974,7 @@ _tech_level = 0;
 
 //------------------------------------------Items-------------------------------------------------
 
-if(CTI_IFA3_NEW < 0 && CTI_NF_ADDON <= 0) then {
+if(CTI_IFA_ADDON < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "Binocular";
 	_i pushBack "ItemMap";
 	_i pushBack "ItemRadio";

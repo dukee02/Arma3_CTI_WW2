@@ -335,6 +335,35 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 
+if(CTI_SPE_DLC >= 1) then {
+	if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		_classes_town pushBack 		format["%1SPE_MG34_Lafette_Deployed", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%1SPE_GrW278_1", _sid];
+		_categories_town pushBack 	"Mortar";
+			
+		_classes_town pushBack 		format["%1SPE_Pak40", _sid];
+		_categories_town pushBack 	"AT";
+			
+		_classes_town pushBack 		format["%1SPE_FlaK_30", _sid];
+		_categories_town pushBack 	"AA";
+	};
+	if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+		_classes_town pushBack 		format["%1SPE_M1919_M2", _sid];
+		_categories_town pushBack 	"MG";
+		
+		_classes_town pushBack 		format["%1SPE_M1_81", _sid];
+		_categories_town pushBack 	"Mortar";
+			
+		_classes_town pushBack 		format["%1SPE_57mm_M1", _sid];
+		_categories_town pushBack 	"AT";
+			
+		_classes_town pushBack 		format["%1SPE_M45_Quadmount", _sid];
+		_categories_town pushBack 	"AA";
+	};
+};
+
 if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_NF_ADDON > 0) then {
 		_classes_town pushBack 		format["%1NORTH_FIN_S_41_Lahti_L39", _sid];

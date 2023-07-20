@@ -1,19 +1,22 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		/*_sid = "VIOC_B_";*/_tag = "WEST_";
+		if(CTI_WEST_AI == CTI_GER_ID || CTI_WEST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
 	};
+	case east: {
+		/*_sid = "VIOC_O_";*/_tag = "EAST_";
+		if(CTI_EAST_AI == CTI_GER_ID || CTI_EAST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
+	};
+	case resistance: {
+		_sid = "";_tag = "GUER_";
+	};
+	default {_sid = "";};
 };
 if(CTI_VIO_ADDON == 0) then {_sid = "";};
 

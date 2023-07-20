@@ -49,9 +49,8 @@ switch(count _this) do {
 
 _tech_matrix = missionNamespace getVariable ["CTI_TECHMATRIX", []];
 
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["Techmatrix before: [%1,%2,%3] <%4>", _factory, _nation, _mod, _tech]] call CTI_CO_FNC_Log;};
-
 _tech = [];
+if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["Techmatrix before: [%1,%2,%3] <%4>", _factory, _nation, _mod, _tech]] call CTI_CO_FNC_Log;};
 if(_mod >= 0) then {
 	_tech = _tech_matrix select _factory select _nation select _mod;
 } else {

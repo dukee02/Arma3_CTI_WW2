@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -432,7 +432,13 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Reapir Factory.
 _tech_level = 0;
-	
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_CZ_ID && (_isThisMain select 1) == CTI_CSA_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+
 _c pushBack format["%1CSA38_pragaRV7", _sid];						//repairtruck
 _p pushBack '';
 _n pushBack 'Repair Truck';
@@ -443,7 +449,7 @@ _f pushBack CTI_FACTORY_REPAIR;
 _s pushBack "service-repairtruck";
 _d pushBack 0;
 
-if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {		
+if(_setupBaseUnits && (CTI_IFA_ADDON < 0 || CTI_CSA_ADDON > 1)) then {		
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvage Truck';
@@ -451,7 +457,7 @@ if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_REPAIR;
-	if(CTI_IFA3_NEW < 0) then {
+	if(CTI_IFA_ADDON < 0) then {
 		_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager"]; } else {
 		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager"];};
 	_d pushBack 0;
@@ -463,7 +469,7 @@ if(CTI_IFA3_NEW < 0 || CTI_CSA_ADDON > 1) then {
 	_t pushBack (30*(_tech_level+1));
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_REPAIR;
-	if(CTI_IFA3_NEW < 0) then {
+	if(CTI_IFA_ADDON < 0) then {
 		_s pushBack [format["%1CSA38_pragaRV", _sid],"salvager-independent"];} else {
 		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager-independent"];};
 	_d pushBack 0;

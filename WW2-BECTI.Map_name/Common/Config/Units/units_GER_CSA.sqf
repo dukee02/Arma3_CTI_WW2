@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -591,8 +591,15 @@ _u pushBack _tech_level;
 _f pushBack CTI_FACTORY_REPAIR;
 _s pushBack "service-repairtruck";
 _d pushBack 0;
-	
-if(CTI_IFA_ADDON <= 0 && CTI_CSA_ADDON > 1) then {
+
+_setupBaseUnits = false;
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_GER_ID && (_isThisMain select 1) == CTI_CSA_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+if(_setupBaseUnits) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			_c pushBack format["CTI_Salvager_%1", _faction];

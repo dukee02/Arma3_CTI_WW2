@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -408,7 +408,13 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 _tech_level = 0;
 _building_time = [CTI_FACTORY_REPAIR,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 
-if(CTI_IFA3_NEW < 0) then {
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_US_ID && (_isThisMain select 1) == CTI_FOW_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+if(_setupBaseUnits && CTI_IFA3_NEW < 1) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 				
 		_c pushBack format["%1fow_v_gmc_usmc", _sid];						//repairtruck
@@ -421,7 +427,7 @@ if(CTI_IFA3_NEW < 0) then {
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
 	};
-	
+
 	_c pushBack format["CTI_Salvager_%1", _faction];
 	_p pushBack '';
 	_n pushBack 'Salvager Truck';

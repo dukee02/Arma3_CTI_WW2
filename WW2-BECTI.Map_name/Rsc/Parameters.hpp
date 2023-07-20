@@ -687,6 +687,12 @@ class Params {
 		texts[] = {"1","2","3","4","5","6","7","8","9","10"};
 		default = 2;
 	};
+	class CTI_VEHICLES_EMPTY_TIMEOUT {
+		title = "UNITS: Vehicles Reycling Delay";
+		values[] = {60,120,180,240,300,600,1200,1800,2400,3000,3600};
+		texts[] = {"1 Minute","2 Minutes","3 Minutes","4 Minutes","5 Minutes","10 Minutes","20 Minutes","30 Minutes","40 Minutes","50 Minutes","1 Hour"};
+		default = 1200;
+	};
 	class CTI_GRAPHICS_TG_MAX {
 		title = "VISUAL: Terrain Grid";
 		values[] = {10,20,30,50};
@@ -706,7 +712,7 @@ class Params {
 		default = 1;
 	};
 	class CTI_IFA_ADDON {
-		title = "ADDON: IFA";
+		title = "ADDON: IFA3";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
@@ -730,7 +736,7 @@ class Params {
 		default = 0;
 	};
 	class CTI_NF_ADDON {
-		title = "ADDON: Northern Fronts";
+		title = "ADDON: Northern Fronts (NF)";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;

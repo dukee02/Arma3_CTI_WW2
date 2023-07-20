@@ -779,7 +779,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------------Glasses------------------------------------------------
 _tech_level = 0;
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON < 0) then {
 	_i pushBack "g_goggles_vr";
 	_u pushBack _tech_level;
 	_p pushBack 50;
@@ -794,7 +794,7 @@ if(CTI_IFA3_NEW < 0) then {
 _u = _u		+ [0];
 _p = _p		+ [5];*/
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON < 0) then {
 	_i pushBack "Binocular";
 	_i pushBack "ItemMap";
 	_i pushBack "ItemRadio";

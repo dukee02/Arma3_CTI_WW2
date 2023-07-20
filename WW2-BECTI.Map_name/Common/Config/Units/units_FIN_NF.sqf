@@ -1,4 +1,4 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_isThisMain", "_setupBaseUnits"];
 
 _side = _this;
 _faction = "";
@@ -894,6 +894,13 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 _tech_level = 0;
 _building_time = [CTI_FACTORY_REPAIR,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_FIN_ID && (_isThisMain select 1) == CTI_NF_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
+};
+
 switch(CTI_CAMO_ACTIVATION) do {
 	case 1: {//Winter camo active
 		_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];				//repairtruck
@@ -905,26 +912,27 @@ switch(CTI_CAMO_ACTIVATION) do {
 		_f pushBack CTI_FACTORY_REPAIR;
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
-
-		_c pushBack format["CTI_Salvager_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager"];
-		_d pushBack 0;
-			
-		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager-independent"];
-		_d pushBack 0;
+		if(_setupBaseUnits) then {
+			_c pushBack format["CTI_Salvager_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager"];
+			_d pushBack 0;
+				
+			_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_W_41_FordV8_Open", _sid],"salvager-independent"];
+			_d pushBack 0;
+		};
 	};
 	case 2: {//Summer camo active
 		_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];				//repairtruck
@@ -937,25 +945,27 @@ switch(CTI_CAMO_ACTIVATION) do {
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
 
-		_c pushBack format["CTI_Salvager_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager"];
-		_d pushBack 0;
-			
-		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager-independent"];
-		_d pushBack 0;
+		if(_setupBaseUnits) then {
+			_c pushBack format["CTI_Salvager_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager"];
+			_d pushBack 0;
+				
+			_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_S_41_FordV8_Open", _sid],"salvager-independent"];
+			_d pushBack 0;
+		};
 	};
 	default {
 		_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];					//repairtruck
@@ -968,25 +978,27 @@ switch(CTI_CAMO_ACTIVATION) do {
 		_s pushBack "service-repairtruck";
 		_d pushBack 0;
 
-		_c pushBack format["CTI_Salvager_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager"];
-		_d pushBack 0;
-			
-		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager-independent"];
-		_d pushBack 0;
+		if(_setupBaseUnits) then {
+			_c pushBack format["CTI_Salvager_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager"];
+			_d pushBack 0;
+				
+			_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+			_p pushBack '';
+			_n pushBack 'Salvager Truck';
+			_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_REPAIR;
+			_s pushBack [format["%1NORTH_FIN_FordV8_Open", _sid],"salvager-independent"];
+			_d pushBack 0;
+		};
 	};
 };
 
