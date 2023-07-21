@@ -31,10 +31,7 @@ sourceName="VIO-BECTI-WW2";
 addons[]=
 {
 	"A3_Characters_F",
-	"NF_Side_Patch",
-	"VIO_Side_Patch_WW2",
 	"A3_Ui_F",
-	"csa38ii_data",
 	"WW2_Core_c_IF_Gui_c",
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Fortification",
@@ -44,7 +41,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -54,52 +51,31 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="NF_Side_Patch";
-			name="Side Patch for Northern Fronts";
-			author="dukee";
-			url="https://discord.gg/sJw2Nynh7s";
-		};
-		class Item2
-		{
-			className="VIO_Side_Patch_WW2";
-			name="VIO Side Patch WW2";
-			author="dukee";
-			url="https://discord.gg/sJw2Nynh7s";
-		};
-		class Item3
-		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
-		{
-			className="csa38ii_data";
-			name="csa38ii_data";
-			author="CSA38 Team";
-			url="http://www.moddb.com/mods/csa38-czechoslovak-army-1938";
-		};
-		class Item5
+		class Item2
 		{
 			className="WW2_Core_c_IF_Gui_c";
 			name="WW2_Core_c_IF_Gui_c";
 		};
-		class Item6
+		class Item3
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item5
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";

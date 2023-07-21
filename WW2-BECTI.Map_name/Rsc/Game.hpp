@@ -4,11 +4,12 @@ respawnDelay = 3;
 respawnDialog = false;
 
 //--- Require briefing.html to show up.
-onLoadName = "VIO-BECTI-WW2 V2.0";
+onLoadName = "VIO-BECTI-WW2 V2.0.2";
 onLoadMissionTime = false;
-onLoadMission = "VIO-BECTI-WW2 V2.0_230211";
+onLoadMission = "VIO-BECTI-WW2 V2.0.2_rc1_230721";
+loadScreen = "VIO_BECTI.jpg";
 
-briefingName = "VIO-BECTI-WW2 V2.0";
+briefingName = "VIO-BECTI-WW2 V2.0.2";
 
 //--- ArmA 3 Specifics
 dev = "Benny, dukee";
@@ -17,7 +18,7 @@ overviewPicture = "vio_becti.jpg";
 
 //--- Properties.
 class Header {
-	gameType = CTI;
+	gameType = viocti;
 	minPlayers = 1;
 	maxPlayers = 35;
 };

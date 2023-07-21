@@ -47,7 +47,7 @@ copy "%gitpath%\WW2-BECTI.Map_name\debug_diag.sqf" "%buildpath%\%missionfloder%\
 copy "%gitpath%\WW2-BECTI.Map_name\description.ext" "%buildpath%\%missionfloder%\description.ext"
 copy "%gitpath%\WW2-BECTI.Map_name\init.sqf" "%buildpath%\%missionfloder%\init.sqf"
 copy "%gitpath%\WW2-BECTI.Map_name\mission_%Map_name%.sqm" "%buildpath%\%missionfloder%\mission.sqm"
-copy "%gitpath%\WW2-BECTI-Thumpnails\WW2_BECTI_%Map_name%Small.jpg" "%buildpath%\%missionfloder%\VIO_BECTI.jpg"
+copy "%gitpath%\WW2-BECTI-Thumpnails\WW2_BECTI_%Map_name%small.jpg" "%buildpath%\%missionfloder%\VIO_BECTI.jpg"
 copy "%gitpath%\WW2-BECTI.Map_name\WFpostprocess.sqf" "%buildpath%\%missionfloder%\WFpostprocess.sqf"
 copy "%gitpath%\WW2-BECTI.Map_name\stringtable.xml" "%buildpath%\%missionfloder%\stringtable.xml"
 

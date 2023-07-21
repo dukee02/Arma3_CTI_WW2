@@ -611,6 +611,7 @@ CTI_SALVAGE_SPECIALUNITS = ["C_IDAP_Van_02_medevac_F","C_Van_02_medevac_F","B_GE
 CTI_SALVAGE_SPECIAL_ACTIONOFF = [[['lights_em_hide',0],[objNull,'CustomSoundController1',0,0.4]],[['lights_em_hide',0],[objNull,'CustomSoundController1',0,0.4]]];		//handle for turning lights and sirens off
 CTI_SALVAGE_SPECIAL_ACTIONON = [[['lights_em_hide',1],[objNull,'CustomSoundController1',1,0.2]],[['lights_em_hide',1],[objNull,'CustomSoundController1',1,0.2]]];		//handle for turning lights and sirens on
 CTI_ADDON_CHARLIECO = 0;
+CTI_VEHICLES_MAX_CREW = 5; //--- This is the max amount of units on / in a vehicle
 
 //--- Vehicles: Parameter
 with missionNamespace do {
