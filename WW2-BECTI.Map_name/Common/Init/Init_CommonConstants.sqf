@@ -35,6 +35,7 @@ CTI_US_ID = 3;
 CTI_JPN_ID = 4;
 CTI_CZ_ID = 5;
 CTI_FIN_ID = 6;
+CTI_POL_ID = 7;
 
 //--- Mod IDs
 CTI_IFA_ID = 0;
