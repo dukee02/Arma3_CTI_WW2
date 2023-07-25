@@ -15,10 +15,3 @@ briefingName = "VIO-BECTI-WW2 V2.0.2";
 dev = "Benny, dukee";
 author = "Benny, dukee";
 overviewPicture = "vio_becti.jpg";
-
-//--- Properties.
-class Header {
-	gameType = viocti;
-	minPlayers = 1;
-	maxPlayers = 35;
-};
