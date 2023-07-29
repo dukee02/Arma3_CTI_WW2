@@ -93,7 +93,7 @@ if(_mod >= 0) then {
 			if(_side == (_x) call CTI_CO_FNC_GetSideFromID) then {
 				if(CTI_IFA_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_IFA_ID] call CTI_CO_FNC_MergeMatrixArray;
-					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_IFA3: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_IFA3: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_SPE_DLC > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_SPE_ID] call CTI_CO_FNC_MergeMatrixArray;
@@ -105,7 +105,7 @@ if(_mod >= 0) then {
 				};
 				if(CTI_CSA_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_CSA_ID] call CTI_CO_FNC_MergeMatrixArray;
-					if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_CSA_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
+					//if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\functions\Common_GetTechmatrix.sqf", format["CTI_CSA_ADDON: [%1,%2] <%3>", _factory, _forEachIndex, _tech]] call CTI_CO_FNC_Log;};
 				};
 				if(CTI_NF_ADDON > 0) then {
 					_tech = [_tech, _tech_matrix select _factory select _forEachIndex select CTI_NF_ID] call CTI_CO_FNC_MergeMatrixArray;

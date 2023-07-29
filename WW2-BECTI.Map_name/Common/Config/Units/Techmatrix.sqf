@@ -182,7 +182,7 @@ _tech_matrix =
 			//NF
 			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],false,
+			[false,false,false,false,false,false],
 			//SABNL
 			[false,false,false,false,false,false],
 			//SAB
@@ -207,9 +207,9 @@ _tech_matrix =
 			//SABFL
 			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],false,
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
