@@ -2655,6 +2655,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE DEFENSE 1******************************
 _tech_level = 1;
 _priceFences = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_pricebunkers  = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 _headers pushBack 		"Dirthump 1";
 _classes pushBack 		"Land_Dirthump01";
@@ -2969,6 +2970,100 @@ if(CTI_FOW_ADDON > 0) then {
 	_prices pushBack 		_priceFences*2;
 	_placements pushBack 	[0, 15];
 	_categories pushBack 	"Dirt";
+	_tiers pushBack 		_tech_level;
+};
+
+if(CTI_SPE_DLC >= 1) then {
+	_headers pushBack 		"Netting 02";
+	_classes pushBack 		"Land_SPE_Netting_02";
+	_prices pushBack 		_priceBagFence;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Netting";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Netting 01";
+	_classes pushBack 		"Land_SPE_Netting_01";
+	_prices pushBack 		_priceBagFence;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Netting";
+	_tiers pushBack 		_tech_level;
+	
+	
+	_headers pushBack 		"Dugout 3m";
+	_classes pushBack 		"Land_SPE_Dugout_3m";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 3m sandbags";
+	_classes pushBack 		"Land_SPE_Dugout_3m_sandbags";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m";
+	_classes pushBack 		"Land_SPE_Dugout_6m";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m315";
+	_classes pushBack 		"Land_SPE_Dugout_6m315";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m315 sandbags";
+	_classes pushBack 		"Land_SPE_Dugout_6m315_sandbags";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m45";
+	_classes pushBack 		"Land_SPE_Dugout_6m45";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m45 sandbags";
+	_classes pushBack 		"Land_SPE_Dugout_6m45_sandbags";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout 6m sandbags";
+	_classes pushBack 		"Land_SPE_Dugout_6m_sandbags";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout Cover";
+	_classes pushBack 		"Land_SPE_Dugout_Cover";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout Pile 01";
+	_classes pushBack 		"Land_SPE_Dugout_Pile_01";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
+	_tiers pushBack 		_tech_level;
+	
+	_headers pushBack 		"Dugout Pile 02";
+	_classes pushBack 		"Land_SPE_Dugout_Pile_02";
+	_prices pushBack 		_priceBunkerS;
+	_placements pushBack 	[90, 7];
+	_categories pushBack 	"Dugout";
 	_tiers pushBack 		_tech_level;
 };
 
@@ -4267,7 +4362,8 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_placements pushBack 	[90, 7];
 		_categories pushBack 	"Mine";
 		_tiers pushBack 		_tech_level;
-	} else {
+	};
+	if(CTI_IFA_ADDON >= 1) then {
 		_headers pushBack 		"AP Mine PMD6";
 		_classes pushBack 		"LIB_PMD6_MINE";
 		_prices pushBack 		_priceAP;

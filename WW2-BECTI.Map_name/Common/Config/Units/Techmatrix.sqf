@@ -172,163 +172,163 @@ _tech_matrix =
 		//GER
 		[
 			//IFA
-			[true,true,true,true,true],
+			[true,true,true,true,true,false],
 			//SPE
-			[true,true,true,true,false],
+			[false,true,true,true,false,false],
 			//FOW
-			[true,true,true,true,true],
+			[true,true,true,true,true,false],
 			//CSA
-			[true,true,true,false,false],
+			[true,true,true,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false],false,
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//SOV
 		[
 			//IFA
-			[true,true,true,true,true],
+			[true,true,true,true,true,false],
 			//SPE
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//FOW
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//CSA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//NF
-			[true,true,false,false,false],
+			[true,true,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false],false,
 			//SAB
 			[false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//UK
 		[
 			//IFA
-			[true,true,true,true,false],
+			[true,true,true,true,false,false],
 			//SPE
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//FOW
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//CSA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//US
 		[
 			//IFA
-			[true,true,true,true,true],
+			[true,true,true,true,true,false],
 			//SPE
-			[true,true,true,true,false],
+			[true,true,true,true,false,false],
 			//FOW
-			[true,true,false,false,false],
+			[true,true,false,false,false,false],
 			//CSA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//JPN
 		[
 			//IFA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SPE
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//FOW
-			[false,true,false,false,false],
+			[false,true,false,false,false,false],
 			//CSA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//CZ
 		[
 			//IFA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SPE
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//FOW
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//CSA
-			[true,true,false,false,false],
+			[true,true,false,false,false,false],
 			//NF
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		],
 		//FIN
 		[
 			//IFA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SPE
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//FOW
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//CSA
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//NF
-			[true,true,false,false,false],
+			[true,true,false,false,false,false],
 			//SABFL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SABNL
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//BT
-			[false,false,false,false,false],
+			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false]
+			[false,false,false,false,false,false]
 		]
 	],
 	//CTI_UPGRADE_HEAVY
