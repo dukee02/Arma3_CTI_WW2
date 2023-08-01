@@ -152,19 +152,20 @@ _voices = [];
 _mainsetup = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", (Side _unit)], []];
 switch (_mainsetup select 0) do {
 	case CTI_GER_ID: {
-		if((_mainsetup select 1) == CTI_SPE_ID) then {
-			//_voices append ["CUP_D_Male01_EN","CUP_D_Male02_EN"];
-		} else {
-			_voices append ["male01ger"];
+		if(CTI_IFA_ADDON >= 1) then {
+			_voices append ["male01ger","male02ger","male03ger","male04ger","male05ger","male06ger"];
+		};
+		//if((_mainsetup select 1) == CTI_SPE_ID) then {} else {};
+		if(CTI_CSA_ADDON >= 1) then {
+			_voices append ["male01GE","male02GE","male03GE","male04GE","male05GE"];
 		};
 	};
 	case CTI_SOV_ID: {
-		if((_mainsetup select 1) == CTI_SPE_ID) then {
-			//_voices append ["",""];
-		} else {
-			_voices append ["male01su"];
+		if(CTI_IFA_ADDON >= 1) then {
+			_voices append ["male01su","male02su","male03su"];
 		};
-		if([1021790] call CTI_CO_FNC_HasDLC) then {
+		//if((_mainsetup select 1) == CTI_SPE_ID) then {} else {};
+		if([1021790] call CTI_CO_FNC_HasDLC) then {		//Contact
 			_voices append ["Male01RUS","Male02RUS","Male03RUS"];
 		};
 	};
@@ -181,6 +182,27 @@ switch (_mainsetup select 0) do {
 			//_voices append ["",""];
 		} else {
 			//_voices append ["male01eng"];
+		};
+	};
+	case CTI_CZ_ID: {
+		if(CTI_CSA_ADDON >= 1) then {
+			_voices append ["male01CZ","male02CZ","male03CZ","male04CZ","male05CZ"];
+		};
+	};
+	case CTI_POL_ID: {
+		if(CTI_IFA_ADDON >= 1) then {
+			_voices append ["male01PL","male02PL","male03PL"];
+		};
+		if([1021790] call CTI_CO_FNC_HasDLC) then {		//Contact
+			_voices append ["male01POL","male02POL","male03POL"];
+		};
+	};
+	case CTI_FR_ID: {
+		if(CTI_IFA_ADDON >= 1) then {
+			_voices append ["male01FR","male02FR","male03FR"];
+		};
+		if([395180] call CTI_CO_FNC_HasDLC) then {		//APEX
+			_voices append ["male01FRE","male02FRE","male03FRE"];
 		};
 	};
 	default {};

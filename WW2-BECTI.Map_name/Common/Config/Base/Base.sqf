@@ -2655,6 +2655,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 //******************************BASE DEFENSE 1******************************
 _tech_level = 1;
 _priceFences = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,2] call CTI_CO_FNC_GetCalculatedUnitsPrize;
+_pricebagfence = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,3] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _pricebunkers  = [CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 _headers pushBack 		"Dirthump 1";
@@ -4200,6 +4201,7 @@ if((_tech_level) > _upgrade_levels select CTI_UPGRADE_DEFENSE) then {
 _tech_level = 0;
 _priceAP = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,20] call CTI_CO_FNC_GetCalculatedItemPrize;
 _priceAT = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,200] call CTI_CO_FNC_GetCalculatedItemPrize;
+_pricetnt = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,150] call CTI_CO_FNC_GetCalculatedItemPrize;
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SPE_DLC >= 1) then {
