@@ -17,7 +17,7 @@ else {
 		_tag = "GUER_";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("CSA38_soldier1_2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
 
 /*
 _matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;

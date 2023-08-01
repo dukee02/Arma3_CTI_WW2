@@ -47,8 +47,9 @@ for '_i' from 0 to (count _headers) -1 do {
 		};
 	};
 };
-
-["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] defenses found: [%2].", _side, count _defenses]] call CTI_CO_FNC_Log;
+if (CTI_Log_Level >= CTI_Log_Information) then {
+	["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] defenses found: [%2].", _side, count _defenses]] call CTI_CO_FNC_Log;
+	["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] categories found: [%2].", _side, count _uniqe_categories]] call CTI_CO_FNC_Log;
+};
 missionNamespace setVariable [format ["CTI_%1_DEFENSES", _side], _defenses];
-["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] categories found: [%2].", _side, count _uniqe_categories]] call CTI_CO_FNC_Log;
 missionNamespace setVariable [format ["CTI_%1_DEFENSECATEGORIES", _side], _uniqe_categories];
