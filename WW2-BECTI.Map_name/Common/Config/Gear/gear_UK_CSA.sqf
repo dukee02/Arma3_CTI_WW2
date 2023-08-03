@@ -240,13 +240,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 };
 
 //-------------------------------------AT------------------------------------------------------
-_tech_level = 0;
-_i pushBack "CSA38_boys";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-_i pushBack "CSA38_5_13_9x99mmB";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(1390*99)] call CTI_CO_FNC_GetCalculatedItemPrize);
+//_tech_level = 0;
 
 _tech_level = 1;
 _i pushBack "CSA38_PIAT_Rifle";
@@ -278,6 +272,14 @@ _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCal
 _i pushBack "csa38_brentripod2";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+
+_tech_level = 2;
+_i pushBack "CSA38_boys";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_5_13_9x99mmB";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(1390*99)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {

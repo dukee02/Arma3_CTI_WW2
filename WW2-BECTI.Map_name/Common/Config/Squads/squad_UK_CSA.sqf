@@ -269,40 +269,32 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1csa38_m5a17AD3", _sid], 1, 50]];
 	//arm_to_add pushBack [format["%1csa38_m5a17AD2", _sid], 1, 50];
-		
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		arm_to_add = [[format["%1csa38_m5a17ADW", _sid], 1, 50]];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		arm_to_add = [[format["%1csa38_m5a17AD4", _sid], 1, 50]];
-		//arm_to_add pushBack [format["%1csa38_m5a17AD", _sid], 1, 50];
-	};
-	
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "M5A1 Stuart [CSA]";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	arm_to_add = [[format["%1csa38_matildaii_5", _sid], 1, 50]];
+	//arm_to_add pushBack [format["%1csa38_matildaii_1", _sid], 1, 50];
+	//arm_to_add pushBack [format["%1csa38_matildaiiCS_1", _sid], 1, 50];
+	//arm_to_add pushBack [format["%1csa38_matildaii_4", _sid], 1, 50];
+	//arm_to_add pushBack [format["%1csa38_matildaiiCS_4", _sid], 1, 50];
+	//arm_to_add pushBack [format["%1csa38_matildaiiCS_5", _sid], 1, 50];
 	arm_to_add = [[format["%1csa38_valentineMkIIgreen", _sid], 1, 50]];
 	//arm_to_add pushBack [format["%1csa38_valentineMkIIgreen2", _sid], 1, 50];
 	//arm_to_add pushBack [format["%1csa38_valentineMkIIgreen3", _sid], 1, 50];
 	//arm_to_add pushBack [format["%1csa38_valentineMkIIgreen4", _sid], 1, 50];
-	
+		
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		arm_to_add = [[format["%1csa38_m5a17ADW", _sid], 1, 50]];
+		arm_to_add = [[format["%1csa38_matildaii_3", _sid], 1, 50]];
+		//arm_to_add pushBack [format["%1csa38_matildaiiCS_3", _sid], 1, 50];
 		arm_to_add = [[format["%1csa38_valentineMkIIW", _sid], 1, 50]];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		arm_to_add = [[format["%1csa38_m5a17AD4", _sid], 1, 50]];
+		//arm_to_add pushBack [format["%1csa38_m5a17AD", _sid], 1, 50];
+		arm_to_add = [[format["%1csa38_matildaii", _sid], 1, 50]];
+		//arm_to_add pushBack [format["%1csa38_matildaiiCS", _sid], 1, 50];
+		//arm_to_add pushBack [format["%1csa38_matildaii_2", _sid], 1, 50];
+		//arm_to_add pushBack [format["%1csa38_matildaiiCS_2", _sid], 1, 50];
+		//arm_to_add pushBack [format["%1csa38_matildaii_6", _sid], 1, 50];
+		//arm_to_add pushBack [format["%1csa38_matildaiiCS_6", _sid], 1, 50];
 		arm_to_add = [[format["%1csa38_valentineMkII2", _sid], 1, 50]];
 		//arm_to_add pushBack [format["%1csa38_valentineMkII", _sid], 1, 50];
 		//arm_to_add pushBack [format["%1csa38_valentineMkII6", _sid], 1, 50];
@@ -316,7 +308,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 };
 
 _v pushBack format["ArmoredT%1", _level];
-_t pushBack "Valentine MK2 [CSA]";
+_t pushBack "Stuart | Matilda | Valentine [CSA]";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;
@@ -404,42 +396,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 
 _v pushBack format["ArmoredT%1", _level];
 _t pushBack "Cromwell [CSA]";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	arm_to_add = [[format["%1csa38_matildaii_5", _sid], 1, 50]];
-	//arm_to_add pushBack [format["%1csa38_matildaii_1", _sid], 1, 50];
-	//arm_to_add pushBack [format["%1csa38_matildaiiCS_1", _sid], 1, 50];
-	//arm_to_add pushBack [format["%1csa38_matildaii_4", _sid], 1, 50];
-	//arm_to_add pushBack [format["%1csa38_matildaiiCS_4", _sid], 1, 50];
-	//arm_to_add pushBack [format["%1csa38_matildaiiCS_5", _sid], 1, 50];
-	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		arm_to_add = [[format["%1csa38_matildaii_3", _sid], 1, 50]];
-		//arm_to_add pushBack [format["%1csa38_matildaiiCS_3", _sid], 1, 50];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		arm_to_add = [[format["%1csa38_matildaii", _sid], 1, 50]];
-		//arm_to_add pushBack [format["%1csa38_matildaiiCS", _sid], 1, 50];
-		//arm_to_add pushBack [format["%1csa38_matildaii_2", _sid], 1, 50];
-		//arm_to_add pushBack [format["%1csa38_matildaiiCS_2", _sid], 1, 50];
-		//arm_to_add pushBack [format["%1csa38_matildaii_6", _sid], 1, 50];
-		//arm_to_add pushBack [format["%1csa38_matildaiiCS_6", _sid], 1, 50];
-	};
-	
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET >= _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "Matilda II [CSA]";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;

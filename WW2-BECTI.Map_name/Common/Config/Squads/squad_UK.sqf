@@ -320,6 +320,27 @@ kind_tracked pushBack format["ArmoredT%1", _level];
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	arm_to_add = [[format["%1LIB_UK_Italy_M4A3_75", _sid], 1, 40]];
+
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		arm_to_add = [[format["%1LIB_UK_DR_M4A3_75", _sid], 1, 40]];
+	};
+	units_tracked append arm_to_add;
+	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
+};
+
+_v pushBack format["ArmoredT%1", _level];
+_t pushBack "Sherman (UK)";
+_p pushBack arm_to_add;
+_f pushBack CTI_HEAVY;
+_m pushBack 500;
+_c pushBack "Armored";
+_s pushBack [];
+kind_tracked pushBack format["ArmoredT%1", _level];
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1LIB_Cromwell_Mk4", _sid], 1, 40]];
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		arm_to_add = [[format["%1LIB_Cromwell_Mk4_w", _sid], 1, 40]];
@@ -333,27 +354,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 
 _v pushBack format["ArmoredT%1", _level];
 _t pushBack "Cromwell";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	arm_to_add = [[format["%1LIB_UK_Italy_M4A3_75", _sid], 1, 40]];
-
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		arm_to_add = [[format["%1LIB_UK_DR_M4A3_75", _sid], 1, 40]];
-	};
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "Sherman (UK)";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;

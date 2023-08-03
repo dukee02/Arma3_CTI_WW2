@@ -187,19 +187,19 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37ADW", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_m5a17ADW", _sid],1],[format["%1csa38_cromwell_4ENW", _sid],1]];
-			TRACKED_HEAVY = [[format["%1csa38_valentineMkIIW", _sid],1],[format["%1csa38_cromwell_2W", _sid],1]];
+			TRACKED_LIGHT = [[format["%1csa38_m3a37ADW", _sid],1],[format["%1csa38_m5a17ADW", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1csa38_valentineMkIIW", _sid],1],[format["%1csa38_valentineMkIIW", _sid],1]];
+			TRACKED_HEAVY = [[format["%1csa38_matildaii_3", _sid],1],[format["%1csa38_matildaii_3", _sid],1]];
 		};
 		case 2: {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_m5a17AD4", _sid],1],[format["%1csa38_cromwell_4EN", _sid],1]];
-			TRACKED_HEAVY = [[format["%1csa38_valentineMkII", _sid],1],[format["%1csa38_cromwell_2", _sid],1]];
+			TRACKED_LIGHT = [[format["%1csa38_m3a37AD", _sid],1],[format["%1csa38_m5a17AD4", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1csa38_valentineMkII", _sid],1],[format["%1csa38_valentineMkII", _sid],1]];
+			TRACKED_HEAVY = [[format["%1csa38_matildaii", _sid],1],[format["%1csa38_matildaii", _sid],1]];
 		};
 		default {
-			TRACKED_LIGHT = [[format["%1csa38_m3a37AD45", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1csa38_m5a17AD3", _sid],1],[format["%1csa38_cromwell_5EN45", _sid],1]];
-			TRACKED_HEAVY = [[format["%1csa38_valentineMkIIgreen", _sid],1],[format["%1csa38_cromwell_145", _sid],1]];
+			TRACKED_LIGHT = [[format["%1csa38_m3a37AD45", _sid],1],[format["%1csa38_m5a17AD3", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1csa38_valentineMkIIgreen", _sid],1],[format["%1csa38_valentineMkIIgreen", _sid],1]];
+			TRACKED_HEAVY = [[format["%1csa38_matildaii_5", _sid],1],[format["%1csa38_matildaii_5", _sid],1]];
 		};
 	};
 };

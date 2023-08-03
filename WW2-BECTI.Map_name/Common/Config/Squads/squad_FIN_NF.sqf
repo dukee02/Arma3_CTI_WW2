@@ -429,14 +429,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			case 1: {
 				arm_to_add = [[format["%1NORTH_FIN_W_41_T28", _sid], 1, 60]];
 				arm_to_add pushBack [format["%1NORTH_FIN_W_41_T26_M38", _sid], 1, 20];
+				arm_to_add pushBack [format["%1NORTH_FIN_W_STUG_3_G", _sid], 1, 20];
 			};
 			case 2: {
 				arm_to_add = [[format["%1NORTH_FIN_S_41_T28", _sid], 1, 60]];
 				arm_to_add pushBack [format["%1NORTH_FIN_S_41_T26_M38", _sid], 1, 20];
+				arm_to_add pushBack [format["%1NORTH_FIN_S_STUG_3_G", _sid], 1, 20];
 			};
 			default {
 				arm_to_add = [[format["%1NORTH_FIN_41_T26_M38", _sid], 1, 40]];
 				arm_to_add pushBack [format["%1NORTH_FIN_41_T28", _sid], 1, 60];
+				arm_to_add pushBack [format["%1NORTH_FIN_STUG_3_G", _sid], 1, 20];
 			};
 		};
 	};
@@ -497,17 +500,14 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			case 1: {
 				arm_to_add pushBack [format["%1NORTH_FIN_W_KV1_1942", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_W_STU40G", _sid], 1, 20];
-				arm_to_add pushBack [format["%1NORTH_FIN_W_STUG_3_G", _sid], 1, 20];
 			};
 			case 2: {
 				arm_to_add pushBack [format["%1NORTH_FIN_S_KV1_1942", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_S_STU40G", _sid], 1, 20];
-				arm_to_add pushBack [format["%1NORTH_FIN_S_STUG_3_G", _sid], 1, 20];
 			};
 			default {
 				arm_to_add pushBack [format["%1NORTH_FIN_KV1_1942", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_STU40G", _sid], 1, 20];
-				arm_to_add pushBack [format["%1NORTH_FIN_STUG_3_G", _sid], 1, 20];
 			};
 		};
 	};

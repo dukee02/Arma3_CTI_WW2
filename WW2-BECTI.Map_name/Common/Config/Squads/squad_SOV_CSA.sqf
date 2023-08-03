@@ -155,6 +155,29 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
+		arm_to_add = [[format["%1csa38_valentineMkIIRU2", _sid], 1, 30]];
+		arm_to_add = [[format["%1csa38_matildaii_RU2", _sid], 1, 30]];
+	} else {
+		arm_to_add = [[format["%1csa38_valentineMkIIRU1", _sid], 1, 30]];
+		arm_to_add = [[format["%1csa38_matildaii_RU1", _sid], 1, 30]];
+	};
+	units_tracked append arm_to_add;
+	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
+};
+
+_v pushBack format["ArmoredT%1", _level];
+_t pushBack "Valentine | Matilda MK2 (SOV) [CSA]";
+_p pushBack arm_to_add;
+_f pushBack CTI_HEAVY;
+_m pushBack 500;
+_c pushBack "Armored";
+_s pushBack [];
+kind_tracked pushBack format["ArmoredT%1", _level];
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 		arm_to_add = [[format["%1csa38_t34RU3", _sid], 1, 30]];
 	} else {
 		arm_to_add = [[format["%1csa38_t34RU1", _sid], 1, 30]];
@@ -166,48 +189,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 
 _v pushBack format["ArmoredT%1", _level];
 _t pushBack "T34 [CSA]";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
-		arm_to_add = [[format["%1csa38_valentineMkIIRU2", _sid], 1, 30]];
-	} else {
-		arm_to_add = [[format["%1csa38_valentineMkIIRU1", _sid], 1, 30]];
-	};
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "Valentine MK2 (SOV) [CSA]";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
-		arm_to_add = [[format["%1csa38_matildaii_RU2", _sid], 1, 30]];
-	} else {
-		arm_to_add = [[format["%1csa38_matildaii_RU1", _sid], 1, 30]];
-	};
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET >= _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "Matilda MK2 (SOV) [CSA]";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;

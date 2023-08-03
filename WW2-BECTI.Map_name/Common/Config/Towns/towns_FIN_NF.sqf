@@ -275,17 +275,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {
 				TRACKED_LIGHT append TRACKED_MEDIUM;
-				TRACKED_MEDIUM = TRACKED_HEAVY;
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_W_STUG_3_G", _sid],1]];
 				TRACKED_HEAVY = [[format["%1NORTH_FIN_W_41_T28", _sid],1]];
 			};
 			case 2: {
 				TRACKED_LIGHT append TRACKED_MEDIUM;
-				TRACKED_MEDIUM = TRACKED_HEAVY;
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_S_STUG_3_G", _sid],1]];
 				TRACKED_HEAVY = [[format["%1NORTH_FIN_S_41_T28", _sid],1]];
 			};
 			default {
 				TRACKED_LIGHT append TRACKED_MEDIUM;
-				TRACKED_MEDIUM = TRACKED_HEAVY;
+				TRACKED_MEDIUM = [[format["%1NORTH_FIN_STUG_3_G", _sid],1]];
 				TRACKED_HEAVY = [[format["%1NORTH_FIN_41_T28", _sid],1]];
 			};
 		};
@@ -325,17 +325,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {
 				TRACKED_MEDIUM = TRACKED_HEAVY;
-				TRACKED_MEDIUM append [[format["%1NORTH_FIN_W_STU40G", _sid],1],[format["%1NORTH_FIN_W_STUG_3_G", _sid],1]];
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_W_STU40G", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_W_KV1_1942", _sid],1]];
 			};
 			case 2: {
 				TRACKED_MEDIUM = TRACKED_HEAVY;
-				TRACKED_MEDIUM append [[format["%1NORTH_FIN_S_STU40G", _sid],1],[format["%1NORTH_FIN_S_STUG_3_G", _sid],1]];
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_S_STU40G", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_S_KV1_1942", _sid],1]];
 			};
 			default {
 				TRACKED_MEDIUM = TRACKED_HEAVY;
-				TRACKED_MEDIUM append [[format["%1NORTH_FIN_STU40G", _sid],1],[format["%1NORTH_FIN_STUG_3_G", _sid],1]];
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_STU40G", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_KV1_1942", _sid],1]];
 			};
 		};

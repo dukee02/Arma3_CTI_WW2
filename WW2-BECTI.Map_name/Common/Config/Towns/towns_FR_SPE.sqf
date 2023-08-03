@@ -117,15 +117,13 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	TRACKED_LIGHT = [[format["%1SPE_FR_M4A0_75_Early", _sid],1]];
 	TRACKED_MEDIUM = [[format["%1SPE_FR_M4A0_75_Early", _sid],1]];
-	TRACKED_HEAVY = [[format["%1SPE_FR_M4A0_75_Early", _sid],1]];
+	TRACKED_HEAVY = [[format["%1SPE_FR_M4A0_75_mid", _sid],1]];
 };
 
 _matrix_cnt = [_matrix_cnt+ 1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	TRACKED_LIGHT = [[format["%1SPE_FR_M10", _sid],1]];
-	TRACKED_MEDIUM pushBack [format["%1SPE_FR_M4A0_75_mid", _sid],1];
-	TRACKED_HEAVY = [[format["%1SPE_FR_M4A0_75_mid", _sid],1]];
 };
 
 _matrix_cnt = [_matrix_cnt+ 1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;

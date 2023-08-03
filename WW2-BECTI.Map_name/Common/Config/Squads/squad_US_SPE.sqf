@@ -235,12 +235,13 @@ _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1SPE_M4A0_75_Early", _sid], 1, 20]];
+	arm_to_add pushBack [format["%1SPE_M4A0_75", _sid], 1, 30];
 	units_tracked = arm_to_add;
 	tracked_auto append arm_to_add;
 };
 
 _v pushBack format["ArmoredT%1", _level];
-_t pushBack "M4A0 Early";
+_t pushBack "M4A0";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;
@@ -251,15 +252,15 @@ kind_tracked pushBack format["ArmoredT%1", _level];
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	arm_to_add = [[format["%1SPE_M4A0_75", _sid], 1, 30]];
-	arm_to_add pushBack [format["%1SPE_M10", _sid], 1, 20];
+	arm_to_add = [[format["%1SPE_M10", _sid], 1, 20]];
+	arm_to_add pushBack [format["%1SPE_M4A1_75", _sid], 1, 30];
 
 	units_tracked append arm_to_add;
 	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
 };
 
 _v pushBack format["ArmoredT%1", _level];
-_t pushBack "M4A0 | M10";
+_t pushBack "M10 | M4A1 75";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;
@@ -271,14 +272,13 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	arm_to_add = [[format["%1SPE_M4A1_T34_Calliope", _sid], 1, 10]];
-	arm_to_add pushBack [format["%1SPE_M4A1_75", _sid], 1, 30];
 
 	units_tracked append arm_to_add;
 	if(CTI_FACTORY_LEVEL_PRESET == _level) then {tracked_auto append arm_to_add;};
 };
 
 _v pushBack format["ArmoredT%1", _level];
-_t pushBack "M4A1 75";
+_t pushBack "Calliope";
 _p pushBack arm_to_add;
 _f pushBack CTI_HEAVY;
 _m pushBack 500;

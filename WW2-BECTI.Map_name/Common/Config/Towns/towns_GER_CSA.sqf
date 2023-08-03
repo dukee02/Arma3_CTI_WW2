@@ -211,28 +211,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	};
 };
 
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	switch(CTI_CAMO_ACTIVATION) do {
-		case 1: {	//Winter camo active
-			TRACKED_LIGHT = [[format["%1CSA38_pzkpfwI_W", _sid],1],[format["%1CSA38_pzII_W", _sid],1],[format["%1CSA38_ltm35_W", _sid],1]],;
-			TRACKED_MEDIUM = [[format["%1CSA38_pzIIIB_W", _sid],1],[format["%1CSA38_pzIIIC_W", _sid],1],[format["%1CSA38_StugIII", _sid],1]];
-			TRACKED_HEAVY = [[format["%1CSA38_pzIV_W", _sid],1],[format["%1CSA38_pzIVB_W", _sid],1],[format["%1csa38_valentineMkII7", _sid],1]];
-		};
-		case 2: {	//Desert camo active
-			TRACKED_LIGHT = [[format["%1CSA38_pzkpfwI_DE", _sid],1],[format["%1CSA38_pzII_DE", _sid],1],[format["%1CSA38_pzIIb_DE", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1CSA38_pzIIID_DAK", _sid],1],[format["%1CSA38_pzIIID_DAK2", _sid],1],[format["%1CSA38_StugIII", _sid],1]];
-			TRACKED_HEAVY = [[format["%1CSA38_pzIV_DAK", _sid],1],[format["%1CSA38_pzIVB_DAK", _sid],1],[format["%1csa38_valentineMkII7", _sid],1]];
-		};
-		default {
-			TRACKED_LIGHT = [[format["%1CSA38_pzkpfwI", _sid],1],[format["%1CSA38_pzII", _sid],1],[format["%1CSA38_ltm35_1", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1CSA38_pzIIIB", _sid],1],[format["%1CSA38_pzIIIC", _sid],1],[format["%1CSA38_StugIII", _sid],1]];
-			TRACKED_HEAVY = [[format["%1CSA38_pzIV", _sid],1],[format["%1CSA38_pzIVB", _sid],1],[format["%1csa38_valentineMkII7", _sid],1]];
-		};
-	};
-};
-
 if (isNil {missionNamespace getVariable format["%1TRACKED_SQ_LIGHT", _tag]}) then {
 	missionNamespace setVariable [format["%1TRACKED_SQ_LIGHT", _tag], TRACKED_LIGHT];
 	missionNamespace setVariable [format["%1TRACKED_SQ_MEDIUM", _tag], TRACKED_MEDIUM];

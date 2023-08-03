@@ -266,7 +266,7 @@ _tech_matrix =
 			//IFA
 			[true,true,true,true,true,false],
 			//SPE
-			[true,true,true,true,false,false],
+			[false,false,true,true,true,false],
 			//FOW
 			[true,true,false,false,false,false],
 			//CSA
@@ -388,7 +388,7 @@ _tech_matrix =
 			//FOW
 			[false,false,false,false,false,false,true,false],
 			//CSA
-			[true,true,true,true,true,false,false,false],
+			[true,true,true,true,false,false,false,false],
 			//NF
 			[false,false,false,false,false,false,false,false],
 			//SABFL
@@ -405,13 +405,13 @@ _tech_matrix =
 		//SOV
 		[
 			//IFA
-			[false,false,false,true,true,true,true,true],
+			[false,false,false,true,true,false,true,true],
 			//SPE
 			[false,false,false,false,false,false,false,false],
 			//FOW
 			[false,false,false,false,false,false,false,false],
 			//CSA
-			[false,true,false,true,true,false,true,false],
+			[false,true,true,true,false,false,false,false],
 			//NF
 			[true,true,true,true,true,true,false,false],
 			//SABFL
@@ -428,13 +428,13 @@ _tech_matrix =
 		//UK
 		[
 			//IFA
-			[true,false,false,true,false,true,true,true],
+			[true,true,false,true,true,false,true,false],
 			//SPE
 			[false,false,false,false,false,false,false,false],
 			//FOW
-			[true,false,false,false,false,true,false,false],
+			[true,false,false,false,true,false,false,false],
 			//CSA
-			[false,true,true,false,true,true,true,false],
+			[false,true,true,false,true,false,false,false],
 			//NF
 			[false,false,false,false,false,false,false,false],
 			//SABFL
@@ -451,11 +451,11 @@ _tech_matrix =
 		//US
 		[
 			//IFA
-			[false,true,true,false,false,true,true,true],
+			[false,true,true,true,false,false,true,false],
 			//SPE
-			[false,false,true,true,true,true,false,false],
+			[false,false,true,true,true,false,true,false],
 			//FOW
-			[true,false,true,false,true,false,false,false],
+			[true,false,true,true,false,false,false,false],
 			//CSA
 			[false,false,false,false,false,false,false,false],
 			//NF
@@ -503,7 +503,7 @@ _tech_matrix =
 			//FOW
 			[false,false,false,false,false,false,false,false],
 			//CSA
-			[true,true,true,true,false,true,false,false],
+			[true,true,true,true,true,false,false,false],
 			//NF
 			[false,false,false,false,false,false,false,false],
 			//SABFL

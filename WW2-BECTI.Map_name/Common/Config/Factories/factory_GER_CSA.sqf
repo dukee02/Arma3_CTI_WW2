@@ -350,11 +350,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
 		_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
 	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1csa38_valentineMkII7", _sid];
 };
 

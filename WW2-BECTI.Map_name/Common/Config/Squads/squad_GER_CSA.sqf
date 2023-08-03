@@ -372,24 +372,6 @@ _c pushBack "Armored";
 _s pushBack [];
 kind_tracked pushBack format["ArmoredT%1", _level];
 
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	arm_to_add pushback [format["%1csa38_valentineMkII7", _sid], 1, 10];
-	
-	units_tracked append arm_to_add;
-	if(CTI_FACTORY_LEVEL_PRESET >= _level) then {tracked_auto append arm_to_add;};
-};
-
-_v pushBack format["ArmoredT%1", _level];
-_t pushBack "Valentine MkII (capt.) [CSA]";
-_p pushBack arm_to_add;
-_f pushBack CTI_HEAVY;
-_m pushBack 500;
-_c pushBack "Armored";
-_s pushBack [];
-kind_tracked pushBack format["ArmoredT%1", _level];
-
 _v pushBack "Armored";
 _t pushBack "Tanks (Auto)";
 _p pushBack tracked_auto;

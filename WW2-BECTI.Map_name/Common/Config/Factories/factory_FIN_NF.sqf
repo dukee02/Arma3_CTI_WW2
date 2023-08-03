@@ -505,18 +505,21 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M39", _sid];
+				_c pushBack format["%1NORTH_FIN_W_STUG_3_G", _sid];
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39", _sid];
+				_c pushBack format["%1NORTH_FIN_S_STUG_3_G", _sid];
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_T26_M39", _sid];
+				_c pushBack format["%1NORTH_FIN_STUG_3_G", _sid];
 			};
 		};
 	};
@@ -554,17 +557,14 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			case 1: {//Winter camo active
 				_c pushBack format["%1NORTH_FIN_W_KV1_1942", _sid];
 				_c pushBack format["%1NORTH_FIN_W_STU40G", _sid];
-				_c pushBack format["%1NORTH_FIN_W_STUG_3_G", _sid];
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_KV1_1942", _sid];
 				_c pushBack format["%1NORTH_FIN_S_STU40G", _sid];
-				_c pushBack format["%1NORTH_FIN_S_STUG_3_G", _sid];
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_KV1_1942", _sid];
 				_c pushBack format["%1NORTH_FIN_STU40G", _sid];
-				_c pushBack format["%1NORTH_FIN_STUG_3_G", _sid];
 			};
 		};
 	};

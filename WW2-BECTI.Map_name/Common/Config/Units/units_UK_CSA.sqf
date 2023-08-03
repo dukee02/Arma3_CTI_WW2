@@ -266,49 +266,38 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1csa38_m5a17ADW", _sid];
+		_c pushBack format["%1csa38_valentineMkIIW", _sid];
+		_c pushBack format["%1csa38_matildaii_3", _sid];
+		//_c pushBack format["%1csa38_matildaiiCS_3", _sid];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1csa38_m5a17AD4", _sid];
 		//_c pushBack format["%1csa38_m5a17AD", _sid];//No15 icon
-	};
-	_c pushBack format["%1csa38_m5a17AD3", _sid];	
-	//_c pushBack format["%1csa38_m5a17AD2", _sid];	//No15 icon
-	
-	//set all other vars in a slope
-	_cntstart = count _c;
-	_cntend = count _p;
-	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;	
-	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1csa38_valentineMkIIW", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1csa38_valentineMkII2", _sid];
 		//_c pushBack format["%1csa38_valentineMkII", _sid];
 		//_c pushBack format["%1csa38_valentineMkII6", _sid];
 		//_c pushBack format["%1csa38_valentineMkII5", _sid];//yellow black
 		//_c pushBack format["%1csa38_valentineMkII4", _sid];
 		//_c pushBack format["%1csa38_valentineMkII3", _sid];//yellow green
+		_c pushBack format["%1csa38_matildaii", _sid];//yellow desert
+		//_c pushBack format["%1csa38_matildaiiCS", _sid];
+		//_c pushBack format["%1csa38_matildaii_2", _sid];//yellow 2xgreen
+		//_c pushBack format["%1csa38_matildaiiCS_2", _sid];
+		//_c pushBack format["%1csa38_matildaii_6", _sid];//yellow green brown
+		//_c pushBack format["%1csa38_matildaiiCS_6", _sid];
 	};
+	_c pushBack format["%1csa38_m5a17AD3", _sid];	
+	//_c pushBack format["%1csa38_m5a17AD2", _sid];	//No15 icon
 	_c pushBack format["%1csa38_valentineMkIIgreen", _sid];	
 	//_c pushBack format["%1csa38_valentineMkIIgreen2", _sid];//brown black	
 	//_c pushBack format["%1csa38_valentineMkIIgreen3", _sid];	
 	//_c pushBack format["%1csa38_valentineMkIIgreen4", _sid];
+	//_c pushBack format["%1csa38_matildaii_1", _sid];	//brown camo
+	//_c pushBack format["%1csa38_matildaiiCS_1", _sid];	
+	//_c pushBack format["%1csa38_matildaii_4", _sid];//brown black	
+	//_c pushBack format["%1csa38_matildaiiCS_4", _sid];	
+	_c pushBack format["%1csa38_matildaii_5", _sid];	//green
+	//_c pushBack format["%1csa38_matildaiiCS_5", _sid];
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -429,45 +418,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_c pushBack format["%1csa38_cromwell_5EN45", _sid];	//mortar gun
 	//_c pushBack format["%1csa38_cromwell_6EN45", _sid];	
 	//_c pushBack format["%1csa38_cromwell_4EN45", _sid];	
-	
-	//set all other vars in a slope
-	_cntstart = count _c;
-	_cntend = count _p;
-	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack (CTI_ECONOMY_PRIZE_TRACKED*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100));
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;	
-	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1csa38_matildaii_3", _sid];
-		//_c pushBack format["%1csa38_matildaiiCS_3", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1csa38_matildaii", _sid];//yellow desert
-		//_c pushBack format["%1csa38_matildaiiCS", _sid];
-		//_c pushBack format["%1csa38_matildaii_2", _sid];//yellow 2xgreen
-		//_c pushBack format["%1csa38_matildaiiCS_2", _sid];
-		//_c pushBack format["%1csa38_matildaii_6", _sid];//yellow green brown
-		//_c pushBack format["%1csa38_matildaiiCS_6", _sid];
-	};
-	//_c pushBack format["%1csa38_matildaii_1", _sid];	//brown camo
-	//_c pushBack format["%1csa38_matildaiiCS_1", _sid];	
-	//_c pushBack format["%1csa38_matildaii_4", _sid];//brown black	
-	//_c pushBack format["%1csa38_matildaiiCS_4", _sid];	
-	_c pushBack format["%1csa38_matildaii_5", _sid];	//green
-	//_c pushBack format["%1csa38_matildaiiCS_5", _sid];	
 	
 	//set all other vars in a slope
 	_cntstart = count _c;

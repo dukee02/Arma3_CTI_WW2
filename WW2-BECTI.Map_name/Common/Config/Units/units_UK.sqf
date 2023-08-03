@@ -376,11 +376,11 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1LIB_Cromwell_Mk4_w", _sid];
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		_c pushBack format["%1LIB_UK_DR_M4A3_75", _sid];
 	};
-	_c pushBack format["%1LIB_Cromwell_Mk4", _sid];
-	
+	_c pushBack format["%1LIB_UK_Italy_M4A3_75", _sid];
+
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;
@@ -401,11 +401,11 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1LIB_UK_DR_M4A3_75", _sid];
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		_c pushBack format["%1LIB_Cromwell_Mk4_w", _sid];
 	};
-	_c pushBack format["%1LIB_UK_Italy_M4A3_75", _sid];
-
+	_c pushBack format["%1LIB_Cromwell_Mk4", _sid];
+	
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;

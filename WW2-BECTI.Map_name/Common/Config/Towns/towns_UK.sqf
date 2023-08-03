@@ -249,17 +249,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_ECONOMY_LEVEL_TRACKED) do {
 		case 1: {//Winter camo active
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Crocodile_w", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE_w", _sid],1],[format["%1LIB_Cromwell_Mk4_w", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE_w", _sid],1],[format["%1LIB_UK_Italy_M4A3_75", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7_w", _sid],1],[format["%1LIB_Churchill_Mk7_w", _sid],1]];
 		};
 		case 2: {
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Crocodile_desert", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE_desert", _sid],1],[format["%1LIB_Cromwell_Mk4", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE_desert", _sid],1],[format["%1LIB_UK_DR_M4A3_75", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7_desert", _sid],1],[format["%1LIB_Churchill_Mk7_desert", _sid],1]];
 		};
 		default {
 			TRACKED_LIGHT = [[format["%1LIB_Churchill_Mk7_Crocodile", _sid],1]];
-			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE", _sid],1],[format["%1LIB_Cromwell_Mk4", _sid],1]];
+			TRACKED_MEDIUM = [[format["%1LIB_Churchill_Mk7_AVRE", _sid],1],[format["%1LIB_UK_Italy_M4A3_75", _sid],1]];
 			TRACKED_HEAVY = [[format["%1LIB_Churchill_Mk7", _sid],1],[format["%1LIB_Churchill_Mk7", _sid],1]];
 		};
 	};

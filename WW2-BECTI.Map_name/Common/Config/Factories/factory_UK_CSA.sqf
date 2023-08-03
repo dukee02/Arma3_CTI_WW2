@@ -205,33 +205,38 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1csa38_m5a17ADW", _sid];
+		_c pushBack format["%1csa38_valentineMkIIW", _sid];
+		_c pushBack format["%1csa38_matildaii_3", _sid];
+		//_c pushBack format["%1csa38_matildaiiCS_3", _sid];
 	};
 	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1csa38_m5a17AD4", _sid];
 		//_c pushBack format["%1csa38_m5a17AD", _sid];//No15 icon
-	};
-	_c pushBack format["%1csa38_m5a17AD3", _sid];	
-	//_c pushBack format["%1csa38_m5a17AD2", _sid];	//No15 icon
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1csa38_valentineMkIIW", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
 		_c pushBack format["%1csa38_valentineMkII2", _sid];
 		//_c pushBack format["%1csa38_valentineMkII", _sid];
 		//_c pushBack format["%1csa38_valentineMkII6", _sid];
 		//_c pushBack format["%1csa38_valentineMkII5", _sid];//yellow black
 		//_c pushBack format["%1csa38_valentineMkII4", _sid];
 		//_c pushBack format["%1csa38_valentineMkII3", _sid];//yellow green
+		_c pushBack format["%1csa38_matildaii", _sid];//yellow desert
+		//_c pushBack format["%1csa38_matildaiiCS", _sid];
+		//_c pushBack format["%1csa38_matildaii_2", _sid];//yellow 2xgreen
+		//_c pushBack format["%1csa38_matildaiiCS_2", _sid];
+		//_c pushBack format["%1csa38_matildaii_6", _sid];//yellow green brown
+		//_c pushBack format["%1csa38_matildaiiCS_6", _sid];
 	};
+	_c pushBack format["%1csa38_m5a17AD3", _sid];	
+	//_c pushBack format["%1csa38_m5a17AD2", _sid];	//No15 icon
 	_c pushBack format["%1csa38_valentineMkIIgreen", _sid];	
 	//_c pushBack format["%1csa38_valentineMkIIgreen2", _sid];//brown black	
 	//_c pushBack format["%1csa38_valentineMkIIgreen3", _sid];	
 	//_c pushBack format["%1csa38_valentineMkIIgreen4", _sid];
+	//_c pushBack format["%1csa38_matildaii_1", _sid];	//brown camo
+	//_c pushBack format["%1csa38_matildaiiCS_1", _sid];	
+	//_c pushBack format["%1csa38_matildaii_4", _sid];//brown black	
+	//_c pushBack format["%1csa38_matildaiiCS_4", _sid];	
+	_c pushBack format["%1csa38_matildaii_5", _sid];	//green
+	//_c pushBack format["%1csa38_matildaiiCS_5", _sid];
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -337,29 +342,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1csa38_cromwell_5EN45", _sid];	//mortar gun
 	//_c pushBack format["%1csa38_cromwell_6EN45", _sid];	
 	//_c pushBack format["%1csa38_cromwell_4EN45", _sid];
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1csa38_matildaii_3", _sid];
-		//_c pushBack format["%1csa38_matildaiiCS_3", _sid];
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1csa38_matildaii", _sid];//yellow desert
-		//_c pushBack format["%1csa38_matildaiiCS", _sid];
-		//_c pushBack format["%1csa38_matildaii_2", _sid];//yellow 2xgreen
-		//_c pushBack format["%1csa38_matildaiiCS_2", _sid];
-		//_c pushBack format["%1csa38_matildaii_6", _sid];//yellow green brown
-		//_c pushBack format["%1csa38_matildaiiCS_6", _sid];
-	};
-	//_c pushBack format["%1csa38_matildaii_1", _sid];	//brown camo
-	//_c pushBack format["%1csa38_matildaiiCS_1", _sid];	
-	//_c pushBack format["%1csa38_matildaii_4", _sid];//brown black	
-	//_c pushBack format["%1csa38_matildaiiCS_4", _sid];	
-	_c pushBack format["%1csa38_matildaii_5", _sid];	//green
-	//_c pushBack format["%1csa38_matildaiiCS_5", _sid];	
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_HEAVY];
