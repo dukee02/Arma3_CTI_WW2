@@ -17,7 +17,7 @@ if(_side == west) then {
 		_faction = "Resistance";
 	};
 };
-if !(("SPE_US_Rangers_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
+if !(("SPE_US_Rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 //We get the upgrade setup at this point, if this is null, something went wrong and we set it to the default.
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];

@@ -17,7 +17,7 @@ else {
 		_tag = "GUER_";
 	};
 };
-if !(("SPE_GER_medic") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
+if !(("SPE_GER_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 (_tag) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SetTownFlag.sqf";
 

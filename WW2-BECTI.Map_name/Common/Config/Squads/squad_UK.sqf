@@ -13,7 +13,7 @@ else {
 		_sid = "VIOC_I_";
 	};
 };
-if !(("LIB_UK_Rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
+if !(("LIB_UK_Rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 _v = [];
 _t = [];

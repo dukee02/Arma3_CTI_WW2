@@ -295,7 +295,7 @@ switch(_nationID) do {
 				_weapon_ammo = "SPE_5Rnd_762x63_t";
 				_grenades = "SPE_US_Mk_2";
 				_healing = "SPE_US_FirstAidKit";
-				_bino = "SPE_US_Medkit";
+				_bino = "LIB_Binocular_US";
 				_item_compass = "SPE_US_ItemCompass";
 				_item_watch = "SPE_US_ItemWatch";
 			};
@@ -365,6 +365,21 @@ switch(_nationID) do {
 			};
 			default {};
 		};
+	};
+	case CTI_FR_ID: {
+		if(_modID == CTI_SPE_ID && (CTI_SPE_DLC >= 1 && [1175380] call CTI_CO_FNC_HasDLC)) then {
+			_uniform = "U_SPE_FR_HBT_Uniform";
+			_vest = "V_SPE_US_Vest_Garand";
+			_backpack = "B_SPE_FR_Backpack_Bandoleer_Rifleman";
+			_helmet = "H_SPE_FR_Adrian";
+			_weapon = "SPE_M1903A3_Springfield";
+			_weapon_ammo = "SPE_5Rnd_762x63_t";
+			_grenades = "SPE_US_Mk_2";
+			_healing = "SPE_US_FirstAidKit";
+			_bino = "SPE_Binocular_US";
+			_item_compass = "SPE_US_ItemCompass";
+			_item_watch = "SPE_US_ItemWatch";
+		} else {};
 	};
 	default {};
 };

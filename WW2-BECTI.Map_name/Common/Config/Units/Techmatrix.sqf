@@ -165,6 +165,29 @@ _tech_matrix =
 			[true,true,true],
 			//SAB reloaded
 			[true,true,true]
+		],
+		//FR
+		[
+			//IFA
+			[false,false,false],
+			//SPE
+			[true,true,true],
+			//FOW
+			[false,false,false],
+			//CSA
+			[false,false,false],
+			//NF
+			[false,false,false],
+			//SABFL
+			[false,false,false],
+			//SABNL
+			[false,false,false],
+			//SAB
+			[false,false,false],
+			//BT
+			[false,false,false],
+			//SAB reloaded
+			[false,false,false]
 		]
 	],
 	//CTI_UPGRADE_LIGHT
@@ -319,6 +342,29 @@ _tech_matrix =
 			[false,false,false,false,false,false],
 			//NF
 			[true,true,false,false,false,false],
+			//SABFL
+			[false,false,false,false,false,false],
+			//SABNL
+			[false,false,false,false,false,false],
+			//SAB
+			[false,false,false,false,false,false],
+			//BT
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,false,false]
+		],
+		//FR
+		[
+			//IFA
+			[false,false,false,false,false,false],
+			//SPE
+			[true,true,true,false,false,false],
+			//FOW
+			[false,false,false,false,false,false],
+			//CSA
+			[false,false,false,false,false,false],
+			//NF
+			[false,false,false,false,false,false],
 			//SABFL
 			[false,false,false,false,false,false],
 			//SABNL
@@ -493,6 +539,29 @@ _tech_matrix =
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
 			[false,false,false,false,false,false,false,false]
+		],
+		//FR
+		[
+			//IFA
+			[false,false,false,false,false,false,false,false],
+			//SPE
+			[false,false,true,true,true,true,false,false],
+			//FOW
+			[false,false,false,false,false,false,false,false],
+			//CSA
+			[false,false,false,false,false,false,false,false],
+			//NF
+			[false,false,false,false,false,false,false,false],
+			//SABFL
+			[false,false,false,false,false,false,false,false],
+			//SABNL
+			[false,false,false,false,false,false,false,false],
+			//SAB
+			[false,false,false,false,false,false,false,false],
+			//BT
+			[false,false,false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,false,false,false,false]
 		]
 	],
 	//CTI_UPGRADE_AIR
@@ -636,6 +705,29 @@ _tech_matrix =
 			[false,false,false,false,false,false]
 		],
 		//FIN
+		[
+			//IFA
+			[false,false,false,false,false,false],
+			//SPE
+			[false,false,false,false,false,false],
+			//FOW
+			[false,false,false,false,false,false],
+			//CSA
+			[false,false,false,false,false,false],
+			//NF
+			[false,false,false,false,false,false],
+			//SABFL
+			[false,false,false,false,false,false],
+			//SABNL
+			[false,false,false,false,false,false],
+			//SABFL
+			[false,false,false,false,false,false],
+			//BT
+			[false,false,false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false,false,false]
+		],
+		//FR
 		[
 			//IFA
 			[false,false,false,false,false,false],
@@ -821,6 +913,29 @@ _tech_matrix =
 			[false,false,false,false],
 			//SAB reloaded
 			[false,false,false,false]
+		],
+		//FR
+		[
+			//IFA
+			[false,false,false,false],
+			//SPE
+			[false,false,false,false],
+			//FOW
+			[false,false,false,false],
+			//CSA
+			[false,false,false,false],
+			//NF
+			[false,false,false,false],
+			//SABFL
+			[false,false,false,false],
+			//SABNL
+			[false,false,false,false],
+			//SAB
+			[false,false,false,false],
+			//BT
+			[false,false,false,false],
+			//SAB reloaded
+			[false,false,false,false]
 		]
 	],
 	[],[],[],[],[],[],[],
@@ -970,6 +1085,29 @@ _tech_matrix =
 			[true,true,true],
 			//SPE
 			[false,false,false],
+			//FOW
+			[true,true,true],
+			//CSA
+			[true,true,true],
+			//NF
+			[true,true,true],
+			//SABFL
+			[true,true,true],
+			//SABNL
+			[true,true,true],
+			//SAB
+			[true,true,true],
+			//BT
+			[true,true,true],
+			//SAB reloaded
+			[true,true,true]
+		],
+		//FR
+		[
+			//IFA
+			[true,true,true],
+			//SPE
+			[true,true,true],
 			//FOW
 			[true,true,true],
 			//CSA

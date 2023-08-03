@@ -193,6 +193,9 @@ _nation = -1;
 				default {};
 			};
 		};
+		case (CTI_FR_SIDE == (_x) call CTI_CO_FNC_GetSideID && CTI_SPE_DLC >= 1 && [1175380] call CTI_CO_FNC_HasDLC): {
+			_nation = CTI_FR_ID;
+		};
 		default {};
 	};
 	if(_mainmod == -1 || _nation == -1) then {["ERROR", "FILE: Common\Init\Init_Common.sqf", format ["Main Nation and/or Mod config didn't match: side %1 NationID <%2> MainMod: <%3>", _x, _nation, _mainmod]] call CTI_CO_FNC_Log;};
@@ -213,6 +216,20 @@ call compile preprocessFileLineNumbers "Common\Config\Artillery\Artillery.sqf";
 (east) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
 (resistance) call compile preprocessFileLineNumbers "Common\Config\Base\Town_Defenses.sqf";
 
+//CTI_FR_SIDE declaration
+if(CTI_FR_SIDE >= 0) then {
+	if(CTI_SPE_DLC >= 1) then {
+		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_FR_SPE.sqf";
+		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_FR_SPE.sqf";
+		if((CTI_FR_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_AI < 0)) then {
+			((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_FR_SPE.sqf";
+		};
+		if((CTI_FR_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_FR_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
+			((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FR_SPE.sqf";
+		};
+		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FR_SPE.sqf";
+	};
+};
 //CTI_NOR_SIDE declaration
 if(CTI_FIN_SIDE >= 0) then {
 	if(CTI_NF_ADDON > 0) then {
@@ -416,7 +433,11 @@ if(CTI_GER_SIDE >= 0) then {
 
 switch(CTI_GUER_TOWNS) do {
 	case 0: {
-		if(CTI_IFA_ADDON > 0) then {
+		if(CTI_SPE_DLC >= 1) then {
+			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_FFI_SPE.sqf";
+			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FFI_SPE.sqf";
+		};
+		if(CTI_IFA_ADDON >= 1) then {
 			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_FFI.sqf";
 			((resistance) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FFI.sqf";
 		};
@@ -476,6 +497,11 @@ switch(CTI_GUER_TOWNS) do {
 			case 12: {
 				((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_SOV_NF.sqf";
 			};
+			case 13: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FR_SPE.sqf";
+				};
+			};
 			default {};
 		};
 	};
@@ -521,6 +547,11 @@ switch(CTI_GUER_TOWNS) do {
 			};
 			case 12: {
 				((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_SOV_NF.sqf";
+			};
+			case 13: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_FR_SPE.sqf";
+				};
 			};
 			default {};
 		};

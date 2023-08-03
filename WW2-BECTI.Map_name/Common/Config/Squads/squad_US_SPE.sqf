@@ -13,7 +13,7 @@ else {
 		_sid = "VIOC_I_";
 	};
 };
-if !(("SPE_US_Rangers_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
+if !(("SPE_US_Rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 _v = [];
 _t = [];
@@ -173,7 +173,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 };
 
 _v pushBack "MotorizedT0";
-_t pushBack "Willys unarmed";
+_t pushBack "M3 unarmed";
 _p pushBack mot_to_add;
 _f pushBack CTI_LIGHT;
 _m pushBack 200;
@@ -193,7 +193,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 };
 
 _v pushBack "MotorizedT1";
-_t pushBack "Willys M1919";
+_t pushBack "M3 Halftrack";
 _p pushBack mot_to_add;
 _f pushBack CTI_LIGHT;
 _m pushBack 200;

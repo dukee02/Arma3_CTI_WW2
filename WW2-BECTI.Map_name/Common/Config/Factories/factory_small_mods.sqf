@@ -8,11 +8,9 @@ _setupBaseUnits = false;
 switch (_side) do {
 	case west: {
 		_sid_base = "VIOC_B_";_tag = "WEST_";
-		if(CTI_WEST_AI == CTI_POL_ID || CTI_WEST_TOWNS == CTI_POL_ID) then {_setupBaseUnits = true};
 	};
 	case east: {
 		_sid_base = "VIOC_O_";_tag = "EAST_";
-		if(CTI_EAST_AI == CTI_POL_ID || CTI_EAST_TOWNS == CTI_POL_ID) then {_setupBaseUnits = true};
 	};
 	case resistance: {
 		_sid_base = "VIOC_I_";_tag = "GUER_";
