@@ -62,8 +62,8 @@ while {true} do
 			waitUntil {scriptDone _null};
 			if (IL_DevMod) then {
 				_canCargo = _cargoVehicle getVariable "canCargo";
-				diag_log format["vehicle can handle cargo: <%1>", _canCargo];
-				player globalChat Format["vehicle can handle cargo: %1", _canCargo];
+				//diag_log format["vehicle can handle cargo: <%1>", _canCargo];
+				//player globalChat Format["vehicle can handle cargo: %1", _canCargo];
 			};
 		} else {
 			if (IL_DevMod) then {player globalChat Format["vehicle can handle cargo: %1", _canCargo];};

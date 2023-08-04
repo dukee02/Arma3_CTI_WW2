@@ -1,5 +1,5 @@
 @echo off
-title VIO-BECTI-WW2.Altis Mission gets created
+title VIO-BECTI-WW2.Enoch Mission gets created
 
 set gitpath="F:\GitReps\Arma3_CTI_WW2"
 set buildpath="D:\Tausch\Programmierung\VIO-BECTI\VIO-BECTI-WW2"
@@ -14,7 +14,7 @@ set buildpath="D:\Tausch\Programmierung\VIO-BECTI\VIO-BECTI-WW2"
 ::set min=%time:~3,2%
 ::set sek=%time:~6,2%
 
-set Map_name="Altis"
+set Map_name="Enoch"
 set missionfloder="VIO-BECTI-WW2.%Map_name%"
 echo aktuelle Mission wird erstellt unter: "buildpath\%missionfloder%"
 echo copy Client folder
