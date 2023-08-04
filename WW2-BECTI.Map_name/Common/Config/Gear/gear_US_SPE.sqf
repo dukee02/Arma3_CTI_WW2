@@ -1231,9 +1231,9 @@ _i pushBack "B_SPE_US_Suspender_RocketBag_loaded";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,5.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 
-_i pushBack "B_SPE_US_MGbag_Big_Empty";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,5.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+//_i pushBack "B_SPE_US_MGbag_Big_Empty";
+//_u pushBack _tech_level;
+//_p pushBack ([CTI_ECONOMY_PRIZE_EQUIPMENT,_tech_level,5.0] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _i pushBack "B_SPE_US_Backpack_Bandoleer_AmmoBearer";
 _u pushBack _tech_level;

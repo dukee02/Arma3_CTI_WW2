@@ -621,6 +621,7 @@ if(CTI_US_SIDE != (_side) call CTI_CO_FNC_GetSideID) then {
 	_u pushBack _tech_level;
 	_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,100] call CTI_CO_FNC_GetCalculatedItemPrize);
 };
+_tech_level = 2;
 
 _i pushBack "SPE_FM_24_M29";
 _u pushBack _tech_level;
