@@ -6,14 +6,11 @@ _sid = "VIOC_";
 _building_time = 10;
 
 if(_side == west) then {
-	_sid = "VIOC_B_";
 	_faction = "West";
 } else {
 	if(_side == east) then {
-		_sid = "VIOC_O_";
 		_faction = "East";
 	} else {
-		_sid = "VIOC_I_";
 		_faction = "Resistance";
 	};
 };
