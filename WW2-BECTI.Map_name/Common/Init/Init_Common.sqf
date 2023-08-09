@@ -563,6 +563,9 @@ switch(CTI_GUER_TOWNS) do {
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_small_mods.sqf";
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_small_mods.sqf";
 	(_x) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_small_mods.sqf";
+	
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Units\units_IFA_Naval.sqf";
+	(_x) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_IFA_Naval.sqf";
 } forEach [west,east,resistance];
 
 call compile preprocessFileLineNumbers "Common\Config\Pylons\pylons.sqf";

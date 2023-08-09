@@ -848,7 +848,7 @@ _tech_matrix =
 		//JPN
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//SPE
 			[false,false,false,false],
 			//FOW
@@ -871,7 +871,7 @@ _tech_matrix =
 		//CZ
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//SPE
 			[false,false,false,false],
 			//FOW
@@ -894,7 +894,7 @@ _tech_matrix =
 		//FIN
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//SPE
 			[false,false,false,false],
 			//FOW
@@ -917,7 +917,7 @@ _tech_matrix =
 		//FR
 		[
 			//IFA
-			[false,false,false,false],
+			[true,true,false,false],
 			//SPE
 			[false,false,false,false],
 			//FOW
