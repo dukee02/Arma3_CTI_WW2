@@ -1,4 +1,4 @@
-private ["_side", "_c", "_sid", "_sid_base", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_priorUnits"];
 _side = _this;
 _sid = "";
 _sid_base = "";
