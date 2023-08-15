@@ -45,19 +45,19 @@ class Params {
 		title = "Soviet Side (only with IFA3)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 1;
+		default = -1;
 	};
 	class CTI_US_SIDE {
 		title = "US Side (not in CSA38)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2;
+		default = 1;
 	};
 	class CTI_UK_SIDE {
 		title = "UK Side (only full in IFA3)";
 		values[] = {-1,0,1,2};
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
-		default = 2;
+		default = -1;
 	};
 	class CTI_JPN_SIDE {
 		title = "Japan Side (FoW needed)";
@@ -87,7 +87,7 @@ class Params {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
 		values[] = {0,1,2};
 		texts[] = {"FFI - very easy (IFA3/SPE needed)","Polish Units - easy (IFA3/CSA needed)","3rd Party (needs one Side on GUER or set 50:50 at townsmode)"};
-		default = 2;
+		default = 0;
 	};
 	class CTI_WEST_TOWNS {
 		title = "BLUFOR (West) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
@@ -727,7 +727,7 @@ class Params {
 		title = "ADDON: Spearhead cDLC (SPE)";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 0;
+		default = 1;
 	};
 	class CTI_FOW_ADDON {
 		title = "ADDON: Faces of War (FOW)";
