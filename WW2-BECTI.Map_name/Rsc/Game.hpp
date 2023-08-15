@@ -6,8 +6,8 @@ respawnDialog = false;
 //--- Require briefing.html to show up.
 onLoadName = "VIO-BECTI-WW2 V2.0.2";
 onLoadMissionTime = false;
-onLoadMission = "VIO-BECTI-WW2 V2.0.2_rc4_230809";
-loadScreen = "VIO_BECTI.jpg";
+onLoadMission = "VIO-BECTI-WW2 V2.0.2_rc5_230809";
+loadScreen = "vio_becti.jpg";
 
 briefingName = "VIO-BECTI-WW2 V2.0.2";
 
@@ -15,3 +15,6 @@ briefingName = "VIO-BECTI-WW2 V2.0.2";
 dev = "Benny, dukee";
 author = "Benny, dukee";
 overviewPicture = "vio_becti.jpg";
+overViewPictureLocked="vio_becti.jpg";
+overviewText="VIO-BECTI-WW2 V2.0.2";
+overviewTextLocked="VIO-BECTI-WW2 V2.0.2";

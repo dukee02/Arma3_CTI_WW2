@@ -3,15 +3,11 @@ _m = []; //--- Magazines
 _b = []; //--- Burst
 _r = []; //--- Ranges
 
-_sid = [];
-if(CTI_VIO_ADDON == 0) then {
-	_sid = [""];
-} else {
-	_sid = ["VIOC_B_", "VIOC_O_", "VIOC_I_"];
-};
+_sid = ["VIOC_B_", "VIOC_O_", "VIOC_I_"];
 
 {
-	if(CTI_IFA_ADDON >= 0) then {
+	if(CTI_IFA_ADDON > 0) then {
+		if !(("LIB_GrWr34") call CTI_CO_FNC_IsSidePatchLoaded) then {_x = "";};
 		_c pushBack format["%1LIB_GrWr34", _x];
 		//_m pushBack ["LIB_8Rnd_81mmHE_GRWR34","ARTY_LIB_8Rnd_81mmHE_GRWR34","LIB_1rnd_81mmHE_GRWR34","LIB_81mm_GRWR34_SmokeShell"];
 		_b pushBack [1, 2, 4, 8];
@@ -85,6 +81,7 @@ if(CTI_VIO_ADDON == 0) then {
 	};
 	
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("fow_w_type97_mortar_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_x = "";};
 		_c pushBack format["%1fow_w_type97_mortar_ija", _x];
 		//_m pushBack ["fow_1Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_HE","fow_8Rnd_81mm_type97_SMOKE","fow_1Rnd_81mm_type97_SMOKE","fow_8Rnd_81mm_type97_ILL","fow_1Rnd_81mm_type97_ILL"];
 		_b pushBack [1, 2, 4, 8];
@@ -117,6 +114,7 @@ if(CTI_VIO_ADDON == 0) then {
 	};
 	
 	if(CTI_CSA_ADDON > 0) then {
+		if !(("csa38_GrW34") call CTI_CO_FNC_IsSidePatchLoaded) then {_x = "";};
 		_c pushBack format["%1csa38_GrW34", _x];
 		//_m pushBack ["csa38_minawg34","csa38_minawg34_SmokeShell"];
 		_b pushBack [1, 2, 4, 8];
@@ -139,6 +137,7 @@ if(CTI_VIO_ADDON == 0) then {
 	};
 	
 	if(CTI_NF_ADDON > 0) then {		
+		if !(("NORTH_FIN_W_50krh38") call CTI_CO_FNC_IsSidePatchLoaded) then {_x = "";};
 		_c pushBack format["%1NORTH_FIN_W_50krh38", _x];//light mortar
 		//_m pushBack ["NORTH_10Shell_50mm_MortarHEshell_50krh38","NORTH_10Shell_50mm_MortarSmokeShell_50krh38"];
 		_b pushBack [1, 2, 4, 8, 10];
@@ -268,7 +267,8 @@ if(CTI_VIO_ADDON == 0) then {
 		//_r pushBack [[0,920], [0,2294], [0,5873], [0,5873]];
 	};
 	
-	if(CTI_SPE_DLC >= 1) then {
+	if(CTI_SPE_DLC > 0) then {
+		if !(("SPE_GrW278_1") call CTI_CO_FNC_IsSidePatchLoaded) then {_x = "";};
 		_c pushBack format["%1SPE_GrW278_1", _x];
 		//_m pushBack ["SPE_8Rnd_81mm_FA_Mle_1932_HE","SPE_8Rnd_81mm_FA_Mle_1932_Smoke","SPE_8Rnd_81mm_FA_Mle_1932_Illu","SPE_1Rnd_81mm_FA_Mle_1932_HE","SPE_81mm_FA_Mle_1932_Smoke","SPE_81mm_FA_Mle_1932_Illu"];
 		_b pushBack [1, 2, 4, 8];

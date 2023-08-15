@@ -1,18 +1,20 @@
 _side = _this;
 _sid = "";
+_sid_base = "";
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		_sid_base = "VIOC_B_";
 	};
+	case east: {
+		_sid_base = "VIOC_O_";
+	};
+	case resistance: {
+		_sid_base = "VIOC_I_";
+	};
+	default {_sid_base = "";};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+_sid = _sid_base;
 
 _nation = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
 switch (_nation select 0) do {
@@ -20,14 +22,26 @@ switch (_nation select 0) do {
 		switch (_nation select 1) do {
 			case CTI_IFA_ID: {
 				switch(CTI_CAMO_ACTIVATION) do {
-					case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm_w", _sid]];};		//Winter camo
-					case 2: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_DAK_OpelBlitz_Parm", _sid]];};		//Desert camo
-					default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]];};		//default/woodland camo
+					case 1: {
+						if !(("LIB_OpelBlitz_Parm_w") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm_w", _sid]];};		//Winter camo
+					case 2: {
+						if !(("LIB_DAK_OpelBlitz_Parm") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_DAK_OpelBlitz_Parm", _sid]];};		//Desert camo
+					default {
+						if !(("LIB_OpelBlitz_Parm") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]];};		//default/woodland camo
 				};
 			};
-			case CTI_SPE_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_OpelBlitz_Repair", _sid]]};
-			case CTI_FOW_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid]]};
-			case CTI_CSA_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_opelblitz6", _sid]]};
+			case CTI_SPE_ID: {
+				if !(("SPE_OpelBlitz_Repair") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_OpelBlitz_Repair", _sid]]};
+			case CTI_FOW_ID: {
+				if !(("fow_v_sdkfz_222_camo_foliage_ger_ss") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_sdkfz_222_camo_foliage_ger_ss", _sid]]};
+			case CTI_CSA_ID: {
+				if !(("CSA38_opelblitz6") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_opelblitz6", _sid]]};
 			//case CTI_NF_ID: {};
 			default { };
 		};
@@ -36,8 +50,12 @@ switch (_nation select 0) do {
 		switch (_nation select 1) do {
 			case CTI_IFA_ID: {
 				switch(CTI_CAMO_ACTIVATION) do {
-					case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_parm_w", _sid]];};		//Winter camo
-					default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_Parm", _sid]];};		//default/woodland camo
+					case 1: {
+						if !(("LIB_Zis6_parm_w") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_parm_w", _sid]];};		//Winter camo
+					default {
+						if !(("LIB_Zis6_Parm") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_Zis6_Parm", _sid]];};		//default/woodland camo
 				};
 			};
 			//case CTI_SPE_ID: {};
@@ -51,12 +69,18 @@ switch (_nation select 0) do {
 		switch (_nation select 1) do {
 			case CTI_IFA_ID: {
 				switch(CTI_CAMO_ACTIVATION) do {
-					case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
-					default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
+					case 1: {
+						if !(("LIB_US_GMC_Parm_w") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
+					default {
+						if !(("LIB_US_GMC_Tent") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
 				};
 			};
 			//case CTI_SPE_ID: {};
-			case CTI_FOW_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_universalCarrier", _sid]]};
+			case CTI_FOW_ID: {
+				if !(("fow_v_universalCarrier") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_universalCarrier", _sid]]};
 			//case CTI_CSA_ID: {};
 			//case CTI_NF_ID: {};
 			default { };
@@ -66,12 +90,20 @@ switch (_nation select 0) do {
 		switch (_nation select 1) do {
 			case CTI_IFA_ID: {
 				switch(CTI_CAMO_ACTIVATION) do {
-					case 1: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
-					default {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
+					case 1: {
+						if !(("LIB_US_GMC_Parm_w") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Parm_w", _sid]];};		//Winter camo
+					default {
+						if !(("LIB_US_GMC_Tent") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+						missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_US_GMC_Tent", _sid]];};		//default/woodland camo
 				};
 			};
-			case CTI_SPE_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_US_M3_Halftrack_Repair", _sid]]};
-			case CTI_FOW_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_gmc_usmc", _sid]];};
+			case CTI_SPE_ID: {
+				if !(("SPE_US_M3_Halftrack_Repair") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_US_M3_Halftrack_Repair", _sid]]};
+			case CTI_FOW_ID: {
+				if !(("fow_v_gmc_usmc") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_gmc_usmc", _sid]];};
 			//case CTI_CSA_ID: {};
 			//case CTI_NF_ID: {};
 			default { };
@@ -81,7 +113,9 @@ switch (_nation select 0) do {
 		switch (_nation select 1) do {
 			//case CTI_IFA_ID: {};
 			//case CTI_SPE_ID: {};
-			case CTI_FOW_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_type97_truck_ija", _sid]]};
+			case CTI_FOW_ID: {
+				if !(("fow_v_type97_truck_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1fow_v_type97_truck_ija", _sid]]};
 			//case CTI_CSA_ID: {};
 			//case CTI_NF_ID: {};
 			default { };
@@ -92,14 +126,18 @@ switch (_nation select 0) do {
 			//case CTI_IFA_ID: {};
 			//case CTI_SPE_ID: {};
 			//case CTI_FOW_ID: {};
-			case CTI_CSA_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_pragaRV7", _sid]]};
+			case CTI_CSA_ID: {
+				if !(("CSA38_pragaRV7") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1CSA38_pragaRV7", _sid]]};
 			//case CTI_NF_ID: {};
 			default { };
 		};
 	};
 	case CTI_FIN_ID: {
 		switch (_nation select 1) do {
-			case CTI_IFA_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]]};
+			case CTI_IFA_ID: {
+				if !(("LIB_OpelBlitz_Parm") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1LIB_OpelBlitz_Parm", _sid]]};
 			//case CTI_SPE_ID: {};
 			//case CTI_FOW_ID: {};
 			//case CTI_CSA_ID: {};
@@ -109,7 +147,9 @@ switch (_nation select 0) do {
 	};
 	case CTI_FR_ID: {
 		switch (_nation select 1) do {
-			case CTI_SPE_ID: {missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_FR_M3_Halftrack_Repair", _sid]]};
+			case CTI_SPE_ID: {
+				if !(("SPE_FR_M3_Halftrack_Repair") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1SPE_FR_M3_Halftrack_Repair", _sid]]};
 			default { };
 		};
 	};
@@ -331,6 +371,8 @@ _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,4] call CTI_CO_FNC_GetCa
 //Defense Guns
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {	
 	if(CTI_SPE_DLC >= 1 || CTI_IFA_ADDON >= 1) then {
+		if !(("SPE_GER_SearchLight") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+		if !(("LIB_GER_SearchLight") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"SearchLight";
 		if(CTI_SPE_DLC >= 1) then {
 			_classes pushBack format["%1SPE_GER_SearchLight", _sid];
@@ -402,6 +444,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 		
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("fow_w_mg42_deployed_high_ger_heer") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"MG43 high";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_high_ger_heer", _sid];
 		_prices pushBack 		_priceMG;
@@ -432,7 +475,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 	
 	if(CTI_CSA_ADDON > 0) then {
-			
+		if !(("CSA38_MG34t") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"MG34 tripod";
 		_classes pushBack 		format["%1CSA38_MG34t", _sid];
 		_prices pushBack 		_priceMG;
@@ -478,6 +521,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_IFA_ADDON >= 1) then {
+		if !(("LIB_Maxim_M30_base") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"Maxim base";
 		_classes pushBack 		format["%1LIB_Maxim_M30_base", _sid];
 		_prices pushBack 		1000;
@@ -510,6 +554,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("fow_w_type92_tripod_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"Type 92 MG";
 		_classes pushBack 		format["%1fow_w_type92_tripod_ija", _sid];
 		_prices pushBack 		_priceMG;
@@ -562,6 +607,8 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SPE_DLC >= 1 || CTI_IFA_ADDON >= 1) then {
+		if !(("SPE_M1919_M2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+		if !(("LIB_M1919_M2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"M1919 M2 MG";
 		if(CTI_SPE_DLC >= 1) then {
 			_classes pushBack 		format["%1SPE_M1919_M2", _sid];
@@ -602,6 +649,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("fow_w_m1919_tripod_usa_m37") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"M1919 MG tripod m37";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m37", _sid];
 		_prices pushBack 		_priceMG;
@@ -710,7 +758,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};	
 	
 	if(CTI_CSA_ADDON > 0) then {
-			
+		if !(("CSA38_brenmkiit") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"Bren MK2 1 tripod";
 		_classes pushBack 		format["%1CSA38_brenmkiit", _sid];
 		_prices pushBack 		_priceMG;
@@ -736,6 +784,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 
 if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_CSA_ADDON > 0) then {
+		if !(("CSA38_TKVZ24mg") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"VZ 24 tripod";
 		_classes pushBack 		format["%1CSA38_TKVZ24mg", _sid];
 		_prices pushBack 		_priceMG;
@@ -810,6 +859,7 @@ if(CTI_CZ_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 
 if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_NF_ADDON > 0) then {
+		if !(("NORTH_FIN_W_Maxim") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 			_headers pushBack 		"Maxim MG (w)";
 			_classes pushBack 		format["%1NORTH_FIN_W_Maxim", _sid];
@@ -1006,6 +1056,7 @@ if(CTI_FIN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side) call CTI_CO_FNC_GetSideID && CTI_FIN_SIDE != (_side) call CTI_CO_FNC_GetSideID && CTI_SOV_SIDE != (_side) call CTI_CO_FNC_GetSideID)) then {
 	if(CTI_NF_ADDON > 0) then {
+		if !(("NORTH_FIN_W_Maxim") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		if(CTI_CAMO_ACTIVATION == 1) then {		//Winter camo active
 
 			_headers pushBack 		"Maxim";
@@ -1090,6 +1141,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID || (CTI_GER_SIDE != (_side)
 
 if(CTI_FR_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SPE_DLC >= 1) then {
+		if !(("SPE_FR_M1919_M2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"M1919 M2 MG";
 		_classes pushBack 		format["%1SPE_FR_M1919_M2", _sid];
 		_prices pushBack 		_priceMG;
@@ -1361,7 +1413,7 @@ _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetC
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA_ADDON >= 1 && CTI_IFA_NEW <= 1) then {
+	if(CTI_IFA_ADDON >= 1) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_headers pushBack 		"FlaK 36 (winter)";
 			_classes pushBack 		format["%1LIB_FlaK_36_w", _sid];

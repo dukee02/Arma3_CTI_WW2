@@ -108,14 +108,9 @@ CTI_CO_CustomIterator = 0;
 //calculate the main mod depends on the given parameters
 _mainmod = -1;
 _nation = -1;
-
 {
-	// Current result is saved in variable _x
-	_ai = missionNamespace getVariable [format["CTI_%1_AI", _x], -1];
-	switch true do
-	{
-		case (CTI_GER_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_GER_ID);
-		case (CTI_GER_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
+	switch true do {
+		case (((CTI_GER_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_GER_ID;
 			switch true do
 			{
@@ -128,8 +123,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_SOV_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_SOV_ID);
-		case (CTI_SOV_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_NF_ADDON > 0 || CTI_IFA_ADDON > 0)): {
+		case (((CTI_SOV_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_SOV_ID;
 			switch true do
 			{
@@ -140,8 +134,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_US_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_US_ID);
-		case (CTI_US_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0 || CTI_IFA_ADDON > 0)): {
+		case (((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_US_ID;
 			switch true do
 			{
@@ -152,8 +145,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_UK_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_UK_ID);
-		case (CTI_UK_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0 || CTI_SPE_DLC > 0 || CTI_IFA_ADDON > 0)): {
+		case (((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_UK_ID;
 			switch true do
 			{
@@ -166,8 +158,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_JPN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_JPN_ID);
-		case (CTI_JPN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_FOW_ADDON > 0)): {
+		case (((CTI_JPN_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_JPN_ID;
 			switch true do
 			{
@@ -175,8 +166,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_CZ_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_CZ_ID);
-		case (CTI_CZ_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_CSA_ADDON > 0)): {
+		case (((CTI_CZ_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_CZ_ID;
 			switch true do
 			{
@@ -184,8 +174,7 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_FIN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == CTI_FIN_ID);
-		case (CTI_FIN_SIDE == (_x) call CTI_CO_FNC_GetSideID && _ai == -1 && (CTI_NF_ADDON > 0)): {
+		case (((CTI_FIN_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_FIN_ID;
 			switch true do
 			{
@@ -193,17 +182,31 @@ _nation = -1;
 				default {};
 			};
 		};
-		case (CTI_FR_SIDE == (_x) call CTI_CO_FNC_GetSideID && CTI_SPE_DLC >= 1 && [1175380] call CTI_CO_FNC_HasDLC): {
+		case (((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) == _x): {
 			_nation = CTI_FR_ID;
 		};
 		default {};
 	};
+
+	switch (missionNamespace getVariable format["CTI_%1_AI", _x]) do {
+		case (CTI_GER_ID): {_nation = CTI_GER_ID};
+		case (CTI_SOV_ID): {_nation = CTI_SOV_ID};
+		case (CTI_UK_ID): {_nation = CTI_UK_ID};
+		case (CTI_US_ID): {_nation = CTI_US_ID};
+		case (CTI_JPN_ID): {_nation = CTI_JPN_ID};
+		case (CTI_CZ_ID): {_nation = CTI_CZ_ID};
+		case (CTI_FIN_ID): {_nation = CTI_FIN_ID};
+		case (CTI_FR_ID): {_nation = CTI_FR_ID};
+		case (CTI_POL_ID): {_nation = CTI_POL_ID};
+		default {};
+	};
+
 	if(_mainmod == -1 || _nation == -1) then {["ERROR", "FILE: Common\Init\Init_Common.sqf", format ["Main Nation and/or Mod config didn't match: side %1 NationID <%2> MainMod: <%3>", _x, _nation, _mainmod]] call CTI_CO_FNC_Log;};
 	if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Common\Init\Init_Common.sqf", format ["Start gear config: side %1 NationID <%2> MainMod: <%3>", _x, _nation, _mainmod]] call CTI_CO_FNC_Log};
 	missionNamespace setVariable [format ["CTI_%1_MAINNATIONS", _x], [_nation, _mainmod]];
 	[_x, _nation, _mainmod] call compile preprocessFileLineNumbers "Common\Config\Gear\gear_start_config.sqf";
-	
 } forEach [west,east];
+missionNamespace getVariable format ["CTI_%1_MAINNATIONS", west];
 
 call compile preprocessFileLineNumbers "Common\Config\Units\Techmatrix.sqf";
 
