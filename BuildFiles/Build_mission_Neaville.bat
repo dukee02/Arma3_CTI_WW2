@@ -1,5 +1,5 @@
 @echo off
-title VIO-BECTI-WW2.Altis Mission gets created
+title VIO-BECTI-WW2.MCN_Neaville_Winter Mission gets created
 
 set gitpath="F:\GitReps\Arma3_CTI_WW2"
 set buildpath="D:\Tausch\Programmierung\VIO-BECTI\VIO-BECTI-WW2"
@@ -14,8 +14,8 @@ set buildpath="D:\Tausch\Programmierung\VIO-BECTI\VIO-BECTI-WW2"
 ::set min=%time:~3,2%
 ::set sek=%time:~6,2%
 
-set Map_name="Altis"
-set missionfloder="VIO-BECTI-WW2.%Map_name%"
+set Map_name="Neaville"
+set missionfloder="VIO-BECTI-WW2.MCN_%Map_name%"
 echo aktuelle Mission wird erstellt unter: "buildpath\%missionfloder%"
 echo copy Client folder
 xcopy "%gitpath%\WW2-BECTI.Map_name\Client" "%buildpath%\%missionfloder%\Client" /E /Y /I
@@ -47,7 +47,7 @@ copy "%gitpath%\WW2-BECTI.Map_name\debug_diag.sqf" "%buildpath%\%missionfloder%\
 copy "%gitpath%\WW2-BECTI.Map_name\description.ext" "%buildpath%\%missionfloder%\description.ext"
 copy "%gitpath%\WW2-BECTI.Map_name\init.sqf" "%buildpath%\%missionfloder%\init.sqf"
 copy "%gitpath%\WW2-BECTI.Map_name\mission_%Map_name%.sqm" "%buildpath%\%missionfloder%\mission.sqm"
-copy "%gitpath%\WW2-BECTI-Thumpnails\WW2_BECTI_%Map_name%Small.jpg" "%buildpath%\%missionfloder%\VIO_BECTI.jpg"
+copy "%gitpath%\WW2-BECTI-Thumpnails\WW2_BECTI_%Map_name%small.jpg" "%buildpath%\%missionfloder%\VIO_BECTI.jpg"
 copy "%gitpath%\WW2-BECTI.Map_name\WFpostprocess.sqf" "%buildpath%\%missionfloder%\WFpostprocess.sqf"
 copy "%gitpath%\WW2-BECTI.Map_name\stringtable.xml" "%buildpath%\%missionfloder%\stringtable.xml"
 
