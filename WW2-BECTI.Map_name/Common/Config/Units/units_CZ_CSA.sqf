@@ -4,6 +4,7 @@ _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
+_setupBaseUnits = false;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";

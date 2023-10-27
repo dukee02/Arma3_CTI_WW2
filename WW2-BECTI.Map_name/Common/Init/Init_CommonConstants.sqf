@@ -851,13 +851,13 @@ with missionNamespace do {
 	if (isNil 'CTI_SAB_ADDON') then {CTI_SAB_ADDON = 0};
 	if (isNil 'CTI_BT_ADDON') then {CTI_BT_ADDON = 0};
 	if (isNil 'CTI_SABRL_ADDON') then {CTI_SABRL_ADDON = 0};
-	if(CTI_SPE_DLC == 0) then {
+	if(CTI_SPE_DLC > 0) then {
 		if !(isClass(configFile >> "CfgVehicles" >> "SPE_OpelBlitz_Open")) then {
 			CTI_SPE_DLC = 0;
 			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["Spearhead configured but not loaded! <%1>", CTI_SPE_DLC]] call CTI_CO_FNC_Log; };
 		};
 	};
-	if(CTI_IFA_ADDON == 0) then {
+	if(CTI_IFA_ADDON > 0) then {
 		if !(isClass(configFile >> "CfgVehicles" >> "LIB_US_Willys_MB")) then {
 			CTI_IFA_ADDON = 0;
 			if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: common\init\Init_CommonConstants.sqf", format["IFA3 configured but not loaded! <%1>", CTI_SPE_DLC]] call CTI_CO_FNC_Log; };

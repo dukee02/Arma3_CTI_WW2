@@ -117,9 +117,11 @@ _nation = -1;
 				case (CTI_SPE_DLC > 1 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
 				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
 				case (CTI_CSA_ADDON > 1): {_mainmod = CTI_CSA_ID};
+				case (CTI_FOW_ADDON > 1): {_mainmod = CTI_FOW_ID};
 				case (CTI_SPE_DLC > 0 && [1175380] call CTI_CO_FNC_HasDLC): {_mainmod = CTI_SPE_ID};
 				case (CTI_IFA_ADDON > 0 && CTI_CSA_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_IFA_ID};
 				case (CTI_CSA_ADDON > 0 && CTI_IFA_ADDON < 2 && (CTI_SPE_DLC < 2 || [1175380] call CTI_CO_FNC_HasDLC == false)): {_mainmod = CTI_CSA_ID};
+				case (CTI_FOW_ADDON > 0 && CTI_IFA_ADDON < 2): {_mainmod = CTI_FOW_ID};
 				default {};
 			};
 		};
@@ -140,8 +142,10 @@ _nation = -1;
 			{
 				case (CTI_IFA_ADDON > 1): {_mainmod = CTI_IFA_ID};
 				case (CTI_CSA_ADDON > 1): {_mainmod = CTI_CSA_ID};
+				case (CTI_FOW_ADDON > 1): {_mainmod = CTI_FOW_ID};
 				case (CTI_IFA_ADDON > 0 && CTI_CSA_ADDON < 2): {_mainmod = CTI_IFA_ID};
 				case (CTI_CSA_ADDON > 0 && CTI_IFA_ADDON < 2): {_mainmod = CTI_CSA_ID};
+				case (CTI_FOW_ADDON > 0 && CTI_IFA_ADDON < 2): {_mainmod = CTI_FOW_ID};
 				default {};
 			};
 		};
@@ -277,7 +281,7 @@ if(CTI_JPN_SIDE >= 0) then {
 };
 //CTI_UK_SIDE declaration
 if(CTI_UK_SIDE >= 0) then {
-	if(CTI_IFA_ADDON >= 0) then {
+	if(CTI_IFA_ADDON > 0) then {
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_UK.sqf";
 		((CTI_UK_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_UK.sqf";
 		if((CTI_UK_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_UK_SIDE == 1 && CTI_EAST_AI < 0)) then {
@@ -326,7 +330,7 @@ if(CTI_US_SIDE >= 0) then {
 		};
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_SPE.sqf";
 	};
-	if(CTI_IFA_ADDON >= 0) then {
+	if(CTI_IFA_ADDON > 0) then {
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_US.sqf";
 		((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_US.sqf";
 		if((CTI_US_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_US_SIDE >= 1 && CTI_EAST_AI < 0)) then {

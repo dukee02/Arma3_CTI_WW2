@@ -4,6 +4,7 @@ _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
+_setupBaseUnits = false;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -414,7 +415,7 @@ if(count _isThisMain > 0) then {
 } else {
 	_setupBaseUnits = true;
 };
-if(_setupBaseUnits && CTI_IFA3_NEW < 1) then {
+if(_setupBaseUnits && CTI_IFA_ADDON < 1) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 				
 		_c pushBack format["%1fow_v_gmc_usmc", _sid];						//repairtruck
@@ -453,7 +454,7 @@ if(_setupBaseUnits && CTI_IFA3_NEW < 1) then {
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA_ADDON < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_lvta2_usmc", _sid];						//ammotruck
 	_p pushBack '';
 	_n pushBack 'Ammo Truck';

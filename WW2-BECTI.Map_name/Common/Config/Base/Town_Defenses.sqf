@@ -114,6 +114,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_mg42_deployed_ger_heer") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_classes_town pushBack 		format["%1fow_w_mg42_deployed_ger_heer", _sid];
 		_categories_town pushBack 	"MG";
 		
@@ -155,6 +156,8 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_6Pounder_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+
 		_classes_town pushBack 		format["%1fow_w_type92_tripod_ija", _sid];
 		_categories_town pushBack 	"MG";
 		
@@ -236,6 +239,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories_town pushBack 	"AA";
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_vickers_uk") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_classes_town pushBack 		format["%1fow_w_vickers_uk", _sid];
 		_categories_town pushBack 	"MG";
 		
@@ -268,6 +272,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_categories_town pushBack 	"AA";
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_m1919_tripod_usa_m37") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_classes_town pushBack 		format["%1fow_w_m1919_tripod_usa_m37", _sid];
 		_categories_town pushBack 	"MG";
 		

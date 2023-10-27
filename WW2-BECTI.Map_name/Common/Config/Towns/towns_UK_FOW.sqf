@@ -214,9 +214,9 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //														Town Anti-Air setup																*
 //***************************************************************************************************************************************
 ANTI_AIR = [];
-/*if(CTI_IFA3_NEW < 0) then {
+/*if(CTI_IFA_ADDON < 1) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
-		if(CTI_IFA3_NEW > 0) then {
+		if(CTI_IFA_ADDON > 0) then {
 			ANTI_AIR = [[format["%1LIB_UK_M16_Halftrack", _sid],1],[format["%1LIB_UK_M16_Halftrack", _sid],1]];
 		};
 	};

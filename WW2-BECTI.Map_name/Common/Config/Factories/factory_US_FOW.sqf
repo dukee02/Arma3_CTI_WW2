@@ -254,7 +254,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Reapir Factory.
 _c = [];
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA_ADDON < 1 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_gmc_usmc", _sid];						//repairtruck
 	_c pushBack format["CTI_Salvager_%1", _side];
 };
@@ -274,7 +274,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _c = [];
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA_ADDON < 1 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_lvta2_usmc", _sid];						//ammotruck
 	_c pushBack format["%1fow_v_gmc_open_usmc", _sid];						//fueltruck
 };

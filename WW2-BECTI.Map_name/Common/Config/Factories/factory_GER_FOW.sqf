@@ -262,7 +262,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _c = [];
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA_ADDON < 1 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];			//Ammo
 	_c pushBack format["%1fow_v_sdkfz_251_camo_foliage_ger_heer", _sid];			//Fuel
 };

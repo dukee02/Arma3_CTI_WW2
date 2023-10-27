@@ -134,6 +134,15 @@ switch(_nationID) do {
 				_item_compass = "itemcompass";
 			};
 			case CTI_FOW_ID: {
+				_uniform = "fow_u_ger_m43_01_frag_private";
+				_vest = "fow_v_heer_k98_bayo";
+				_backpack = "fow_b_heer_aframe";
+				_helmet = "fow_h_ger_m40_heer_01";
+				_weapon = "fow_w_k98";
+				_weapon_ammo = "fow_5Rnd_792x57";
+				_grenades = "fow_e_m24";
+			};
+			case CTI_CSA_ID: {
 				_uniform = "U_csa38_uniGE08";
 				_vest = "V_csa38_equip_GE13";
 				_backpack = "csa38_GeMedicbag";
@@ -144,15 +153,6 @@ switch(_nationID) do {
 				_bino = "csa38_Binocular2";
 				_item_radio = "csa38_ItemRadio";
 				_item_map = "csa38_ItemMap";
-			};
-			case CTI_CSA_ID: {
-				_uniform = "fow_u_ger_m43_01_frag_private";
-				_vest = "fow_v_heer_k98_bayo";
-				_backpack = "fow_b_heer_aframe";
-				_helmet = "fow_h_ger_m40_heer_01";
-				_weapon = "fow_w_k98";
-				_weapon_ammo = "fow_5Rnd_792x57";
-				_grenades = "fow_e_m24";
 			};
 			default {};
 		};

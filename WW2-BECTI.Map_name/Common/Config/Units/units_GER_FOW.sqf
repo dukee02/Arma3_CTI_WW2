@@ -4,6 +4,7 @@ _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
+_setupBaseUnits = false;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -435,7 +436,7 @@ if(_setupBaseUnits && CTI_IFA_ADDON < 1) then {
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-if(CTI_IFA3_NEW < 0 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_IFA_ADDON < 1 && CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_sdkfz_250_9_camo_foliage_ger_heer", _sid];						//ammotruck
 	_p pushBack '';
 	_n pushBack 'Ammo Vehicle';

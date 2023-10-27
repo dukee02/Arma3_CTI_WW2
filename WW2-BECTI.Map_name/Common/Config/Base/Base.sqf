@@ -444,7 +444,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 		
 	if(CTI_FOW_ADDON > 0) then {
-		if !(("fow_w_mg42_deployed_high_ger_heer") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+		if !(("VIOC_I_fow_w_mg42_deployed_high_ger_heer") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"MG43 high";
 		_classes pushBack 		format["%1fow_w_mg42_deployed_high_ger_heer", _sid];
 		_prices pushBack 		_priceMG;
@@ -554,7 +554,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	
 	if(CTI_FOW_ADDON > 0) then {
-		if !(("fow_w_type92_tripod_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+		if !(("VIOC_I_fow_w_type92_tripod_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"Type 92 MG";
 		_classes pushBack 		format["%1fow_w_type92_tripod_ija", _sid];
 		_prices pushBack 		_priceMG;
@@ -649,7 +649,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_FOW_ADDON > 0) then {
-		if !(("fow_w_m1919_tripod_usa_m37") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+		if !(("VIOC_I_fow_w_m1919_tripod_usa_m37") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"M1919 MG tripod m37";
 		_classes pushBack 		format["%1fow_w_m1919_tripod_usa_m37", _sid];
 		_prices pushBack 		_priceMG;
@@ -749,6 +749,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_vickers_uk") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"Vickers MG";
 		_classes pushBack 		format["%1fow_w_vickers_uk", _sid];
 		_prices pushBack 		_priceMG;
@@ -1224,7 +1225,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_GER_SIDE != (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA_ADDON >= 0) then {
+	if(CTI_IFA_ADDON > 0) then {
 		_headers pushBack 		"61k (AA)";
 		_classes pushBack 		format["%1LIB_61k", _sid];
 		_prices pushBack 		_priceAA;
@@ -1742,22 +1743,24 @@ _priceArty = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,10] call CTI_CO_FNC_Ge
 _priceGun = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,5] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 _priceAA = [CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,false,4] call CTI_CO_FNC_GetCalculatedUnitsPrize;
 
-//Flak 38 Vierling for ALL
-if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-	_headers pushBack 		"Flak 38 Vierling (Winter)";
-	_classes pushBack 		format["%1LIB_Flakvierling_38_w", _sid];
-	_prices pushBack 		_priceAA;
-	_placements pushBack 	[180, 5];
-	_categories pushBack 	"AA";
-	_tiers pushBack 		_tech_level;
-};
-if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {
-	_headers pushBack 		"Flak 38 Vierling";
-	_classes pushBack 		format["%1LIB_Flakvierling_38", _sid];
-	_prices pushBack 		_priceAA;
-	_placements pushBack 	[180, 5];
-	_categories pushBack 	"AA";
-	_tiers pushBack 		_tech_level;
+//Flak 38 Vierling for ALL if IFA3 is active
+if(CTI_IFA_ADDON > 0) then {
+	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+		_headers pushBack 		"Flak 38 Vierling (Winter)";
+		_classes pushBack 		format["%1LIB_Flakvierling_38_w", _sid];
+		_prices pushBack 		_priceAA;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"AA";
+		_tiers pushBack 		_tech_level;
+	};
+	if(CTI_CAMO_ACTIVATION < 1 || CTI_CAMO_ACTIVATION > 1) then {
+		_headers pushBack 		"Flak 38 Vierling";
+		_classes pushBack 		format["%1LIB_Flakvierling_38", _sid];
+		_prices pushBack 		_priceAA;
+		_placements pushBack 	[180, 5];
+		_categories pushBack 	"AA";
+		_tiers pushBack 		_tech_level;
+	};
 };
 
 if(CTI_SPE_DLC >= 1) then {
@@ -1895,6 +1898,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_flak36_gray_ger_heer") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"FlaK 36 gray";
 		_classes pushBack 		format["%1fow_w_flak36_gray_ger_heer", _sid];
 		_prices pushBack 		_priceArty;
@@ -1954,6 +1958,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_6Pounder_ija") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_ija", _sid];
 		_prices pushBack 		_priceGun;
@@ -1963,7 +1968,7 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA_ADDON >= 0) then {
+	if(CTI_IFA_ADDON > 0) then {
 		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 			_headers pushBack 		"Zis3 (Winter)";
 			_classes pushBack 		format["%1LIB_Zis3_w", _sid];
@@ -1981,7 +1986,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA_ADDON >= 0 && CTI_SPE_DLC < 1) then {
+	if(CTI_IFA_ADDON > 0 && CTI_SPE_DLC < 1) then {
 		_headers pushBack 		"Zis3";
 		_classes pushBack 		format["%1LIB_Zis3", _sid];
 		_prices pushBack 		_priceGun;
@@ -1990,6 +1995,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_6Pounder_uk") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_uk", _sid];
 		_prices pushBack 		_priceGun;
@@ -1999,7 +2005,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA_ADDON >= 0 && CTI_SPE_DLC < 1) then {
+	if(CTI_IFA_ADDON > 0 && CTI_SPE_DLC < 1) then {
 		_headers pushBack 		"Zis3";
 		_classes pushBack 		format["%1LIB_Zis3", _sid];
 		_prices pushBack 		_priceGun;
@@ -2008,6 +2014,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_FOW_ADDON > 0) then {
+		if !(("VIOC_I_fow_w_6Pounder_usa") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 		_headers pushBack 		"6 Pounder";
 		_classes pushBack 		format["%1fow_w_6Pounder_usa", _sid];
 		_prices pushBack 		_priceGun;
@@ -2187,7 +2194,6 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		_tiers pushBack 		_tech_level;
 	};
 	if(CTI_FOW_ADDON > 0) then {
-
 		_headers pushBack 		"Weapons";
 		_classes pushBack 		"fow_ab_ger_dropcanister";
 		_prices pushBack 		2000;
