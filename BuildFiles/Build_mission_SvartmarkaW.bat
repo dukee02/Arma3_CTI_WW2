@@ -30,13 +30,13 @@ copy "%gitpath%\WW2-BECTI.Map_name\RSC\Debriefing.hpp" "%buildpath%\%missionflod
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Dialogs.hpp" "%buildpath%\%missionfloder%\RSC\Dialogs.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Game.hpp" "%buildpath%\%missionfloder%\RSC\Game.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Notifications.hpp" "%buildpath%\%missionfloder%\RSC\Notifications.hpp"
-copy "%gitpath%\WW2-BECTI.Map_name\RSC\Parameters_w.hpp" "%buildpath%\%missionfloder%\RSC\Parameters.hpp"
+copy "%gitpath%\WW2-BECTI.Map_name\RSC\Parameters_nf_w.hpp" "%buildpath%\%missionfloder%\RSC\Parameters.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Resources.hpp" "%buildpath%\%missionfloder%\RSC\Resources.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Sounds.hpp" "%buildpath%\%missionfloder%\RSC\Sounds.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Styles.hpp" "%buildpath%\%missionfloder%\RSC\Styles.hpp"
 copy "%gitpath%\WW2-BECTI.Map_name\RSC\Titles.hpp" "%buildpath%\%missionfloder%\RSC\Titles.hpp"
 echo copy Script files
-copy "%gitpath%\WW2-BECTI.Map_name\\Scripts\nre_earplugs.sqf" "%buildpath%\%missionfloder%\Scripts\nre_earplugs.sqf"
+xcopy "%gitpath%\WW2-BECTI.Map_name\Scripts" "%buildpath%\%missionfloder%\Scripts" /E /Y /I
 echo copy Server folder
 xcopy "%gitpath%\WW2-BECTI.Map_name\Server" "%buildpath%\%missionfloder%\Server" /E /Y /I
 echo copy VAM folder
