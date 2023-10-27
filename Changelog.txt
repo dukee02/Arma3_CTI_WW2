@@ -67,3 +67,9 @@ Changed: building near vehicles/men now blocked
 Changed: Statics now researchable
 Changed: only 1 infoline on artyshots
 
+V2.0.2_b230925
+Fixed: Parameters didn't match mission setup
+Fixed: mission building process
+
+V2.0.2_c231027
+Fixed: startup issues if FoW is enabled
