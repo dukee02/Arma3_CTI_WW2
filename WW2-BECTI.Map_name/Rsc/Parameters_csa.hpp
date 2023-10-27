@@ -739,7 +739,7 @@ class Params {
 		title = "ADDON: CSA38";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 2;
+		default = 1;
 	};
 	class CTI_NF_ADDON {
 		title = "ADDON: Northern Fronts";

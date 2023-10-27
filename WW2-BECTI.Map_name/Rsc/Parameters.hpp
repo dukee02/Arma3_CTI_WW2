@@ -721,7 +721,7 @@ class Params {
 		title = "ADDON: IFA3";
 		values[] = {0,1,2};
 		texts[] = {"Disabled","Enabled","Set as Main"};
-		default = 0;
+		default = 1;
 	};
 	class CTI_SPE_DLC {
 		title = "ADDON: Spearhead cDLC (SPE)";
