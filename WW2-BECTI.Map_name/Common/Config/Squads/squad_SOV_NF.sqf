@@ -403,14 +403,14 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
-			arm_to_add = [[format["%1NORTH_SOV_KV1_1940", _sid], 1, 60]];
-			arm_to_add = [[format["%1NORTH_SOV_KV1_1941", _sid], 1, 60]];
-			arm_to_add = [[format["%1NORTH_SOV_KV1_1942", _sid], 1, 60]];
-		};
-		default {
 			arm_to_add = [[format["%1NORTH_SOV_W_KV1_1940", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_W_KV1_1941", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_W_KV1_1942", _sid], 1, 60]];
+		};
+		default {
+			arm_to_add = [[format["%1NORTH_SOV_KV1_1940", _sid], 1, 60]];
+			arm_to_add = [[format["%1NORTH_SOV_KV1_1941", _sid], 1, 60]];
+			arm_to_add = [[format["%1NORTH_SOV_KV1_1942", _sid], 1, 60]];
 		};
 	};
 	units_tracked append arm_to_add;
@@ -432,11 +432,13 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
+			arm_to_add = [[format["%1NORTH_SOV_W_T34_76_1943", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_W_T34_85", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_W_T34_85_45", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_KV1E_1940", _sid], 1, 60]];
 		};
 		default {
+			arm_to_add = [[format["%1NORTH_SOV_T34_76_1943", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_T34_85", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_T34_85_45", _sid], 1, 60]];
 			arm_to_add = [[format["%1NORTH_SOV_T34_85_45_Berlin", _sid], 1, 60]];

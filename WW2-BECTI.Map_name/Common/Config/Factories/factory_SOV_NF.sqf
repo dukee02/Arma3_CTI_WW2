@@ -292,11 +292,43 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _sid];
+
 				_c pushBack format["%1NORTH_SOV_W_39_BA3", _sid];
 				_c pushBack format["%1NORTH_SOV_W_39_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_W_39_BA10", _sid];
 			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_SOV_41_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];
+				
+				_c pushBack format["%1NORTH_SOV_41_BA3", _sid];
+				_c pushBack format["%1NORTH_SOV_41_BA6", _sid];
+				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];
+			};
 			default {
+				_c pushBack format["%1NORTH_SOV_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Repair", _sid];
+
 				_c pushBack format["%1NORTH_SOV_41_BA3", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];
@@ -377,6 +409,8 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			_c pushBack format["%1NORTH_SOV_W_41_T26_M38", _sid];
 			_c pushBack format["%1NORTH_SOV_W_39_T26_M39", _sid];
 			_c pushBack format["%1NORTH_SOV_W_39_T26_M39_OT", _sid];
+			_c pushBack format["%1NORTH_SOV_W_41_T26E_M33", _sid];
+			_c pushBack format["%1NORTH_SOV_W_41_T26E_M39", _sid];
 			_c pushBack format["%1NORTH_SOV_W_41_T28", _sid];	
 			_c pushBack format["%1NORTH_SOV_W_41_T28_com", _sid];
 			_c pushBack format["%1NORTH_SOV_W_39_T28_M34", _sid];
@@ -386,6 +420,8 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			_c pushBack format["%1NORTH_SOV_41_T26_M38", _sid];	
 			_c pushBack format["%1NORTH_SOV_41_T26_M39", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T26_M39_OT", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T26E_M33", _sid];
+			_c pushBack format["%1NORTH_SOV_41_T26E_M39", _sid];
 			_c pushBack format["%1NORTH_SOV_41_T28", _sid];	
 			_c pushBack format["%1NORTH_SOV_41_T28_com", _sid];	
 			_c pushBack format["%1NORTH_SOV_41_T28_M34", _sid];
@@ -418,14 +454,14 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
-			_c pushBack format["%1NORTH_SOV_KV1_1940", _sid];
-			_c pushBack format["%1NORTH_SOV_KV1_1941", _sid];
-			_c pushBack format["%1NORTH_SOV_KV1_1942", _sid];
-		};
-		default {
 			_c pushBack format["%1NORTH_SOV_W_KV1_1940", _sid];
 			_c pushBack format["%1NORTH_SOV_W_KV1_1941", _sid];
 			_c pushBack format["%1NORTH_SOV_W_KV1_1942", _sid];
+		};
+		default {
+			_c pushBack format["%1NORTH_SOV_KV1_1940", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1_1941", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1_1942", _sid];
 		};
 	};
 };
@@ -435,15 +471,17 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
+			_c pushBack format["%1NORTH_SOV_W_T34_76_1943", _sid];
 			_c pushBack format["%1NORTH_SOV_W_T34_85", _sid];
 			_c pushBack format["%1NORTH_SOV_W_T34_85_45", _sid];
-			_c pushBack format["%1NORTH_SOV_KV1E_1940", _sid];
+			_c pushBack format["%1NORTH_SOV_W_KV1E_1940", _sid];
 		};
 		default {
+			_c pushBack format["%1NORTH_SOV_T34_76_1943", _sid];
 			_c pushBack format["%1NORTH_SOV_T34_85", _sid];
 			_c pushBack format["%1NORTH_SOV_T34_85_45", _sid];	
 			_c pushBack format["%1NORTH_SOV_T34_85_45_Berlin", _sid];
-			_c pushBack format["%1NORTH_SOV_W_KV1E_1940", _sid];
+			_c pushBack format["%1NORTH_SOV_KV1E_1940", _sid];
 		};
 	};
 };
@@ -487,12 +525,15 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Repair Factory.
 _c = [];
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_Zis6_parm_w", _sid];						//repairtruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _sid];				//repairtruck
 	};
-	if(_setupBaseUnits) then {
-		_c pushBack format["CTI_Salvager_%1", _side];
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];				//repairtruck
+	};
+	default {
+		_c pushBack format["%1NORTHSOV_ZIS5_Repair", _sid];					//repairtruck
 	};
 };
 
@@ -511,12 +552,21 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _c = [];
-if (isClass(configFile >> "CfgVehicles" >> format["%1LIB_OpelBlitz_Parm_w", _sid])) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1LIB_Zis5v_fuel_w", _sid];						//fueltruck
-		_c pushBack format["%1LIB_US6_Ammo", _sid];						//ammotruck
+switch(CTI_CAMO_ACTIVATION) do {
+	case 1: {//Winter camo active
+		_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Ammo", _sid];			//ammotruck
+		_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Fuel", _sid];			//fueltruck
+	};
+	case 2: {//Summer camo active
+		_c pushBack format["%1NORTH_SOV_41_ZIS5_Ammo", _sid];			//ammotruck
+		_c pushBack format["%1NORTH_SOV_41_ZIS5_Fuel", _sid];			//fueltruck
+	};
+	default {
+		_c pushBack format["%1NORTH_SOV_ZIS5_Ammo", _sid];				//ammotruck
+		_c pushBack format["%1NORTH_SOV_ZIS5_Fuel", _sid];				//fueltruck
 	};
 };
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_AMMO];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 

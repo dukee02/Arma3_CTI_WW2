@@ -352,14 +352,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	} else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_W_T34_76_1943", _sid],1]];
 				TRACKED_MEDIUM append [[format["%1NORTH_FIN_W_T34_85", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_W_KV1E_1940", _sid],1]];
 			};
 			case 2: {
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_S_T34_76_1943", _sid],1]];
 				TRACKED_MEDIUM append [[format["%1NORTH_FIN_S_T34_85", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_S_KV1E_1940", _sid],1]];
 			};
 			default {
+				TRACKED_MEDIUM append [[format["%1NORTH_FIN_T34_76_1943", _sid],1]];
 				TRACKED_MEDIUM append [[format["%1NORTH_FIN_T34_85", _sid],1]];
 				TRACKED_HEAVY append [[format["%1NORTH_FIN_KV1E_1940", _sid],1]];
 			};

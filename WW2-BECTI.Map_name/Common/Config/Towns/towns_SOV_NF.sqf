@@ -276,11 +276,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
 			TRACKED_MEDIUM = TRACKED_HEAVY;
-			TRACKED_HEAVY append [[format["%1NORTH_SOV_W_KV1_1940", _sid],1],[format["%1NORTH_SOV_W_KV1_1942", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_W_KV1_1940", _sid],1],[format["%1NORTH_SOV_W_KV1_1942", _sid],1]];
 		};
 		default {
 			TRACKED_MEDIUM = TRACKED_HEAVY;
-			TRACKED_HEAVY append [[format["%1NORTH_SOV_KV1_1940", _sid],1],[format["%1NORTH_SOV_KV1_1942", _sid],1]];
+			TRACKED_HEAVY = [[format["%1NORTH_SOV_KV1_1940", _sid],1],[format["%1NORTH_SOV_KV1_1942", _sid],1]];
 		};
 	};
 };
@@ -290,10 +290,12 @@ if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;}
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	switch(CTI_CAMO_ACTIVATION) do {
 		case 1: {//Winter camo active
+			TRACKED_MEDIUM append [[format["%1NORTH_SOV_W_T34_76_1943", _sid],1]];
 			TRACKED_MEDIUM append [[format["%1NORTH_SOV_W_T34_85", _sid],1]];
 			TRACKED_HEAVY append [[format["%1NORTH_SOV_W_KV1E_1940", _sid],1]];
 		};
 		default {
+			TRACKED_MEDIUM append [[format["%1NORTH_SOV_T34_76_1943", _sid],1]];
 			TRACKED_MEDIUM append [[format["%1NORTH_SOV_T34_85", _sid],1]];
 			TRACKED_HEAVY append [[format["%1NORTH_SOV_KV1E_1940", _sid],1]];
 		};

@@ -531,14 +531,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	} else {
 		switch (CTI_CAMO_ACTIVATION) do {
 			case 1: {
+				arm_to_add pushBack [format["%1NORTH_FIN_W_T34_76_1943", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_W_T34_85", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_W_KV1E_1940", _sid], 1, 20];
 			};
 			case 2: {
+				arm_to_add pushBack [format["%1NORTH_FIN_S_T34_76_1943", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_S_T34_85", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_S_KV1E_1940", _sid], 1, 20];
 			};
 			default {
+				arm_to_add pushBack [format["%1NORTH_FIN_T34_76_1943", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_T34_85", _sid], 1, 20];
 				arm_to_add pushBack [format["%1NORTH_FIN_KV1E_1940", _sid], 1, 20];
 			};

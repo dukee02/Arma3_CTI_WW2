@@ -342,12 +342,15 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
 				_c pushBack format["%1NORTH_FIN_W_41_R75", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_Tempo", _sid];
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_41_R75", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_Tempo", _sid];
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_R75", _sid];
+				_c pushBack format["%1NORTH_FIN_Tempo", _sid];
 			};
 		};
 	};
@@ -364,9 +367,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_BA3", _sid];
@@ -377,9 +380,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_41_BA3", _sid];
@@ -390,9 +393,9 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
 				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
 				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
 
 				_c pushBack format["%1NORTH_FIN_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_BA3", _sid];
@@ -433,6 +436,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M33_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T20", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T38", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M31", _sid];
@@ -441,6 +445,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M33_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M33_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T20", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T38", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M31", _sid];
@@ -449,6 +454,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_41_T26_M33_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T26_M33_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_T20", _sid];
 				_c pushBack format["%1NORTH_FIN_T38", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T26_M31", _sid];
@@ -502,6 +508,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M39_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_T26_M39_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_T26_M39", _sid];
@@ -509,6 +516,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39", _sid];
@@ -516,6 +524,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _sid];
+				_c pushBack format["%1NORTH_FIN_41_T26_M39_OT_FIN", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T26_M38", _sid];
 				_c pushBack format["%1NORTH_FIN_41_T28", _sid];
 				_c pushBack format["%1NORTH_FIN_T26_M39", _sid];
@@ -577,14 +586,17 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	} else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
+				_c pushBack format["%1NORTH_FIN_W_T34_76_1943", _sid];
 				_c pushBack format["%1NORTH_FIN_W_T34_85", _sid];
 				_c pushBack format["%1NORTH_FIN_W_KV1E_1940", _sid];
 			};
 			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_FIN_S_T34_76_1943", _sid];
 				_c pushBack format["%1NORTH_FIN_S_T34_85", _sid];
 				_c pushBack format["%1NORTH_FIN_S_KV1E_1940", _sid];
 			};
 			default {
+				_c pushBack format["%1NORTH_FIN_T34_76_1943", _sid];
 				_c pushBack format["%1NORTH_FIN_T34_85", _sid];
 				_c pushBack format["%1NORTH_FIN_KV1E_1940", _sid];
 			};
