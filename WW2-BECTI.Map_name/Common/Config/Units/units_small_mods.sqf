@@ -91,52 +91,211 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_BARRACKS) then {
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
 //Level start
-/*_tech_level = 0;
-if(CTI_ECONOMY_LEVEL_WHEELED >= 2) then {
-	_time = (5*CTI_ECONOMY_TIME_MULTI*(_tech_level+1));
-	_building_time = switch(true) do {case (_time<5): {5}; case (_time>150): {150}; default {_time}};
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
+_tech_level = 0;
+
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_DaimlerMk2")) then {
+		if !(("FA_DaimlerMk2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_UK_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_DaimlerMk2", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_T17E1", _sid];
+		};
 	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active	
+};
+
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64")) then {
+		if !(("FA_BA64") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_BA64", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_BA10M", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
 	};
-	_c pushBack format["%1LIB_UK_Willys_MB_Ambulance", _sid];				//medic	
-	_p pushBack '';
-	_n pushBack 'UK Willys Mobile Respawn';
-	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-	_t pushBack _building_time;
-	_u pushBack _tech_level;
-	_f pushBack CTI_FACTORY_LIGHT;
-	_s pushBack "service-medic";
-	_d pushBack 0;
-	
-	_c pushBack format["%1LIB_UK_M3_Halftrack", _sid];
-	_p pushBack '';
-	_n pushBack '';
-	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-	_t pushBack _building_time;
-	_u pushBack _tech_level;
-	_f pushBack CTI_FACTORY_LIGHT;
-	_s pushBack "";
-	_d pushBack 0;
-	_tech_level = _tech_level + 1;
-	
+};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64_Captured")) then {
+		if !(("FA_BA64_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_BA64_Captured", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_BA10M_Captured", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_Sdkfz231", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+
+			_c pushBack format["%1FA_Sdkfz234_4", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+
+			_c pushBack format["%1FA_Sdkfz234", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_LIGHT;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+	};
 };
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_LIGHT) then {
 	_upgrade_levels set [CTI_UPGRADE_LIGHT, _tech_level];
 };
-*/
 
 //***************************************************************************************************************************************
 //														Heavy Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Heavy Factory.
 
-//if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
-//if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
+
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_ValentineMk3")) then {
+		if !(("FA_ValentineMk3") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_ValentineMk3", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+	};
+};
+if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_M26")) then {
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_US_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+		if !(("FA_M26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_M26", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+	};
+};
 if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		if !(("SOV_BT_BT7A") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
@@ -149,45 +308,129 @@ if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
 			_c pushBack format["%1SOV_BT_BT7A", _sid];
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-			_t pushBack _building_time;
-			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_LIGHT;
-			_s pushBack "";
-			_d pushBack 0;
-			
 			_c pushBack format["%1SOV_BT_BT7_M1937", _sid];
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-			_t pushBack _building_time;
-			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_LIGHT;
-			_s pushBack "";
-			_d pushBack 0;
-			
 			_c pushBack format["%1SOV_BT_BT7TU_M1937", _sid];
+
+			//set all other vars in a slope
+			_cntstart = count _c;
+			_cntend = count _p;
+			for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+				_p pushBack '';
+				_n pushBack '';
+				_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+				_t pushBack _building_time;
+				_u pushBack _tech_level;
+				_f pushBack CTI_FACTORY_HEAVY;
+				_s pushBack "";
+				_d pushBack 0;	
+			};
+		};
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26")) then {
+		if !(("FA_T26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_T26", _sid];
 			_p pushBack '';
 			_n pushBack '';
 			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 			_t pushBack _building_time;
 			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_LIGHT;
+			_f pushBack CTI_FACTORY_HEAVY;
 			_s pushBack "";
 			_d pushBack 0;
 		};
-		
-		//Update the calculatetd max upgrade level
-		if(_tech_level > _upgrade_levels select CTI_UPGRADE_HEAVY) then {
-			_upgrade_levels set [CTI_UPGRADE_HEAVY, _tech_level];
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_ValentineMk3_SOV", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_KV1", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
 		};
 	};
 };
-//if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26_Captured")) then {
+		if !(("FA_T26_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_T26_Captured", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+			_c pushBack format["%1FA_Pz38t", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
 
+			_c pushBack format["%1FA_Panzer2", _sid];
+			_p pushBack '';
+			_n pushBack '';
+			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+			_t pushBack _building_time;
+			_u pushBack _tech_level;
+			_f pushBack CTI_FACTORY_HEAVY;
+			_s pushBack "";
+			_d pushBack 0;
+		};
+	};
+};
+
+//Update the calculatetd max upgrade level
+if(_tech_level > _upgrade_levels select CTI_UPGRADE_HEAVY) then {
+	_upgrade_levels set [CTI_UPGRADE_HEAVY, _tech_level];
+};
 
 //***************************************************************************************************************************************
 //														Air Factory																		*

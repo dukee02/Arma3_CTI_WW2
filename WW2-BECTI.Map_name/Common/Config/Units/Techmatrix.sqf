@@ -26,7 +26,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//SOV
 		[
@@ -49,7 +53,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//UK
 		[
@@ -72,7 +80,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//US
 		[
@@ -95,7 +107,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//JPN
 		[
@@ -118,7 +134,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//CZ
 		[
@@ -141,7 +161,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//FIN
 		[
@@ -164,7 +188,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//FR
 		[
@@ -187,6 +215,10 @@ _tech_matrix =
 			//BT
 			[false,false,false],
 			//SAB reloaded
+			[false,false,false],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
 			[false,false,false]
 		]
 	],
@@ -213,6 +245,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,true,true,true,true,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//SOV
@@ -236,6 +272,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,true,true,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//UK
@@ -259,6 +299,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,true,false,true,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//US
@@ -282,6 +326,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//JPN
@@ -305,6 +353,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//CZ
@@ -328,6 +380,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//FIN
@@ -351,6 +407,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//FR
@@ -374,6 +434,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		]
 	],
@@ -400,7 +464,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false,false,false,false]
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
+			[true,true,false,false,false,false,false,false]
 		],
 		//SOV
 		[
@@ -423,7 +491,11 @@ _tech_matrix =
 			//BT
 			[false,true,false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false,false,false,false]
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
+			[true,false,false,false,true,false,true,false]
 		],
 		//UK
 		[
@@ -446,7 +518,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false,false,false,false]
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,true,false,false,false,false,false]
 		],
 		//US
 		[
@@ -469,7 +545,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false,false,false,false]
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,false,false,false,false,true,false]
 		],
 		//JPN
 		[
@@ -492,6 +572,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false,false,false]
 		],
 		//CZ
@@ -515,6 +599,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false,false,false]
 		],
 		//FIN
@@ -538,6 +626,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false,false,false]
 		],
 		//FR
@@ -561,6 +653,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false,false,false]
 		]
 	],
@@ -587,7 +683,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,true,true,false,true,true]
+			[false,true,true,false,true,true],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,false,false,false,false]
 		],
 		//SOV
 		[
@@ -610,7 +710,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
-			[true,false,false,false,true,false]
+			[true,false,false,false,true,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,false,false,false,false]
 		],
 		//UK
 		[
@@ -633,7 +737,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,false,false,false,false,true]
+			[false,false,false,false,false,true],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,false,false,false,false]
 		],
 		//US
 		[
@@ -656,7 +764,11 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
-			[false,true,true,true,false,true]
+			[false,true,true,true,false,true],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
+			[false,false,false,false,false,false]
 		],
 		//JPN
 		[
@@ -679,6 +791,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//CZ
@@ -702,6 +818,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//FIN
@@ -725,6 +845,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		],
 		//FR
@@ -748,6 +872,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false,false,false]
 		]
 	],
@@ -774,6 +902,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//SOV
@@ -797,6 +929,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//UK
@@ -820,6 +956,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//US
@@ -843,6 +983,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//JPN
@@ -866,6 +1010,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//CZ
@@ -889,6 +1037,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//FIN
@@ -912,6 +1064,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		],
 		//FR
@@ -935,6 +1091,10 @@ _tech_matrix =
 			//BT
 			[false,false,false,false],
 			//SAB reloaded
+			[false,false,false,false],
+			//WW2 Cars
+			[false,false,false,false],
+			//WW2 Tanks
 			[false,false,false,false]
 		]
 	],
@@ -962,7 +1122,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//SOV
 		[
@@ -985,7 +1149,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//UK
 		[
@@ -1008,7 +1176,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//US
 		[
@@ -1031,7 +1203,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//JPN
 		[
@@ -1054,7 +1230,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//CZ
 		[
@@ -1077,7 +1257,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//FIN
 		[
@@ -1100,7 +1284,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		],
 		//FR
 		[
@@ -1123,7 +1311,11 @@ _tech_matrix =
 			//BT
 			[true,true,true],
 			//SAB reloaded
-			[true,true,true]
+			[true,true,true],
+			//WW2 Cars
+			[false,false,false],
+			//WW2 Tanks
+			[false,false,false]
 		]
 	]
 ];

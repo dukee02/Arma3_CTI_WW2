@@ -53,18 +53,75 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //														Light Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
-/*_c = [];
-//Level start
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1", _sid];
+_c = [];
+
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_DaimlerMk2")) then {
+		if !(("FA_DaimlerMk2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_UK_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_DaimlerMk2", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_T17E1", _sid];
+		};
 	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1", _sid];
-	};
-	
-	_c pushBack format["%1", _sid];
 };
+
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64")) then {
+		if !(("FA_BA64") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA64", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA10M", _sid];
+		};
+	};
+};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64_Captured")) then {
+		if !(("FA_BA64_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA64_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA10M_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_Sdkfz231", _sid];
+			_c pushBack format["%1FA_Sdkfz234_4", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_Sdkfz234", _sid];
+		};
+	};
+};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -74,7 +131,6 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_small_mods.sqf", format["units in factory %1: [%2] ", CTI_LIGHT, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
-*/
 
 //***************************************************************************************************************************************
 //														Heavy Factory																	*
@@ -83,13 +139,34 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 _c = [];
 //Level 0
 
-//if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
-//if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
-	
-if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
-	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_ValentineMk3")) then {
+		if !(("FA_ValentineMk3") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_ValentineMk3", _sid];
+		};
+	};
+};
+if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_M26")) then {
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_US_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+		if !(("FA_M26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+			_c pushBack format["%1FA_M26", _sid];
+		};
+	};
+};
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 		if !(("SOV_BT_BT7A") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_BT_ID] call CTI_CO_FNC_GetTechmatrix;
@@ -106,14 +183,49 @@ if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 			_c pushBack format["%1SOV_BT_BT7A", _sid];
 			_c pushBack format["%1SOV_BT_BT7_M1937", _sid];
 			_c pushBack format["%1SOV_BT_BT7TU_M1937", _sid];
-			
-			_level = [_matrix_cnt + 1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-			if(_matrix_cnt >= 0) then {_matrix_cnt = _matrix_cnt + 1;};
+		};
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26")) then {
+		if !(("FA_T26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_T26", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_ValentineMk3_SOV", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_KV1", _sid];
 		};
 	};
 };
-//if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26_Captured")) then {
+		if !(("FA_T26_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_T26_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_Pz38t", _sid];
+			_c pushBack format["%1FA_Panzer2", _sid];
+		};
+	};
+};
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_HEAVY];
 if (isNil "_priorUnits") then { 
