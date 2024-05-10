@@ -7,6 +7,10 @@ if (isnil "IL_Variables") then
 		//Check new vehicles time
 		IL_Check_Veh_Min = 30;
 		IL_Check_Veh_Max = 60;
+		if(IL_DevMod) then {
+			IL_Check_Veh_Min = 8;
+			IL_Check_Veh_Max = 12;
+		};
 			
 		//Dealing with cargo damage
 		//-1 - do nothing
@@ -187,7 +191,7 @@ if (isnil "IL_Variables") then
 	//with missionNamespace do {
 		
 	//};
-	
+	IL_Supported_Vehicles_Gaz =  [];			// NF Zis5  + FordV8
 	IL_Supported_Vehicles_Praga =  [];
 	IL_Supported_Vehicles_Blitz =  [];
 	IL_Supported_Vehicles_BlitzCSA =  [];
@@ -256,7 +260,33 @@ if (isnil "IL_Variables") then
 			IL_Supported_Vehicles_BlitzCSA pushBack format["%1CSA38_opelblitz2_W", _x];
 			IL_Supported_Vehicles_BlitzCSA pushBack format["%1CSA38_opelblitz_W", _x];
 		};
-		
+
+		if (isClass(configFile >> "CfgVehicles" >> format["%1NORTH_FIN_W_39_FordV8_Open", _x])) then {
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_S_41_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_S_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_41_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_41_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_S_41_FordV8_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_39_FordV8_Empty", _x];
+			
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_S_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_41_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_41_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_S_41_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_FIN_W_39_ZIS5_Empty", _x];
+
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_W_39_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_39_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_W_41_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_41_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_W_ZIS5_Empty", _x];
+			IL_Supported_Vehicles_Gaz pushBack format["%1NORTH_SOV_ZIS5_Empty", _x];
+		};
+
 		if (isClass(configFile >> "CfgVehicles" >> format["%1fow_v_type97_truck_ija", _x])) then {
 			IL_Supported_Vehicles_BlitzCSA pushBack format["%1fow_v_type97_truck_open_ija", _x];
 			IL_Supported_Vehicles_BlitzCSA pushBack format["%1fow_v_type97_truck_ija", _x];
@@ -1177,6 +1207,125 @@ if (isnil "IL_Variables") then
 			IL_Supported_XLarge_Static_Cargo pushBack format["%1NORTH_SOV_W_76mm1936art", _x];
 			IL_Supported_XLarge_Static_Cargo pushBack format["%1NORTH_SOV_76mm1936art", _x];
 
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_Tempo", _x];
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_W_Tempo", _x];
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_S_Tempo", _x];
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_41_Tempo", _x];
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_W_41_Tempo", _x];
+			IL_Supported_Car_Cargo pushBack format["%1NORTH_FIN_S_41_Tempo", _x];
+			
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_39_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_39_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_41_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_41_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_W_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Ammo", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Fuel", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Medical", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Open", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Repair", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_SOV_ZIS5_Maxim_Quad", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_41_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_S_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_41_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_41_FordV8_Empty", _x];
+			IL_Supported_Truck_Cargo pushBack format["%1NORTH_FIN_W_39_FordV8_Empty", _x];
+
 			IL_Supported_Armoured_Cargo pushBack format["%1NORTH_FIN_W_41_BA10", _x];
 			IL_Supported_Armoured_Cargo pushBack format["%1NORTH_FIN_S_41_BA10", _x];
 			IL_Supported_Armoured_Cargo pushBack format["%1NORTH_FIN_BA10", _x];
@@ -1240,6 +1389,34 @@ if (isnil "IL_Variables") then
 			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M39", _x];
 			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M39_OT", _x];
 			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_T26_M39", _x];
+			
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_T26E_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_T26E_M39", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_T26E_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_T26E_M39", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26E_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_41_T26E_M39", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26E_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T26E_M39", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_39_T26_M33_OT", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_39_T26_M31", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_39_T26_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_39_T26_M38", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_SOV_39_T26_M33com", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_T26E", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_T26_M33", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_T26_M33_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_T26_M38", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_T26_M39_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_T26E", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_T26_M33_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_T26_M39_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_41_T26_M33_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_41_T26_M39_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M33_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T26_M39_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M33_OT_FIN", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T26_M39_OT_FIN", _x];
 
 			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T28", _x];
 			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T28", _x];
@@ -1272,12 +1449,23 @@ if (isnil "IL_Variables") then
 			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_BT7", _x];
 			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_BT7_M35", _x];
 			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_BT7", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_SOV_W_T28", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_SOV_W_T28e", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_SOV_W_T28_com", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_SOV_39_T28", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_SOV_39_T28_com", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1NORTH_FIN_W_T28e", _x];
 
 			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_SOV_W_41_T34_76_1941", _x];
 			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_SOV_41_T34_76_1941", _x];
 			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_W_41_T34_76_1941", _x];
 			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_S_41_T34_76_1941", _x];
 			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_T34_76_1941", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_SOV_T34_76_1943", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_SOV_W_T34_76_1943", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_T34_76_1943", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_W_T34_76_1943", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1NORTH_FIN_S_T34_76_1943", _x];
 		};
 		
 		if (isClass(configFile >> "CfgVehicles" >> format["%1SPE_OpelBlitz", _x])) then {

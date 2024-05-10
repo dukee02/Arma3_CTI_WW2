@@ -99,26 +99,35 @@ if (_obj_type in IL_Supported_Mini_Static_Cargo) then
 {
 	_obj setVariable["slots", 1, true];
 	_obj setVariable["cargo_offset", 1, true];
+	[_obj, 240] call IL_SetNewMass;
 };
 if (_obj_type in IL_Supported_Small_Static_Cargo) then
 {
-	_obj setVariable["slots", 1, true];
+	_obj setVariable["slots", 2, true];
 	_obj setVariable["cargo_offset", 1, true];
+	_obj setVariable["turn", 1, true];
+	[_obj, 200] call IL_SetNewMass;
 };
 if (_obj_type in IL_Supported_Medium_Static_Cargo) then
 {
 	_obj setVariable["slots", 2, true];
 	_obj setVariable["cargo_offset", 1, true];
+	_obj setVariable["turn", 1, true];
+	[_obj, 300] call IL_SetNewMass;
 };
 if (_obj_type in IL_Supported_Large_Static_Cargo) then
 {
 	_obj setVariable["slots", 3, true];
 	_obj setVariable["cargo_offset", 1, true];
+	_obj setVariable["turn", 1, true];
+	[_obj, 600] call IL_SetNewMass;
 };	
 if (_obj_type in IL_Supported_XLarge_Static_Cargo) then
 {
 	_obj setVariable["slots", 4, true];
 	_obj setVariable["cargo_offset", 2, true];
+	_obj setVariable["turn", 1, true];
+	[_obj, 1000] call IL_SetNewMass;
 };
 if (_obj_type in IL_Supported_Landing_Ship_Cargo) then
 {

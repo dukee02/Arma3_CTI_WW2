@@ -1,6 +1,3 @@
-//if true then show debug globalChat (TODO add more hints)
-IL_DevMod = false;
-
 //waitUntil { !(isNull player) };
 waitUntil { time > 0 };
 IL_Script_Inst = time;
@@ -170,6 +167,7 @@ if (_obj_main_type in IL_Supported_Vehicles_C17) then
 //*****************************************************************************************************************
 //*										VIOC Units declaration
 //*****************************************************************************************************************
+
 //Gaz
 if (_obj_main_type in IL_Supported_Vehicles_Gaz) then
 {
@@ -181,7 +179,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Gaz) then
 	[_obj_main] call IL_Init_Veh;
 	
 	_obj_main addAction [
-	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load cargo on Gaz</t>",
+	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load cargo on Truck</t>",
 	{
 		[_this select 0, IL_Supported_Cargo_NonVeh_Gaz] call IL_Do_Load;
 	},[],IL_Action_LU_Priority,true,true,"",
@@ -189,7 +187,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Gaz) then
 	];
 	
 	_obj_main addAction [
-	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load vehicle on Gaz</t>",
+	"<img image='IgiLoad\images\load.paa' /><t color=""#007f0e"">  Load vehicle on Truck</t>",
 	{
 		[_this select 0, IL_Supported_Cargo_Veh_Gaz] call IL_Do_Load;
 	},[],IL_Action_LU_Priority,true,true,"",
@@ -197,7 +195,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Gaz) then
 	];
 	
 	_obj_main addAction [
-	"<img image='IgiLoad\images\unload.paa' /><t color=""#ff0000"">  Unload cargo from Gaz</t>",
+	"<img image='IgiLoad\images\unload.paa' /><t color=""#ff0000"">  Unload cargo from Truck</t>",
 	{
 		[_this select 0] call IL_Do_Unload;
 	},[],IL_Action_LU_Priority,false,true,"",
@@ -218,6 +216,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Gaz) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // Blitz
 if (_obj_main_type in IL_Supported_Vehicles_Praga) then
@@ -267,6 +266,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Praga) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // Blitz
 if (_obj_main_type in IL_Supported_Vehicles_Blitz) then
@@ -316,6 +316,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Blitz) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // Blitz
 if (_obj_main_type in IL_Supported_Vehicles_BlitzCSA) then
@@ -365,6 +366,7 @@ if (_obj_main_type in IL_Supported_Vehicles_BlitzCSA) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // US6
 if (_obj_main_type in IL_Supported_Vehicles_US6) then
@@ -414,6 +416,7 @@ if (_obj_main_type in IL_Supported_Vehicles_US6) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // GMC
 if (_obj_main_type in IL_Supported_Vehicles_GMC) then
@@ -463,6 +466,7 @@ if (_obj_main_type in IL_Supported_Vehicles_GMC) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // GMC
 if (_obj_main_type in IL_Supported_Vehicles_GMCFOW) then
@@ -512,6 +516,7 @@ if (_obj_main_type in IL_Supported_Vehicles_GMCFOW) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // SdKfz7
 if (_obj_main_type in IL_Supported_Vehicles_SdKfz7) then
@@ -561,6 +566,7 @@ if (_obj_main_type in IL_Supported_Vehicles_SdKfz7) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // LCVP
 if (_obj_main_type in IL_Supported_Vehicles_LCVP) then
@@ -610,6 +616,7 @@ if (_obj_main_type in IL_Supported_Vehicles_LCVP) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // LCM3
 if (_obj_main_type in IL_Supported_Vehicles_LCM3) then
@@ -662,6 +669,7 @@ if (_obj_main_type in IL_Supported_Vehicles_LCM3) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 // Liberty Ship
 if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
@@ -755,6 +763,7 @@ if (_obj_main_type in IL_Supported_Vehicles_Cargo_Ship) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"((driver _target == _this) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 };
 //C47
 if (_obj_main_type in IL_Supported_Vehicles_C47) then
@@ -861,6 +870,7 @@ if (_obj_main_type in IL_Supported_Vehicles_C47) then
 	},[],IL_Action_S_Priority,false,true,"",
 	"(((driver _target == _this) || (('Turret' in (assignedVehicleRole _this)) && (vehicle _this == _target) && (_target getVariable 'can_copilot'))) && (_target getVariable 'can_outside') && IL_Can_Outside)"
 	];
+	_obj_main setVariable ["canCargo", true];
 /*
 	_obj_main addAction [
 	"<t color=""#0000ff"">Enable usable ramp</t>",

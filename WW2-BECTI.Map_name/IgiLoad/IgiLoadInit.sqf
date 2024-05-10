@@ -4,6 +4,9 @@ waituntil {!isnil "bis_fnc_init"};
 //waitUntil { !(isNull player) };
 waitUntil { time > 0 };
 
+//if true then show debug globalChat (TODO add more hints)
+IL_DevMod = false;
+
 IL_EV_Count = 0;
 IL_Veh_Array = [];
 
@@ -58,7 +61,8 @@ while {true} do
 		_cargoVehicle = vehicle player;
 		_canCargo = _cargoVehicle getVariable "canCargo";
 		if (isNil "_canCargo") then {
-			_null = [_cargoVehicle] execVM "IgiLoad\IgiLoad.sqf";
+			//_null = [_cargoVehicle] execVM "IgiLoad\IgiLoad.sqf";
+			_null = [_cargoVehicle] execVM "IgiLoad\IgiLoadCheck.sqf";
 			waitUntil {scriptDone _null};
 			if (IL_DevMod) then {
 				_canCargo = _cargoVehicle getVariable "canCargo";
