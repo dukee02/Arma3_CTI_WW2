@@ -157,6 +157,13 @@ _i pushBack "NORTH_SVT40PU";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 
+_i pushBack "NORTH_AVS36";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "NORTH_15rnd_AVS36_mag";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,15,(762*53)] call CTI_CO_FNC_GetCalculatedItemPrize);
+
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 	_upgrade_levels set [CTI_UPGRADE_GEAR, _tech_level];
@@ -972,7 +979,28 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-----------------------------------------Attachments------------------------------------------------
 _tech_level = 0;
 
+_i pushBack "NORTH_Bayonet_SovSVT";
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack round ((CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/4);
+};
+
+_tech_level = 1;
+
+_i pushBack "NORTH_Bramit";
+//set all other vars in a slope
+_cntstart = count _i;
+_cntend = count _p;
+for [{ _cnt = 0 }, { _cnt < _cntstart-_cntend }, { _cnt = _cnt + 1 }] do { 
+	_u pushBack _tech_level;
+	_p pushBack round ((CTI_ECONOMY_PRIZE_EQUIPMENT*(((_tech_level+1)*CTI_ECONOMY_LEVEL_MULTI)/100))/4);
+};
+
 //------------------------------------------Items-------------------------------------------------
+_tech_level = 0;
 
 if(CTI_IFA_ADDON < 0 && CTI_NF_ADDON <= 0) then {
 	_i pushBack "Binocular";
