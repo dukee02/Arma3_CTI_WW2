@@ -61,8 +61,10 @@ switch (_nation select 0) do {
 			//case CTI_SPE_ID: {};
 			//case CTI_FOW_ID: {};
 			//case CTI_CSA_ID: {};
-			//case CTI_NF_ID: {};
-			default { };
+			case CTI_NF_ID: {
+				if !(("NORTH_SOV_ZIS5_Repair") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1NORTH_SOV_ZIS5_Repair", _sid]];};		//default
+			default {};
 		};
 	};
 	case CTI_UK_ID: {
@@ -141,7 +143,9 @@ switch (_nation select 0) do {
 			//case CTI_SPE_ID: {};
 			//case CTI_FOW_ID: {};
 			//case CTI_CSA_ID: {};
-			case CTI_NF_ID: {/* !!! Solution needed !!! */};
+			case CTI_NF_ID: {
+				if !(("NORTH_FIN_FordV8_Repair") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
+				missionNamespace setVariable [format["CTI_%1_HQ", _side], format["%1NORTH_FIN_FordV8_Repair", _sid]]};
 			default { };
 		};
 	};

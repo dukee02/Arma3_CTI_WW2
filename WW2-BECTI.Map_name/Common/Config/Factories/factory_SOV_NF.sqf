@@ -530,10 +530,10 @@ switch(CTI_CAMO_ACTIVATION) do {
 		_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _sid];				//repairtruck
 	};
 	case 2: {//Summer camo active
-		_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];				//repairtruck
+		_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];					//repairtruck
 	};
 	default {
-		_c pushBack format["%1NORTHSOV_ZIS5_Repair", _sid];					//repairtruck
+		_c pushBack format["%1NORTH_SOV_ZIS5_Repair", _sid];					//repairtruck
 	};
 };
 

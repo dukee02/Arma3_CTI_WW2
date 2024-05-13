@@ -13,14 +13,14 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\un
 
 if((_side == west && ((CTI_WEST_AI >= 0 && CTI_WEST_AI == CTI_JPN_ID) ||  CTI_WEST_AI == -1)) || (_side == east && ((CTI_EAST_AI >= 0 && CTI_EAST_AI == CTI_JPN_ID) || CTI_EAST_AI == -1)) || _tag == "GUER_") then {
 	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-		missionNamespace setVariable [format["CTI_%1Commander", _side], format["%1fow_s_ija_officer", _sid]];
-		missionNamespace setVariable [format["CTI_%1Soldier", _side], format["%1fow_s_ija_rifleman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Crew", _side], format["%1fow_s_ija_crewman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Commander", _tag], format["%1fow_s_ija_officer", _sid]];
+		missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1fow_s_ija_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1fow_s_ija_crewman", _sid]];
 
-		missionNamespace setVariable [format["CTI_%1Worker", _side], format["%1fow_s_ija_rifleman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Diver", _side], format["%1fow_s_ija_crewman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Pilot", _side], format["%1fow_s_ija_pilot", _sid]];
-		missionNamespace setVariable [format["CTI_%1Static", _side], format["%1fow_s_ija_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Worker", _tag], format["%1fow_s_ija_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Diver", _tag], format["%1fow_s_ija_crewman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1fow_s_ija_pilot", _sid]];
+		missionNamespace setVariable [format["CTI_%1Static", _tag], format["%1fow_s_ija_rifleman", _sid]];
 
 		//Set starting vehicles
 		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
@@ -28,17 +28,17 @@ if((_side == west && ((CTI_WEST_AI >= 0 && CTI_WEST_AI == CTI_JPN_ID) ||  CTI_WE
 			[format["%1fow_v_type97_truck_open_ija", _sid], []]
 		]];
 	} else {
-		missionNamespace setVariable [format["CTI_%1Commander", _side], format["%1fow_s_ija_f_officer", _sid]];
-		missionNamespace setVariable [format["CTI_%1Soldier", _side], format["%1fow_s_ija_f_rifleman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Crew", _side], format["%1fow_s_ija_crewman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Commander", _tag], format["%1fow_s_ija_f_officer", _sid]];
+		missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1fow_s_ija_f_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1fow_s_ija_crewman", _sid]];
 
-		missionNamespace setVariable [format["CTI_%1Worker", _side], format["%1fow_s_ija_f_rifleman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Diver", _side], format["%1fow_s_ija_crewman", _sid]];
-		missionNamespace setVariable [format["CTI_%1Pilot", _side], format["%1fow_s_ija_pilot", _sid]];
-		missionNamespace setVariable [format["CTI_%1Static", _side], format["%1fow_s_ija_f_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Worker", _tag], format["%1fow_s_ija_f_rifleman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Diver", _tag], format["%1fow_s_ija_crewman", _sid]];
+		missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1fow_s_ija_pilot", _sid]];
+		missionNamespace setVariable [format["CTI_%1Static", _tag], format["%1fow_s_ija_f_rifleman", _sid]];
 
 		//Set starting vehicles
-		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
+		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _tag], [ 
 			[format["%1fow_v_type97_truck_open_ija", _sid], []], 
 			[format["%1fow_v_type97_truck_open_ija", _sid], []]
 		]];

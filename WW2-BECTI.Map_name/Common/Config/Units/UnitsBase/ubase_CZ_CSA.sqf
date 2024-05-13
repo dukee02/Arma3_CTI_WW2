@@ -13,14 +13,14 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\un
 
 if((_side == west && ((CTI_WEST_AI >= 0 && CTI_WEST_AI == CTI_CZ_ID) ||  CTI_WEST_AI == -1)) || (_side == east && ((CTI_EAST_AI >= 0 && CTI_EAST_AI == CTI_CZ_ID) || CTI_EAST_AI == -1)) || _tag == "GUER_") then {
 	
-	missionNamespace setVariable [format["CTI_%1Commander", _side], format["%1CSA38_CZoff5", _sid]];
-	missionNamespace setVariable [format["CTI_%1Soldier", _side], format["%1CSA38_soldier1_2", _sid]];
-	missionNamespace setVariable [format["CTI_%1Crew", _side], format["%1CSA38_CZcrew3", _sid]];
+	missionNamespace setVariable [format["CTI_%1Commander", _tag], format["%1CSA38_CZoff5", _sid]];
+	missionNamespace setVariable [format["CTI_%1Soldier", _tag], format["%1CSA38_soldier1_2", _sid]];
+	missionNamespace setVariable [format["CTI_%1Crew", _tag], format["%1CSA38_CZcrew3", _sid]];
 
-	missionNamespace setVariable [format["CTI_%1Worker", _side], format["%1CSA38_CZcrew", _sid]];
-	missionNamespace setVariable [format["CTI_%1Diver", _side], format["%1CSA38_CZcrew2", _sid]];
-	missionNamespace setVariable [format["CTI_%1Pilot", _side], format["%1CSA38_CZcrew4", _sid]];
-	missionNamespace setVariable [format["CTI_%1Static", _side], format["%1CSA38_soldier5_3", _sid]];
+	missionNamespace setVariable [format["CTI_%1Worker", _tag], format["%1CSA38_CZcrew", _sid]];
+	missionNamespace setVariable [format["CTI_%1Diver", _tag], format["%1CSA38_CZcrew2", _sid]];
+	missionNamespace setVariable [format["CTI_%1Pilot", _tag], format["%1CSA38_CZcrew4", _sid]];
+	missionNamespace setVariable [format["CTI_%1Static", _tag], format["%1CSA38_soldier5_3", _sid]];
 
 	//Set starting vehicles
 	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 

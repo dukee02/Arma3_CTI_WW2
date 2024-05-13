@@ -797,7 +797,7 @@ switch(CTI_CAMO_ACTIVATION) do {
 		};
 	};
 	default {
-		_c pushBack format["%1NORTHSOV_ZIS5_Repair", _sid];					//repairtruck
+		_c pushBack format["%1NORTH_SOV_ZIS5_Repair", _sid];					//repairtruck
 		_p pushBack '';
 		_n pushBack 'Repair Truck';
 		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
