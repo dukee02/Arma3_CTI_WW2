@@ -1538,6 +1538,31 @@ if (isnil "IL_Variables") then
 			IL_Supported_Small_Tank_Cargo pushBack format["%1SOV_BT_BT7_M1937", _x];
 			IL_Supported_Small_Tank_Cargo pushBack format["%1SOV_BT_BT7TU_M1937", _x];
 		};
+
+		if (isClass(configFile >> "CfgVehicles" >> format["%1FA_T17E1", _x])) then {
+			IL_Supported_Car_Cargo pushBack format["%1FA_DaimlerMk2", _x];
+			IL_Supported_Car_Cargo pushBack format["%1FA_T17E1", _x];
+			IL_Supported_Car_Cargo pushBack format["%1FA_BA64", _x];
+			IL_Supported_Car_Cargo pushBack format["%1FA_BA64_Captured", _x];
+			IL_Supported_Armoured_Cargo pushBack format["%1FA_BA10M", _x];
+			IL_Supported_Armoured_Cargo pushBack format["%1FA_BA10M_Captured", _x];
+			IL_Supported_Armoured_Cargo pushBack format["%1FA_Sdkfz231", _x];
+			IL_Supported_Armoured_Cargo pushBack format["%1FA_Sdkfz234_4", _x];
+			IL_Supported_Armoured_Cargo pushBack format["%1FA_Sdkfz234", _x];
+		};
+
+		if (isClass(configFile >> "CfgVehicles" >> format["%1FA_T26", _x])) then {
+			IL_Supported_Small_Tank_Cargo pushBack format["%1FA_T26", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1FA_T26_Captured", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1FA_Pz38t", _x];
+			IL_Supported_Small_Tank_Cargo pushBack format["%1FA_Panzer2", _x];
+
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1FA_ValentineMk3", _x];
+			IL_Supported_Medium_Tank_Cargo pushBack format["%1FA_ValentineMk3_SOV", _x];
+
+			IL_Supported_Large_Tank_Cargo pushBack format["%1FA_M26", _x];
+			IL_Supported_Large_Tank_Cargo pushBack format["%1FA_KV1", _x];
+		};
 	} forEach _sid;
 	
 	missionNamespace setVariable ["IL_Supported_Small_Crates", IL_Supported_Small_Crates];

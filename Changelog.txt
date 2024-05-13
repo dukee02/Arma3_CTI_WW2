@@ -73,3 +73,16 @@ Fixed: mission building process
 
 V2.0.2_c231027
 Fixed: startup issues if FoW is enabled
+
+V2.0.2_beta240513
+Added: WW2 Cars and Tanks units
+Added: NF new units
+Added: new NF Sov weapons
+Added: new NF units to Igi-load
+Added: subsonic ammo and Koivistolainen hat
+Added: new CSA weapons
+Fixed: no basic units configured in some cases
+Fixed: NF BA10 in wrong tier with some mods
+Changed: moved NF trucks to T0
+
+
