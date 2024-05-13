@@ -131,6 +131,9 @@ _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*53)] call CTI_CO_
 _i pushBack "NORTH_5Rnd_m39_tracer_mag";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*53)] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "NORTH_5Rnd_m39_subsonic_mag";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(762*53)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 _tech_level = 1;
 _i pushBack "NORTH_sov_m9130_PU";

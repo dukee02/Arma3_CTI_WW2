@@ -1119,7 +1119,17 @@ if(CTI_CAMO_ACTIVATION == 1) then {
 	_i pushBack "H_NORTH_FIN_M39_furhat_fancy_black_officer_2";
 	_i pushBack "H_NORTH_FIN_M39_furhat_fancy_general";
 	_i pushBack "H_NORTH_FIN_M39_furhat_fancy_officer";
-	_i pushBack "H_NORTH_FIN_M39_furhat_fancy_officer_2";*/
+	_i pushBack "H_NORTH_FIN_M39_furhat_fancy_officer_2";
+	_i pushBack "H_NORTH_CIV_Koivistolainen_1";
+	_i pushBack "H_NORTH_CIV_Koivistolainen_2";
+	_i pushBack "H_NORTH_CIV_Koivistolainen_3";
+	_i pushBack "H_NORTH_CIV_Koivistolainen_4";
+	_i pushBack "H_NORTH_CIV_Koivistolainen_5";*/
+	_i pushBack "H_NORTH_FIN_Koivistolainen_1";
+	_i pushBack "H_NORTH_FIN_Koivistolainen_2";
+	_i pushBack "H_NORTH_FIN_Koivistolainen_3";
+	_i pushBack "H_NORTH_FIN_Koivistolainen_4";
+	_i pushBack "H_NORTH_FIN_Koivistolainen_5";
 };
 if(CTI_CAMO_ACTIVATION == 1) then {
 	//summer hat
