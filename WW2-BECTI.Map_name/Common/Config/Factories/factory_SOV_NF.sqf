@@ -277,9 +277,37 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
 				_c pushBack format["%NORTH_SOV_W_R75", _sid];
+				
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _sid];
+			};
+			case 2: {//Summer camo active
+				_c pushBack format["%1NORTH_SOV_41_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_41_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];
 			};
 			default {
 				_c pushBack format["%NORTH_SOV_R75", _sid];
+				
+				_c pushBack format["%1NORTH_SOV_ZIS5", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Empty", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Open", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Maxim_Quad", _sid];
+				_c pushBack format["%1NORTH_SOV_ZIS5_Medical", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Ammo", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Fuel", _sid];
+				//_c pushBack format["%1NORTH_SOV_ZIS5_Repair", _sid];
 			};
 		};
 	};
@@ -292,43 +320,16 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
-				_c pushBack format["%1NORTH_SOV_W_41_ZIS5", _sid];
-				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Empty", _sid];
-				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Open", _sid];
-				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Medical", _sid];
-				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Ammo", _sid];
-				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Fuel", _sid];
-				//_c pushBack format["%1NORTH_SOV_W_41_ZIS5_Repair", _sid];
-
 				_c pushBack format["%1NORTH_SOV_W_39_BA3", _sid];
 				_c pushBack format["%1NORTH_SOV_W_39_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_W_39_BA10", _sid];
 			};
-			case 2: {//Summer camo active
-				_c pushBack format["%1NORTH_SOV_41_ZIS5", _sid];
-				_c pushBack format["%1NORTH_SOV_41_ZIS5_Empty", _sid];
-				_c pushBack format["%1NORTH_SOV_41_ZIS5_Open", _sid];
-				_c pushBack format["%1NORTH_SOV_41_ZIS5_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_SOV_41_ZIS5_Medical", _sid];
-				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Ammo", _sid];
-				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Fuel", _sid];
-				//_c pushBack format["%1NORTH_SOV_41_ZIS5_Repair", _sid];
-				
+			case 2: {//Summer camo active				
 				_c pushBack format["%1NORTH_SOV_41_BA3", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];
 			};
 			default {
-				_c pushBack format["%1NORTH_SOV_ZIS5", _sid];
-				_c pushBack format["%1NORTH_SOV_ZIS5_Empty", _sid];
-				_c pushBack format["%1NORTH_SOV_ZIS5_Open", _sid];
-				_c pushBack format["%1NORTH_SOV_ZIS5_Maxim_Quad", _sid];
-				_c pushBack format["%1NORTH_SOV_ZIS5_Medical", _sid];
-				//_c pushBack format["%1NORTH_SOV_ZIS5_Ammo", _sid];
-				//_c pushBack format["%1NORTH_SOV_ZIS5_Fuel", _sid];
-				//_c pushBack format["%1NORTH_SOV_ZIS5_Repair", _sid];
-
 				_c pushBack format["%1NORTH_SOV_41_BA3", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA6", _sid];
 				_c pushBack format["%1NORTH_SOV_41_BA10", _sid];

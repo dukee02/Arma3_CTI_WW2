@@ -343,14 +343,38 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 			case 1: {//Winter camo active
 				_c pushBack format["%1NORTH_FIN_W_41_R75", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_Tempo", _sid];
+				
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
 			};
 			case 2: {//Summer camo active
 				_c pushBack format["%1NORTH_FIN_S_41_R75", _sid];
 				_c pushBack format["%1NORTH_FIN_S_41_Tempo", _sid];
+				
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
 			};
 			default {
 				_c pushBack format["%1NORTH_FIN_R75", _sid];
 				_c pushBack format["%1NORTH_FIN_Tempo", _sid];
+				
+				_c pushBack format["%1NORTH_FIN_FordV8", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
+				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
+				//_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
 			};
 		};
 	};
@@ -363,40 +387,16 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	else {
 		switch(CTI_CAMO_ACTIVATION) do {
 			case 1: {//Winter camo active
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Open", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Medical", _sid];
-				_c pushBack format["%1NORTH_FIN_W_41_FordV8_Maxim_Quad", _sid];
-				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Ammo", _sid];
-				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Fuel", _sid];
-				//_c pushBack format["%1NORTH_FIN_W_41_FordV8_Repair", _sid];
-
 				_c pushBack format["%1NORTH_FIN_W_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_BA3", _sid];
 				_c pushBack format["%1NORTH_FIN_W_41_BA6", _sid];
 			};
 			case 2: {//Summer camo active
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Open", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Medical", _sid];
-				_c pushBack format["%1NORTH_FIN_S_41_FordV8_Maxim_Quad", _sid];
-				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Ammo", _sid];
-				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Fuel", _sid];
-				//_c pushBack format["%1NORTH_FIN_S_41_FordV8_Repair", _sid];
-
 				_c pushBack format["%1NORTH_FIN_S_41_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_41_BA3", _sid];
 				_c pushBack format["%1NORTH_FIN_41_BA6", _sid];
 			};
 			default {
-				_c pushBack format["%1NORTH_FIN_FordV8", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Open", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Medical", _sid];
-				_c pushBack format["%1NORTH_FIN_FordV8_Maxim_Quad", _sid];
-				//_c pushBack format["%1NORTH_FIN_FordV8_Ammo", _sid];
-				//_c pushBack format["%1NORTH_FIN_FordV8_Fuel", _sid];
-				//_c pushBack format["%1NORTH_FIN_FordV8_Repair", _sid];
-
 				_c pushBack format["%1NORTH_FIN_BA10", _sid];
 				_c pushBack format["%1NORTH_FIN_BA3", _sid];
 				_c pushBack format["%1NORTH_FIN_BA6", _sid];
