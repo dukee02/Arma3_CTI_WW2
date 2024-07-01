@@ -69,7 +69,8 @@ for '_i' from 0 to 30 step +1 do {
 	if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
 	//Check if location matches near towns setup if active
 	if (CTI_BASE_START_TOWN > 0) then {
-		if(_location distance (([_location,CTI_Towns] call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
+		//_near = [_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance;
+		if(_location distance (([_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
 			_startup_locations_west pushBack _location;
 		};
 	} else {
@@ -81,7 +82,8 @@ for '_i' from 0 to 50 step +1 do {
 	if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
 	//Check if location matches near towns setup if active
 	if (CTI_BASE_START_TOWN > 0) then {
-		if(_location distance (([_location,CTI_Towns] call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
+		//_near = [_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance;
+		if(_location distance (([_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
 			_startup_locations pushBack _location;
 		};
 	} else {
@@ -96,7 +98,8 @@ for '_i' from 0 to 30 step +1 do {
 	if (_location select 0 == 0 && _location select 1 == 0) exitWith {};
 	//Check if location matches near towns setup if active
 	if (CTI_BASE_START_TOWN > 0) then {
-		if(_location distance (([_location,CTI_Towns] call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
+		//_near = [_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance;
+		if(_location distance (([_location,CTI_Towns] Call CTI_CO_FNC_SortByDistance) select 0) < CTI_BASE_START_TOWN) then {
 			_startup_locations_east pushBack _location;
 		};
 	} else {
@@ -118,11 +121,7 @@ _attempts = 0;
 _total_west = count _startup_locations_west;
 _total_east = count _startup_locations_east;
 _westLocation = getMarkerPos "cti-spawn0";
-_eastLocation = _westLocation;
-
-//if (CTI_Log_Level >= CTI_Log_Information) then {
-	["INFORMATION", "FILE: Server\Init\Init_Server.sqf", format["Initializing Startlocations: <%1 West:%2> / <%3 East:%4>", _total_west, _westLocation, _total_east, _eastLocation]] call CTI_CO_FNC_Log;
-//};
+_eastLocation = getMarkerPos "cti-spawn0";
 
 while {_eastLocation distance _westLocation < _range &&_attempts <= 300} do {
 	
@@ -377,7 +376,7 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 	0 spawn {
 		while {!CTi_GameOver} do {
 			_nextLoopIn = CTI_SAVE_PERIODE;
-					
+				
 			if(CTI_PERFORMANCE_CHECK > 0) then {
 				//count units
 				_blue = west countSide allUnits;
@@ -394,12 +393,77 @@ if !(missionNamespace getvariable "CTI_PERSISTANT" == 0) then {
 					//Check if the server runs smooth, if FPS drops we disband all AI automatically
 					if(diag_fps < 15) then {
 						["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server fps low after [%1] - AI teams disbanded", time]] Call CTI_CO_FNC_Log;
-						[grpNull, 2] call CTI_SE_FNC_DisbandTeam;
+						[grpNull, 2] call CTI_CO_FNC_DisbandTeam;
 					};
 				};
 				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Server statistic <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _blue, _blue_g, _red, _red_g, _green, _green_g]] Call CTI_CO_FNC_Log;
+				/*
+				//Info about the statistics of each side
+				_statisticWest = [];
+				_statisticEast = [];
+				_statisticGuer = [];
+				_statisticWest = [west, "B_Soldier_lite_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticEast = [east, "O_Soldier_lite_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticGuer = [resistance, "I_Soldier_lite_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Infantry <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				if(([395180] call CTI_CO_FNC_HasDLC) && CTI_CAMO_ACTIVATION == 1) then {
+					_statisticWest = [west, "B_T_LSV_01_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_T_LSV_02_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+				} else {
+					_statisticWest = [west, "B_LSV_01_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_LSV_02_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+				};
+				_statisticGuer = [resistance, "I_MRAP_03_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Light <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				if(([395180] call CTI_CO_FNC_HasDLC) && CTI_CAMO_ACTIVATION == 1) then {
+					_statisticWest = [west, "B_T_APC_Tracked_01_CRV_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_T_APC_Tracked_02_cannon_ghex_F"] call CTI_CO_FNC_ManageStatistics;
+				} else {
+					_statisticWest = [west, "B_APC_Tracked_01_CRV_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_APC_Tracked_02_cannon_F"] call CTI_CO_FNC_ManageStatistics;
+				};
+				_statisticGuer = [resistance, "I_APC_tracked_03_cannon_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Heavy <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				_statisticWest = [west, "B_Heli_Light_01_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticEast = [east, "O_Heli_Light_02_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticGuer = [resistance, "I_Heli_light_03_unarmed_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Air <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				if(([395180] call CTI_CO_FNC_HasDLC) && CTI_CAMO_ACTIVATION == 1) then {
+					_statisticWest = [west, "B_Truck_01_Repair_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_T_Truck_02_Box_F"] call CTI_CO_FNC_ManageStatistics;
+				} else {
+					_statisticWest = [west, "B_T_Truck_01_Repair_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_Truck_02_box_F"] call CTI_CO_FNC_ManageStatistics;
+				};
+				_statisticGuer = [resistance, "I_Truck_02_box_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Support <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+				
+				if(([395180] call CTI_CO_FNC_HasDLC) && CTI_CAMO_ACTIVATION == 1) then {
+					_statisticWest = [west, "B_T_Boat_Armed_01_minigun_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_T_Boat_Armed_01_hmg_F"] call CTI_CO_FNC_ManageStatistics;
+				} else {
+					_statisticWest = [west, "B_Boat_Armed_01_minigun_F"] call CTI_CO_FNC_ManageStatistics;
+					_statisticEast = [east, "O_Boat_Armed_01_hmg_F"] call CTI_CO_FNC_ManageStatistics;
+				};
+				_statisticGuer = [resistance, "I_SDV_01_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Naval <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				_statisticWest = [west, "Other"] call CTI_CO_FNC_ManageStatistics;
+				_statisticEast = [east, "Other"] call CTI_CO_FNC_ManageStatistics;
+				_statisticGuer = [resistance, "Other"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Other <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+
+				_statisticWest = [west, "B_Protagonist_VR_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticEast = [east, "O_Protagonist_VR_F"] call CTI_CO_FNC_ManageStatistics;
+				_statisticGuer = [resistance, "I_Protagonist_VR_F"] call CTI_CO_FNC_ManageStatistics;
+				["INFORMATION", "FILE: Server\Init\Init_Server.sqf", Format ["Units statistic Players killed <blue: %1(%2) | red: %3(%4) | green: %5(%6)>", _statisticWest select 0, _statisticWest select 1, _statisticEast select 0, _statisticEast select 1, _statisticGuer select 0, _statisticGuer select 1]] Call CTI_CO_FNC_Log;
+			*/
 			};
-						
+			
 			//Save the mission
 			if(_nextLoopIn >= 60 && time >= CTI_SAVE_PERIODE) then {
 				["towns"] call CTI_SE_FNC_SAVE;

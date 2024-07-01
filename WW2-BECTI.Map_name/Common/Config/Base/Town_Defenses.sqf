@@ -12,6 +12,7 @@ else {
 		_sid = "VIOC_I_";
 	};
 };
+if !(("SPE_GER_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 //Defense Guns for Towns
 _classes_town = [];

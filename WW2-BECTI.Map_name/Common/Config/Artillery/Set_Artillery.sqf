@@ -25,5 +25,5 @@ for '_i' from 0 to count(_c)-1 do {
 		if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: Common\Config\Artillery\Set_Artillery.sqf", format ["Artillery unit [%1] is not a valid CfgVehicles classname. If it belong to an Addons, make sure that it is loaded.", _classname]] call CTI_CO_FNC_Log };
 	};
 };
-if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Common\Config\Artillery\Set_Artillery.sqf", format ["Artillery [%1/%2] units were defined", count _artillery, count _c]] call CTI_CO_FNC_Log};
+
 missionNamespace setVariable ["CTI_ARTILLERY", _artillery];

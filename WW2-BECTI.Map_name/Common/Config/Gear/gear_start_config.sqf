@@ -295,7 +295,7 @@ switch(_nationID) do {
 				_weapon_ammo = "SPE_5Rnd_762x63_t";
 				_grenades = "SPE_US_Mk_2";
 				_healing = "SPE_US_FirstAidKit";
-				_bino = "LIB_Binocular_US";
+				_bino = "SPE_Binocular_US";
 				_item_compass = "SPE_US_ItemCompass";
 				_item_watch = "SPE_US_ItemWatch";
 			};

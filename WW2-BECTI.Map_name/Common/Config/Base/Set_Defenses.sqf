@@ -13,6 +13,8 @@ _defenses = [];
 for '_i' from 0 to (count _headers) -1 do {
 	_header = _headers select _i;
 	_classname = _classes select _i;
+	//maybe we can rename the class for internal use?
+	//["RaBbiT", "I ate a rabbit today"] call BIS_fnc_inString
 	
 	if (isNil {missionNamespace getVariable format["CTI_%1_%2",_side,_classname]}) then {
 		_label = "";
@@ -47,9 +49,6 @@ for '_i' from 0 to (count _headers) -1 do {
 		};
 	};
 };
-if (CTI_Log_Level >= CTI_Log_Information) then {
-	["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] defenses found: [%2].", _side, count _defenses]] call CTI_CO_FNC_Log;
-	["INFORMATION", "FILE: Common\Config\Base\Set_Defenses.sqf", format ["Side [%1] categories found: [%2].", _side, count _uniqe_categories]] call CTI_CO_FNC_Log;
-};
+
 missionNamespace setVariable [format ["CTI_%1_DEFENSES", _side], _defenses];
 missionNamespace setVariable [format ["CTI_%1_DEFENSECATEGORIES", _side], _uniqe_categories];

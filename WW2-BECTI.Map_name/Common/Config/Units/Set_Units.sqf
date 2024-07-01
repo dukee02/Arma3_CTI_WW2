@@ -28,7 +28,7 @@ for '_i' from 0 to (count _c)-1 do {
 		if (isNil "_get") then {
 			_stored = [];
 			
-			if (isNil (_p select _i)) then {_picture = "";} else {_picture = _p select _i;};
+			_picture = _p select _i;
 			if (_picture == "") then { 
 				//--- Repalced portrait with editorPreview, seems like portriat is outdated. Also removed picture part.
 				//--- _picture = if (_classname isKindOf "Man") then { getText(configFile >> "CfgVehicles" >> _classname >> "portrait") } else { getText(configFile >> "CfgVehicles" >> _classname >> "picture") }
@@ -60,4 +60,5 @@ for '_i' from 0 to (count _c)-1 do {
 		if (CTI_Log_Level >= CTI_Log_Error) then { ["ERROR", "FILE: Common\Config\Units\Set_Units.sqf", format ["[%1] unit [%2] is not using a valid CfgVehicles classname [%3]. If it belong to an Addons, make sure that it is loaded.", _side, _var_name, _classname]] call CTI_CO_FNC_Log };
 	};
 };
-if (CTI_Log_Level >= CTI_Log_Information) then {["INFORMATION", "FILE: Common\Config\Units\Set_Units.sqf", format ["[%1] [%2/%3] units were defined", _side, _cpt, count _c]] call CTI_CO_FNC_Log};
+
+if (CTI_Log_Level >= CTI_Log_Information) then { ["INFORMATION", "FILE: Common\Config\Units\Set_Units.sqf", format ["[%1] [%2/%3] units were defined", _side, _cpt, count _c]] call CTI_CO_FNC_Log };

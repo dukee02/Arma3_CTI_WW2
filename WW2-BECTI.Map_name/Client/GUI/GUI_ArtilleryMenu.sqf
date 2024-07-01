@@ -4,11 +4,11 @@ while { true } do {
 	_artillery = uiNamespace getVariable "cti_dialog_ui_artillerymenu_artillery";
 	_artillery_marker = uiNamespace getVariable "cti_dialog_ui_artillerymenu_marker";
 	_artillery_magazine = uiNamespace getVariable "cti_dialog_ui_artillerymenu_artillery_magazine";
+	_range = uiNamespace getVariable "cti_dialog_ui_artillerymenu_artillery_range";
 	
-	if (_artillery_magazine != "") then {
+	if (_artillery_magazine != "" && (count _range == 2)) then {
 		_selection = lbSelection ((uiNamespace getVariable "cti_dialog_ui_artillerymenu") displayCtrl 290014);
 		
-		_range = uiNamespace getVariable "cti_dialog_ui_artillerymenu_artillery_range";
 		_range_min = _range select 0;
 		_range_max = _range select 1;
 		
@@ -35,7 +35,7 @@ while { true } do {
 		((uiNamespace getVariable "cti_dialog_ui_artillerymenu") displayCtrl 290015) ctrlSetText "Call Fire Mission";
 	} else {
 		((uiNamespace getVariable "cti_dialog_ui_artillerymenu") displayCtrl 290015) ctrlEnable (false);
-		_nextMission = rount (CTI_ARTILLERY_TIMEOUT - (time - CTI_P_LastFireMission));
+		_nextMission = round (CTI_ARTILLERY_TIMEOUT - (time - CTI_P_LastFireMission));
 		((uiNamespace getVariable "cti_dialog_ui_artillerymenu") displayCtrl 290015) ctrlSetText format ["Next Mission in %1s", _nextMission];
 	};
 	

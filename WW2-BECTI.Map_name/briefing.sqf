@@ -31,11 +31,9 @@ player createDiaryRecord ["VIO-BECTI",["Changelog","
 Changes made to the 'VIO-BECTI' mission: <br/><br/>
 
 [V2.0] Changelog:<br/>
-Changed: Setup our CTI with current IFA3 WW2 units <br/>
 Fixed: <br/>
 Added: <br/>
 
-- Known Issue: AI don't take command if commander disconnects. <br/>
 - Known Issue: AI teams occasionally respawn at the default respawn area. <br/><br/>
 "]];
 

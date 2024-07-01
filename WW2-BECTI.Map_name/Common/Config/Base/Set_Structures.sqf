@@ -45,9 +45,6 @@ for '_i' from 1 to (count _headers) -1 do {
 	_structures pushBack (format ["CTI_%1_%2", _side, _head select 0]);
 	
 	missionNamespace setVariable [format ["CTI_%1_%2", _side, (_classes select _i) select 0], _stored];
-	
-	if (CTI_Log_Level >= CTI_Log_Debug) then { ["DEBUG", "FILE: Common\Config\Base\Set_Structures.sqf", format["Structure: Side %1 - Header %2 - strored <%3>", _side, _head select 0, _stored]] call CTI_CO_FNC_Log };
-
 };
 
 missionNamespace setVariable [format ["CTI_%1_STRUCTURES", _side], _structures];

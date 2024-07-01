@@ -15,6 +15,7 @@ switch (_side) do {
 	default {_sid_base = "";};
 };
 _sid = _sid_base;
+if !(("SPE_GER_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 _nation = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
 switch (_nation select 0) do {
@@ -172,6 +173,16 @@ missionNamespace setVariable [format["CTI_%1_Base_Template", _side], [
 	[CTI_AIR, 0, [-60,37]],
 	[CTI_REPAIR, 0, [60,37]],
 	[CTI_AMMO, 0, [80,37]]
+]];
+
+missionNamespace setVariable [format["CTI_%1_Defense_Template", _side], [
+	[CTI_HEAVY, "AA", 270, 20],
+	[CTI_AMMO, "SAM", 90, 30],
+	[CTI_AIR, "RADAR", 90, 30],
+	[CTI_LIGHT, "AT", 90, 20],
+	[CTI_BARRACKS, "Defense", 90, 20],
+	[CTI_CONTROLCENTER, "Defense", 270, 20],
+	[CTI_REPAIR, "Defense", 90, 20]
 ]];
 
 //--- Structures
