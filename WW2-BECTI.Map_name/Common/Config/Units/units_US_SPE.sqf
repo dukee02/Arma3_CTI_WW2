@@ -71,9 +71,14 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_c pushBack format["%1SPE_US_Mortar_AGunner", _sid];
 		_c pushBack format["%1SPE_US_Mortar_Gunner", _sid];
 		_c pushBack format["%1SPE_US_Mortar_AmmoBearer", _sid];
+		_c pushBack format["%1SPE_US_Sentry", _sid];
+		_c pushBack format["%1SPE_US_Sentry_Carbine", _sid];
 	};
 	_c pushBack format["%1SPE_US_Tank_Crew", _sid];
 	_c pushBack format["%1SPE_US_Guncrew", _sid];
+	_c pushBack format["%1SPE_US_Tank_Coverall", _sid];
+	_c pushBack format["%1SPE_US_Tank_HBT_Late", _sid];
+	_c pushBack format["%1SPE_US_Tank_Late", _sid];
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -86,7 +91,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -126,7 +131,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -153,6 +158,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_c pushBack format["%1SPE_US_Captain", _sid];
 	};
 	_c pushBack format["%1SPE_US_Tank_Second_Lieutenant", _sid];
+	_c pushBack format["%1SPE_US_Tank_Second_Lieutenant_late", _sid];
 	
 	_c pushBack format["%1SPE_US_HBT44_Rifleman", _sid];
 	_c pushBack format["%1SPE_US_HBT44_AHMGunner", _sid];
@@ -181,7 +187,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -202,8 +208,22 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
-	_c pushBack format["%1SPE_US_M3_Halftrack_Unarmed_Open", _sid];	
-	
+	_c pushBack format["%1SPE_US_G503_MB", _sid];
+	_p pushBack '';
+	_n pushBack '';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,false,0.5] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_LIGHT;
+	_s pushBack "";
+	_d pushBack 5;
+
+	_c pushBack format["%1SPE_US_G503_MB_M1919", _sid];
+	_c pushBack format["%1SPE_US_G503_MB_M1919_PATROL", _sid];
+	_c pushBack format["%1SPE_US_G503_MB_M2", _sid];
+	_c pushBack format["%1SPE_US_G503_MB_M2_PATROL", _sid];
+	//_c pushBack format["%1SPE_CCKW_353", _sid];
+	_c pushBack format["%1SPE_CCKW_353_Open", _sid];
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;
@@ -215,8 +235,33 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
+
+	_c pushBack format["%1SPE_CCKW_353_M2", _sid];
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_LIGHT;
+		_s pushBack "";
+		_d pushBack 5;	
+	};
+
+	_c pushBack format["%1SPE_CCKW_353_Ambulance", _sid];
+	_p pushBack '';
+	_n pushBack 'CCKW 353 Mobile Respawn';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_LIGHT;
+	_s pushBack "service-medic";
+	_d pushBack 5;
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -224,8 +269,11 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
-	_c pushBack format["%1SPE_US_M3_Halftrack", _sid];
-	
+	_c pushBack format["%1SPE_US_G503_MB_Armoured", _sid];
+	_c pushBack format["%1SPE_US_G503_MB_M1919_Armoured", _sid];
+	_c pushBack format["%1SPE_US_G503_MB_M2_Armoured", _sid];
+	_c pushBack format["%1SPE_US_M3_Halftrack_Unarmed_Open", _sid];	
+	_c pushBack format["%1SPE_US_M3_Halftrack_Unarmed", _sid];
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;
@@ -237,7 +285,22 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
+	};
+	
+	_c pushBack format["%1SPE_US_M3_Halftrack", _sid];
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_LIGHT;
+		_s pushBack "";
+		_d pushBack 5;	
 	};
 	
 	_c pushBack format["%1SPE_US_M3_Halftrack_Ambulance", _sid];
@@ -248,7 +311,17 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "service-medic";
-	_d pushBack 0;
+	_d pushBack 5;
+	
+	_c pushBack format["%1SPE_US_G503_MB_Ambulance", _sid];
+	_p pushBack '';
+	_n pushBack 'G503 Mobile Respawn';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_LIGHT;
+	_s pushBack "service-medic";
+	_d pushBack 5;
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -257,6 +330,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
 	_c pushBack format["%1SPE_US_M16_Halftrack", _sid];
+	_c pushBack format["%1SPE_M20_AUC", _sid];
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -269,7 +343,30 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
+	_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+	_c pushBack format["%1SPE_M8_LAC_ringMount", _sid];
+	_c pushBack format["%1SPE_M8_LAC", _sid];
+	
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_LIGHT;
+		_s pushBack "";
+		_d pushBack 5;	
 	};
 };
 
@@ -298,17 +395,23 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 
 	_c pushBack format["%1SPE_M4A0_75", _sid];
-	_p pushBack '';
-	_n pushBack '';
-	_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-	_t pushBack _building_time;
-	_u pushBack _tech_level;
-	_f pushBack CTI_FACTORY_HEAVY;
-	_s pushBack "";
-	_d pushBack 0;
+	_c pushBack format["%1SPE_M4A0_composite", _sid];
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 5;
+	};
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -328,10 +431,11 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;
+		_d pushBack 5;
 	};
 
 	_c pushBack format["%1SPE_M4A1_75", _sid];
+	_c pushBack format["%1SPE_M4A1_75_erla", _sid];
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;
@@ -343,7 +447,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;
+		_d pushBack 5;
 	};
 };
 
@@ -354,6 +458,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	
 	_c pushBack format["%1SPE_M4A1_T34_Calliope_Direct", _sid];
 	_c pushBack format["%1SPE_M4A1_T34_Calliope", _sid];
+	_c pushBack format["%1SPE_M4A0_105", _sid];
 	//set all other vars in a slope
 	_cntstart = count _c;
 	_cntend = count _p;
@@ -365,7 +470,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;
+		_d pushBack 5;
 	};
 };
 
@@ -387,7 +492,46 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;
+		_d pushBack 5;
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+	_c pushBack format["%1SPE_M4A3_75", _sid];
+	_c pushBack format["%1SPE_M4A3_76", _sid];
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 5;
+	};
+
+	_c pushBack format["%1SPE_M4A3_105", _sid];
+	_c pushBack format["%1SPE_M4A3_T34_Calliope", _sid];
+	_c pushBack format["%1SPE_M4A3_T34_Calliope_Direct", _sid];
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 5;
 	};
 };
 
@@ -417,7 +561,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_AIR;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 };
 
 //Update the calculatetd max upgrade level
@@ -432,15 +576,29 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_AIR) then {
 _tech_level = 0;
 _building_time = [CTI_FACTORY_REPAIR,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 
-_c pushBack format["%1SPE_US_M3_Halftrack_Repair", _sid];						//repairtruck
-_p pushBack '';
-_n pushBack 'Repair Truck';
-_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-_t pushBack _building_time;
-_u pushBack _tech_level;
-_f pushBack CTI_FACTORY_REPAIR;
-_s pushBack "service-repairtruck";
-_d pushBack 0;
+if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+	_c pushBack format["%1SPE_CCKW_353_Repair", _sid];						//repairtruck
+	_p pushBack '';
+	_n pushBack 'Repair Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack "service-repairtruck";
+	_d pushBack 5;
+};
+
+if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1SPE_US_M3_Halftrack_Repair", _sid];						//repairtruck
+	_p pushBack '';
+	_n pushBack 'Repair Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack "service-repairtruck";
+	_d pushBack 5;
+};
 
 _c pushBack format["CTI_Salvager_%1", _faction];
 _p pushBack '';
@@ -449,8 +607,8 @@ _o pushBack CTI_VEHICLES_SALVAGER_PRICE;
 _t pushBack _building_time;
 _u pushBack _tech_level;
 _f pushBack CTI_FACTORY_REPAIR;
-_s pushBack [format["%1SPE_US_M3_Halftrack_Unarmed", _sid],"salvager"];
-_d pushBack 0;
+_s pushBack [format["%1SPE_CCKW_353", _sid],"salvager"];
+_d pushBack 5;
 		
 _c pushBack format["CTI_Salvager_Independent_%1", _faction];
 _p pushBack '';
@@ -459,33 +617,55 @@ _o pushBack CTI_VEHICLES_SALVAGER_PRICE;
 _t pushBack _building_time;
 _u pushBack _tech_level;
 _f pushBack CTI_FACTORY_REPAIR;
-_s pushBack [format["%1SPE_US_M3_Halftrack_Unarmed", _sid],"salvager-independent"];
-_d pushBack 0;
+_s pushBack [format["%1SPE_CCKW_353", _sid],"salvager-independent"];
+_d pushBack 5;
 
 //***************************************************************************************************************************************
 //														Ammo Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
-	
-_c pushBack format["%1SPE_US_M3_Halftrack_Ammo", _sid];						//ammotruck
-_p pushBack '';
-_n pushBack 'Ammo Truck';
-_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-_t pushBack _building_time;
-_u pushBack _tech_level;
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-ammotruck";
-_d pushBack 0;	
+if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+	_c pushBack format["%1SPE_CCKW_353_Ammo", _sid];						//ammotruck
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 5;	
 
-_c pushBack format["%1SPE_US_M3_Halftrack_Fuel", _sid];						//fueltruck
-_p pushBack '';
-_n pushBack 'Fuel Truck';
-_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-_t pushBack _building_time;
-_u pushBack _tech_level;
-_f pushBack CTI_FACTORY_AMMO;
-_s pushBack "service-fueltruck";
-_d pushBack 0;	
+	_c pushBack format["%1SPE_CCKW_353_Fuel", _sid];						//fueltruck
+	_p pushBack '';
+	_n pushBack 'Fuel Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-fueltruck";
+	_d pushBack 5;
+};	
+if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+	_c pushBack format["%1SPE_US_M3_Halftrack_Ammo", _sid];						//ammotruck
+	_p pushBack '';
+	_n pushBack 'Ammo Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-ammotruck";
+	_d pushBack 5;	
+
+	_c pushBack format["%1SPE_US_M3_Halftrack_Fuel", _sid];						//fueltruck
+	_p pushBack '';
+	_n pushBack 'Fuel Truck';
+	_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_AMMO;
+	_s pushBack "service-fueltruck";
+	_d pushBack 5;
+};	
 
 //***************************************************************************************************************************************
 //														Naval Factory																	*
