@@ -91,26 +91,26 @@ class Params {
 	};
 	class CTI_WEST_TOWNS {
 		title = "BLUFOR (West) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN", "FR Army"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_EAST_TOWNS {
 		title = "OPFOR (East) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN", "FR Army"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_WEST_AI {
 		title = "BLUFOR (West) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN", "FR Army"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_EAST_AI {
 		title = "OPFOR (East) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN", "FR Army"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_CAMO_ACTIVATION {
@@ -253,8 +253,8 @@ class Params {
 	};
 	class CTI_AI_SKILL_BASE {
 		title = "AI: Skill (all AI units)";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Novice","Rookie","Recruit","Veteran","Expert"};
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"10% Bread","20% Cannonfood","30% Novice","40% Rookie","50% Recruit","60% Private","70% Veteran","80% Commander","90% Expert"};
 		default = 2;
 	};
 	class SEPERATOR_BASE {
@@ -635,15 +635,15 @@ class Params {
 	};
 	class CTI_TOWNS_OCCUPATION {
 		title = "TOWNS: Occupation";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 2;
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"Disabled","Easiest","Easy","Easier","Normal","Harder","Hard","Very hard","Impossible"};
+		default = 4;
 	};
 	class CTI_TOWNS_RESISTANCE {
-		title = "TOWNS: Resistance";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 1;
+		title = "TOWNS: Independent";
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"Disabled","Easiest","Easy","Easier","Normal","Harder","Hard","Very hard","Impossible"};
+		default = 3;
 	};
 	class CTI_UNITS_TOWN_PURCHASE {
 		title = "TOWNS: Purchase Infantry";

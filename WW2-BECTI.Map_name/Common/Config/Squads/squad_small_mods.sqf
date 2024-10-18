@@ -3,16 +3,17 @@ _sid = "";
 _sid_base = "";
 _level = -1;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		_sid_base = "VIOC_B_";
 	};
+	case east: {
+		_sid_base = "VIOC_O_";
+	};
+	case resistance: {
+		_sid_base = "VIOC_I_";
+	};
+	default {_sid_base = "";};
 };
 //if !(("sab_nl_mutsuki") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 
@@ -393,7 +394,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			arm_to_add = [[format["%1FA_Pz38t", _sid], 1, 20]];
 			arm_to_add pushBack [format["%1FA_Panzer2", _sid], 1, 40];
 			
-			_v pushBack format["ArmoredPz2", _level];
+			_v pushBack format["ArmoredPz38t", _level];
 			_t pushBack "Pz38t Pz2";
 			_p pushBack arm_to_add;
 			_f pushBack CTI_HEAVY;

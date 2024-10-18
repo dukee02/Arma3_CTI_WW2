@@ -99,6 +99,8 @@ CTI_CO_FNC_DisbandTeam = compileFinal preprocessFileLineNumbers "Common\Function
 CTI_CO_FNC_ManageStatistics = compileFinal preprocessFileLineNumbers "Common\Functions\Common_ManageStatistics.sqf";
 CTI_CO_FNC_HasDLC = compileFinal preprocessFileLineNumbers "Common\Functions\Common_HasDLC.sqf";
 CTI_CO_FNC_IsSidePatchLoaded = compileFinal preprocessFileLineNumbers "Common\Functions\Common_IsSidePatchLoaded.sqf";
+CTI_CO_FNC_SetUnitIdentity = compileFinal preprocessFileLineNumbers "Common\Functions\Common_SetUnitIdentity.sqf";
+CTI_CO_FNC_EquipVehicle = compileFinal preprocessFileLineNumbers "Common\Functions\Common_EquipVehicle.sqf";
 if(CTI_IFA_ADDON >= 1) then {	//only if IFA3 loaded
 	CTI_CO_FNC_DropParatroopers = compileFinal preprocessFileLineNumbers "Common\Functions\Common_DropParatroopers.sqf";
 	WW2_PARADROP = compile preprocessFileLineNumbers "WW2\Core_f\WW2_System_Curator_F\waypoints\fn_wpParadrop.sqf";
@@ -229,12 +231,18 @@ if(CTI_FR_SIDE >= 0) then {
 	if(CTI_SPE_DLC >= 1) then {
 		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Units\units_FR_SPE.sqf";
 		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Factories\factory_FR_SPE.sqf";
-		if((CTI_FR_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_AI < 0)) then {
-			((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_FR_SPE.sqf";
-		};
-		if((CTI_FR_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_FR_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
-			((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FR_SPE.sqf";
-		};
+		//_skip = false;
+		//if(CTI_IFA_ADDON == 2 || CTI_SPE_DLC == 2 || CTI_FOW_ADDON == 2 || CTI_CSA_ADDON == 2 || CTI_NF_ADDON == 2) then {
+		//	if!(CTI_SPE_DLC == 2) exitWith {_skip = true;["VIOC_DEBUG", "FILE: common\init\Init_Common.sqf", "Town Squad preparation skipped"] call CTI_CO_FNC_Log;};
+		//};
+		//if(_skip == false) then {
+			if((CTI_FR_SIDE == 0 && CTI_WEST_AI < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_AI < 0)) then {
+				((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_FR_SPE.sqf";
+			};
+			if((CTI_FR_SIDE == 0 && CTI_WEST_TOWNS < 0) || (CTI_FR_SIDE == 1 && CTI_EAST_TOWNS < 0) || (CTI_FR_SIDE == 2 && CTI_GUER_TOWNS == 2)) then {
+				((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FR_SPE.sqf";
+			};
+		//};
 		((CTI_FR_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FR_SPE.sqf";
 	};
 };
@@ -510,6 +518,16 @@ switch(CTI_GUER_TOWNS) do {
 					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_FR_SPE.sqf";
 				};
 			};
+			case 14: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_GER_SPE.sqf";
+				};
+			};
+			case 15: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Towns\towns_US_SPE.sqf";
+				};
+			};
 			default {};
 		};
 	};
@@ -559,6 +577,16 @@ switch(CTI_GUER_TOWNS) do {
 			case 13: {
 				if(CTI_SPE_DLC >= 1) then {
 					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_FR_SPE.sqf";
+				};
+			};
+			case 14: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_GER_SPE.sqf";
+				};
+			};
+			case 15: {
+				if(CTI_SPE_DLC >= 1) then {
+					((CTI_US_SIDE) call CTI_CO_FNC_GetSideFromID) call compile preprocessFileLineNumbers "Common\Config\Squads\squad_US_SPE.sqf";
 				};
 			};
 			default {};
