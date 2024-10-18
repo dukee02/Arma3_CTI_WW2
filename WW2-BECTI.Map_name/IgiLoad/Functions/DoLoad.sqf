@@ -43,7 +43,7 @@ if ((_obj_type in IL_Supported_Vehicles_Gaz) && (_doors == "B")) then
 	};
 	_sdist = IL_SDistL;
 	//_spoint = _v modelToWorld [0,-4.5,-1.6];
-	_spoint = _v modelToWorld [0,-4.5 - (_v getVariable "load_offset"),0];
+	_spoint = _v modelToWorld [0,-6 - (_v getVariable "load_offset"),0];
 	_box_num = _v getVariable "box_num";
 	_slot_num = _v getVariable "slots_num";
 };
@@ -216,6 +216,9 @@ if (count (_obj_lst) > 0) then
 		*	TODO: change turn to number for th deg to turn!
 		*
 		*/
+		if(_x getVariable ["turn", 0] == 1) then {
+			_turn = true;
+		};
 		if ((typeOf _x) in (IL_Supported_Cargo20 + ["Land_WaterTank_F"])) then
 		{
 			_turn = true;
@@ -252,7 +255,7 @@ if (count (_obj_lst) > 0) then
 					_x_cargo_offset = 0;
 				};*/
 				_x_cargo_offset = 0;
-				_damage = getDammage _x;
+				_damage = damage _x;
 				
 				/*if ((typeOf _x) in IL_Supported_SDV) then
 				{
@@ -289,12 +292,8 @@ if (count (_obj_lst) > 0) then
 				// Gaz
 				if ((_obj_type in IL_Supported_Vehicles_Gaz) && (_doors == "B")) then
 				{
-					/*if(_x in IL_Supported_Crates_place_near) then {
-						[_v, _x, [_x_cargo_offset,-4.5,_zload], [_x_cargo_offset,_counter + 0.1 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
-					} else {
-						[_v, _x, [_x_cargo_offset,-4.5,_zload], [_x_cargo_offset,_counter + 0.25 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
-					};*/
-					[_v, _x, [_x_cargo_offset,-4.5,_zload], [_x_cargo_offset,_counter + 0.25 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
+					//[_v, _x, [_x_cargo_offset,-4.5,_zload], [_x_cargo_offset,_counter + 0.25 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
+					[_v, _x, [_x_cargo_offset,-4.5,_zload], [_x_cargo_offset,_counter + 0.85 - _cargo_offset,_zload], 1, _turn] call IL_Move_Attach;
 				};
 				// Praga
 				if ((_obj_type in IL_Supported_Vehicles_Praga) && (_doors == "B")) then
@@ -390,7 +389,7 @@ if (count (_obj_lst) > 0) then
 				if (IL_CDamage == 1) then
 				{
 					_x setDamage _damage;
-					if (_damage != (getDammage _x)) then
+					if (_damage != (damage _x)) then
 					{
 						sleep 1;
 						_x setDamage _damage;

@@ -1,10 +1,9 @@
-private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_tech_level_no_upgrade_inv", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
 
 _side = _this;
 _faction = "";
 _sid = "";
 _building_time = 10;
-_tech_level_no_upgrade_inv = 1;
 
 if(_side == west) then {
 	_sid = "VIOC_B_";
@@ -18,16 +17,12 @@ if(_side == west) then {
 		_faction = "Resistance";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
-
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
+if !(("LIB_UK_Rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 //We get the upgrade setup at this point, if this is null, something went wrong and we set it to the default.
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [0,0,0,0,0,1,1,1,1,1,3,4,0]; 
+	_upgrade_levels = [0,0,0,0,0,1,-1,-1,-1,1,3,4,0,-1]; 
 };
 
 _c = []; //--- Classname
@@ -89,7 +84,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -130,7 +125,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -164,7 +159,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -208,7 +203,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -241,7 +236,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -269,7 +264,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "service-medic";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -294,34 +289,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
-	};
-};
-
-if(CTI_IFA3_NEW > 0) then {
-	_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
-	_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_UK_ID, CTI_IFA_NEW_ID] call CTI_CO_FNC_GetTechmatrix;
-
-	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_WHEELED >= _tech_level) then {
-		_building_time = [CTI_FACTORY_LIGHT,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-		_c pushBack format["%1LIB_UK_M16_Halftrack", _sid];
-		
-		//set all other vars in a slope
-		_cntstart = count _c;
-		_cntend = count _p;
-		for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-			_t pushBack _building_time;
-			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_LIGHT;
-			_s pushBack "";
-			_d pushBack 0;	
-		};
+		_d pushBack 5;	
 	};
 };
 
@@ -361,72 +329,8 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
-};
-
-if(CTI_IFA3_NEW > 0) then {
-	_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
-	_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_IFA_NEW_ID] call CTI_CO_FNC_GetTechmatrix;
-
-	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-		_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1LIB_M3A3_Stuart_UK_W", _sid];
-		};
-		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-			_c pushBack format["%1LIB_M3A3_Stuart_DR", _sid];
-		};
-		_c pushBack format["%1LIB_M3A3_Stuart_UK", _sid];
-		
-		//set all other vars in a slope
-		_cntstart = count _c;
-		_cntend = count _p;
-		for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-			_t pushBack _building_time;
-			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_HEAVY;
-			_s pushBack "";
-			_d pushBack 0;	
-		};
-	};
-
-	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-		_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-		if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-			_c pushBack format["%1LIB_M5A1_Stuart_UK_W", _sid];
-		};
-		if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-			_c pushBack format["%1LIB_M5A1_Stuart_DR", _sid];
-		};
-		_c pushBack format["%1LIB_M5A1_Stuart_UK", _sid];
-		
-		//set all other vars in a slope
-		_cntstart = count _c;
-		_cntend = count _p;
-		for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-			_p pushBack '';
-			_n pushBack '';
-			_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-			_t pushBack _building_time;
-			_u pushBack _tech_level;
-			_f pushBack CTI_FACTORY_HEAVY;
-			_s pushBack "";
-			_d pushBack 0;	
-		};
-	};
-
-	_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
-	_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -463,7 +367,32 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
+	};
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
+	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
+	
+	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
+		_c pushBack format["%1LIB_UK_DR_M4A3_75", _sid];
+	};
+	_c pushBack format["%1LIB_UK_Italy_M4A3_75", _sid];
+
+	//set all other vars in a slope
+	_cntstart = count _c;
+	_cntend = count _p;
+	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
+		_p pushBack '';
+		_n pushBack '';
+		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_t pushBack _building_time;
+		_u pushBack _tech_level;
+		_f pushBack CTI_FACTORY_HEAVY;
+		_s pushBack "";
+		_d pushBack 5;	
 	};
 };
 
@@ -474,14 +403,8 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1LIB_Cromwell_Mk4_w", _sid];
-		if(CTI_IFA3_NEW > 0) then {
-			_c pushBack format["%1LIB_Cromwell_Mk6_w", _sid];
-		};
 	};
 	_c pushBack format["%1LIB_Cromwell_Mk4", _sid];
-	if(CTI_IFA3_NEW > 0) then {
-		_c pushBack format["%1LIB_Cromwell_Mk6", _sid];
-	};
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -494,7 +417,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -503,21 +426,7 @@ if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt 
 if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		if(CTI_IFA3_NEW > 0) then {
-			_c pushBack format["%1LIB_Sherman_I_w", _sid];
-			_c pushBack format["%1LIB_Sherman_IB_w", _sid];
-		};
-	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1LIB_UK_DR_M4A3_75", _sid];
-	};
-	if(CTI_IFA3_NEW > 0) then {
-		_c pushBack format["%1LIB_Sherman_I", _sid];
-		_c pushBack format["%1LIB_Sherman_IB", _sid];
-	} else {
-		_c pushBack format["%1LIB_UK_Italy_M4A3_75", _sid];
-	};
+	_c pushBack format["%1LIB_M4A4_FIREFLY", _sid];
 	
 	//set all other vars in a slope
 	_cntstart = count _c;
@@ -530,38 +439,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_HEAVY;
 		_s pushBack "";
-		_d pushBack 0;	
-	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _tech_level) then {
-	_building_time = [CTI_FACTORY_HEAVY,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-	
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		if(CTI_IFA3_NEW > 0) then {
-			_c pushBack format["%1LIB_IC_Firefly_w", _sid];
-		};
-	};
-	if(CTI_IFA3_NEW > 0) then {
-		_c pushBack format["%1LIB_IC_Firefly", _sid];
-	} else {
-		_c pushBack format["%1LIB_M4A4_FIREFLY", _sid];
-	};
-	
-	//set all other vars in a slope
-	_cntstart = count _c;
-	_cntend = count _p;
-	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_TRACKED,_tech_level,true] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_HEAVY;
-		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -591,7 +469,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_AIR;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 	
 	_c pushBack format["%1LIB_HORSA_RAF", _sid];
 	_p pushBack '';
@@ -601,7 +479,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_AIR;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -617,7 +495,7 @@ if(CTI_ECONOMY_LEVEL_AIR >= _tech_level) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_AIR;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 };
 
 //Update the calculatetd max upgrade level
@@ -645,7 +523,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		//_u pushBack _tech_level;
 		//_f pushBack CTI_FACTORY_REPAIR;
 		//_s pushBack "service-repairtruck";
-		//_d pushBack 0;
+		//_d pushBack 5;
 		
 	//};
 	
@@ -657,7 +535,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_REPAIR;
 	_s pushBack "service-repairtruck";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 	//_c pushBack format["%1LIB_AustinK5_Tent", _sid];						//repairtruck
 	//_p pushBack '';
@@ -667,32 +545,29 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//_u pushBack _tech_level;
 	//_f pushBack CTI_FACTORY_REPAIR;
 	//_s pushBack "service-repairtruck";
-	//_d pushBack 0;
+	//_d pushBack 5;
 	
 };
-if(CTI_IFA3_NEW >= 0) then {
-	if!(CTI_UK_SIDE == CTI_US_SIDE) then {
-		_c pushBack format["CTI_Salvager_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager"];
-		_d pushBack 0;
-			
-		_c pushBack format["CTI_Salvager_Independent_%1", _faction];
-		_p pushBack '';
-		_n pushBack 'Salvager Truck';
-		_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_REPAIR;
-		_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager-independent"];
-		_d pushBack 0;
+if!(CTI_UK_SIDE == CTI_US_SIDE) then {
+	_c pushBack format["CTI_Salvager_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvager Truck';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager"];
+	_d pushBack 5;
 		
-	};
+	_c pushBack format["CTI_Salvager_Independent_%1", _faction];
+	_p pushBack '';
+	_n pushBack 'Salvager Truck';
+	_o pushBack CTI_VEHICLES_SALVAGER_PRICE;
+	_t pushBack _building_time;
+	_u pushBack _tech_level;
+	_f pushBack CTI_FACTORY_REPAIR;
+	_s pushBack [format["%1LIB_US6_Open_Cargo", _sid],"salvager-independent"];
+	_d pushBack 5;
 };
 
 
@@ -710,7 +585,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 		//_u pushBack _tech_level;
 		//_f pushBack CTI_FACTORY_AMMO;
 		//_s pushBack "service-ammotruck";
-		//_d pushBack 0;	
+		//_d pushBack 5;	
 
 	//};
 	
@@ -722,7 +597,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_AMMO;
 	_s pushBack "service-ammotruck";
-	_d pushBack 0;	
+	_d pushBack 5;	
 	
 	//_c pushBack format["%1LIB_AustinK5_Ammo", _sid];						//ammotruck
 	//_p pushBack '';
@@ -732,7 +607,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	//_u pushBack _tech_level;
 	//_f pushBack CTI_FACTORY_AMMO;
 	//_s pushBack "service-ammotruck";
-	//_d pushBack 0;	
+	//_d pushBack 5;	
 
 };
 
@@ -741,113 +616,14 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 //														Naval Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Naval Factory.
-_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
-_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_UK_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
+//--- For balancing the naval on all maps, wo put them into file units_IFA_Naval
+/*_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
+_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_GER_ID, CTI_IFA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-if(_side == west && CTI_WATER_BALANCED_WEST == false) then {
-	
-	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
-		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-		
-		_c pushBack format["%1LIB_UK_LCA", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		_c pushBack format["%1LIB_LCVP", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-	};
-	
-	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
-		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-		
-		_c pushBack format["%1LIB_UK_LCI", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		_c pushBack format["%1LIB_LCM3_Armed", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-	};
-};
-if(_side == east && CTI_WATER_BALANCED_EAST == false) then {
-	
-	_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
-		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-		
-		_c pushBack format["%1LIB_LCA", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		_c pushBack format["%1LIB_LCVP", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-	};
-	
-	_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-	if(_matrix_cnt >= 0) then {_tech_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-	if(CTI_ECONOMY_LEVEL_NAVAL >= _tech_level) then {
-		_building_time = [CTI_FACTORY_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
-		
-		_c pushBack format["%1LIB_LCI", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-		_c pushBack format["%1LIB_LCM3_Armed", _sid];
-		_p pushBack '';
-		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_NAVAL,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
-		_t pushBack _building_time;
-		_u pushBack _tech_level;
-		_f pushBack CTI_FACTORY_NAVAL;
-		_s pushBack "";
-		_d pushBack 0;
-	};
-};
+//Update the calculatetd max upgrade level
+if(_tech_level > _upgrade_levels select CTI_UPGRADE_NAVAL) then {
+	_upgrade_levels set [CTI_UPGRADE_NAVAL, _tech_level];
+};*/
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_NAVAL) then {

@@ -19,7 +19,7 @@ else {
 
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
+	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,-1,-1,-1,1,3,4,CTI_ECONOMY_LEVEL_GEAR,-1]; 
 };
 
 _i = [];
@@ -324,7 +324,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------------Glasses------------------------------------------------
 _tech_level = 0;
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON <= 0) then {
 	_i pushBack "g_goggles_vr";
 	_u pushBack _tech_level;
 	_p pushBack 50;
@@ -339,34 +339,39 @@ if(CTI_IFA3_NEW < 0) then {
 _u = _u		+ [0];
 _p = _p		+ [5];*/
 
-if(CTI_IFA3_NEW < 0) then {
+if(CTI_IFA_ADDON <= 0) then {
+	_i pushBack "Binocular";
 	_i pushBack "ItemMap";
-	_u pushBack 0;
-	_p pushBack round 20;
+	_i pushBack "ItemRadio";
+	_i pushBack "ItemCompass";
+	_i pushBack "ItemWatch";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
-	_i pushBack "itemradio";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "itemcompass";
-	_u pushBack 0;
-	_p pushBack round 20;
-
-	_i pushBack "itemwatch";
-	_u pushBack 0;
-	_p pushBack round 50;
-
+	_i pushBack "MineDetector";
 	_i pushBack "FirstAidKit";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "Toolkit";
-	_u pushBack 0;
-	_p pushBack round 3000;
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
 	_i pushBack "Medikit";
-	_u pushBack 0;
-	_p pushBack round 1500;
+	_i pushBack "ToolKit";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 };
 
 //all units are declared, we update the possible upgrades if this script

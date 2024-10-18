@@ -9,7 +9,80 @@ Fixed: breaks loading after map change, when only 1 save active
 Fixed: salvager spawns at 0,0 some times
 Fixed: magazine of secondary weapon empty when buyed
 
+V2.0.2_230817
+Droped: Phylon Manager support
+Added: param for 'Time before town units despawn'
+Added: Filter for the defenselist
+Added: Param for defense max level
+Added: Parameter to set preresearched level
+Added: Integrated Phylon Management
+Added: new additional preset param
+Added: buildtime of units in purchaselist
+Added: time to reseach window
+Added: time to fire artillery misson
+Added: Map Livonia
+Added: Infantry spawn prevention to spawn under the map
+Added: no missile/bombs at start now selectable NOT default
+Added: More options for Stamina System
+Added: param for bounty upon entity killed
+Added: automatic server restart with info
+Added: crew max amount for vehicles (7)
+Added: MineDetector and calculation of items
+Added: SV maxcap for spawns 150
+Added: Param for activating auto AI team disbanding
+Added: SPE Normandy map
+Added: Save empty vehicles and player funds by ID
+Added: units count in towns
+Added: Paradrop script (mousewheel option)
+Added: UK cargo plane to Luftwaffe
+Fixed: Can't build connected walls
+Fixed: FOB permission granted by commander
+Fixed: Automatic max upgrade calculations
+Fixed: Infantry spawn to high an gets injured
+Fixed: some typo in units config
+Fixed: Town flag positions
+Fixed: persist. gear not working
+Fixed: massive air/vehicle spawn at same point
+Fixed: crash if IFA3 gets disabled
+Fixed: NF statics all on same tier
+Fixed: tobruk city SV
+Fixed: some minor things
+Fixed: commander SV and money not loaded
+Fixed: wrong dependency for defense T2
+Fixed: saves gets deleted again after mission end
+Fixed: cant delete gearconfig
+Fixed: _changedTo error in .rpt
+Fixed: Damage <null> on building hit
+Fixed: AT Planes too strong against buildings (preparation)
+Changed: respawn params (now one mobile / one static)
+Changed: unflip vehicle function to make it safer
+Changed: Reactivated reammo costs
+Changed: buildtime calculation, now wider scalable
+Changed: some descriptions
+Changed: default VISUAL options
+Changed: moved igiload to the client part
+Changed: Flak36 and Nebelwerfer tier switched
+Changed: defense price finally gets calculated too
+Changed: building near vehicles/men now blocked
+Changed: Statics now researchable
+Changed: only 1 infoline on artyshots
 
+V2.0.2_b230925
+Fixed: Parameters didn't match mission setup
+Fixed: mission building process
 
+V2.0.2_c231027
+Fixed: startup issues if FoW is enabled
+
+V2.0.2_beta240513
+Added: WW2 Cars and Tanks units
+Added: NF new units
+Added: new NF Sov weapons
+Added: new NF units to Igi-load
+Added: subsonic ammo and Koivistolainen hat
+Added: new CSA weapons
+Fixed: no basic units configured in some cases
+Fixed: NF BA10 in wrong tier with some mods
+Changed: moved NF trucks to T0
 
 

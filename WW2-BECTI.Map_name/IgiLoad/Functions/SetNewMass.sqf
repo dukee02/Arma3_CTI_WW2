@@ -1,6 +1,6 @@
 if (IL_DevMod) then
 {
-	Player globalChat Format ["IgiLoad ""%1"" in IL_SetMass", IL_Script_Inst];
+	Player globalChat Format ["IgiLoad ""%1"" in IL_SetMassNew", IL_Script_Inst];
 };
 
 if !(IL_Mass) ExitWith {};

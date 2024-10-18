@@ -1,75 +1,41 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_priorUnits"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		_sid = "VIOC_B_";_tag = "WEST_";
+		if(CTI_WEST_AI == CTI_JPN_ID || CTI_WEST_TOWNS == CTI_JPN_ID) then {_setupBaseUnits = true};
 	};
+	case east: {
+		_sid = "VIOC_O_";_tag = "EAST_";
+		if(CTI_EAST_AI == CTI_JPN_ID || CTI_EAST_TOWNS == CTI_JPN_ID) then {_setupBaseUnits = true};
+	};
+	case resistance: {
+		_sid = "VIOC_I_";_tag = "GUER_";
+	};
+	default {_sid = "";};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("fow_s_ija_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 //CTI_CAMO_ACTIVATION = 0 only normal camo | 1 adds winter camo | 2 adds desert camo | 3 adds winter and desert camo
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
-//check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-//if (isNil "_priorUnits" || _ai == 5) then {
-if (CTI_FOW_ADDON > 1 || _ai == 5) then {
-	//We setup the standard units before the camo check to get secure
-	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_ija_f_officer", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1fow_s_ija_f_rifleman", _sid]];
-
-	missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1fow_s_ija_crewman", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1fow_s_ija_f_rifleman", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1fow_s_ija_crewman", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1fow_s_ija_pilot", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1fow_s_ija_f_rifleman", _sid]];
-
-	//Set starting vehicles
-	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-		[format["%1fow_v_type97_truck_open_ija", _sid], []], 
-		[format["%1fow_v_type97_truck_open_ija", _sid], []]
-	]];
-	
-	if(CTI_CAMO_ACTIVATION == 2) then {		//Desert camo active
-		missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1fow_s_ija_officer", _sid]];
-		missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1fow_s_ija_rifleman", _sid]];
-
-		missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1fow_s_ija_crewman", _sid]];
-		missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1fow_s_ija_rifleman", _sid]];
-		missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1fow_s_ija_crewman", _sid]];
-		missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1fow_s_ija_pilot", _sid]];
-		missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1fow_s_ija_rifleman", _sid]];
-
-		//Set starting vehicles
-		missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-			[format["%1fow_v_type97_truck_open_ija", _sid], []], 
-			[format["%1fow_v_type97_truck_open_ija", _sid], []]
-		]];
-	};
-	if (CTI_Log_Level >= CTI_Log_Debug) then {
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Commander: <%1>", missionNamespace getVariable format["CTI_%1_Commander", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Worker: <%1>", missionNamespace getVariable format["CTI_%1_Worker", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Diver: <%1>", missionNamespace getVariable format["CTI_%1_Diver", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Soldier: <%1>", missionNamespace getVariable format["CTI_%1_Soldier", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Crew: <%1>", missionNamespace getVariable format["CTI_%1_Crew", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Pilot: <%1>", missionNamespace getVariable format["CTI_%1_Pilot", _side]]] call CTI_CO_FNC_Log;
-		["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["Static: <%1>", missionNamespace getVariable format["CTI_%1_Static", _side]]] call CTI_CO_FNC_Log;
-	};
+//*********************************************************************************************************************************************
+//											Setup base units																				  *
+//*********************************************************************************************************************************************
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_JPN_ID && (_isThisMain select 1) == CTI_FOW_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
 };
-
-if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_JPN_FOW.sqf", format["starting vehicles for side %1 declared", _side]] call CTI_CO_FNC_Log;};
-
+if (_setupBaseUnits) then {
+	[_side,_tag,_sid] call compile preprocessFileLineNumbers "Common\Config\Units\UnitsBase\ubase_JPN_FOW.sqf";
+};
 //***************************************************************************************************************************************
 //														Barracks Factory																*
 //***************************************************************************************************************************************
@@ -221,7 +187,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AIR], _c];
 _c = [];
 if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
 	_c pushBack format["%1fow_v_type97_truck_utility_ija", _sid];						//repairtruck
-	if(CTI_IFA3_NEW < 0) then {
+	if(_setupBaseUnits && CTI_IFA_ADDON < 1) then {
 		_c pushBack format["CTI_Salvager_%1", _side];
 	};
 };

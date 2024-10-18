@@ -1,3 +1,5 @@
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+
 _side = _this;
 _faction = "";
 _sid = "";
@@ -15,7 +17,7 @@ if(_side == west) then {
 		_faction = "Resistance";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("LIB_WP_Strzelec") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 _c = []; //--- Classname
 _p = []; //--- Picture. 				'' = auto generated.
@@ -29,12 +31,7 @@ _d = []; //--- Extra Distance (From Factory)
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_POL.sqf", format["starting units declaration: _sid: [%1] | _faction: [%2]", _sid, _faction]] call CTI_CO_FNC_Log};
 
-private _tech_level_no_upgrade_inv = 1;
 private _tech_level = 0;
-
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
 
 //--- Below is classnames for Units and AI avaiable to puchase from Barracks Factory.
 //Level start
@@ -63,7 +60,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -92,7 +89,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 
@@ -119,7 +116,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 2) then {
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_BARRACKS;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 

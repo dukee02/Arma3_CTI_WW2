@@ -1,49 +1,41 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_priorUnits"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		_sid = "VIOC_B_";_tag = "WEST_";
+		if(CTI_WEST_AI == CTI_GER_ID || CTI_WEST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
 	};
+	case east: {
+		_sid = "VIOC_O_";_tag = "EAST_";
+		if(CTI_EAST_AI == CTI_GER_ID || CTI_EAST_TOWNS == CTI_GER_ID) then {_setupBaseUnits = true};
+	};
+	case resistance: {
+		_sid = "VIOC_I_";_tag = "GUER_";
+	};
+	default {_sid = "";};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("CSA38_Gcrew") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 //CTI_CAMO_ACTIVATION = 0 only normal camo | 1 adds winter camo | 2 adds desert camo | 3 adds winter and desert camo
 
 if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_CSA.sqf", format["setting up factory units for side %1", _side]] call CTI_CO_FNC_Log;};
 
-//check if the CTI SIDE base units are set. If not or this side is set as AI, setup the variable.
-_priorUnits = missionNamespace getVariable format ["CTI_%1_Commander", _side, CTI_BARRACKS];
-//if (isNil "_priorUnits" || _ai == 4) then { 
-if (CTI_CSA_ADDON > 1 || _ai == 8) then { 
-	//We setup the standard units before the camo check to get secure
-	missionNamespace setVariable [format["CTI_%1_Commander", _side], format["%1CSA38_WHoff4", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Worker", _side], format["%1CSA38_WH2B", _sid]];
-
-	missionNamespace setVariable [format["CTI_%1_Diver", _side], format["%1CSA38_Gcrew", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Soldier", _side], format["%1CSA38_WH22i", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Crew", _side], format["%1CSA38_Gcrew2", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Pilot", _side], format["%1CSA38_Gcrew5", _sid]];
-	missionNamespace setVariable [format["CTI_%1_Static", _side], format["%1CSA38_WH2Bi", _sid]];
-
-	//Set starting vehicles
-	missionNamespace setVariable [format["CTI_%1_Vehicles_Startup", _side], [ 
-		[format["%1CSA38_pragaRV6", _sid], []], 
-		[format["%1CSA38_pragaRV6", _sid], []]
-	]];
+//*********************************************************************************************************************************************
+//											Setup base units																				  *
+//*********************************************************************************************************************************************
+_isThisMain = missionNamespace getVariable [format ["CTI_%1_MAINNATIONS", _side], []];
+if(count _isThisMain > 0) then {
+	if((_isThisMain select 0) == CTI_GER_ID && (_isThisMain select 1) == CTI_CSA_ID) then {_setupBaseUnits = true;};
+} else {
+	_setupBaseUnits = true;
 };
-
-if (CTI_Log_Level >= CTI_Log_Debug) then { ["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_CSA.sqf", format["starting vehicles for side %1 declared", _side]] call CTI_CO_FNC_Log; };
-
+if (_setupBaseUnits) then {
+	[_side,_tag,_sid] call compile preprocessFileLineNumbers "Common\Config\Units\UnitsBase\ubase_GER_CSA.sqf";
+};
 //***************************************************************************************************************************************
 //														Barracks Factory																*
 //***************************************************************************************************************************************
@@ -134,13 +126,13 @@ _c = [];
 _matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
 _matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_FNC_GetTechmatrix;
 
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {	
 	_c pushBack format["%1CSA38_pragaRV6", _sid];
 };
 
-_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
@@ -213,7 +205,6 @@ if (isNil "_priorUnits") then {
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_GER_CSA.sqf", format["units in factory %1: [%2] ", CTI_LIGHT, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 
-
 //***************************************************************************************************************************************
 //														Heavy Factory																	*
 //***************************************************************************************************************************************
@@ -225,10 +216,6 @@ _matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_CSA_ID] call CTI_CO_
 _matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
-	
-	
-	
-	
 	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
 		_c pushBack format["%1CSA38_pzbfwI_W", _sid];
 		_c pushBack format["%1CSA38_pzkpfwIA_W", _sid];
@@ -363,11 +350,6 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 		_c pushBack format["%1CSA38_pzIVB_LATE", _sid];
 		_c pushBack format["%1CSA38_pzIVC_LATE", _sid];*/
 	};
-};
-
-_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
-if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1csa38_valentineMkII7", _sid];
 };
 
@@ -422,7 +404,7 @@ _c = [];
 
 _c pushBack format["%1CSA38_opelblitz6", _sid];//repair
 
-if(CTI_IFA3_NEW < 0 && CTI_CSA_ADDON > 1) then {
+if(_setupBaseUnits && CTI_IFA_ADDON <= 0 && CTI_CSA_ADDON > 1) then {
 	_c pushBack format["CTI_Salvager_%1", _side];	
 };
 

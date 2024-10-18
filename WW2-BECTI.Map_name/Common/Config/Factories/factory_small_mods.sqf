@@ -1,21 +1,22 @@
-private ["_side", "_c", "_sid", "_priorUnits", "_ai", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+private ["_side", "_c", "_sid", "_setupBaseUnits", "_level", "_matrix_cnt", "_matrix_full", "_matrix_nation", "_priorUnits"];
 _side = _this;
-_ai = -1;
+_sid = "";
+_sid_base = "";
+_tag = "GUER_";
+_setupBaseUnits = false;
 
-if(_side == west) then {
-	_sid = "VIOC_B_";
-	_ai = CTI_WEST_AI;
-} 
-else {
-	if(_side == east) then {
-		_sid = "VIOC_O_";
-		_ai = CTI_EAST_AI;
-	} 
-	else {
-		_sid = "VIOC_I_";
+switch (_side) do {
+	case west: {
+		_sid_base = "VIOC_B_";_tag = "WEST_";
 	};
+	case east: {
+		_sid_base = "VIOC_O_";_tag = "EAST_";
+	};
+	case resistance: {
+		_sid_base = "VIOC_I_";_tag = "GUER_";
+	};
+	default {_sid_base = "";};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
 
 //CTI_CAMO_ACTIVATION = 0 only normal camo | 1 adds winter camo | 2 adds desert camo | 3 adds winter and desert camo
 
@@ -52,18 +53,75 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_BARRACKS], _c
 //														Light Factory																	*
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Light Factory.
-/*_c = [];
-//Level start
-if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-	if(CTI_CAMO_ACTIVATION == 1 || CTI_CAMO_ACTIVATION == 3) then {		//Winter camo active
-		_c pushBack format["%1", _sid];
+_c = [];
+
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_DaimlerMk2")) then {
+		if !(("FA_DaimlerMk2") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_UK_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_DaimlerMk2", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_T17E1", _sid];
+		};
 	};
-	if(CTI_CAMO_ACTIVATION == 2 || CTI_CAMO_ACTIVATION == 3) then {		//Desert camo active
-		_c pushBack format["%1", _sid];
-	};
-	
-	_c pushBack format["%1", _sid];
 };
+
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64")) then {
+		if !(("FA_BA64") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_SOV_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA64", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA10M", _sid];
+		};
+	};
+};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_BA64_Captured")) then {
+		if !(("FA_BA64_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_LIGHT] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_LIGHT, CTI_GER_ID, CTI_CARS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA64_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_BA10M_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_Sdkfz231", _sid];
+			_c pushBack format["%1FA_Sdkfz234_4", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+			_c pushBack format["%1FA_Sdkfz234", _sid];
+		};
+	};
+};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
@@ -73,7 +131,6 @@ if (isNil "_priorUnits") then {
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\factories\factory_small_mods.sqf", format["units in factory %1: [%2] ", CTI_LIGHT, count _c]] call CTI_CO_FNC_Log;};
 missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
-*/
 
 //***************************************************************************************************************************************
 //														Heavy Factory																	*
@@ -82,13 +139,35 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_LIGHT], _c];
 _c = [];
 //Level 0
 
-//if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
-//if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
-	
-if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
-	if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_ValentineMk3")) then {
+		if !(("FA_ValentineMk3") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_UK_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_ValentineMk3", _sid];
+		};
+	};
+};
+if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_M26")) then {
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_US_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+		if !(("FA_M26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+			_c pushBack format["%1FA_M26", _sid];
+		};
+	};
+};
+if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
+		if !(("SOV_BT_BT7A") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_BT_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -104,14 +183,49 @@ if (isClass(configFile >> "CfgVehicles" >> "SOV_BT_BT7A")) then {
 			_c pushBack format["%1SOV_BT_BT7A", _sid];
 			_c pushBack format["%1SOV_BT_BT7_M1937", _sid];
 			_c pushBack format["%1SOV_BT_BT7TU_M1937", _sid];
-			
-			_level = [_matrix_cnt + 1, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
-			if(_matrix_cnt >= 0) then {_matrix_cnt = _matrix_cnt + 1;};
+		};
+	};
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26")) then {
+		if !(("FA_T26") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_SOV_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_T26", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_ValentineMk3_SOV", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_KV1", _sid];
 		};
 	};
 };
-//if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
-//};
+if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
+	if (isClass(configFile >> "CfgVehicles" >> "FA_T26_Captured")) then {
+		if !(("FA_T26_Captured") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
+		_matrix_full = [_side, CTI_UPGRADE_HEAVY] call CTI_CO_FNC_GetTechmatrix;
+		_matrix_nation = [_side, CTI_UPGRADE_HEAVY, CTI_GER_ID, CTI_TANKS_ID] call CTI_CO_FNC_GetTechmatrix;
+		
+		_matrix_cnt = [0, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_T26_Captured", _sid];
+		};
+		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+		if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
+			_c pushBack format["%1FA_Pz38t", _sid];
+			_c pushBack format["%1FA_Panzer2", _sid];
+		};
+	};
+};
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_HEAVY];
 if (isNil "_priorUnits") then { 
@@ -132,6 +246,7 @@ _c = [];
 
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_gladiator") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -160,6 +275,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
+		if !(("sab_fl_hurricane") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -188,6 +304,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
+			if !(("sab_sw_halifax") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 			_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 			_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_UK_ID, CTI_SABRL_ID] call CTI_CO_FNC_GetTechmatrix;
 			
@@ -202,6 +319,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_c47") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_US_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -253,6 +371,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
+		if !(("sab_fl_f4f") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_US_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -276,6 +395,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
+			if !(("sab_sw_tbf") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 			_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 			_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_US_ID, CTI_SABRL_ID] call CTI_CO_FNC_GetTechmatrix;
 			
@@ -308,6 +428,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_i16") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -343,6 +464,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
+		if !(("sab_fl_yak3") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -353,6 +475,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
+			if !(("sab_sw_i16") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 			_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 			_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_SOV_ID, CTI_SABRL_ID] call CTI_CO_FNC_GetTechmatrix;
 			
@@ -373,6 +496,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_avia") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -428,6 +552,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABFL_ADDON > 0) then {
+		if !(("sab_fl_bf109e") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -464,6 +589,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 		
 		if(CTI_SABRL_ADDON > 0) then {
+			if !(("sab_sw_bf110") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 			_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 			_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_GER_ID, CTI_SABRL_ID] call CTI_CO_FNC_GetTechmatrix;
 			
@@ -498,6 +624,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_m6a") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_JPN_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -536,6 +663,7 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		
 	};
 	if(CTI_SABFL_ADDON > 0) then {
+		if !(("sab_fl_a6m") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_AIR] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_AIR, CTI_JPN_ID, CTI_SABFL_ID] call CTI_CO_FNC_GetTechmatrix;
 			
@@ -683,6 +811,7 @@ _c = [];
 
 if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_boat_liberty_rn") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_UK_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -713,6 +842,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABNL_ADDON > 0) then {
+		if !(("sab_nl_foxhound") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_UK_ID, CTI_SABNL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -739,6 +869,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_boat_freighter") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_US_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -774,6 +905,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABNL_ADDON > 0) then {
+		if !(("sab_nl_ptboat") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_US_ID, CTI_SABNL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -805,6 +937,7 @@ if(CTI_US_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_boat_freighter_i") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_SOV_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -846,6 +979,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_boat_freighter_o") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_GER_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -878,6 +1012,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABNL_ADDON > 0) then {
+		if !(("sab_nl_t22") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_GER_ID, CTI_SABNL_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -905,6 +1040,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 };
 if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_SAB_ADDON > 0) then {
+		if !(("sab_boat_freighter_o_x") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_JPN_ID, CTI_SAB_ID] call CTI_CO_FNC_GetTechmatrix;
 		
@@ -940,6 +1076,7 @@ if(CTI_JPN_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 		};
 	};
 	if(CTI_SABNL_ADDON > 0) then {
+		if !(("sab_nl_mutsuki") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""} else {_sid = _sid_base};
 		_matrix_full = [_side, CTI_UPGRADE_NAVAL] call CTI_CO_FNC_GetTechmatrix;
 		_matrix_nation = [_side, CTI_UPGRADE_NAVAL, CTI_JPN_ID, CTI_SABNL_ID] call CTI_CO_FNC_GetTechmatrix;
 		

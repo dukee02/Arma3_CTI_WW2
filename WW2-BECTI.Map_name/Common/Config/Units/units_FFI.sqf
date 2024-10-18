@@ -1,3 +1,5 @@
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+
 _side = _this;
 _faction = "";
 _sid = "VIOC_";
@@ -12,7 +14,7 @@ if(_side == west) then {
 		_faction = "Resistance";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("LIB_FFI_Soldier_1") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 _c = []; //--- Classname
 _p = []; //--- Picture. 				'' = auto generated.
@@ -26,12 +28,7 @@ _d = []; //--- Extra Distance (From Factory)
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_FFI.sqf", format["starting units declaration: _faction: [%1]", _faction]] call CTI_CO_FNC_Log};
 
-private _tech_level_no_upgrade_inv = 1;
 private _tech_level = 0;
-
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
 
 //--- Below is classnames for Units and AI avaiable to puchase from Barracks Factory.
 //Level start
@@ -44,7 +41,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_c pushBack format["%1LIB_FFI_Soldier_4", _sid];
 	_c pushBack format["%1LIB_FFI_Soldier_5", _sid];
 	
-	if(CTI_VIO_ADDON > 0) then {
+	if(_sid != "") then {
 		_c pushBack format["%1FFI_medic", _sid];
 		_c pushBack format["%1FFI_AT_soldier", _sid];
 	};
@@ -55,17 +52,17 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
 		_p pushBack '';
 		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_o pushBack ([CTI_ECONOMY_PRIZE_INFANTRY,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 		_t pushBack _building_time;
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 //Level 1
 _tech_level = _tech_level + 1;
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 1 && CTI_VIO_ADDON > 0) then {
+if(CTI_ECONOMY_LEVEL_INFANTRY >= 1 && _sid != "") then {
 	_building_time = [CTI_FACTORY_BARRACKS,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
 	_c pushBack format["%1LIB_FFI_LAT_Soldier", _sid];
@@ -77,17 +74,17 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 1 && CTI_VIO_ADDON > 0) then {
 	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
 		_p pushBack '';
 		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_o pushBack ([CTI_ECONOMY_PRIZE_INFANTRY,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 		_t pushBack _building_time;
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 //Level 2
 _tech_level = _tech_level + 1;
-if(CTI_ECONOMY_LEVEL_INFANTRY >= 2 && CTI_VIO_ADDON > 0) then {
+if(CTI_ECONOMY_LEVEL_INFANTRY >= 2 && _sid != "") then {
 	_building_time = [CTI_FACTORY_BARRACKS,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 	
 	_c pushBack format["%1FFI_MG_soldier", _sid];
@@ -100,12 +97,12 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 2 && CTI_VIO_ADDON > 0) then {
 	for [{ _i = 0 }, { _i < _cntstart-_cntend }, { _i = _i + 1 }] do { 
 		_p pushBack '';
 		_n pushBack '';
-		_o pushBack ([CTI_ECONOMY_PRIZE_WHEELED,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
+		_o pushBack ([CTI_ECONOMY_PRIZE_INFANTRY,_tech_level] call CTI_CO_FNC_GetCalculatedUnitsPrize);
 		_t pushBack _building_time;
 		_u pushBack _tech_level;
 		_f pushBack CTI_FACTORY_LIGHT;
 		_s pushBack "";
-		_d pushBack 0;	
+		_d pushBack 5;	
 	};
 };
 

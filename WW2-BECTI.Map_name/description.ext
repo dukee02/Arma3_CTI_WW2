@@ -11,21 +11,23 @@
 #include "Rsc\Debriefing.hpp"
 #include "Rsc\Parameters.hpp"
 #include "Rsc\titles.hpp"
+//https://forums.bohemia.net/forums/topic/224041-release-vehicle-appearance-manager-gui/
+#include "VAM_GUI\defines.hpp"
+#include "VAM_GUI\VAM_GUI_controls.hpp"
+#include "VAM_GUI\VAM_GUI_classes.hpp"
 
 //--- Global Garbage Collection Settings
 MinPlayerDistance = 0;					//The minimum distance from any player. Set the value to 0 to remove the min. distance. 
-CorpseManagerMode = 1;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
+CorpseManagerMode = 0;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
 CorpseLimit = 200;						//Maximum allowed number of dead bodies in the scenario. 
-CorpseRemovalMinTime = 60;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
-CorpseRemovalMaxTime = 600;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
+CorpseRemovalMinTime = 600;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
+CorpseRemovalMaxTime = 1800;			//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
 WreckManagerMode = 0;					//Garbage collecting mode 0: None, 1: All scenario objects, 2: Only objects that can respawn, 3: Only objects that cannot respawn
-WreckLimit = 50;						//Maximum allowed number of destroyed vehicles in the scenario. 
-WreckRemovalMinTime = 300;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
-WreckRemovalMaxTime	= 3000;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
+WreckLimit = 40;						//Maximum allowed number of destroyed vehicles in the scenario. 
+WreckRemovalMinTime = 1200;				//Time in seconds before a dead body is removed when the number of dead bodies exceeds the 'Limit'. 
+WreckRemovalMaxTime	= 3600;				//Time in seconds before a dead body is removed when the number of dead bodies is below or equals the 'Limit'. 
 
 //--- Global Revive Settings
-//ReviveMode = 0;                         //0: disabled, 1: enabled, 2: controlled by player attributes
-//ReviveUnconsciousStateMode = 0;         //0: basic, 1: advanced, 2: realistic
 ReviveRequiredTrait = 0;                //0: none, 1: medic trait is required
 ReviveRequiredItems = 2;                //0: none, 1: medkit, 2: medkit or first aid kit
 ReviveRequiredItemsFakConsumed = 1;     //0: first aid kit is not consumed upon revive, 1: first aid kit is consumed
@@ -35,102 +37,3 @@ ReviveForceRespawnDelay = 5;			//time needed to perform force respawn (in secs)
 ReviveBleedOutDelay = 120;              //unconscious state duration (in secs)
 
 enableDebugConsole = 1;
-
-loadScreen = "VIO_BECTI.jpg";
-
-//Config for Pylon Manager
-class CfgPylonManager
-{
-//Blacklisted Magazines
-//blacklistedMagazines[] = {"PylonMissile_Missile_AMRAAM_D_INT_x1","PylonRack_Bomb_SDB_x4"};
-
-//Nothing is rearm everywhere
-rearmObjects[] = {
-	"RU_WarfareBVehicleServicePoint",		//Ammo building
-	"Land_Cargo_House_V1_F",				//Ammo building
-	
-	"LIB_OpelBlitz_Ammo_w",
-	"LIB_DAK_OpelBlitz_Ammo",
-	"LIB_SdKfz_7_Ammo",
-	"LIB_OpelBlitz_Ammo",
-	"LIB_US6_Ammo",
-	"LIB_US_GMC_Ammo_w",
-	"LIB_US_GMC_Ammo",
-	
-	"fow_v_sdkfz_250_9_camo_foliage_ger_heer",
-	"fow_v_lvta2_usmc",
-	"fow_v_type97_truck_utility_ija",
-	
-	"CSA38_opelblitz4_W",
-	"CSA38_opelblitz4_DE",
-	"CSA38_opelblitz4",
-	"CSA38_opelblitz4_LATE",
-	"CSA38_opelblitz4_LATE2",
-	"CSA38_pragaRV5",
-	
-	
-	"VIOC_B_LIB_OpelBlitz_Ammo_w",
-	"VIOC_B_LIB_DAK_OpelBlitz_Ammo",
-	"VIOC_B_LIB_SdKfz_7_Ammo",
-	"VIOC_B_LIB_OpelBlitz_Ammo",
-	"VIOC_B_LIB_US6_Ammo",
-	"VIOC_B_LIB_US_GMC_Ammo_w",
-	"VIOC_B_LIB_US_GMC_Ammo",
-	
-	"VIOC_B_fow_v_sdkfz_250_9_camo_foliage_ger_heer",
-	"VIOC_B_fow_v_lvta2_usmc",
-	"VIOC_B_fow_v_type97_truck_utility_ija",
-	
-	"VIOC_B_CSA38_opelblitz4_W",
-	"VIOC_B_CSA38_opelblitz4_DE",
-	"VIOC_B_CSA38_opelblitz4",
-	"VIOC_B_CSA38_opelblitz4_LATE",
-	"VIOC_B_CSA38_opelblitz4_LATE2",
-	"VIOC_B_CSA38_pragaRV5",
-	
-	
-	"VIOC_O_LIB_OpelBlitz_Ammo_w",
-	"VIOC_O_LIB_DAK_OpelBlitz_Ammo",
-	"VIOC_O_LIB_SdKfz_7_Ammo",
-	"VIOC_O_LIB_OpelBlitz_Ammo",
-	"VIOC_O_LIB_US6_Ammo",
-	"VIOC_O_LIB_US_GMC_Ammo_w",
-	"VIOC_O_LIB_US_GMC_Ammo",
-	
-	"VIOC_O_fow_v_sdkfz_250_9_camo_foliage_ger_heer",
-	"VIOC_O_fow_v_lvta2_usmc",
-	"VIOC_O_fow_v_type97_truck_utility_ija",
-	
-	"VIOC_O_CSA38_opelblitz4_W",
-	"VIOC_O_CSA38_opelblitz4_DE",
-	"VIOC_O_CSA38_opelblitz4",
-	"VIOC_O_CSA38_opelblitz4_LATE",
-	"VIOC_O_CSA38_opelblitz4_LATE2",
-	"VIOC_O_CSA38_pragaRV5",
-	
-	
-	"VIOC_I_LIB_OpelBlitz_Ammo_w",
-	"VIOC_I_LIB_DAK_OpelBlitz_Ammo",
-	"VIOC_I_LIB_SdKfz_7_Ammo",
-	"VIOC_I_LIB_OpelBlitz_Ammo",
-	"VIOC_I_LIB_US6_Ammo",
-	"VIOC_I_LIB_US_GMC_Ammo_w",
-	"VIOC_I_LIB_US_GMC_Ammo",
-	
-	"VIOC_I_fow_v_sdkfz_250_9_camo_foliage_ger_heer",
-	"VIOC_I_fow_v_lvta2_usmc",
-	"VIOC_I_fow_v_type97_truck_utility_ija",
-	
-	"VIOC_I_CSA38_opelblitz4_W",
-	"VIOC_I_CSA38_opelblitz4_DE",
-	"VIOC_I_CSA38_opelblitz4",
-	"VIOC_I_CSA38_opelblitz4_LATE",
-	"VIOC_I_CSA38_opelblitz4_LATE2",
-	"VIOC_I_CSA38_pragaRV5"
-	
-	//{} forEach ["", "VIOC_B_", "VIOC_O_", "VIOC_I_"];	
-	};
-
-//Distance needed from rearmObjects[]
-rearmRange = 50;
-};

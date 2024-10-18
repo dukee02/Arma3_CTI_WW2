@@ -17,7 +17,19 @@ class Params {
 		texts[] = {"5min","10 min","15 min","20 min","25 min","30 min","45 min","60 min"};
 		default = 900;
 	};
-		class SEPARATOR_STARTUP {
+	class CTI_PERFORMANCE_CHECK {
+		title = "PERFORMANCE: On active Persistence, log unit infos to .rpt and maybe disband stuck AI teams";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","only Information","Enabled AI disbanding"};
+		default = 1;
+	};
+	class CTI_ADD_MODULE {
+		title = "Modules: Additional Modules to activate";
+		values[] = {0,1,2,3};
+		texts[] = {"Disabled","Igiload","Vehicle Appearance Module","Igiload + VAM"};
+		default = 0;
+	};
+	class SEPARATOR_STARTUP {
 		title = "========================== STARTUP ============================";
 		values[] = {1};
 		texts[] = {""};
@@ -65,34 +77,40 @@ class Params {
 		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
 		default = -1;
 	};
+	class CTI_FR_SIDE {
+		title = "FR Side (SPE cDLC needed)";
+		values[] = {-1,0,1,2};
+		texts[] = {"deactivated","BLUFOR (West)", "OPFOR (East)", "GUER (Independent)"};
+		default = -1; //-1
+	};
 	class CTI_GUER_TOWNS {
 		title = "INDEPENDENT Town Nation (change for easyer town defending or all nations are seperated into EAST and WEST)";
 		values[] = {0,1,2};
-		texts[] = {"FFI - very easy (IFA3 needed)","Polish Units - easy (IFA3 needed)","3rd Party (needs one Side on GUER)"};
+		texts[] = {"FFI - very easy (IFA3/SPE needed)","Polish Units - easy (IFA3/CSA needed)","3rd Party (needs one Side on GUER or set 50:50 at townsmode)"};
 		default = 2;
 	};
 	class CTI_WEST_TOWNS {
 		title = "BLUFOR (West) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_EAST_TOWNS {
 		title = "OPFOR (East) Town Nation (change the defending Town Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_WEST_AI {
 		title = "BLUFOR (West) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_EAST_AI {
 		title = "OPFOR (East) Player+AI Nation (change the startup Loadout and AI Units | only needed if 2 nations at one side)";
-		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12};
-		texts[] = {"no changes","Germany","Soviet Red Army","US Army","UK Army","Germany FoW","Japain FoW", "US FoW", "UK FoW", "Germany CSA", "Czech CSA", "UK CSA", "Finnish Army FN", "Soviet Red Army FN"};
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"no changes","Germany [IFA3]","Soviet Red Army [IFA3]","US Army [IFA3]","UK Army [IFA3]","Germany [FoW]","Japain [FoW]", "US [FoW]", "UK [FoW]", "Germany [CSA]", "Czech [CSA]", "UK [CSA]", "Finnish Army [FN]", "Soviet Red Army [FN]", "FR Army [SPE]", "Germany [SPE]", "US Army [SPE]"};
 		default = -1;
 	};
 	class CTI_CAMO_ACTIVATION {
@@ -155,6 +173,48 @@ class Params {
 		texts[] = {"Disable this units","0","1","2","3","4","5","6","7","8","9","full"};
 		default = 10;
 	};
+	class CTI_VEHICLES_AIR_FFAR {
+		title = "UNITS_UPGRADE: Aircraft Basic equipment";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"No basic Rockets/Bombs","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
+	};
+	class CTI_VEHICLES_AIR_AA {
+		title = "UNITS_UPGRADE: Aircraft AA Missiles";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"No AA Missiles","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
+	};
+	class CTI_VEHICLES_AIR_AT {
+		title = "UNITS_UPGRADE: Aircraft advanced AT Missiles";
+		values[] = {-1,0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"No advanced AT Missiles","0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
+	};
+	/*class CTI_VEHICLES_AIR_CM {
+		title = "UNITS: Aircraft Countermeasures";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled with Upgrade","Enabled"};
+		default = 2;
+	};*/
+	class CTI_ECONOMY_LEVEL_DEFENSE {
+		title = "UPGRADE: Max Level Defense";
+		values[] = {0,1,2,3,4,5,6,7,8,9,10};
+		texts[] = {"0","1","2","3","4","5","6","7","8","9","full"};
+		default = 10;
+	};
+	class CTI_FACTORY_LEVEL_PRESET {
+		title = "UPGRADE: Pre researched Factory level (Barracks,Wheeled,Tracked,Air,Naval,Gear)";
+		values[] = {0,1,2,3,4,5,6,7,8,9};
+		texts[] = {"start with 0","start with level 1 (or max)","start with level 2 (or max)","start with level 3 (or max)","start with level 4 (or max)","start with level 5 (or max)","start with level 6 (or max)","start with level 7 (or max)","start with level 8 (or max)","start with level 9 (or max)"};
+		default = 0;
+	};
+	class CTI_ECONOMY_LEVEL_PRESET {
+		title = "UPGRADE: Pre researched level (Air FFAR,Air AT,Air AA,Towns,Supply,Defense)";
+		values[] = {0,1,2,3,4,5,6,7,8,9,100000};
+		texts[] = {"start with no bombs/rockets","start with level 1 (or max)","start with level 2 (or max)","start with level 3 (or max)","start with level 4 (or max)","start with level 5 (or max)","start with level 6 (or max)","start with level 7 (or max)","start with level 8 (or max)","start with level 9 (or max)","Basic Air ammo researched"};
+		default = 100000;
+	};
 	class CTI_ECONOMY_UPGRADE_TIMECAP {
 		title = "UPGRADE: Max Time needed for upgrades (concerns higher tier upgrades)";
 		values[] = {300,400,500,600,700,800,900,1000,1100,1200};
@@ -162,10 +222,10 @@ class Params {
 		default = 600; //600
 	};
 	class CTI_ECONOMY_TIME_MULTI {
-		title = "UPGRADE: Buildtime multiplier (times capped[min,max]: Inf:[5s,50s]|Light,Ship:[10s,300s]|Heavy,Air:[20s,600s])";
+		title = "UPGRADE: Buildtime multiplier min = base/2 | max = base*20 (times base = Inf:[2s]|Wheeled,Ship:[5s]|Tracked,Air:[10s])";
 		values[] = {1,2,3,4,5,6,8,10};
 		texts[] = {"1","2","3","4","5","6","8","10"};
-		default = 2; //5
+		default = 4;
 	};
 	class SEPERATOR_AI {
 		title = "============ AI ============";
@@ -193,8 +253,8 @@ class Params {
 	};
 	class CTI_AI_SKILL_BASE {
 		title = "AI: Skill (all AI units)";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Novice","Rookie","Recruit","Veteran","Expert"};
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"10% Bread","20% Cannonfood","30% Novice","40% Rookie","50% Recruit","60% Private","70% Veteran","80% Commander","90% Expert"};
 		default = 2;
 	};
 	class SEPERATOR_BASE {
@@ -237,7 +297,7 @@ class Params {
 		title = "BASE: Structure resell ratio";
 		values[] = {0,10,20,30,40,50,60,70,80,90,100};
 		texts[] = {"0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
-		default = 0;
+		default = 50;
 	};
 	class CTI_BASE_BUILDING_DAMAGE_SYSTEM {
 		title = "BASE: Handle Building destruction";
@@ -251,16 +311,16 @@ class Params {
 		texts[] = {"Disabled","1","2","3","4","5","6","7","8","9","10"};
 		default = 6;
 	};
-	/*class CTI_BASE_START_TOWN {
+	class CTI_BASE_START_TOWN {
 		title = "BASE: Start Near towns";
-		values[] = {0,1};
-		texts[] = {"No","Yes"};//{"Disabled","Enabled"};
-		default = 1;
-	};*/
+		values[] = {0,1000,2000,3000,4000};
+		texts[] = {"Disabled","1 KM","2 KM","3 KM","4 KM"};
+		default = 2000;
+	};
 	class CTI_BASE_STARTUP_PLACEMENT {
 		title = "BASE: Start-up Placement";
-		values[] = {1000,2000,4000,6000,8000,10000};
-		texts[] = {"1KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
+		values[] = {100000,1000,2000,4000,6000,8000,10000};
+		texts[] = {"Use Default","1 KM","2 KM","4 KM","6 KM","8 KM","10 KM"};
 		default = 6000;
 	};
 	class CTI_BASE_WORKERS_LIMIT {
@@ -286,6 +346,12 @@ class Params {
 		values[] = {0,1};
 		texts[] = {"Money and Supply","only Money"};
 		default = 0;
+	};
+	class CTI_VEHICLES_BOUNTY {
+		title = "INCOME: Bounty upon entity killed";
+		values[] = {0,10,20,30,40,50,60};
+		texts[] = {"0% disabled","10%","20%","30%","40%","50%","60%"};
+		default = 40;
 	};
 	class CTI_ECONOMY_STARTUP_FUNDS_EAST_COMMANDER {
 		title = "INCOME: Starting Funds (East Commander)";
@@ -426,16 +492,16 @@ class Params {
 		default = 0;
 	};
 	class CTI_ARTILLERY_SETUP {
-		title = "ARTILLERY: Setup";
-		values[] = {-2,-1,0,1,2,3};
-		texts[] = {"Disabled","Ballistic Computer","Short","Medium","Long","Extreme"};
-		default = -1;
+		title = "ARTILLERY: Setup (can make units unusable)";
+		values[] = {-2,-1,5000,10000,15000,20000,30000,40000,120000};
+		texts[] = {"Disabled","Ballistic Computer","max. 5000m","max. 10000m","max. 15000m","max. 20000m","max. 30000m","max. 40000m","near unlimited 120000m"};
+		default = 15000;
 	};
 	class CTI_ARTILLERY_TIMEOUT {
 		title = "ARTILLERY: Delay between each fire mission (if Arty not Disabled or with Ballistic Computer)";
 		values[] = {0,60,120,180,240,300,600};
-		texts[] = {"Disabled","60","120","180","240","300","600"};
-		default = 180;
+		texts[] = {"Disabled","1 min","2 min","3 min","4 min","5 min","10 min"};
+		default = 240;
 	};
 	class CTI_GAMEPLAY_TEAMSTACK_DISABLE {
 		title = "GAMEPLAY: Kick Team Stackers";
@@ -508,9 +574,9 @@ class Params {
 		default = 2;
 	};
 	class CTI_RESPAWN_FOB_RANGE {
-		title = "RESPAWN: FOB Range";
-		values[] = {500,750,1000,1250,1500,1750,2000,4000};
-		texts[] = {"0.50 KM","0.75 KM","1 KM","1.25 KM","1.5 KM","1.75 KM","2 KM","4 KM"};
+		title = "RESPAWN: Structure Range (FOB/Town camps)";
+		values[] = {500,750,1000,1500,2000,2500,3000,4000};
+		texts[] = {"0.50 KM","0.75 KM","1 KM","1.5 KM","2 KM","2.5 KM","3 KM","4 KM"};
 		default = 1000;
 	};
 	class CTI_RESPAWN_MOBILE {
@@ -519,11 +585,11 @@ class Params {
 		texts[] = {"Disabled","Enabled"};
 		default = 1;
 	};
-	class CTI_RESPAWN_CAMPS_RANGE {
-		title = "RESPAWN: Towns Range";
-		values[] = {50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1500,2000,2500,3000,3500,4000};
-		texts[] = {"50m","100m","150m","200m","250m","300m","350m","400m","450m","500m","550m","600m","650m","700m","750m","800m","850m","900m","950m","1000m","1500m","2000m","2500m","3000m","3500m","4000m"};
-		default = 1000;
+	class CTI_RESPAWN_MOBILE_RANGE {
+		title = "RESPAWN: Mobile Range (AI/Medical vehicles)";
+		values[] = {50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1500,2000};
+		texts[] = {"50m","100m","150m","200m","250m","300m","350m","400m","450m","500m","550m","600m","650m","700m","750m","800m","850m","900m","950m","1000m","1500m","2000m"};
+		default = 600;
 	};
 	class SEPERATOR_TOWNS {
 		title = "============ Towns ============";
@@ -569,15 +635,15 @@ class Params {
 	};
 	class CTI_TOWNS_OCCUPATION {
 		title = "TOWNS: Occupation";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 2;
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"Disabled","Easiest","Easy","Easier","Normal","Harder","Hard","Very hard","Impossible"};
+		default = 4;
 	};
 	class CTI_TOWNS_RESISTANCE {
-		title = "TOWNS: Resistance";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled","Light","Medium","Hard","Impossible"};
-		default = 1;
+		title = "TOWNS: Independent";
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {"Disabled","Easiest","Easy","Easier","Normal","Harder","Hard","Very hard","Impossible"};
+		default = 3;
 	};
 	class CTI_UNITS_TOWN_PURCHASE {
 		title = "TOWNS: Purchase Infantry";
@@ -603,36 +669,6 @@ class Params {
 		texts[] = {"Unlocked","Locked (Resistance)","Locked (Occupation)","Locked (Resistance and Occupation)"};
 		default = 3;
 	};
-	/*class SEPERATOR_VEHICLES {
-		title = "============ Vehicles ============";
-		values[] = {0,1};
-		texts[] = {"",""};
-		default = 0;
-	};
-	class CTI_VEHICLES_AIR_FFAR {
-		title = "UNITS: Aircraft FFAR Rockets";
-		values[] = {0,1,2};
-		texts[] = {"Disabled","Enabled with Upgrade","Enabled"};
-		default = 0;
-	};
-	class CTI_VEHICLES_AIR_AA {
-		title = "UNITS: Aircraft AA Missiles";
-		values[] = {0,1,2};
-		texts[] = {"Disabled","Enabled with Upgrade","Enabled"};
-		default = 0;
-	};
-	class CTI_VEHICLES_AIR_AT {
-		title = "UNITS: Aircraft AT Missiles";
-		values[] = {0,1,2};
-		texts[] = {"Disabled","Enabled with Upgrade","Enabled"};
-		default = 0;
-	};
-	class CTI_VEHICLES_AIR_CM {
-		title = "UNITS: Aircraft Countermeasures";
-		values[] = {0,1,2};
-		texts[] = {"Disabled","Enabled with Upgrade","Enabled"};
-		default = 2;
-	};*/
 	class SEPERATOR_OTHER {
 		title = "============ Other ============";
 		values[] = {0,1};
@@ -646,10 +682,10 @@ class Params {
 		default = 0;
 	};
 	class CTI_UNITS_FATIGUE {
-		title = "UNITS: Fatigue";
-		values[] = {0,1};
-		texts[] = {"Disabled","Enabled"};
-		default = 0;
+		title = "UNITS: Stamina Systems";
+		values[] = {0,1,2,3};
+		texts[] = {"Enabled","Disabled Fatigue","+ disable stamina (weapon sway)","+ disabled -AimPrecision- coefficient"};
+		default = 1;
 	};
 	class CTI_VEHICLES_SALVAGE_INDEPENDENT_MAX {
 		title = "Units: Independent Salvager Limit";
@@ -667,13 +703,13 @@ class Params {
 		title = "VISUAL: Terrain Grid";
 		values[] = {10,20,30,50};
 		texts[] = {"Far","Medium","Short","Free"};
-		default = 50;
+		default = 20;
 	};
 	class CTI_GRAPHICS_VD_MAX {
 		title = "VISUAL: View Distance";
 		values[] = {1000,1500,2000,2500,3000,3500,4000,4500,5000};
 		texts[] = {"1 KM","1.5 KM","2 KM","2.5 KM","3 KM","3.5 KM","4 KM","4.5 KM","5 KM"};
-		default = 5000;
+		default = 2500;
 	};
 	class SEPARATOR_ADDONS {
 		title = "=========================== ADDONS ============================";
@@ -681,12 +717,16 @@ class Params {
 		texts[] = {""};
 		default = 1;
 	};
-	class CTI_IFA3_NEW {
-		title = "ADDON: IFA3";
-		//values[] = {-1,0,1};
-		//texts[] = {"Disabled","Enabled","IFA3 beta"};
-		values[] = {-1,0};
-		texts[] = {"Disabled","Enabled"};
+	class CTI_IFA_ADDON {
+		title = "ADDON: IFA";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
+		default = 0;
+	};
+	class CTI_SPE_DLC {
+		title = "ADDON: Spearhead cDLC (SPE)";
+		values[] = {0,1,2};
+		texts[] = {"Disabled","Enabled","Set as Main"};
 		default = 0;
 	};
 	class CTI_FOW_ADDON {
@@ -714,9 +754,9 @@ class Params {
 		default = 1;
 	};
 	class CTI_AI_TEAMS_ENABLED {
-		title = "AI: Teams";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Disabled", "1/4 Slots", "1/2 Slots", "3/4 Slots", "All Slots"};
+		title = "AI: Teams (Coop disables AI on player side)";
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+		texts[] = {"Disabled", "1 Slot", "2 Slots", "3 Slots", "4 Slots", "5 Slots", "6 Slots", "7 Slots", "8 Slots", "9 Slots", "10 Slots", "11 Slots", "12 Slots", "13 Slots", "14 Slots", "15 Slots"};
 		default = 0;
 	};
 	class CTI_AI_TEAMS_GROUPSIZE {
@@ -738,7 +778,7 @@ class Params {
 		default = 0;
 	};
 	class CTI_STREAM_BLOCK {
-		title = "Block Nazi symbols for streaming?";
+		title = "Less Nazi symbols";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
 		default = 0;

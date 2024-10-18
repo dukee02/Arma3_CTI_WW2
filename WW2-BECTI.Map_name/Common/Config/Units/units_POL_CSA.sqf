@@ -1,3 +1,5 @@
+private ["_side", "_faction", "_sid", "_time", "_building_time", "_tech_level", "_upgrade_levels", "_cntstart", "_cntend", "_matrix_cnt", "_matrix_full", "_matrix_nation"];
+
 _side = _this;
 _faction = "";
 _sid = "";
@@ -15,7 +17,13 @@ if(_side == west) then {
 		_faction = "Resistance";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("csa38_PLsoldier01") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
+
+//We get the upgrade setup at this point, if this is null, something went wrong and we set it to the default.
+_upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
+if (isNil "_upgrade_levels") then { 
+	_upgrade_levels = [0,0,0,0,0,1,-1,-1,-1,1,3,4,0,-1]; 
+};
 
 _c = []; //--- Classname
 _p = []; //--- Picture. 				'' = auto generated.
@@ -29,15 +37,11 @@ _d = []; //--- Extra Distance (From Factory)
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\units\units_POL_CSA.sqf", format["starting units declaration: _sid: [%1] | _faction: [%2]", _sid, _faction]] call CTI_CO_FNC_Log};
 
-private _tech_level_no_upgrade_inv = 1;
-private _tech_level = 0;
-
-if(CTI_NO_UPGRADE_MODE == 1) then {	
-	_tech_level_no_upgrade_inv = 0;
-};
-
+//***************************************************************************************************************************************
+//														Barracks Factory																*
+//***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Barracks Factory.
-//Level start
+_tech_level = 0;
 if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_building_time = [CTI_FACTORY_BARRACKS,_tech_level] call CTI_CO_FNC_GetCalculatedBuildtime;
 		
@@ -49,7 +53,7 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_BARRACKS;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 
 };
 
@@ -72,7 +76,7 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_LIGHT;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 	
 };*/
 
@@ -94,7 +98,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 1) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 };
 if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
@@ -108,7 +112,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 	_c pushBack format["%1csa38_cromwell_CPL2", _sid];	
 	_p pushBack '';
@@ -118,7 +122,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 	_c pushBack format["%1csa38_cromwell_CPLHELA", _sid];	
 	_p pushBack '';
@@ -128,7 +132,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 	_c pushBack format["%1csa38_cromwell_DPL", _sid];	
 	_p pushBack '';
@@ -138,7 +142,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 	_c pushBack format["%1csa38_cromwell_PL", _sid];	
 	_p pushBack '';
@@ -148,7 +152,7 @@ if(CTI_ECONOMY_LEVEL_TRACKED >= 3) then {
 	_u pushBack _tech_level;
 	_f pushBack CTI_FACTORY_HEAVY;
 	_s pushBack "";
-	_d pushBack 0;
+	_d pushBack 5;
 		
 };
 

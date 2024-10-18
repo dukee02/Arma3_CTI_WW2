@@ -48,8 +48,8 @@ CTI_CL_FNC_PurchaseQueueRelease = compileFinal preprocessFile "Client\Functions\
 CTI_CL_FNC_PurchaseUnit = compileFinal preprocessFile "Client\Functions\Client_PurchaseUnit.sqf";
 CTI_CL_FNC_RemoveRuins = compileFinal preprocessFile "Client\Functions\Client_RemoveRuins.sqf";
 CTI_CL_FNC_RemoveDefenses = compileFinal preprocessFile "Client\Functions\Client_RemoveDefenses.sqf";
-CTI_CL_FNC_EarPlugsSpawn = compileFinal preprocessFile "Client\Functions\Externals\cmEarplugs\earplugs_spawn.sqf";
-CTI_CL_FNC_EarPlugsDeath = compileFinal preprocessFile "Client\Functions\Externals\cmEarplugs\earplugs_death.sqf";
+CTI_CL_FNC_EarPlugsSpawn = compileFinal preprocessFile "Client\Module\earplugs\cmEarplugs\earplugs_spawn.sqf";
+CTI_CL_FNC_EarPlugsDeath = compileFinal preprocessFile "Client\Module\earplugs\cmEarplugs\earplugs_death.sqf";
 
 call compile preprocessFileLineNumbers "Client\Functions\FSM\Functions_FSM_UpdateClientAI.sqf";
 call compile preprocessFileLineNumbers "Client\Functions\FSM\Functions_FSM_UpdateOrders.sqf";
@@ -86,6 +86,7 @@ CTI_P_WallsAutoAlign = true;
 CTI_P_DefensesAutoManning = true;
 CTI_P_Voted = false;
 CTI_P_VotePopUp = true;
+CTI_P_GearPersist = "VIOWW2_PERSISTENT";
 
 CTI_P_Coloration_Money = "#BAFF81";
 
@@ -140,12 +141,16 @@ call compile preprocessFile "Client\Functions\UI\Functions_UI_SatelliteCamera.sq
 call compile preprocessFile "Client\Functions\UI\Functions_UI_ServiceMenu.sqf";
 call compile preprocessFile "Client\Functions\UI\Functions_UI_UnitsCamera.sqf";
 call compile preprocessFile "Client\Functions\UI\Functions_UI_UpgradeMenu.sqf";
+call compile preprocessFile "Client\Functions\UI\Functions_UI_BuildMenu.sqf";
+call compile preprocessFile "Client\Functions\UI\Functions_UI_PylonMenu.sqf";
 
 
 if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER.sqf";
+	};
+	if(CTI_SPE_DLC > 0) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_SPE.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_GER_FOW.sqf";
@@ -155,8 +160,7 @@ if(CTI_GER_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_SOV_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_SOV.sqf";
 	};
 	if(CTI_NF_ADDON > 0) then {
@@ -164,17 +168,18 @@ if(CTI_SOV_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	};
 };
 if(CTI_US_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US.sqf";
+	};
+	if(CTI_SPE_DLC > 0) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_SPE.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_US_FOW.sqf";
 	};
 };
 if(CTI_UK_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
-	if(CTI_IFA3_NEW >= 0) then {
-	//if(CTI_IFA3_NEW >= 0 && CTI_FOW_ADDON < 2 && CTI_CSA_ADDON < 2 && CTI_NF_ADDON < 2) then {
+	if(CTI_IFA_ADDON >= 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_UK.sqf";
 	};
 	if(CTI_FOW_ADDON > 0) then {
@@ -198,6 +203,12 @@ if(CTI_FIN_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
 	if(CTI_NF_ADDON > 0) then {
 		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FIN_NF.sqf";
 	};
+};
+if(CTI_FR_SIDE == (CTI_P_SideJoined) call CTI_CO_FNC_GetSideID) then {
+	if(CTI_SPE_DLC >= 1) then {
+		(CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_FR_SPE.sqf";
+	};
+	//if(CTI_IFA_ADDON >= 1 && CTI_IFA_NEW <= 1) then {};
 };
 
 (CTI_P_SideJoined) call compile preprocessFileLineNumbers "Common\Config\Gear\Gear_Template.sqf";
@@ -302,12 +313,8 @@ if ((CTI_P_SideLogic getVariable "cti_votetime") > 0) then {createDialog "CTI_Rs
 {uiNamespace setVariable [_x, displayNull]} forEach ["CTI_Title_Capture"];
 
 //--- Gear templates (persitent)
-//if (isNil {profileNamespace getVariable format["CTI_PERSISTENT_GEAR_TEMPLATE_%1", CTI_P_SideJoined]}) then {call CTI_UI_Gear_InitializeProfileTemplates};
-if (isNil {profileNamespace getVariable format["CTI_VIOWW2_PERSISTENT_GEAR_TEMPLATE_%1", CTI_P_SideJoined]}) then {call CTI_UI_Gear_InitializeProfileTemplates};
-// profileNamespace setVariable [format["CTI_PERSISTENT_GEAR_TEMPLATE_%1", CTI_P_SideJoined], nil];
-// saveProfileNamespace;
-//if !(isNil {profileNamespace getVariable format["CTI_PERSISTENT_GEAR_TEMPLATE_%1", CTI_P_SideJoined]}) then {execVM "Client\Init\Init_Persistent_Gear.sqf"};
-if !(isNil {profileNamespace getVariable format["CTI_VIOWW2_PERSISTENT_GEAR_TEMPLATE_%1", CTI_P_SideJoined]}) then {execVM "Client\Init\Init_Persistent_Gear.sqf"};
+if (isNil {profileNamespace getVariable format["CTI_%1_GEAR_TEMPLATE_%2", CTI_P_GearPersist, CTI_P_SideJoined]}) then {call CTI_UI_Gear_InitializeProfileTemplates};
+if !(isNil {profileNamespace getVariable format["CTI_%1_GEAR_TEMPLATE_%2", CTI_P_GearPersist, CTI_P_SideJoined]}) then {execVM "Client\Init\Init_Persistent_Gear.sqf"};
 
 //--- Graphics/video thread (persistent)
 0 spawn {
@@ -358,7 +365,7 @@ if !(isNil {profileNamespace getVariable format["CTI_VIOWW2_PERSISTENT_GEAR_TEMP
 
 // onMapSingleClick "{(vehicle leader _x) setPos ([_pos, 8, 30] call CTI_CO_FNC_GetRandomPosition)} forEach (CTI_P_SideJoined call CTI_CO_FNC_GetSideGroups)";
 // onMapSingleClick "vehicle player setPos _pos";
-// player addEventHandler ["HandleDamage", {if (player != (_this select 3)) then {(_this select 3) setDammage 1}; false}]; //--- God-Slayer mode.
+// player addEventHandler ["HandleDamage", {if (player != (_this select 3)) then {(_this select 3) setDamage 1}; false}]; //--- God-Slayer mode.
 // player addAction ["<t color='#a5c4ff'>MENU: Construction (HQ)</t>", "Client\Actions\Action_BuildMenu.sqf"];//debug
 // player addAction ["<t color='#ff0000'>DEBUGGER 2000</t>", "debug_diag.sqf"];//debug
 
@@ -371,22 +378,46 @@ if (profileNamespace getVariable "CTI_PERSISTENT_HINTS") then {
 };
 
 if (CTI_BASE_NOOBPROTECTION == 1) then {player addEventHandler ["fired", {_this spawn CTI_CL_FNC_OnPlayerFired}]}; //--- Trust me, you want that
-if ((missionNamespace getVariable "CTI_UNITS_FATIGUE") == 0) then {player enableFatigue false}; //--- Disable the unit's fatigue
+if ((missionNamespace getVariable "CTI_UNITS_FATIGUE") >= 1) then {			
+	player enableFatigue false;													//--- Disable the unit's fatigue
+	if ((missionNamespace getVariable "CTI_UNITS_FATIGUE") >= 2) then {		
+		player enableStamina false;												//--- Disable the unit's stamina system and weapons sway
+	};
+	if ((missionNamespace getVariable "CTI_UNITS_FATIGUE") >= 3) then {		
+		player enableAimPrecision false;										//--- Disable the animation's aim precision affects weapon sway 
+	};
+}; 
 
 if (CTI_DEBUG) then {
 	hint "DEBUG MODE IS ENABLED! DON'T FORGET TO TURN IT OFF!";
 	onMapSingleClick "vehicle player setpos _pos;(vehicle player) setVelocity [0,0,-0.1];"; //--- Teleport
 	player addEventHandler ["HandleDamage", {false}];
-	player addEventHandler ["HandleDamage", {false;if (player != (_this select 3)) then {(_this select 3) setDammage 1}}]; //--- God-Slayer mode.
+	player addEventHandler ["HandleDamage", {false;if (player != (_this select 3)) then {(_this select 3) setDamage 1}}]; //--- God-Slayer mode.
 	player addAction ["<t color='#ff0000'>DEBUGGER 2000</t>", "debug_diag.sqf"];//debug
 };
 
-//--- cmEARPLUGS
-call compile preProcessFileLineNumbers "Client\Functions\Externals\cmEarplugs\config.sqf";
-//--- Earplugs
-0 spawn { call CTI_CL_FNC_EarPlugsSpawn; };
 
 _paraCheck = execVM "Common\Init\Init_ParadropCheck.sqf";
+
+if(CTI_ADD_MODULE >= 2) then {
+	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+};
+if(CTI_ADD_MODULE == 1 || CTI_ADD_MODULE == 3) then {
+	_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
+};
+
+//--- Optional Mod Stuff
+if (!isClass(configFile >> "CfgPatches" >> "ace_main")) then 
+{  
+//Start other 'plugins' if ACE is not running
+	if(CTI_FIELDREPAIR_ENABLED > 0) then {
+		[] execVM "Client\Module\zlt\zlt_fieldrepair.sqf"; 
+		//[] execVM "Client\Module\zlt\zlt_fastrope.sqf";
+	};
+	//--- Earplug script to reduce sound level when required
+	call compile preProcessFileLineNumbers "Client\Module\earplugs\cmEarplugs\config.sqf";
+	0 spawn { call CTI_CL_FNC_EarPlugsSpawn; };
+};
 
 CTI_Init_Client = true;
 

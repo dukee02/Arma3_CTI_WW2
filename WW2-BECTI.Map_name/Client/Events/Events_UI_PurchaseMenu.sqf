@@ -55,10 +55,9 @@ switch (_action) do {
 	};
 	case "onGroupLBSelChanged": {
 		_changedTo = _this select 1;
-		//if (CTI_Log_Level >= CTI_Log_Debug) then {
-			["VIOC_DEBUG", "FILE: Client\Events\Events_UI_PurchaseMenu.sqf", format["onGroupLBSelChanged changedTo: %1 - %2", _changedTo, (count (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams"))]] call CTI_CO_FNC_Log;
-		//};
-		uiNamespace setVariable ["cti_dialog_ui_purchasemenu_team", (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams") select _changedTo];
+		if((count (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams")) >= _changedTo) then {
+			uiNamespace setVariable ["cti_dialog_ui_purchasemenu_team", (uiNamespace getVariable "cti_dialog_ui_purchasemenu_teams") select _changedTo];
+		};
 	};
 	case "onFactoryLBSelChanged": {
 		_changedTo = _this select 1;
@@ -211,7 +210,15 @@ switch (_action) do {
 				if (count(CTI_P_SideLogic getVariable "cti_salvagers") < CTI_VEHICLES_SALVAGE_INDEPENDENT_MAX) then { 
 					if (time - CTI_P_LastIndepSalvagerPurchased > 5) then {
 						CTI_P_LastIndepSalvagerPurchased = time;
-						["SERVER", "Request_Purchase", [CTI_P_SideJoined, group player, CTI_P_SideJoined, format["CTI_Salvager_Independent_%1", CTI_P_SideJoined], uiNamespace getVariable "cti_dialog_ui_purchasemenu_factory", [true, false, false, false, "", true], (time + random 10000 - random 500 + diag_frameno), 1]] call CTI_CO_FNC_NetSend;
+						_logic = (CTI_P_SideJoined) call CTI_CO_FNC_GetSideLogic;
+						_salvager_team = _logic getVariable ["cti_salvager_team", grpNull];
+						if (isNull _salvager_team) then {
+							_salvager_team = createGroup CTI_P_SideJoined;
+							_salvager_team setGroupID ["Salvager Team"];
+							_salvager_team setVariable ["cti_gc_noremove", true];
+							_logic setVariable ["cti_salvager_team", _salvager_team, true];
+						};
+						["SERVER", "Request_Purchase", [_salvager_team, group player, CTI_P_SideJoined, format["CTI_Salvager_Independent_%1", CTI_P_SideJoined], uiNamespace getVariable "cti_dialog_ui_purchasemenu_factory", [true, false, false, false, "", true], (time + random 10000 - random 500 + diag_frameno), 1]] call CTI_CO_FNC_NetSend;
 					} else {
 						hint parseText "<t size='1.3' color='#2394ef'>Information</t><br /><br />Please wait a few seconds before performing this operation again.";
 					};

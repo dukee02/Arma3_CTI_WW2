@@ -35,7 +35,6 @@
 private ["_autoalign", "_defense", "_direction", "_direction_structure", "_fob", "_limit", "_logic", "_manned", "_position", "_ruins", "_side", "_stronger", "_var", "_varname"];
 
 _varname = _this select 0;
-_var = missionNamespace getVariable _varname;
 _side = _this select 1;
 _position = _this select 2;
 _direction = _this select 3;
@@ -43,10 +42,12 @@ _origin = _this select 4;
 _autoalign = _this select 5;
 _manned = if (count _this > 6) then {_this select 6} else {false};
 
-_logic = (_side) call CTI_CO_FNC_GetSideLogic;
+if (isNil _varname) exitWith {if (CTI_Log_Level >= CTI_Log_Error) then {["ERROR", "FILE: Server\Functions\Server_BuildDefense.sqf", format["Can't build defense! (skipped) side: %1 - classname: <%2> ", _side, (_this select 0)]] call CTI_CO_FNC_Log}};
 
+_var = missionNamespace getVariable _varname;
+_logic = (_side) call CTI_CO_FNC_GetSideLogic;
 if(isNIL "_var") then {
-	if (CTI_Log_Level >= CTI_Log_Error) then {["VIOC_DEBUG", "FILE: Server\Functions\Server_BuildDefense.sqf", format["Can't build defense! side: %1 - classname: <%2> ", _side, _varname]] call CTI_CO_FNC_Log;};
+	if (CTI_Log_Level >= CTI_Log_Error) then {["ERROR", "FILE: Server\Functions\Server_BuildDefense.sqf", format["Can't build defense! side: %1 - classname: <%2> ", _side, _varname]] call CTI_CO_FNC_Log;};
 } else {
 	//--- Is it a fob?
 	_fob = false;
@@ -54,10 +55,16 @@ if(isNIL "_var") then {
 	{if (_x select 0 == "FOB") exitWith {_fob = true}} forEach (_var select 5);
 	if (_fob) then {if (count(_logic getVariable "cti_fobs") >= CTI_BASE_FOB_MAX) then {_limit = true}};
 	if (_limit) exitWith {};
-
-	_position set [2, 0];
-
-	_defense = (_var select 1) createVehicle _position;
+	//position on ground not needed, because we have a function to raise the elevation.
+	//_position set [2, 0];
+	
+	_defense = objNull; 
+	if (_var select 3 == "SAM" || _var select 3 == "RADAR") then {
+		_newObj = [_position, _direction, _var select 1, _side] call BIS_fnc_spawnVehicle;
+		_defense = _newObj select 0;
+	} else {
+		_defense = (_var select 1) createVehicle _position;
+	};
 
 	if (_defense isKindOf "Building") then {
 		if (_autoalign) then {
@@ -73,23 +80,12 @@ if(isNIL "_var") then {
 			};
 		};
 	};
-	/*
-	for the mine placing part we need to check:
-	https://community.bistudio.com/wiki/createMine
-	*/
+	VIOC_ZEUS addCuratorEditableObjects [[_defense], true];
+
 	if (_fob) then {
 		[["CLIENT", _side], "Client_OnSpecialConstructed", [_defense, "FOB"]] call CTI_CO_FNC_NetSend;
 		_defense setVariable ["savename", _varname];
-		//["VIOC_DEBUG", "FILE: Server\Functions\Server_BuildDefense.sqf", format["build defense - fobs: <%1> ", _logic getVariable "cti_fobs"]] call CTI_CO_FNC_Log;
-		_logic setVariable ["cti_fobs", (_logic getVariable "cti_fobs") + [_defense], true];				//don't know why this don't works anymore
-		//["VIOC_DEBUG", "FILE: Server\Functions\Server_BuildDefense.sqf", format["build defense - fobs: <%1> ", _logic getVariable "cti_fobs"]] call CTI_CO_FNC_Log;
-		/*_sideFOBs = _logic getVariable "cti_fobs";
-		if (isNil "cti_fobs") then { 
-			_sideFOBs = [_defense];
-		} else {
-			_sideFOBs pushBack _defense;
-		};
-		_logic setVariable ["cti_fobs", _sideFOBs];*/
+		_logic setVariable ["cti_fobs", (_logic getVariable "cti_fobs") + [_defense], true];
 	} else {
 		//Save the defense an the classname for easy save/load
 		_defense setVariable ["savename", _varname];
@@ -111,6 +107,10 @@ if(isNIL "_var") then {
 		//if !(isNull _origin) then {[["CLIENT", _origin], "Client_ReceiveDefense", _defense] call CTI_CO_FNC_NetSend};
 	};
 	
+	/*
+	for the mine placing part we need to check:
+	https://community.bistudio.com/wiki/createMine
+	*/
 	if (_var select 3 == "Mine") exitwith {
 		//_mine = createMine ["APERSMine", position player, [], 0];
 		createMine [(_var select 1), _position, [], 0];
@@ -136,7 +136,7 @@ if(isNIL "_var") then {
 	//--- Make the defense stronger?
 	_stronger = -1;
 	{if (_x select 0 == "DMG_Reduce") exitWith {_stronger = _x select 1}} forEach (_var select 5);
-	if (_stronger != -1) then {_defense addEventHandler ["handleDamage", format["getDammage (_this select 0)+(_this select 2)/%1",_stronger]]};
+	if (_stronger != -1) then {_defense addEventHandler ["handleDamage", format["getDamage (_this select 0)+(_this select 2)/%1",_stronger]]};
 
 	//--- Check if the defense has a ruin model attached (we don't wana have a cemetery of wrecks)
 	_ruins = "";

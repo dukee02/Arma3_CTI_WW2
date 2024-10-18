@@ -17,7 +17,7 @@ else {
 		_tag = "GUER_";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("LIB_GER_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = "";};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_GER.sqf", format["Town Squad preparation - sid: <%1> tag: <%2> ", _sid, _tag]] call CTI_CO_FNC_Log;
@@ -202,27 +202,15 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			WHEELED_LIGHT = [[format["%1LIB_Kfz1_MG42", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251_22_w", _sid],1],[format["%1LIB_SdKfz251_23_w", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_Sdkfz251_w", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_Sdkfz251_w", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
 		};
 		case 2: {
 			WHEELED_LIGHT = [[format["%1LIB_DAK_Kfz1_MG42", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251_22", _sid],1],[format["%1LIB_DAK_SdKfz251_22", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
 		};
 		default {
 			WHEELED_LIGHT = [[format["%1LIB_Kfz1_MG42", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251_22", _sid],1],[format["%1LIB_SdKfz251_23", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_SdKfz251", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
 		};
 	};
 };
@@ -233,27 +221,15 @@ if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	switch (CTI_CAMO_ACTIVATION) do {
 		case 1: {
 			WHEELED_LIGHT = [[format["%1LIB_Kfz1_MG42", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251_22_w", _sid],1],[format["%1LIB_SdKfz251_23_w", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_Sdkfz251_w", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_Sdkfz251_w", _sid],1],[format["%1LIB_Sdkfz251_w", _sid],1]];
 		};
 		case 2: {
 			WHEELED_LIGHT = [[format["%1LIB_DAK_Kfz1_MG42", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251_22", _sid],1],[format["%1LIB_DAK_SdKfz251_22", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_DAK_SdKfz251", _sid],1],[format["%1LIB_DAK_SdKfz251", _sid],1]];
 		};
 		default {
 			WHEELED_LIGHT = [[format["%1LIB_Kfz1_MG42", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
-			if(CTI_IFA3_NEW > 0) then {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251_22", _sid],1],[format["%1LIB_SdKfz251_23", _sid],1]];
-			} else {
-				WHEELED_HEAVY = [[format["%1LIB_SdKfz251", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
-			};
+			WHEELED_HEAVY = [[format["%1LIB_SdKfz251", _sid],1],[format["%1LIB_SdKfz251", _sid],1]];
 		};
 	};
 };

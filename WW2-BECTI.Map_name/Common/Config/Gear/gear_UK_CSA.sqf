@@ -19,7 +19,7 @@ else {
 
 _upgrade_levels = missionNamespace getVariable Format ["CTI_%1_UPGRADES_LEVELS", _side];
 if (isNil "_upgrade_levels") then { 
-	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,1,1,1,1,3,4,CTI_ECONOMY_LEVEL_GEAR]; 
+	_upgrade_levels = [CTI_ECONOMY_LEVEL_INFANTRY,CTI_ECONOMY_LEVEL_WHEELED,CTI_ECONOMY_LEVEL_TRACKED,CTI_ECONOMY_LEVEL_AIR,CTI_ECONOMY_LEVEL_NAVAL,1,-1,-1,-1,1,3,4,CTI_ECONOMY_LEVEL_GEAR,-1]; 
 };
 
 _i = [];
@@ -164,6 +164,9 @@ _tech_level = 1;
 _i pushBack "CSA38_stenMkI";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_stenMkI2";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "CSA38_stenMkII";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
@@ -207,6 +210,9 @@ _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculat
 _i pushBack "CSA38_BRENMKII";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_BRENMKIII";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "CSA38_7_7_30x56R";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,30,(770*56)] call CTI_CO_FNC_GetCalculatedItemPrize);
@@ -222,6 +228,9 @@ _i pushBack "CSA38_BRENMKI2";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "CSA38_BRENMKII2";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_BRENMKIII2";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
 _i pushBack "CSA38_7_7_100x56R";
@@ -240,13 +249,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 };
 
 //-------------------------------------AT------------------------------------------------------
-_tech_level = 0;
-_i pushBack "CSA38_boys";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
-_i pushBack "CSA38_5_13_9x99mmB";
-_u pushBack _tech_level;
-_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(1390*99)] call CTI_CO_FNC_GetCalculatedItemPrize);
+//_tech_level = 0;
 
 _tech_level = 1;
 _i pushBack "CSA38_PIAT_Rifle";
@@ -278,6 +281,14 @@ _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCal
 _i pushBack "csa38_brentripod2";
 _u pushBack _tech_level;
 _p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+
+_tech_level = 2;
+_i pushBack "CSA38_boys";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+_i pushBack "CSA38_5_13_9x99mmB";
+_u pushBack _tech_level;
+_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,1.0,5,(1390*99)] call CTI_CO_FNC_GetCalculatedItemPrize);
 
 //Update the calculatetd max upgrade level
 if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
@@ -375,7 +386,7 @@ if(_tech_level > _upgrade_levels select CTI_UPGRADE_GEAR) then {
 //-------------------------------------------Glasses------------------------------------------------
 _tech_level = 0;
 
-if(CTI_IFA3_NEW < 0 && CTI_FOW_ADDON <= 0) then {
+if(CTI_IFA_ADDON <= 0 && CTI_FOW_ADDON <= 0) then {
 	_i pushBack "g_goggles_vr";
 	_u pushBack _tech_level;
 	_p pushBack 50;
@@ -388,38 +399,38 @@ if(CTI_IFA3_NEW < 0 && CTI_FOW_ADDON <= 0) then {
 //------------------------------------------Items-------------------------------------------------
 
 
-if(CTI_IFA3_NEW < 0 && CTI_FOW_ADDON <= 0) then {
-	_i pushBack "Binocular";
-	_u pushBack 0;
-	_p pushBack round 50;
-	
+if(CTI_IFA_ADDON <= 0 && CTI_FOW_ADDON <= 0) then {
 	_i pushBack "ItemMap";
-	_u pushBack 0;
-	_p pushBack round 20;
+	_i pushBack "ItemRadio";
+	_i pushBack "ItemCompass";
+	_i pushBack "ItemWatch";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,0.25] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
-	_i pushBack "itemradio";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "itemcompass";
-	_u pushBack 0;
-	_p pushBack round 20;
-
-	_i pushBack "itemwatch";
-	_u pushBack 0;
-	_p pushBack round 50;
-
+	_i pushBack "MineDetector";
 	_i pushBack "FirstAidKit";
-	_u pushBack 0;
-	_p pushBack round 200;
-
-	_i pushBack "Toolkit";
-	_u pushBack 0;
-	_p pushBack round 3000;
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 
 	_i pushBack "Medikit";
-	_u pushBack 0;
-	_p pushBack round 1500;
+	_i pushBack "ToolKit";
+	// set all other vars in a slope
+	_cntstart = count _i;
+	_cntend = count _p;
+	for [{ _j = 0 }, { _j < _cntstart-_cntend }, { _j = _j + 1 }] do { 
+		_u pushBack _tech_level;
+		_p pushBack ([CTI_ECONOMY_PRIZE_WEAPONS,_tech_level,2.0] call CTI_CO_FNC_GetCalculatedItemPrize);
+	};
 };
 
 //all units are declared, we update the possible upgrades if this script

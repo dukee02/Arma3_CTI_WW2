@@ -17,7 +17,7 @@ else {
 		_tag = "GUER_";
 	};
 };
-if(CTI_VIO_ADDON == 0) then {_sid = "";};
+if !(("fow_s_uk_seac_rifleman") call CTI_CO_FNC_IsSidePatchLoaded) then {_sid = ""};
 
 if (CTI_Log_Level >= CTI_Log_Debug) then {
 	["VIOC_DEBUG", "FILE: common\config\Towns_UK_FOW.sqf", format["Town Squad preparation - sid: <%1> tag: <%2> ", _sid, _tag]] call CTI_CO_FNC_Log;
@@ -214,9 +214,9 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {
 //														Town Anti-Air setup																*
 //***************************************************************************************************************************************
 ANTI_AIR = [];
-/*if(CTI_IFA3_NEW < 0) then {
+/*if(CTI_IFA_ADDON < 1) then {
 	if(CTI_ECONOMY_LEVEL_WHEELED >= 4) then {
-		if(CTI_IFA3_NEW > 0) then {
+		if(CTI_IFA_ADDON > 0) then {
 			ANTI_AIR = [[format["%1LIB_UK_M16_Halftrack", _sid],1],[format["%1LIB_UK_M16_Halftrack", _sid],1]];
 		};
 	};

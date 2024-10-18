@@ -65,7 +65,8 @@ while {_i < _steps} do
 	_obj AttachTo [_veh, _pos];
 	if (_turn) then
 	{
-		[_obj, _veh, -90] call IL_Rotate;
+		//[_obj, _veh, -90] call IL_Rotate;
+		[_obj, _veh, -180] call IL_Rotate;
 		_turn = false;
 	};
 	if (IL_DevMod) then
