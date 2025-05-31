@@ -115,7 +115,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedDaimler";
+			kind_wheeled pushBack "MotorizedDaimler";
 		};
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
@@ -129,7 +129,7 @@ if(CTI_UK_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedT17E1";
+			kind_wheeled pushBack "MotorizedT17E1";
 		};
 	};
 };
@@ -152,7 +152,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedBA64";
+			kind_wheeled pushBack "MotorizedBA64";
 		};
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
@@ -166,7 +166,7 @@ if(CTI_SOV_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedBA10M";
+			kind_wheeled pushBack "MotorizedBA10M";
 		};
 	};
 };
@@ -189,7 +189,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedBA64";
+			kind_wheeled pushBack "MotorizedBA64";
 		};
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
@@ -204,7 +204,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedBA10M";
+			kind_wheeled pushBack "MotorizedBA10M";
 		};
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
@@ -219,7 +219,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedSdkfz23x";
+			kind_wheeled pushBack "MotorizedSdkfz23x";
 		};
 		_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
 		if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
@@ -234,7 +234,7 @@ if(CTI_GER_SIDE == (_side) call CTI_CO_FNC_GetSideID) then {
 			_m pushBack 200;
 			_c pushBack "Motorized";
 			_s pushBack [];
-			kind_infantry pushBack "MotorizedPuma";
+			kind_wheeled pushBack "MotorizedPuma";
 		};
 	};
 };
@@ -1538,7 +1538,7 @@ if (CTI_Log_Level >= CTI_Log_Debug) then {["VIOC_DEBUG", "FILE: common\config\sq
 		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_INFANTRY", _side]);
 		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_INFANTRY", _side], kind_infantry];
 	};
-};
+};*/
 if(count kind_wheeled > 0) then {
 	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_LIGHT", _side]}) then {
 		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_LIGHT", _side], kind_wheeled];
@@ -1548,7 +1548,7 @@ if(count kind_wheeled > 0) then {
 		} forEach (missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_LIGHT", _side]);
 		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_LIGHT", _side], kind_wheeled];
 	};
-};*/
+};
 if(count kind_tracked > 0) then {
 	if (isNil {missionNamespace getVariable format ["CTI_SQUADS_%1_KIND_HEAVY", _side]}) then {
 		missionNamespace setVariable [format["CTI_SQUADS_%1_KIND_HEAVY", _side], kind_tracked];
