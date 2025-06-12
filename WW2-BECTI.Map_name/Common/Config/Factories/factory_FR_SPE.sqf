@@ -60,6 +60,8 @@ if(CTI_ECONOMY_LEVEL_INFANTRY >= _level) then {
 	_c pushBack format["%1SPE_FR_Mortar_Gunner", _sid];
 	_c pushBack format["%1SPE_FR_Mortar_AmmoBearer", _sid];
 	_c pushBack format["%1SPE_FR_Mortar_AGunner", _sid];
+	_c pushBack format["%1SPE_FR_Sentry", _sid];
+	_c pushBack format["%1SPE_FR_Sentry_Carbine", _sid];
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -123,6 +125,14 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
 	_c pushBack format["%1SPE_FR_M16_Halftrack", _sid];
+	_c pushBack format["%1SPE_FR_M20_AUC", _sid];
+};
+
+_matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
+if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
+if(CTI_ECONOMY_LEVEL_WHEELED >= _level) then {
+	_c pushBack format["%1SPE_FR_M8_LAC_ringMount", _sid];
+	_c pushBack format["%1SPE_FR_M8_LAC", _sid];
 };
 
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_LIGHT];
@@ -161,6 +171,7 @@ _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckC
 if(_matrix_cnt >= 0) then {_level = _matrix_cnt; _matrix_cnt = _matrix_cnt + 1;};
 if(CTI_ECONOMY_LEVEL_TRACKED >= _level) then {
 	_c pushBack format["%1SPE_FR_M4A1_75", _sid];
+	_c pushBack format["%1SPE_FR_M4A0_105", _sid];
 };
 
 _matrix_cnt = [_matrix_cnt, _matrix_full, _matrix_nation] call CTI_CO_FNC_CheckCountUp;
@@ -213,7 +224,7 @@ if (_setupBaseUnits) then {
 	_c pushBack format["CTI_Salvager_%1", _side];
 	//_c pushBack format["%1SPE_FR_M3_Halftrack_Unarmed", _sid];
 };
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_c pushBack format["%1SPE_FR_M3_Halftrack_Repair", _sid];						//repairtruck
 };
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_REPAIR];
@@ -238,7 +249,7 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_REPAIR], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Ammo Factory.
 _c = [];
-if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
+if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
 	_c pushBack format["%1SPE_FR_M3_Halftrack_Ammo", _sid];						//ammotruck
 	_c pushBack format["%1SPE_FR_M3_Halftrack_Fuel", _sid];						//fueltruck
 };
@@ -258,22 +269,27 @@ missionNamespace setVariable [format ["CTI_%1_%2Units", _side, CTI_AMMO], _c];
 //***************************************************************************************************************************************
 //--- Below is classnames for Units and AI avaiable to puchase from Town Depot.
 _c = [];
+
 if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+		_c pushBack format["%1SPE_FR_M3_Halftrack_Unarmed_Open", _sid];	
+	};
+};
+if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 1) then {
+	if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
+		_c pushBack format["%1SPE_FR_M3_Halftrack_Ammo", _sid];							//ammotruck
+		_c pushBack format["%1SPE_FR_M3_Halftrack_Fuel", _sid];							//fueltruck
+		_c pushBack format["%1SPE_FR_M3_Halftrack_Repair", _sid];						//repairtruck
+	};
+};
+if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 2) then {
 	if(CTI_ECONOMY_LEVEL_INFANTRY >= 0) then {
 		_c pushBack format["%1SPE_FR_Rifleman", _sid];
 		_c pushBack format["%1SPE_FR_Medic", _sid];
 		_c pushBack format["%1SPE_FR_Tank_Crew", _sid];
 	};
 };
-//if(CTI_ECONOMY_LEVEL_WHEELED >= 0) then {
-//};
-if ((missionNamespace getVariable "CTI_UNITS_TOWN_PURCHASE") > 0) then {
-	if(CTI_ECONOMY_LEVEL_WHEELED >= 1) then {
-		_c pushBack format["%1SPE_FR_M3_Halftrack_Ammo", _sid];							//ammotruck
-		_c pushBack format["%1SPE_FR_M3_Halftrack_Fuel", _sid];							//fueltruck
-		_c pushBack format["%1SPE_FR_M3_Halftrack_Repair", _sid];						//repairtruck
-	};
-};
+
 _priorUnits = missionNamespace getVariable format ["CTI_%1_%2Units", _side, CTI_DEPOT];
 if (isNil "_priorUnits") then { 
 	_priorUnits = []; 
