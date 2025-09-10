@@ -1,88 +1,33 @@
-V2.0_221011
-Added: Param for Structure resell ratio
-Added: Fieldrepair Param
-Added: param for 'Time before town units despawn'
-Changed: AI Base placement a bit
-Fixed: sometimes some vanilla vehicle cargo
-Fixed: can't build FOB with active AI commander
-Fixed: breaks loading after map change, when only 1 save active
-Fixed: salvager spawns at 0,0 some times
-Fixed: magazine of secondary weapon empty when buyed
-
-V2.0.2_230817
-Droped: Phylon Manager support
-Added: param for 'Time before town units despawn'
-Added: Filter for the defenselist
-Added: Param for defense max level
-Added: Parameter to set preresearched level
-Added: Integrated Phylon Management
-Added: new additional preset param
-Added: buildtime of units in purchaselist
-Added: time to reseach window
-Added: time to fire artillery misson
-Added: Map Livonia
-Added: Infantry spawn prevention to spawn under the map
-Added: no missile/bombs at start now selectable NOT default
-Added: More options for Stamina System
-Added: param for bounty upon entity killed
-Added: automatic server restart with info
-Added: crew max amount for vehicles (7)
-Added: MineDetector and calculation of items
-Added: SV maxcap for spawns 150
-Added: Param for activating auto AI team disbanding
-Added: SPE Normandy map
-Added: Save empty vehicles and player funds by ID
-Added: units count in towns
-Added: Paradrop script (mousewheel option)
-Added: UK cargo plane to Luftwaffe
-Fixed: Can't build connected walls
-Fixed: FOB permission granted by commander
-Fixed: Automatic max upgrade calculations
-Fixed: Infantry spawn to high an gets injured
-Fixed: some typo in units config
-Fixed: Town flag positions
-Fixed: persist. gear not working
-Fixed: massive air/vehicle spawn at same point
-Fixed: crash if IFA3 gets disabled
-Fixed: NF statics all on same tier
-Fixed: tobruk city SV
-Fixed: some minor things
-Fixed: commander SV and money not loaded
-Fixed: wrong dependency for defense T2
-Fixed: saves gets deleted again after mission end
-Fixed: cant delete gearconfig
-Fixed: _changedTo error in .rpt
-Fixed: Damage <null> on building hit
-Fixed: AT Planes too strong against buildings (preparation)
-Changed: respawn params (now one mobile / one static)
-Changed: unflip vehicle function to make it safer
-Changed: Reactivated reammo costs
-Changed: buildtime calculation, now wider scalable
-Changed: some descriptions
-Changed: default VISUAL options
-Changed: moved igiload to the client part
-Changed: Flak36 and Nebelwerfer tier switched
-Changed: defense price finally gets calculated too
-Changed: building near vehicles/men now blocked
-Changed: Statics now researchable
-Changed: only 1 infoline on artyshots
-
-V2.0.2_b230925
-Fixed: Parameters didn't match mission setup
-Fixed: mission building process
-
-V2.0.2_c231027
-Fixed: startup issues if FoW is enabled
-
-V2.0.2_beta240513
+[V2.0.6] Changelog:
+Added: Zombiemode
 Added: WW2 Cars and Tanks units
 Added: NF new units
 Added: new NF Sov weapons
 Added: new NF units to Igi-load
-Added: subsonic ammo and Koivistolainen hat
 Added: new CSA weapons
+Added: new WW2 cars, tanks units to Igi-load
+Added: subsonic ammo and Koivistolainen hat
+Added: Better Base-repair prise calculation
+Added: SPE Update 1.1.2 units
+Added: dmg indicator for buildings and HQ
+Added: remote controll if set CTI_RESPAWN_AI >= 3
+Added: new igiload cargo script
+Changed: moved NF trucks to T0
+Changed: Medic prise if no mobile-respawn
+Changed: default value for town purchase to 1
+Changed: no arty cooldown if EAT <= 0
+Changed: deleting units/defenses behavior
+Changed: default - Inf Marker now show icon for own units
+Changed: commander now gives squads more money
+Changed: set LOG to warning to got infos about arty ammo bug
+Changed: time to capture camps now same for all SV
 Fixed: no basic units configured in some cases
 Fixed: NF BA10 in wrong tier with some mods
-Changed: moved NF trucks to T0
-
-
+Fixed: Town purchase param not same in all mods
+Fixed: missing rifle grenades
+Fixed: Nebelwerfer is missing
+Fixed: static missmatch for IFA and ww2 version
+Fixed: AI shoots player if nation didn't have original side
+Fixed: OPFOR didn't shoot GUER
+Fixed: HC didn't work if added after mission start
+Fixed: depot placement on MSKE
